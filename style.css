@@ -3145,7 +3145,6 @@ html[data-theme="dark"] .lang-toggle:hover {
  }
  
  /* === THEME & LANG TOGGLES === */
- .theme-toggle,
  .lang-toggle,
  .mobile-menu-btn {
   width: 36px !important;
@@ -3165,6 +3164,10 @@ html[data-theme="dark"] .lang-toggle:hover {
   color: var(--gold-bright) !important;
   cursor: pointer !important;
   transition: all 200ms ease !important;
+ }
+   
+ .theme-toggle {
+  display: none !important;
  }
  
  .theme-toggle:hover,
