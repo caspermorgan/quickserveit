@@ -4211,3 +4211,73 @@ html[data-theme="dark"] .lang-toggle:hover {
 #particle-canvas {
   pointer-events: none !important;
 }
+
+
+/* ========================================
+DESKTOP HEADER - CENTER MENU LAYOUT
+======================================== */
+@media (min-width: 769px) {
+  .header-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--space-2) !important;
+    position: relative;
+  }
+  
+  .logo {
+    position: absolute !important;
+    left: var(--space-4) !important;
+    margin: 0 !important;
+  }
+  
+  nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    order: 2;
+  }
+  
+  .nav-menu {
+    display: flex !important;
+    list-style: none !important;
+    gap: var(--space-1) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+  
+  .nav-item {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .nav-link {
+    display: flex !important;
+    align-items: center !important;
+    padding: 10px 16px !important;
+    text-decoration: none !important;
+    transition: all var(--transition-fast) !important;
+  }
+  
+  .header-actions {
+    position: absolute !important;
+    right: var(--space-4) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-1) !important;
+    margin: 0 !important;
+  }
+  
+  .status-chip {
+    display: flex !important;
+  }
+  
+  .cta-button {
+    display: inline-block !important;
+  }
+  
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
