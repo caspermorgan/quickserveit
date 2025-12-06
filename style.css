@@ -3434,3 +3434,50 @@ html[data-theme="dark"] .lang-toggle:hover {
     padding: 0px 2px !important;
   }
 }
+
+
+/* PROFESSIONAL MOBILE HEADER - THEME BUTTON HIDDEN */
+@media (max-width: 768px) {
+  .theme-toggle {
+    display: none !important;
+  }
+  
+  .header-actions {
+    display: flex !important;
+    gap: 4px !important;
+    justify-content: flex-end !important;
+  }
+  
+  .lang-toggle,
+  .mobile-menu-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 6px !important;
+    font-size: 12px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .theme-toggle {
+    display: none !important;
+  }
+  
+  .header-container {
+    padding: 4px 6px !important;
+    gap: 2px !important;
+  }
+  
+  .lang-toggle,
+  .mobile-menu-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 4px !important;
+    font-size: 11px !important;
+  }
+}
