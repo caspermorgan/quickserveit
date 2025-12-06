@@ -2678,3 +2678,33 @@ footer::before {
   .contact-combined-box { flex-direction: column; }
   .contact-form-side, .contact-details-side { padding: 20px !important; }
 }
+
+/* Mobile Performance Optimization - Disable particles and heavy animations */
+@media (max-width: 768px) {
+  /* Hide particle canvas if present */
+  canvas,
+  [data-particle-container],
+  .particle-container,
+  #particle-canvas {
+    display: none !important;
+  }
+
+  /* Disable heavy animations on mobile */
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+
+  /* Reduce or remove backdrop filters for better performance */
+  body,
+  .hero,
+  [class*="backdrop"] {
+    backdrop-filter: none !important;
+    filter: none !important;
+  }
+
+  /* Disable box-shadows that cause repaints */
+  * {
+    box-shadow: none !important;
+  }
+}
