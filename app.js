@@ -651,3 +651,10 @@
     };
 
 })();
+
+// Mobile Performance Note:
+// - CSS media queries (@media max-width: 768px) hide particles and disable animations
+// - No heavy JavaScript animations run on mobile devices
+// - For additional JS-based particles, add isMobile check:
+// const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+// Then wrap animations: if (!isMobile) { /* particle code */ }
