@@ -1,0 +1,29 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "question": "What services do you offer?",
+      "answer": "We offer web development, mobile app development, digital marketing, and e-commerce solutions."
+    },
+    {
+      "id": 2,
+      "question": "How long does a typical project take?",
+      "answer": "Project timelines vary based on complexity. Most projects take 4-12 weeks. Contact us for a custom estimate."
+    },
+    {
+      "id": 3,
+      "question": "Do you provide ongoing support?",
+      "answer": "Yes, we offer maintenance and support packages for all our deliverables."
+    },
+    {
+      "id": 4,
+      "question": "What is your pricing model?",
+      "answer": "We offer flexible pricing based on project scope. Contact us for a detailed quote."
+    },
+    {
+      "id": 5,
+      "question": "How can I get started?",
+      "answer": "Contact us via WhatsApp or email to discuss your project requirements and get a free consultation."
+    }
+  ]
+}
