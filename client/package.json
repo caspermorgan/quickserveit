@@ -16,6 +16,7 @@
     "lucide-react": "^0.263.1",
     "react-hook-form": "^7.45.4",
     "zod": "^3.22.2"
+        "wouter": "^3.2.1",
   },
   "devDependencies": {
     "@types/react": "^18.2.21",
