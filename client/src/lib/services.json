@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Premium Web Solutions",
+      "description": "Modern, fully responsive websites built with React and Tailwind CSS",
+      "price": "$999-5000"
+    },
+    {
+      "id": 2,
+      "name": "Digital Marketing",
+      "description": "SEO optimization and social media strategy",
+      "price": "$500-2000"
+    },
+    {
+      "id": 3,
+      "name": "Mobile App Development",
+      "description": "Native and cross-platform mobile applications",
+      "price": "$2000-8000"
+    },
+    {
+      "id": 4,
+      "name": "E-Commerce Solutions",
+      "description": "Complete e-commerce platforms with payment integration",
+      "price": "$1500-6000"
+    }
+  ]
+}
