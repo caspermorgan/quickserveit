@@ -8,7 +8,7 @@ const config: Config = {
   theme: {
     extend: 
     colors: {
-      border: 'hsl(var(--border))',
+      border: '#e5e7eb'
     },
   }},
   },
