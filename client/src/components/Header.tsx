@@ -37,6 +37,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +49,7 @@ export function Header() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+     setActiveMobileSubmenu(null);
     setActiveSubmenu(null);
   }, [location]);
 
@@ -197,6 +199,31 @@ export function Header() {
                       {link.label}
                     </span>
                   </Link>
+                   {link.submenu && (
+ <button
+ onClick={() => setActiveMobileSubmenu(
+ activeMobileSubmenu === link.href ? null : link.href
+ )}
+ className="w-full text-left px-4 py-2 flex items-center justify-between text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50"
+ >
+ <span>▼ Submenu</span>
+ <ChevronDown className={`w-4 h-4 transition-transform ${
+ activeMobileSubmenu === link.href ? 'rotate-180' : ''
+ }`} />
+ </button>
+ )}
+ {link.submenu && activeMobileSubmenu === link.href && (
+ <div className="bg-muted/30 border-l-2 border-primary ml-4">
+ {link.submenu.map((sublink) => (
+ <Link key={sublink.href} href={sublink.href}>
+ <span className="block px-6 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50">
+ {sublink.label}
+ </span>
+ </Link>
+ ))}
+ </div>
+ )}
+                  
                 </div>
               ))}
               <div className="pt-4 flex flex-col gap-2">
