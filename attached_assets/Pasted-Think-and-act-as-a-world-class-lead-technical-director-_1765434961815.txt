@@ -1,0 +1,65 @@
+Think and act as a world-class lead technical director + creative director for $100k+ flagship sites. Build a complete production-ready, ultra-premium, minimal-luxury website for the brand "Quickserve IT" inside this workspace. Use any uploaded Developer Documentation (the PDF) as the single source of truth and follow it exactly. If no PDF exists, follow the luxury rules below.
+
+PRIMARY GOAL
+• Create a minimal, elegant, luxury-grade site that reads like a private technology command center + cinematic creative studio. Focus on perfect spacing, restrained motion, premium typography, and lightning-fast mobile performance while enabling a richer, cinematic desktop experience.
+
+TECH STACK (required)
+• Next.js (App Router) + TypeScript (strict)
+• Tailwind CSS + CSS variables (design tokens)
+• Framer Motion for UI animations (GPU-only transforms & opacity)
+• Canvas 2D particle engine for background energy (throttled on mobile)
+• No backend, no server functions; static-export / Vercel-ready
+• ESLint + Prettier, package.json scripts: dev, build, start, lint, format, analyze
+
+BRAND RULES
+• Brand name in UI: **Quickserve IT** (never display “.online” in UI)
+• Color system: deep carbon black + premium gold/yellow accents; AI-blue rim only for cinematic pages
+• Typography: cinematic display for headings, clean sans for body; responsive clamp() scales
+• Visual restraint: minimal ornamentation, large negative space, perfect grid and rhythm
+
+KEY UX PATTERNS (must implement)
+• Dual modes:
+  – Corporate Command Mode (Home, Institute Services, Pricing, About, Contact) — calm, secure, minimal motion
+  – Cinematic AI Studio Mode (Creative Studio, Portfolio) — scene-based scroll, parallax depth, subtle rim light, masked title reveals
+• Hero: Time-based greeting, premium typewriter headline (calm pacing), trust badges, three CTAs (Get Started, Our Services, Send on WhatsApp), particle background with cursor repulsion
+• InsightBox: refresh-on-reload curated tip/quote with soft glow
+• Buttons: gold-edge glow, micro-scale hover, reflection sweep
+• Portfolio: classified-vault feel, reel activation on hover, metadata reveal
+• Pricing: premium tiering (per-task, retainers, institutional, emergency) — no discount language
+• Contact: static form (mailto or static form service placeholder), Secure WhatsApp CTA, Client Upload Vault placeholder
+
+PERFORMANCE & ACCESSIBILITY (absolute)
+• Lighthouse targets: Desktop ≥ 90, Mobile ≥ 85 (document any remaining gaps)
+• Max 2 continuous heavy animations per viewport
+• Throttle particles on mobile (reduce 45–60%), disable on low-power / prefers-reduced-motion
+• Use GPU-only animations (transform, opacity); avoid layout thrash
+• Optimize images (WebP/AVIF), preload critical fonts (font-display: swap), lazy-load noncritical assets
+• Semantic HTML, keyboard navigation, visible focus styles, ARIA attributes, color contrast WCAG AA, prefers-reduced-motion respected
+
+DELIVERABLES — produce all of these
+1. Full project scaffold (app/, components/, lib/, creative-engine/, styles/, public/, etc.) implemented in TypeScript.
+2. Pages: /, /institute-services, /creative-studio, /portfolio, /pricing, /about, /contact, /legal/terms, /legal/privacy, /legal/disclaimer.
+3. Components typed and implemented: Header/Nav (responsive), Hero (TimeGreeting + Typewriter), ParticleField (Canvas), PrimaryButton, InsightBox, ServiceCard, CinematicSceneBlock, PortfolioVault, ContactForm, Footer.
+4. creative-engine utilities: cinematic scroll controller, depth layers, light system.
+5. Configs & tooling: package.json, tsconfig.json, next.config.js (Vercel-friendly), tailwind.config.js, postcss.config.js, .eslintrc, .prettierrc.
+6. Documentation files: README.md, DESIGN_TOKENS.md, DEPLOY.md (exact git & Vercel steps), QA_CHECKLIST.md, PERFORMANCE_PLAN.md, ACCESSIBILITY_PLAN.md, BUILD_REPORT.md, DEVELOPER_SUMMARY.md, DECISIONS_REQUIRED.md (if any).
+7. Scripts and instructions to produce a download-ready zip: quickserveit-build.zip (exclude node_modules).
+8. Run `npm install` and `npm run build`; fix all build-time and runtime errors; perform a Lighthouse audit and record scores in BUILD_REPORT.md.
+9. Commit all changes with clear messages and include a final summary of what was implemented and any automatic improvements made.
+
+MINIMALIZATIONS & FALLBACKS
+• For performance and reliability, provide graceful fallbacks: static gradient if Canvas unsupported; minimal typewriter if JS unavailable; reduced visual energy on mobile.
+• If any asset (logo, portfolio images) is missing, create tasteful placeholders and list required real assets in DECISIONS_REQUIRED.md.
+
+QA & FINALIZATION
+• After build, run local production server and ensure all routes work; fix 404s and routing issues (ensure app/page.tsx or pages/index.tsx exists).
+• Produce BUILD_REPORT.md with Lighthouse scores, key fixes applied, and remaining items with severity.
+• Generate zip `quickserveit-build.zip` at workspace root and list exact local commands to run the app and to deploy to Vercel.
+
+CONSTRAINTS & ENFORCEMENT
+• Do NOT include “.online” as part of visible brand.
+• Follow uploaded Developer PDF if present — it is authoritative.
+• Do not delete user files; integrate safely and explain any replaced/modified files with comments.
+• If any decision is critical and cannot be auto-defaulted, create DECISIONS_REQUIRED.md and proceed with reasonable defaults.
+
+Start now: parse the Developer Documentation (if present), create DEVELOPER_SUMMARY.md, implement core scaffold, then Hero (TimeGreeting + Typewriter) + ParticleField + Header. Ensure `npm run dev` runs and then proceed iteratively to full build and zip.

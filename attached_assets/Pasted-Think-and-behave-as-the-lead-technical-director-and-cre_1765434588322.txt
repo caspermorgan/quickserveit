@@ -1,0 +1,21 @@
+Think and behave as the lead technical director and creative director of a $10,000,000 flagship digital studio. Build the complete production-ready web application for Quickserve IT from scratch, following the ultra-premium master blueprint I uploaded (use that file as source of truth). Use Next.js (App Router) + TypeScript (strict), Tailwind CSS + CSS variables, Framer Motion for GPU-only motion, and a lightweight Canvas 2D particle engine. Produce a fully static, Vercel-deployable site (no server functions, no backend, no databases). Implement the Dual World system (Corporate Command Mode + Cinematic AI Studio Mode) with a flawless transition; hero must include dynamic time greetings, typewriter headline, and a cursor-repelling particle field; buttons must follow gold-glow micro-motion; portfolio must be a classified vault; pricing must be premium tiers only. Enforce the Performance Laws: max 2 continuous complex animations per viewport, mobile throttling (reduce particles by 45–60%), prefers-reduced-motion support, Lighthouse Desktop ≥90 and Mobile ≥85 targets. Enforce Accessibility: semantic landmarks, keyboard navigation, visible focus, ARIA labels, color contrast. Build all pages: /, /institute-services, /creative-studio, /portfolio, /pricing, /about, /contact, /legal/*. Create all components (Header, Hero, ParticleField, TypewriterHeadline, InsightBox, PrimaryButton, ServiceCard, CinematicSceneBlock, PortfolioVault, ContactForm, etc.) with full TypeScript typings and small, reusable APIs. Include /creative-engine utilities for cinematic scroll, depth layers, and light system. Provide full project files: package.json, tsconfig.json, next.config.js (configured for static export / Vercel), tailwind.config.js, PostCSS, ESLint + Prettier, and CI config. Add documentation files: README.md, DESIGN_TOKENS.md, DEPLOY.md (with exact git + Vercel steps), QA_CHECKLIST.md, PERFORMANCE_PLAN.md, ACCESSIBILITY_PLAN.md, TESTS.md, CHANGELOG.md, and LICENSE. Optimize assets: use next/image patterns or static WebP, preload critical fonts with font-display:swap, and implement code-splitting and lazy loading. In code comments explain any automatic improvements you made to the original instructions. Do not delete any existing project files if this repo already contains code; instead, integrate and fix incrementally. After building, run a local production build and perform a full QA pass (Lighthouse, keyboard navigation, mobile slow-3G simulation) and output a concise issue/fix summary and a final readiness verdict. Use the uploaded master blueprint as authoritative and follow its rules strictly. 
+
+Developer Documentation
+
+▶️ Immediate Deliverables (short checklist for AI to output first)
+
+Full root file tree and list of new/changed files.
+
+Working source files for core pages and components (TypeScript + Tailwind).
+
+package.json scripts: dev, build, export (if using next export), start, lint, format, analyze.
+
+next.config.js Vercel-ready static export configuration and notes.
+
+DEPLOY.md with exact git commands and Vercel setup steps (domain notes for quickserveit.online).
+
+Results of one local production npm run build and Lighthouse report summary (desktop + mobile).
+
+QA_CHECKLIST.md marked with PASS/FAIL items and any fixes applied.
+
+Short, human-readable “What I changed and why” note for every file modified.

@@ -1,0 +1,36 @@
+You are an expert production engineer and build agent (Next.js + TypeScript + Tailwind + Framer Motion + Canvas) and my job is to have you fully build a production-ready static website for the brand "Quickserve IT" inside this Replit workspace. Use the uploaded Developer Documentation PDF as the single source of truth. Read it fully before coding. Do NOT delete any existing files; integrate incrementally.
+
+TASK (deliverable): Build the entire static site (Next.js App Router, TypeScript strict, Tailwind, Framer Motion) following the PDF blueprint, implement all required pages and components, ensure `npm run build` succeeds, run basic QA, and then create a zip archive of the final project named `quickserveit-build.zip` in the workspace root so I can download it. Also produce `DEVELOPER_SUMMARY.md` at root summarizing what was built, any automatic fixes, and how to run locally. Commit changes in the workspace git with clear messages.
+
+PRIORITY DETAILS:
+1. Read the uploaded Developer Documentation PDF and extract rules into `DEVELOPER_SUMMARY.md` before writing code.
+2. Implement pages: `/`, `/institute-services`, `/creative-studio`, `/portfolio`, `/pricing`, `/about`, `/contact`, `/legal/terms`, `/legal/privacy`, `/legal/disclaimer`.
+3. Implement typed components: `Header`, `Hero` (TimeGreeting + Typewriter), `ParticleField` (Canvas 2D, cursor-repel, mobile throttling, prefers-reduced-motion fallback), `PrimaryButton`, `InsightBox` (refresh-on-reload), `ServiceCard`, `CinematicSceneBlock`, `PortfolioVault`, `ContactForm`, `Footer`.
+4. Add creative-engine utilities: cinematic-scroll controller, depth layers, light system. Add `lib/timeGreeting.ts`, `lib/randomInsight.ts`, `lib/motion-config.ts`.
+5. Add configs: `package.json` (with scripts: dev, build, export if used, start, lint, format), `tsconfig.json`, `next.config.js` (Vercel/static-ready), `tailwind.config.js`, `postcss.config.js`, ESLint + Prettier.
+6. Add docs: `README.md`, `DEPLOY.md` (exact local steps; note I will push & deploy myself), `DEVELOPER_SUMMARY.md`, `BUILD_REPORT.md` (Lighthouse summary), `QA_CHECKLIST.md`.
+7. Ensure accessibility basics, SEO meta, OpenGraph, and `robots.txt` + `sitemap.xml` generation strategy.
+8. Ensure performance law: mobile throttling of heavy effects, image optimization, font-display:swap, lazy loading, and aiming for Desktop ≥90 & Mobile ≥85 Lighthouse targets. If full targets cannot be met, document remaining items in `BUILD_REPORT.md`.
+9. Run `npm install` and `npm run build`. Fix build errors. Verify `npm run build` completes successfully.
+10. Create a zip of the final workspace (excluding node_modules) at workspace root named `quickserveit-build.zip`. Also create `quickserveit-source.tar.gz` optionally. Ensure the ZIP includes all source files, configs, docs, and the generated production `out/` or `.next` export if used.
+11. Commit all changes with clear messages (e.g., "chore: add project scaffold", "feat: implement hero + particles", "fix: build errors") and show git log summary.
+12. At end, output a short terminal-style report in the Replit AI response showing:
+    - `npm run build` exit status
+    - Lighthouse summary (approx.)
+    - Location and size of `quickserveit-build.zip`
+    - Exact commands I should run locally to start, build, and deploy (e.g., `npm install`, `npm run dev`, `npm run build`).
+
+RULES & SAFETY:
+- Do not remove or permanently delete any existing user files.
+- If you require assets (logo, real portfolio items), create tasteful placeholders and list required real assets in `DEVELOPER_SUMMARY.md`.
+- Add brief comments in files where you made automatic improvements or replaced questionable instructions from the PDF, explaining why.
+- If any critical decision is required that cannot be safely defaulted, create `DECISIONS_REQUIRED.md` and continue with reasonable defaults so build is completed.
+
+START:
+1. Parse PDF and create `DEVELOPER_SUMMARY.md`.
+2. Implement core scaffold and key components (Header, Hero, ParticleField).
+3. Run `npm install` and `npm run build`. Fix issues iteratively.
+4. Produce zip `quickserveit-build.zip`.
+5. Commit and finish with a final summary as described.
+
+I will download `quickserveit-build.zip` from workspace after you finish.
