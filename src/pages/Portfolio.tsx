@@ -1,122 +1,34 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
-import FloatingNavbar from '@/components/FloatingNavbar';
-import CursorLight from '@/components/CursorLight';
-import FilmGrain from '@/components/FilmGrain';
-import Footer from '@/components/Footer';
-import { useNavigate } from 'react-router-dom';
-import { Play, Image, Video, Palette } from 'lucide-react';
+import Header from '@/components/professional/Header';
+import Footer from '@/components/professional/Footer';
+import { Play, ExternalLink } from 'lucide-react';
 
-const portfolioItems = [
-  {
-    title: 'Brand Film - TechCorp',
-    category: 'Video Production',
-    icon: Video,
-    description: 'Cinematic brand storytelling for enterprise tech company',
-  },
-  {
-    title: 'Social Campaign - FashionX',
-    category: 'Content Creation',
-    icon: Image,
-    description: 'Viral social media campaign with 10M+ reach',
-  },
-  {
-    title: 'Product Launch - StartupY',
-    category: 'Motion Graphics',
-    icon: Play,
-    description: 'Dynamic product reveal animation sequence',
-  },
-  {
-    title: 'Rebrand - FinanceZ',
-    category: 'Visual Identity',
-    icon: Palette,
-    description: 'Complete visual identity overhaul',
-  },
-  {
-    title: 'Documentary - EcoLife',
-    category: 'Video Production',
-    icon: Video,
-    description: 'Environmental awareness documentary series',
-  },
-  {
-    title: 'AR Experience - RetailMax',
-    category: 'Interactive Media',
-    icon: Play,
-    description: 'Immersive augmented reality shopping experience',
-  },
+const projects = [
+  { title: 'Tech Review Channel', category: 'YouTube Long-form', views: '2.5M Views', thumbnail: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&h=400&fit=crop' },
+  { title: 'Travel Vlog Series', category: 'Documentary', views: '1.8M Views', thumbnail: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop' },
+  { title: 'Fitness Brand Campaign', category: 'Commercial', views: '500K Views', thumbnail: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop' },
+  { title: 'Gaming Channel Rebrand', category: 'Branding', views: '3.2M Subscribers', thumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop' },
+  { title: 'Educational Series', category: 'Long-form', views: '1.2M Views', thumbnail: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop' },
+  { title: 'Music Video Production', category: 'Music Video', views: '4.5M Views', thumbnail: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop' },
 ];
 
 const Portfolio = () => {
-  const { mode, setHasEntered } = useMode();
-  const navigate = useNavigate();
-
-  const handleReturn = () => {
-    setHasEntered(false);
-    navigate('/');
-  };
-
+  const { mode } = useMode();
   return (
     <>
-      <Helmet>
-        <title>Portfolio - QuickServe Creator Studio</title>
-        <meta name="description" content="Explore our creative portfolio of video production, content creation, and visual design work" />
-      </Helmet>
-      
-      <CursorLight mode={mode} />
-      <FilmGrain />
-      
-      <FloatingNavbar 
-        mode={mode} 
-        onReturn={handleReturn}
-        isVisible={true}
-      />
-      
-      <main className="min-h-screen bg-background pt-32 pb-20">
-        <section className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              <span className="text-creator">Creative</span> Portfolio
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A showcase of our finest work across video production, content creation, and visual design.
-            </p>
+      <Helmet><title>Portfolio - QuickServe</title><meta name="description" content="Explore our portfolio of premium video editing and content creation projects" /></Helmet>
+      <div className={`min-h-screen ${mode === 'institutional' ? 'mode-institutional' : 'mode-creator'}`}>
+        <Header />
+        <main className="section-spacing bg-background">
+          <div className="container-professional">
+            <div className="text-center mb-12 md:mb-16"><div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-mode-soft text-mode text-xs font-semibold">Our Work</div><h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">Featured Projects</h1><p className="text-muted-foreground max-w-2xl mx-auto">A selection of our best work across various content categories and formats.</p></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{projects.map((p, i) => (<div key={p.title} className="card-professional overflow-hidden group animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}><div className="relative aspect-video overflow-hidden"><img src={p.thumbnail} alt={p.title} className="w-full h-full object-cover trans-smooth group-hover:scale-105" loading="lazy" /><div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 trans-smooth flex items-center justify-center"><div className="opacity-0 group-hover:opacity-100 trans-smooth"><div className="w-14 h-14 rounded-full bg-card flex items-center justify-center"><Play className="w-6 h-6 text-mode ml-1" /></div></div></div></div><div className="p-5"><div className="flex items-start justify-between gap-2"><div><h3 className="font-heading font-semibold text-foreground mb-1">{p.title}</h3><p className="text-xs text-muted-foreground">{p.category}</p></div><span className="text-xs font-medium text-mode whitespace-nowrap">{p.views}</span></div></div></div>))}</div>
+            <div className="text-center mt-12"><a href="#" className="btn-outline inline-flex items-center gap-2">View All Projects<ExternalLink className="w-4 h-4" /></a></div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolioItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="group relative p-6 rounded-2xl glass-card border border-border/20 hover:border-creator/30 transition-all duration-500 cursor-pointer"
-                >
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-creator/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-6 h-6 text-creator" />
-                    </div>
-                    
-                    <span className="text-xs font-medium text-creator uppercase tracking-wider">
-                      {item.category}
-                    </span>
-                    
-                    <h3 className="text-xl font-semibold mt-2 mb-3 group-hover:text-creator transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    
-                    <p className="text-sm text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      </main>
-      
-      <Footer mode={mode} />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };
