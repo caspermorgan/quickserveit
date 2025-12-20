@@ -1,4 +1,5 @@
 import { ArrowLeft } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -7,20 +8,22 @@ interface FloatingNavbarProps {
 }
 
 const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
+  const location = useLocation();
+  
   const institutionalLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Services', href: '#services' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/home' },
+    { label: 'Services', href: '/services' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ];
   
   const creatorLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Studio', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/home' },
+    { label: 'Studio', href: '/services' },
+    { label: 'Portfolio', href: '/portfolio' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Contact', href: '/contact' },
   ];
   
   const links = mode === 'institutional' ? institutionalLinks : creatorLinks;
@@ -51,23 +54,32 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         }`}
       >
         <nav className="flex items-center gap-1 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
-          {links.map((link, index) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`relative px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium tracking-wide text-foreground/60 hover:text-foreground transition-all duration-300 whitespace-nowrap group`}
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              {link.label}
-              
-              {/* Hover underline */}
-              <span 
-                className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px transition-all duration-300 group-hover:w-3/4 ${
-                  mode === 'institutional' ? 'bg-institutional' : 'bg-creator'
+          {links.map((link, index) => {
+            const isActive = location.pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                to={link.href}
+                className={`relative px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group ${
+                  isActive 
+                    ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                    : 'text-foreground/60 hover:text-foreground'
                 }`}
-              />
-            </a>
-          ))}
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                {link.label}
+                
+                {/* Active/Hover underline */}
+                <span 
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ${
+                    isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'
+                  } ${
+                    mode === 'institutional' ? 'bg-institutional' : 'bg-creator'
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </>
