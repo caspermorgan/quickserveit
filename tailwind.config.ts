@@ -54,8 +54,8 @@ export default {
         },
         // Mode colors
         institutional: {
-          DEFAULT: "hsl(45, 93%, 47%)",
-          soft: "hsl(45, 93%, 47%, 0.1)",
+          DEFAULT: "h187, 85%, 53%",
+          soft: "hsl(187, 85%, 53% 0.1)",
         },
         creator: {
           DEFAULT: "hsl(187, 85%, 53%)",
