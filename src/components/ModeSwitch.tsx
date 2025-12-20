@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+46
+  import { useState, useEffect } from 'react';
 
 interface ModeSwitchProps {
   mode: 'institutional' | 'creator';
@@ -43,7 +44,7 @@ const ModeSwitch = ({ mode, onModeChange }: ModeSwitchProps) => {
           <div 
             className={`absolute inset-0 rounded-full transition-all duration-700 ${
               mode === 'institutional'
-                ? 'shadow-[0_0_30px_rgba(234,179,8,0.3)]'
+                ? 'shadow-[0_0_30px_rgba(34,211,238,0.3)]'
                 : 'shadow-[0_0_30px_rgba(34,211,238,0.3)]'
             }`}
           />
@@ -61,7 +62,7 @@ const ModeSwitch = ({ mode, onModeChange }: ModeSwitchProps) => {
           <div 
             className={`absolute top-1/2 -translate-y-1/2 w-7 h-7 md:w-8 md:h-8 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               mode === 'institutional'
-                ? 'left-1.5 bg-institutional shadow-[0_0_20px_rgba(234,179,8,0.6)]'
+                ? 'left-1.5 bg-institutional shadow-[0_0_20px_rgba(34,211,238,0.6)]'
                 : 'left-[calc(100%-2.125rem)] md:left-[calc(100%-2.375rem)] bg-creator shadow-[0_0_20px_rgba(34,211,238,0.6)]'
             }`}
           >
