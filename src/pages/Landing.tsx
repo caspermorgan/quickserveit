@@ -24,7 +24,7 @@ const Landing = () => {
   return (
     <>
       <Helmet>
-        <title>QuickServe - Premium IT Solutions & Creative Services</title>
+        <title>QuickServe - IT | Your Personal Tech Partner</title>
         <meta name="description" content="Enterprise-grade IT solutions and creative services. Choose your path: Institutional excellence or Creator innovation." />
       </Helmet>
       
