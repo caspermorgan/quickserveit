@@ -13,7 +13,6 @@ const HeroSection = ({ mode }: HeroSectionProps) => {
   ];
   
   const creatorPhrases = [
-    "Premium Visual Storytelling",
     "Cinematic Content Creation",
     "Retention-Style Editing",
     "World-Class Production"
