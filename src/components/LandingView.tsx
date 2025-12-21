@@ -64,7 +64,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
       }`}>
         {/* Brand Name */}
         <h1 
-          className="font-display text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] md:tracking-[0.2em] lowercase text-foreground mb-4 md:mb-6"
+          className="font-display text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] md:tracking-[0.2em]lowercase text-foreground mb-4 md:mb-6"
           style={{ animationDelay: '200ms' }}
         >
           QUICKSERVE IT
