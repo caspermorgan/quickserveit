@@ -81,13 +81,6 @@
           >
                       Your Calm Digital Partner</p>
           
-          {/* Philosophy line */}
-          <p 
-            className="text-sm md:text-base text-foreground/40 max-w-md mb-10 md:mb-14 font-light tracking-wide transition-all duration-700"
-            style={{ animationDelay: '600ms' }}
-          >
-            {philosophyText}
-          </p>
           
           {/* Mode Switch */}
           <div style={{ animationDelay: '800ms' }}>
