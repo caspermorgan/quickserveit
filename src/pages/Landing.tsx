@@ -5,7 +5,7 @@ import { useMode } from '@/context/ModeContext';
 import LandingView from '@/components/LandingView';
 
 const Landing = () => {
-  const { mode, setMode, hasEntered, setHasEntered } = useMode();
+  const { mode, setMode, setHasEntered } = useMode();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const navigate = useNavigate();
 
@@ -24,8 +24,9 @@ const Landing = () => {
   return (
     <>
       <Helmet>
-        <title>QuickServe - IT | Your Personal Tech Partner</title>
-        <meta name="description" content="Enterprise-grade IT solutions and creative services. Choose your path: Institutional excellence or Creator innovation." />
+        <title>quickserveit | Your Calm Digital Partner</title>
+        <meta name="description" content="Premium IT documentation and creative services for institutions and creators. Calm, confidential, deadline-driven execution." />
+        <link rel="canonical" href="https://www.quickserveit.online" />
       </Helmet>
       
       <LandingView 
