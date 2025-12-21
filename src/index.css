@@ -4,7 +4,7 @@
 
 /* QuickServe Ultra-Premium Cinematic Design System */
 
-@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
@@ -68,7 +68,7 @@
     --glow-intense: 0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
     
     /* Typography */
-    --font-display: 'Syncopate', sans-serif;
+    --font-display: 'Montserrat', sans-serif;
     --font-body: 'Manrope', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     
