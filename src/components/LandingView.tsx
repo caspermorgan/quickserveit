@@ -76,8 +76,8 @@
               mode === 'institutional' ? 'text-institutional/60' : 'text-creator/60'
             }`}
             style={{ animationDelay: '400ms' }}
-              Your Calm Digital Partner
-          >        </p>
+          >
+                      Your Calm Digital Partner</p>
           
           {/* Philosophy line */}
           <p 
