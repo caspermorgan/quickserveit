@@ -1,3 +1,5 @@
+25
+  80
   import { useState, useEffect } from 'react';
   import ParticleCanvas from './ParticleCanvas';
   import FilmGrain from './FilmGrain';
