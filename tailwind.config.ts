@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Syncopate', 'sans-serif'],
+        display: ['Montserrat', 'sans-serif'],
         body: ['Manrope', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
