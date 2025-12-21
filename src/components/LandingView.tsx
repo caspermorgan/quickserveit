@@ -22,8 +22,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
   }, []);
 
   const philosophyText = mode === 'institutional'
-    ? 'CYour personal tech partner'
-    : 'Premium Visual Storytelling for Creators';
+? ''    : : '';
 
   return (
     <div 
@@ -68,7 +67,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
           className="font-display text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] md:tracking-[0.2em] lowercase text-foreground mb-4 md:mb-6"
           style={{ animationDelay: '200ms' }}
         >
-          Quickserve IT
+          QUICKSERVE IT
         </h1>
         
         {/* Tagline */}
@@ -77,9 +76,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             mode === 'institutional' ? 'text-institutional/60' : 'text-creator/60'
           }`}
           style={{ animationDelay: '400ms' }}
-        >
-          Your Personal Tech Partner
-        </p>
+        >        </p>
         
         {/* Philosophy line */}
         <p 
