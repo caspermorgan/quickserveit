@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
+import Founder from "./pages/Founder";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
@@ -35,6 +36,7 @@ const AppRoutes = () => {
       <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
       <Route path="/pricing" element={<ProtectedRoute><Pricing /></ProtectedRoute>} />
       <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+      <Route path="/founder" element={<ProtectedRoute><Founder /></ProtectedRoute>} />
       <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
       <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
       <Route path="*" element={<NotFound />} />

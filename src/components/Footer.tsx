@@ -1,59 +1,116 @@
+import { Link } from 'react-router-dom';
+import { MessageCircle, Shield, Clock } from 'lucide-react';
+
 interface FooterProps {
   mode: 'institutional' | 'creator';
 }
 
 const Footer = ({ mode }: FooterProps) => {
+  const whatsappNumber = '919876543210'; // Replace with actual number
+  const whatsappMessage = encodeURIComponent('Hello quickserveit, I would like to inquire about your services.');
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
   return (
     <footer className="py-12 md:py-16 px-6 border-t border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Top section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
-          <div className="text-center md:text-left">
-            <div className="font-display text-xl tracking-[0.2em] text-foreground mb-2">
-              QUICKSERVE
+          <div className="md:col-span-1">
+            <div className="font-display text-xl tracking-[0.1em] lowercase text-foreground mb-3">
+              quickserveit
             </div>
-            <div className={`text-xs tracking-widest ${
-              mode === 'institutional' ? 'text-institutional/60' : 'text-creator/60'
-            }`}>
-              The 50M Standard
+            <p className="text-sm text-foreground/40 mb-4 leading-relaxed">
+              Your calm digital partner for institutions and creators.
+            </p>
+            <div className="flex items-center gap-2 text-xs text-foreground/30">
+              <Shield className="w-3 h-3" />
+              <span>All data handled with strict confidentiality</span>
+            </div>
+          </div>
+          
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-sm font-medium text-foreground mb-4">Navigation</h4>
+            <div className="flex flex-col gap-2">
+              <Link to="/home" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Home</Link>
+              <Link to="/services" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Services</Link>
+              <Link to="/about" className="text-sm text-foreground/40 hover:text-foreground transition-colors">About</Link>
+              <Link to="/pricing" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Pricing</Link>
+              <Link to="/contact" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Contact</Link>
+            </div>
+          </div>
+          
+          {/* Working Hours */}
+          <div>
+            <h4 className="text-sm font-medium text-foreground mb-4">Working Hours</h4>
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-sm text-foreground/40">
+                <Clock className="w-4 h-4" />
+                <span>Mon–Sat: 10:00 AM – 3:00 PM IST</span>
+              </div>
+              <p className="text-xs text-foreground/30">
+                Responses within working hours only. Urgent requests may have extended timelines.
+              </p>
+            </div>
+          </div>
+          
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-medium text-foreground mb-4">Get in Touch</h4>
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                mode === 'institutional'
+                  ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
+                  : 'bg-creator/10 text-creator hover:bg-creator/20'
+              }`}
+            >
+              <MessageCircle className="w-4 h-4" />
+              Chat on WhatsApp
+            </a>
+            <p className="text-xs text-foreground/30 mt-3">
+              Preferred communication channel for all inquiries.
+            </p>
+          </div>
+        </div>
+        
+        {/* Bottom section */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-border">
+          {/* Copyright */}
+          <div className="text-center md:text-left">
+            <div className="text-xs text-foreground/20 font-mono tracking-wide">
+              © 2025 quickserveit
+            </div>
+            <div className="text-[10px] text-foreground/10 font-mono mt-1">
+              <span className={mode === 'institutional' ? 'text-institutional/40' : 'text-creator/40'}>
+                CONFIDENTIAL
+              </span>
+              {' • '}
+              INDIA
             </div>
           </div>
           
           {/* Links */}
-          <div className="flex items-center gap-8 text-sm text-foreground/40">
+          <div className="flex items-center gap-6 text-sm text-foreground/40">
             <a href="#" className="hover:text-foreground transition-colors duration-300">
               Privacy
             </a>
             <a href="#" className="hover:text-foreground transition-colors duration-300">
               Terms
             </a>
-            <a href="#" className="hover:text-foreground transition-colors duration-300">
-              Support
-            </a>
-          </div>
-          
-          {/* Copyright */}
-          <div className="text-center md:text-right">
-            <div className="text-xs text-foreground/20 font-mono tracking-wide">
-              © 2025 QuickServe IT
-            </div>
-            <div className="text-[10px] text-foreground/10 font-mono mt-1">
-              <span className={mode === 'institutional' ? 'text-institutional/40' : 'text-creator/40'}>
-                ENCRYPTED
-              </span>
-              {' • '}
-              LOC: INDIA
-            </div>
           </div>
         </div>
         
         {/* Disclaimer */}
         <div className="mt-8 pt-6 border-t border-border text-center">
-          <p className="text-[10px] text-foreground/20 max-w-2xl mx-auto leading-relaxed">
-            QuickServe provides technical assistance and documentation services only. 
+          <p className="text-[10px] text-foreground/20 max-w-3xl mx-auto leading-relaxed">
+            <strong className="text-foreground/30">Important:</strong> quickserveit provides technical assistance, documentation services, and creative production only. 
             Academic correctness, student eligibility, and final record authenticity remain 
-            the sole responsibility of the institution. Reach, monetization, and performance 
-            depend on platform algorithms; editing quality is our focus.
+            the sole responsibility of the institution. For creators, reach, monetization, and performance 
+            depend on platform algorithms; production quality is our focus. All files handled with strict confidentiality.
           </p>
         </div>
       </div>

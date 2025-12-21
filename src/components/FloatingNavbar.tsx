@@ -1,5 +1,6 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import WorkingHoursIndicator from './WorkingHoursIndicator';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -13,8 +14,9 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
   const institutionalLinks = [
     { label: 'Home', href: '/home' },
     { label: 'Services', href: '/services' },
-    { label: 'Pricing', href: '/pricing' },
     { label: 'About', href: '/about' },
+    { label: 'Founder', href: '/founder' },
+    { label: 'Pricing', href: '/pricing' },
     { label: 'Contact', href: '/contact' },
   ];
   
@@ -22,6 +24,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     { label: 'Home', href: '/home' },
     { label: 'Studio', href: '/services' },
     { label: 'Portfolio', href: '/portfolio' },
+    { label: 'About', href: '/about' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Contact', href: '/contact' },
   ];
@@ -44,13 +47,25 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           <ArrowLeft className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors duration-300" />
         </button>
       </div>
+
+      {/* Working Hours Indicator - Desktop Center */}
+      <div className="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-40 hidden lg:block">
+        <WorkingHoursIndicator />
+      </div>
+
+      {/* Brand - Top Right */}
+      <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50">
+        <span className={`text-xs font-mono tracking-widest lowercase ${mode === 'institutional' ? 'text-institutional/60' : 'text-creator/60'}`}>
+          quickserveit
+        </span>
+      </div>
       
-      {/* Navigation Bar */}
+      {/* Navigation Bar - Bottom */}
       <div 
-        className={`fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isVisible 
             ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 -translate-y-10 pointer-events-none'
+            : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
       >
         <nav className="flex items-center gap-1 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
