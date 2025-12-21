@@ -78,7 +78,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
           }`}
           style={{ animationDelay: '400ms' }}
         >
-          Your Calm Digital Partner
+          Your Personal Tech Partner
         </p>
         
         {/* Philosophy line */}
