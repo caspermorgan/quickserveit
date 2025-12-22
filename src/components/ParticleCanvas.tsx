@@ -51,19 +51,23 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
   useEffect(() => {
     isDustingRef.current = isDusting;
     
+    // Only spawn dust particles when exiting (isDusting becomes true)
     if (isDusting) {
-      // Spawn extra dust particles
       const canvas = canvasRef.current;
       if (!canvas) return;
       
-      for (let i = 0; i < 200; i++) {
-        const size = Math.random() * 2 + 1;
-        const x = canvas.width * 0.3 + Math.random() * (canvas.width * 0.4);
-        const y = canvas.height * 0.3 + Math.random() * (canvas.height * 0.4);
+      // Add dust particles for the Thanos effect on exit
+      const isMobile = window.innerWidth < 768;
+      const dustCount = isMobile ? 100 : 150;
+      
+      for (let i = 0; i < dustCount; i++) {
+        const size = Math.random() * 2.5 + 0.5;
+        const x = canvas.width * 0.2 + Math.random() * (canvas.width * 0.6);
+        const y = canvas.height * 0.2 + Math.random() * (canvas.height * 0.6);
         particlesRef.current.push({
           x, y,
-          directionX: 0,
-          directionY: 0,
+          directionX: (Math.random() - 0.5) * 2,
+          directionY: (Math.random() - 0.5) * 2,
           size,
           density: Math.random() * 30 + 1
         });

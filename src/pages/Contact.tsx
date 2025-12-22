@@ -5,7 +5,8 @@ import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
-import { MessageCircle, Clock, Mail, MapPin, Shield } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
+import { Clock, Mail, MapPin, Shield } from 'lucide-react';
 
 const Contact = () => {
   const { mode, setHasEntered } = useMode();
@@ -15,11 +16,6 @@ const Contact = () => {
     setHasEntered(false);
     navigate('/');
   };
-
-  const whatsappNumber = '919876543210';
-  const generalTemplate = mode === 'institutional'
-    ? 'Hello quickserveit, I am from [institution name] and would like to discuss your services.'
-    : 'Hello quickserveit, I am a content creator and would like to discuss your services.';
 
   return (
     <>
@@ -32,59 +28,107 @@ const Contact = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
       
-      <main className="min-h-screen bg-background pt-32 pb-20">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-4">
+      <main className="min-h-screen bg-background pt-28 md:pt-32 pb-16 md:pb-20">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+          {/* Header */}
+          <div className="text-center mb-10 md:mb-14">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-medium mb-3 md:mb-4 tracking-tight">
               Get in <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Touch</span>
             </h1>
-            <p className="text-foreground/50">WhatsApp is our preferred communication channel for all inquiries.</p>
+            <p className="text-foreground/50 text-sm md:text-base max-w-md mx-auto leading-relaxed">
+              Share your requirements. We respond within working hours.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className={`p-8 rounded-2xl ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
-              <MessageCircle className={`w-10 h-10 mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-              <h2 className="text-xl font-medium mb-2">Start a Conversation</h2>
-              <p className="text-foreground/50 text-sm mb-6">Click below to open WhatsApp with a pre-filled message.</p>
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(generalTemplate)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${mode === 'institutional' ? 'bg-institutional text-background hover:bg-institutional/90' : 'bg-creator text-background hover:bg-creator/90'}`}
-              >
-                <MessageCircle className="w-4 h-4" />
-                Chat on WhatsApp
-              </a>
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+            {/* Contact Form - Takes 3 cols */}
+            <div className="lg:col-span-3">
+              <div className={`p-6 md:p-8 rounded-2xl backdrop-blur-xl border ${
+                mode === 'institutional' 
+                  ? 'bg-institutional/[0.02] border-institutional/10' 
+                  : 'bg-creator/[0.02] border-creator/10'
+              }`}>
+                <h2 className="text-lg md:text-xl font-display font-medium mb-6">
+                  Send an Inquiry
+                </h2>
+                <ContactForm />
+              </div>
             </div>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <Clock className="w-5 h-5 text-foreground/40 mt-1" />
-                <div>
-                  <h3 className="font-medium">Working Hours</h3>
-                  <p className="text-foreground/50 text-sm">Mon–Sat: 10:00 AM – 3:00 PM IST</p>
+            {/* Contact Info - Takes 2 cols */}
+            <div className="lg:col-span-2 space-y-4 md:space-y-5">
+              {/* Working Hours */}
+              <div className="p-5 md:p-6 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                <div className="flex items-start gap-4">
+                  <div className={`p-2.5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+                    <Clock className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-sm mb-1">Working Hours</h3>
+                    <p className="text-foreground/50 text-sm leading-relaxed">
+                      Mon–Sat: 10:00 AM – 3:00 PM IST
+                    </p>
+                    <p className="text-foreground/30 text-xs mt-1">
+                      Responses within 24 hours
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <Mail className="w-5 h-5 text-foreground/40 mt-1" />
-                <div>
-                  <h3 className="font-medium">Email</h3>
-                  <p className="text-foreground/50 text-sm">hello@quickserveit.online</p>
+
+              {/* Email */}
+              <div className="p-5 md:p-6 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                <div className="flex items-start gap-4">
+                  <div className={`p-2.5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+                    <Mail className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-sm mb-1">Email</h3>
+                    <p className="text-foreground/50 text-sm">
+                      hello@quickserveit.online
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-foreground/40 mt-1" />
-                <div>
-                  <h3 className="font-medium">Location</h3>
-                  <p className="text-foreground/50 text-sm">Remote-first, India</p>
+
+              {/* Location */}
+              <div className="p-5 md:p-6 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                <div className="flex items-start gap-4">
+                  <div className={`p-2.5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+                    <MapPin className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-sm mb-1">Location</h3>
+                    <p className="text-foreground/50 text-sm">
+                      Remote-first, India
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <Shield className="w-5 h-5 text-foreground/40 mt-1" />
-                <div>
-                  <h3 className="font-medium">Confidentiality</h3>
-                  <p className="text-foreground/50 text-sm">All communications and files handled with strict discretion.</p>
+
+              {/* Confidentiality */}
+              <div className="p-5 md:p-6 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                <div className="flex items-start gap-4">
+                  <div className={`p-2.5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+                    <Shield className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-sm mb-1">Confidentiality</h3>
+                    <p className="text-foreground/50 text-sm leading-relaxed">
+                      All communications and files handled with strict discretion.
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              {/* Trust note */}
+              <div className={`p-4 rounded-xl border-l-2 ${
+                mode === 'institutional' 
+                  ? 'bg-institutional/[0.03] border-institutional/30' 
+                  : 'bg-creator/[0.03] border-creator/30'
+              }`}>
+                <p className="text-xs text-foreground/40 leading-relaxed">
+                  "We treat every client relationship as confidential by default. Your data, your trust."
+                </p>
               </div>
             </div>
           </div>
