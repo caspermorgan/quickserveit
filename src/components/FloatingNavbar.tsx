@@ -1,6 +1,5 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import WorkingHoursIndicator from './WorkingHoursIndicator';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface FloatingNavbarProps {
@@ -113,15 +112,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         </button>
       </div>
 
-      {/* Working Hours Indicator - Desktop Center */}
-      <div className="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-40 hidden lg:block">
-        <WorkingHoursIndicator />
-      </div>
 
       {/* Language Switch - Top Right */}
-          <div className="fixed top-6 right-32 md:right-48 md:top-8 z-50 hidden sm:block">
-    <div className="rounded-full bg-emerald-50/10 text-emerald-400 px-3 py-1 text-xs font-medium border border-emerald-400/30 backdrop-blur-md">
-      10 AM – 6 PM IST
     </div>
     </div>
       <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50">
