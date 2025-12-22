@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import { useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { ModeProvider, useMode } from "@/context/ModeContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -62,15 +63,17 @@ const AppRoutes = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
-      <ModeProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
-        </TooltipProvider>
-      </ModeProvider>
+      <LanguageProvider>
+        <ModeProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <AppRoutes />
+            </BrowserRouter>
+          </TooltipProvider>
+        </ModeProvider>
+      </LanguageProvider>
     </HelmetProvider>
   </QueryClientProvider>
 );
