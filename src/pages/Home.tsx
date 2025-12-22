@@ -39,14 +39,14 @@ const Home = () => {
 
   const whatsappNumber = '919876543210';
   const whatsappMessage = mode === 'institutional'
-    ? 'Hello quickserveit, I am from an educational institution and would like to discuss your services.'
-    : 'Hello quickserveit, I am a content creator and would like to discuss video editing services.';
+    ? 'Hello Quickserve IT, I am from an educational institution and would like to discuss your services.'
+    : 'Hello Quickserve IT, I am a content creator and would like to discuss video editing services.';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <>
       <Helmet>
-        <title>quickserveit | {mode === 'institutional' ? 'Institutional Services' : 'Creator Studio'}</title>
+        <title>Quickserve IT | {mode === 'institutional' ? 'Institutional Services' : 'Creator Studio'}</title>
         <meta name="description" content={description} />
       </Helmet>
       
