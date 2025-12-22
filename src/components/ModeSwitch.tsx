@@ -1,5 +1,4 @@
-46
-  import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ModeSwitchProps {
   mode: 'institutional' | 'creator';
@@ -8,6 +7,7 @@ interface ModeSwitchProps {
 
 const ModeSwitch = ({ mode, onModeChange }: ModeSwitchProps) => {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
 
   const handleToggle = () => {
     if (isAnimating) return;
@@ -16,74 +16,91 @@ const ModeSwitch = ({ mode, onModeChange }: ModeSwitchProps) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsAnimating(false), 500);
+    const timer = setTimeout(() => setIsAnimating(false), 600);
     return () => clearTimeout(timer);
   }, [mode]);
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      {/* Labels */}
-      <div className="flex items-center gap-6 text-xs md:text-sm tracking-[0.3em] uppercase font-display">
-        <span 
-          className={`transition-all duration-500 ${
-            mode === 'institutional' 
-              ? 'text-institutional opacity-100' 
-              : 'text-foreground/30'
+    <div className="flex flex-col items-center">
+      {/* Glass morphism container */}
+      <div className="relative">
+        {/* Outer glow based on mode */}
+        <div 
+          className={`absolute -inset-4 rounded-3xl blur-2xl transition-all duration-1000 ${
+            mode === 'institutional'
+              ? 'bg-institutional/10'
+              : 'bg-creator/10'
           }`}
-        >
-          Institute
-        </span>
+        />
         
-        {/* Switch Container */}
-        <button
-          onClick={handleToggle}
-          className="relative w-20 h-10 md:w-24 md:h-11 rounded-full glass-premium cursor-pointer group focus:outline-none"
-          aria-label={`Switch to ${mode === 'institutional' ? 'creator' : 'institutional'} mode`}
+        {/* Main glass container */}
+        <div 
+          className="relative flex items-center gap-1 p-1.5 rounded-full backdrop-blur-xl bg-white/[0.03] border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)]"
         >
-          {/* Glow effect */}
-          <div 
-            className={`absolute inset-0 rounded-full transition-all duration-700 ${
-              mode === 'institutional'
-                ? 'shadow-[0_0_30px_rgba(34,211,238,0.3)]'
-                : 'shadow-[0_0_30px_rgba(34,211,238,0.3)]'
-            }`}
-          />
-          
-          {/* Track highlight */}
-          <div 
-            className={`absolute inset-1 rounded-full transition-all duration-700 ${
-              mode === 'institutional'
-                ? 'bg-gradient-to-r from-institutional/10 to-transparent'
-                : 'bg-gradient-to-l from-creator/10 to-transparent'
-            }`}
-          />
-          
-          {/* Slider knob */}
-          <div 
-            className={`absolute top-1/2 -translate-y-1/2 w-7 h-7 md:w-8 md:h-8 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              mode === 'institutional'
-                ? 'left-1.5 bg-institutional shadow-[0_0_20px_rgba(34,211,238,0.6)]'
-                : 'left-[calc(100%-2.125rem)] md:left-[calc(100%-2.375rem)] bg-creator shadow-[0_0_20px_rgba(34,211,238,0.6)]'
+          {/* Institute option */}
+          <button
+            onClick={() => mode !== 'institutional' && handleToggle()}
+            onMouseDown={() => setIsPressed(true)}
+            onMouseUp={() => setIsPressed(false)}
+            onMouseLeave={() => setIsPressed(false)}
+            onTouchStart={() => setIsPressed(true)}
+            onTouchEnd={() => setIsPressed(false)}
+            className={`relative px-5 py-3 md:px-7 md:py-3.5 rounded-full transition-all duration-500 ease-out ${
+              mode === 'institutional' 
+                ? 'text-background' 
+                : 'text-foreground/40 hover:text-foreground/60 active:scale-95'
             }`}
           >
-            {/* Inner glow */}
-            <div className="absolute inset-0.5 rounded-full bg-gradient-to-br from-white/40 to-transparent" />
-          </div>
+            {/* Active background */}
+            {mode === 'institutional' && (
+              <div className="absolute inset-0 rounded-full bg-institutional shadow-[0_0_30px_rgba(234,179,8,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] animate-scale-in" />
+            )}
+            <span className={`relative z-10 font-display text-xs md:text-sm tracking-[0.15em] uppercase font-medium ${
+              isPressed && mode !== 'institutional' ? 'scale-95' : ''
+            } transition-transform duration-150`}>
+              Institute
+            </span>
+          </button>
           
-          {/* Hover effect */}
-          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/5" />
-        </button>
+          {/* Divider */}
+          <div className="w-px h-6 bg-white/[0.06]" />
+          
+          {/* Creator option */}
+          <button
+            onClick={() => mode !== 'creator' && handleToggle()}
+            onMouseDown={() => setIsPressed(true)}
+            onMouseUp={() => setIsPressed(false)}
+            onMouseLeave={() => setIsPressed(false)}
+            onTouchStart={() => setIsPressed(true)}
+            onTouchEnd={() => setIsPressed(false)}
+            className={`relative px-5 py-3 md:px-7 md:py-3.5 rounded-full transition-all duration-500 ease-out ${
+              mode === 'creator' 
+                ? 'text-background' 
+                : 'text-foreground/40 hover:text-foreground/60 active:scale-95'
+            }`}
+          >
+            {/* Active background */}
+            {mode === 'creator' && (
+              <div className="absolute inset-0 rounded-full bg-creator shadow-[0_0_30px_rgba(34,211,238,0.4),inset_0_1px_0_rgba(255,255,255,0.3)] animate-scale-in" />
+            )}
+            <span className={`relative z-10 font-display text-xs md:text-sm tracking-[0.15em] uppercase font-medium ${
+              isPressed && mode !== 'creator' ? 'scale-95' : ''
+            } transition-transform duration-150`}>
+              Creator
+            </span>
+          </button>
+        </div>
         
-        <span 
-          className={`transition-all duration-500 ${
-            mode === 'creator' 
-              ? 'text-creator opacity-100' 
-              : 'text-foreground/30'
-          }`}
-        >
-          Creator
-        </span>
+        {/* Inner glow overlay */}
+        <div className="absolute inset-0 rounded-full pointer-events-none bg-gradient-to-b from-white/[0.02] to-transparent" />
       </div>
+      
+      {/* Mode indicator text */}
+      <p className={`mt-6 text-[10px] md:text-xs font-mono tracking-[0.2em] uppercase transition-colors duration-500 ${
+        mode === 'institutional' ? 'text-institutional/40' : 'text-creator/40'
+      }`}>
+        {mode === 'institutional' ? 'For Institutions' : 'For Creators'}
+      </p>
     </div>
   );
 };
