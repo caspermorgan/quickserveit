@@ -87,6 +87,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
         {/* Enter Button */}
         <div style={{ animationDelay: '800ms' }}>
           <EnterButton mode={mode} onClick={onEnter} />
+                      <p className="mt-1 text-xs text-slate-500">
+              (BETA)
+            </p>
         </div>
       </div>
       
