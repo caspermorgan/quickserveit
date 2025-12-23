@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Clock } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const WorkingHoursIndicator = () => {
   const [isActive, setIsActive] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const { t } = useTranslation();
 
   useEffect(() => {
     const checkWorkingHours = () => {
@@ -13,7 +15,6 @@ const WorkingHoursIndicator = () => {
       const istTime = new Date(utc + (istOffset * 60000));
       
       const hours = istTime.getHours();
-      const minutes = istTime.getMinutes();
       
       // Working hours: 10:00 AM - 3:00 PM IST
       const isWithinHours = hours >= 10 && hours < 15;
@@ -37,7 +38,7 @@ const WorkingHoursIndicator = () => {
       <div className={`flex items-center gap-2 ${isActive ? 'text-green-400' : 'text-foreground/40'}`}>
         <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-green-400 animate-pulse' : 'bg-foreground/30'}`} />
         <span className="text-xs font-medium tracking-wide">
-          {isActive ? '🟢 ACTIVE FOR WORK' : 'OFFLINE'}
+          {isActive ? t('available') : t('offline')}
         </span>
       </div>
       <span className="text-foreground/20">|</span>

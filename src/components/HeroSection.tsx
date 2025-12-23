@@ -1,28 +1,28 @@
 import TypewriterText from './TypewriterText';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface HeroSectionProps {
   mode: 'institutional' | 'creator';
 }
 
 const HeroSection = ({ mode }: HeroSectionProps) => {
+  const { t } = useTranslation();
+  
   const institutionalPhrases = [
-    "Calm Digital Execution",
-    "Structured Academic Support",
-    "Quiet Progress, Clear Files",
-    "Trusted Institutional Partner"
+    t('heroInst1'),
+    t('heroInst2'),
+    t('heroInst3'),
+    t('heroInst4')
   ];
   
   const creatorPhrases = [
-    "Cinematic Content Creation",
-    "Retention-Style Editing",
-    "World-Class Production"
+    t('heroCreator1'),
+    t('heroCreator2'),
+    t('heroCreator3')
   ];
   
   const phrases = mode === 'institutional' ? institutionalPhrases : creatorPhrases;
-  
-  const description = mode === 'institutional'
-    ? "We transform chaotic digital workloads into organized, confidential, and deadline-calm execution. From examination documentation to government compliance, your institution deserves peace."
-    : "We transform raw footage into premium content designed for retention and impact. From YouTube long-form to cinematic documentaries, your vision deserves world-class polish.";
+  const description = mode === 'institutional' ? t('heroInstDesc') : t('heroCreatorDesc');
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6 py-20 md:py-32">
@@ -45,10 +45,10 @@ const HeroSection = ({ mode }: HeroSectionProps) => {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
           <button className="btn-premium w-full sm:w-auto">
-            {mode === 'institutional' ? 'Get Started' : 'Start Creating'}
+            {mode === 'institutional' ? t('getStarted') : t('startCreating')}
           </button>
           <button className="btn-outline-premium w-full sm:w-auto">
-            {mode === 'institutional' ? 'View Services' : 'See Portfolio'}
+            {mode === 'institutional' ? t('viewServices') : t('seePortfolio')}
           </button>
         </div>
         
@@ -56,17 +56,17 @@ const HeroSection = ({ mode }: HeroSectionProps) => {
         <div className="mt-16 md:mt-20 grid grid-cols-3 gap-8 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
           <StatBlock 
             value={mode === 'institutional' ? '50+' : '200+'}
-            label={mode === 'institutional' ? 'Schools Served' : 'Projects Delivered'}
+            label={mode === 'institutional' ? t('schoolsServed') : t('projectsDelivered')}
             mode={mode}
           />
           <StatBlock 
             value="99.9%"
-            label="Uptime Guarantee"
+            label={t('uptimeGuarantee')}
             mode={mode}
           />
           <StatBlock 
             value={mode === 'institutional' ? '5000+' : '1M+'}
-            label={mode === 'institutional' ? 'Documents' : 'Views Generated'}
+            label={mode === 'institutional' ? t('documents') : t('viewsGenerated')}
             mode={mode}
           />
         </div>

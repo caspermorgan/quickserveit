@@ -5,6 +5,7 @@ import CursorLight from './CursorLight';
 import ModeSwitch from './ModeSwitch';
 import EnterButton from './EnterButton';
 import WorkingHoursIndicator from './WorkingHoursIndicator';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface LandingViewProps {
   mode: 'institutional' | 'creator';
@@ -15,6 +16,7 @@ interface LandingViewProps {
 
 const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -61,10 +63,10 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
       }`}>
         {/* Brand Name */}
         <h1 
-          className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-[0.1em] md:tracking-[0.15em] text-foreground mb-3 md:mb-4 font-medium"
+          className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-[0.08em] md:tracking-[0.12em] text-foreground mb-3 md:mb-4 font-bold"
           style={{ animationDelay: '200ms' }}
         >
-          quickserveit
+          {t('brandName')}
         </h1>
         
         {/* Minimal tagline */}
@@ -74,7 +76,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
           }`}
           style={{ animationDelay: '400ms' }}
         >
-          Calm. Confidential. On Time.
+          {t('brandTagline')}
         </p>
         
         {/* Mode Switch */}
@@ -95,10 +97,10 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             <span className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full ${
               mode === 'institutional' ? 'bg-institutional/60' : 'bg-creator/60'
             }`} />
-            Secure
+            {t('secure')}
           </span>
           <span className="text-foreground/10">·</span>
-          <span>India</span>
+          <span>{t('india')}</span>
         </div>
       </div>
       
