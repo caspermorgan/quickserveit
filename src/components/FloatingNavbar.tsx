@@ -1,6 +1,8 @@
+import { useState, useEffect, useRef } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -74,31 +76,70 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
 
 const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
   const location = useLocation();
+  const { t } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  
+  // Smart scroll behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setNavVisible(false);
+      } else {
+        setNavVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const institutionalLinks = [
-    { label: 'Home', href: '/home' },
-    { label: 'Services', href: '/services' },
-    { label: 'About', href: '/about' },
-    { label: 'Founder', href: '/founder' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'Contact', href: '/contact' },
+    { label: t('home'), href: '/home' },
+    { label: t('services'), href: '/services' },
+    { label: t('about'), href: '/about' },
+    { label: t('founder'), href: '/founder' },
+    { label: t('pricing'), href: '/pricing' },
+    { label: t('contact'), href: '/contact' },
   ];
   
   const creatorLinks = [
-    { label: 'Home', href: '/home' },
-    { label: 'Studio', href: '/services' },
-    { label: 'Portfolio', href: '/portfolio' },
-    { label: 'About', href: '/about' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'Contact', href: '/contact' },
+    { label: t('home'), href: '/home' },
+    { label: t('studio'), href: '/services' },
+    { label: t('portfolio'), href: '/portfolio' },
+    { label: t('about'), href: '/about' },
+    { label: t('pricing'), href: '/pricing' },
+    { label: t('contact'), href: '/contact' },
   ];
   
   const links = mode === 'institutional' ? institutionalLinks : creatorLinks;
 
+  // Close menu on outside click
+  const handleOverlayClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  const combinedVisible = isVisible && navVisible;
+
   return (
     <>
+      {/* Dark Overlay when menu is focused */}
+      <div 
+        className={`fixed inset-0 z-40 bg-background/80 backdrop-blur-sm transition-opacity duration-500 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={handleOverlayClick}
+      />
+      
       {/* Return Button */}
-      <div className="fixed top-6 left-6 md:top-8 md:left-8 z-50">
+      <div className={`fixed top-6 left-6 md:top-8 md:left-8 z-50 transition-all duration-500 ${
+        combinedVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      }`}>
         <button
           onClick={onReturn}
           className={`group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full glass-nav transition-all duration-500 hover:scale-110 ${
@@ -112,18 +153,17 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         </button>
       </div>
 
-
       {/* Language Switch - Top Right */}
-    </div>
-    </div>
-      <div className="fixed top-6 right-6 md:top-8 md:right-8 z-50">
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 transition-all duration-500 ${
+        combinedVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      }`}>
         <LanguageSwitch mode={mode} />
       </div>
       
       {/* Navigation Bar - Bottom */}
       <div 
         className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isVisible 
+          combinedVisible 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
@@ -133,7 +173,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             const isActive = location.pathname === link.href;
             return (
               <Link
-                key={link.label}
+                key={link.href}
                 to={link.href}
                 className={`relative px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group ${
                   isActive 

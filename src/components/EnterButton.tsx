@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface EnterButtonProps {
   mode: 'institutional' | 'creator';
@@ -6,6 +7,8 @@ interface EnterButtonProps {
 }
 
 const EnterButton = ({ mode, onClick }: EnterButtonProps) => {
+  const { t } = useTranslation();
+  
   return (
     <button
       onClick={onClick}
@@ -36,7 +39,7 @@ const EnterButton = ({ mode, onClick }: EnterButtonProps) => {
               : 'text-creator'
           }`}
         >
-          Enter
+          {t('enter')}
         </span>
         
         {/* Arrow */}
