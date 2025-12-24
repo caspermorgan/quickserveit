@@ -337,40 +337,40 @@ export const translations = {
     portfolioViewContent: 'View Content',
 
     // Testimonials
-    testimonialInstHeading: 'Institutional Feedback',
-    testimonialCreatorHeading: 'Creator Feedback',
+    testimonialInstHeading: 'Institutional Testimonials',
+    testimonialCreatorHeading: 'Creator Testimonials',
 
     // Institutional Testimonials
-    testimonialInst1Text: 'The technical support provided during critical academic and administrative work was reliable and well-managed. During scholarship processing, examination documentation, biometric assistance, and government scheme–related digital work, the execution was handled carefully and on time. Support during exams and compliance periods reduced pressure on our teaching and office staff. The work remained disciplined, confidential, and aligned with institutional instructions. Overall coordination was smooth and helped manage multiple responsibilities without unnecessary stress.',
+    testimonialInst1Text: 'Technical support during examinations, scholarships, and administrative work was handled in a disciplined and timely manner. The structured approach reduced pressure on staff and ensured confidentiality throughout the process.',
     testimonialInst1Name: 'Manager',
     testimonialInst1Location: 'B. N. Singh Adarsh Intermediate College, Chandrao',
-    testimonialInst1Preview: 'The technical support was reliable and well-managed during critical academic work.',
+    testimonialInst1Preview: 'Technical support was disciplined and timely during examinations and scholarships.',
 
-    testimonialInst2Text: 'Timely examination documentation support made the process smooth and stress-free. QuickServe IT supported us with examination paper preparation and related documentation through the agency framework. The work was delivered on time and handled in a professional manner. It is reassuring for us to receive organized digital services locally in a rural area. We are satisfied with the quality of work and intend to continue this association with the agency.',
+    testimonialInst2Text: 'Examination documentation support was delivered on time through the agency framework. It is reassuring to receive organized digital services locally in a rural area, and we are satisfied with the quality of coordination.',
     testimonialInst2Name: 'Administrator',
     testimonialInst2Location: 'Sahid Rudra Pratap Intermediate College, Chandrao',
-    testimonialInst2Preview: 'Timely examination documentation support made the process smooth and stress-free.',
+    testimonialInst2Preview: 'Examination documentation was delivered on time with quality coordination.',
 
-    testimonialInst3Text: 'It is encouraging to see professional digital support becoming available locally in rural areas. We had a discussion regarding scholarship-related technical support, and the approach felt clear and well-structured. It is reassuring to know that such services are being developed within the rural region itself. We look forward to coordinating during the scholarship processing period and appreciate the effort to support schools with timely and organized digital assistance.',
+    testimonialInst3Text: 'It is encouraging to see professional digital support becoming available locally for rural institutions. We look forward to coordinating during the scholarship processing period.',
     testimonialInst3Name: 'School Administrator',
     testimonialInst3Location: 'Vidya Public School',
     testimonialInst3Preview: 'Professional digital support is now available locally in rural areas.',
 
     // Creator Testimonials
-    testimonialCreator1Text: 'The creative process felt calm and well-structured. Working with visual content, I needed clarity more than cinematic effects. The creative work was handled in a disciplined way, with clear communication and minimal back-and-forth. The final output was simple, meaningful, and aligned with my vision. This structured approach made creative work feel manageable instead of overwhelming.',
+    testimonialCreator1Text: 'Creative work was handled in a calm and structured manner, making the process clear and manageable. The final output was simple, meaningful, and suitable for educational use.',
     testimonialCreator1Name: 'Anil Tiwari',
     testimonialCreator1Location: 'Gorakhpur',
-    testimonialCreator1Preview: 'The creative process felt calm and well-structured.',
+    testimonialCreator1Preview: 'Creative work was calm, structured, and manageable.',
 
-    testimonialCreator2Text: 'I was working on a documentary-style project where realism was important. The 2.5D scenes were created thoughtfully, supporting the narrative rather than overpowering it. The workflow remained calm and technically sound, allowing me to focus on storytelling instead of visual complexity.',
+    testimonialCreator2Text: '2.5D visuals were developed thoughtfully, adding depth without distracting from the narrative. The workflow remained technically sound and storytelling-focused.',
     testimonialCreator2Name: 'Aman Singh',
     testimonialCreator2Location: 'Gorakhpur',
-    testimonialCreator2Preview: 'The 2.5D visuals added depth without distracting from the story.',
+    testimonialCreator2Preview: '2.5D visuals added depth without distracting from the narrative.',
 
-    testimonialCreator3Text: 'I was developing a script on a social dilemma and needed strong conceptual clarity. Support was provided in collecting relevant resources, structuring the narrative, and shaping the core ideology of the story. The writing process felt thoughtful and grounded, ensuring the issue was communicated clearly without exaggeration or confusion.',
+    testimonialCreator3Text: 'Script development was supported through research, resource collection, and clear ideological structuring. The writing process felt grounded and well-organized.',
     testimonialCreator3Name: 'Rohit Verma',
     testimonialCreator3Location: 'Gorakhpur',
-    testimonialCreator3Preview: 'The script was built with depth, research, and a clear ideology.',
+    testimonialCreator3Preview: 'Script development was grounded and well-organized.',
 
     // Creator Roles
     testimonialCreator1Role: 'Educator & Content Creator',
@@ -438,102 +438,102 @@ export const translations = {
   hi: {
     // Brand
     brandName: 'QuickServe IT',
-    brandTagline: 'आपका विश्वसनीय टेक पार्टनर।',
+    brandTagline: 'आपका भरोसेमंद टेक पार्टनर।',
 
     // Landing
     secure: 'सुरक्षित',
     india: 'भारत',
-    enter: 'प्रवेश करें',
+    enter: 'आगे बढ़ें',
 
     // Mode labels
-    institutional: 'संस्थागत',
-    creator: 'क्रिएटर',
+    institutional: 'स्कूल/कॉलेज के लिए',
+    creator: 'क्रिएटर के लिए',
 
     // Navigation
     home: 'होम',
     services: 'सेवाएं',
     studio: 'स्टूडियो',
     portfolio: 'पोर्टफोलियो',
-    about: 'परिचय',
+    about: 'हमारे बारे में',
     founder: 'संस्थापक',
-    pricing: 'मूल्य निर्धारण',
-    contact: 'संपर्क',
+    pricing: 'कीमत',
+    contact: 'संपर्क करें',
 
     // Hero Section - Institutional
-    heroInst1: 'सुव्यवस्थित डिजिटल निष्पादन',
-    heroInst2: 'संरचित शैक्षणिक सहायता',
-    heroInst3: 'शांत प्रगति, स्पष्ट फाइलें',
-    heroInst4: 'विश्वसनीय संस्थागत भागीदार',
-    heroInstDesc: 'हम जटिल डिजिटल कार्यों को व्यवस्थित, गोपनीय और समयबद्ध निष्पादन में बदलते हैं। परीक्षा दस्तावेजों से लेकर सरकारी अनुपालन तक, आपकी संस्था शांति की हकदार है।',
+    heroInst1: 'डिजिटल काम को आसान बनाएं',
+    heroInst2: 'स्कूल के काम में मदद',
+    heroInst3: 'शांति से काम, साफ फाइलें',
+    heroInst4: 'भरोसेमंद साथी',
+    heroInstDesc: 'हम आपके डिजिटल कामों को सही तरीके से, गोपनीय रखकर और समय पर पूरा करते हैं। परीक्षा के कागजात हों या सरकारी काम, हम आपकी टेंशन कम करते हैं।',
 
     // Hero Section - Creator
-    heroCreator1: 'सिनेमाई कंटेंट निर्माण',
-    heroCreator2: 'रिटेंशन-आधारित संपादन',
-    heroCreator3: 'विश्व-स्तरीय प्रोडक्शन',
-    heroCreatorDesc: 'हम आपके रॉ फुटेज को प्रीमियम कंटेंट में बदलते हैं जो दर्शकों को बांधे रखता है। YouTube लॉन्ग-फॉर्म से लेकर सिनेमाई डॉक्यूमेंट्री तक, आपका विजन विश्व-स्तरीय फिनिश का हकदार है।',
+    heroCreator1: 'प्रोफेशनल वीडियो बनाएं',
+    heroCreator2: 'दर्शकों को बांधे रखने वाला एडिटिंग',
+    heroCreator3: 'बेहतरीन क्वालिटी',
+    heroCreatorDesc: 'हम आपके कच्चे वीडियो को प्रोफेशनल कंटेंट में बदलते हैं जो लोग देखना पसंद करें। YouTube वीडियो हो या डॉक्यूमेंट्री, आपका आइडिया बेहतरीन फिनिश का हकदार है।',
 
     // CTAs
-    getStarted: 'शुरुआत करें',
-    startCreating: 'निर्माण शुरू करें',
+    getStarted: 'शुरू करें',
+    startCreating: 'बनाना शुरू करें',
     viewServices: 'सेवाएं देखें',
-    seePortfolio: 'पोर्टफोलियो देखें',
+    seePortfolio: 'हमारा काम देखें',
     contactUs: 'संपर्क करें',
-    getQuote: 'कोटेशन प्राप्त करें',
-    discussRetainer: 'रिटेनर पर चर्चा करें',
-    explorePartnership: 'साझेदारी देखें',
-    discussPackage: 'पैकेज पर चर्चा करें',
-    startThisService: 'यह सेवा शुरू करें',
+    getQuote: 'कीमत जानें',
+    discussRetainer: 'मासिक प्लान पर बात करें',
+    explorePartnership: 'साथ मिलकर काम करें',
+    discussPackage: 'पैकेज पर बात करें',
+    startThisService: 'यह सेवा लें',
 
     // Stats
-    schoolsServed: 'विद्यालय सेवारत',
-    projectsDelivered: 'प्रोजेक्ट्स पूर्ण',
-    uptimeGuarantee: 'अपटाइम गारंटी',
-    documents: 'दस्तावेज़ संसाधित',
-    viewsGenerated: 'व्यूज जनरेटेड',
+    schoolsServed: 'स्कूल जिनकी मदद की',
+    projectsDelivered: 'प्रोजेक्ट पूरे किए',
+    uptimeGuarantee: 'सर्विस गारंटी',
+    documents: 'दस्तावेज तैयार किए',
+    viewsGenerated: 'व्यूज मिले',
 
     // Contact Form
-    contactTitle: 'संपर्क स्थापित करें',
-    contactSubtitle: 'अपने प्रोजेक्ट पर चर्चा करने के लिए नीचे दिया गया फॉर्म भरें।',
+    contactTitle: 'हमसे बात करें',
+    contactSubtitle: 'अपने काम के बारे में बताने के लिए नीचे फॉर्म भरें।',
     yourName: 'आपका नाम',
     mobileNumber: 'मोबाइल नंबर',
-    emailAddress: 'ईमेल पता',
-    selectService: 'सेवा का चयन करें',
-    instituteServices: 'संस्थागत सेवाएं',
+    emailAddress: 'ईमेल',
+    selectService: 'कौन सी सेवा चाहिए',
+    instituteServices: 'स्कूल/कॉलेज की सेवाएं',
     creatorServices: 'क्रिएटर सेवाएं',
-    generalInquiry: 'सामान्य पूछताछ',
+    generalInquiry: 'सामान्य जानकारी',
     yourMessage: 'आपका संदेश',
-    termsAgree: 'मैं नियमों और शर्तों से सहमत हूं',
-    sendMessage: 'संदेश भेजें',
-    messageSent: 'संदेश तैयार है! WhatsApp पर रीडायरेक्ट किया जा रहा है...',
+    termsAgree: 'मैं नियम और शर्तों से सहमत हूं',
+    sendMessage: 'भेजें',
+    messageSent: 'संदेश तैयार है! WhatsApp खुल रहा है...',
 
     // Footer
     allRightsReserved: 'सर्वाधिकार सुरक्षित',
     privacyPolicy: 'गोपनीयता नीति',
-    termsOfService: 'सेवा की शर्तें',
+    termsOfService: 'नियम और शर्तें',
 
     // Working Hours
     available: 'उपलब्ध',
     offline: 'ऑफलाइन',
-    workingHours: 'कार्य समय',
-    workingHoursInfo: 'कार्य समय: सुबह 10:00 – दोपहर 3:00 (केवल कार्य समय में प्रतिक्रिया)',
+    workingHours: 'काम का समय',
+    workingHoursInfo: 'काम का समय: सुबह 10 से दोपहर 3 बजे (इसी समय में जवाब मिलेगा)',
     workingDays: 'सोमवार से शनिवार',
-    outsideHoursNote: 'इन घंटों के बाद प्राप्त संदेशों का उत्तर अगले कार्य दिवस पर दिया जाएगा।',
+    outsideHoursNote: 'इस समय के बाद भेजे गए संदेश का जवाब अगले दिन मिलेगा।',
 
     // Testimonials
-    readMore: 'अधिक पढ़ें',
+    readMore: 'पूरा पढ़ें',
     showLess: 'कम दिखाएं',
 
     // Services Page
     ourServices: 'हमारी सेवाएं',
     creatorStudio: 'क्रिएटर स्टूडियो',
-    servicesInstDesc: 'शैक्षणिक संस्थानों के लिए संरचित और गोपनीय सहायता। प्रत्येक सेवा परिचालन स्पष्टता के लिए डिज़ाइन की गई है।',
-    servicesCreatorDesc: 'आधुनिक क्रिएटर्स के लिए प्रीमियम प्रोडक्शन सेवाएं। गुणवत्ता जो आपके कंटेंट को उनींदा स्तर पर ले जाती है।',
+    servicesInstDesc: 'स्कूल और कॉलेज के लिए सही और गोपनीय मदद। हर सेवा आपके काम को आसान बनाने के लिए।',
+    servicesCreatorDesc: 'क्रिएटर्स के लिए बेहतरीन प्रोडक्शन सेवाएं। क्वालिटी जो आपके कंटेंट को अगले लेवल पर ले जाए।',
     beforeYouBegin: 'शुरू करने से पहले',
-    beforeYouBeginItems: 'सभी सेवाओं के लिए स्पष्ट विनिर्देशों की आवश्यकता होती है|कार्य समय: सुबह 10:00 – दोपहर 3:00 (सोम-शनि)|कार्य समय के दौरान प्रतिक्रिया समय: 2 घंटे के भीतर|सभी फाइलें सख्त गोपनीयता के साथ संहाली जाती हैं',
-    howItWorks: 'कार्य प्रक्रिया',
-    whatYouNeed: 'आवश्यक तैयारी',
-    timeline: 'समय-सीमा',
-    whatsappNote: 'पहले से भरे हुए संदेश के साथ WhatsApp खोलने के लिए क्लिक करें',
+    beforeYouBeginItems: 'सभी सेवाओं के लिए पहले से जानकारी चाहिए|काम का समय: सुबह 10 से दोपहर 3 बजे (सोम-शनि)|काम के समय में 2 घंटे में जवाब मिलेगा|सभी फाइलें पूरी गोपनीयता से रखी जाती हैं',
+    howItWorks: 'कैसे काम करता है',
+    whatYouNeed: 'आपको क्या तैयार रखना होगा',
+    timeline: 'कितना समय लगेगा',
+    whatsappNote: 'WhatsApp खोलने के लिए क्लिक करें (संदेश पहले से लिखा होगा)',
 
     // Services - Institutional
     examDocTitle: 'परीक्षा दस्तावेज़ीकरण',
@@ -735,40 +735,40 @@ export const translations = {
     portfolioViewContent: 'सामग्री देखें',
 
     // Testimonials
-    testimonialInstHeading: 'संस्थागत प्रतिक्रिया',
-    testimonialCreatorHeading: 'क्रिएटर प्रतिक्रिया',
+    testimonialInstHeading: 'संस्थागत प्रशंसापत्र',
+    testimonialCreatorHeading: 'क्रिएटर प्रशंसापत्र',
 
     // Institutional Testimonials
-    testimonialInst1Text: 'महत्वपूर्ण शैक्षणिक और प्रशासनिक कार्य के दौरान तकनीकी सहायता विश्वसनीय और सुव्यवस्थित थी। छात्रवृत्ति प्रसंस्करण, परीक्षा दस्तावेज़ीकरण, बायोमेट्रिक सहायता और सरकारी योजना से संबंधित डिजिटल कार्य के दौरान, निष्पादन सावधानीपूर्वक और समय पर संभाला गया। परीक्षा और अनुपालन अवधि के दौरान सहायता ने हमारे शिक्षण और कार्यालय कर्मचारियों पर दबाव कम किया। कार्य अनुशासित, गोपनीय रहा और संस्थागत निर्देशों के अनुरूप रहा। समग्र समन्वय सुगम था और अनावश्यक तनाव के बिना कई जिम्मेदारियों को प्रबंधित करने में मदद की।',
+    testimonialInst1Text: 'परीक्षा, छात्रवृत्ति और प्रशासनिक कार्य के दौरान तकनीकी सहायता अनुशासित और समयबद्ध तरीके से संभाली गई। संरचित दृष्टिकोण ने कर्मचारियों पर दबाव कम किया और पूरी प्रक्रिया में गोपनीयता सुनिश्चित की।',
     testimonialInst1Name: 'प्रबंधक',
     testimonialInst1Location: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज, चंद्राव',
-    testimonialInst1Preview: 'महत्वपूर्ण शैक्षणिक कार्य के दौरान तकनीकी सहायता विश्वसनीय और सुव्यवस्थित थी।',
+    testimonialInst1Preview: 'परीक्षा और छात्रवृत्ति के दौरान तकनीकी सहायता अनुशासित और समयबद्ध थी।',
 
-    testimonialInst2Text: 'समय पर परीक्षा दस्तावेज़ीकरण सहायता ने प्रक्रिया को सुगम और तनाव-मुक्त बनाया। QuickServe IT ने एजेंसी ढांचे के माध्यम से परीक्षा पेपर तैयारी और संबंधित दस्तावेज़ीकरण में हमारा समर्थन किया। कार्य समय पर वितरित किया गया और पेशेवर तरीके से संभाला गया। ग्रामीण क्षेत्र में स्थानीय रूप से संगठित डिजिटल सेवाएं प्राप्त करना हमारे लिए आश्वस्तकारी है। हम कार्य की गुणवत्ता से संतुष्ट हैं और एजेंसी के साथ इस जुड़ाव को जारी रखने का इरादा रखते हैं।',
+    testimonialInst2Text: 'परीक्षा दस्तावेज़ीकरण सहायता एजेंसी ढांचे के माध्यम से समय पर प्रदान की गई। ग्रामीण क्षेत्र में स्थानीय रूप से संगठित डिजिटल सेवाएं प्राप्त करना आश्वस्तकारी है, और हम समन्वय की गुणवत्ता से संतुष्ट हैं।',
     testimonialInst2Name: 'प्रशासक',
     testimonialInst2Location: 'शहीद रुद्र प्रताप इंटरमीडिएट कॉलेज, चंद्राव',
-    testimonialInst2Preview: 'समय पर परीक्षा दस्तावेज़ीकरण सहायता ने प्रक्रिया को सुगम बनाया।',
+    testimonialInst2Preview: 'परीक्षा दस्तावेज़ीकरण गुणवत्ता समन्वय के साथ समय पर प्रदान किया गया।',
 
-    testimonialInst3Text: 'ग्रामीण क्षेत्रों में स्थानीय रूप से पेशेवर डिजिटल सहायता उपलब्ध होना उत्साहजनक है। हमने छात्रवृत्ति से संबंधित तकनीकी सहायता के बारे में चर्चा की, और दृष्टिकोण स्पष्ट और सुव्यवस्थित लगा। यह जानना आश्वस्तकारी है कि ऐसी सेवाएं ग्रामीण क्षेत्र के भीतर ही विकसित की जा रही हैं। हम छात्रवृत्ति प्रसंस्करण अवधि के दौरान समन्वय की प्रतीक्षा कर रहे हैं और समय पर और संगठित डिजिटल सहायता के साथ स्कूलों का समर्थन करने के प्रयास की सराहना करते हैं।',
+    testimonialInst3Text: 'ग्रामीण संस्थानों के लिए स्थानीय रूप से पेशेवर डिजिटल सहायता उपलब्ध होना उत्साहजनक है। हम छात्रवृत्ति प्रसंस्करण अवधि के दौरान समन्वय की प्रतीक्षा कर रहे हैं।',
     testimonialInst3Name: 'स्कूल प्रशासक',
     testimonialInst3Location: 'विद्या पब्लिक स्कूल',
     testimonialInst3Preview: 'ग्रामीण क्षेत्रों में पेशेवर डिजिटल सहायता अब स्थानीय रूप से उपलब्ध है।',
 
     // Creator Testimonials
-    testimonialCreator1Text: 'रचनात्मक प्रक्रिया शांत और सुव्यवस्थित महसूस हुई। विज़ुअल कंटेंट के साथ काम करते हुए, मुझे सिनेमाई प्रभावों से अधिक स्पष्टता की आवश्यकता थी। रचनात्मक कार्य अनुशासित तरीके से संभाला गया, स्पष्ट संचार और न्यूनतम आगे-पीछे के साथ। अंतिम आउटपुट सरल, सार्थक और मेरे विजन के अनुरूप था। इस संरचित दृष्टिकोण ने रचनात्मक कार्य को भारी के बजाय प्रबंधनीय महसूस कराया।',
+    testimonialCreator1Text: 'रचनात्मक कार्य शांत और संरचित तरीके से संभाला गया, जिससे प्रक्रिया स्पष्ट और प्रबंधनीय बनी। अंतिम आउटपुट सरल, सार्थक और शैक्षणिक उपयोग के लिए उपयुक्त था।',
     testimonialCreator1Name: 'अनिल तिवारी',
     testimonialCreator1Location: 'गोरखपुर',
-    testimonialCreator1Preview: 'रचनात्मक प्रक्रिया शांत और सुव्यवस्थित महसूस हुई।',
+    testimonialCreator1Preview: 'रचनात्मक कार्य शांत, संरचित और प्रबंधनीय था।',
 
-    testimonialCreator2Text: 'मैं एक डॉक्यूमेंट्री-शैली परियोजना पर काम कर रहा था जहां यथार्थवाद महत्वपूर्ण था। 2.5D दृश्य विचारपूर्वक बनाए गए थे, कथा को अभिभूत करने के बजाय समर्थन करते हुए। वर्कफ़्लो शांत और तकनीकी रूप से सुदृढ़ रहा, जिससे मुझे दृश्य जटिलता के बजाय कहानी कहने पर ध्यान केंद्रित करने की अनुमति मिली।',
+    testimonialCreator2Text: '2.5D विज़ुअल्स विचारपूर्वक विकसित किए गए, कथा से ध्यान भटकाए बिना गहराई जोड़ते हुए। वर्कफ़्लो तकनीकी रूप से सुदृढ़ और कहानी-केंद्रित रहा।',
     testimonialCreator2Name: 'अमन सिंह',
     testimonialCreator2Location: 'गोरखपुर',
-    testimonialCreator2Preview: '2.5D विज़ुअल्स ने कहानी से ध्यान भटकाए बिना गहराई जोड़ी।',
+    testimonialCreator2Preview: '2.5D विज़ुअल्स ने कथा से ध्यान भटकाए बिना गहराई जोड़ी।',
 
-    testimonialCreator3Text: 'मैं एक सामाजिक दुविधा पर एक स्क्रिप्ट विकसित कर रहा था और मुझे मजबूत वैचारिक स्पष्टता की आवश्यकता थी। प्रासंगिक संसाधनों को एकत्र करने, कथा को संरचित करने और कहानी की मूल विचारधारा को आकार देने में सहायता प्रदान की गई। लेखन प्रक्रिया विचारशील और आधारित महसूस हुई, यह सुनिश्चित करते हुए कि मुद्दे को अतिशयोक्ति या भ्रम के बिना स्पष्ट रूप से संप्रेषित किया गया।',
+    testimonialCreator3Text: 'स्क्रिप्ट विकास को शोध, संसाधन संग्रह और स्पष्ट वैचारिक संरचना के माध्यम से समर्थित किया गया। लेखन प्रक्रिया आधारित और सुव्यवस्थित महसूस हुई।',
     testimonialCreator3Name: 'रोहित वर्मा',
     testimonialCreator3Location: 'गोरखपुर',
-    testimonialCreator3Preview: 'स्क्रिप्ट गहराई, शोध और स्पष्ट विचारधारा के साथ बनाई गई थी।',
+    testimonialCreator3Preview: 'स्क्रिप्ट विकास आधारित और सुव्यवस्थित था।',
 
     // Creator Roles
     testimonialCreator1Role: 'शिक्षक और कंटेंट क्रिएटर',
