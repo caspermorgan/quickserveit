@@ -8,6 +8,7 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
+import Testimonials from '@/components/Testimonials';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -207,6 +208,11 @@ const Home = () => {
               )}
             </div>
           </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-24 px-6 border-t border-border">
+          <Testimonials mode={mode} />
         </section>
       </main>
 

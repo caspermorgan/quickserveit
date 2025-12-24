@@ -296,6 +296,24 @@ export const translations = {
     portfolioUnderstand: 'I Understand',
     portfolioContactUs: 'Contact Us',
     portfolioViewContent: 'View Content',
+
+    // Testimonials
+    testimonialInstHeading: 'Institutional Feedback',
+    testimonialCreatorHeading: 'Creator Feedback',
+
+    // Institutional Testimonials
+    testimonialInst1Text: 'QuickServe IT has been instrumental in managing our examination documentation with complete confidentiality and precision. Their calm, professional approach has made our administrative workload significantly lighter.',
+    testimonialInst1Name: 'B. N. Singh Adarsh Intermediate College',
+    testimonialInst1Location: 'Chandrao',
+
+    testimonialInst2Text: 'We have relied on QuickServe IT for UDISE+ data management and scholarship processing. Their attention to detail and timely delivery has earned our complete trust.',
+    testimonialInst2Name: 'Sahid Rudra Pratap Intermediate College',
+    testimonialInst2Location: 'Chandrao',
+
+    // Creator Testimonial
+    testimonialCreator1Text: 'The video editing quality is exceptional. My content retention improved significantly after working with QuickServe IT. They understand what works on YouTube.',
+    testimonialCreator1Name: 'Arjun',
+    testimonialCreator1Location: 'Gorakhpur',
   },
   hi: {
     // Brand
@@ -590,5 +608,23 @@ export const translations = {
     portfolioUnderstand: 'मैं समझता/समझती हूं',
     portfolioContactUs: 'संपर्क करें',
     portfolioViewContent: 'कंटेंट देखें',
+
+    // Testimonials
+    testimonialInstHeading: 'संस्थागत प्रतिक्रिया',
+    testimonialCreatorHeading: 'क्रिएटर प्रतिक्रिया',
+
+    // Institutional Testimonials
+    testimonialInst1Text: 'QuickServe IT हमारी परीक्षा दस्तावेज़ीकरण को पूर्ण गोपनीयता और सटीकता के साथ प्रबंधित करने में सहायक रहा है। उनके शांत, पेशेवर दृष्टिकोण ने हमारे प्रशासनिक कार्यभार को काफी हल्का कर दिया है।',
+    testimonialInst1Name: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज',
+    testimonialInst1Location: 'चंद्राव',
+
+    testimonialInst2Text: 'हमने UDISE+ डेटा प्रबंधन और छात्रवृत्ति प्रसंस्करण के लिए QuickServe IT पर भरोसा किया है। उनके विवरण पर ध्यान और समय पर डिलीवरी ने हमारा पूर्ण विश्वास अर्जित किया है।',
+    testimonialInst2Name: 'शहीद रुद्र प्रताप इंटरमीडिएट कॉलेज',
+    testimonialInst2Location: 'चंद्राव',
+
+    // Creator Testimonial
+    testimonialCreator1Text: 'वीडियो एडिटिंग की गुणवत्ता असाधारण है। QuickServe IT के साथ काम करने के बाद मेरे कंटेंट रिटेंशन में काफी सुधार हुआ। वे समझते हैं कि YouTube पर क्या काम करता है।',
+    testimonialCreator1Name: 'अर्जुन',
+    testimonialCreator1Location: 'गोरखपुर',
   }
 } as const;
