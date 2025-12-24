@@ -344,17 +344,20 @@ export const translations = {
     testimonialInst1Text: 'The technical support provided during critical academic and administrative work was reliable and well-managed. During scholarship processing, examination documentation, biometric assistance, and government scheme–related digital work, the execution was handled carefully and on time. Support during exams and compliance periods reduced pressure on our teaching and office staff. The work remained disciplined, confidential, and aligned with institutional instructions. Overall coordination was smooth and helped manage multiple responsibilities without unnecessary stress.',
     testimonialInst1Name: 'Manager',
     testimonialInst1Location: 'B. N. Singh Adarsh Intermediate College, Chandrao',
+    testimonialInst1Preview: 'The technical support was reliable and well-managed during critical academic work.',
 
     testimonialInst2Text: 'Timely examination documentation support made the process smooth and stress-free. QuickServe IT supported us with examination paper preparation and related documentation through the agency framework. The work was delivered on time and handled in a professional manner. It is reassuring for us to receive organized digital services locally in a rural area. We are satisfied with the quality of work and intend to continue this association with the agency.',
     testimonialInst2Name: 'Administrator',
     testimonialInst2Location: 'Sahid Rudra Pratap Intermediate College, Chandrao',
+    testimonialInst2Preview: 'Timely examination documentation support made the process smooth and stress-free.',
 
     testimonialInst3Text: 'It is encouraging to see professional digital support becoming available locally in rural areas. We had a discussion regarding scholarship-related technical support, and the approach felt clear and well-structured. It is reassuring to know that such services are being developed within the rural region itself. We look forward to coordinating during the scholarship processing period and appreciate the effort to support schools with timely and organized digital assistance.',
     testimonialInst3Name: 'School Administrator',
     testimonialInst3Location: 'Vidya Public School',
+    testimonialInst3Preview: 'Professional digital support is now available locally in rural areas.',
 
     // Creator Testimonials
-    testimonialCreator1Text: 'The creative process felt calm and well-structured. As an educator working with visual content, I needed clarity more than cinematic effects. The creative work was handled in a disciplined way, with clear communication and minimal back-and-forth. The final output was simple, meaningful, and suitable for educational use. This structured approach made creative work feel manageable instead of overwhelming.',
+    testimonialCreator1Text: 'The creative process felt calm and well-structured. Working with visual content, I needed clarity more than cinematic effects. The creative work was handled in a disciplined way, with clear communication and minimal back-and-forth. The final output was simple, meaningful, and aligned with my vision. This structured approach made creative work feel manageable instead of overwhelming.',
     testimonialCreator1Name: 'Anil Tiwari',
     testimonialCreator1Location: 'Gorakhpur',
     testimonialCreator1Preview: 'The creative process felt calm and well-structured.',
@@ -739,17 +742,20 @@ export const translations = {
     testimonialInst1Text: 'महत्वपूर्ण शैक्षणिक और प्रशासनिक कार्य के दौरान तकनीकी सहायता विश्वसनीय और सुव्यवस्थित थी। छात्रवृत्ति प्रसंस्करण, परीक्षा दस्तावेज़ीकरण, बायोमेट्रिक सहायता और सरकारी योजना से संबंधित डिजिटल कार्य के दौरान, निष्पादन सावधानीपूर्वक और समय पर संभाला गया। परीक्षा और अनुपालन अवधि के दौरान सहायता ने हमारे शिक्षण और कार्यालय कर्मचारियों पर दबाव कम किया। कार्य अनुशासित, गोपनीय रहा और संस्थागत निर्देशों के अनुरूप रहा। समग्र समन्वय सुगम था और अनावश्यक तनाव के बिना कई जिम्मेदारियों को प्रबंधित करने में मदद की।',
     testimonialInst1Name: 'प्रबंधक',
     testimonialInst1Location: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज, चंद्राव',
+    testimonialInst1Preview: 'महत्वपूर्ण शैक्षणिक कार्य के दौरान तकनीकी सहायता विश्वसनीय और सुव्यवस्थित थी।',
 
     testimonialInst2Text: 'समय पर परीक्षा दस्तावेज़ीकरण सहायता ने प्रक्रिया को सुगम और तनाव-मुक्त बनाया। QuickServe IT ने एजेंसी ढांचे के माध्यम से परीक्षा पेपर तैयारी और संबंधित दस्तावेज़ीकरण में हमारा समर्थन किया। कार्य समय पर वितरित किया गया और पेशेवर तरीके से संभाला गया। ग्रामीण क्षेत्र में स्थानीय रूप से संगठित डिजिटल सेवाएं प्राप्त करना हमारे लिए आश्वस्तकारी है। हम कार्य की गुणवत्ता से संतुष्ट हैं और एजेंसी के साथ इस जुड़ाव को जारी रखने का इरादा रखते हैं।',
     testimonialInst2Name: 'प्रशासक',
     testimonialInst2Location: 'शहीद रुद्र प्रताप इंटरमीडिएट कॉलेज, चंद्राव',
+    testimonialInst2Preview: 'समय पर परीक्षा दस्तावेज़ीकरण सहायता ने प्रक्रिया को सुगम बनाया।',
 
     testimonialInst3Text: 'ग्रामीण क्षेत्रों में स्थानीय रूप से पेशेवर डिजिटल सहायता उपलब्ध होना उत्साहजनक है। हमने छात्रवृत्ति से संबंधित तकनीकी सहायता के बारे में चर्चा की, और दृष्टिकोण स्पष्ट और सुव्यवस्थित लगा। यह जानना आश्वस्तकारी है कि ऐसी सेवाएं ग्रामीण क्षेत्र के भीतर ही विकसित की जा रही हैं। हम छात्रवृत्ति प्रसंस्करण अवधि के दौरान समन्वय की प्रतीक्षा कर रहे हैं और समय पर और संगठित डिजिटल सहायता के साथ स्कूलों का समर्थन करने के प्रयास की सराहना करते हैं।',
     testimonialInst3Name: 'स्कूल प्रशासक',
     testimonialInst3Location: 'विद्या पब्लिक स्कूल',
+    testimonialInst3Preview: 'ग्रामीण क्षेत्रों में पेशेवर डिजिटल सहायता अब स्थानीय रूप से उपलब्ध है।',
 
     // Creator Testimonials
-    testimonialCreator1Text: 'रचनात्मक प्रक्रिया शांत और सुव्यवस्थित महसूस हुई। विज़ुअल कंटेंट के साथ काम करने वाले एक शिक्षक के रूप में, मुझे सिनेमाई प्रभावों से अधिक स्पष्टता की आवश्यकता थी। रचनात्मक कार्य अनुशासित तरीके से संभाला गया, स्पष्ट संचार और न्यूनतम आगे-पीछे के साथ। अंतिम आउटपुट सरल, सार्थक और शैक्षिक उपयोग के लिए उपयुक्त था। इस संरचित दृष्टिकोण ने रचनात्मक कार्य को भारी के बजाय प्रबंधनीय महसूस कराया।',
+    testimonialCreator1Text: 'रचनात्मक प्रक्रिया शांत और सुव्यवस्थित महसूस हुई। विज़ुअल कंटेंट के साथ काम करते हुए, मुझे सिनेमाई प्रभावों से अधिक स्पष्टता की आवश्यकता थी। रचनात्मक कार्य अनुशासित तरीके से संभाला गया, स्पष्ट संचार और न्यूनतम आगे-पीछे के साथ। अंतिम आउटपुट सरल, सार्थक और मेरे विजन के अनुरूप था। इस संरचित दृष्टिकोण ने रचनात्मक कार्य को भारी के बजाय प्रबंधनीय महसूस कराया।',
     testimonialCreator1Name: 'अनिल तिवारी',
     testimonialCreator1Location: 'गोरखपुर',
     testimonialCreator1Preview: 'रचनात्मक प्रक्रिया शांत और सुव्यवस्थित महसूस हुई।',

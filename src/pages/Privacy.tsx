@@ -1,11 +1,32 @@
 import { useTranslation } from '@/hooks/useTranslation';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const Privacy = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     return (
         <div className="min-h-screen bg-background pt-24 pb-16">
             <div className="max-w-4xl mx-auto px-6">
+                {/* Navigation Buttons */}
+                <div className="flex items-center justify-between mb-8">
+                    <button
+                        onClick={() => navigate('/terms')}
+                        className="flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground transition-colors"
+                    >
+                        <ArrowLeft className="w-4 h-4" />
+                        Back
+                    </button>
+                    <button
+                        onClick={() => navigate('/disclaimer')}
+                        className="flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground transition-colors"
+                    >
+                        Next: Disclaimer
+                        <ArrowRight className="w-4 h-4" />
+                    </button>
+                </div>
+
                 <h1 className="text-3xl md:text-4xl font-display mb-8">
                     {t('privacyTitle')}
                 </h1>

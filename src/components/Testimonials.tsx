@@ -12,16 +12,19 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
     const institutionalTestimonials = [
         {
             text: t('testimonialInst1Text'),
+            preview: t('testimonialInst1Preview'),
             name: t('testimonialInst1Name'),
             location: t('testimonialInst1Location'),
         },
         {
             text: t('testimonialInst2Text'),
+            preview: t('testimonialInst2Preview'),
             name: t('testimonialInst2Name'),
             location: t('testimonialInst2Location'),
         },
         {
             text: t('testimonialInst3Text'),
+            preview: t('testimonialInst3Preview'),
             name: t('testimonialInst3Name'),
             location: t('testimonialInst3Location'),
         },
@@ -63,6 +66,7 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
                         <TestimonialCard
                             key={index}
                             text={testimonial.text}
+                            preview={testimonial.preview}
                             name={testimonial.name}
                             location={testimonial.location}
                             mode={mode}
