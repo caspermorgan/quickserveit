@@ -66,8 +66,8 @@ const Footer = ({ mode }: FooterProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${mode === 'institutional'
-                  ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
-                  : 'bg-creator/10 text-creator hover:bg-creator/20'
+                ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
+                : 'bg-creator/10 text-creator hover:bg-creator/20'
                 }`}
             >
               <MessageCircle className="w-4 h-4" />
@@ -97,12 +97,15 @@ const Footer = ({ mode }: FooterProps) => {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-foreground/40">
-            <a href="#" className="hover:text-foreground transition-colors duration-300">
+            <Link to="/privacy" className="hover:text-foreground transition-colors duration-300">
               Privacy
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors duration-300">
+            </Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors duration-300">
               Terms
-            </a>
+            </Link>
+            <Link to="/disclaimer" className="hover:text-foreground transition-colors duration-300">
+              Disclaimer
+            </Link>
           </div>
         </div>
 

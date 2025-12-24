@@ -16,6 +16,9 @@ import About from "./pages/About";
 import Founder from "./pages/Founder";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Disclaimer from "./pages/Disclaimer";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,11 +37,11 @@ const ScrollToTop = () => {
 // Protected route wrapper that redirects to landing if not entered
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { hasEntered } = useMode();
-  
+
   if (!hasEntered) {
     return <Navigate to="/" replace />;
   }
-  
+
   return <>{children}</>;
 };
 
@@ -55,6 +58,9 @@ const AppRoutes = () => {
         <Route path="/founder" element={<ProtectedRoute><Founder /></ProtectedRoute>} />
         <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
         <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
+        <Route path="/terms" element={<ProtectedRoute><Terms /></ProtectedRoute>} />
+        <Route path="/privacy" element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
+        <Route path="/disclaimer" element={<ProtectedRoute><Disclaimer /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

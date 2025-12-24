@@ -31,18 +31,21 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
         {
             text: t('testimonialCreator1Text'),
             name: t('testimonialCreator1Name'),
+            role: t('testimonialCreator1Role'),
             location: t('testimonialCreator1Location'),
             preview: t('testimonialCreator1Preview'),
         },
         {
             text: t('testimonialCreator2Text'),
             name: t('testimonialCreator2Name'),
+            role: t('testimonialCreator2Role'),
             location: t('testimonialCreator2Location'),
             preview: t('testimonialCreator2Preview'),
         },
         {
             text: t('testimonialCreator3Text'),
             name: t('testimonialCreator3Name'),
+            role: t('testimonialCreator3Role'),
             location: t('testimonialCreator3Location'),
             preview: t('testimonialCreator3Preview'),
         },
@@ -81,6 +84,7 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
                             text={testimonial.text}
                             preview={testimonial.preview}
                             name={testimonial.name}
+                            role={testimonial.role}
                             location={testimonial.location}
                             mode={mode}
                             type="creator"
@@ -165,12 +169,13 @@ interface TestimonialCardProps {
     text: string;
     preview?: string;
     name: string;
+    role?: string;
     location: string;
     mode: 'institutional' | 'creator';
     type: 'institutional' | 'creator';
 }
 
-const TestimonialCard = ({ text, preview, name, location, mode, type }: TestimonialCardProps) => {
+const TestimonialCard = ({ text, preview, name, role, location, mode, type }: TestimonialCardProps) => {
     const { t } = useTranslation();
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -207,6 +212,11 @@ const TestimonialCard = ({ text, preview, name, location, mode, type }: Testimon
                 <div className={`font-medium text-sm md:text-base ${accentColor}`}>
                     {name}
                 </div>
+                {role && (
+                    <div className="text-xs md:text-sm text-foreground/50 mt-1">
+                        {role}
+                    </div>
+                )}
                 <div className="text-xs md:text-sm text-foreground/40 mt-1">
                     {location}
                 </div>
