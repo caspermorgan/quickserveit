@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
-import { Quote } from 'lucide-react';
+import { Quote, ChevronDown } from 'lucide-react';
 
 interface TestimonialsProps {
     mode: 'institutional' | 'creator';
@@ -61,6 +62,9 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ text, name, location, mode, type }: TestimonialCardProps) => {
+    const { t } = useTranslation();
+    const [isExpanded, setIsExpanded] = useState(false);
+
     const accentColor = type === 'institutional'
         ? 'text-institutional'
         : 'text-creator';
@@ -71,9 +75,20 @@ const TestimonialCard = ({ text, name, location, mode, type }: TestimonialCardPr
             <Quote className={`w-8 h-8 mb-4 ${accentColor} opacity-40`} />
 
             {/* Testimonial Text */}
-            <p className="text-sm md:text-base text-foreground/70 leading-relaxed mb-6 flex-grow">
-                "{text}"
-            </p>
+            <div className="flex-grow mb-6">
+                <p className={`text-sm md:text-base text-foreground/70 leading-relaxed transition-all duration-300 ${!isExpanded ? 'line-clamp-3' : ''}`}>
+                    "{text}"
+                </p>
+
+                {/* Read More/Less Button */}
+                <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className={`mt-3 text-xs md:text-sm font-medium ${accentColor} hover:opacity-70 transition-opacity flex items-center gap-1`}
+                >
+                    {isExpanded ? t('showLess') : t('readMore')}
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+                </button>
+            </div>
 
             {/* Attribution */}
             <div className="border-t border-border/20 pt-4">
