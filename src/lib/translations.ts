@@ -258,6 +258,30 @@ export const translations = {
     pricingNote: 'All prices are exclusive of GST. Urgent work may incur additional charges based on complexity and timeline.',
     perMonth: '/month',
     perVideo: '/video',
+    
+    // Creator Mode - New Sections
+    creatorModeLaunchNote: 'Creator Mode services will start from 1st March.',
+    servicesOffered: 'Services Offered',
+    professionalSoftware: 'Professional Software',
+    appsAndTools: 'Apps & Tools',
+    upcomingInnovations: 'Upcoming Innovations',
+    moreDetailsNote: 'More details will be shared in future updates.',
+    comingSoon: 'Coming Soon',
+    
+    // Software & Tools
+    adobePremierePro: 'Adobe Premiere Pro',
+    adobeAfterEffects: 'Adobe After Effects',
+    davinciResolve: 'DaVinci Resolve',
+    adobePhotoshop: 'Adobe Photoshop',
+    adobeIllustrator: 'Adobe Illustrator',
+    figma: 'Figma',
+    canvaPro: 'Canva Pro',
+    capcut: 'CapCut Pro',
+    
+    // Upcoming Items
+    aiContentGeneration: 'AI Content Generation',
+    virtualProduction: 'Virtual Production',
+    immersiveExperiences: 'Immersive Experiences',
   },
   hi: {
     // Brand
@@ -514,5 +538,29 @@ export const translations = {
     pricingNote: 'सभी मूल्य GST को छोड़कर हैं। अर्जेंट कार्य में जटिलता और समय-सीमा के आधार पर अतिरिक्त शुल्क लग सकता है।',
     perMonth: '/माह',
     perVideo: '/वीडियो',
+    
+    // Creator Mode - New Sections
+    creatorModeLaunchNote: 'क्रिएटर मोड सेवाएं 1 मार्च से शुरू होंगी।',
+    servicesOffered: 'प्रदान की जाने वाली सेवाएं',
+    professionalSoftware: 'प्रोफेशनल सॉफ्टवेयर',
+    appsAndTools: 'ऐप्स और टूल्स',
+    upcomingInnovations: 'आने वाले इनोवेशन',
+    moreDetailsNote: 'भविष्य के अपडेट में अधिक जानकारी साझा की जाएगी।',
+    comingSoon: 'जल्द आ रहा है',
+    
+    // Software & Tools
+    adobePremierePro: 'Adobe Premiere Pro',
+    adobeAfterEffects: 'Adobe After Effects',
+    davinciResolve: 'DaVinci Resolve',
+    adobePhotoshop: 'Adobe Photoshop',
+    adobeIllustrator: 'Adobe Illustrator',
+    figma: 'Figma',
+    canvaPro: 'Canva Pro',
+    capcut: 'CapCut Pro',
+    
+    // Upcoming Items
+    aiContentGeneration: 'AI कंटेंट जनरेशन',
+    virtualProduction: 'वर्चुअल प्रोडक्शन',
+    immersiveExperiences: 'इमर्सिव एक्सपीरियंस',
   }
 } as const;
