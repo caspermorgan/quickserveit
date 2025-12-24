@@ -341,8 +341,8 @@ export const translations = {
     testimonialCreatorHeading: 'Creator Feedback',
 
     // Institutional Testimonials
-    testimonialInst1Text: 'The technical support provided during critical academic and administrative work was reliable and well-managed. During scholarship processing, examination documentation, biometric assistance, and government scheme–related digital work, the technical execution was handled carefully and on time. Support during exams and compliance periods reduced pressure on our teaching and office staff. The work remained disciplined, confidential, and aligned with institutional instructions. Overall coordination was smooth and helped manage multiple responsibilities without unnecessary stress.',
-    testimonialInst1Name: 'IT Manager',
+    testimonialInst1Text: 'The technical support provided during critical academic and administrative work was reliable and well-managed. During scholarship processing, examination documentation, biometric assistance, and government scheme–related digital work, the execution was handled carefully and on time. Support during exams and compliance periods reduced pressure on our teaching and office staff. The work remained disciplined, confidential, and aligned with institutional instructions. Overall coordination was smooth and helped manage multiple responsibilities without unnecessary stress.',
+    testimonialInst1Name: 'Manager',
     testimonialInst1Location: 'B. N. Singh Adarsh Intermediate College, Chandrao',
 
     testimonialInst2Text: 'Timely examination documentation support made the process smooth and stress-free. QuickServe IT supported us with examination paper preparation and related documentation through the agency framework. The work was delivered on time and handled in a professional manner. It is reassuring for us to receive organized digital services locally in a rural area. We are satisfied with the quality of work and intend to continue this association with the agency.',
@@ -353,10 +353,21 @@ export const translations = {
     testimonialInst3Name: 'School Administrator',
     testimonialInst3Location: 'Vidya Public School',
 
-    // Creator Testimonial
-    testimonialCreator1Text: 'The video editing quality is exceptional. My content retention improved significantly after working with QuickServe IT. They understand what works on YouTube.',
-    testimonialCreator1Name: 'Arjun',
+    // Creator Testimonials
+    testimonialCreator1Text: 'The creative process felt calm and well-structured. As an educator working with visual content, I needed clarity more than cinematic effects. The creative work was handled in a disciplined way, with clear communication and minimal back-and-forth. The final output was simple, meaningful, and suitable for educational use. This structured approach made creative work feel manageable instead of overwhelming.',
+    testimonialCreator1Name: 'Anil Tiwari',
     testimonialCreator1Location: 'Gorakhpur',
+    testimonialCreator1Preview: 'The creative process felt calm and well-structured.',
+
+    testimonialCreator2Text: 'I was working on a documentary-style project where realism was important. The 2.5D scenes were created thoughtfully, supporting the narrative rather than overpowering it. The workflow remained calm and technically sound, allowing me to focus on storytelling instead of visual complexity.',
+    testimonialCreator2Name: 'Aman Singh',
+    testimonialCreator2Location: 'Gorakhpur',
+    testimonialCreator2Preview: 'The 2.5D visuals added depth without distracting from the story.',
+
+    testimonialCreator3Text: 'I was developing a script on a social dilemma and needed strong conceptual clarity. Support was provided in collecting relevant resources, structuring the narrative, and shaping the core ideology of the story. The writing process felt thoughtful and grounded, ensuring the issue was communicated clearly without exaggeration or confusion.',
+    testimonialCreator3Name: 'Rohit Verma',
+    testimonialCreator3Location: 'Gorakhpur',
+    testimonialCreator3Preview: 'The script was built with depth, research, and a clear ideology.',
 
 
 
@@ -672,8 +683,8 @@ export const translations = {
     testimonialCreatorHeading: 'क्रिएटर प्रतिक्रिया',
 
     // Institutional Testimonials
-    testimonialInst1Text: 'महत्वपूर्ण शैक्षणिक और प्रशासनिक कार्य के दौरान तकनीकी सहायता विश्वसनीय और सुव्यवस्थित थी। छात्रवृत्ति प्रसंस्करण, परीक्षा दस्तावेज़ीकरण, बायोमेट्रिक सहायता और सरकारी योजना से संबंधित डिजिटल कार्य के दौरान, तकनीकी निष्पादन सावधानीपूर्वक और समय पर संभाला गया। परीक्षा और अनुपालन अवधि के दौरान सहायता ने हमारे शिक्षण और कार्यालय कर्मचारियों पर दबाव कम किया। कार्य अनुशासित, गोपनीय रहा और संस्थागत निर्देशों के अनुरूप रहा। समग्र समन्वय सुगम था और अनावश्यक तनाव के बिना कई जिम्मेदारियों को प्रबंधित करने में मदद की।',
-    testimonialInst1Name: 'आईटी प्रबंधक',
+    testimonialInst1Text: 'महत्वपूर्ण शैक्षणिक और प्रशासनिक कार्य के दौरान तकनीकी सहायता विश्वसनीय और सुव्यवस्थित थी। छात्रवृत्ति प्रसंस्करण, परीक्षा दस्तावेज़ीकरण, बायोमेट्रिक सहायता और सरकारी योजना से संबंधित डिजिटल कार्य के दौरान, निष्पादन सावधानीपूर्वक और समय पर संभाला गया। परीक्षा और अनुपालन अवधि के दौरान सहायता ने हमारे शिक्षण और कार्यालय कर्मचारियों पर दबाव कम किया। कार्य अनुशासित, गोपनीय रहा और संस्थागत निर्देशों के अनुरूप रहा। समग्र समन्वय सुगम था और अनावश्यक तनाव के बिना कई जिम्मेदारियों को प्रबंधित करने में मदद की।',
+    testimonialInst1Name: 'प्रबंधक',
     testimonialInst1Location: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज, चंद्राव',
 
     testimonialInst2Text: 'समय पर परीक्षा दस्तावेज़ीकरण सहायता ने प्रक्रिया को सुगम और तनाव-मुक्त बनाया। QuickServe IT ने एजेंसी ढांचे के माध्यम से परीक्षा पेपर तैयारी और संबंधित दस्तावेज़ीकरण में हमारा समर्थन किया। कार्य समय पर वितरित किया गया और पेशेवर तरीके से संभाला गया। ग्रामीण क्षेत्र में स्थानीय रूप से संगठित डिजिटल सेवाएं प्राप्त करना हमारे लिए आश्वस्तकारी है। हम कार्य की गुणवत्ता से संतुष्ट हैं और एजेंसी के साथ इस जुड़ाव को जारी रखने का इरादा रखते हैं।',
@@ -684,9 +695,20 @@ export const translations = {
     testimonialInst3Name: 'स्कूल प्रशासक',
     testimonialInst3Location: 'विद्या पब्लिक स्कूल',
 
-    // Creator Testimonial
-    testimonialCreator1Text: 'वीडियो संपादन की गुणवत्ता असाधारण है। QuickServe IT के साथ काम करने के बाद मेरे कंटेंट रिटेंशन में काफी सुधार हुआ। वे समझते हैं कि YouTube पर क्या काम करता है।',
-    testimonialCreator1Name: 'अर्जुन',
+    // Creator Testimonials
+    testimonialCreator1Text: 'रचनात्मक प्रक्रिया शांत और सुव्यवस्थित महसूस हुई। विज़ुअल कंटेंट के साथ काम करने वाले एक शिक्षक के रूप में, मुझे सिनेमाई प्रभावों से अधिक स्पष्टता की आवश्यकता थी। रचनात्मक कार्य अनुशासित तरीके से संभाला गया, स्पष्ट संचार और न्यूनतम आगे-पीछे के साथ। अंतिम आउटपुट सरल, सार्थक और शैक्षिक उपयोग के लिए उपयुक्त था। इस संरचित दृष्टिकोण ने रचनात्मक कार्य को भारी के बजाय प्रबंधनीय महसूस कराया।',
+    testimonialCreator1Name: 'अनिल तिवारी',
     testimonialCreator1Location: 'गोरखपुर',
+    testimonialCreator1Preview: 'रचनात्मक प्रक्रिया शांत और सुव्यवस्थित महसूस हुई।',
+
+    testimonialCreator2Text: 'मैं एक डॉक्यूमेंट्री-शैली परियोजना पर काम कर रहा था जहां यथार्थवाद महत्वपूर्ण था। 2.5D दृश्य विचारपूर्वक बनाए गए थे, कथा को अभिभूत करने के बजाय समर्थन करते हुए। वर्कफ़्लो शांत और तकनीकी रूप से सुदृढ़ रहा, जिससे मुझे दृश्य जटिलता के बजाय कहानी कहने पर ध्यान केंद्रित करने की अनुमति मिली।',
+    testimonialCreator2Name: 'अमन सिंह',
+    testimonialCreator2Location: 'गोरखपुर',
+    testimonialCreator2Preview: '2.5D विज़ुअल्स ने कहानी से ध्यान भटकाए बिना गहराई जोड़ी।',
+
+    testimonialCreator3Text: 'मैं एक सामाजिक दुविधा पर एक स्क्रिप्ट विकसित कर रहा था और मुझे मजबूत वैचारिक स्पष्टता की आवश्यकता थी। प्रासंगिक संसाधनों को एकत्र करने, कथा को संरचित करने और कहानी की मूल विचारधारा को आकार देने में सहायता प्रदान की गई। लेखन प्रक्रिया विचारशील और आधारित महसूस हुई, यह सुनिश्चित करते हुए कि मुद्दे को अतिशयोक्ति या भ्रम के बिना स्पष्ट रूप से संप्रेषित किया गया।',
+    testimonialCreator3Name: 'रोहित वर्मा',
+    testimonialCreator3Location: 'गोरखपुर',
+    testimonialCreator3Preview: 'स्क्रिप्ट गहराई, शोध और स्पष्ट विचारधारा के साथ बनाई गई थी।',
   }
 } as const;

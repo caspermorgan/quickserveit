@@ -32,6 +32,19 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
             text: t('testimonialCreator1Text'),
             name: t('testimonialCreator1Name'),
             location: t('testimonialCreator1Location'),
+            preview: t('testimonialCreator1Preview'),
+        },
+        {
+            text: t('testimonialCreator2Text'),
+            name: t('testimonialCreator2Name'),
+            location: t('testimonialCreator2Location'),
+            preview: t('testimonialCreator2Preview'),
+        },
+        {
+            text: t('testimonialCreator3Text'),
+            name: t('testimonialCreator3Name'),
+            location: t('testimonialCreator3Location'),
+            preview: t('testimonialCreator3Preview'),
         },
     ];
 
@@ -66,6 +79,7 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
                         <TestimonialCard
                             key={index}
                             text={testimonial.text}
+                            preview={testimonial.preview}
                             name={testimonial.name}
                             location={testimonial.location}
                             mode={mode}
@@ -149,13 +163,14 @@ const HorizontalScrollContainer = ({ children }: HorizontalScrollContainerProps)
 
 interface TestimonialCardProps {
     text: string;
+    preview?: string;
     name: string;
     location: string;
     mode: 'institutional' | 'creator';
     type: 'institutional' | 'creator';
 }
 
-const TestimonialCard = ({ text, name, location, mode, type }: TestimonialCardProps) => {
+const TestimonialCard = ({ text, preview, name, location, mode, type }: TestimonialCardProps) => {
     const { t } = useTranslation();
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -170,8 +185,8 @@ const TestimonialCard = ({ text, name, location, mode, type }: TestimonialCardPr
 
             {/* Testimonial Text */}
             <div className="flex-grow mb-6">
-                <p className={`text-sm md:text-base text-foreground/70 leading-relaxed transition-all duration-300 ${!isExpanded ? 'line-clamp-3' : ''}`}>
-                    "{text}"
+                <p className="text-sm md:text-base text-foreground/70 leading-relaxed transition-all duration-300">
+                    "{isExpanded ? text : (preview || text)}"
                 </p>
 
                 {/* Read More/Less Button */}
