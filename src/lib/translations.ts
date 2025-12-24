@@ -341,13 +341,17 @@ export const translations = {
     testimonialCreatorHeading: 'Creator Feedback',
 
     // Institutional Testimonials
-    testimonialInst1Text: 'QuickServe IT has been instrumental in managing our examination documentation with complete confidentiality and precision. Their calm, professional approach has made our administrative workload significantly lighter.',
-    testimonialInst1Name: 'B. N. Singh Adarsh Intermediate College',
-    testimonialInst1Location: 'Chandrao',
+    testimonialInst1Text: 'The technical support provided during critical academic and administrative work was reliable and well-managed. During scholarship processing, examination documentation, biometric assistance, and government scheme–related digital work, the technical execution was handled carefully and on time. Support during exams and compliance periods reduced pressure on our teaching and office staff. The work remained disciplined, confidential, and aligned with institutional instructions. Overall coordination was smooth and helped manage multiple responsibilities without unnecessary stress.',
+    testimonialInst1Name: 'IT Manager',
+    testimonialInst1Location: 'B. N. Singh Adarsh Intermediate College, Chandrao',
 
-    testimonialInst2Text: 'We have relied on QuickServe IT for UDISE+ data management and scholarship processing. Their attention to detail and timely delivery has earned our complete trust.',
-    testimonialInst2Name: 'Sahid Rudra Pratap Intermediate College',
-    testimonialInst2Location: 'Chandrao',
+    testimonialInst2Text: 'Timely examination documentation support made the process smooth and stress-free. QuickServe IT supported us with examination paper preparation and related documentation through the agency framework. The work was delivered on time and handled in a professional manner. It is reassuring for us to receive organized digital services locally in a rural area. We are satisfied with the quality of work and intend to continue this association with the agency.',
+    testimonialInst2Name: 'Administrator',
+    testimonialInst2Location: 'Sahid Rudra Pratap Intermediate College, Chandrao',
+
+    testimonialInst3Text: 'It is encouraging to see professional digital support becoming available locally in rural areas. We had a discussion regarding scholarship-related technical support, and the approach felt clear and well-structured. It is reassuring to know that such services are being developed within the rural region itself. We look forward to coordinating during the scholarship processing period and appreciate the effort to support schools with timely and organized digital assistance.',
+    testimonialInst3Name: 'School Administrator',
+    testimonialInst3Location: 'Vidya Public School',
 
     // Creator Testimonial
     testimonialCreator1Text: 'The video editing quality is exceptional. My content retention improved significantly after working with QuickServe IT. They understand what works on YouTube.',
@@ -668,13 +672,17 @@ export const translations = {
     testimonialCreatorHeading: 'क्रिएटर प्रतिक्रिया',
 
     // Institutional Testimonials
-    testimonialInst1Text: 'QuickServe IT हमारी परीक्षा दस्तावेज़ीकरण को पूर्ण गोपनीयता और सटीकता के साथ प्रबंधित करने में सहायक रहा है। उनके शांत, पेशेवर दृष्टिकोण ने हमारे प्रशासनिक कार्यभार को काफी हल्का कर दिया है।',
-    testimonialInst1Name: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज',
-    testimonialInst1Location: 'चंद्राव',
+    testimonialInst1Text: 'महत्वपूर्ण शैक्षणिक और प्रशासनिक कार्य के दौरान तकनीकी सहायता विश्वसनीय और सुव्यवस्थित थी। छात्रवृत्ति प्रसंस्करण, परीक्षा दस्तावेज़ीकरण, बायोमेट्रिक सहायता और सरकारी योजना से संबंधित डिजिटल कार्य के दौरान, तकनीकी निष्पादन सावधानीपूर्वक और समय पर संभाला गया। परीक्षा और अनुपालन अवधि के दौरान सहायता ने हमारे शिक्षण और कार्यालय कर्मचारियों पर दबाव कम किया। कार्य अनुशासित, गोपनीय रहा और संस्थागत निर्देशों के अनुरूप रहा। समग्र समन्वय सुगम था और अनावश्यक तनाव के बिना कई जिम्मेदारियों को प्रबंधित करने में मदद की।',
+    testimonialInst1Name: 'आईटी प्रबंधक',
+    testimonialInst1Location: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज, चंद्राव',
 
-    testimonialInst2Text: 'हमने UDISE+ डेटा प्रबंधन और छात्रवृत्ति प्रसंस्करण के लिए QuickServe IT पर भरोसा किया है। उनके विवरण पर ध्यान और समय पर डिलीवरी ने हमारा पूर्ण विश्वास अर्जित किया है।',
-    testimonialInst2Name: 'शहीद रुद्र प्रताप इंटरमीडिएट कॉलेज',
-    testimonialInst2Location: 'चंद्राव',
+    testimonialInst2Text: 'समय पर परीक्षा दस्तावेज़ीकरण सहायता ने प्रक्रिया को सुगम और तनाव-मुक्त बनाया। QuickServe IT ने एजेंसी ढांचे के माध्यम से परीक्षा पेपर तैयारी और संबंधित दस्तावेज़ीकरण में हमारा समर्थन किया। कार्य समय पर वितरित किया गया और पेशेवर तरीके से संभाला गया। ग्रामीण क्षेत्र में स्थानीय रूप से संगठित डिजिटल सेवाएं प्राप्त करना हमारे लिए आश्वस्तकारी है। हम कार्य की गुणवत्ता से संतुष्ट हैं और एजेंसी के साथ इस जुड़ाव को जारी रखने का इरादा रखते हैं।',
+    testimonialInst2Name: 'प्रशासक',
+    testimonialInst2Location: 'शहीद रुद्र प्रताप इंटरमीडिएट कॉलेज, चंद्राव',
+
+    testimonialInst3Text: 'ग्रामीण क्षेत्रों में स्थानीय रूप से पेशेवर डिजिटल सहायता उपलब्ध होना उत्साहजनक है। हमने छात्रवृत्ति से संबंधित तकनीकी सहायता के बारे में चर्चा की, और दृष्टिकोण स्पष्ट और सुव्यवस्थित लगा। यह जानना आश्वस्तकारी है कि ऐसी सेवाएं ग्रामीण क्षेत्र के भीतर ही विकसित की जा रही हैं। हम छात्रवृत्ति प्रसंस्करण अवधि के दौरान समन्वय की प्रतीक्षा कर रहे हैं और समय पर और संगठित डिजिटल सहायता के साथ स्कूलों का समर्थन करने के प्रयास की सराहना करते हैं।',
+    testimonialInst3Name: 'स्कूल प्रशासक',
+    testimonialInst3Location: 'विद्या पब्लिक स्कूल',
 
     // Creator Testimonial
     testimonialCreator1Text: 'वीडियो संपादन की गुणवत्ता असाधारण है। QuickServe IT के साथ काम करने के बाद मेरे कंटेंट रिटेंशन में काफी सुधार हुआ। वे समझते हैं कि YouTube पर क्या काम करता है।',

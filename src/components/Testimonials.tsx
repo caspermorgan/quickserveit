@@ -20,6 +20,11 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
             name: t('testimonialInst2Name'),
             location: t('testimonialInst2Location'),
         },
+        {
+            text: t('testimonialInst3Text'),
+            name: t('testimonialInst3Name'),
+            location: t('testimonialInst3Location'),
+        },
     ];
 
     const creatorTestimonials = [
