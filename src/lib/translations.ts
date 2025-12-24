@@ -283,6 +283,20 @@ export const translations = {
     aiAgents: 'AI Agents & Automation',
     scanToDigital: 'Scan-to-Digital Automation',
     creatorAutomation: 'Creator-side Automation Tools',
+
+    // Creator Mode Status Notice
+    creatorModeStatusTitle: 'Development Status',
+    creatorModeStatusMessage: 'This service is currently under development and is not live yet. It will be available in the coming months.',
+    creatorModeStatusNote: 'We are finalizing our production workflows and quality standards. Institutional services remain fully operational.',
+
+    // Portfolio Protection
+    portfolioLocked: 'Protected Content',
+    portfolioAccessTitle: 'Content Access Policy',
+    portfolioAccessMessage: 'This portfolio content is intended only for users evaluating our services. The work showcased may represent real institutional use-cases and client projects. To protect privacy and maintain trust, this material is not shared publicly.',
+    portfolioAccessNote: 'If you are evaluating our services and would like to discuss specific case studies, please contact us directly.',
+    portfolioUnderstand: 'I Understand',
+    portfolioContactUs: 'Contact Us',
+    portfolioViewContent: 'View Content',
   },
   hi: {
     // Brand
@@ -550,7 +564,7 @@ export const translations = {
     moreDetailsNote: 'भविष्य के अपडेट में अधिक जानकारी साझा की जाएगी।',
     comingSoon: 'जल्द आ रहा है',
 
-    // Software & Tools
+    // Software & Tools (Keep in English - Technical Terms)
     adobePremierePro: 'Adobe Premiere Pro',
     adobeAfterEffects: 'Adobe After Effects',
     davinciResolve: 'DaVinci Resolve',
@@ -564,5 +578,19 @@ export const translations = {
     aiAgents: 'AI एजेंट्स और ऑटोमेशन',
     scanToDigital: 'स्कैन-टू-डिजिटल ऑटोमेशन',
     creatorAutomation: 'क्रिएटर-साइड ऑटोमेशन टूल्स',
+
+    // Creator Mode Status Notice
+    creatorModeStatusTitle: 'विकास स्थिति',
+    creatorModeStatusMessage: 'यह सेवा वर्तमान में विकास के अधीन है और अभी तक लाइव नहीं है। यह आने वाले महीनों में उपलब्ध होगी।',
+    creatorModeStatusNote: 'हम अपने प्रोडक्शन वर्कफ्लो और गुणवत्ता मानकों को अंतिम रूप दे रहे हैं। संस्थागत सेवाएं पूरी तरह से परिचालन में हैं।',
+
+    // Portfolio Protection
+    portfolioLocked: 'सुरक्षित कंटेंट',
+    portfolioAccessTitle: 'कंटेंट एक्सेस नीति',
+    portfolioAccessMessage: 'यह पोर्टफोलियो कंटेंट केवल उन उपयोगकर्ताओं के लिए है जो हमारी सेवाओं का मूल्यांकन कर रहे हैं। प्रदर्शित कार्य वास्तविक संस्थागत उपयोग-मामलों और क्लाइंट प्रोजेक्ट्स का प्रतिनिधित्व कर सकता है। गोपनीयता की रक्षा और विश्वास बनाए रखने के लिए, यह सामग्री सार्वजनिक रूप से साझा नहीं की जाती है।',
+    portfolioAccessNote: 'यदि आप हमारी सेवाओं का मूल्यांकन कर रहे हैं और विशिष्ट केस स्टडीज पर चर्चा करना चाहते हैं, तो कृपया हमसे सीधे संपर्क करें।',
+    portfolioUnderstand: 'मैं समझता/समझती हूं',
+    portfolioContactUs: 'संपर्क करें',
+    portfolioViewContent: 'कंटेंट देखें',
   }
 } as const;

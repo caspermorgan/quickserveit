@@ -6,6 +6,7 @@ import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
+import CreatorModeNotice from '@/components/CreatorModeNotice';
 import { useState } from 'react';
 import {
   FileText,
@@ -187,15 +188,10 @@ const Services = () => {
             </p>
           </div>
 
-          {/* Creator Mode Launch Notice */}
+          {/* Creator Mode Notice */}
           {mode === 'creator' && (
-            <div className="max-w-3xl mx-auto mb-8 md:mb-10 p-4 sm:p-5 rounded-xl border border-creator/30 bg-creator/10 backdrop-blur-sm">
-              <div className="flex items-center gap-3">
-                <Rocket className="w-5 h-5 text-creator shrink-0" />
-                <p className="text-sm text-foreground/80 font-medium">
-                  {t('creatorModeLaunchNote')}
-                </p>
-              </div>
+            <div className="mb-8 md:mb-10">
+              <CreatorModeNotice />
             </div>
           )}
 

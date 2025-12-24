@@ -7,6 +7,7 @@ import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import TypewriterText from '@/components/TypewriterText';
+import CreatorModeNotice from '@/components/CreatorModeNotice';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -138,6 +139,13 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Creator Mode Notice */}
+        {mode === 'creator' && (
+          <section className="px-6 pb-16">
+            <CreatorModeNotice />
+          </section>
+        )}
 
         {/* Quick Overview Section */}
         <section className="py-24 px-6 border-t border-border">
