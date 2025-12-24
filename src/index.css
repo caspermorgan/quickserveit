@@ -346,6 +346,62 @@
       min-width: 44px;
     }
   }
+  
+  /* Horizontal Scroll Utilities for Testimonials */
+  .horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1.5rem;
+  }
+  
+  .scroll-snap-item {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+  
+  /* Testimonial Card Sizing */
+  .testimonial-card {
+    flex: 0 0 auto;
+    width: calc(100vw - 4rem);
+    max-width: 500px;
+  }
+  
+  @media (min-width: 768px) {
+    .testimonial-card {
+      width: 420px;
+    }
+  }
+  
+  /* Peek Effect - Show partial next card */
+  .horizontal-scroll-peek {
+    padding-right: 4rem;
+  }
+  
+  @media (min-width: 768px) {
+    .horizontal-scroll-peek {
+      padding-right: 6rem;
+    }
+  }
+  
+  /* Touch action for better mobile swipe */
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
 }
 
 @layer utilities {
