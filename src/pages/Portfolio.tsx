@@ -55,25 +55,47 @@ const Portfolio = () => {
             <p className="text-foreground/50 max-w-xl mx-auto">A showcase of our finest work across video production and visual design.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolioItems.map((item, index) => (
-              <LockedPortfolioItem
-                key={index}
-                title={item.title}
-                category={item.category}
-                description={item.description}
-                icon={item.icon}
-                onUnlock={handleUnlock}
-              />
-            ))}
-          </div>
+          {mode === 'institutional' ? (
+            // Institute Mode: Show locked portfolio items
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {portfolioItems.map((item, index) => (
+                <LockedPortfolioItem
+                  key={index}
+                  title={item.title}
+                  category={item.category}
+                  description={item.description}
+                  icon={item.icon}
+                  onUnlock={handleUnlock}
+                />
+              ))}
+            </div>
+          ) : (
+            // Creator Mode: Show open access message
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="p-8 rounded-2xl glass-card border border-creator/20">
+                <div className="w-16 h-16 rounded-full bg-creator/10 flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8 text-creator" />
+                </div>
+                <h3 className="text-xl font-medium mb-3">Portfolio Coming Soon</h3>
+                <p className="text-foreground/60 leading-relaxed mb-6">
+                  We're curating our best creative work to showcase here. Our portfolio will feature video production,
+                  motion graphics, and visual design projects that demonstrate our commitment to quality and innovation.
+                </p>
+                <p className="text-sm text-foreground/50">
+                  In the meantime, feel free to explore our services or get in touch to discuss your project.
+                </p>
+              </div>
+            </div>
+          )}
         </section>
       </main>
 
-      <PortfolioAccessDialog
-        isOpen={isAccessDialogOpen}
-        onClose={() => setIsAccessDialogOpen(false)}
-      />
+      {mode === 'institutional' && (
+        <PortfolioAccessDialog
+          isOpen={isAccessDialogOpen}
+          onClose={() => setIsAccessDialogOpen(false)}
+        />
+      )}
 
       <Footer mode={mode} />
     </>

@@ -6,7 +6,7 @@ export const translations = {
   en: {
     // Brand
     brandName: 'QuickServe IT',
-    brandTagline: 'Calm. Confidential. On Time.',
+    brandTagline: 'Your Personal Tech Partner.',
 
     // Landing
     secure: 'Secure',
@@ -261,7 +261,6 @@ export const translations = {
 
     // Creator Mode - New Sections
     creatorModeLaunchNote: 'Creator Mode services will be available for work starting from 1st March.',
-    betaVersion: 'Beta Version',
     servicesOffered: 'Services Offered',
     professionalSoftware: 'Professional Software',
     appsAndTools: 'Apps & Tools',
@@ -301,7 +300,7 @@ export const translations = {
   hi: {
     // Brand
     brandName: 'QuickServe IT',
-    brandTagline: 'शांत। गोपनीय। समय पर।',
+    brandTagline: 'आपका व्यक्तिगत टेक पार्टनर।',
 
     // Landing
     secure: 'सुरक्षित',
@@ -556,7 +555,6 @@ export const translations = {
 
     // Creator Mode - New Sections
     creatorModeLaunchNote: 'क्रिएटर मोड सेवाएं 1 मार्च से काम के लिए उपलब्ध होंगी।',
-    betaVersion: 'बीटा संस्करण',
     servicesOffered: 'प्रदान की जाने वाली सेवाएं',
     professionalSoftware: 'प्रोफेशनल सॉफ्टवेयर',
     appsAndTools: 'ऐप्स और टूल्स',

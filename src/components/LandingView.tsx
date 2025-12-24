@@ -24,96 +24,88 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
   }, []);
 
   return (
-    <div 
-      className={`fixed inset-0 z-30 flex flex-col items-center justify-center transition-all duration-1000 ease-out ${
-        isExiting 
-          ? 'opacity-0 scale-[1.02] blur-md pointer-events-none' 
+    <div
+      className={`fixed inset-0 z-30 flex flex-col items-center justify-center transition-all duration-1000 ease-out ${isExiting
+          ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
           : 'opacity-100 scale-100 blur-0'
-      }`}
+        }`}
     >
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
-      
+
       {/* Ambient light - subtle mode glow */}
-      <div 
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full blur-[120px] transition-all duration-1000 ${
-          mode === 'institutional' 
-            ? 'bg-institutional/[0.03]' 
+      <div
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full blur-[120px] transition-all duration-1000 ${mode === 'institutional'
+            ? 'bg-institutional/[0.03]'
             : 'bg-creator/[0.03]'
-        }`}
+          }`}
       />
-      
+
       {/* Cursor Light */}
       <CursorLight mode={mode} />
-      
+
       {/* Particles - no dusting on load, only on exit */}
       <ParticleCanvas mode={mode} isDusting={isExiting} />
-      
+
       {/* Film Grain */}
       <FilmGrain />
-      
+
       {/* Working Hours Indicator - Top */}
       <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-40">
         <WorkingHoursIndicator />
       </div>
-      
+
       {/* Content */}
-      <div className={`relative z-40 flex flex-col items-center text-center px-6 ${
-        isLoaded ? 'animate-fade-in-up' : 'opacity-0'
-      }`}>
+      <div className={`relative z-40 flex flex-col items-center text-center px-6 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
+        }`}>
         {/* Brand Name */}
-        <h1 
+        <h1
           className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-[0.08em] md:tracking-[0.12em] text-foreground mb-3 md:mb-4 font-bold"
           style={{ animationDelay: '200ms' }}
         >
           {t('brandName')}
         </h1>
-        
+
         {/* Minimal tagline */}
-        <p 
-          className={`font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase mb-12 md:mb-16 transition-colors duration-700 ${
-            mode === 'institutional' ? 'text-institutional/50' : 'text-creator/50'
-          }`}
+        <p
+          className={`font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase mb-12 md:mb-16 transition-colors duration-700 ${mode === 'institutional' ? 'text-institutional/50' : 'text-creator/50'
+            }`}
           style={{ animationDelay: '400ms' }}
         >
           {t('brandTagline')}
         </p>
-        
+
         {/* Mode Switch */}
         <div style={{ animationDelay: '600ms' }}>
           <ModeSwitch mode={mode} onModeChange={onModeChange} />
         </div>
-        
+
         {/* Enter Button */}
         <div style={{ animationDelay: '800ms' }}>
           <EnterButton mode={mode} onClick={onEnter} />
-                      <p className="mt-1 text-xs text-slate-500">
-              (BETA)
-            </p>
         </div>
       </div>
-      
+
       {/* Footer - ultra minimal */}
       <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20">
         <div className="flex items-center gap-3 md:gap-4 text-[9px] md:text-[10px] text-foreground/15 font-mono tracking-widest uppercase">
           <span className="flex items-center gap-1.5">
-            <span className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full ${
-              mode === 'institutional' ? 'bg-institutional/60' : 'bg-creator/60'
-            }`} />
+            <span className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full ${mode === 'institutional' ? 'bg-institutional/60' : 'bg-creator/60'
+              }`} />
             {t('secure')}
           </span>
           <span className="text-foreground/10">·</span>
           <span>{t('india')}</span>
         </div>
       </div>
-      
+
       {/* Corner branding - minimal */}
       <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
         <div className="text-[9px] md:text-[10px] text-foreground/10 font-mono tracking-widest">
           QS
         </div>
       </div>
-      
+
       <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
         <div className="text-[9px] md:text-[10px] text-foreground/10 font-mono tracking-widest">
           2025

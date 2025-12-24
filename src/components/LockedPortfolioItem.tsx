@@ -1,6 +1,14 @@
 import { Lock } from 'lucide-react';
 import { useState } from 'react';
 
+/**
+ * LockedPortfolioItem - Portfolio item with access protection
+ * 
+ * This component is used in Institute Mode to protect sensitive portfolio content.
+ * It displays a locked state and triggers an access policy dialog when clicked.
+ * 
+ * Note: This component should NOT be used in Creator Mode.
+ */
 interface LockedPortfolioItemProps {
     title: string;
     category: string;
