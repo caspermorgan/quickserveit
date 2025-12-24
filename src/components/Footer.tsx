@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { MessageCircle, Shield, Clock } from 'lucide-react';
+import { MessageCircle, Shield } from 'lucide-react';
+import AvailabilityIndicator from './AvailabilityIndicator';
 
 interface FooterProps {
   mode: 'institutional' | 'creator';
@@ -44,17 +45,11 @@ const Footer = ({ mode }: FooterProps) => {
             </div>
           </div>
 
-          {/* Working Hours */}
+          {/* Availability Status */}
           <div>
-            <h4 className="text-sm font-medium text-foreground mb-4">Working Hours</h4>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm text-foreground/40">
-                <Clock className="w-4 h-4" />
-                <span>Mon–Sat: 10:00 AM – 3:00 PM IST</span>
-              </div>
-              <p className="text-xs text-foreground/30">
-                Responses within working hours only. Urgent requests may have extended timelines.
-              </p>
+            <h4 className="text-sm font-medium text-foreground mb-4">Availability</h4>
+            <div className="space-y-2">
+              <AvailabilityIndicator />
             </div>
           </div>
 

@@ -91,10 +91,6 @@ const Home = () => {
                 <span>{t('confidentialityTitle')}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-foreground/40">
-                <Clock className="w-4 h-4" />
-                <span>{t('workingHours')}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-foreground/40">
                 <CheckCircle className="w-4 h-4" />
                 <span>{t('realisticTimelinesTitle')}</span>
               </div>

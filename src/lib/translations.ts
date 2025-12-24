@@ -80,10 +80,11 @@ export const translations = {
     termsOfService: 'Terms of Service',
 
     // Working Hours
-    available: 'Available Now',
+    available: 'Available',
     offline: 'Offline',
     workingHours: 'Working Hours',
-    workingHoursInfo: 'Working Hours: 10:00 AM – 3:00 PM (Responses within working hours)',
+    workingHoursInfo: 'Support Hours: 10:00 AM – 4:00 PM (IST)',
+    messagesAccepted: 'Messages accepted beyond hours',
     workingDays: 'Monday to Saturday',
     outsideHoursNote: 'Messages received outside these hours will be addressed the next working day.',
 
@@ -515,7 +516,8 @@ export const translations = {
     available: 'उपलब्ध',
     offline: 'ऑफलाइन',
     workingHours: 'काम का समय',
-    workingHoursInfo: 'काम का समय: सुबह 10 से दोपहर 3 बजे (इसी समय में जवाब मिलेगा)',
+    workingHoursInfo: 'सहायता समय: सुबह 10 से शाम 4 बजे (IST)',
+    messagesAccepted: 'समय के बाद संदेश स्वीकार किए जाते हैं',
     workingDays: 'सोमवार से शनिवार',
     outsideHoursNote: 'इस समय के बाद भेजे गए संदेश का जवाब अगले दिन मिलेगा।',
 
