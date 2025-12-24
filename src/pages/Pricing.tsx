@@ -82,23 +82,23 @@ const Pricing = () => {
         <title>Pricing | quickserveit</title>
         <meta name="description" content="Transparent pricing for institutional documentation and creator production services." />
       </Helmet>
-      
+
       <CursorLight mode={mode} />
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
-      
+
       <main className="min-h-screen bg-background pt-32 pb-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-4">
+          <div className="text-center mb-20 max-w-2xl mx-auto">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-5">
               <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Transparent</span> Pricing
             </h1>
             <p className="text-foreground/50">No hidden fees. Clear scope. Honest timelines.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto">
             {plans.map((plan, index) => (
-              <div key={index} className={`p-6 rounded-2xl glass-card border transition-all duration-300 ${plan.popular ? (mode === 'institutional' ? 'border-institutional/40 ring-1 ring-institutional/20' : 'border-creator/40 ring-1 ring-creator/20') : 'border-border/20'}`}>
+              <div key={index} className={`p-6 md:p-6 rounded-2xl glass-card border transition-all duration-300 ${plan.popular ? (mode === 'institutional' ? 'border-institutional/40 ring-1 ring-institutional/20' : 'border-creator/40 ring-1 ring-creator/20') : 'border-border/20'}`}>
                 {plan.popular && (
                   <span className={`text-xs font-medium px-3 py-1 rounded-full mb-4 inline-block ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>
                     Recommended
@@ -129,7 +129,7 @@ const Pricing = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer mode={mode} />
     </>
   );

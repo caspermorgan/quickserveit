@@ -7,16 +7,16 @@ export const translations = {
     // Brand
     brandName: 'QuickServe IT',
     brandTagline: 'Calm. Confidential. On Time.',
-    
+
     // Landing
     secure: 'Secure',
     india: 'India',
     enter: 'Enter',
-    
+
     // Mode labels
     institutional: 'Institutional',
     creator: 'Creator',
-    
+
     // Navigation
     home: 'Home',
     services: 'Services',
@@ -26,20 +26,20 @@ export const translations = {
     founder: 'Founder',
     pricing: 'Pricing',
     contact: 'Contact',
-    
+
     // Hero Section - Institutional
     heroInst1: 'Calm Digital Execution',
     heroInst2: 'Structured Academic Support',
     heroInst3: 'Quiet Progress, Clear Files',
     heroInst4: 'Trusted Institutional Partner',
     heroInstDesc: 'We transform chaotic digital workloads into organized, confidential, and deadline-calm execution. From examination documentation to government compliance, your institution deserves peace.',
-    
+
     // Hero Section - Creator
     heroCreator1: 'Cinematic Content Creation',
     heroCreator2: 'Retention-Style Editing',
     heroCreator3: 'World-Class Production',
     heroCreatorDesc: 'We transform raw footage into premium content designed for retention and impact. From YouTube long-form to cinematic documentaries, your vision deserves world-class polish.',
-    
+
     // CTAs
     getStarted: 'Get Started',
     startCreating: 'Start Creating',
@@ -51,14 +51,14 @@ export const translations = {
     explorePartnership: 'Explore Partnership',
     discussPackage: 'Discuss Package',
     startThisService: 'Start This Service',
-    
+
     // Stats
     schoolsServed: 'Schools Served',
     projectsDelivered: 'Projects Delivered',
     uptimeGuarantee: 'Uptime Guarantee',
     documents: 'Documents',
     viewsGenerated: 'Views Generated',
-    
+
     // Contact Form
     contactTitle: 'Get In Touch',
     contactSubtitle: 'Ready to discuss your project? Fill out the form below.',
@@ -73,19 +73,19 @@ export const translations = {
     termsAgree: 'I agree to the terms & conditions',
     sendMessage: 'Send Message',
     messageSent: 'Message prepared! Redirecting to WhatsApp...',
-    
+
     // Footer
     allRightsReserved: 'All Rights Reserved',
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
-    
+
     // Working Hours
     available: 'Available Now',
     offline: 'Offline',
     workingHours: 'Working Hours',
     workingDays: 'Monday to Saturday',
     outsideHoursNote: 'Messages received outside these hours will be addressed the next working day.',
-    
+
     // Services Page
     ourServices: 'Our Services',
     creatorStudio: 'Creator Studio',
@@ -97,7 +97,7 @@ export const translations = {
     whatYouNeed: 'What You\'ll Need to Prepare',
     timeline: 'Timeline',
     whatsappNote: 'Click to open WhatsApp with a pre-filled message',
-    
+
     // Services - Institutional
     examDocTitle: 'Examination Documentation',
     examDocShort: 'Complete exam record management from scheduling to result documentation.',
@@ -105,28 +105,28 @@ export const translations = {
     examDocSteps: 'Share exam schedule and student lists via WhatsApp|Provide raw data in any format (Excel, PDF, handwritten)|We structure and digitize all records|Review formatted documents before final submission|Receive complete examination package ready for submission',
     examDocNeeds: 'Student master data (name, roll number, class)|Subject list and exam dates|Any existing documentation templates|Deadline for final submission',
     examDocTimeline: 'Standard: 5-7 working days | Urgent: 2-3 working days (additional charges)',
-    
+
     scholarshipTitle: 'Scholarship Support',
     scholarshipShort: 'Application processing, eligibility verification, and documentation for scholarships.',
     scholarshipFull: 'Complete scholarship management including eligibility screening, application form filling, document collection guidance, and submission tracking.',
     scholarshipSteps: 'Share scholarship scheme details and student list|We verify eligibility criteria for each student|Guide families on required documents|Fill and format applications accurately|Track submission status and deadlines',
     scholarshipNeeds: 'Scholarship scheme name and guidelines|Student list with basic details|Income certificates, caste certificates (if applicable)|Bank account details of students/parents',
     scholarshipTimeline: 'Standard: 7-10 working days | Depends on document collection from families',
-    
+
     udiseTitle: 'UDISE+ Management',
     udiseShort: 'Complete UDISE+ data entry, verification, and annual updates.',
     udiseFull: 'Annual UDISE+ compliance including data collection, accurate entry, verification before submission, and correction management.',
     udiseSteps: 'Share current school data and last year\'s UDISE+ records|We audit data for completeness and accuracy|Enter all fields with verification checks|Generate preview report for your review|Submit and provide confirmation documentation',
     udiseNeeds: 'School login credentials (shared securely)|Current year enrollment data|Infrastructure details and updates|Teacher information and qualifications',
     udiseTimeline: 'Standard: 3-5 working days | Annual window: Priority scheduling available',
-    
+
     dailySupportTitle: 'Daily Digital Support',
     dailySupportShort: 'Ongoing administrative support for routine documentation needs.',
     dailySupportFull: 'Retainer-based support for schools requiring regular assistance with circulars, notices, attendance reports, parent communication, and ad-hoc documentation.',
     dailySupportSteps: 'Subscribe to monthly support package|Share tasks via dedicated WhatsApp channel|Receive same-day or next-day turnaround|Monthly summary of completed work|Flexible scope based on your needs',
     dailySupportNeeds: 'List of recurring documentation needs|Communication preferences and templates|Key contacts for clarifications|Monthly task volume estimate',
     dailySupportTimeline: 'Same-day for simple tasks | 24-48 hours for complex documentation',
-    
+
     // Services - Creator
     videoEditTitle: 'Long-Form Video Editing',
     videoEditShort: 'YouTube, documentary, and educational content with retention-focused editing.',
@@ -134,34 +134,34 @@ export const translations = {
     videoEditSteps: 'Share raw footage via Google Drive or WeTransfer|Provide brief: key moments, style references, target length|Receive first cut within timeline|Review and request revisions (2 rounds included)|Final export in required format and resolution',
     videoEditNeeds: 'Raw footage (organized by scene/topic)|Any B-roll or assets to include|Music preferences or licensed tracks|Reference videos for style/pacing',
     videoEditTimeline: 'Standard: 7-10 days for 15-20 min video | Depends on complexity',
-    
+
     thumbnailTitle: 'Thumbnail & Design',
     thumbnailShort: 'High-CTR thumbnails and channel graphics that drive clicks.',
     thumbnailFull: 'Scroll-stopping thumbnails, channel art, end screens, and social media graphics designed for maximum click-through.',
     thumbnailSteps: 'Share video topic and target emotion|Provide face shots or key frames|Receive 2-3 thumbnail options|Select and request tweaks|Final delivery in all required sizes',
     thumbnailNeeds: 'Video title and topic|High-quality still from video (or we extract)|Any text to include|Color preferences or brand guidelines',
     thumbnailTimeline: 'Standard: 24-48 hours | Rush: Same-day available',
-    
+
     motionTitle: 'Motion Graphics & Animation',
     motionShort: 'Intros, outros, lower thirds, and animated elements.',
     motionFull: 'Custom motion graphics including animated logos, subscribe buttons, transitions, lower thirds, and full intro/outro sequences.',
     motionSteps: 'Share brand assets and style preferences|Discuss animation style and complexity|Receive concept sketches or storyboard|Review animated draft|Final delivery with project files (optional)',
     motionNeeds: 'Logo files (preferably vector)|Brand colors and fonts|Reference animations you like|Duration and format requirements',
     motionTimeline: 'Intros/Outros: 5-7 days | Lower thirds: 2-3 days | Complex: Quote required',
-    
+
     strategyTitle: 'Content Strategy Support',
     strategyShort: 'Planning, scripting, and content calendar development.',
     strategyFull: 'Strategic support for creators including topic research, script frameworks, upload scheduling, and performance analysis.',
     strategySteps: 'Share channel goals and current performance|Discuss niche and target audience|Receive content calendar or script outlines|Review and refine together|Ongoing support or one-time strategy',
     strategyNeeds: 'Channel link and analytics access (for analysis)|Content goals (views, subs, monetization)|Topics you want to cover|Current posting frequency',
     strategyTimeline: 'Initial strategy: 5-7 days | Ongoing: Weekly/monthly retainer',
-    
+
     // Services Section (Home)
     institutionalServices: 'Institutional Services',
     creativeStudio: 'Creative Studio',
     servicesInstSubtitle: 'Comprehensive digital support for educational institutions',
     servicesCreatorSubtitle: 'World-class production for modern creators',
-    
+
     // Service Cards - Institutional
     examDocCardTitle: 'Exam Documentation',
     examDocCardDesc: 'Confidential paper formatting, room-wise seating management, and secure printing with class-wise bundling.',
@@ -175,7 +175,7 @@ export const translations = {
     dailySupportCardDesc: 'Remote WhatsApp-based office assistance for notices, file resizing, and quick administrative tasks.',
     subscriptionTitle: 'Subscription Plans',
     subscriptionDesc: 'Silver, Gold, and Platinum tiers offering predictable monthly support with priority turnaround.',
-    
+
     // Service Cards - Creator
     videoCardTitle: 'Video & Post-Production',
     videoCardDesc: 'Retention-style editing for YouTube, Reels, and documentaries with cinematic scene polish.',
@@ -189,7 +189,7 @@ export const translations = {
     aiCampaignsDesc: 'Future-ready AI-driven 2D/3D visual micro-campaigns and filmless premium advertisements.',
     studioSpaceTitle: 'Creator Studio Space',
     studioSpaceDesc: 'Coming soon: Soundproof environment with professional gear for local talent incubation.',
-    
+
     // About Page
     aboutTitle: 'About',
     aboutIntro: 'We exist to reduce digital overwhelm for those who create meaningful work — whether that\'s educating the next generation or building audiences through content.',
@@ -210,7 +210,7 @@ export const translations = {
     whatWeDontDo: 'What We Don\'t Do',
     transparencyNote: 'Transparency is important to us. Here\'s what falls outside our scope:',
     dontDoList: 'Academic writing or content creation for students|Guaranteed views, subscribers, or monetization|Falsifying any institutional records|24/7 availability or instant responses|Web development or software projects|Social media management or marketing',
-    
+
     // Pricing Page
     transparentPricing: 'Transparent Pricing',
     pricingSubtitle: 'No hidden fees. Clear scope. Honest timelines.',
@@ -236,7 +236,7 @@ export const translations = {
     fullProduction: 'Full Production',
     fullProductionDesc: 'For premium content',
     fullProductionFeatures: 'Scripting support|Advanced motion graphics|Custom animations|Music licensing help|Multiple formats',
-    
+
     // Pricing Section (Home)
     subscriptionPlans: 'Subscription Plans',
     pricingTitle: 'Pricing',
@@ -258,16 +258,17 @@ export const translations = {
     pricingNote: 'All prices are exclusive of GST. Urgent work may incur additional charges based on complexity and timeline.',
     perMonth: '/month',
     perVideo: '/video',
-    
+
     // Creator Mode - New Sections
-    creatorModeLaunchNote: 'Creator Mode services will start from 1st March.',
+    creatorModeLaunchNote: 'Creator Mode services will be available for work starting from 1st March.',
+    betaVersion: 'Beta Version',
     servicesOffered: 'Services Offered',
     professionalSoftware: 'Professional Software',
     appsAndTools: 'Apps & Tools',
     upcomingInnovations: 'Upcoming Innovations',
-    moreDetailsNote: 'More details will be shared in future updates.',
+    moreDetailsNote: 'More information will be shared in future updates.',
     comingSoon: 'Coming Soon',
-    
+
     // Software & Tools
     adobePremierePro: 'Adobe Premiere Pro',
     adobeAfterEffects: 'Adobe After Effects',
@@ -277,26 +278,26 @@ export const translations = {
     figma: 'Figma',
     canvaPro: 'Canva Pro',
     capcut: 'CapCut Pro',
-    
+
     // Upcoming Items
-    aiContentGeneration: 'AI Content Generation',
-    virtualProduction: 'Virtual Production',
-    immersiveExperiences: 'Immersive Experiences',
+    aiAgents: 'AI Agents & Automation',
+    scanToDigital: 'Scan-to-Digital Automation',
+    creatorAutomation: 'Creator-side Automation Tools',
   },
   hi: {
     // Brand
     brandName: 'QuickServe IT',
     brandTagline: 'शांत। गोपनीय। समय पर।',
-    
+
     // Landing
     secure: 'सुरक्षित',
     india: 'भारत',
     enter: 'प्रवेश करें',
-    
+
     // Mode labels
     institutional: 'संस्थागत',
     creator: 'क्रिएटर',
-    
+
     // Navigation
     home: 'होम',
     services: 'सेवाएं',
@@ -306,20 +307,20 @@ export const translations = {
     founder: 'संस्थापक',
     pricing: 'मूल्य',
     contact: 'संपर्क',
-    
+
     // Hero Section - Institutional
     heroInst1: 'शांत डिजिटल कार्यान्वयन',
     heroInst2: 'व्यवस्थित शैक्षणिक सहायता',
     heroInst3: 'मौन प्रगति, स्पष्ट फाइलें',
     heroInst4: 'विश्वसनीय संस्थागत साझेदार',
     heroInstDesc: 'हम अव्यवस्थित डिजिटल कार्यभार को संगठित, गोपनीय और समयबद्ध कार्यान्वयन में बदलते हैं। परीक्षा दस्तावेज़ीकरण से लेकर सरकारी अनुपालन तक, आपकी संस्था शांति की हकदार है।',
-    
+
     // Hero Section - Creator
     heroCreator1: 'सिनेमाई कंटेंट निर्माण',
     heroCreator2: 'रिटेंशन-स्टाइल एडिटिंग',
     heroCreator3: 'विश्व-स्तरीय प्रोडक्शन',
     heroCreatorDesc: 'हम कच्चे फुटेज को रिटेंशन और प्रभाव के लिए डिज़ाइन किए गए प्रीमियम कंटेंट में बदलते हैं। YouTube लॉन्ग-फॉर्म से लेकर सिनेमाई डॉक्यूमेंट्री तक, आपकी कल्पना विश्व-स्तरीय पॉलिश की हकदार है।',
-    
+
     // CTAs
     getStarted: 'शुरू करें',
     startCreating: 'बनाना शुरू करें',
@@ -331,14 +332,14 @@ export const translations = {
     explorePartnership: 'साझेदारी जानें',
     discussPackage: 'पैकेज पर चर्चा करें',
     startThisService: 'यह सेवा शुरू करें',
-    
+
     // Stats
     schoolsServed: 'स्कूल सेवित',
     projectsDelivered: 'प्रोजेक्ट्स पूर्ण',
     uptimeGuarantee: 'अपटाइम गारंटी',
     documents: 'दस्तावेज़',
     viewsGenerated: 'व्यूज जनरेटेड',
-    
+
     // Contact Form
     contactTitle: 'संपर्क करें',
     contactSubtitle: 'अपने प्रोजेक्ट पर चर्चा करने के लिए तैयार हैं? नीचे फॉर्म भरें।',
@@ -353,19 +354,19 @@ export const translations = {
     termsAgree: 'मैं नियमों और शर्तों से सहमत हूं',
     sendMessage: 'संदेश भेजें',
     messageSent: 'संदेश तैयार! WhatsApp पर रीडायरेक्ट हो रहा है...',
-    
+
     // Footer
     allRightsReserved: 'सर्वाधिकार सुरक्षित',
     privacyPolicy: 'गोपनीयता नीति',
     termsOfService: 'सेवा की शर्तें',
-    
+
     // Working Hours
     available: 'अभी उपलब्ध',
     offline: 'ऑफलाइन',
     workingHours: 'कार्य समय',
     workingDays: 'सोमवार से शनिवार',
     outsideHoursNote: 'इन घंटों के बाहर प्राप्त संदेशों का अगले कार्य दिवस पर जवाब दिया जाएगा।',
-    
+
     // Services Page
     ourServices: 'हमारी सेवाएं',
     creatorStudio: 'क्रिएटर स्टूडियो',
@@ -377,7 +378,7 @@ export const translations = {
     whatYouNeed: 'आपको क्या तैयार करना होगा',
     timeline: 'समय-सीमा',
     whatsappNote: 'WhatsApp खोलने के लिए क्लिक करें (पूर्व-भरे संदेश के साथ)',
-    
+
     // Services - Institutional
     examDocTitle: 'परीक्षा दस्तावेज़ीकरण',
     examDocShort: 'शेड्यूलिंग से लेकर परिणाम दस्तावेज़ीकरण तक संपूर्ण परीक्षा रिकॉर्ड प्रबंधन।',
@@ -385,28 +386,28 @@ export const translations = {
     examDocSteps: 'WhatsApp पर परीक्षा शेड्यूल और छात्र सूची साझा करें|कोई भी प्रारूप में कच्चा डेटा प्रदान करें (Excel, PDF, हस्तलिखित)|हम सभी रिकॉर्ड को संरचित और डिजिटाइज़ करते हैं|अंतिम जमा करने से पहले स्वरूपित दस्तावेज़ों की समीक्षा करें|जमा करने के लिए तैयार पूर्ण परीक्षा पैकेज प्राप्त करें',
     examDocNeeds: 'छात्र मास्टर डेटा (नाम, रोल नंबर, कक्षा)|विषय सूची और परीक्षा तिथियां|कोई भी मौजूदा दस्तावेज़ टेम्पलेट|अंतिम जमा करने की समय सीमा',
     examDocTimeline: 'मानक: 5-7 कार्य दिवस | अर्जेंट: 2-3 कार्य दिवस (अतिरिक्त शुल्क)',
-    
+
     scholarshipTitle: 'छात्रवृत्ति सहायता',
     scholarshipShort: 'छात्रवृत्ति के लिए आवेदन प्रसंस्करण, पात्रता सत्यापन और दस्तावेज़ीकरण।',
     scholarshipFull: 'पात्रता जांच, आवेदन फॉर्म भरना, दस्तावेज़ संग्रह मार्गदर्शन और जमा ट्रैकिंग सहित संपूर्ण छात्रवृत्ति प्रबंधन।',
     scholarshipSteps: 'छात्रवृत्ति योजना विवरण और छात्र सूची साझा करें|हम प्रत्येक छात्र के लिए पात्रता मानदंड सत्यापित करते हैं|परिवारों को आवश्यक दस्तावेज़ों पर मार्गदर्शन दें|आवेदनों को सटीक रूप से भरें और प्रारूपित करें|जमा स्थिति और समय सीमा को ट्रैक करें',
     scholarshipNeeds: 'छात्रवृत्ति योजना का नाम और दिशानिर्देश|बुनियादी विवरण के साथ छात्र सूची|आय प्रमाण पत्र, जाति प्रमाण पत्र (यदि लागू हो)|छात्रों/अभिभावकों के बैंक खाता विवरण',
     scholarshipTimeline: 'मानक: 7-10 कार्य दिवस | परिवारों से दस्तावेज़ संग्रह पर निर्भर',
-    
+
     udiseTitle: 'UDISE+ प्रबंधन',
     udiseShort: 'संपूर्ण UDISE+ डेटा एंट्री, सत्यापन और वार्षिक अपडेट।',
     udiseFull: 'डेटा संग्रह, सटीक एंट्री, जमा करने से पहले सत्यापन और सुधार प्रबंधन सहित वार्षिक UDISE+ अनुपालन।',
     udiseSteps: 'वर्तमान स्कूल डेटा और पिछले वर्ष के UDISE+ रिकॉर्ड साझा करें|हम पूर्णता और सटीकता के लिए डेटा का ऑडिट करते हैं|सत्यापन जांच के साथ सभी फ़ील्ड दर्ज करें|आपकी समीक्षा के लिए पूर्वावलोकन रिपोर्ट तैयार करें|जमा करें और पुष्टि दस्तावेज़ प्रदान करें',
     udiseNeeds: 'स्कूल लॉगिन क्रेडेंशियल (सुरक्षित रूप से साझा)|वर्तमान वर्ष नामांकन डेटा|बुनियादी ढांचा विवरण और अपडेट|शिक्षक जानकारी और योग्यताएं',
     udiseTimeline: 'मानक: 3-5 कार्य दिवस | वार्षिक विंडो: प्राथमिकता शेड्यूलिंग उपलब्ध',
-    
+
     dailySupportTitle: 'दैनिक डिजिटल सहायता',
     dailySupportShort: 'नियमित दस्तावेज़ीकरण आवश्यकताओं के लिए निरंतर प्रशासनिक सहायता।',
     dailySupportFull: 'परिपत्रों, नोटिसों, उपस्थिति रिपोर्ट, अभिभावक संचार और तदर्थ दस्तावेज़ीकरण के साथ नियमित सहायता की आवश्यकता वाले स्कूलों के लिए रिटेनर-आधारित सहायता।',
     dailySupportSteps: 'मासिक सहायता पैकेज की सदस्यता लें|समर्पित WhatsApp चैनल के माध्यम से कार्य साझा करें|उसी दिन या अगले दिन टर्नअराउंड प्राप्त करें|पूर्ण किए गए कार्य का मासिक सारांश|आपकी आवश्यकताओं के आधार पर लचीला दायरा',
     dailySupportNeeds: 'आवर्ती दस्तावेज़ीकरण आवश्यकताओं की सूची|संचार प्राथमिकताएं और टेम्पलेट|स्पष्टीकरण के लिए मुख्य संपर्क|मासिक कार्य मात्रा अनुमान',
     dailySupportTimeline: 'सरल कार्यों के लिए उसी दिन | जटिल दस्तावेज़ीकरण के लिए 24-48 घंटे',
-    
+
     // Services - Creator
     videoEditTitle: 'लॉन्ग-फॉर्म वीडियो एडिटिंग',
     videoEditShort: 'रिटेंशन-केंद्रित एडिटिंग के साथ YouTube, डॉक्यूमेंट्री और शैक्षिक कंटेंट।',
@@ -414,34 +415,34 @@ export const translations = {
     videoEditSteps: 'Google Drive या WeTransfer के माध्यम से कच्चा फुटेज साझा करें|ब्रीफ प्रदान करें: मुख्य क्षण, स्टाइल रेफरेंस, लक्ष्य लंबाई|टाइमलाइन के भीतर पहला कट प्राप्त करें|समीक्षा करें और संशोधन का अनुरोध करें (2 राउंड शामिल)|आवश्यक फॉर्मेट और रेज़ोल्यूशन में अंतिम एक्सपोर्ट',
     videoEditNeeds: 'कच्चा फुटेज (सीन/टॉपिक द्वारा व्यवस्थित)|शामिल करने के लिए कोई B-roll या एसेट्स|संगीत प्राथमिकताएं या लाइसेंस प्राप्त ट्रैक|स्टाइल/पेसिंग के लिए रेफरेंस वीडियो',
     videoEditTimeline: 'मानक: 15-20 मिनट वीडियो के लिए 7-10 दिन | जटिलता पर निर्भर',
-    
+
     thumbnailTitle: 'थंबनेल और डिज़ाइन',
     thumbnailShort: 'क्लिक बढ़ाने वाले हाई-CTR थंबनेल और चैनल ग्राफिक्स।',
     thumbnailFull: 'अधिकतम क्लिक-थ्रू के लिए डिज़ाइन किए गए स्क्रॉल-स्टॉपिंग थंबनेल, चैनल आर्ट, एंड स्क्रीन और सोशल मीडिया ग्राफिक्स।',
     thumbnailSteps: 'वीडियो टॉपिक और लक्ष्य इमोशन साझा करें|फेस शॉट्स या मुख्य फ्रेम प्रदान करें|2-3 थंबनेल विकल्प प्राप्त करें|चुनें और ट्वीक्स का अनुरोध करें|सभी आवश्यक आकारों में अंतिम डिलीवरी',
     thumbnailNeeds: 'वीडियो शीर्षक और विषय|वीडियो से उच्च-गुणवत्ता स्टिल (या हम निकालते हैं)|शामिल करने के लिए कोई टेक्स्ट|रंग प्राथमिकताएं या ब्रांड दिशानिर्देश',
     thumbnailTimeline: 'मानक: 24-48 घंटे | रश: उसी दिन उपलब्ध',
-    
+
     motionTitle: 'मोशन ग्राफिक्स और एनिमेशन',
     motionShort: 'इंट्रो, आउट्रो, लोअर थर्ड्स और एनिमेटेड एलिमेंट्स।',
     motionFull: 'एनिमेटेड लोगो, सब्सक्राइब बटन, ट्रांज़िशन, लोअर थर्ड्स और पूर्ण इंट्रो/आउट्रो सीक्वेंस सहित कस्टम मोशन ग्राफिक्स।',
     motionSteps: 'ब्रांड एसेट्स और स्टाइल प्राथमिकताएं साझा करें|एनिमेशन स्टाइल और जटिलता पर चर्चा करें|कॉन्सेप्ट स्केच या स्टोरीबोर्ड प्राप्त करें|एनिमेटेड ड्राफ्ट की समीक्षा करें|प्रोजेक्ट फाइलों के साथ अंतिम डिलीवरी (वैकल्पिक)',
     motionNeeds: 'लोगो फाइलें (अधिमानतः वेक्टर)|ब्रांड रंग और फॉन्ट|आपको पसंद आने वाले रेफरेंस एनिमेशन|अवधि और फॉर्मेट आवश्यकताएं',
     motionTimeline: 'इंट्रो/आउट्रो: 5-7 दिन | लोअर थर्ड्स: 2-3 दिन | जटिल: कोट आवश्यक',
-    
+
     strategyTitle: 'कंटेंट स्ट्रैटेजी सपोर्ट',
     strategyShort: 'प्लानिंग, स्क्रिप्टिंग और कंटेंट कैलेंडर विकास।',
     strategyFull: 'टॉपिक रिसर्च, स्क्रिप्ट फ्रेमवर्क, अपलोड शेड्यूलिंग और परफॉर्मेंस एनालिसिस सहित क्रिएटर्स के लिए रणनीतिक सहायता।',
     strategySteps: 'चैनल लक्ष्य और वर्तमान प्रदर्शन साझा करें|निश और लक्षित दर्शकों पर चर्चा करें|कंटेंट कैलेंडर या स्क्रिप्ट आउटलाइन प्राप्त करें|साथ में समीक्षा और परिष्कृत करें|निरंतर सहायता या एक बार की रणनीति',
     strategyNeeds: 'चैनल लिंक और एनालिटिक्स एक्सेस (विश्लेषण के लिए)|कंटेंट लक्ष्य (व्यूज, सब्स, मोनेटाइज़ेशन)|जिन विषयों को आप कवर करना चाहते हैं|वर्तमान पोस्टिंग फ्रीक्वेंसी',
     strategyTimeline: 'प्रारंभिक रणनीति: 5-7 दिन | निरंतर: साप्ताहिक/मासिक रिटेनर',
-    
+
     // Services Section (Home)
     institutionalServices: 'संस्थागत सेवाएं',
     creativeStudio: 'क्रिएटिव स्टूडियो',
     servicesInstSubtitle: 'शैक्षणिक संस्थानों के लिए व्यापक डिजिटल सहायता',
     servicesCreatorSubtitle: 'आधुनिक क्रिएटर्स के लिए विश्व-स्तरीय प्रोडक्शन',
-    
+
     // Service Cards - Institutional
     examDocCardTitle: 'परीक्षा दस्तावेज़ीकरण',
     examDocCardDesc: 'गोपनीय पेपर फॉर्मेटिंग, कमरे-वार सीटिंग प्रबंधन और कक्षा-वार बंडलिंग के साथ सुरक्षित प्रिंटिंग।',
@@ -455,7 +456,7 @@ export const translations = {
     dailySupportCardDesc: 'नोटिस, फ़ाइल रीसाइज़िंग और त्वरित प्रशासनिक कार्यों के लिए रिमोट WhatsApp-आधारित ऑफ़िस सहायता।',
     subscriptionTitle: 'सब्सक्रिप्शन प्लान',
     subscriptionDesc: 'प्राथमिकता टर्नअराउंड के साथ अनुमानित मासिक सहायता प्रदान करने वाले सिल्वर, गोल्ड और प्लेटिनम टियर।',
-    
+
     // Service Cards - Creator
     videoCardTitle: 'वीडियो और पोस्ट-प्रोडक्शन',
     videoCardDesc: 'सिनेमाई सीन पॉलिश के साथ YouTube, Reels और डॉक्यूमेंट्री के लिए रिटेंशन-स्टाइल एडिटिंग।',
@@ -469,7 +470,7 @@ export const translations = {
     aiCampaignsDesc: 'भविष्य-तैयार AI-संचालित 2D/3D विज़ुअल माइक्रो-कैंपेन और फिल्मलेस प्रीमियम विज्ञापन।',
     studioSpaceTitle: 'क्रिएटर स्टूडियो स्पेस',
     studioSpaceDesc: 'जल्द आ रहा है: स्थानीय प्रतिभा इनक्यूबेशन के लिए प्रोफेशनल गियर के साथ साउंडप्रूफ वातावरण।',
-    
+
     // About Page
     aboutTitle: 'हमारे बारे में',
     aboutIntro: 'हम उन लोगों के लिए डिजिटल बोझ कम करने के लिए मौजूद हैं जो सार्थक कार्य करते हैं — चाहे वह अगली पीढ़ी को शिक्षित करना हो या कंटेंट के माध्यम से दर्शक बनाना।',
@@ -490,7 +491,7 @@ export const translations = {
     whatWeDontDo: 'हम क्या नहीं करते',
     transparencyNote: 'पारदर्शिता हमारे लिए महत्वपूर्ण है। यहां वह है जो हमारे दायरे से बाहर है:',
     dontDoList: 'छात्रों के लिए शैक्षणिक लेखन या कंटेंट निर्माण|गारंटीड व्यूज, सब्सक्राइबर्स या मोनेटाइज़ेशन|किसी भी संस्थागत रिकॉर्ड को गलत साबित करना|24/7 उपलब्धता या तत्काल प्रतिक्रियाएं|वेब डेवलपमेंट या सॉफ्टवेयर प्रोजेक्ट्स|सोशल मीडिया मैनेजमेंट या मार्केटिंग',
-    
+
     // Pricing Page
     transparentPricing: 'पारदर्शी मूल्य निर्धारण',
     pricingSubtitle: 'कोई छिपी फीस नहीं। स्पष्ट दायरा। ईमानदार समय-सीमा।',
@@ -516,7 +517,7 @@ export const translations = {
     fullProduction: 'फुल प्रोडक्शन',
     fullProductionDesc: 'प्रीमियम कंटेंट के लिए',
     fullProductionFeatures: 'स्क्रिप्टिंग सपोर्ट|एडवांस्ड मोशन ग्राफिक्स|कस्टम एनिमेशन|म्यूज़िक लाइसेंसिंग हेल्प|मल्टीपल फॉर्मेट्स',
-    
+
     // Pricing Section (Home)
     subscriptionPlans: 'सब्सक्रिप्शन प्लान',
     pricingTitle: 'मूल्य निर्धारण',
@@ -538,16 +539,17 @@ export const translations = {
     pricingNote: 'सभी मूल्य GST को छोड़कर हैं। अर्जेंट कार्य में जटिलता और समय-सीमा के आधार पर अतिरिक्त शुल्क लग सकता है।',
     perMonth: '/माह',
     perVideo: '/वीडियो',
-    
+
     // Creator Mode - New Sections
-    creatorModeLaunchNote: 'क्रिएटर मोड सेवाएं 1 मार्च से शुरू होंगी।',
+    creatorModeLaunchNote: 'क्रिएटर मोड सेवाएं 1 मार्च से काम के लिए उपलब्ध होंगी।',
+    betaVersion: 'बीटा संस्करण',
     servicesOffered: 'प्रदान की जाने वाली सेवाएं',
     professionalSoftware: 'प्रोफेशनल सॉफ्टवेयर',
     appsAndTools: 'ऐप्स और टूल्स',
     upcomingInnovations: 'आने वाले इनोवेशन',
     moreDetailsNote: 'भविष्य के अपडेट में अधिक जानकारी साझा की जाएगी।',
     comingSoon: 'जल्द आ रहा है',
-    
+
     // Software & Tools
     adobePremierePro: 'Adobe Premiere Pro',
     adobeAfterEffects: 'Adobe After Effects',
@@ -557,10 +559,10 @@ export const translations = {
     figma: 'Figma',
     canvaPro: 'Canva Pro',
     capcut: 'CapCut Pro',
-    
+
     // Upcoming Items
-    aiContentGeneration: 'AI कंटेंट जनरेशन',
-    virtualProduction: 'वर्चुअल प्रोडक्शन',
-    immersiveExperiences: 'इमर्सिव एक्सपीरियंस',
+    aiAgents: 'AI एजेंट्स और ऑटोमेशन',
+    scanToDigital: 'स्कैन-टू-डिजिटल ऑटोमेशन',
+    creatorAutomation: 'क्रिएटर-साइड ऑटोमेशन टूल्स',
   }
 } as const;
