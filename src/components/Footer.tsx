@@ -23,12 +23,15 @@ const Footer = ({ mode }: FooterProps) => {
             <p className="text-sm text-foreground/40 mb-4 leading-relaxed">
               Your calm digital partner for institutions and creators.
             </p>
+            <p className="text-xs font-medium text-foreground/60 mb-4">
+              Trusted by leading institutions and creators across India.
+            </p>
             <div className="flex items-center gap-2 text-xs text-foreground/30">
               <Shield className="w-3 h-3" />
               <span>All data handled with strict confidentiality</span>
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h4 className="text-sm font-medium text-foreground mb-4">Navigation</h4>
@@ -40,7 +43,7 @@ const Footer = ({ mode }: FooterProps) => {
               <Link to="/contact" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Contact</Link>
             </div>
           </div>
-          
+
           {/* Working Hours */}
           <div>
             <h4 className="text-sm font-medium text-foreground mb-4">Working Hours</h4>
@@ -54,19 +57,18 @@ const Footer = ({ mode }: FooterProps) => {
               </p>
             </div>
           </div>
-          
+
           {/* Contact */}
           <div>
             <h4 className="text-sm font-medium text-foreground mb-4">Get in Touch</h4>
-            <a 
+            <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                mode === 'institutional'
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${mode === 'institutional'
                   ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
                   : 'bg-creator/10 text-creator hover:bg-creator/20'
-              }`}
+                }`}
             >
               <MessageCircle className="w-4 h-4" />
               Chat on WhatsApp
@@ -76,7 +78,7 @@ const Footer = ({ mode }: FooterProps) => {
             </p>
           </div>
         </div>
-        
+
         {/* Bottom section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-border">
           {/* Copyright */}
@@ -92,7 +94,7 @@ const Footer = ({ mode }: FooterProps) => {
               INDIA
             </div>
           </div>
-          
+
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-foreground/40">
             <a href="#" className="hover:text-foreground transition-colors duration-300">
@@ -103,13 +105,13 @@ const Footer = ({ mode }: FooterProps) => {
             </a>
           </div>
         </div>
-        
+
         {/* Disclaimer */}
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-[10px] text-foreground/20 max-w-3xl mx-auto leading-relaxed">
-            <strong className="text-foreground/30">Important:</strong> quickserveit provides technical assistance, documentation services, and creative production only. 
-            Academic correctness, student eligibility, and final record authenticity remain 
-            the sole responsibility of the institution. For creators, reach, monetization, and performance 
+            <strong className="text-foreground/30">Important:</strong> quickserveit provides technical assistance, documentation services, and creative production only.
+            Academic correctness, student eligibility, and final record authenticity remain
+            the sole responsibility of the institution. For creators, reach, monetization, and performance
             depend on platform algorithms; production quality is our focus. All files handled with strict confidentiality.
           </p>
         </div>

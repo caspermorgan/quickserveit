@@ -9,6 +9,8 @@ import Footer from '@/components/Footer';
 import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import Testimonials from '@/components/Testimonials';
+import ServicesSection from '@/components/ServicesSection';
+import HowItWorks from '@/components/HowItWorks';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -148,70 +150,14 @@ const Home = () => {
           </section>
         )}
 
-        {/* Quick Overview Section */}
-        <section className="py-24 px-6 border-t border-border">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-2xl md:text-3xl font-display mb-4">
-                {t('howItWorks')}
-              </h2>
-              <p className="text-foreground/50 max-w-xl mx-auto">
-                {mode === 'institutional'
-                  ? t('servicesInstSubtitle')
-                  : t('servicesCreatorSubtitle')}
-              </p>
-            </div>
+        {/* Services Section */}
+        <ServicesSection mode={mode} />
 
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-              {mode === 'institutional' ? (
-                <>
-                  <ProcessCard
-                    step="01"
-                    title="Share Requirements"
-                    description="Send your documentation needs via WhatsApp with clear specifications and deadlines."
-                    mode={mode}
-                  />
-                  <ProcessCard
-                    step="02"
-                    title="Calm Execution"
-                    description="We process your files with accuracy and confidentiality, keeping you updated throughout."
-                    mode={mode}
-                  />
-                  <ProcessCard
-                    step="03"
-                    title="Timely Delivery"
-                    description="Receive organized, verified deliverables within the agreed timeline."
-                    mode={mode}
-                  />
-                </>
-              ) : (
-                <>
-                  <ProcessCard
-                    step="01"
-                    title="Share Your Vision"
-                    description="Send your raw footage and creative brief via WeTransfer or Google Drive."
-                    mode={mode}
-                  />
-                  <ProcessCard
-                    step="02"
-                    title="Premium Production"
-                    description="We craft retention-focused edits with professional color grading and sound design."
-                    mode={mode}
-                  />
-                  <ProcessCard
-                    step="03"
-                    title="Review & Refine"
-                    description="Review the edit, request revisions, and receive your final export."
-                    mode={mode}
-                  />
-                </>
-              )}
-            </div>
-          </div>
-        </section>
+        {/* How It Works Section */}
+        <HowItWorks mode={mode} />
 
         {/* Testimonials Section */}
-        <section className="py-24 px-6 border-t border-border">
+        <section className="py-32 px-6 border-t border-border bg-white/5">
           <Testimonials mode={mode} />
         </section>
       </main>
@@ -236,23 +182,6 @@ const StatBlock = ({ value, label, mode }: StatBlockProps) => (
     <div className="text-xs md:text-sm text-foreground/40 tracking-wide">
       {label}
     </div>
-  </div>
-);
-
-interface ProcessCardProps {
-  step: string;
-  title: string;
-  description: string;
-  mode: 'institutional' | 'creator';
-}
-
-const ProcessCard = ({ step, title, description, mode }: ProcessCardProps) => (
-  <div className="p-6 rounded-2xl glass-card border border-border/20">
-    <span className={`text-sm font-mono ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-      {step}
-    </span>
-    <h3 className="text-lg font-medium mt-3 mb-2">{title}</h3>
-    <p className="text-sm text-foreground/50 leading-relaxed">{description}</p>
   </div>
 );
 

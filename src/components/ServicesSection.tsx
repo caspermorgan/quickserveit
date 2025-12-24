@@ -1,8 +1,8 @@
-import { 
-  FileText, 
-  GraduationCap, 
-  Database, 
-  Shield, 
+import {
+  FileText,
+  GraduationCap,
+  Database,
+  Shield,
   MessageCircle,
   Video,
   Palette,
@@ -12,99 +12,101 @@ import {
   Layers
 } from 'lucide-react';
 import ServiceCard from './ServiceCard';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ServicesSectionProps {
   mode: 'institutional' | 'creator';
 }
 
 const ServicesSection = ({ mode }: ServicesSectionProps) => {
+  const { t } = useTranslation();
+
   const institutionalServices = [
     {
       icon: FileText,
-      title: 'Exam Documentation',
-      description: 'Confidential paper formatting, room-wise seating management, and secure printing with class-wise bundling.',
+      title: t('examDocCardTitle'),
+      description: t('examDocCardDesc'),
     },
     {
       icon: GraduationCap,
-      title: 'UP Scholarship Processing',
-      description: 'On-campus technical assistance, DSC-based locking, and complete scholarship workflow management.',
+      title: t('scholarshipCardTitle'),
+      description: t('scholarshipCardDesc'),
     },
     {
       icon: Database,
-      title: 'UDISE+ Data Management',
-      description: 'Structured data entry, student promotion tracking, and final certification with archive-ready records.',
+      title: t('udiseCardTitle'),
+      description: t('udiseCardDesc'),
     },
     {
       icon: Shield,
-      title: 'Government Projects',
-      description: 'Rapid response for ad-hoc circulars, compliance mapping, and special government portal assistance.',
+      title: t('govProjectsTitle'),
+      description: t('govProjectsDesc'),
     },
     {
       icon: MessageCircle,
-      title: 'Daily Digital Support',
-      description: 'Remote WhatsApp-based office assistance for notices, file resizing, and quick administrative tasks.',
+      title: t('dailySupportCardTitle'),
+      description: t('dailySupportCardDesc'),
     },
     {
       icon: Layers,
-      title: 'Subscription Plans',
-      description: 'Silver, Gold, and Platinum tiers offering predictable monthly support with priority turnaround.',
+      title: t('subscriptionTitle'),
+      description: t('subscriptionDesc'),
     },
   ];
-  
+
   const creatorServices = [
     {
       icon: Video,
-      title: 'Video & Post-Production',
-      description: 'Retention-style editing for YouTube, Reels, and documentaries with cinematic scene polish.',
+      title: t('videoCardTitle'),
+      description: t('videoCardDesc'),
     },
     {
       icon: Palette,
-      title: 'Branding & Design',
-      description: 'High-CTR thumbnails, brand identity systems, and event posters that demand attention.',
+      title: t('brandingCardTitle'),
+      description: t('brandingCardDesc'),
     },
     {
       icon: Wand2,
-      title: 'Motion Graphics & VFX',
-      description: 'Custom logo intros, kinetic typography, lower thirds, and professional green screen cleanup.',
+      title: t('motionCardTitle'),
+      description: t('motionCardDesc'),
     },
     {
       icon: TrendingUp,
-      title: 'Content Strategy',
-      description: 'Scripting, SEO optimization, content calendars, and channel growth management.',
+      title: t('strategyCardTitle'),
+      description: t('strategyCardDesc'),
     },
     {
       icon: Sparkles,
-      title: 'AI Visual Campaigns',
-      description: 'Future-ready AI-driven 2D/3D visual micro-campaigns and filmless premium advertisements.',
+      title: t('aiCampaignsTitle'),
+      description: t('aiCampaignsDesc'),
     },
     {
       icon: Layers,
-      title: 'Creator Studio Space',
-      description: 'Coming soon: Soundproof environment with professional gear for local talent incubation.',
+      title: t('studioSpaceTitle'),
+      description: t('studioSpaceDesc'),
     },
   ];
-  
+
   const services = mode === 'institutional' ? institutionalServices : creatorServices;
-  const sectionTitle = mode === 'institutional' ? 'Institutional Services' : 'Creative Studio';
-  const sectionSubtitle = mode === 'institutional' 
-    ? 'Comprehensive digital support for educational institutions'
-    : 'World-class production for modern creators';
+  const sectionTitle = mode === 'institutional' ? t('institutionalServices') : t('creativeStudio');
+  const sectionSubtitle = mode === 'institutional'
+    ? t('servicesInstSubtitle')
+    : t('servicesCreatorSubtitle');
 
   return (
-    <section id="services" className="py-20 md:py-32 px-6">
+    <section id="services" className="py-24 md:py-32 px-6 bg-white/5">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
-          <h2 className={`font-display text-2xl md:text-4xl tracking-wide mb-4 ${
-            mode === 'institutional' ? 'text-institutional' : 'text-creator'
-          }`}>
+          <h2 className={`font-display text-2xl md:text-4xl tracking-wide mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+            }`}>
             {sectionTitle}
           </h2>
           <p className="text-foreground/50 max-w-lg mx-auto">
             {sectionSubtitle}
           </p>
         </div>
-        
+
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
