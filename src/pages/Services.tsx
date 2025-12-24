@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -20,12 +21,23 @@ import {
   Clock,
   CheckCircle,
   AlertCircle,
-  MessageCircle
+  MessageCircle,
+  Sparkles,
+  Monitor,
+  Smartphone,
+  Rocket
 } from 'lucide-react';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const Services = () => {
   const { mode, setHasEntered } = useMode();
+  const { t } = useTranslation();
   const navigate = useNavigate();
+  const [isInnovationsOpen, setIsInnovationsOpen] = useState(false);
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -35,86 +47,42 @@ const Services = () => {
   const institutionalServices = [
     {
       icon: FileText,
-      title: 'Examination Documentation',
-      shortDesc: 'Complete exam record management from scheduling to result documentation.',
-      fullDesc: 'End-to-end examination documentation including student data entry, hall ticket generation, attendance records, answer sheet tracking, and result compilation.',
-      howItWorks: [
-        'Share exam schedule and student lists via WhatsApp',
-        'Provide raw data in any format (Excel, PDF, handwritten)',
-        'We structure and digitize all records',
-        'Review formatted documents before final submission',
-        'Receive complete examination package ready for submission'
-      ],
-      whatYouNeed: [
-        'Student master data (name, roll number, class)',
-        'Subject list and exam dates',
-        'Any existing documentation templates',
-        'Deadline for final submission'
-      ],
-      timeline: 'Standard: 5-7 working days | Urgent: 2-3 working days (additional charges)',
+      titleKey: 'examDocTitle' as const,
+      shortDescKey: 'examDocShort' as const,
+      fullDescKey: 'examDocFull' as const,
+      stepsKey: 'examDocSteps' as const,
+      needsKey: 'examDocNeeds' as const,
+      timelineKey: 'examDocTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I need help with examination documentation for [school name]. We have [number] students and the exam starts on [date].'
     },
     {
       icon: GraduationCap,
-      title: 'Scholarship Support',
-      shortDesc: 'Application processing, eligibility verification, and documentation for scholarships.',
-      fullDesc: 'Complete scholarship management including eligibility screening, application form filling, document collection guidance, and submission tracking.',
-      howItWorks: [
-        'Share scholarship scheme details and student list',
-        'We verify eligibility criteria for each student',
-        'Guide families on required documents',
-        'Fill and format applications accurately',
-        'Track submission status and deadlines'
-      ],
-      whatYouNeed: [
-        'Scholarship scheme name and guidelines',
-        'Student list with basic details',
-        'Income certificates, caste certificates (if applicable)',
-        'Bank account details of students/parents'
-      ],
-      timeline: 'Standard: 7-10 working days | Depends on document collection from families',
+      titleKey: 'scholarshipTitle' as const,
+      shortDescKey: 'scholarshipShort' as const,
+      fullDescKey: 'scholarshipFull' as const,
+      stepsKey: 'scholarshipSteps' as const,
+      needsKey: 'scholarshipNeeds' as const,
+      timelineKey: 'scholarshipTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I need help with [scholarship name] scholarship applications for [number] students. The deadline is [date].'
     },
     {
       icon: Building,
-      title: 'UDISE+ Management',
-      shortDesc: 'Complete UDISE+ data entry, verification, and annual updates.',
-      fullDesc: 'Annual UDISE+ compliance including data collection, accurate entry, verification before submission, and correction management.',
-      howItWorks: [
-        'Share current school data and last year\'s UDISE+ records',
-        'We audit data for completeness and accuracy',
-        'Enter all fields with verification checks',
-        'Generate preview report for your review',
-        'Submit and provide confirmation documentation'
-      ],
-      whatYouNeed: [
-        'School login credentials (shared securely)',
-        'Current year enrollment data',
-        'Infrastructure details and updates',
-        'Teacher information and qualifications'
-      ],
-      timeline: 'Standard: 3-5 working days | Annual window: Priority scheduling available',
+      titleKey: 'udiseTitle' as const,
+      shortDescKey: 'udiseShort' as const,
+      fullDescKey: 'udiseFull' as const,
+      stepsKey: 'udiseSteps' as const,
+      needsKey: 'udiseNeeds' as const,
+      timelineKey: 'udiseTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I need help with UDISE+ data entry for [school name]. Our school code is [UDISE code].'
     },
     {
       icon: Calendar,
-      title: 'Daily Digital Support',
-      shortDesc: 'Ongoing administrative support for routine documentation needs.',
-      fullDesc: 'Retainer-based support for schools requiring regular assistance with circulars, notices, attendance reports, parent communication, and ad-hoc documentation.',
-      howItWorks: [
-        'Subscribe to monthly support package',
-        'Share tasks via dedicated WhatsApp channel',
-        'Receive same-day or next-day turnaround',
-        'Monthly summary of completed work',
-        'Flexible scope based on your needs'
-      ],
-      whatYouNeed: [
-        'List of recurring documentation needs',
-        'Communication preferences and templates',
-        'Key contacts for clarifications',
-        'Monthly task volume estimate'
-      ],
-      timeline: 'Same-day for simple tasks | 24-48 hours for complex documentation',
+      titleKey: 'dailySupportTitle' as const,
+      shortDescKey: 'dailySupportShort' as const,
+      fullDescKey: 'dailySupportFull' as const,
+      stepsKey: 'dailySupportSteps' as const,
+      needsKey: 'dailySupportNeeds' as const,
+      timelineKey: 'dailySupportTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I am interested in monthly digital support for [school name]. We typically need help with [types of tasks].'
     }
   ];
@@ -122,88 +90,64 @@ const Services = () => {
   const creatorServices = [
     {
       icon: Video,
-      title: 'Long-Form Video Editing',
-      shortDesc: 'YouTube, documentary, and educational content with retention-focused editing.',
-      fullDesc: 'Premium editing for content 10+ minutes including structure optimization, pacing, cuts, transitions, text animations, and engagement hooks.',
-      howItWorks: [
-        'Share raw footage via Google Drive or WeTransfer',
-        'Provide brief: key moments, style references, target length',
-        'Receive first cut within timeline',
-        'Review and request revisions (2 rounds included)',
-        'Final export in required format and resolution'
-      ],
-      whatYouNeed: [
-        'Raw footage (organized by scene/topic)',
-        'Any B-roll or assets to include',
-        'Music preferences or licensed tracks',
-        'Reference videos for style/pacing'
-      ],
-      timeline: 'Standard: 7-10 days for 15-20 min video | Depends on complexity',
+      titleKey: 'videoEditTitle' as const,
+      shortDescKey: 'videoEditShort' as const,
+      fullDescKey: 'videoEditFull' as const,
+      stepsKey: 'videoEditSteps' as const,
+      needsKey: 'videoEditNeeds' as const,
+      timelineKey: 'videoEditTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I need video editing for a [type] video. It\'s approximately [duration] of raw footage targeting [final length].'
     },
     {
       icon: Palette,
-      title: 'Thumbnail & Design',
-      shortDesc: 'High-CTR thumbnails and channel graphics that drive clicks.',
-      fullDesc: 'Scroll-stopping thumbnails, channel art, end screens, and social media graphics designed for maximum click-through.',
-      howItWorks: [
-        'Share video topic and target emotion',
-        'Provide face shots or key frames',
-        'Receive 2-3 thumbnail options',
-        'Select and request tweaks',
-        'Final delivery in all required sizes'
-      ],
-      whatYouNeed: [
-        'Video title and topic',
-        'High-quality still from video (or we extract)',
-        'Any text to include',
-        'Color preferences or brand guidelines'
-      ],
-      timeline: 'Standard: 24-48 hours | Rush: Same-day available',
+      titleKey: 'thumbnailTitle' as const,
+      shortDescKey: 'thumbnailShort' as const,
+      fullDescKey: 'thumbnailFull' as const,
+      stepsKey: 'thumbnailSteps' as const,
+      needsKey: 'thumbnailNeeds' as const,
+      timelineKey: 'thumbnailTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I need a thumbnail for my video about [topic]. The title is [title].'
     },
     {
       icon: Music,
-      title: 'Motion Graphics & Animation',
-      shortDesc: 'Intros, outros, lower thirds, and animated elements.',
-      fullDesc: 'Custom motion graphics including animated logos, subscribe buttons, transitions, lower thirds, and full intro/outro sequences.',
-      howItWorks: [
-        'Share brand assets and style preferences',
-        'Discuss animation style and complexity',
-        'Receive concept sketches or storyboard',
-        'Review animated draft',
-        'Final delivery with project files (optional)'
-      ],
-      whatYouNeed: [
-        'Logo files (preferably vector)',
-        'Brand colors and fonts',
-        'Reference animations you like',
-        'Duration and format requirements'
-      ],
-      timeline: 'Intros/Outros: 5-7 days | Lower thirds: 2-3 days | Complex: Quote required',
+      titleKey: 'motionTitle' as const,
+      shortDescKey: 'motionShort' as const,
+      fullDescKey: 'motionFull' as const,
+      stepsKey: 'motionSteps' as const,
+      needsKey: 'motionNeeds' as const,
+      timelineKey: 'motionTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I need [intro/outro/motion graphics] for my channel [channel name]. My style is [describe style].'
     },
     {
       icon: Lightbulb,
-      title: 'Content Strategy Support',
-      shortDesc: 'Planning, scripting, and content calendar development.',
-      fullDesc: 'Strategic support for creators including topic research, script frameworks, upload scheduling, and performance analysis.',
-      howItWorks: [
-        'Share channel goals and current performance',
-        'Discuss niche and target audience',
-        'Receive content calendar or script outlines',
-        'Review and refine together',
-        'Ongoing support or one-time strategy'
-      ],
-      whatYouNeed: [
-        'Channel link and analytics access (for analysis)',
-        'Content goals (views, subs, monetization)',
-        'Topics you want to cover',
-        'Current posting frequency'
-      ],
-      timeline: 'Initial strategy: 5-7 days | Ongoing: Weekly/monthly retainer',
+      titleKey: 'strategyTitle' as const,
+      shortDescKey: 'strategyShort' as const,
+      fullDescKey: 'strategyFull' as const,
+      stepsKey: 'strategySteps' as const,
+      needsKey: 'strategyNeeds' as const,
+      timelineKey: 'strategyTimeline' as const,
       whatsappTemplate: 'Hello quickserveit, I need help with content strategy for my [niche] channel. Currently at [subscribers] subscribers.'
     }
+  ];
+
+  const professionalSoftware = [
+    { name: t('adobePremierePro'), category: 'Video' },
+    { name: t('adobeAfterEffects'), category: 'Motion' },
+    { name: t('davinciResolve'), category: 'Color' },
+    { name: t('adobePhotoshop'), category: 'Design' },
+    { name: t('adobeIllustrator'), category: 'Vector' },
+  ];
+
+  const appsAndTools = [
+    { name: t('figma'), category: 'UI/UX' },
+    { name: t('canvaPro'), category: 'Quick Design' },
+    { name: t('capcut'), category: 'Mobile Edit' },
+  ];
+
+  const upcomingInnovations = [
+    { name: t('aiContentGeneration'), icon: Sparkles },
+    { name: t('virtualProduction'), icon: Monitor },
+    { name: t('immersiveExperiences'), icon: Smartphone },
   ];
 
   const services = mode === 'institutional' ? institutionalServices : creatorServices;
@@ -211,10 +155,10 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>{mode === 'institutional' ? 'Institutional Services' : 'Creator Studio'} | quickserveit</title>
+        <title>{mode === 'institutional' ? t('ourServices') : t('creatorStudio')} | QuickServe IT</title>
         <meta name="description" content={mode === 'institutional' 
-          ? 'Complete documentation services for schools including examinations, scholarships, UDISE+, and daily digital support.'
-          : 'Premium video editing, thumbnail design, motion graphics, and content strategy for creators.'
+          ? t('servicesInstDesc')
+          : t('servicesCreatorDesc')
         } />
       </Helmet>
       
@@ -228,43 +172,132 @@ const Services = () => {
       />
       
       <main className="min-h-screen bg-background pt-32 pb-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-5xl">
           {/* Header */}
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-4">
               {mode === 'institutional' ? (
-                <>Our <span className="text-institutional">Services</span></>
+                <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
-                <>Creator <span className="text-creator">Studio</span></>
+                <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span></>
               )}
             </h1>
-            <p className="text-foreground/50 text-lg">
-              {mode === 'institutional' 
-                ? 'Structured, confidential support for educational institutions. Each service designed for operational clarity.'
-                : 'Premium production services for modern creators. Quality that elevates your content.'}
+            <p className="text-foreground/60 text-base md:text-lg leading-relaxed">
+              {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
 
+          {/* Creator Mode Launch Notice */}
+          {mode === 'creator' && (
+            <div className="max-w-3xl mx-auto mb-10 p-4 rounded-xl border border-creator/30 bg-creator/10 backdrop-blur-sm">
+              <div className="flex items-center gap-3">
+                <Rocket className="w-5 h-5 text-creator shrink-0" />
+                <p className="text-sm text-foreground/80 font-medium">
+                  {t('creatorModeLaunchNote')}
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* Important Notice */}
-          <div className={`max-w-3xl mx-auto mb-16 p-6 rounded-2xl border ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
+          <div className={`max-w-3xl mx-auto mb-12 p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
             <div className="flex items-start gap-4">
-              <AlertCircle className={`w-6 h-6 mt-0.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              <AlertCircle className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <div>
-                <h3 className="font-medium mb-2">Before You Begin</h3>
-                <ul className="text-sm text-foreground/60 space-y-1">
-                  <li>• All services require clear specifications upfront</li>
-                  <li>• Working hours: 10:00 AM – 3:00 PM IST (Mon–Sat)</li>
-                  <li>• Response time during working hours: Within 2 hours</li>
-                  <li>• All files handled with strict confidentiality</li>
+                <h3 className="font-medium mb-2 text-sm">{t('beforeYouBegin')}</h3>
+                <ul className="text-xs text-foreground/60 space-y-1">
+                  {t('beforeYouBeginItems').split('|').map((item, i) => (
+                    <li key={i}>• {item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
 
+          {/* Creator Mode: Structured Sections */}
+          {mode === 'creator' && (
+            <div className="max-w-3xl mx-auto mb-12 space-y-6">
+              {/* Professional Software */}
+              <div className="glass-card rounded-xl p-5 border border-border/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <Monitor className="w-5 h-5 text-creator" />
+                  <h3 className="font-medium">{t('professionalSoftware')}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {professionalSoftware.map((software, i) => (
+                    <span key={i} className="px-3 py-1.5 text-xs rounded-full bg-creator/10 text-foreground/70 border border-creator/20">
+                      {software.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Apps & Tools */}
+              <div className="glass-card rounded-xl p-5 border border-border/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <Smartphone className="w-5 h-5 text-creator" />
+                  <h3 className="font-medium">{t('appsAndTools')}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {appsAndTools.map((tool, i) => (
+                    <span key={i} className="px-3 py-1.5 text-xs rounded-full bg-creator/10 text-foreground/70 border border-creator/20">
+                      {tool.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Upcoming Innovations - Collapsible */}
+              <Collapsible open={isInnovationsOpen} onOpenChange={setIsInnovationsOpen}>
+                <div className="glass-card rounded-xl border border-border/20 overflow-hidden">
+                  <CollapsibleTrigger className="w-full p-5 flex items-center justify-between hover:bg-foreground/[0.02] transition-colors">
+                    <div className="flex items-center gap-3">
+                      <Sparkles className="w-5 h-5 text-creator" />
+                      <h3 className="font-medium">{t('upcomingInnovations')}</h3>
+                    </div>
+                    {isInnovationsOpen ? (
+                      <ChevronUp className="w-4 h-4 text-foreground/40" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-foreground/40" />
+                    )}
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <div className="px-5 pb-5 pt-2 border-t border-border/10">
+                      <div className="space-y-3">
+                        {upcomingInnovations.map((item, i) => {
+                          const Icon = item.icon;
+                          return (
+                            <div key={i} className="flex items-center gap-3 text-sm text-foreground/60">
+                              <Icon className="w-4 h-4 text-creator/60" />
+                              <span>{item.name}</span>
+                              <span className="ml-auto px-2 py-0.5 text-[10px] rounded bg-creator/20 text-creator">
+                                {t('comingSoon')}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <p className="mt-4 text-xs text-foreground/40 italic">
+                        {t('moreDetailsNote')}
+                      </p>
+                    </div>
+                  </CollapsibleContent>
+                </div>
+              </Collapsible>
+            </div>
+          )}
+
+          {/* Section Title for Services */}
+          <div className="max-w-3xl mx-auto mb-6">
+            <h2 className={`text-lg font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+              {t('servicesOffered')}
+            </h2>
+          </div>
+
           {/* Services Grid */}
-          <div className="space-y-8">
+          <div className="space-y-6 max-w-3xl mx-auto">
             {services.map((service, index) => (
-              <ServiceDetailCard key={index} service={service} mode={mode} />
+              <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
             ))}
           </div>
         </div>
@@ -278,63 +311,71 @@ const Services = () => {
 interface ServiceDetailCardProps {
   service: {
     icon: any;
-    title: string;
-    shortDesc: string;
-    fullDesc: string;
-    howItWorks: string[];
-    whatYouNeed: string[];
-    timeline: string;
+    titleKey: string;
+    shortDescKey: string;
+    fullDescKey: string;
+    stepsKey: string;
+    needsKey: string;
+    timelineKey: string;
     whatsappTemplate: string;
   };
   mode: 'institutional' | 'creator';
+  t: (key: any) => string;
 }
 
-const ServiceDetailCard = ({ service, mode }: ServiceDetailCardProps) => {
+const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const Icon = service.icon;
   
   const whatsappNumber = '919876543210';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.whatsappTemplate)}`;
 
+  const title = t(service.titleKey);
+  const shortDesc = t(service.shortDescKey);
+  const fullDesc = t(service.fullDescKey);
+  const steps = t(service.stepsKey).split('|');
+  const needs = t(service.needsKey).split('|');
+  const timeline = t(service.timelineKey);
+
   return (
-    <div className={`rounded-2xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : ''}`}>
+    <div className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : ''}`}>
       {/* Header - Always visible */}
       <button 
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-6 flex items-start gap-6 text-left hover:bg-foreground/[0.02] transition-colors"
+        className="w-full p-5 flex items-start gap-4 text-left hover:bg-foreground/[0.02] transition-colors"
       >
-        <div className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
-          <Icon className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+        <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+          <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-xl font-medium mb-2">{service.title}</h3>
-          <p className="text-foreground/50">{service.shortDesc}</p>
+          <h3 className="text-lg font-medium mb-1">{title}</h3>
+          <p className="text-sm text-foreground/50 line-clamp-2">{shortDesc}</p>
         </div>
         <div className="shrink-0 mt-1">
           {isExpanded ? (
-            <ChevronUp className="w-5 h-5 text-foreground/40" />
+            <ChevronUp className="w-4 h-4 text-foreground/40" />
           ) : (
-            <ChevronDown className="w-5 h-5 text-foreground/40" />
+            <ChevronDown className="w-4 h-4 text-foreground/40" />
           )}
         </div>
       </button>
 
       {/* Expanded Content */}
       {isExpanded && (
-        <div className="px-6 pb-6 border-t border-border/10 pt-6 animate-fade-in">
-          <p className="text-foreground/60 mb-8">{service.fullDesc}</p>
+        <div className="px-5 pb-5 border-t border-border/10 pt-5 animate-fade-in">
+          <p className="text-sm text-foreground/60 mb-6">{fullDesc}</p>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {/* How It Works */}
             <div>
-              <h4 className="flex items-center gap-2 font-medium mb-4">
+              <h4 className="flex items-center gap-2 text-sm font-medium mb-3">
                 <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                How It Works
+                {t('howItWorks')}
               </h4>
-              <ol className="space-y-3">
-                {service.howItWorks.map((step, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/60">
-                    <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>
+              <ol className="space-y-2">
+                {steps.map((step, i) => (
+                  <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
+                    <span className={`w-4 h-4 rounded-full text-[9px] flex items-center justify-center shrink-0 mt-0.5 ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>
                       {i + 1}
                     </span>
                     {step}
@@ -345,13 +386,13 @@ const ServiceDetailCard = ({ service, mode }: ServiceDetailCardProps) => {
             
             {/* What You Need */}
             <div>
-              <h4 className="flex items-center gap-2 font-medium mb-4">
+              <h4 className="flex items-center gap-2 text-sm font-medium mb-3">
                 <AlertCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                What You'll Need to Prepare
+                {t('whatYouNeed')}
               </h4>
-              <ul className="space-y-2">
-                {service.whatYouNeed.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-foreground/60">
+              <ul className="space-y-1.5">
+                {needs.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
                     <span className="text-foreground/30">•</span>
                     {item}
                   </li>
@@ -361,31 +402,31 @@ const ServiceDetailCard = ({ service, mode }: ServiceDetailCardProps) => {
           </div>
           
           {/* Timeline */}
-          <div className={`mt-8 p-4 rounded-xl ${mode === 'institutional' ? 'bg-institutional/5' : 'bg-creator/5'}`}>
-            <div className="flex items-center gap-2 text-sm">
-              <Clock className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-              <span className="font-medium">Timeline:</span>
-              <span className="text-foreground/60">{service.timeline}</span>
+          <div className={`mt-6 p-3 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5' : 'bg-creator/5'}`}>
+            <div className="flex items-center gap-2 text-xs">
+              <Clock className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              <span className="font-medium">{t('timeline')}:</span>
+              <span className="text-foreground/60">{timeline}</span>
             </div>
           </div>
           
           {/* CTA */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
             <a 
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 mode === 'institutional'
                   ? 'bg-institutional text-background hover:bg-institutional/90'
                   : 'bg-creator text-background hover:bg-creator/90'
               }`}
             >
               <MessageCircle className="w-4 h-4" />
-              Start This Service
+              {t('startThisService')}
             </a>
-            <p className="text-xs text-foreground/40 self-center">
-              Click to open WhatsApp with a pre-filled message
+            <p className="text-[10px] text-foreground/40">
+              {t('whatsappNote')}
             </p>
           </div>
         </div>
