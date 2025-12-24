@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Quote, ChevronDown } from 'lucide-react';
 
@@ -9,6 +9,7 @@ interface TestimonialsProps {
 const Testimonials = ({ mode }: TestimonialsProps) => {
     const { t } = useTranslation();
 
+    // STRICT SEGREGATION: Define testimonials separately
     const institutionalTestimonials = [
         {
             text: t('testimonialInst1Text'),
@@ -54,117 +55,36 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
         },
     ];
 
-    return (
-        <div className="max-w-7xl mx-auto">
-            {/* Institutional Feedback Section */}
-            <div className="mb-20">
-                <h2 className="text-2xl md:text-3xl font-display mb-10 text-center">
-                    {t('testimonialInstHeading')}
-                </h2>
-                <HorizontalScrollContainer>
-                    {institutionalTestimonials.map((testimonial, index) => (
-                        <TestimonialCard
-                            key={index}
-                            text={testimonial.text}
-                            preview={testimonial.preview}
-                            name={testimonial.name}
-                            location={testimonial.location}
-                            mode={mode}
-                            type="institutional"
-                        />
-                    ))}
-                </HorizontalScrollContainer>
-            </div>
+    // STRICT CONDITIONAL RENDERING: Show only relevant testimonials
+    const activeTestimonials = mode === 'institutional'
+        ? institutionalTestimonials
+        : creatorTestimonials;
 
-            {/* Creator Feedback Section */}
-            <div>
-                <h2 className="text-2xl md:text-3xl font-display mb-10 text-center">
-                    {t('testimonialCreatorHeading')}
-                </h2>
-                <HorizontalScrollContainer>
-                    {creatorTestimonials.map((testimonial, index) => (
-                        <TestimonialCard
-                            key={index}
-                            text={testimonial.text}
-                            preview={testimonial.preview}
-                            name={testimonial.name}
-                            role={testimonial.role}
-                            location={testimonial.location}
-                            mode={mode}
-                            type="creator"
-                        />
-                    ))}
-                </HorizontalScrollContainer>
-            </div>
-        </div>
-    );
-};
-
-interface HorizontalScrollContainerProps {
-    children: React.ReactNode;
-}
-
-const HorizontalScrollContainer = ({ children }: HorizontalScrollContainerProps) => {
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-
-    const handleMouseDown = (e: React.MouseEvent) => {
-        if (!scrollRef.current) return;
-        setIsDragging(true);
-        setStartX(e.pageX - scrollRef.current.offsetLeft);
-        setScrollLeft(scrollRef.current.scrollLeft);
-    };
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!isDragging || !scrollRef.current) return;
-        e.preventDefault();
-        const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX) * 2;
-        scrollRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    useEffect(() => {
-        const handleWheel = (e: WheelEvent) => {
-            if (!scrollRef.current) return;
-            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-
-            e.preventDefault();
-            scrollRef.current.scrollLeft += e.deltaY;
-        };
-
-        const scrollElement = scrollRef.current;
-        if (scrollElement) {
-            scrollElement.addEventListener('wheel', handleWheel, { passive: false });
-        }
-
-        return () => {
-            if (scrollElement) {
-                scrollElement.removeEventListener('wheel', handleWheel);
-            }
-        };
-    }, []);
+    const heading = mode === 'institutional'
+        ? t('testimonialInstHeading')
+        : t('testimonialCreatorHeading');
 
     return (
-        <div
-            ref={scrollRef}
-            className="horizontal-scroll scroll-snap-x horizontal-scroll-peek touch-pan-x"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
-        >
-            {children}
+        <div className="max-w-4xl mx-auto">
+            {/* Single Heading - Mode Specific */}
+            <h2 className="text-2xl md:text-3xl font-display mb-12 text-center">
+                {heading}
+            </h2>
+
+            {/* Static Vertical Grid - No Horizontal Scroll */}
+            <div className="grid grid-cols-1 gap-8 md:gap-10">
+                {activeTestimonials.map((testimonial, index) => (
+                    <TestimonialCard
+                        key={index}
+                        text={testimonial.text}
+                        preview={testimonial.preview}
+                        name={testimonial.name}
+                        role={testimonial.role}
+                        location={testimonial.location}
+                        mode={mode}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
@@ -176,19 +96,18 @@ interface TestimonialCardProps {
     role?: string;
     location: string;
     mode: 'institutional' | 'creator';
-    type: 'institutional' | 'creator';
 }
 
-const TestimonialCard = ({ text, preview, name, role, location, mode, type }: TestimonialCardProps) => {
+const TestimonialCard = ({ text, preview, name, role, location, mode }: TestimonialCardProps) => {
     const { t } = useTranslation();
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const accentColor = type === 'institutional'
+    const accentColor = mode === 'institutional'
         ? 'text-institutional'
         : 'text-creator';
 
     return (
-        <div className="testimonial-card scroll-snap-item p-6 md:p-8 rounded-2xl glass-card border border-border/20 flex flex-col min-h-[280px]">
+        <div className="p-6 md:p-8 rounded-2xl glass-card border border-border/20 flex flex-col animate-fade-in-up">
             {/* Quote Icon */}
             <Quote className={`w-8 h-8 mb-4 ${accentColor} opacity-40`} />
 
@@ -199,16 +118,18 @@ const TestimonialCard = ({ text, preview, name, role, location, mode, type }: Te
                 </p>
 
                 {/* Read More/Less Button */}
-                <button
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        setIsExpanded(!isExpanded);
-                    }}
-                    className={`mt-3 text-xs md:text-sm font-medium ${accentColor} hover:opacity-70 transition-opacity flex items-center gap-1`}
-                >
-                    {isExpanded ? t('showLess') : t('readMore')}
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
-                </button>
+                {preview && preview !== text && (
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setIsExpanded(!isExpanded);
+                        }}
+                        className={`mt-3 text-xs md:text-sm font-medium ${accentColor} hover:opacity-70 transition-opacity flex items-center gap-1`}
+                    >
+                        {isExpanded ? t('showLess') : t('readMore')}
+                        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+                    </button>
+                )}
             </div>
 
             {/* Attribution */}
