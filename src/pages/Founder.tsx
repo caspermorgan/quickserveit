@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -9,6 +10,7 @@ import { Quote, Heart, Target, Eye } from 'lucide-react';
 
 const Founder = () => {
   const { mode, setHasEntered } = useMode();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleReturn = () => {
@@ -22,16 +24,16 @@ const Founder = () => {
         <title>Founder's Message | quickserveit</title>
         <meta name="description" content="A personal message from the founder of quickserveit about our mission, values, and commitment to calm digital execution." />
       </Helmet>
-      
+
       <CursorLight mode={mode} />
       <FilmGrain />
-      
-      <FloatingNavbar 
-        mode={mode} 
+
+      <FloatingNavbar
+        mode={mode}
         onReturn={handleReturn}
         isVisible={true}
       />
-      
+
       <main className="min-h-screen bg-background pt-32 pb-20">
         <div className="container mx-auto px-6 max-w-4xl">
           {/* Header */}
@@ -133,7 +135,7 @@ const Founder = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer mode={mode} />
     </>
   );
