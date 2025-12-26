@@ -1,12 +1,13 @@
-// QuickServe IT - Professional Hindi/English Translation System
+// Quickserve IT - Professional Hindi/English Translation System
 
 export type TranslationKey = keyof typeof translations.en;
 
 export const translations = {
   en: {
     // Brand
-    brandName: 'QuickServe IT',
+    brandName: 'Quickserve IT',
     brandTagline: 'Your Personal Tech Partner.',
+    betaVersion: 'Beta',
 
     // Landing
     secure: 'Secure',
@@ -442,8 +443,9 @@ export const translations = {
   },
   hi: {
     // Brand
-    brandName: 'QuickServe IT',
+    brandName: 'Quickserve IT',
     brandTagline: 'आपका भरोसेमंद टेक पार्टनर।',
+    betaVersion: 'बीटा',
 
     // Landing
     secure: 'सुरक्षित',
