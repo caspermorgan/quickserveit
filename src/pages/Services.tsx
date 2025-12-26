@@ -336,11 +336,12 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
   const timeline = t(service.timelineKey);
 
   return (
-    <div className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : ''}`}>
+    <div className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : 'hover:border-border/40 hover:-translate-y-0.5'}`}>
       {/* Header - Always visible */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-5 sm:p-5 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors"
+        className="w-full p-5 sm:p-5 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
+        aria-expanded={isExpanded}
       >
         <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
           <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -358,76 +359,80 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
         </div>
       </button>
 
-      {/* Expanded Content */}
-      {isExpanded && (
-        <div className="px-5 sm:px-5 pb-5 sm:pb-5 border-t border-border/10 pt-5 sm:pt-5 animate-fade-in">
-          <p className="text-xs sm:text-sm text-foreground/60 mb-6 sm:mb-6 leading-relaxed">{fullDesc}</p>
+      {/* Expanded Content with smooth animation */}
+      <div 
+        className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-5 sm:px-5 pb-5 sm:pb-5 border-t border-border/10 pt-5 sm:pt-5">
+            <p className="text-xs sm:text-sm text-foreground/60 mb-6 sm:mb-6 leading-relaxed">{fullDesc}</p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* How It Works */}
-            <div>
-              <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                {t('howItWorks')}
-              </h4>
-              <ol className="space-y-2.5">
-                {steps.map((step, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
-                    <span className={`w-4 h-4 rounded-full text-[9px] flex items-center justify-center shrink-0 mt-0.5 ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>
-                      {i + 1}
-                    </span>
-                    {step}
-                  </li>
-                ))}
-              </ol>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* How It Works */}
+              <div>
+                <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
+                  <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  {t('howItWorks')}
+                </h4>
+                <ol className="space-y-2.5">
+                  {steps.map((step, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
+                      <span className={`w-4 h-4 rounded-full text-[9px] flex items-center justify-center shrink-0 mt-0.5 ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>
+                        {i + 1}
+                      </span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* What You Need */}
+              <div>
+                <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
+                  <AlertCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  {t('whatYouNeed')}
+                </h4>
+                <ul className="space-y-2">
+                  {needs.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
+                      <span className="text-foreground/30">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* What You Need */}
-            <div>
-              <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
-                <AlertCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                {t('whatYouNeed')}
-              </h4>
-              <ul className="space-y-2">
-                {needs.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
-                    <span className="text-foreground/30">•</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            {/* Timeline */}
+            <div className={`mt-6 p-3 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5' : 'bg-creator/5'}`}>
+              <div className="flex items-center gap-2 text-xs">
+                <Clock className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className="font-medium">{t('timeline')}:</span>
+                <span className="text-foreground/60">{timeline}</span>
+              </div>
             </div>
-          </div>
 
-          {/* Timeline */}
-          <div className={`mt-6 p-3 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5' : 'bg-creator/5'}`}>
-            <div className="flex items-center gap-2 text-xs">
-              <Clock className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-              <span className="font-medium">{t('timeline')}:</span>
-              <span className="text-foreground/60">{timeline}</span>
+            {/* CTA */}
+            <div className="mt-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+                  ? 'bg-institutional text-background hover:bg-institutional/90'
+                  : 'bg-creator text-background hover:bg-creator/90'
+                  }`}
+              >
+                <MessageCircle className="w-4 h-4" />
+                {t('startThisService')}
+              </a>
+              <p className="text-[10px] text-foreground/40">
+                {t('whatsappNote')}
+              </p>
             </div>
-          </div>
-
-          {/* CTA */}
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${mode === 'institutional'
-                ? 'bg-institutional text-background hover:bg-institutional/90'
-                : 'bg-creator text-background hover:bg-creator/90'
-                }`}
-            >
-              <MessageCircle className="w-4 h-4" />
-              {t('startThisService')}
-            </a>
-            <p className="text-[10px] text-foreground/40">
-              {t('whatsappNote')}
-            </p>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

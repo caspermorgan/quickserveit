@@ -108,19 +108,19 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
               <Link
                 to="/services"
-                className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-background transition-all duration-300 ${mode === 'institutional'
+                className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-background transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px] ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90'
                   : 'bg-creator hover:bg-creator/90'
                   }`}
               >
                 {mode === 'institutional' ? t('viewServices') : t('seePortfolio')}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium border border-border hover:bg-foreground/5 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium border border-border hover:bg-foreground/5 hover:border-border/60 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px]"
               >
                 {t('contactUs')}
               </a>

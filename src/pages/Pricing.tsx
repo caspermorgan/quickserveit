@@ -119,7 +119,7 @@ const Pricing = () => {
                   href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(plan.template)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full font-medium transition-all ${plan.popular ? (mode === 'institutional' ? 'bg-institutional text-background' : 'bg-creator text-background') : 'border border-border hover:bg-foreground/5'}`}
+                  className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px] ${plan.popular ? (mode === 'institutional' ? 'bg-institutional text-background hover:bg-institutional/90' : 'bg-creator text-background hover:bg-creator/90') : 'border border-border hover:bg-foreground/5 hover:border-border/60'}`}
                 >
                   <MessageCircle className="w-4 h-4" />
                   {plan.cta}
