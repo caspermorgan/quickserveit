@@ -3,6 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
+import HeaderStatusBadge from './HeaderStatusBadge';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -153,13 +154,15 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       />
 
       {/* Return Button */}
-      <div className={`fixed top-6 left-6 md:top-8 md:left-8 z-50 transition-all duration-500 ${combinedVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      <div className={`fixed top-6 left-6 md:top-8 md:left-8 z-50 ${combinedVisible
+        ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
+        : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
         }`}>
         <button
           onClick={onReturn}
-          className={`group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full glass-nav transition-all duration-500 hover:scale-110 ${mode === 'institutional'
-              ? 'hover:border-institutional/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]'
-              : 'hover:border-creator/30 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]'
+          className={`group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full glass-nav transition-all duration-300 hover:scale-110 ${mode === 'institutional'
+            ? 'hover:border-institutional/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]'
+            : 'hover:border-creator/30 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]'
             }`}
           aria-label="Return to landing"
         >
@@ -167,17 +170,20 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         </button>
       </div>
 
+
       {/* Language Switch - Top Right */}
-      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 transition-all duration-500 ${combinedVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 ${combinedVisible
+        ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
+        : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
         }`}>
         <LanguageSwitch mode={mode} />
       </div>
 
       {/* Navigation Bar - Bottom */}
       <div
-        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${combinedVisible
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-10 pointer-events-none'
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 ${combinedVisible
+          ? 'opacity-100 translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,1,1)]'
+          : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
           }`}
       >
         <nav className="flex items-center gap-1 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
@@ -188,8 +194,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
                 key={link.href}
                 to={link.href}
                 className={`relative px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group ${isActive
-                    ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                    : 'text-foreground/60 hover:text-foreground'
+                  ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                  : 'text-foreground/60 hover:text-foreground'
                   }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >

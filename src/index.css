@@ -615,6 +615,18 @@
   }
 }
 
+@keyframes softBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
 /* Stagger animation delays */
 .delay-100 {
   animation-delay: 100ms;

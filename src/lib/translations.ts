@@ -88,6 +88,10 @@ export const translations = {
     workingDays: 'Monday to Saturday',
     outsideHoursNote: 'Messages received outside these hours will be addressed the next working day.',
 
+    // Header Status
+    availableNow: 'Available Now',
+    onRequest: 'On Request',
+
     // Testimonials
     readMore: 'Read more',
     showLess: 'Show less',
@@ -520,6 +524,10 @@ export const translations = {
     messagesAccepted: 'समय के बाद संदेश स्वीकार किए जाते हैं',
     workingDays: 'सोमवार से शनिवार',
     outsideHoursNote: 'इस समय के बाद भेजे गए संदेश का जवाब अगले दिन मिलेगा।',
+
+    // Header Status
+    availableNow: 'उपलब्ध अभी',
+    onRequest: 'अनुरोध पर',
 
     // Testimonials
     readMore: 'पूरा पढ़ें',

@@ -65,25 +65,33 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
         : t('testimonialCreatorHeading');
 
     return (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
             {/* Single Heading - Mode Specific */}
             <h2 className="text-2xl md:text-3xl font-display mb-12 text-center">
                 {heading}
             </h2>
 
-            {/* Static Vertical Grid - No Horizontal Scroll */}
-            <div className="grid grid-cols-1 gap-8 md:gap-10">
-                {activeTestimonials.map((testimonial, index) => (
-                    <TestimonialCard
-                        key={index}
-                        text={testimonial.text}
-                        preview={testimonial.preview}
-                        name={testimonial.name}
-                        role={testimonial.role}
-                        location={testimonial.location}
-                        mode={mode}
-                    />
-                ))}
+            {/* Horizontal Scrolling Container */}
+            <div className="relative">
+                <div
+                    className="flex gap-6 md:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar"
+                    style={{
+                        scrollbarWidth: 'none',
+                        msOverflowStyle: 'none',
+                    }}
+                >
+                    {activeTestimonials.map((testimonial, index) => (
+                        <TestimonialCard
+                            key={index}
+                            text={testimonial.text}
+                            preview={testimonial.preview}
+                            name={testimonial.name}
+                            role={testimonial.role}
+                            location={testimonial.location}
+                            mode={mode}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -107,13 +115,32 @@ const TestimonialCard = ({ text, preview, name, role, location, mode }: Testimon
         : 'text-creator';
 
     return (
-        <div className="p-6 md:p-8 rounded-2xl glass-card border border-border/20 flex flex-col animate-fade-in-up">
+        <div
+            className="
+                flex-shrink-0 snap-start
+                w-[calc(100%-2rem)] 
+                md:w-[calc(50%-1rem)] 
+                lg:w-[calc(33.333%-1.5rem)]
+                p-6 md:p-8 
+                rounded-2xl 
+                glass-card 
+                border border-border/20 
+                flex flex-col
+                min-h-[280px]
+                shadow-[0_2px_8px_rgba(0,0,0,0.04)]
+                hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]
+                transition-shadow duration-300
+            "
+        >
             {/* Quote Icon */}
-            <Quote className={`w-8 h-8 mb-4 ${accentColor} opacity-40`} />
+            <Quote className={`w-8 h-8 mb-4 ${accentColor} opacity-40 flex-shrink-0`} />
 
             {/* Testimonial Text */}
             <div className="flex-grow mb-6">
-                <p className="text-sm md:text-base text-foreground/70 leading-relaxed transition-all duration-300">
+                <p
+                    className={`text-sm md:text-base text-foreground/70 leading-relaxed transition-all duration-300 ${!isExpanded && preview ? 'line-clamp-3' : ''
+                        }`}
+                >
                     "{isExpanded ? text : (preview || text)}"
                 </p>
 
@@ -133,16 +160,16 @@ const TestimonialCard = ({ text, preview, name, role, location, mode }: Testimon
             </div>
 
             {/* Attribution */}
-            <div className="border-t border-border/20 pt-4 mt-auto">
-                <div className={`font-medium text-sm md:text-base ${accentColor}`}>
+            <div className="border-t border-border/20 pt-4 mt-auto flex-shrink-0">
+                <div className={`font-medium text-sm md:text-base ${accentColor} truncate`}>
                     {name}
                 </div>
                 {role && (
-                    <div className="text-xs md:text-sm text-foreground/50 mt-1">
+                    <div className="text-xs md:text-sm text-foreground/50 mt-1 truncate">
                         {role}
                     </div>
                 )}
-                <div className="text-xs md:text-sm text-foreground/40 mt-1">
+                <div className="text-xs md:text-sm text-foreground/40 mt-1 truncate">
                     {location}
                 </div>
             </div>

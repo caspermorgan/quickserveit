@@ -4,7 +4,7 @@ import FilmGrain from './FilmGrain';
 import CursorLight from './CursorLight';
 import ModeSwitch from './ModeSwitch';
 import EnterButton from './EnterButton';
-import WorkingHoursIndicator from './WorkingHoursIndicator';
+import HeaderStatusBadge from './HeaderStatusBadge';
 import { useTranslation } from '@/hooks/useTranslation';
 
 interface LandingViewProps {
@@ -26,8 +26,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
   return (
     <div
       className={`fixed inset-0 z-30 flex flex-col items-center justify-center transition-all duration-1000 ease-out ${isExiting
-          ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
-          : 'opacity-100 scale-100 blur-0'
+        ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
+        : 'opacity-100 scale-100 blur-0'
         }`}
     >
       {/* Background */}
@@ -36,8 +36,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
       {/* Ambient light - subtle mode glow */}
       <div
         className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full blur-[120px] transition-all duration-1000 ${mode === 'institutional'
-            ? 'bg-institutional/[0.03]'
-            : 'bg-creator/[0.03]'
+          ? 'bg-institutional/[0.03]'
+          : 'bg-creator/[0.03]'
           }`}
       />
 
@@ -50,9 +50,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
       {/* Film Grain */}
       <FilmGrain />
 
-      {/* Working Hours Indicator - Top */}
+      {/* Status Badge - Top */}
       <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-40">
-        <WorkingHoursIndicator />
+        <HeaderStatusBadge mode={mode} />
       </div>
 
       {/* Content */}
