@@ -132,7 +132,9 @@ const TestimonialCard = ({ text, preview, name, role, location, mode }: Testimon
                 min-h-[280px]
                 shadow-[0_2px_8px_rgba(0,0,0,0.04)]
                 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)]
-                transition-shadow duration-300
+                hover:border-border/40
+                transition-all duration-300 ease-out
+                transform hover:-translate-y-1
             "
         >
             {/* Quote Icon */}
@@ -154,10 +156,11 @@ const TestimonialCard = ({ text, preview, name, role, location, mode }: Testimon
                             e.stopPropagation();
                             setIsExpanded(!isExpanded);
                         }}
-                        className={`mt-3 text-xs md:text-sm font-medium ${accentColor} hover:opacity-70 transition-opacity flex items-center gap-1`}
+                        className={`mt-3 text-xs md:text-sm font-medium ${accentColor} hover:opacity-70 transition-all duration-200 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded`}
+                        aria-expanded={isExpanded}
                     >
                         {isExpanded ? t('showLess') : t('readMore')}
-                        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+                        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ease-out ${isExpanded ? 'rotate-180' : ''}`} />
                     </button>
                 )}
             </div>

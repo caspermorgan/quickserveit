@@ -342,9 +342,9 @@ export const translations = {
     portfolioContactUs: 'Contact Us',
     portfolioViewContent: 'View Content',
 
-    // Testimonials
-    testimonialInstHeading: 'Institutional Testimonials',
-    testimonialCreatorHeading: 'Creator Testimonials',
+    // Client Work Summary
+    testimonialInstHeading: 'Client Work Summary',
+    testimonialCreatorHeading: 'Client Work Summary',
 
     // Institutional Testimonials
     testimonialInst1Text: 'Technical support during examinations, scholarships, and administrative work was handled in a disciplined and timely manner. The structured approach reduced pressure on staff and ensured confidentiality throughout the process.',
@@ -432,6 +432,11 @@ export const translations = {
     disclaimerSection4Content: 'Clients are responsible for providing accurate information, timely feedback, and necessary approvals. Delays or errors resulting from incomplete or incorrect information provided by the client are not our responsibility.',
     disclaimerSection5Title: '5. Service Modifications',
     disclaimerSection5Content: 'We reserve the right to modify our services, pricing, and terms at any time. Existing engagements will be honored under the terms agreed upon at the time of engagement.',
+
+    // Navigation
+    back: 'Back',
+    next: 'Next',
+    goToMenu: 'Go to Menu',
 
     // How It Works
     processStep1Title: 'Contact',
@@ -746,9 +751,9 @@ export const translations = {
     portfolioContactUs: 'संपर्क करें',
     portfolioViewContent: 'सामग्री देखें',
 
-    // Testimonials
-    testimonialInstHeading: 'संस्थागत प्रशंसापत्र',
-    testimonialCreatorHeading: 'क्रिएटर प्रशंसापत्र',
+    // Client Work Summary
+    testimonialInstHeading: 'क्लाइंट वर्क सारांश',
+    testimonialCreatorHeading: 'क्लाइंट वर्क सारांश',
 
     // Institutional Testimonials
     testimonialInst1Text: 'परीक्षा, छात्रवृत्ति और प्रशासनिक कार्य के दौरान तकनीकी सहायता अनुशासित और समयबद्ध तरीके से संभाली गई। संरचित दृष्टिकोण ने कर्मचारियों पर दबाव कम किया और पूरी प्रक्रिया में गोपनीयता सुनिश्चित की।',
@@ -836,5 +841,10 @@ export const translations = {
     disclaimerSection4Content: 'ग्राहक सटीक जानकारी प्रदान करने, समय पर प्रतिक्रिया और आवश्यक अनुमोदन के लिए जिम्मेदार हैं। ग्राहक द्वारा प्रदान की गई अपूर्ण या गलत जानकारी से उत्पन्न देरी या त्रुटियां हमारी जिम्मेदारी नहीं हैं।',
     disclaimerSection5Title: '5. सेवा संशोधन',
     disclaimerSection5Content: 'हम किसी भी समय अपनी सेवाओं, मूल्य निर्धारण और शर्तों को संशोधित करने का अधिकार सुरक्षित रखते हैं। मौजूदा एंगेजमेंट को एंगेजमेंट के समय सहमत शर्तों के तहत सम्मानित किया जाएगा।',
+
+    // Navigation
+    back: 'वापस',
+    next: 'अगला',
+    goToMenu: 'मेन्यू पर जाएं',
   }
 } as const;
