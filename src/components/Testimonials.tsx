@@ -15,18 +15,21 @@ const Testimonials = ({ mode }: TestimonialsProps) => {
             text: t('testimonialInst1Text'),
             preview: t('testimonialInst1Preview'),
             name: t('testimonialInst1Name'),
+            role: '',
             location: t('testimonialInst1Location'),
         },
         {
             text: t('testimonialInst2Text'),
             preview: t('testimonialInst2Preview'),
             name: t('testimonialInst2Name'),
+            role: '',
             location: t('testimonialInst2Location'),
         },
         {
             text: t('testimonialInst3Text'),
             preview: t('testimonialInst3Preview'),
             name: t('testimonialInst3Name'),
+            role: '',
             location: t('testimonialInst3Location'),
         },
     ];
