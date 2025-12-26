@@ -1,17 +1,21 @@
 import { useState, useEffect, useCallback } from 'react';
 
 interface TypewriterTextProps {
+  anchorText?: string;
   phrases: string[];
   className?: string;
+  anchorClassName?: string;
   speed?: number;
   pauseDuration?: number;
 }
 
-const TypewriterText = ({ 
-  phrases, 
+const TypewriterText = ({
+  anchorText,
+  phrases,
   className = '',
-  speed = 80,
-  pauseDuration = 2000
+  anchorClassName = '',
+  speed = 120,
+  pauseDuration = 2500
 }: TypewriterTextProps) => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -20,7 +24,7 @@ const TypewriterText = ({
 
   const tick = useCallback(() => {
     const currentPhrase = phrases[currentPhraseIndex];
-    
+
     if (isPaused) return;
 
     if (!isDeleting) {
@@ -53,9 +57,16 @@ const TypewriterText = ({
   }, [tick, isDeleting, speed]);
 
   return (
-    <span className={className}>
-      {currentText}
-      <span className="inline-block w-[2px] h-[1em] bg-current ml-1 animate-pulse" />
+    <span className="inline-flex items-baseline whitespace-nowrap overflow-hidden">
+      {anchorText && (
+        <span className={anchorClassName || 'text-amber-300/80 font-semibold mr-1.5'}>
+          {anchorText}
+        </span>
+      )}
+      <span className={className}>
+        {currentText}
+        <span className="inline-block w-[1px] h-[0.8em] bg-current ml-0.5 opacity-60 animate-pulse" />
+      </span>
     </span>
   );
 };

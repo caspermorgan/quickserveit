@@ -1,16 +1,16 @@
 import {
-  FileText,
-  GraduationCap,
-  Database,
-  Shield,
-  MessageCircle,
-  Video,
-  Palette,
-  Wand2,
-  TrendingUp,
-  Sparkles,
-  Layers
-} from 'lucide-react';
+  DocumentIcon,
+  GraduationIcon,
+  DatabaseIcon,
+  ShieldIcon,
+  ChatIcon,
+  VideoIcon,
+  PaletteIcon,
+  WandIcon,
+  TrendingIcon,
+  SparklesIcon,
+  LayersIcon
+} from './IconSystem';
 import ServiceCard from './ServiceCard';
 import { useTranslation } from '@/hooks/useTranslation';
 
@@ -23,32 +23,32 @@ const ServicesSection = ({ mode }: ServicesSectionProps) => {
 
   const institutionalServices = [
     {
-      icon: FileText,
+      icon: DocumentIcon,
       title: t('examDocCardTitle'),
       description: t('examDocCardDesc'),
     },
     {
-      icon: GraduationCap,
+      icon: GraduationIcon,
       title: t('scholarshipCardTitle'),
       description: t('scholarshipCardDesc'),
     },
     {
-      icon: Database,
+      icon: DatabaseIcon,
       title: t('udiseCardTitle'),
       description: t('udiseCardDesc'),
     },
     {
-      icon: Shield,
+      icon: ShieldIcon,
       title: t('govProjectsTitle'),
       description: t('govProjectsDesc'),
     },
     {
-      icon: MessageCircle,
+      icon: ChatIcon,
       title: t('dailySupportCardTitle'),
       description: t('dailySupportCardDesc'),
     },
     {
-      icon: Layers,
+      icon: LayersIcon,
       title: t('subscriptionTitle'),
       description: t('subscriptionDesc'),
     },
@@ -56,32 +56,32 @@ const ServicesSection = ({ mode }: ServicesSectionProps) => {
 
   const creatorServices = [
     {
-      icon: Video,
+      icon: VideoIcon,
       title: t('videoCardTitle'),
       description: t('videoCardDesc'),
     },
     {
-      icon: Palette,
+      icon: PaletteIcon,
       title: t('brandingCardTitle'),
       description: t('brandingCardDesc'),
     },
     {
-      icon: Wand2,
+      icon: WandIcon,
       title: t('motionCardTitle'),
       description: t('motionCardDesc'),
     },
     {
-      icon: TrendingUp,
+      icon: TrendingIcon,
       title: t('strategyCardTitle'),
       description: t('strategyCardDesc'),
     },
     {
-      icon: Sparkles,
+      icon: SparklesIcon,
       title: t('aiCampaignsTitle'),
       description: t('aiCampaignsDesc'),
     },
     {
-      icon: Layers,
+      icon: LayersIcon,
       title: t('studioSpaceTitle'),
       description: t('studioSpaceDesc'),
     },

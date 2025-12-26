@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, Clock, MapPin, Send } from 'lucide-react';
+import { PhoneIcon, MailIcon, ClockIcon, MapPinIcon, SendIcon } from './IconSystem';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
 
@@ -29,7 +29,7 @@ const ContactSection = ({ mode }: ContactSectionProps) => {
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const services = mode === 'institutional' 
+  const services = mode === 'institutional'
     ? ['Web Design', 'Web Development', 'SEO & Marketing', 'IT Support', 'Consulting']
     : ['Content Strategy', 'Social Media', 'Video Editing', 'Brand Design', 'Full Package'];
 
@@ -47,7 +47,7 @@ const ContactSection = ({ mode }: ContactSectionProps) => {
     setIsSubmitting(true);
 
     const result = contactSchema.safeParse(formData);
-    
+
     if (!result.success) {
       const fieldErrors: Partial<Record<keyof ContactFormData, string>> = {};
       result.error.errors.forEach(err => {
@@ -93,8 +93,8 @@ ${formData.message}`;
   };
 
   const accentClass = mode === 'institutional' ? 'text-institutional' : 'text-creator';
-  const accentBorderClass = mode === 'institutional' 
-    ? 'focus:border-institutional/50 focus:ring-institutional/20' 
+  const accentBorderClass = mode === 'institutional'
+    ? 'focus:border-institutional/50 focus:ring-institutional/20'
     : 'focus:border-creator/50 focus:ring-creator/20';
 
   return (
@@ -116,7 +116,7 @@ ${formData.message}`;
           {/* Contact Form */}
           <div className="glass-card rounded-2xl p-6 md:p-8 animate-fade-in-up">
             <h3 className={`font-display text-lg mb-6 ${accentClass}`}>Send an Inquiry</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name */}
               <div>
@@ -197,7 +197,7 @@ ${formData.message}`;
                 disabled={isSubmitting}
                 className="btn-premium w-full inline-flex items-center justify-center gap-3 disabled:opacity-50"
               >
-                <Send className="w-4 h-4" />
+                <SendIcon className="w-4 h-4" />
                 Send via WhatsApp
               </button>
             </form>
@@ -205,29 +205,29 @@ ${formData.message}`;
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <ContactCard 
-              icon={Phone}
+            <ContactCard
+              icon={PhoneIcon}
               title="Phone Support"
               value="+91 XXXXX XXXXX"
               subtitle="Mon-Sat, 10AM - 3PM"
               mode={mode}
             />
-            <ContactCard 
-              icon={Mail}
+            <ContactCard
+              icon={MailIcon}
               title="Email"
               value="hello@quickserve.in"
               subtitle="Response within 24 hours"
               mode={mode}
             />
-            <ContactCard 
-              icon={Clock}
+            <ContactCard
+              icon={ClockIcon}
               title="Working Hours"
               value="9:30 AM - 5:30 PM"
               subtitle="Monday through Saturday"
               mode={mode}
             />
-            <ContactCard 
-              icon={MapPin}
+            <ContactCard
+              icon={MapPinIcon}
               title="Location"
               value="Uttar Pradesh, India"
               subtitle="Remote-first operations"
@@ -250,9 +250,8 @@ interface ContactCardProps {
 
 const ContactCard = ({ icon: Icon, title, value, subtitle, mode }: ContactCardProps) => (
   <div className="glass-card rounded-xl p-6 text-center animate-fade-in-up">
-    <Icon className={`w-6 h-6 mx-auto mb-3 ${
-      mode === 'institutional' ? 'text-institutional' : 'text-creator'
-    }`} />
+    <Icon className={`w-6 h-6 mx-auto mb-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+      }`} />
     <div className="text-xs text-foreground/40 tracking-wider mb-2">{title}</div>
     <div className="text-foreground font-medium mb-1">{value}</div>
     <div className="text-xs text-foreground/40">{subtitle}</div>

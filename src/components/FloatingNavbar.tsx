@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeftIcon } from './IconSystem';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -166,7 +166,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             }`}
           aria-label="Return to landing"
         >
-          <ArrowLeft className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors duration-300" />
+          <ArrowLeftIcon className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors duration-300" />
         </button>
       </div>
 

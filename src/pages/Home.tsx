@@ -8,9 +8,9 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
-import Testimonials from '@/components/Testimonials';
+import ClientWorkSummary from '@/components/ClientWorkSummary';
 import ServicesSection from '@/components/ServicesSection';
-import HowItWorks from '@/components/HowItWorks';
+import HowWeWork from '@/components/HowWeWork';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -23,21 +23,23 @@ const Home = () => {
     navigate('/');
   };
 
-  const institutionalPhrases = [
-    t('heroInst1'),
-    t('heroInst2'),
-    t('heroInst3'),
-    t('heroInst4')
+  // Compact typewriter sentences
+  const institutionalTypewriterSentences = [
+    t('instTypewriter1'),
+    t('instTypewriter2'),
+    t('instTypewriter3'),
+    t('instTypewriter4'),
+    t('instTypewriter5')
   ];
 
-  const creatorPhrases = [
-    t('heroCreator1'),
-    t('heroCreator2'),
-    t('heroCreator3'),
-    t('heroCreator1')
+  const creatorTypewriterSentences = [
+    t('creatorTypewriter1'),
+    t('creatorTypewriter2'),
+    t('creatorTypewriter3'),
+    t('creatorTypewriter4')
   ];
 
-  const phrases = mode === 'institutional' ? institutionalPhrases : creatorPhrases;
+  const typewriterSentences = mode === 'institutional' ? institutionalTypewriterSentences : creatorTypewriterSentences;
 
   const description = mode === 'institutional'
     ? t('heroInstDesc')
@@ -69,15 +71,21 @@ const Home = () => {
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center px-6 py-20 md:py-32">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Typewriter Headline */}
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display tracking-wide mb-10 min-h-[1.5em] md:min-h-[1.3em]">
-              <TypewriterText
-                phrases={phrases}
-                className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}
-                speed={100}
-                pauseDuration={2500}
-              />
+            {/* Main Heading */}
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display tracking-wide mb-6 text-foreground">
+              {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </h1>
+
+            {/* Compact Typewriter Subtitle */}
+            <div className="mb-10 flex justify-center">
+              <TypewriterText
+                anchorText={t('ourServices')}
+                phrases={typewriterSentences}
+                className={`text-base md:text-lg ${mode === 'institutional' ? 'text-foreground/60' : 'text-foreground/60'}`}
+                speed={120}
+                pauseDuration={2800}
+              />
+            </div>
 
             {/* Description */}
             <p className="text-base md:text-lg text-foreground/50 max-w-2xl mx-auto mb-14 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
@@ -149,12 +157,12 @@ const Home = () => {
         {/* Services Section */}
         <ServicesSection mode={mode} />
 
-        {/* How It Works Section */}
-        <HowItWorks mode={mode} />
+        {/* How We Work Section */}
+        <HowWeWork mode={mode} />
 
-        {/* Testimonials Section */}
+        {/* Client Work Summary Section */}
         <section className="py-32 px-6 border-t border-border bg-white/5">
-          <Testimonials mode={mode} />
+          <ClientWorkSummary mode={mode} />
         </section>
       </main>
 

@@ -93,9 +93,7 @@ export const translations = {
     availableNow: 'Available Now',
     onRequest: 'On Request',
 
-    // Testimonials
-    readMore: 'Read more',
-    showLess: 'Show less',
+    // Client Work Summary
 
     // Services Page
     ourServices: 'Our Services',
@@ -342,46 +340,64 @@ export const translations = {
     portfolioContactUs: 'Contact Us',
     portfolioViewContent: 'View Content',
 
-    // Testimonials
-    testimonialInstHeading: 'Institutional Testimonials',
-    testimonialCreatorHeading: 'Creator Testimonials',
+    // Work Experience & Institutional Exposure
+    workExperienceInstHeading: 'Work Experience & Institutional Exposure',
+    workExperienceCreatorHeading: 'Work Experience & Creator Exposure',
+    workExperienceContext: 'A clear and organized way of working focused on accuracy, responsibility, and proper documentation, so schools can manage academic and administrative tasks without confusion or stress.',
+    workExperienceDisclaimer: 'All entries are provided solely as factual reference of individual work experience. No guarantees, commitments, or future assurances are stated or implied. Any services under QuickServe IT are offered separately and subject to independent confirmation.',
 
-    // Institutional Testimonials
-    testimonialInst1Text: 'Technical support during examinations, scholarships, and administrative work was handled in a disciplined and timely manner. The structured approach reduced pressure on staff and ensured confidentiality throughout the process.',
-    testimonialInst1Name: 'Manager',
-    testimonialInst1Location: 'B. N. Singh Adarsh Intermediate College, Chandrao',
-    testimonialInst1Preview: 'Technical support was disciplined and timely during examinations and scholarships.',
+    // Institutional Work Experience
+    workInst1Name: 'B. N. Singh Adarsh Intermediate College, Chandrao',
+    workInst1Role: 'Academic IT Support (Individual Experience)',
+    workInst1Tasks: 'Student data entry performed using existing school systems|Examination documentation prepared as instructed (question papers, answer sheets, timetables, notices)|Support provided for academic government documentation tasks|Scholarship form assistance including biometric-related work, where required',
+    workInst1Closing: 'Work carried out strictly within assigned responsibilities.',
 
-    testimonialInst2Text: 'Examination documentation support was delivered on time through the agency framework. It is reassuring to receive organized digital services locally in a rural area, and we are satisfied with the quality of coordination.',
-    testimonialInst2Name: 'Administrator',
-    testimonialInst2Location: 'Sahid Rudra Pratap Intermediate College, Chandrao',
-    testimonialInst2Preview: 'Examination documentation was delivered on time with quality coordination.',
+    workInst2Name: 'Sahid Rudra Pratap Intermediate College, Chandrao',
+    workInst2Role: 'Examination Documentation Support (Task-Based)',
+    workInst2Tasks: 'Typing of examination papers provided by the institution|Basic formatting for print and submission|Scope limited to specific academic documentation tasks',
+    workInst2Closing: 'Tasks completed only for the duration assigned.',
 
-    testimonialInst3Text: 'It is encouraging to see professional digital support becoming available locally for rural institutions. We look forward to coordinating during the scholarship processing period.',
-    testimonialInst3Name: 'School Administrator',
-    testimonialInst3Location: 'Vidya Public School',
-    testimonialInst3Preview: 'Professional digital support is now available locally in rural areas.',
+    workInst3Name: 'Vidya Public School, Chandrao',
+    workInst3Role: 'Preliminary Institutional Interaction',
+    workInst3Tasks: 'General discussion regarding possible scholarship-related technical support|Contact information exchanged for future coordination, if required',
+    workInst3Closing: 'No tasks were assigned and no services were initiated.',
 
-    // Creator Testimonials
-    testimonialCreator1Text: 'Creative work was handled in a calm and structured manner, making the process clear and manageable. The final output was simple, meaningful, and suitable for educational use.',
-    testimonialCreator1Name: 'Anil Tiwari',
-    testimonialCreator1Location: 'Gorakhpur',
-    testimonialCreator1Preview: 'Creative work was calm, structured, and manageable.',
+    // Creator Work Experience
+    workCreator1Name: 'Aman — Gorakhpur, Uttar Pradesh',
+    workCreator1Role: 'Educational Content & Video Editing',
+    workCreator1Tasks: 'Educational video editing workflow involvement|Content structuring and review process|Output preparation aligned with learning formats|Quality refinement practices',
+    workCreator1Closing: 'Work reflects individual creative involvement within educational content workflows.',
 
-    testimonialCreator2Text: '2.5D visuals were developed thoughtfully, adding depth without distracting from the narrative. The workflow remained technically sound and storytelling-focused.',
-    testimonialCreator2Name: 'Aman Singh',
-    testimonialCreator2Location: 'Gorakhpur',
-    testimonialCreator2Preview: '2.5D visuals added depth without distracting from the narrative.',
+    workCreator2Name: 'Rajdeep — Gorakhpur, Uttar Pradesh',
+    workCreator2Role: 'Script Research & Structuring Support',
+    workCreator2Tasks: 'Topic-based research and reference compilation|Conceptual and narrative framework outlining|Script structure organization|Writing-stage assistance and refinement',
+    workCreator2Closing: 'Activities reflect participation in script development processes.',
 
-    testimonialCreator3Text: 'Script development was supported through research, resource collection, and clear ideological structuring. The writing process felt grounded and well-organized.',
-    testimonialCreator3Name: 'Rohit Verma',
-    testimonialCreator3Location: 'Gorakhpur',
-    testimonialCreator3Preview: 'Script development was grounded and well-organized.',
+    workCreator3Name: 'Anju — Online (Freelance Reference via LinkedIn)',
+    workCreator3Role: 'Documentary Visual & 2.5D Development',
+    workCreator3Tasks: '2.5D visual asset development for narrative use|Documentary-style visual composition approach|Technical workflow execution for visual assembly|Story-focused visual alignment',
+    workCreator3Closing: 'Work referenced as part of online freelance-based creative interaction.',
 
-    // Creator Roles
-    testimonialCreator1Role: 'Educator & Content Creator',
-    testimonialCreator2Role: 'Documentary Creator (2.5D Visuals)',
-    testimonialCreator3Role: 'Script Writer (Social Issue Research)',
+    // Creator Practice & Skill Exposure
+    creatorPracticeHeading: 'Creator Practice & Skill Exposure',
+    creatorPracticeSubtitle: 'A smooth and structured workflow designed for creators, where editing, revisions, and delivery are handled clearly so you can focus on content without unnecessary back and forth.',
+    creatorPracticeFootnote: 'This section represents independent creative practice. It is maintained separately from institutional and client-based work records.',
+
+    // Creator Practice Entries
+    creatorPractice1Name: 'Aman — Gorakhpur, Uttar Pradesh',
+    creatorPractice1Role: 'Educational Content & Video Editing',
+    creatorPractice1Tasks: 'Educational video editing workflow involvement|Content structuring and review process|Output preparation aligned with learning formats|Quality refinement practices',
+    creatorPractice1Closing: 'Creative involvement maintained as part of independent content practice.',
+
+    creatorPractice2Name: 'Rajdeep — Gorakhpur, Uttar Pradesh',
+    creatorPractice2Role: 'Script Research & Structuring Support',
+    creatorPractice2Tasks: 'Topic-based research and reference compilation|Conceptual and narrative framework outlining|Script structure organization|Writing-stage assistance and refinement',
+    creatorPractice2Closing: 'Participation reflects ongoing script development practice.',
+
+    creatorPractice3Name: 'Anju — Online (Freelance Reference via LinkedIn)',
+    creatorPractice3Role: 'Documentary Visual & 2.5D Development',
+    creatorPractice3Tasks: '2.5D visual asset development for narrative use|Documentary-style visual composition approach|Technical workflow execution for visual assembly|Story-focused visual alignment',
+    creatorPractice3Closing: 'Work referenced through independent online creative interaction.',
 
     // Legal Pages - Terms & Conditions
     termsTitle: 'Terms & Conditions',
@@ -402,6 +418,8 @@ export const translations = {
     termsSection6Content: 'QuickServe IT is not responsible for outcomes dependent on external factors including but not limited to: government portal functionality, scholarship approval decisions, student eligibility determinations, content performance on social media platforms, monetization outcomes, or reach and engagement metrics. Our responsibility is limited to the quality of technical execution and production work.',
     termsSection7Title: '7. Governing Law',
     termsSection7Content: 'These terms are governed by the laws of India. Any disputes shall be subject to the jurisdiction of courts in Uttar Pradesh, India.',
+    termsSection8Title: '8. Creator Practice Disclaimer',
+    termsSection8Content: 'Content displayed under sections such as "Creator Practice & Skill Exposure" represents individual creative practice and skill-based involvement only. This content is maintained separately from institutional or client-based work and does not imply commercial delivery, contractual commitment, or service availability. Any institutional work references are listed independently and should not be interpreted as part of creator practice content.',
 
     // Legal Pages - Privacy Policy
     privacyTitle: 'Privacy Policy',
@@ -440,6 +458,63 @@ export const translations = {
     processStep2Desc: 'We discuss the details, scope, and timeline to ensure clarity.',
     processStep3Title: 'Delivery',
     processStep3Desc: 'Receive your high-quality deliverables on time and ready to use.',
+
+    // How We Work Section
+    howWeWorkTitle: 'How We Work',
+    howWeWorkSubtitle: 'A structured, transparent process tailored to your needs',
+
+    // How We Work - Institutions
+    howWeWorkInstIntro: 'A structured, transparent process for schools and educational institutions. We follow a single operational system for all institutional services.',
+
+    instStep1Title: 'Requirement Identification',
+    instStep1Desc: 'We understand the exact requirement: examination documentation, scholarship work, UDISE data, daily support, or government documentation.',
+
+    instStep2Title: 'Data Collection (On-site or Remote)',
+    instStep2Desc: 'Required data is collected securely through handwritten papers, PDFs, student records, or school visits. Remote institutions supported through online coordination.',
+
+    instStep3Title: 'Execution as per Service',
+    instStep3Desc: 'Work is executed: academic typing, scholarship processing, UDISE management, government schemes, TC documentation, or daily administrative support.',
+
+    instStep4Title: 'Accuracy, Verification & Compliance',
+    instStep4Desc: 'All work undergoes proper checks to ensure data accuracy, correct formatting, and institutional/government compliance.',
+
+    instStep5Title: 'Final Handover & Closure',
+    instStep5Desc: 'Completed work provided through secure Google Drive sharing, official submission, or printed and bound documents (optional).',
+
+    instWorkNotes: 'On-site visits, per-student work, printing, binding, and distance-based services may involve additional charges. Final approvals remain subject to the concerned authority.',
+
+    // How We Work - Creators
+    howWeWorkCreatorIntro: 'A professional production workflow from raw input to final output. We work through a clear, scope-defined workflow focused on clean execution and reliable delivery.',
+
+    creatorStep1Title: 'Requirement & Scope Confirmation',
+    creatorStep1Desc: 'We understand the requirement, platform, scope of work, and expected output. Timelines finalized after reviewing raw material and workload.',
+
+    creatorStep2Title: 'Raw Material Collection',
+    creatorStep2Desc: 'Creators provide raw inputs: video footage for editing, photos for thumbnails, or basic references and branding guidelines. All material handled securely.',
+
+    creatorStep3Title: 'Editing & Creative Execution',
+    creatorStep3Desc: 'Work executed as per agreed scope: video editing, structure, cuts, pacing, thumbnail design, and platform-optimized formats (technical compatibility, not performance guarantees).',
+
+    creatorStep4Title: 'Review & Scoped Revisions',
+    creatorStep4Desc: 'Edited content shared for review. Revisions limited to agreed scope, not including major re-editing or creative restructuring unless discussed separately.',
+
+    creatorStep5Title: 'Final Output',
+    creatorStep5Desc: 'Final outputs provided through secure digital sharing: ready-to-upload videos, thumbnails in correct formats, and platform-compatible files.',
+
+    creatorWorkNotes: 'Paid stock footage, licensed music, premium sound effects, or advanced VFX plugins are not included by default.',
+
+    // Institutional Typewriter Sentences
+    instTypewriter1: 'handle examination documentation',
+    instTypewriter2: 'support scholarship and UDISE work',
+    instTypewriter3: 'manage academic data securely',
+    instTypewriter4: 'assist with government compliance',
+    instTypewriter5: 'provide daily digital support',
+
+    // Creator Typewriter Sentences
+    creatorTypewriter1: 'edit videos for creators',
+    creatorTypewriter2: 'prepare upload-ready content',
+    creatorTypewriter3: 'design clean thumbnails',
+    creatorTypewriter4: 'deliver platform-ready files',
   },
   hi: {
     // Brand
@@ -531,9 +606,7 @@ export const translations = {
     availableNow: 'उपलब्ध अभी',
     onRequest: 'अनुरोध पर',
 
-    // Testimonials
-    readMore: 'पूरा पढ़ें',
-    showLess: 'कम दिखाएं',
+    // Client Work Summary
 
     // Services Page
     ourServices: 'हमारी सेवाएं',
@@ -746,46 +819,64 @@ export const translations = {
     portfolioContactUs: 'संपर्क करें',
     portfolioViewContent: 'सामग्री देखें',
 
-    // Testimonials
-    testimonialInstHeading: 'संस्थागत प्रशंसापत्र',
-    testimonialCreatorHeading: 'क्रिएटर प्रशंसापत्र',
+    // Work Experience & Institutional Exposure
+    workExperienceInstHeading: 'कार्य अनुभव और संस्थागत एक्सपोज़र',
+    workExperienceCreatorHeading: 'कार्य अनुभव और क्रिएटर एक्सपोज़र',
+    workExperienceContext: 'हम सटीकता, जिम्मेदारी और सही दस्तावेज़ प्रक्रिया पर आधारित एक व्यवस्थित कार्य-प्रणाली अपनाते हैं, ताकि स्कूल अपने शैक्षणिक और प्रशासनिक कार्य बिना परेशानी के संभाल सकें।',
+    workExperienceDisclaimer: 'सभी प्रविष्टियां केवल व्यक्तिगत कार्य अनुभव के तथ्यात्मक संदर्भ के रूप में प्रदान की गई हैं। कोई गारंटी, प्रतिबद्धता या भविष्य का आश्वासन नहीं दिया गया है। QuickServe IT के तहत कोई भी सेवाएं अलग से प्रदान की जाती हैं और स्वतंत्र पुष्टि के अधीन हैं।',
 
-    // Institutional Testimonials
-    testimonialInst1Text: 'परीक्षा, छात्रवृत्ति और प्रशासनिक कार्य के दौरान तकनीकी सहायता अनुशासित और समयबद्ध तरीके से संभाली गई। संरचित दृष्टिकोण ने कर्मचारियों पर दबाव कम किया और पूरी प्रक्रिया में गोपनीयता सुनिश्चित की।',
-    testimonialInst1Name: 'प्रबंधक',
-    testimonialInst1Location: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज, चंद्राव',
-    testimonialInst1Preview: 'परीक्षा और छात्रवृत्ति के दौरान तकनीकी सहायता अनुशासित और समयबद्ध थी।',
+    // Institutional Work Experience
+    workInst1Name: 'बी. एन. सिंह आदर्श इंटरमीडिएट कॉलेज, चंद्राव',
+    workInst1Role: 'शैक्षणिक आईटी सहायता (व्यक्तिगत अनुभव)',
+    workInst1Tasks: 'मौजूदा स्कूल सिस्टम का उपयोग करके छात्र डेटा एंट्री की गई|निर्देशानुसार परीक्षा दस्तावेज़ीकरण तैयार किया गया (प्रश्न पत्र, उत्तर पुस्तिकाएं, समय सारणी, नोटिस)|शैक्षणिक सरकारी दस्तावेज़ीकरण कार्यों के लिए सहायता प्रदान की गई|आवश्यकतानुसार बायोमेट्रिक-संबंधित कार्य सहित छात्रवृत्ति फॉर्म सहायता',
+    workInst1Closing: 'कार्य सख्ती से सौंपी गई जिम्मेदारियों के भीतर किया गया।',
 
-    testimonialInst2Text: 'परीक्षा दस्तावेज़ीकरण सहायता एजेंसी ढांचे के माध्यम से समय पर प्रदान की गई। ग्रामीण क्षेत्र में स्थानीय रूप से संगठित डिजिटल सेवाएं प्राप्त करना आश्वस्तकारी है, और हम समन्वय की गुणवत्ता से संतुष्ट हैं।',
-    testimonialInst2Name: 'प्रशासक',
-    testimonialInst2Location: 'शहीद रुद्र प्रताप इंटरमीडिएट कॉलेज, चंद्राव',
-    testimonialInst2Preview: 'परीक्षा दस्तावेज़ीकरण गुणवत्ता समन्वय के साथ समय पर प्रदान किया गया।',
+    workInst2Name: 'शहीद रुद्र प्रताप इंटरमीडिएट कॉलेज, चंद्राव',
+    workInst2Role: 'परीक्षा दस्तावेज़ीकरण सहायता (कार्य-आधारित)',
+    workInst2Tasks: 'संस्था द्वारा प्रदान किए गए परीक्षा पत्रों की टाइपिंग|प्रिंट और सबमिशन के लिए बुनियादी फॉर्मेटिंग|दायरा विशिष्ट शैक्षणिक दस्तावेज़ीकरण कार्यों तक सीमित',
+    workInst2Closing: 'कार्य केवल सौंपी गई अवधि के लिए पूर्ण किए गए।',
 
-    testimonialInst3Text: 'ग्रामीण संस्थानों के लिए स्थानीय रूप से पेशेवर डिजिटल सहायता उपलब्ध होना उत्साहजनक है। हम छात्रवृत्ति प्रसंस्करण अवधि के दौरान समन्वय की प्रतीक्षा कर रहे हैं।',
-    testimonialInst3Name: 'स्कूल प्रशासक',
-    testimonialInst3Location: 'विद्या पब्लिक स्कूल',
-    testimonialInst3Preview: 'ग्रामीण क्षेत्रों में पेशेवर डिजिटल सहायता अब स्थानीय रूप से उपलब्ध है।',
+    workInst3Name: 'विद्या पब्लिक स्कूल, चंद्राव',
+    workInst3Role: 'प्रारंभिक संस्थागत बातचीत',
+    workInst3Tasks: 'संभावित छात्रवृत्ति-संबंधित तकनीकी सहायता के संबंध में सामान्य चर्चा|आवश्यकता पड़ने पर भविष्य के समन्वय के लिए संपर्क जानकारी का आदान-प्रदान',
+    workInst3Closing: 'कोई कार्य सौंपा नहीं गया और कोई सेवाएं शुरू नहीं की गईं।',
 
-    // Creator Testimonials
-    testimonialCreator1Text: 'रचनात्मक कार्य शांत और संरचित तरीके से संभाला गया, जिससे प्रक्रिया स्पष्ट और प्रबंधनीय बनी। अंतिम आउटपुट सरल, सार्थक और शैक्षणिक उपयोग के लिए उपयुक्त था।',
-    testimonialCreator1Name: 'अनिल तिवारी',
-    testimonialCreator1Location: 'गोरखपुर',
-    testimonialCreator1Preview: 'रचनात्मक कार्य शांत, संरचित और प्रबंधनीय था।',
+    // Creator Work Experience
+    workCreator1Name: 'अमन — गोरखपुर, उत्तर प्रदेश',
+    workCreator1Role: 'शैक्षिक सामग्री और वीडियो संपादन',
+    workCreator1Tasks: 'शैक्षिक वीडियो संपादन वर्कफ़्लो में भागीदारी|सामग्री संरचना और समीक्षा प्रक्रिया|सीखने के प्रारूपों के साथ संरेखित आउटपुट तैयारी|गुणवत्ता परिष्करण प्रथाएं',
+    workCreator1Closing: 'कार्य शैक्षिक सामग्री वर्कफ़्लो के भीतर व्यक्तिगत रचनात्मक भागीदारी को दर्शाता है।',
 
-    testimonialCreator2Text: '2.5D विज़ुअल्स विचारपूर्वक विकसित किए गए, कथा से ध्यान भटकाए बिना गहराई जोड़ते हुए। वर्कफ़्लो तकनीकी रूप से सुदृढ़ और कहानी-केंद्रित रहा।',
-    testimonialCreator2Name: 'अमन सिंह',
-    testimonialCreator2Location: 'गोरखपुर',
-    testimonialCreator2Preview: '2.5D विज़ुअल्स ने कथा से ध्यान भटकाए बिना गहराई जोड़ी।',
+    workCreator2Name: 'राजदीप — गोरखपुर, उत्तर प्रदेश',
+    workCreator2Role: 'स्क्रिप्ट शोध और संरचना सहायता',
+    workCreator2Tasks: 'विषय-आधारित शोध और संदर्भ संकलन|वैचारिक और कथा ढांचा रूपरेखा|स्क्रिप्ट संरचना संगठन|लेखन-चरण सहायता और परिष्करण',
+    workCreator2Closing: 'गतिविधियां स्क्रिप्ट विकास प्रक्रियाओं में भागीदारी को दर्शाती हैं।',
 
-    testimonialCreator3Text: 'स्क्रिप्ट विकास को शोध, संसाधन संग्रह और स्पष्ट वैचारिक संरचना के माध्यम से समर्थित किया गया। लेखन प्रक्रिया आधारित और सुव्यवस्थित महसूस हुई।',
-    testimonialCreator3Name: 'रोहित वर्मा',
-    testimonialCreator3Location: 'गोरखपुर',
-    testimonialCreator3Preview: 'स्क्रिप्ट विकास आधारित और सुव्यवस्थित था।',
+    workCreator3Name: 'अमन — गोरखपुर, उत्तर प्रदेश',
+    workCreator3Role: 'डॉक्यूमेंट्री विज़ुअल और 2.5D विकास',
+    workCreator3Tasks: 'कथा उपयोग के लिए 2.5D विज़ुअल एसेट विकास|डॉक्यूमेंट्री-शैली विज़ुअल रचना दृष्टिकोण|विज़ुअल असेंबली के लिए तकनीकी वर्कफ़्लो निष्पादन|कहानी-केंद्रित विज़ुअल संरेखण',
+    workCreator3Closing: 'कार्य ऑनलाइन फ्रीलांस-आधारित रचनात्मक बातचीत के हिस्से के रूप में संदर्भित।',
 
-    // Creator Roles
-    testimonialCreator1Role: 'शिक्षक और कंटेंट क्रिएटर',
-    testimonialCreator2Role: 'डॉक्यूमेंट्री क्रिएटर (2.5D विज़ुअल्स)',
-    testimonialCreator3Role: 'स्क्रिप्ट राइटर (सामाजिक मुद्दा शोध)',
+    // Creator Practice & Skill Exposure
+    creatorPracticeHeading: 'क्रिएटर अभ्यास और कौशल एक्सपोज़र',
+    creatorPracticeSubtitle: 'हम क्रिएटर्स के लिए एक स्पष्ट और सरल कार्य-प्रक्रिया अपनाते हैं, जिसमें एडिटिंग, सुधार और डिलीवरी साफ़ तरीके से होती है, ताकि आप कंटेंट पर ध्यान दे सकें।',
+    creatorPracticeFootnote: 'यह अनुभाग स्वतंत्र रचनात्मक अभ्यास का प्रतिनिधित्व करता है। इसे संस्थागत और क्लाइंट-आधारित कार्य रिकॉर्ड से अलग रखा गया है।',
+
+    // Creator Practice Entries
+    creatorPractice1Name: 'अमन — गोरखपुर, उत्तर प्रदेश',
+    creatorPractice1Role: 'शैक्षिक सामग्री और वीडियो संपादन',
+    creatorPractice1Tasks: 'शैक्षिक वीडियो संपादन वर्कफ़्लो में भागीदारी|सामग्री संरचना और समीक्षा प्रक्रिया|सीखने के प्रारूपों के साथ संरेखित आउटपुट तैयारी|गुणवत्ता परिष्करण प्रथाएं',
+    creatorPractice1Closing: 'स्वतंत्र सामग्री अभ्यास के हिस्से के रूप में रचनात्मक भागीदारी बनाए रखी गई।',
+
+    creatorPractice2Name: 'राजदीप — गोरखपुर, उत्तर प्रदेश',
+    creatorPractice2Role: 'स्क्रिप्ट शोध और संरचना सहायता',
+    creatorPractice2Tasks: 'विषय-आधारित शोध और संदर्भ संकलन|वैचारिक और कथा ढांचा रूपरेखा|स्क्रिप्ट संरचना संगठन|लेखन-चरण सहायता और परिष्करण',
+    creatorPractice2Closing: 'भागीदारी चल रहे स्क्रिप्ट विकास अभ्यास को दर्शाती है।',
+
+    creatorPractice3Name: 'अंजू — ऑनलाइन (LinkedIn के माध्यम से फ्रीलांस संदर्भ)',
+    creatorPractice3Role: 'डॉक्यूमेंट्री विज़ुअल और 2.5D विकास',
+    creatorPractice3Tasks: 'कथा उपयोग के लिए 2.5D विज़ुअल एसेट विकास|डॉक्यूमेंट्री-शैली विज़ुअल रचना दृष्टिकोण|विज़ुअल असेंबली के लिए तकनीकी वर्कफ़्लो निष्पादन|कहानी-केंद्रित विज़ुअल संरेखण',
+    creatorPractice3Closing: 'स्वतंत्र ऑनलाइन रचनात्मक बातचीत के माध्यम से संदर्भित कार्य।',
 
     // Legal Pages - Terms & Conditions
     termsTitle: 'नियम और शर्तें',
@@ -806,6 +897,8 @@ export const translations = {
     termsSection6Content: 'QuickServe IT बाहरी कारकों पर निर्भर परिणामों के लिए जिम्मेदार नहीं है जिनमें शामिल हैं लेकिन इन तक सीमित नहीं हैं: सरकारी पोर्टल कार्यक्षमता, छात्रवृत्ति अनुमोदन निर्णय, छात्र पात्रता निर्धारण, सोशल मीडिया प्लेटफॉर्म पर कंटेंट प्रदर्शन, मुद्रीकरण परिणाम, या पहुंच और एंगेजमेंट मेट्रिक्स। हमारी जिम्मेदारी तकनीकी निष्पादन और प्रोडक्शन कार्य की गुणवत्ता तक सीमित है।',
     termsSection7Title: '7. शासी कानून',
     termsSection7Content: 'ये शर्तें भारत के कानूनों द्वारा शासित हैं। किसी भी विवाद को उत्तर प्रदेश, भारत में अदालतों के अधिकार क्षेत्र के अधीन होगा।',
+    termsSection8Title: '8. क्रिएटर अभ्यास अस्वीकरण',
+    termsSection8Content: '"क्रिएटर अभ्यास और कौशल एक्सपोज़र" जैसे अनुभागों के तहत प्रदर्शित सामग्री केवल व्यक्तिगत रचनात्मक अभ्यास और कौशल-आधारित भागीदारी का प्रतिनिधित्व करती है। यह सामग्री संस्थागत या क्लाइंट-आधारित कार्य से अलग रखी गई है और वाणिज्यिक डिलीवरी, संविदात्मक प्रतिबद्धता, या सेवा उपलब्धता का संकेत नहीं देती है। किसी भी संस्थागत कार्य संदर्भ को स्वतंत्र रूप से सूचीबद्ध किया गया है और क्रिएटर अभ्यास सामग्री के हिस्से के रूप में व्याख्या नहीं किया जाना चाहिए।',
 
     // Legal Pages - Privacy Policy
     privacyTitle: 'गोपनीयता नीति',
@@ -836,5 +929,62 @@ export const translations = {
     disclaimerSection4Content: 'ग्राहक सटीक जानकारी प्रदान करने, समय पर प्रतिक्रिया और आवश्यक अनुमोदन के लिए जिम्मेदार हैं। ग्राहक द्वारा प्रदान की गई अपूर्ण या गलत जानकारी से उत्पन्न देरी या त्रुटियां हमारी जिम्मेदारी नहीं हैं।',
     disclaimerSection5Title: '5. सेवा संशोधन',
     disclaimerSection5Content: 'हम किसी भी समय अपनी सेवाओं, मूल्य निर्धारण और शर्तों को संशोधित करने का अधिकार सुरक्षित रखते हैं। मौजूदा एंगेजमेंट को एंगेजमेंट के समय सहमत शर्तों के तहत सम्मानित किया जाएगा।',
+
+    // How We Work Section
+    howWeWorkTitle: 'हम कैसे काम करते हैं',
+    howWeWorkSubtitle: 'आपकी आवश्यकताओं के अनुरूप एक संरचित, पारदर्शी प्रक्रिया',
+
+    // How We Work - Institutions
+    howWeWorkInstIntro: 'स्कूलों और शैक्षणिक संस्थानों के लिए एक संरचित, पारदर्शी प्रक्रिया। हम सभी संस्थागत सेवाओं के लिए एक ही परिचालन प्रणाली का पालन करते हैं।',
+
+    instStep1Title: 'आवश्यकता पहचान',
+    instStep1Desc: 'हम सटीक आवश्यकता को समझते हैं: परीक्षा दस्तावेज़ीकरण, छात्रवृत्ति कार्य, UDISE डेटा, दैनिक सहायता, या सरकारी दस्तावेज़ीकरण।',
+
+    instStep2Title: 'डेटा संग्रह (साइट पर या रिमोट)',
+    instStep2Desc: 'आवश्यक डेटा सुरक्षित रूप से एकत्र किया जाता है: हस्तलिखित कागजात, PDF, छात्र रिकॉर्ड, या स्कूल विज़िट के माध्यम से। रिमोट संस्थानों को ऑनलाइन समन्वय के माध्यम से समर्थन दिया जाता है।',
+
+    instStep3Title: 'सेवा के अनुसार निष्पादन',
+    instStep3Desc: 'कार्य निष्पादित किया जाता है: शैक्षणिक टाइपिंग, छात्रवृत्ति प्रसंस्करण, UDISE प्रबंधन, सरकारी योजनाएं, TC दस्तावेज़ीकरण, या दैनिक प्रशासनिक सहायता।',
+
+    instStep4Title: 'सटीकता, सत्यापन और अनुपालन',
+    instStep4Desc: 'सभी कार्य उचित जांच से गुजरते हैं ताकि डेटा सटीकता, सही फॉर्मेटिंग और संस्थागत/सरकारी अनुपालन सुनिश्चित हो सके।',
+
+    instStep5Title: 'अंतिम हस्तांतरण और समापन',
+    instStep5Desc: 'पूर्ण कार्य सुरक्षित Google Drive शेयरिंग, आधिकारिक सबमिशन, या मुद्रित और बाउंड दस्तावेज़ों (वैकल्पिक) के माध्यम से प्रदान किया जाता है।',
+
+    instWorkNotes: 'साइट पर विज़िट, प्रति-छात्र कार्य, प्रिंटिंग, बाइंडिंग और दूरी-आधारित सेवाओं में अतिरिक्त शुल्क लग सकता है। अंतिम अनुमोदन संबंधित प्राधिकारी के अधीन रहते हैं।',
+
+    // How We Work - Creators
+    howWeWorkCreatorIntro: 'कच्चे इनपुट से अंतिम आउटपुट तक एक पेशेवर प्रोडक्शन वर्कफ़्लो। हम स्पष्ट, स्कोप-परिभाषित वर्कफ़्लो के माध्यम से काम करते हैं जो स्वच्छ निष्पादन और विश्वसनीय परिणाम पर केंद्रित है।',
+
+    creatorStep1Title: 'आवश्यकता और स्कोप पुष्टि',
+    creatorStep1Desc: 'हम आवश्यकता, प्लेटफॉर्म, कार्य का दायरा और अपेक्षित आउटपुट को समझते हैं। कच्ची सामग्री और कार्यभार की समीक्षा के बाद समय-सीमा अंतिम रूप दी जाती है।',
+
+    creatorStep2Title: 'कच्ची सामग्री संग्रह',
+    creatorStep2Desc: 'क्रिएटर कच्चे इनपुट प्रदान करते हैं: संपादन के लिए वीडियो फुटेज, थंबनेल के लिए फोटो, या बुनियादी संदर्भ और ब्रांडिंग दिशानिर्देश। सभी सामग्री सुरक्षित रूप से संभाली जाती है।',
+
+    creatorStep3Title: 'संपादन और रचनात्मक निष्पादन',
+    creatorStep3Desc: 'सहमत स्कोप के अनुसार कार्य निष्पादित: वीडियो संपादन, संरचना, कट्स, पेसिंग, थंबनेल डिज़ाइन, और प्लेटफॉर्म-अनुकूलित प्रारूप (तकनीकी संगतता, प्रदर्शन गारंटी नहीं)।',
+
+    creatorStep4Title: 'समीक्षा और स्कोप्ड संशोधन',
+    creatorStep4Desc: 'संपादित सामग्री समीक्षा के लिए साझा की जाती है। संशोधन सहमत स्कोप तक सीमित हैं, जिसमें प्रमुख पुन: संपादन या रचनात्मक पुनर्गठन शामिल नहीं है जब तक कि अलग से चर्चा न की जाए।',
+
+    creatorStep5Title: 'अंतिम आउटपुट',
+    creatorStep5Desc: 'अंतिम आउटपुट सुरक्षित डिजिटल शेयरिंग के माध्यम से प्रदान: अपलोड के लिए तैयार वीडियो, सही प्रारूप में थंबनेल, और प्लेटफॉर्म-संगत फाइलें।',
+
+    creatorWorkNotes: 'भुगतान किए गए स्टॉक फुटेज, लाइसेंस प्राप्त संगीत, प्रीमियम साउंड इफेक्ट्स, या उन्नत VFX प्लगइन्स डिफ़ॉल्ट रूप से शामिल नहीं हैं।',
+
+    // Institutional Typewriter Sentences
+    instTypewriter1: 'परीक्षा दस्तावेज़ संभालती हैं',
+    instTypewriter2: 'छात्रवृत्ति और UDISE में सहायता करती हैं',
+    instTypewriter3: 'शैक्षणिक डाटा सुरक्षित संभालती हैं',
+    instTypewriter4: 'सरकारी कार्यों में सहयोग देती हैं',
+    instTypewriter5: 'दैनिक डिजिटल सहायता देती हैं',
+
+    // Creator Typewriter Sentences
+    creatorTypewriter1: 'वीडियो एडिटिंग करती हैं',
+    creatorTypewriter2: 'अपलोड के लिए तैयार कंटेंट देती हैं',
+    creatorTypewriter3: 'साफ़ थंबनेल बनाती हैं',
+    creatorTypewriter4: 'प्लेटफॉर्म-रेडी फाइल देती हैं',
   }
 } as const;

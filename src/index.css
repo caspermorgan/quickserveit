@@ -379,35 +379,11 @@
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
+}
 
-  /* Testimonial Card Sizing */
-  .testimonial-card {
-    flex: 0 0 auto;
-    width: calc(100vw - 4rem);
-    max-width: 500px;
-  }
-
-  @media (min-width: 768px) {
-    .testimonial-card {
-      width: 420px;
-    }
-  }
-
-  /* Peek Effect - Show partial next card */
-  .horizontal-scroll-peek {
-    padding-right: 4rem;
-  }
-
-  @media (min-width: 768px) {
-    .horizontal-scroll-peek {
-      padding-right: 6rem;
-    }
-  }
-
-  /* Touch action for better mobile swipe */
-  .touch-pan-x {
-    touch-action: pan-x;
-  }
+/* Touch action for better mobile swipe */
+.touch-pan-x {
+  touch-action: pan-x;
 }
 
 @layer utilities {

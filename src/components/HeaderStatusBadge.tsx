@@ -92,7 +92,7 @@ const HeaderStatusBadge = ({ mode, showText = true }: HeaderStatusBadgeProps) =>
             <span
                 className="text-[10px] md:text-xs font-medium text-foreground/60 tracking-wide whitespace-nowrap"
             >
-                {isWithinHours ? 'Available' : t('onRequest')} | {formatTime(currentTime)}
+                {isWithinHours ? t('availableNow') : t('onRequest')} | {formatTime(currentTime)}
             </span>
         </div>
     );

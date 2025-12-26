@@ -132,17 +132,17 @@ const Services = () => {
   ];
 
   const professionalSoftware = [
-    { name: t('adobePremierePro'), category: 'Video' },
-    { name: t('adobeAfterEffects'), category: 'Motion' },
-    { name: t('davinciResolve'), category: 'Color' },
-    { name: t('adobePhotoshop'), category: 'Design' },
-    { name: t('adobeIllustrator'), category: 'Vector' },
+    { name: t('adobePremierePro'), category: 'Video', icon: '🎬' },
+    { name: t('adobeAfterEffects'), category: 'Motion', icon: '✨' },
+    { name: t('davinciResolve'), category: 'Color', icon: '🎨' },
+    { name: t('adobePhotoshop'), category: 'Design', icon: '🖼️' },
+    { name: t('adobeIllustrator'), category: 'Vector', icon: '✏️' },
   ];
 
   const appsAndTools = [
-    { name: t('figma'), category: 'UI/UX' },
-    { name: t('canvaPro'), category: 'Quick Design' },
-    { name: t('capcut'), category: 'Mobile Edit' },
+    { name: t('figma'), category: 'UI/UX', icon: '🎯' },
+    { name: t('canvaPro'), category: 'Quick Design', icon: '🎪' },
+    { name: t('capcut'), category: 'Mobile Edit', icon: '📱' },
   ];
 
   const upcomingInnovations = [
@@ -221,8 +221,9 @@ const Services = () => {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {professionalSoftware.map((software, i) => (
-                    <span key={i} className="px-3 py-1.5 text-xs rounded-full bg-creator/10 text-foreground/70 border border-creator/20">
-                      {software.name}
+                    <span key={i} className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg bg-creator/10 text-foreground/70 border border-creator/20 hover:bg-creator/15 transition-colors">
+                      <span className="text-base">{software.icon}</span>
+                      <span>{software.name}</span>
                     </span>
                   ))}
                 </div>
@@ -236,8 +237,9 @@ const Services = () => {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {appsAndTools.map((tool, i) => (
-                    <span key={i} className="px-3 py-1.5 text-xs rounded-full bg-creator/10 text-foreground/70 border border-creator/20">
-                      {tool.name}
+                    <span key={i} className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg bg-creator/10 text-foreground/70 border border-creator/20 hover:bg-creator/15 transition-colors">
+                      <span className="text-base">{tool.icon}</span>
+                      <span>{tool.name}</span>
                     </span>
                   ))}
                 </div>

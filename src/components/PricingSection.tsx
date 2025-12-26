@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { CheckIcon } from './IconSystem';
 
 interface PricingSectionProps {
   mode: 'institutional' | 'creator';
@@ -46,7 +46,7 @@ const PricingSection = ({ mode }: PricingSectionProps) => {
       highlight: false,
     },
   ];
-  
+
   const creatorPlans = [
     {
       name: 'Starter',
@@ -88,7 +88,7 @@ const PricingSection = ({ mode }: PricingSectionProps) => {
       highlight: false,
     },
   ];
-  
+
   const plans = mode === 'institutional' ? institutionalPlans : creatorPlans;
 
   return (
@@ -96,80 +96,74 @@ const PricingSection = ({ mode }: PricingSectionProps) => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
-          <h2 className={`font-display text-2xl md:text-4xl tracking-wide mb-4 ${
-            mode === 'institutional' ? 'text-institutional' : 'text-creator'
-          }`}>
+          <h2 className={`font-display text-2xl md:text-4xl tracking-wide mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+            }`}>
             {mode === 'institutional' ? 'Subscription Plans' : 'Pricing'}
           </h2>
           <p className="text-foreground/50 max-w-lg mx-auto">
-            {mode === 'institutional' 
+            {mode === 'institutional'
               ? 'Fair, workload-based pricing that respects your institution'
               : 'Investment in quality that pays dividends in engagement'}
           </p>
         </div>
-        
+
         {/* Plans Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {plans.map((plan, index) => (
-            <div 
+            <div
               key={plan.name}
-              className={`relative glass-card rounded-2xl p-8 animate-fade-in-up ${
-                plan.highlight 
-                  ? `border-2 ${mode === 'institutional' ? 'border-institutional/50' : 'border-creator/50'}`
-                  : ''
-              }`}
+              className={`relative glass-card rounded-2xl p-8 animate-fade-in-up ${plan.highlight
+                ? `border-2 ${mode === 'institutional' ? 'border-institutional/50' : 'border-creator/50'}`
+                : ''
+                }`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Popular badge */}
               {plan.highlight && (
-                <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-medium ${
-                  mode === 'institutional' 
-                    ? 'bg-institutional text-background' 
-                    : 'bg-creator text-background'
-                }`}>
+                <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-medium ${mode === 'institutional'
+                  ? 'bg-institutional text-background'
+                  : 'bg-creator text-background'
+                  }`}>
                   Most Popular
                 </div>
               )}
-              
+
               {/* Plan name */}
               <h3 className="text-lg font-display tracking-wide text-foreground mb-4">
                 {plan.name}
               </h3>
-              
+
               {/* Price */}
               <div className="mb-6">
-                <span className={`text-3xl md:text-4xl font-display ${
-                  mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                }`}>
+                <span className={`text-3xl md:text-4xl font-display ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                  }`}>
                   {plan.price}
                 </span>
                 <span className="text-foreground/40 text-sm">{plan.period}</span>
               </div>
-              
+
               {/* Features */}
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
-                    <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                      mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                    }`} />
+                    <CheckIcon className={`w-4 h-4 mt-0.5 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                      }`} />
                     <span className="text-sm text-foreground/60">{feature}</span>
                   </li>
                 ))}
               </ul>
-              
+
               {/* CTA */}
-              <button className={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${
-                plan.highlight
-                  ? 'btn-premium'
-                  : 'btn-outline-premium'
-              }`}>
+              <button className={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${plan.highlight
+                ? 'btn-premium'
+                : 'btn-outline-premium'
+                }`}>
                 {plan.price === 'Custom' ? 'Contact Us' : 'Get Started'}
               </button>
             </div>
           ))}
         </div>
-        
+
         {/* Note */}
         <p className="text-center text-xs text-foreground/30 mt-10">
           All prices are exclusive of GST. Urgent work may incur additional charges based on complexity and timeline.

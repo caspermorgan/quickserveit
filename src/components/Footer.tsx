@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MessageCircle, Shield } from 'lucide-react';
+import { MessageCircleIcon, ShieldIcon } from './IconSystem';
 import AvailabilityIndicator from './AvailabilityIndicator';
 
 interface FooterProps {
@@ -28,7 +28,7 @@ const Footer = ({ mode }: FooterProps) => {
               Trusted by leading institutions and creators across India.
             </p>
             <div className="flex items-center gap-2 text-xs text-foreground/30">
-              <Shield className="w-3 h-3" />
+              <ShieldIcon className="w-3 h-3" />
               <span>All data handled with strict confidentiality</span>
             </div>
           </div>
@@ -65,7 +65,7 @@ const Footer = ({ mode }: FooterProps) => {
                 : 'bg-creator/10 text-creator hover:bg-creator/20'
                 }`}
             >
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircleIcon className="w-4 h-4" />
               Chat on WhatsApp
             </a>
             <p className="text-xs text-foreground/30 mt-3">
