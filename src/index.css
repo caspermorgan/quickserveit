@@ -253,6 +253,14 @@
       inset 0 0 20px rgba(255, 255, 255, 0.02);
   }
 
+  /* Mobile Performance Optimization */
+  @media (max-width: 768px) {
+    .glass-premium {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  }
+
   .glass-nav {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(30px);
@@ -264,6 +272,13 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
+  @media (max-width: 768px) {
+    .glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  }
+
   .glass-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
@@ -271,6 +286,14 @@
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: var(--shadow-premium-md);
     transition: all 0.5s var(--ease-premium);
+  }
+
+  @media (max-width: 768px) {
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s var(--ease-premium);
+    }
   }
 
   .glass-card:hover {
@@ -281,6 +304,27 @@
       0 30px 80px rgba(0, 0, 0, 0.6),
       0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Mobile: Reduce transform for better performance */
+  @media (max-width: 768px) {
+
+    .glass-card:hover,
+    .glass-card:active {
+      transform: translateY(-3px);
+    }
+  }
+
+  /* Mobile Touch Optimization */
+  @media (hover: none) and (pointer: coarse) {
+    .glass-card:hover {
+      transform: none;
+    }
+
+    .glass-card:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
   }
 
   /* Mode Color Text */
@@ -324,6 +368,8 @@
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     color: hsl(0, 0%, 0%);
     transition: all 0.4s var(--ease-premium);
+    min-height: 48px;
+    /* Mobile touch target */
     box-shadow:
       0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -337,12 +383,34 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
+  /* Mobile Button Optimization */
+  @media (max-width: 768px) {
+    .btn-premium {
+      transition: all 0.2s var(--ease-premium);
+      min-height: 44px;
+    }
+  }
+
+  /* Touch Device Optimization */
+  @media (hover: none) and (pointer: coarse) {
+    .btn-premium:hover {
+      transform: none;
+    }
+
+    .btn-premium:active {
+      transform: scale(0.96);
+      transition: transform 0.1s ease;
+    }
+  }
+
   .btn-outline-premium {
     @apply relative px-8 py-4 rounded-full font-medium tracking-wide;
     background: transparent;
     border: 1px solid hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
     color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     transition: all 0.4s var(--ease-premium);
+    min-height: 48px;
+    /* Mobile touch target */
   }
 
   .btn-outline-premium:hover {
@@ -350,6 +418,27 @@
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     transform: translateY(-2px);
     box-shadow: 0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
+  }
+
+  /* Mobile Button Optimization */
+  @media (max-width: 768px) {
+    .btn-outline-premium {
+      transition: all 0.2s var(--ease-premium);
+      min-height: 44px;
+    }
+  }
+
+  /* Touch Device Optimization */
+  @media (hover: none) and (pointer: coarse) {
+    .btn-outline-premium:hover {
+      transform: none;
+    }
+
+    .btn-outline-premium:active {
+      transform: scale(0.96);
+      background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15);
+      transition: all 0.1s ease;
+    }
   }
 
   /* Magnetic Button Wrapper */

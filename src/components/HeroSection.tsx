@@ -103,7 +103,7 @@ interface StatBlockProps {
 
 const StatBlock = ({ value, label, mode }: StatBlockProps) => (
   <div
-    className="relative text-center p-4 md:p-6 rounded-xl trans-premium group"
+    className="relative text-center p-3 md:p-6 rounded-xl trans-premium group"
     style={{
       background: 'rgba(255, 255, 255, 0.02)',
       border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -113,7 +113,7 @@ const StatBlock = ({ value, label, mode }: StatBlockProps) => (
     }}
   >
     <div
-      className={`text-2xl md:text-4xl font-display tracking-wide mb-2 trans-premium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+      className={`text-xl md:text-4xl font-display tracking-wide mb-1 md:mb-2 trans-premium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
         }`}
       style={{
         textShadow: mode === 'institutional'
@@ -123,7 +123,7 @@ const StatBlock = ({ value, label, mode }: StatBlockProps) => (
     >
       {value}
     </div>
-    <div className="text-xs md:text-sm text-foreground/50 tracking-wide uppercase">
+    <div className="text-[10px] md:text-sm text-foreground/50 tracking-wide uppercase leading-tight">
       {label}
     </div>
   </div>

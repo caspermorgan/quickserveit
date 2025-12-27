@@ -180,11 +180,11 @@ interface StatBlockProps {
 
 const StatBlock = ({ value, label, mode }: StatBlockProps) => (
   <div className="text-center">
-    <div className={`text-2xl md:text-4xl font-display tracking-wide mb-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+    <div className={`text-xl md:text-4xl font-display tracking-wide mb-1 md:mb-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
       }`}>
       {value}
     </div>
-    <div className="text-xs md:text-sm text-foreground/40 tracking-wide">
+    <div className="text-[10px] md:text-sm text-foreground/40 tracking-wide leading-tight">
       {label}
     </div>
   </div>
