@@ -161,6 +161,117 @@ const Services = () => {
           ? t('servicesInstDesc')
           : t('servicesCreatorDesc')
         } />
+
+        {/* JSON-LD Service Schema for SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify(
+            mode === 'institutional'
+              ? {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "IT Support Services for Educational Institutions",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "QuickServe IT",
+                  "url": "https://www.quickserveit.online"
+                },
+                "areaServed": {
+                  "@type": "Place",
+                  "name": "Gorakhpur, Uttar Pradesh, India"
+                },
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Educational IT Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Exam Documentation Services",
+                        "description": "Professional typing and formatting of examination papers for schools and educational institutions"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Scholarship Application Support",
+                        "description": "Complete assistance with scholarship applications and documentation for students"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "UDISE+ Data Entry",
+                        "description": "Accurate UDISE+ portal data entry and management for educational institutions"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Daily Digital Support",
+                        "description": "Monthly retainer-based digital support for schools and educational institutions"
+                      }
+                    }
+                  ]
+                }
+              }
+              : {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "serviceType": "Video Editing and Content Creation Services",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "QuickServe IT",
+                  "url": "https://www.quickserveit.online"
+                },
+                "areaServed": {
+                  "@type": "Place",
+                  "name": "India"
+                },
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Creator Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Professional Video Editing",
+                        "description": "High-quality video editing for YouTube creators using Adobe Premiere Pro and DaVinci Resolve"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Thumbnail Design",
+                        "description": "Eye-catching thumbnail design to increase video click-through rates"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Motion Graphics",
+                        "description": "Custom intros, outros, and motion graphics using Adobe After Effects"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Content Strategy",
+                        "description": "Strategic content planning and optimization for YouTube growth"
+                      }
+                    }
+                  ]
+                }
+              }
+          )}
+        </script>
       </Helmet>
 
       <CursorLight mode={mode} />
@@ -360,7 +471,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
       </button>
 
       {/* Expanded Content with smooth animation */}
-      <div 
+      <div
         className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
       >
         <div className="overflow-hidden">

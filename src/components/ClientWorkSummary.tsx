@@ -73,27 +73,75 @@ const ClientWorkSummary = ({ mode }: ClientWorkSummaryProps) => {
                 {subtitle}
             </p>
 
-            {/* Horizontal Scrolling Container */}
-            <div className="relative mb-8">
-                <div
-                    className="flex gap-6 md:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar"
-                    style={{
-                        scrollbarWidth: 'none',
-                        msOverflowStyle: 'none',
-                    }}
-                >
-                    {workExperience.map((entry, index) => (
-                        <WorkExperienceCard
-                            key={index}
-                            name={entry.name}
-                            role={entry.role}
-                            tasks={entry.tasks}
-                            closing={entry.closing}
-                            mode={mode}
-                        />
-                    ))}
+            {/* Auto-Scrolling Marquee Container */}
+            <div className="relative overflow-hidden">
+                {/* Gradient overlays for smooth fade effect */}
+                <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+                {/* Marquee wrapper with pause on hover */}
+                <div className="marquee-container group">
+                    <div className="marquee-content">
+                        {/* Original set of cards */}
+                        {workExperience.map((entry, index) => (
+                            <WorkExperienceCard
+                                key={`original-${index}`}
+                                name={entry.name}
+                                role={entry.role}
+                                tasks={entry.tasks}
+                                closing={entry.closing}
+                                mode={mode}
+                            />
+                        ))}
+                        {/* Duplicate set for seamless loop */}
+                        {workExperience.map((entry, index) => (
+                            <WorkExperienceCard
+                                key={`duplicate-${index}`}
+                                name={entry.name}
+                                role={entry.role}
+                                tasks={entry.tasks}
+                                closing={entry.closing}
+                                mode={mode}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
+
+            {/* Marquee CSS */}
+            <style>{`
+                .marquee-container {
+                    display: flex;
+                    overflow: hidden;
+                    user-select: none;
+                }
+
+                .marquee-content {
+                    display: flex;
+                    gap: 2rem;
+                    animation: marquee 40s linear infinite;
+                    will-change: transform;
+                }
+
+                .marquee-container:hover .marquee-content {
+                    animation-play-state: paused;
+                }
+
+                @keyframes marquee {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .marquee-content {
+                        animation-duration: 30s;
+                    }
+                }
+            `}</style>
         </div>
     );
 };
@@ -114,10 +162,8 @@ const WorkExperienceCard = ({ name, role, tasks, closing, mode }: WorkExperience
     return (
         <div
             className="
-                flex-shrink-0 snap-start
-                w-[calc(100%-2rem)] 
-                md:w-[calc(50%-1rem)] 
-                lg:w-[calc(33.333%-1.5rem)]
+                flex-shrink-0
+                w-[380px]
                 p-6 md:p-8 
                 rounded-2xl 
                 glass-card 

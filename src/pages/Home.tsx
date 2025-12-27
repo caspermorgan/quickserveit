@@ -56,6 +56,30 @@ const Home = () => {
       <Helmet>
         <title>{t('brandName')} | {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}</title>
         <meta name="description" content={description} />
+
+        {/* JSON-LD Organization Schema for SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "QuickServe IT",
+            "url": "https://www.quickserveit.online",
+            "logo": "https://www.quickserveit.online/logo.png",
+            "description": mode === 'institutional'
+              ? "Professional IT support services for educational institutions in Gorakhpur, Uttar Pradesh. Specializing in exam documentation, scholarship applications, UDISE+ data entry, and daily digital support for schools."
+              : "Professional video editing and content creation services for YouTube creators. Specializing in video editing, thumbnail design, motion graphics, and content strategy.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Gorakhpur",
+              "addressRegion": "Uttar Pradesh",
+              "addressCountry": "IN"
+            },
+            "areaServed": {
+              "@type": "Place",
+              "name": "Gorakhpur, Uttar Pradesh, India"
+            }
+          })}
+        </script>
       </Helmet>
 
       <CursorLight mode={mode} />

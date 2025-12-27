@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useMode } from '@/context/ModeContext';
 import { Check, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
+import confetti from 'canvas-confetti';
+import { toast } from 'sonner';
 
 interface FormData {
   name: string;
@@ -21,8 +23,6 @@ interface FormErrors {
   agreed?: string;
 }
 
-const WHATSAPP_NUMBER = '919876543210'; // Update with actual number
-
 const services = [
   { value: '', label: 'Select a service' },
   { value: 'institute-services', label: 'Institute Services' },
@@ -32,7 +32,6 @@ const services = [
 
 const ContactForm = () => {
   const { mode } = useMode();
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -83,46 +82,96 @@ const ContactForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const triggerConfetti = () => {
+    const duration = 1500; // 1.5 seconds
+    const end = Date.now() + duration;
+
+    const colors = mode === 'institutional'
+      ? ['#EAB308', '#F59E0B', '#FBBF24'] // Gold colors
+      : ['#22D3EE', '#06B6D4', '#0EA5E9']; // Cyan colors
+
+    (function frame() {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.6 },
+        colors: colors,
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.6 },
+        colors: colors,
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
+
+    // Check if EmailJS credentials are configured
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error('Email service not configured. Please contact the administrator.');
+      return;
+    }
 
     setIsSubmitting(true);
 
-    // Construct WhatsApp message
-    const serviceLabel = services.find(s => s.value === formData.service)?.label || formData.service;
-    const message = `*New Inquiry via quickserveit*
+    try {
+      // Get service label for display
+      const serviceLabel = services.find(s => s.value === formData.service)?.label || formData.service;
 
-*Name:* ${formData.name}
-*Mobile:* ${formData.mobile}
-*Email:* ${formData.email}
-*Service:* ${serviceLabel}
+      // Send email via EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          from_mobile: formData.mobile,
+          service_type: serviceLabel,
+          message: formData.message,
+        },
+        publicKey
+      );
 
-*Message:*
-${formData.message}`;
+      // Success! Trigger confetti and show toast
+      triggerConfetti();
+      toast.success('Message sent successfully!', {
+        description: "We'll contact you shortly.",
+      });
 
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-    // Open WhatsApp
-    window.open(whatsappUrl, '_blank');
-
-    toast({
-      title: 'Redirecting to WhatsApp',
-      description: 'Your inquiry is being sent via WhatsApp.',
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      mobile: '',
-      email: '',
-      service: '',
-      message: '',
-      agreed: false,
-    });
-    setErrors({});
-    setIsSubmitting(false);
+      // Reset form
+      setFormData({
+        name: '',
+        mobile: '',
+        email: '',
+        service: '',
+        message: '',
+        agreed: false,
+      });
+      setErrors({});
+    } catch (error) {
+      // Error handling
+      console.error('EmailJS Error:', error);
+      toast.error('Something went wrong.', {
+        description: 'Please try again or contact us directly.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -156,11 +205,10 @@ ${formData.message}`;
           value={formData.name}
           onChange={handleChange}
           placeholder="Your full name"
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${
-            errors.name 
-              ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30' 
-              : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-          }`}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.name
+            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
+            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
+            }`}
         />
         {errors.name && <p className="mt-1.5 text-xs text-destructive/80">{errors.name}</p>}
       </div>
@@ -177,11 +225,10 @@ ${formData.message}`;
           value={formData.mobile}
           onChange={handleChange}
           placeholder="10-digit mobile number"
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${
-            errors.mobile 
-              ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30' 
-              : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-          }`}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.mobile
+            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
+            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
+            }`}
         />
         {errors.mobile && <p className="mt-1.5 text-xs text-destructive/80">{errors.mobile}</p>}
       </div>
@@ -198,11 +245,10 @@ ${formData.message}`;
           value={formData.email}
           onChange={handleChange}
           placeholder="your@email.com"
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${
-            errors.email 
-              ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30' 
-              : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-          }`}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.email
+            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
+            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
+            }`}
         />
         {errors.email && <p className="mt-1.5 text-xs text-destructive/80">{errors.email}</p>}
       </div>
@@ -217,11 +263,10 @@ ${formData.message}`;
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground focus:outline-none focus:ring-1 appearance-none cursor-pointer ${
-            errors.service 
-              ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30' 
-              : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-          } ${!formData.service ? 'text-foreground/30' : ''}`}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground focus:outline-none focus:ring-1 appearance-none cursor-pointer ${errors.service
+            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
+            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
+            } ${!formData.service ? 'text-foreground/30' : ''}`}
           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center' }}
         >
           {services.map(service => (
@@ -245,11 +290,10 @@ ${formData.message}`;
           onChange={handleChange}
           placeholder="Tell us about your requirements..."
           rows={4}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 resize-none ${
-            errors.message 
-              ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30' 
-              : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-          }`}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 resize-none ${errors.message
+            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
+            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
+            }`}
         />
         {errors.message && <p className="mt-1.5 text-xs text-destructive/80">{errors.message}</p>}
       </div>
@@ -264,20 +308,19 @@ ${formData.message}`;
               onChange={handleCheckboxChange}
               className="sr-only"
             />
-            <div className={`w-5 h-5 rounded-md border transition-all duration-300 flex items-center justify-center ${
-              formData.agreed 
-                ? mode === 'institutional' 
-                  ? 'bg-institutional border-institutional' 
-                  : 'bg-creator border-creator'
-                : errors.agreed 
-                  ? 'border-destructive/50 bg-white/[0.02]' 
-                  : 'border-white/[0.15] bg-white/[0.02] group-hover:border-white/[0.25]'
-            }`}>
+            <div className={`w-5 h-5 rounded-md border transition-all duration-300 flex items-center justify-center ${formData.agreed
+              ? mode === 'institutional'
+                ? 'bg-institutional border-institutional'
+                : 'bg-creator border-creator'
+              : errors.agreed
+                ? 'border-destructive/50 bg-white/[0.02]'
+                : 'border-white/[0.15] bg-white/[0.02] group-hover:border-white/[0.25]'
+              }`}>
               {formData.agreed && <Check className="w-3 h-3 text-background" strokeWidth={3} />}
             </div>
           </div>
           <span className="text-xs text-foreground/50 leading-relaxed">
-            I agree to the terms & conditions and understand that my inquiry will be processed via WhatsApp.
+            I agree to the terms & conditions and understand that my inquiry will be sent via email.
           </span>
         </label>
         {errors.agreed && <p className="mt-1.5 text-xs text-destructive/80 ml-8">{errors.agreed}</p>}
@@ -287,14 +330,13 @@ ${formData.message}`;
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-display text-sm tracking-wider uppercase font-medium transition-all duration-300 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed ${
-          mode === 'institutional'
-            ? 'bg-institutional text-background hover:shadow-[0_0_30px_rgba(234,179,8,0.3)]'
-            : 'bg-creator text-background hover:shadow-[0_0_30px_rgba(34,211,238,0.3)]'
-        }`}
+        className={`w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-display text-sm tracking-wider uppercase font-medium transition-all duration-300 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed ${mode === 'institutional'
+          ? 'bg-institutional text-background hover:shadow-[0_0_30px_rgba(234,179,8,0.3)]'
+          : 'bg-creator text-background hover:shadow-[0_0_30px_rgba(34,211,238,0.3)]'
+          }`}
       >
         <Send className="w-4 h-4" />
-        {isSubmitting ? 'Sending...' : 'Send via WhatsApp'}
+        {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
 
       {/* Privacy note */}
