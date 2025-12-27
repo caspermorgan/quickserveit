@@ -7,6 +7,7 @@ import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
+import LevitatingWrapper from '@/components/LevitatingWrapper';
 import { useState } from 'react';
 import {
   FileText,
@@ -406,7 +407,9 @@ const Services = () => {
           {/* Services Grid */}
           <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
             {services.map((service, index) => (
-              <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
+              <LevitatingWrapper key={index} delay={index % 3 === 0 ? 'none' : index % 3 === 1 ? 'delayed' : 'slow'}>
+                <ServiceDetailCard service={service} mode={mode} t={t} />
+              </LevitatingWrapper>
             ))}
           </div>
         </div>
