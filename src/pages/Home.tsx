@@ -186,7 +186,7 @@ const Home = () => {
         <HowWeWork mode={mode} />
 
         {/* Client Work Summary Section */}
-        <section className="py-32 px-6 border-t border-border bg-black/40">
+        <section className="py-32 px-6 border-t border-border bg-white/5">
           <ClientWorkSummary mode={mode} />
         </section>
       </main>
