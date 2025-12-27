@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
@@ -10,17 +10,6 @@ const Landing = () => {
   const { mode, setMode, setHasEntered } = useMode();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const navigate = useNavigate();
-
-  // Check if user has visited before
-  useEffect(() => {
-    const hasVisitedBefore = localStorage.getItem(VISITOR_KEY);
-
-    if (hasVisitedBefore === 'true') {
-      // Returning visitor - skip cinematic entry
-      setHasEntered(true);
-      navigate('/home', { replace: true });
-    }
-  }, [navigate, setHasEntered]);
 
   const handleEnter = () => {
     setIsTransitioning(true);
