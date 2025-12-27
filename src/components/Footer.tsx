@@ -12,7 +12,17 @@ const Footer = ({ mode }: FooterProps) => {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <footer className="py-12 md:py-16 px-6 border-t border-border">
+    <footer
+      className="relative py-12 md:py-16 px-6 border-t overflow-hidden"
+      style={{
+        borderColor: mode === 'institutional'
+          ? 'hsl(43, 96%, 56%, 0.1)'
+          : 'hsl(187, 100%, 42%, 0.1)',
+        background: mode === 'institutional'
+          ? 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(43, 96%, 56%, 0.02) 100%)'
+          : 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(187, 100%, 42%, 0.02) 100%)'
+      }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Top section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -21,13 +31,13 @@ const Footer = ({ mode }: FooterProps) => {
             <div className="font-display text-xl tracking-[0.1em] lowercase text-foreground mb-3">
               quickserveit
             </div>
-            <p className="text-sm text-foreground/40 mb-4 leading-relaxed">
+            <p className="text-sm text-foreground/50 mb-4 leading-relaxed">
               Your calm digital partner for institutions and creators.
             </p>
             <p className="text-xs font-medium text-foreground/60 mb-4">
               Trusted by leading institutions and creators across India.
             </p>
-            <div className="flex items-center gap-2 text-xs text-foreground/30">
+            <div className="flex items-center gap-2 text-xs text-foreground/40">
               <ShieldIcon className="w-3 h-3" />
               <span>All data handled with strict confidentiality</span>
             </div>
@@ -37,11 +47,11 @@ const Footer = ({ mode }: FooterProps) => {
           <div>
             <h4 className="text-sm font-medium text-foreground mb-4">Navigation</h4>
             <div className="flex flex-col gap-2">
-              <Link to="/home" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Home</Link>
-              <Link to="/services" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Services</Link>
-              <Link to="/about" className="text-sm text-foreground/40 hover:text-foreground transition-colors">About</Link>
-              <Link to="/pricing" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Pricing</Link>
-              <Link to="/contact" className="text-sm text-foreground/40 hover:text-foreground transition-colors">Contact</Link>
+              <Link to="/home" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Home</Link>
+              <Link to="/services" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Services</Link>
+              <Link to="/about" className="text-sm text-foreground/50 hover:text-foreground transition-colors">About</Link>
+              <Link to="/pricing" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Pricing</Link>
+              <Link to="/contact" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Contact</Link>
             </div>
           </div>
 
@@ -60,15 +70,20 @@ const Footer = ({ mode }: FooterProps) => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${mode === 'institutional'
-                ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
-                : 'bg-creator/10 text-creator hover:bg-creator/20'
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium trans-premium ${mode === 'institutional'
+                  ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
+                  : 'bg-creator/10 text-creator hover:bg-creator/20'
                 }`}
+              style={{
+                boxShadow: mode === 'institutional'
+                  ? '0 0 20px hsl(43, 96%, 56%, 0.1)'
+                  : '0 0 20px hsl(187, 100%, 42%, 0.1)'
+              }}
             >
               <MessageCircleIcon className="w-4 h-4" />
               Chat on WhatsApp
             </a>
-            <p className="text-xs text-foreground/30 mt-3">
+            <p className="text-xs text-foreground/40 mt-3">
               Preferred communication channel for all inquiries.
             </p>
           </div>

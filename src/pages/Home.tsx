@@ -81,7 +81,8 @@ const Home = () => {
               <TypewriterText
                 anchorText={t('ourServices')}
                 phrases={typewriterSentences}
-                className={`text-base md:text-lg ${mode === 'institutional' ? 'text-foreground/60' : 'text-foreground/60'}`}
+                anchorClassName={mode === 'institutional' ? 'text-institutional font-semibold mr-1.5' : 'text-creator font-semibold mr-1.5'}
+                className="text-base md:text-lg text-foreground/60"
                 speed={120}
                 pauseDuration={2800}
               />

@@ -57,15 +57,15 @@ const TypewriterText = ({
   }, [tick, isDeleting, speed]);
 
   return (
-    <span className="inline-flex items-baseline whitespace-nowrap overflow-hidden">
+    <span className="inline-block min-w-0">
       {anchorText && (
         <span className={anchorClassName || 'text-amber-300/80 font-semibold mr-1.5'}>
           {anchorText}
         </span>
       )}
-      <span className={className}>
+      <span className={`inline-block ${className}`}>
         {currentText}
-        <span className="inline-block w-[1px] h-[0.8em] bg-current ml-0.5 opacity-60 animate-pulse" />
+        <span className="inline-block w-[2px] h-[0.8em] bg-current ml-1 opacity-60 animate-pulse" />
       </span>
     </span>
   );

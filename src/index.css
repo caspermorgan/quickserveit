@@ -49,25 +49,87 @@
 
     --radius: 0.75rem;
 
-    /* Mode Colors - Institutional Gold */
-    --mode-institutional-h: 45;
-    --mode-institutional-s: 93%;
-    --mode-institutional-l: 47%;
+    /* Mode Colors - Institutional Premium Gold */
+    --mode-institutional-h: 43;
+    --mode-institutional-s: 96%;
+    --mode-institutional-l: 56%;
 
-    /* Mode Colors - Creator Cyan */
+    /* Institutional Secondary Colors */
+    --mode-institutional-secondary-h: 38;
+    --mode-institutional-secondary-s: 92%;
+    --mode-institutional-secondary-l: 50%;
+
+    /* Institutional Tertiary Colors */
+    --mode-institutional-tertiary-h: 30;
+    --mode-institutional-tertiary-s: 85%;
+    --mode-institutional-tertiary-l: 35%;
+
+    /* Mode Colors - Creator Premium Cyan */
     --mode-creator-h: 187;
-    --mode-creator-s: 85%;
-    --mode-creator-l: 53%;
+    --mode-creator-s: 100%;
+    --mode-creator-l: 42%;
+
+    /* Creator Secondary Colors */
+    --mode-creator-secondary-h: 200;
+    --mode-creator-secondary-s: 98%;
+    --mode-creator-secondary-l: 48%;
+
+    /* Creator Tertiary Colors */
+    --mode-creator-tertiary-h: 195;
+    --mode-creator-tertiary-s: 100%;
+    --mode-creator-tertiary-l: 55%;
 
     /* Active mode color (default: institutional) */
     --mode-h: var(--mode-institutional-h);
     --mode-s: var(--mode-institutional-s);
-    --mode-l: var(--mode-institutional-l);
+    --mode-l: var(--mode-l);
     --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
 
-    /* Glow effects */
-    --glow-soft: 0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
-    --glow-intense: 0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
+    /* Secondary mode colors */
+    --mode-secondary-h: var(--mode-institutional-secondary-h);
+    --mode-secondary-s: var(--mode-institutional-secondary-s);
+    --mode-secondary-l: var(--mode-institutional-secondary-l);
+
+    /* Tertiary mode colors */
+    --mode-tertiary-h: var(--mode-institutional-tertiary-h);
+    --mode-tertiary-s: var(--mode-institutional-tertiary-s);
+    --mode-tertiary-l: var(--mode-institutional-tertiary-l);
+
+    /* Premium Glow Effects - Multi-layer */
+    --glow-soft:
+      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+
+    --glow-medium:
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+      0 0 90px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+
+    --glow-intense:
+      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4),
+      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
+      0 0 120px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
+
+    /* Premium Shadow System */
+    --shadow-premium-sm:
+      0 2px 8px rgba(0, 0, 0, 0.4),
+      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.05);
+
+    --shadow-premium-md:
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    --shadow-premium-lg:
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    --shadow-premium-xl:
+      0 20px 60px rgba(0, 0, 0, 0.7),
+      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     /* Typography - using root definitions */
 
@@ -83,6 +145,14 @@
     --mode-s: var(--mode-creator-s);
     --mode-l: var(--mode-creator-l);
     --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-creator-secondary-h);
+    --mode-secondary-s: var(--mode-creator-secondary-s);
+    --mode-secondary-l: var(--mode-creator-secondary-l);
+
+    --mode-tertiary-h: var(--mode-creator-tertiary-h);
+    --mode-tertiary-s: var(--mode-creator-tertiary-s);
+    --mode-tertiary-l: var(--mode-creator-tertiary-l);
   }
 
   /* Institutional Mode Override */
@@ -91,6 +161,14 @@
     --mode-s: var(--mode-institutional-s);
     --mode-l: var(--mode-institutional-l);
     --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-institutional-secondary-h);
+    --mode-secondary-s: var(--mode-institutional-secondary-s);
+    --mode-secondary-l: var(--mode-institutional-secondary-l);
+
+    --mode-tertiary-h: var(--mode-institutional-tertiary-h);
+    --mode-tertiary-s: var(--mode-institutional-tertiary-s);
+    --mode-tertiary-l: var(--mode-institutional-tertiary-l);
   }
 }
 
@@ -162,44 +240,47 @@
     }
   }
 
-  /* Glass Morphism */
+  /* Glass Morphism - Premium Edition */
   .glass-premium {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
       0 0 0 1px rgba(0, 0, 0, 0.5),
       0 30px 80px rgba(0, 0, 0, 0.6),
+      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.05),
       inset 0 0 20px rgba(255, 255, 255, 0.02);
   }
 
   .glass-nav {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
       0 20px 50px rgba(0, 0, 0, 0.5),
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-premium-md);
     transition: all 0.5s var(--ease-premium);
   }
 
   .glass-card:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
-    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
+    transform: translateY(-6px);
     box-shadow:
-      0 30px 80px rgba(0, 0, 0, 0.5),
-      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+      0 30px 80px rgba(0, 0, 0, 0.6),
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   /* Mode Color Text */

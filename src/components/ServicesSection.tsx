@@ -94,15 +94,29 @@ const ServicesSection = ({ mode }: ServicesSectionProps) => {
     : t('servicesCreatorSubtitle');
 
   return (
-    <section id="services" className="py-24 md:py-32 px-6 bg-white/5">
+    <section
+      id="services"
+      className="relative py-24 md:py-32 px-6 overflow-hidden"
+      style={{
+        background: mode === 'institutional'
+          ? 'linear-gradient(180deg, rgba(43, 96, 56, 0.03) 0%, rgba(0, 0, 0, 0) 50%, rgba(30, 85, 35, 0.02) 100%)'
+          : 'linear-gradient(180deg, rgba(187, 100, 42, 0.03) 0%, rgba(0, 0, 0, 0) 50%, rgba(195, 100, 55, 0.02) 100%)'
+      }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
-          <h2 className={`font-display text-2xl md:text-4xl tracking-wide mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
-            }`}>
+          <h2
+            className={`font-display text-2xl md:text-4xl tracking-wide mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
+            style={{
+              textShadow: mode === 'institutional'
+                ? '0 0 30px hsl(43, 96%, 56%, 0.2)'
+                : '0 0 30px hsl(187, 100%, 42%, 0.2)'
+            }}
+          >
             {sectionTitle}
           </h2>
-          <p className="text-foreground/50 max-w-lg mx-auto">
+          <p className="text-foreground/60 max-w-lg mx-auto">
             {sectionSubtitle}
           </p>
         </div>

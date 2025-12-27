@@ -52,15 +52,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Mode colors - Institutional Gold
+        // Mode colors - Institutional Premium Gold
         institutional: {
-          DEFAULT: "hsl(45, 93%, 47%)",
+          DEFAULT: "hsl(43, 96%, 56%)",
           foreground: "hsl(0, 0%, 0%)",
+          secondary: "hsl(38, 92%, 50%)",
+          tertiary: "hsl(30, 85%, 35%)",
         },
-        // Mode colors - Creator Cyan  
+        // Mode colors - Creator Premium Cyan  
         creator: {
-          DEFAULT: "hsl(187, 85%, 53%)",
+          DEFAULT: "hsl(187, 100%, 42%)",
           foreground: "hsl(0, 0%, 0%)",
+          secondary: "hsl(200, 98%, 48%)",
+          tertiary: "hsl(195, 100%, 55%)",
         },
       },
       borderRadius: {
