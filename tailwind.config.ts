@@ -103,15 +103,7 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-6px)" },
-        },
-        "float-delayed": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-6px)" },
-        },
-        "float-slow": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "50%": { transform: "translateY(-10px)" },
         },
         "dust-drift": {
           from: { transform: "translate3d(0, 0, 0) scale(1)", opacity: "1", filter: "blur(0px)" },
@@ -127,8 +119,6 @@ export default {
         "blur-in": "blur-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
-        "float-delayed": "float-delayed 6s ease-in-out 2s infinite",
-        "float-slow": "float-slow 8s ease-in-out infinite",
         "dust-drift": "dust-drift 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
     },

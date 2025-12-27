@@ -11,7 +11,6 @@ import CreatorModeNotice from '@/components/CreatorModeNotice';
 import ClientWorkSummary from '@/components/ClientWorkSummary';
 import ServicesSection from '@/components/ServicesSection';
 import HowWeWork from '@/components/HowWeWork';
-import LevitatingWrapper from '@/components/LevitatingWrapper';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -121,15 +120,11 @@ const Home = () => {
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center justify-center gap-8 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <div className="flex items-center gap-2 text-sm text-foreground/40">
-                <LevitatingWrapper delay="none" className="inline-block">
-                  <Shield className="w-4 h-4" />
-                </LevitatingWrapper>
+                <Shield className="w-4 h-4" />
                 <span>{t('confidentialityTitle')}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-foreground/40">
-                <LevitatingWrapper delay="delayed" className="inline-block">
-                  <CheckCircle className="w-4 h-4" />
-                </LevitatingWrapper>
+                <CheckCircle className="w-4 h-4" />
                 <span>{t('realisticTimelinesTitle')}</span>
               </div>
             </div>
@@ -158,27 +153,21 @@ const Home = () => {
 
             {/* Stats strip */}
             <div className="mt-20 md:mt-20 grid grid-cols-3 gap-10 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-              <LevitatingWrapper delay="none">
-                <StatBlock
-                  value={mode === 'institutional' ? '50+' : '200+'}
-                  label={mode === 'institutional' ? t('schoolsServed') : t('projectsDelivered')}
-                  mode={mode}
-                />
-              </LevitatingWrapper>
-              <LevitatingWrapper delay="delayed">
-                <StatBlock
-                  value="100%"
-                  label={t('confidentialityTitle')}
-                  mode={mode}
-                />
-              </LevitatingWrapper>
-              <LevitatingWrapper delay="slow">
-                <StatBlock
-                  value={mode === 'institutional' ? '5000+' : '1M+'}
-                  label={mode === 'institutional' ? t('documents') : t('viewsGenerated')}
-                  mode={mode}
-                />
-              </LevitatingWrapper>
+              <StatBlock
+                value={mode === 'institutional' ? '50+' : '200+'}
+                label={mode === 'institutional' ? t('schoolsServed') : t('projectsDelivered')}
+                mode={mode}
+              />
+              <StatBlock
+                value="100%"
+                label={t('confidentialityTitle')}
+                mode={mode}
+              />
+              <StatBlock
+                value={mode === 'institutional' ? '5000+' : '1M+'}
+                label={mode === 'institutional' ? t('documents') : t('viewsGenerated')}
+                mode={mode}
+              />
             </div>
           </div>
         </section>
@@ -197,7 +186,7 @@ const Home = () => {
         <HowWeWork mode={mode} />
 
         {/* Client Work Summary Section */}
-        <section className="py-32 px-6 border-t border-border bg-black">
+        <section className="py-32 px-6 border-t border-border bg-black/40">
           <ClientWorkSummary mode={mode} />
         </section>
       </main>
