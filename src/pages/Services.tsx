@@ -397,19 +397,22 @@ const Services = () => {
             </div>
           )}
 
-
-          {/* Services Grid */}
-          <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
-            {services.map((service, index) => (
-              <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
-            ))}
-          </div>
-
-          {/* How We Work Section - After Services */}
-          <div className="max-w-5xl mx-auto mt-16 md:mt-20 pt-12 md:pt-16 border-t border-border">
-            <HowWeWork mode={mode} />
+          {/* Services Section */}
+          <div className="pb-16 md:pb-20">
+            <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
+              {services.map((service, index) => (
+                <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* How We Work Section - Completely Separate with Different Background */}
+        <section className="bg-black border-t border-border py-20 md:py-24">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+            <HowWeWork mode={mode} />
+          </div>
+        </section>
       </main>
 
       <Footer mode={mode} />
