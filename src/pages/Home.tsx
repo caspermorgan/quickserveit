@@ -10,7 +10,7 @@ import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import ClientWorkSummary from '@/components/ClientWorkSummary';
 import ServicesSection from '@/components/ServicesSection';
-import HowWeWork from '@/components/HowWeWork';
+import CredibilitySection from '@/components/CredibilitySection';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -179,11 +179,11 @@ const Home = () => {
           </section>
         )}
 
-        {/* Services Section */}
-        <ServicesSection mode={mode} />
+        {/* Services Section - Teaser Mode (Top 3 Only) */}
+        <ServicesSection mode={mode} isTeaser={true} />
 
-        {/* How We Work Section */}
-        <HowWeWork mode={mode} />
+        {/* Credibility Section - Tech Stack & Terminal */}
+        <CredibilitySection mode={mode} />
 
         {/* Client Work Summary Section */}
         <section className="py-32 px-6 border-t border-border bg-white/5">

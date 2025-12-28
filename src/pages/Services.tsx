@@ -7,6 +7,7 @@ import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
+import HowWeWork from '@/components/HowWeWork';
 import { useState } from 'react';
 import {
   FileText,
@@ -395,6 +396,11 @@ const Services = () => {
               </Collapsible>
             </div>
           )}
+
+          {/* How We Work Section - Answers "How?" before showing offers */}
+          <div className="max-w-5xl mx-auto mb-12 md:mb-16">
+            <HowWeWork mode={mode} />
+          </div>
 
           {/* Section Title for Services */}
           <div className="max-w-3xl mx-auto mb-5 md:mb-6 mt-8 md:mt-0">
