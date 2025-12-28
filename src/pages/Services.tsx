@@ -397,23 +397,17 @@ const Services = () => {
             </div>
           )}
 
-          {/* How We Work Section - Answers "How?" before showing offers */}
-          <div className="max-w-5xl mx-auto mb-12 md:mb-16">
-            <HowWeWork mode={mode} />
-          </div>
-
-          {/* Section Title for Services */}
-          <div className="max-w-3xl mx-auto mb-5 md:mb-6 mt-8 md:mt-0">
-            <h2 className={`text-base sm:text-lg font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-              {t('servicesOffered')}
-            </h2>
-          </div>
 
           {/* Services Grid */}
           <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
             {services.map((service, index) => (
               <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
             ))}
+          </div>
+
+          {/* How We Work Section - After Services */}
+          <div className="max-w-5xl mx-auto mt-16 md:mt-20 pt-12 md:pt-16 border-t border-border">
+            <HowWeWork mode={mode} />
           </div>
         </div>
       </main>
