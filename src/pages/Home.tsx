@@ -186,7 +186,7 @@ const Home = () => {
         <CredibilitySection mode={mode} />
 
         {/* Client Work Summary Section */}
-        <section className="py-32 px-6 border-t border-border bg-white/5">
+        <section className="py-32 px-6 border-t border-border bg-black">
           <ClientWorkSummary mode={mode} />
         </section>
       </main>
