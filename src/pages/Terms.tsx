@@ -41,7 +41,7 @@ const Terms = () => {
                             {t('termsTitle')}
                         </h1>
                         <p className="text-base md:text-lg text-foreground/50 max-w-2xl mx-auto leading-relaxed">
-                            Terms and conditions for using our services
+                            {t('termsPageSubtitle')}
                         </p>
                     </div>
                 </section>
@@ -59,7 +59,9 @@ const Terms = () => {
                                     }`}>
                                     {t('termsSection1Title')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('termsSection1Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('termsSection1ContentInstitutional') : t('termsSection1ContentCreator')}
+                                </p>
                             </section>
 
                             <section className="space-y-3">
@@ -69,7 +71,7 @@ const Terms = () => {
                                 </h2>
                                 <p className="leading-relaxed text-sm sm:text-base">{t('termsSection2Content')}</p>
                                 <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-                                    {t('termsSection2List').split('|').map((item, index) => (
+                                    {(mode === 'institutional' ? t('termsSection2ListInstitutional') : t('termsSection2ListCreator')).split('|').map((item, index) => (
                                         <li key={index} className="leading-relaxed">{item}</li>
                                     ))}
                                 </ul>
@@ -78,11 +80,13 @@ const Terms = () => {
                             <section className="space-y-3">
                                 <h2 className={`text-lg sm:text-xl md:text-2xl font-display transition-colors ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                                     }`}>
-                                    {t('termsSection3Title')}
+                                    {mode === 'institutional' ? t('termsSection3TitleInstitutional') : t('termsSection3TitleCreator')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('termsSection3Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('termsSection3ContentInstitutional') : t('termsSection3ContentCreator')}
+                                </p>
                                 <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-                                    {t('termsSection3List').split('|').map((item, index) => (
+                                    {(mode === 'institutional' ? t('termsSection3ListInstitutional') : t('termsSection3ListCreator')).split('|').map((item, index) => (
                                         <li key={index} className="leading-relaxed">{item}</li>
                                     ))}
                                 </ul>
@@ -101,7 +105,9 @@ const Terms = () => {
                                     }`}>
                                     {t('termsSection5Title')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('termsSection5Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('termsSection5ContentInstitutional') : t('termsSection5ContentCreator')}
+                                </p>
                             </section>
 
                             <section className="space-y-3">
@@ -109,7 +115,9 @@ const Terms = () => {
                                     }`}>
                                     {t('termsSection6Title')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('termsSection6Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('termsSection6ContentInstitutional') : t('termsSection6ContentCreator')}
+                                </p>
                             </section>
 
                             <section className="space-y-3">
@@ -123,18 +131,18 @@ const Terms = () => {
                             {/* Contact CTA */}
                             <div className="mt-16 text-center pt-8 border-t border-border">
                                 <p className="text-foreground/50 mb-6">
-                                    Questions about our terms and conditions?
+                                    {t('questionsAboutTerms')}
                                 </p>
                                 <a
                                     href={`https://wa.me/919876543210?text=${encodeURIComponent('Hello quickserveit, I have a question about your terms and conditions.')}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
-                                            ? 'bg-institutional text-black hover:bg-institutional/90'
-                                            : 'bg-creator text-black hover:bg-creator/90'
+                                        ? 'bg-institutional text-black hover:bg-institutional/90'
+                                        : 'bg-creator text-black hover:bg-creator/90'
                                         }`}
                                 >
-                                    Contact Us on WhatsApp
+                                    {t('contactWhatsApp')}
                                 </a>
                             </div>
                         </div>

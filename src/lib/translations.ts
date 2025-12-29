@@ -7,6 +7,8 @@ export const translations = {
     // Brand
     brandName: 'Quickserve IT',
     brandTagline: 'Your Personal Tech Partner.',
+    brandTaglineInstitutional: 'Your calm digital partner for educational institutions.',
+    brandTaglineCreator: 'Your calm digital partner for content creators.',
     betaVersion: 'Beta',
 
     // Landing
@@ -329,7 +331,7 @@ export const translations = {
     // Creator Mode Status Notice
     creatorModeStatusTitle: 'Development Status',
     creatorModeStatusMessage: 'This service is currently under development and is not live yet. It will be available in the coming months.',
-    creatorModeStatusNote: 'We are finalizing our production workflows and quality standards. Institutional services remain fully operational.',
+    creatorModeStatusNote: 'We are finalizing our production workflows and quality standards to ensure the best service for creators.',
 
     // Portfolio Protection
     portfolioLocked: 'Protected Content',
@@ -404,18 +406,39 @@ export const translations = {
     termsLastUpdated: 'Last Updated: December 2024',
     termsSection1Title: '1. Nature of Services',
     termsSection1Content: 'QuickServe IT provides technical assistance, documentation support, and creative production services to educational institutions and content creators. We do not provide academic content creation, student work, or guaranteed outcomes. Our services are limited to technical execution, formatting, data entry, and production support only.',
+    // MODE-SPECIFIC:
+    termsSection1ContentInstitutional: 'QuickServe IT provides technical assistance and documentation support services exclusively to educational institutions. We do not provide academic content creation, student work, or guaranteed outcomes. Our services are limited to technical execution, formatting, and data entry support only.',
+    termsSection1ContentCreator: 'QuickServe IT provides creative production and technical execution services exclusively to content creators. We do not provide guaranteed performance outcomes, audience growth, or monetization results. Our services are limited to production quality, editing, and design work only.',
     termsSection2Title: '2. Service Scope',
     termsSection2Content: 'Our services include but are not limited to:',
     termsSection2List: 'Examination documentation and formatting|Scholarship application processing support|UDISE+ data entry and verification|Video editing and post-production|Graphic design and motion graphics|Content strategy consultation',
+    // MODE-SPECIFIC:
+    termsSection2ListInstitutional: 'Examination documentation and formatting|Scholarship application processing support|UDISE+ data entry and verification|Daily digital support for institutions',
+    termsSection2ListCreator: 'Video editing and post-production|Thumbnail and graphic design|Motion graphics and animation|Content strategy consultation',
     termsSection3Title: '3. Institutional Work - Supervision Required',
+    // MODE-SPECIFIC:
+    termsSection3TitleInstitutional: '3. Institutional Work - Supervision Required',
+    termsSection3TitleCreator: '3. Creative Work - Final Approval Rights',
     termsSection3Content: 'For all institutional services, the following conditions apply:',
+    // MODE-SPECIFIC:
+    termsSection3ContentInstitutional: 'For all institutional services, the following conditions apply:',
+    termsSection3ContentCreator: 'For all creative production services, the following conditions apply:',
     termsSection3List: 'Final academic decisions remain with the institution|All data provided by the institution must be verified by authorized personnel|We provide technical execution only; academic correctness is the institution\'s responsibility|Institutions must review all deliverables before final submission|Student eligibility and record authenticity are solely institutional responsibilities',
+    // MODE-SPECIFIC:
+    termsSection3ListInstitutional: 'Final academic decisions remain with the institution|All data provided by the institution must be verified by authorized personnel|We provide technical execution only; academic correctness is the institution\'s responsibility|Institutions must review all deliverables before final submission|Student eligibility and record authenticity are solely institutional responsibilities',
+    termsSection3ListCreator: 'Final creative decisions and content approval remain with the creator|Creators must approve all edits before publication|We provide production quality only; content strategy and messaging are the creator\'s responsibility|Creators must review all deliverables before use|Content compliance with platform guidelines is the creator\'s responsibility',
     termsSection4Title: '4. Timelines and Priority Work',
     termsSection4Content: 'Standard timelines are provided at the time of engagement. Urgent requests may incur additional charges and are subject to availability. Working hours are Monday to Saturday, 10:00 AM to 3:00 PM IST. Responses and deliveries occur within working hours only. Delays due to government portal downtime, third-party dependencies, or incomplete information from clients are beyond our control.',
     termsSection5Title: '5. Confidentiality',
     termsSection5Content: 'All institutional data, student records, and creative content are handled with strict confidentiality. Data is retained only for the duration of the project and deleted upon completion unless otherwise agreed. We do not share client information with third parties except as required for service delivery (e.g., government portals).',
+    // MODE-SPECIFIC:
+    termsSection5ContentInstitutional: 'All institutional data and student records are handled with strict confidentiality. Data is retained only for the duration of the project and deleted upon completion unless otherwise agreed. We do not share client information with third parties except as required for service delivery (e.g., government portals).',
+    termsSection5ContentCreator: 'All creative content, scripts, and raw footage are handled with strict confidentiality. Data is retained only for the duration of the project and deleted upon completion unless otherwise agreed. We do not share client content with third parties or use it for promotional purposes without explicit permission.',
     termsSection6Title: '6. Limitation of Liability',
     termsSection6Content: 'QuickServe IT is not responsible for outcomes dependent on external factors including but not limited to: government portal functionality, scholarship approval decisions, student eligibility determinations, content performance on social media platforms, monetization outcomes, or reach and engagement metrics. Our responsibility is limited to the quality of technical execution and production work.',
+    // MODE-SPECIFIC:
+    termsSection6ContentInstitutional: 'QuickServe IT is not responsible for outcomes dependent on external factors including but not limited to: government portal functionality, scholarship approval decisions, student eligibility determinations, or policy changes. Our responsibility is limited to the quality of technical execution and data entry work.',
+    termsSection6ContentCreator: 'QuickServe IT is not responsible for outcomes dependent on external factors including but not limited to: content performance on social media platforms, monetization outcomes, reach and engagement metrics, or platform algorithm changes. Our responsibility is limited to the quality of production and editing work.',
     termsSection7Title: '7. Governing Law',
     termsSection7Content: 'These terms are governed by the laws of India. Any disputes shall be subject to the jurisdiction of courts in Uttar Pradesh, India.',
     termsSection8Title: '8. Creator Practice Disclaimer',
@@ -427,13 +450,22 @@ export const translations = {
     privacySection1Title: '1. Information We Collect',
     privacySection1Content: 'We collect only the information necessary to provide our services:',
     privacySection1List: 'Contact information (name, phone, email) for communication|Institutional data (student records, exam schedules) for documentation services|Creative content (video files, scripts, graphics) for production services|Payment information for billing purposes',
+    // MODE-SPECIFIC:
+    privacySection1ListInstitutional: 'Contact information (name, phone, email) for communication|Institutional data (student records, exam schedules, UDISE information) for documentation services|Payment information for billing purposes',
+    privacySection1ListCreator: 'Contact information (name, phone, email) for communication|Creative content (video files, scripts, graphics, raw footage) for production services|Channel analytics (if shared) for strategy consultation|Payment information for billing purposes',
     privacySection2Title: '2. How We Use Your Information',
     privacySection2Content: 'Your information is used solely for service delivery. We use contact details for project communication, institutional data for documentation work, and creative files for production services. We do not use your data for marketing, advertising, or any purpose beyond the agreed service scope.',
+    // MODE-SPECIFIC:
+    privacySection2ContentInstitutional: 'Your information is used solely for service delivery. We use contact details for project communication and institutional data for documentation work and government portal submissions. We do not use your data for marketing, advertising, or any purpose beyond the agreed service scope.',
+    privacySection2ContentCreator: 'Your information is used solely for service delivery. We use contact details for project communication and creative files for production services. We do not use your content for promotional purposes, marketing, or any purpose beyond the agreed service scope.',
     privacySection3Title: '3. Data Security',
     privacySection3Content: 'We implement the following security practices:',
     privacySection3List: 'Secure file transfer and storage|Limited access to authorized personnel only|Data deletion after project completion|No sharing with third parties except as required for service delivery',
     privacySection4Title: '4. Data Retention',
     privacySection4Content: 'Institutional and creative data is retained only for the duration of the project. Upon completion and final delivery, all client data is permanently deleted from our systems unless you request otherwise for archival purposes.',
+    // MODE-SPECIFIC:
+    privacySection4ContentInstitutional: 'Institutional data is retained only for the duration of the project. Upon completion and final delivery, all student records and institutional data are permanently deleted from our systems unless you request otherwise for compliance archival purposes.',
+    privacySection4ContentCreator: 'Creative content is retained only for the duration of the project. Upon completion and final delivery, all raw footage, scripts, and project files are permanently deleted from our systems unless you request otherwise for archival purposes.',
     privacySection5Title: '5. Your Rights',
     privacySection5Content: 'You have the right to request access to your data, request corrections, or request deletion at any time. Contact us via WhatsApp or email to exercise these rights.',
 
@@ -441,15 +473,76 @@ export const translations = {
     disclaimerTitle: 'Disclaimer',
     disclaimerLastUpdated: 'Last Updated: December 2024',
     disclaimerSection1Title: '1. No Academic Responsibility',
+    // MODE-SPECIFIC:
+    disclaimerSection1TitleInstitutional: '1. No Academic Responsibility',
+    disclaimerSection1TitleCreator: '1. No Performance Responsibility',
     disclaimerSection1Content: 'QuickServe IT provides technical and documentation support only. We are not responsible for academic correctness, student eligibility decisions, or the authenticity of institutional records. All academic and administrative decisions remain the sole responsibility of the institution.',
+    // MODE-SPECIFIC:
+    disclaimerSection1ContentInstitutional: 'QuickServe IT provides technical and documentation support only. We are not responsible for academic correctness, student eligibility decisions, or the authenticity of institutional records. All academic and administrative decisions remain the sole responsibility of the institution.',
+    disclaimerSection1ContentCreator: 'QuickServe IT provides production and editing services only. We are not responsible for content performance, audience reception, or platform monetization. All creative decisions, messaging, and content strategy remain the sole responsibility of the creator.',
     disclaimerSection2Title: '2. Third-Party Dependencies',
     disclaimerSection2Content: 'Our services often depend on government portals, third-party platforms, and external systems. We are not responsible for portal downtime, system errors, policy changes, or technical issues beyond our control. Service timelines may be affected by such dependencies.',
     disclaimerSection3Title: '3. No Outcome Guarantees',
     disclaimerSection3Content: 'For institutional services, we do not guarantee scholarship approvals, government scheme acceptance, or portal submission success. For creator services, we do not guarantee views, subscribers, monetization, engagement, or content performance. Our focus is on production quality and technical execution.',
+    // MODE-SPECIFIC:
+    disclaimerSection3ContentInstitutional: 'We do not guarantee scholarship approvals, government scheme acceptance, or portal submission success. Our responsibility is limited to accurate data entry and technical execution. Final decisions on applications and submissions are made by government authorities.',
+    disclaimerSection3ContentCreator: 'We do not guarantee views, subscribers, monetization, engagement, or content performance. Our responsibility is limited to production quality and technical editing. Final content performance depends on platform algorithms, audience preferences, and market factors.',
     disclaimerSection4Title: '4. Client Responsibility',
     disclaimerSection4Content: 'Clients are responsible for providing accurate information, timely feedback, and necessary approvals. Delays or errors resulting from incomplete or incorrect information provided by the client are not our responsibility.',
     disclaimerSection5Title: '5. Service Modifications',
     disclaimerSection5Content: 'We reserve the right to modify our services, pricing, and terms at any time. Existing engagements will be honored under the terms agreed upon at the time of engagement.',
+
+    // Legal Page Subtitles
+    privacyPageSubtitle: 'How we collect, use, and protect your information',
+    termsPageSubtitle: 'Terms and conditions for using our services',
+    disclaimerPageSubtitle: 'Important information about our services and limitations',
+    faqPageTitle: 'Frequently Asked Questions',
+    faqPageSubtitle: 'Quick answers to common questions about our services',
+
+    // FAQ Questions and Answers - Institutional
+    faqInstQuestion1: 'What documents do I need for scholarship applications?',
+    faqInstAnswer1: 'You\'ll typically need scanned copies of student details, income certificates, caste certificates (if applicable), bank account information, and any scheme-specific documents. Share these via WhatsApp, and we\'ll guide you through the complete process with strict confidentiality.',
+
+    faqInstQuestion2: 'How long does UDISE+ data entry take?',
+    faqInstAnswer2: 'Standard UDISE+ work takes 3-5 working days. We collect your school data, verify accuracy, enter all fields with checks, and provide a preview before final submission. During the annual UDISE+ window, priority scheduling is available.',
+
+    faqInstQuestion3: 'Can you handle examination documentation remotely?',
+    faqInstAnswer3: 'Yes! Share your exam schedule and student lists via WhatsApp in any format (Excel, PDF, handwritten). We structure and digitize everything, provide formatted documents for review, and deliver a complete examination package ready for submission within 5-7 working days.',
+
+    faqInstQuestion4: 'Is my school data kept confidential?',
+    faqInstAnswer4: 'Absolutely. Student records and institutional data are handled with strict confidentiality protocols. We retain data only during the project and delete it after completion unless you request archival. Your trust is our priority.',
+
+    faqInstQuestion5: 'What are your operating hours for institutional support?',
+    faqInstAnswer5: 'Our support hours are 10:00 AM to 3:00 PM IST, Monday through Saturday. You can send messages anytime via WhatsApp, and we\'ll respond during working hours. For urgent institutional work, mention \'urgent\' in your message.',
+
+    // FAQ Questions and Answers - Creator
+    faqCreatorQuestion1: 'How do I submit my raw footage for editing?',
+    faqCreatorAnswer1: 'Share your raw footage via Google Drive or WeTransfer. Include a brief with key moments, style references, and target length. We\'ll provide the first cut within the agreed timeline, with 2 revision rounds included in the standard package.',
+
+    faqCreatorQuestion2: 'What video formats do you deliver?',
+    faqCreatorAnswer2: 'We deliver in your required format and resolution—typically MP4 (H.264) optimized for platforms like YouTube, Instagram, or Facebook. Custom formats for specific platforms are available on request. All files are platform-ready and upload-optimized.',
+
+    faqCreatorQuestion3: 'How long does video editing take?',
+    faqCreatorAnswer3: 'For a 15-20 minute video, expect 7-10 days depending on complexity. Thumbnails take 24-48 hours (same-day rush available). Motion graphics for intros/outros need 5-7 days. We provide realistic timelines—no false promises.',
+
+    faqCreatorQuestion4: 'Do you guarantee views or subscribers?',
+    faqCreatorAnswer4: 'No. We focus on production quality and technical execution—retention-style editing, platform optimization, and professional polish. Content performance depends on many external factors. Our commitment is to deliver high-quality, upload-ready content.',
+
+    faqCreatorQuestion5: 'Are music and stock footage included?',
+    faqCreatorAnswer5: 'Basic background music sync is included. Paid stock footage, licensed premium music, sound effects, or advanced VFX plugins are not included by default but can be arranged separately. We\'ll discuss this during scope confirmation.',
+
+    // Contact CTA
+    questionsAboutPrivacy: 'Questions about our privacy policy?',
+    questionsAboutTerms: 'Questions about our terms?',
+    questionsAboutDisclaimer: 'Questions about disclaimers?',
+    stillHaveQuestions: 'Still have questions? We\'re here to help.',
+    contactWhatsApp: 'Contact Us on WhatsApp',
+    disclaimer: 'Disclaimer',
+    faq: 'FAQ',
+
+    // Footer Disclaimers
+    footerDisclaimerInstitutional: 'quickserveit provides technical assistance and documentation services only. Academic correctness, student eligibility, and final record authenticity remain the sole responsibility of the institution. All files handled with strict confidentiality.',
+    footerDisclaimerCreator: 'quickserveit provides creative production and technical execution only. Reach, monetization, and performance depend on platform algorithms; production quality is our focus. All files handled with strict confidentiality.',
 
     // How It Works
     processStep1Title: 'Contact',
@@ -520,6 +613,8 @@ export const translations = {
     // Brand
     brandName: 'Quickserve IT',
     brandTagline: 'आपका भरोसेमंद टेक पार्टनर।',
+    brandTaglineInstitutional: 'शैक्षणिक संस्थानों के लिए आपका शांत डिजिटल साथी।',
+    brandTaglineCreator: 'कंटेंट क्रिएटर्स के लिए आपका शांत डिजिटल साथी।',
     betaVersion: 'बीटा',
 
     // Landing
@@ -808,7 +903,7 @@ export const translations = {
     // Creator Mode Status Notice
     creatorModeStatusTitle: 'विकास स्थिति',
     creatorModeStatusMessage: 'यह सेवा वर्तमान में विकास के अधीन है और अभी तक लाइव नहीं है। यह आगामी महीनों में उपलब्ध होगी।',
-    creatorModeStatusNote: 'हम अपने प्रोडक्शन वर्कफ़्लो और गुणवत्ता मानकों को अंतिम रूप दे रहे हैं। संस्थागत सेवाएं पूरी तरह से परिचालन में हैं।',
+    creatorModeStatusNote: 'हम क्रिएटर्स के लिए सर्वोत्तम सेवा सुनिश्चित करने के लिए अपने प्रोडक्शन वर्कफ़्लो और गुणवत्ता मानकों को अंतिम रूप दे रहे हैं।',
 
     // Portfolio Protection
     portfolioLocked: 'संरक्षित सामग्री',
@@ -929,6 +1024,58 @@ export const translations = {
     disclaimerSection4Content: 'ग्राहक सटीक जानकारी प्रदान करने, समय पर प्रतिक्रिया और आवश्यक अनुमोदन के लिए जिम्मेदार हैं। ग्राहक द्वारा प्रदान की गई अपूर्ण या गलत जानकारी से उत्पन्न देरी या त्रुटियां हमारी जिम्मेदारी नहीं हैं।',
     disclaimerSection5Title: '5. सेवा संशोधन',
     disclaimerSection5Content: 'हम किसी भी समय अपनी सेवाओं, मूल्य निर्धारण और शर्तों को संशोधित करने का अधिकार सुरक्षित रखते हैं। मौजूदा एंगेजमेंट को एंगेजमेंट के समय सहमत शर्तों के तहत सम्मानित किया जाएगा।',
+
+    // Legal Page Subtitles
+    privacyPageSubtitle: 'हम आपकी जानकारी कैसे एकत्र, उपयोग और सुरक्षित करते हैं',
+    termsPageSubtitle: 'हमारी सेवाओं का उपयोग करने के लिए नियम और शर्तें',
+    disclaimerPageSubtitle: 'हमारी सेवाओं और सीमाओं के बारे में महत्वपूर्ण जानकारी',
+    faqPageTitle: 'अक्सर पूछे जाने वाले प्रश्न',
+    faqPageSubtitle: 'हमारी सेवाओं के बारे में सामान्य प्रश्नों के त्वरित उत्तर',
+
+    // FAQ Questions and Answers - Institutional
+    faqInstQuestion1: 'छात्रवृत्ति आवेदन के लिए मुझे किन दस्तावेजों की आवश्यकता है?',
+    faqInstAnswer1: 'आपको आमतौर पर छात्र विवरण, आय प्रमाण पत्र, जाति प्रमाण पत्र (यदि लागू हो), बैंक खाता जानकारी, और योजना-विशिष्ट दस्तावेजों की स्कैन की गई प्रतियों की आवश्यकता होगी। इन्हें WhatsApp के माध्यम से साझा करें, और हम सख्त गोपनीयता के साथ पूरी प्रक्रिया में आपका मार्गदर्शन करेंगे।',
+
+    faqInstQuestion2: 'UDISE+ डेटा एंट्री में कितना समय लगता है?',
+    faqInstAnswer2: 'मानक UDISE+ कार्य में 3-5 कार्य दिवस लगते हैं। हम आपके स्कूल का डेटा एकत्र करते हैं, सटीकता सत्यापित करते हैं, जांच के साथ सभी फ़ील्ड दर्ज करते हैं, और अंतिम सबमिशन से पहले एक पूर्वावलोकन प्रदान करते हैं। वार्षिक UDISE+ विंडो के दौरान प्राथमिकता शेड्यूलिंग उपलब्ध है।',
+
+    faqInstQuestion3: 'क्या आप परीक्षा दस्तावेज़ीकरण रिमोट से संभाल सकते हैं?',
+    faqInstAnswer3: 'हां! अपनी परीक्षा अनुसूची और छात्र सूचियां किसी भी प्रारूप (Excel, PDF, हस्तलिखित) में WhatsApp के माध्यम से साझा करें। हम सब कुछ संरचित और डिजिटाइज़ करते हैं, समीक्षा के लिए स्वरूपित दस्तावेज़ प्रदान करते हैं, और 5-7 कार्य दिवसों में सबमिशन के लिए तैयार पूर्ण परीक्षा पैकेज वितरित करते हैं।',
+
+    faqInstQuestion4: 'क्या मेरे स्कूल का डेटा गोपनीय रखा जाता है?',
+    faqInstAnswer4: 'बिल्कुल। छात्र रिकॉर्ड और संस्थागत डेटा सख्त गोपनीयता प्रोटोकॉल के साथ संभाला जाता है। हम डेटा केवल प्रोजेक्ट के दौरान रखते हैं और पूर्णता के बाद हटा देते हैं जब तक कि आप संग्रह का अनुरोध न करें। आपका विश्वास हमारी प्राथमिकता है।',
+
+    faqInstQuestion5: 'संस्थागत सहायता के लिए आपके कार्य समय क्या हैं?',
+    faqInstAnswer5: 'हमारे सहायता घंटे सुबह 10:00 बजे से दोपहर 3:00 बजे IST, सोमवार से शनिवार हैं। आप किसी भी समय WhatsApp के माध्यम से संदेश भेज सकते हैं, और हम कार्य घंटों के दौरान प्रतिक्रिया देंगे। तत्काल संस्थागत कार्य के लिए, अपने संदेश में \'तत्काल\' का उल्लेख करें।',
+
+    // FAQ Questions and Answers - Creator
+    faqCreatorQuestion1: 'मैं संपादन के लिए अपना कच्चा फुटेज कैसे जमा करूं?',
+    faqCreatorAnswer1: 'अपना कच्चा फुटेज Google Drive या WeTransfer के माध्यम से साझा करें। मुख्य क्षणों, शैली संदर्भों और लक्ष्य लंबाई के साथ एक संक्षिप्त विवरण शामिल करें। हम सहमत समय-सीमा के भीतर पहला कट प्रदान करेंगे, मानक पैकेज में 2 संशोधन राउंड शामिल हैं।',
+
+    faqCreatorQuestion2: 'आप किस वीडियो प्रारूप में डिलीवर करते हैं?',
+    faqCreatorAnswer2: 'हम आपके आवश्यक प्रारूप और रिज़ॉल्यूशन में डिलीवर करते हैं—आमतौर पर YouTube, Instagram, या Facebook जैसे प्लेटफॉर्म के लिए अनुकूलित MP4 (H.264)। विशिष्ट प्लेटफॉर्म के लिए कस्टम प्रारूप अनुरोध पर उपलब्ध हैं। सभी फाइलें प्लेटफॉर्म-रेडी और अपलोड-अनुकूलित हैं।',
+
+    faqCreatorQuestion3: 'वीडियो संपादन में कितना समय लगता है?',
+    faqCreatorAnswer3: '15-20 मिनट के वीडियो के लिए, जटिलता के आधार पर 7-10 दिन की अपेक्षा करें। थंबनेल में 24-48 घंटे लगते हैं (उसी दिन रश उपलब्ध)। इंट्रो/आउट्रो के लिए मोशन ग्राफिक्स को 5-7 दिन चाहिए। हम यथार्थवादी समय-सीमा प्रदान करते हैं—कोई झूठे वादे नहीं।',
+
+    faqCreatorQuestion4: 'क्या आप व्यूज या सब्सक्राइबर की गारंटी देते हैं?',
+    faqCreatorAnswer4: 'नहीं। हम प्रोडक्शन गुणवत्ता और तकनीकी निष्पादन पर ध्यान केंद्रित करते हैं—रिटेंशन-स्टाइल संपादन, प्लेटफॉर्म अनुकूलन, और पेशेवर पॉलिश। कंटेंट प्रदर्शन कई बाहरी कारकों पर निर्भर करता है। हमारी प्रतिबद्धता उच्च गुणवत्ता, अपलोड-रेडी कंटेंट देने की है।',
+
+    faqCreatorQuestion5: 'क्या संगीत और स्टॉक फुटेज शामिल हैं?',
+    faqCreatorAnswer5: 'बेसिक बैकग्राउंड म्यूज़िक सिंक शामिल है। भुगतान किए गए स्टॉक फुटेज, लाइसेंस प्राप्त प्रीमियम संगीत, साउंड इफेक्ट्स, या उन्नत VFX प्लगइन्स डिफ़ॉल्ट रूप से शामिल नहीं हैं लेकिन अलग से व्यवस्थित किए जा सकते हैं। हम स्कोप पुष्टि के दौरान इस पर चर्चा करेंगे।',
+
+    // Contact CTA
+    questionsAboutPrivacy: 'हमारी गोपनीयता नीति के बारे में प्रश्न?',
+    questionsAboutTerms: 'हमारे नियमों के बारे में प्रश्न?',
+    questionsAboutDisclaimer: 'अस्वीकरण के बारे में प्रश्न?',
+    stillHaveQuestions: 'अभी भी प्रश्न हैं? हम मदद के लिए यहाँ हैं।',
+    contactWhatsApp: 'WhatsApp पर हमसे संपर्क करें',
+    disclaimer: 'अस्वीकरण',
+    faq: 'FAQ',
+
+    // Footer Disclaimers
+    footerDisclaimerInstitutional: 'quickserveit केवल तकनीकी सहायता और दस्तावेज़ीकरण सेवाएं प्रदान करता है। शैक्षणिक शुद्धता, छात्र पात्रता, और अंतिम रिकॉर्ड प्रामाणिकता संस्था की एकमात्र जिम्मेदारी है। सभी फाइलें सख्त गोपनीयता के साथ संभाली जाती हैं।',
+    footerDisclaimerCreator: 'quickserveit केवल रचनात्मक प्रोडक्शन और तकनीकी निष्पादन प्रदान करता है। पहुंच, मुद्रीकरण, और प्रदर्शन प्लेटफॉर्म एल्गोरिदम पर निर्भर करते हैं; प्रोडक्शन गुणवत्ता हमारा फोकस है। सभी फाइलें सख्त गोपनीयता के साथ संभाली जाती हैं।',
 
     // How We Work Section
     howWeWorkTitle: 'हम कैसे काम करते हैं',

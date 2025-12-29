@@ -41,7 +41,7 @@ const Privacy = () => {
                             {t('privacyTitle')}
                         </h1>
                         <p className="text-base md:text-lg text-foreground/50 max-w-2xl mx-auto leading-relaxed">
-                            How we collect, use, and protect your information
+                            {t('privacyPageSubtitle')}
                         </p>
                     </div>
                 </section>
@@ -61,7 +61,7 @@ const Privacy = () => {
                                 </h2>
                                 <p className="leading-relaxed text-sm sm:text-base">{t('privacySection1Content')}</p>
                                 <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-                                    {t('privacySection1List').split('|').map((item, index) => (
+                                    {(mode === 'institutional' ? t('privacySection1ListInstitutional') : t('privacySection1ListCreator')).split('|').map((item, index) => (
                                         <li key={index} className="leading-relaxed">{item}</li>
                                     ))}
                                 </ul>
@@ -72,7 +72,9 @@ const Privacy = () => {
                                     }`}>
                                     {t('privacySection2Title')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('privacySection2Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('privacySection2ContentInstitutional') : t('privacySection2ContentCreator')}
+                                </p>
                             </section>
 
                             <section className="space-y-3">
@@ -93,7 +95,9 @@ const Privacy = () => {
                                     }`}>
                                     {t('privacySection4Title')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('privacySection4Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('privacySection4ContentInstitutional') : t('privacySection4ContentCreator')}
+                                </p>
                             </section>
 
                             <section className="space-y-3">
@@ -107,18 +111,18 @@ const Privacy = () => {
                             {/* Contact CTA */}
                             <div className="mt-16 text-center pt-8 border-t border-border">
                                 <p className="text-foreground/50 mb-6">
-                                    Questions about our privacy policy?
+                                    {t('questionsAboutPrivacy')}
                                 </p>
                                 <a
                                     href={`https://wa.me/919876543210?text=${encodeURIComponent('Hello quickserveit, I have a question about your privacy policy.')}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
-                                            ? 'bg-institutional text-black hover:bg-institutional/90'
-                                            : 'bg-creator text-black hover:bg-creator/90'
+                                        ? 'bg-institutional text-black hover:bg-institutional/90'
+                                        : 'bg-creator text-black hover:bg-creator/90'
                                         }`}
                                 >
-                                    Contact Us on WhatsApp
+                                    {t('contactWhatsApp')}
                                 </a>
                             </div>
                         </div>

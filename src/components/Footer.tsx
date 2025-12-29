@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { MessageCircleIcon, ShieldIcon } from './IconSystem';
 import AvailabilityIndicator from './AvailabilityIndicator';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface FooterProps {
   mode: 'institutional' | 'creator';
 }
 
 const Footer = ({ mode }: FooterProps) => {
+  const { t } = useTranslation();
   const whatsappNumber = '919876543210'; // Replace with actual number
   const whatsappMessage = encodeURIComponent('Hello quickserveit, I would like to inquire about your services.');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
@@ -32,10 +34,7 @@ const Footer = ({ mode }: FooterProps) => {
               quickserveit
             </div>
             <p className="text-sm text-foreground/50 mb-4 leading-relaxed">
-              Your calm digital partner for institutions and creators.
-            </p>
-            <p className="text-xs font-medium text-foreground/60 mb-4">
-              Trusted by leading institutions and creators across India.
+              {mode === 'institutional' ? t('brandTaglineInstitutional') : t('brandTaglineCreator')}
             </p>
             <div className="flex items-center gap-2 text-xs text-foreground/40">
               <ShieldIcon className="w-3 h-3" />
@@ -125,10 +124,7 @@ const Footer = ({ mode }: FooterProps) => {
         {/* Disclaimer */}
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-[10px] text-foreground/20 max-w-3xl mx-auto leading-relaxed">
-            <strong className="text-foreground/30">Important:</strong> quickserveit provides technical assistance, documentation services, and creative production only.
-            Academic correctness, student eligibility, and final record authenticity remain
-            the sole responsibility of the institution. For creators, reach, monetization, and performance
-            depend on platform algorithms; production quality is our focus. All files handled with strict confidentiality.
+            <strong className="text-foreground/30">Important:</strong> {mode === 'institutional' ? t('footerDisclaimerInstitutional') : t('footerDisclaimerCreator')}
           </p>
         </div>
       </div>

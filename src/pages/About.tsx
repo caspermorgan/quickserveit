@@ -77,45 +77,45 @@ const About = () => {
             </div>
           </section>
 
-          {/* Who We Serve */}
+          {/* Who We Serve - Mode Specific */}
           <section className="max-w-4xl mx-auto mb-20">
             <h2 className="text-2xl font-display mb-8 text-center">{t('whoWeServe')}</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Institutions */}
-              <div className={`p-8 rounded-2xl glass-card border ${mode === 'institutional' ? 'border-institutional/30' : 'border-border/20'}`}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-institutional/10 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-institutional" />
+            <div className="max-w-2xl mx-auto">
+              {mode === 'institutional' ? (
+                <div className="p-8 rounded-2xl glass-card border border-institutional/30">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-institutional/10 flex items-center justify-center">
+                      <Users className="w-6 h-6 text-institutional" />
+                    </div>
+                    <h3 className="text-xl font-medium">{t('institutions')}</h3>
                   </div>
-                  <h3 className="text-xl font-medium">{t('institutions')}</h3>
+                  <ul className="space-y-3 text-foreground/60">
+                    {t('institutionsList').split('|').map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-institutional mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-3 text-foreground/60">
-                  {t('institutionsList').split('|').map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-institutional mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Creators */}
-              <div className={`p-8 rounded-2xl glass-card border ${mode === 'creator' ? 'border-creator/30' : 'border-border/20'}`}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-creator/10 flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-creator" />
+              ) : (
+                <div className="p-8 rounded-2xl glass-card border border-creator/30">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-creator/10 flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-creator" />
+                    </div>
+                    <h3 className="text-xl font-medium">{t('creators')}</h3>
                   </div>
-                  <h3 className="text-xl font-medium">{t('creators')}</h3>
+                  <ul className="space-y-3 text-foreground/60">
+                    {t('creatorsList').split('|').map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-creator mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-3 text-foreground/60">
-                  {t('creatorsList').split('|').map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-creator mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              )}
             </div>
           </section>
 

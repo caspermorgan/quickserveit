@@ -41,7 +41,7 @@ const Disclaimer = () => {
                             {t('disclaimerTitle')}
                         </h1>
                         <p className="text-base md:text-lg text-foreground/50 max-w-2xl mx-auto leading-relaxed">
-                            Important information about our services and limitations
+                            {t('disclaimerPageSubtitle')}
                         </p>
                     </div>
                 </section>
@@ -57,9 +57,11 @@ const Disclaimer = () => {
                             <section className="space-y-3">
                                 <h2 className={`text-lg sm:text-xl md:text-2xl font-display transition-colors ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                                     }`}>
-                                    {t('disclaimerSection1Title')}
+                                    {mode === 'institutional' ? t('disclaimerSection1TitleInstitutional') : t('disclaimerSection1TitleCreator')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('disclaimerSection1Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('disclaimerSection1ContentInstitutional') : t('disclaimerSection1ContentCreator')}
+                                </p>
                             </section>
 
                             <section className="space-y-3">
@@ -75,7 +77,9 @@ const Disclaimer = () => {
                                     }`}>
                                     {t('disclaimerSection3Title')}
                                 </h2>
-                                <p className="leading-relaxed text-sm sm:text-base">{t('disclaimerSection3Content')}</p>
+                                <p className="leading-relaxed text-sm sm:text-base">
+                                    {mode === 'institutional' ? t('disclaimerSection3ContentInstitutional') : t('disclaimerSection3ContentCreator')}
+                                </p>
                             </section>
 
                             <section className="space-y-3">
@@ -97,18 +101,18 @@ const Disclaimer = () => {
                             {/* Contact CTA */}
                             <div className="mt-16 text-center pt-8 border-t border-border">
                                 <p className="text-foreground/50 mb-6">
-                                    Questions about this disclaimer?
+                                    {t('questionsAboutDisclaimer')}
                                 </p>
                                 <a
                                     href={`https://wa.me/919876543210?text=${encodeURIComponent('Hello quickserveit, I have a question about your disclaimer.')}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
-                                            ? 'bg-institutional text-black hover:bg-institutional/90'
-                                            : 'bg-creator text-black hover:bg-creator/90'
+                                        ? 'bg-institutional text-black hover:bg-institutional/90'
+                                        : 'bg-creator text-black hover:bg-creator/90'
                                         }`}
                                 >
-                                    Contact Us on WhatsApp
+                                    {t('contactWhatsApp')}
                                 </a>
                             </div>
                         </div>
