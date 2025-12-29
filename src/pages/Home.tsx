@@ -182,6 +182,34 @@ const Home = () => {
         {/* Services Section - Teaser Mode (Top 3 Only) */}
         <ServicesSection mode={mode} isTeaser={true} />
 
+        {/* FAQ Teaser Section */}
+        <section className="py-16 px-6 border-y border-border" style={{
+          background: mode === 'institutional'
+            ? 'linear-gradient(135deg, rgba(43, 96%, 56%, 0.03) 0%, rgba(0, 0, 0, 0) 100%)'
+            : 'linear-gradient(135deg, rgba(187, 100%, 42%, 0.03) 0%, rgba(0, 0, 0, 0) 100%)'
+        }}>
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-base md:text-lg text-foreground/60 mb-6 leading-relaxed">
+              Have questions about our services? Check out our FAQ for quick answers.
+            </p>
+            <Link
+              to="/faq"
+              className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
+                  ? 'bg-institutional/10 text-institutional hover:bg-institutional/20 border border-institutional/30'
+                  : 'bg-creator/10 text-creator hover:bg-creator/20 border border-creator/30'
+                }`}
+              style={{
+                boxShadow: mode === 'institutional'
+                  ? '0 0 20px hsl(43, 96%, 56%, 0.1)'
+                  : '0 0 20px hsl(187, 100%, 42%, 0.1)'
+              }}
+            >
+              View FAQ
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
         {/* Client Work Summary Section */}
         <section className="py-32 px-6 border-t border-border bg-black">
           <ClientWorkSummary mode={mode} />

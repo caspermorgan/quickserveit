@@ -71,8 +71,8 @@ const Footer = ({ mode }: FooterProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium trans-premium ${mode === 'institutional'
-                  ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
-                  : 'bg-creator/10 text-creator hover:bg-creator/20'
+                ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
+                : 'bg-creator/10 text-creator hover:bg-creator/20'
                 }`}
               style={{
                 boxShadow: mode === 'institutional'
@@ -115,6 +115,9 @@ const Footer = ({ mode }: FooterProps) => {
             </Link>
             <Link to="/disclaimer" className="hover:text-foreground transition-colors duration-300">
               Disclaimer
+            </Link>
+            <Link to="/faq" className="hover:text-foreground transition-colors duration-300">
+              FAQ
             </Link>
           </div>
         </div>
