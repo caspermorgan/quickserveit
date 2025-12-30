@@ -71,25 +71,6 @@ const HeroSection = ({ mode }: HeroSectionProps) => {
             {mode === 'institutional' ? t('viewServices') : t('seePortfolio')}
           </button>
         </div>
-
-        {/* Stats strip with Premium Styling */}
-        <div className="mt-16 md:mt-20 grid grid-cols-3 gap-6 md:gap-8 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
-          <StatBlock
-            value={mode === 'institutional' ? '50+' : '200+'}
-            label={mode === 'institutional' ? t('schoolsServed') : t('projectsDelivered')}
-            mode={mode}
-          />
-          <StatBlock
-            value="99.9%"
-            label={t('uptimeGuarantee')}
-            mode={mode}
-          />
-          <StatBlock
-            value={mode === 'institutional' ? '5000+' : '1M+'}
-            label={mode === 'institutional' ? t('documents') : t('viewsGenerated')}
-            mode={mode}
-          />
-        </div>
       </div>
     </section>
   );
