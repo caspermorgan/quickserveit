@@ -166,11 +166,11 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <button
           onClick={onReturn}
           className={`
-            group flex items-center gap-0 overflow-visible
-            pr-0 rounded-full 
+            group flex items-center gap-0 overflow-hidden
+            h-12 md:h-14 pl-0 pr-0 rounded-full 
             glass-nav
             transition-all duration-500 ease-out
-            group-hover:pr-3 md:group-hover:pr-4
+            hover:pr-4 md:hover:pr-5
             ${mode === 'institutional'
               ? 'hover:border-institutional/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]'
               : 'hover:border-creator/30 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]'
@@ -190,13 +190,12 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Text - Hidden by default, expands on hover */}
           <span
             className={`
-              flex items-center
+              flex items-center h-full
               whitespace-nowrap overflow-hidden
               font-display font-medium text-sm md:text-base tracking-wide
               transition-all duration-500 ease-out
-              max-w-0 opacity-0
-              group-hover:max-w-[200px] group-hover:opacity-100
-              group-hover:ml-2.5 md:group-hover:ml-3
+              max-w-0 opacity-0 pl-0
+              group-hover:max-w-[150px] group-hover:opacity-100 group-hover:pl-3
               ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}
             `}
           >
