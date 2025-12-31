@@ -190,12 +190,13 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Text - Hidden by default, expands on hover */}
           <span
             className={`
-              inline-block whitespace-nowrap overflow-hidden
+              flex items-center
+              whitespace-nowrap overflow-hidden
               font-display font-medium text-sm md:text-base tracking-wide
               transition-all duration-500 ease-out
               max-w-0 opacity-0
               group-hover:max-w-[200px] group-hover:opacity-100
-              group-hover:ml-2 md:group-hover:ml-3
+              group-hover:ml-2.5 md:group-hover:ml-3
               ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}
             `}
           >
