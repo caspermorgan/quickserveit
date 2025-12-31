@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowLeftIcon } from './IconSystem';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -153,20 +152,55 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         onClick={handleOverlayClick}
       />
 
-      {/* Return Button */}
-      <div className={`fixed top-6 left-6 md:top-8 md:left-8 z-50 ${combinedVisible
-        ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
-        : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
-        }`}>
+      {/* Logo Pill - Anti-Gravity Style */}
+      <div
+        className={`
+          fixed top-6 left-6 md:top-8 md:left-8 z-50 
+          animate-float
+          ${combinedVisible
+            ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
+            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+          }
+        `}
+      >
         <button
           onClick={onReturn}
-          className={`group flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full glass-nav transition-all duration-300 hover:scale-110 ${mode === 'institutional'
-            ? 'hover:border-institutional/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]'
-            : 'hover:border-creator/30 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]'
-            }`}
+          className={`
+            group flex items-center gap-0 overflow-visible
+            pr-0 rounded-full 
+            glass-nav
+            transition-all duration-500 ease-out
+            group-hover:pr-3 md:group-hover:pr-4
+            ${mode === 'institutional'
+              ? 'hover:border-institutional/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]'
+              : 'hover:border-creator/30 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]'
+            }
+          `}
           aria-label="Return to landing"
         >
-          <ArrowLeftIcon className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors duration-300" />
+          {/* Perfect Circle Logo Container */}
+          <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden flex-shrink-0 bg-background/10 p-1 md:p-1.5">
+            <img
+              src="/quickserve-logo.png"
+              alt="QuickServe IT"
+              className="w-full h-full object-contain"
+            />
+          </div>
+
+          {/* Text - Hidden by default, expands on hover */}
+          <span
+            className={`
+              inline-block whitespace-nowrap overflow-hidden
+              font-display font-medium text-sm md:text-base tracking-wide
+              transition-all duration-500 ease-out
+              max-w-0 opacity-0
+              group-hover:max-w-[200px] group-hover:opacity-100
+              group-hover:ml-2 md:group-hover:ml-3
+              ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}
+            `}
+          >
+            QuickServe IT
+          </span>
         </button>
       </div>
 
