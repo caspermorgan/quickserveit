@@ -179,7 +179,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           aria-label="Return to landing"
         >
           {/* Perfect Circle Logo Container */}
-          <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden flex-shrink-0 bg-background/10 p-1 md:p-1.5">
+          <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden flex-shrink-0 bg-background/10 p-0.5 md:p-1">
             <img
               src="/quickserve-logo.png"
               alt="QuickServe IT"
