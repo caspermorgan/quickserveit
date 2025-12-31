@@ -25,7 +25,7 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
   const modeColor = mode === 'institutional' ? '234, 179, 8' : '34, 211, 238';
 
   const createParticle = useCallback((canvas: HTMLCanvasElement): Particle => {
-    const size = Math.random() * 1.5 + 0.5;
+    const size = Math.random() * 1.2 + 0.4;
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
     const directionX = (Math.random() * 0.4) - 0.2;
@@ -37,12 +37,12 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
   const init = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     particlesRef.current = [];
     const isMobile = window.innerWidth < 768;
     const densityFactor = isMobile ? 18000 : 10000;
     const numberOfParticles = (canvas.height * canvas.width) / densityFactor;
-    
+
     for (let i = 0; i < numberOfParticles; i++) {
       particlesRef.current.push(createParticle(canvas));
     }
@@ -50,26 +50,43 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
 
   useEffect(() => {
     isDustingRef.current = isDusting;
-    
+
     // Only spawn dust particles when exiting (isDusting becomes true)
     if (isDusting) {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      
-      // Add dust particles for the Thanos effect on exit
+
+      // Add MANY more dust particles for a smooth, premium disintegration effect
       const isMobile = window.innerWidth < 768;
-      const dustCount = isMobile ? 100 : 150;
-      
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+      // Dramatically increased particle counts for smooth effect
+      const dustCount = isMobile ? 350 : (isTablet ? 450 : 600);
+
       for (let i = 0; i < dustCount; i++) {
-        const size = Math.random() * 2.5 + 0.5;
-        const x = canvas.width * 0.2 + Math.random() * (canvas.width * 0.6);
-        const y = canvas.height * 0.2 + Math.random() * (canvas.height * 0.6);
+        // Smaller, more varied particle sizes for a finer dust effect
+        const size = Math.random() * 1.2 + 0.3;
+
+        // More spread across the screen with concentrated center
+        const spreadX = Math.random() < 0.7
+          ? canvas.width * 0.15 + Math.random() * (canvas.width * 0.7)  // 70% center area
+          : Math.random() * canvas.width;  // 30% full screen
+
+        const spreadY = Math.random() < 0.7
+          ? canvas.height * 0.15 + Math.random() * (canvas.height * 0.7)
+          : Math.random() * canvas.height;
+
+        // More varied, natural movement patterns
+        const angleVariation = Math.random() * Math.PI * 2;
+        const speedVariation = Math.random() * 1.5 + 0.5;
+
         particlesRef.current.push({
-          x, y,
-          directionX: (Math.random() - 0.5) * 2,
-          directionY: (Math.random() - 0.5) * 2,
+          x: spreadX,
+          y: spreadY,
+          directionX: Math.cos(angleVariation) * speedVariation,
+          directionY: Math.sin(angleVariation) * speedVariation - (Math.random() * 0.5), // Slight upward bias
           size,
-          density: Math.random() * 30 + 1
+          density: Math.random() * 25 + 5
         });
       }
     }
@@ -78,7 +95,7 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -141,7 +158,7 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
 
     const connect = () => {
       const isMobile = window.innerWidth < 768;
-      const connectDist = isMobile 
+      const connectDist = isMobile
         ? (canvas.width / 15) * (canvas.height / 15)
         : (canvas.width / 9) * (canvas.height / 9);
 
@@ -149,7 +166,7 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
         for (let b = a; b < particlesRef.current.length; b++) {
           const pA = particlesRef.current[a];
           const pB = particlesRef.current[b];
-          const distance = 
+          const distance =
             (pA.x - pB.x) * (pA.x - pB.x) +
             (pA.y - pB.y) * (pA.y - pB.y);
 
@@ -170,18 +187,18 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Filter out particles that are too small
       particlesRef.current = particlesRef.current.filter(p => p.size > 0.1);
-      
+
       for (const particle of particlesRef.current) {
         updateParticle(particle);
       }
-      
+
       if (!isDustingRef.current) {
         connect();
       }
-      
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
