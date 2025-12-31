@@ -181,7 +181,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Perfect Circle Logo Container */}
           <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden flex-shrink-0 bg-background/10 p-0.5 md:p-1">
             <img
-              src="/quickserve-logo.png"
+              src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
               alt="QuickServe IT"
               className="w-full h-full object-contain"
             />
