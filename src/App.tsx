@@ -25,12 +25,13 @@ const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Loading fallback component
+// Minimal loading fallback for page transitions
 const PageLoader = () => (
   <div className="min-h-screen bg-background flex items-center justify-center">
     <div className="text-center">
-      <div className="w-16 h-16 border-4 border-mode border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-      <p className="text-muted-foreground">Loading...</p>
+      <p className="font-mono text-sm tracking-[0.3em] text-muted-foreground uppercase animate-pulse">
+        Loading
+      </p>
     </div>
   </div>
 );
