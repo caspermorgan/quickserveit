@@ -131,12 +131,12 @@ export const translations = {
     udiseNeeds: 'School login credentials (shared securely)|Current year enrollment data|Infrastructure details and updates|Teacher information and qualifications',
     udiseTimeline: 'Bookings Open for April 2026 | Priority slots for early schools',
 
-    dailySupportTitle: 'Daily Digital Support',
-    dailySupportShort: 'Ongoing administrative support for routine documentation needs.',
-    dailySupportFull: 'Retainer-based support for schools requiring regular assistance with circulars, notices, attendance reports, parent communication, and ad-hoc documentation.',
-    dailySupportSteps: 'Subscribe to monthly support package|Share tasks via dedicated WhatsApp channel|Receive same-day or next-day turnaround|Monthly summary of completed work|Flexible scope based on your needs',
-    dailySupportNeeds: 'List of recurring documentation needs|Communication preferences and templates|Key contacts for clarifications|Monthly task volume estimate',
-    dailySupportTimeline: 'Same-day for simple tasks | 24-48 hours for complex documentation',
+    dailySupportTitle: 'Daily Tech & Micro-Task Support',
+    dailySupportShort: 'On-demand support for confusing government tasks, PDF conversions, translations, and academic content creation.',
+    dailySupportFull: 'Stuck with a confusing government portal? Need a PDF converted to an image instantly? Or need handwritten notes typed into a Model Paper? We handle these "time-wasting" technical tasks for you. No monthly commitment required—pay per task or hire us for a single day of focused work.',
+    dailySupportSteps: 'Send the task via WhatsApp (e.g., "Fix this PDF" or "Translate this notice")|We confirm the cost (Per-Task/Per-Day)|We process the work immediately (PDF tools, Portal fix, Typing)|Receive final files instantly',
+    dailySupportNeeds: 'Raw files (PDF/Images)|Clear instruction on what is needed (Translate/Convert/Create)|Govt Portal credentials (if related to portal work)',
+    dailySupportTimeline: 'Instant for Micro-tasks (30-60 mins) | Same day for larger typing works.',
 
     // Services - Creator
     videoEditTitle: 'Long-Form Video Editing',
@@ -183,7 +183,7 @@ export const translations = {
     govProjectsTitle: 'Government Projects',
     govProjectsDesc: 'Rapid response for ad-hoc circulars, compliance mapping, and special government portal assistance.',
     dailySupportCardTitle: 'Daily Digital Support',
-    dailySupportCardDesc: 'Remote WhatsApp-based office assistance for notices, file resizing, and quick administrative tasks.',
+    dailySupportCardDesc: 'Micro-services: PDF to Image, English-Hindi Translation, Model Paper creation, and resolving portal errors.',
     subscriptionTitle: 'Subscription Plans',
     subscriptionDesc: 'Silver, Gold, and Platinum tiers offering predictable monthly support with priority turnaround.',
 
@@ -737,12 +737,12 @@ export const translations = {
     udiseNeeds: 'स्कूल लॉगिन क्रेडेंशियल्स (सशर्त साझा)|वर्तमान वर्ष नामांकन डेटा|बुनियादी ढांचे का विवरण और अपडेट|शिक्षक जानकारी और योग्यता',
     udiseTimeline: 'अप्रैल 2026 के लिए बुकिंग शुरू | पहले आने वाले स्कूलों के लिए प्राथमिकता',
 
-    dailySupportTitle: 'दैनिक डिजिटल सहायता',
-    dailySupportShort: 'नियमित दस्तावेज़ीकरण आवश्यकताओं के लिए चल रही प्रशासनिक सहायता।',
-    dailySupportFull: 'सर्कुलर, नोटिस, उपस्थिति रिपोर्ट, अभिभावक संचार और तदर्थ दस्तावेज़ीकरण के साथ नियमित सहायता की आवश्यकता वाले स्कूलों के लिए रिटेनर-आधारित सहायता।',
-    dailySupportSteps: 'मासिक सहायता पैकेज की सदस्यता लें|समर्पित WhatsApp चैनल के माध्यम से कार्य साझा करें|उसी दिन या अगले दिन का टर्नअराउंड प्राप्त करें|पूर्ण कार्य का मासिक सारांश|आपकी आवश्यकताओं के आधार पर लचीला दायरा',
-    dailySupportNeeds: 'आवर्ती दस्तावेज़ीकरण आवश्यकताओं की सूची|संचार प्राथमिकताएं और टेम्पलेट|स्पष्टीकरण के लिए मुख्य संपर्क|मासिक कार्य नत्रप अनुमान',
-    dailySupportTimeline: 'सरल कार्यों के लिए उसी दिन | जटिल दस्तावेज़ीकरण के लिए 24-48 घंटे',
+    dailySupportTitle: 'दैनिक टेक्निकल और माइक्रो-टास्क सहायता',
+    dailySupportShort: 'सरकारी काम की उलझनें, PDF टूल्स, अनुवाद और नोट्स/पेपर बनाने के लिए तुरंत ऑन-डिमांड सहायता।',
+    dailySupportFull: 'क्या आप किसी सरकारी पोर्टल पर अटक गए हैं? या PDF को इमेज में बदलना है? या हाथ से लिखे नोट्स को "मॉडल पेपर" में टाइप करना है? हम इन समय बरबाद करने वाले टेक्निकल कामों को संभालते हैं। कोई मासिक बंधन नहीं—हर काम (Per-Task) या एक दिन (Per-Day) के हिसाब से भुगतान करें।',
+    dailySupportSteps: 'WhatsApp पर काम भेजें (जैसे "यह PDF सही कर दो" या "नोटिस ट्रांसलेट कर दो")|हम लागत बताते हैं (प्रति-काम या प्रति-दिन)|हम तुरंत काम शुरू करते हैं (PDF टूल्स, पोर्टल, टाइपिंग)|तुरंत फाइनल फाइल प्राप्त करें',
+    dailySupportNeeds: 'कच्ची फाइलें (PDF/फोटो)|स्पष्ट निर्देश (अनुवाद/कन्वर्ट/बनाना)|सरकारी पोर्टल लॉगिन (यदि पोर्टल का काम हो)',
+    dailySupportTimeline: 'माइक्रो-टास्क के लिए तुरंत (30-60 मिनट) | बड़े टाइपिंग काम के लिए उसी दिन।',
 
     // Services - Creator
     videoEditTitle: 'लॉन्ग-फॉर्म वीडियो संपादन',
@@ -789,7 +789,7 @@ export const translations = {
     govProjectsTitle: 'सरकारी प्रोजेक्ट्स',
     govProjectsDesc: 'तदर्थ परिपत्रों के लिए त्वरित प्रतिक्रिया, अनुपालन मैपिंग और विशेष सरकारी पोर्टल सहायता।',
     dailySupportCardTitle: 'दैनिक डिजिटल सहायता',
-    dailySupportCardDesc: 'नोटिस, फ़ाइल आकार बदलने और त्वरित प्रशासनिक कार्यों के लिए रिमोट WhatsApp-आधारित कार्यालय सहायता।',
+    dailySupportCardDesc: 'माइक्रो-सेवाएं: PDF से इमेज, हिंदी-अंग्रेजी अनुवाद, मॉडल पेपर बनाना और पोर्टल की त्रुटियां सुलझाना।',
     subscriptionTitle: 'सब्सक्रिप्शन प्लान',
     subscriptionDesc: 'प्राथमिकता टर्नअराउंड के साथ अनुमानित मासिक सहायता प्रदान करने वाले सिल्वर, गोल्ड और प्लेटिनम टियर।',
 
