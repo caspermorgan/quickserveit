@@ -4,11 +4,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SpeedInsights } from "@/components/SpeedInsights";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { useEffect, lazy, Suspense, useState } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { ModeProvider, useMode } from "@/context/ModeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { Preloader } from "@/components/Preloader";
 
 // Lazy load all page components for better performance
 const Landing = lazy(() => import("./pages/Landing"));
@@ -86,12 +85,6 @@ const AppRoutes = () => {
 };
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handlePreloaderComplete = () => {
-    setIsLoading(false);
-  };
-
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
@@ -101,13 +94,9 @@ const App = () => {
               <Toaster />
               <Sonner />
               <SpeedInsights />
-              {isLoading ? (
-                <Preloader onComplete={handlePreloaderComplete} />
-              ) : (
-                <BrowserRouter>
-                  <AppRoutes />
-                </BrowserRouter>
-              )}
+              <BrowserRouter>
+                <AppRoutes />
+              </BrowserRouter>
             </TooltipProvider>
           </ModeProvider>
         </LanguageProvider>
