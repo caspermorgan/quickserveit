@@ -101,14 +101,14 @@ const Services = () => {
       whatsappTemplate: 'Hello quickserveit, I need video editing for a [type] video. It\'s approximately [duration] of raw footage targeting [final length].'
     },
     {
-      icon: Palette,
-      titleKey: 'thumbnailTitle' as const,
-      shortDescKey: 'thumbnailShort' as const,
-      fullDescKey: 'thumbnailFull' as const,
-      stepsKey: 'thumbnailSteps' as const,
-      needsKey: 'thumbnailNeeds' as const,
-      timelineKey: 'thumbnailTimeline' as const,
-      whatsappTemplate: 'Hello quickserveit, I need a thumbnail for my video about [topic]. The title is [title].'
+      icon: Smartphone,
+      titleKey: 'shortsTitle' as const,
+      shortDescKey: 'shortsShort' as const,
+      fullDescKey: 'shortsFull' as const,
+      stepsKey: 'shortsSteps' as const,
+      needsKey: 'shortsNeeds' as const,
+      timelineKey: 'shortsTimeline' as const,
+      whatsappTemplate: 'Hello quickserveit, I\'m interested in your Shorts & Reels repurposing service. I have [content type / link] that I want to turn into vertical videos.'
     },
     {
       icon: Music,

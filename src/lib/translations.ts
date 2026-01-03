@@ -139,19 +139,19 @@ export const translations = {
     dailySupportTimeline: 'Instant for Micro-tasks (30-60 mins) | Same day for larger typing works.',
 
     // Services - Creator
-    videoEditTitle: 'Long-Form Video Editing',
-    videoEditShort: 'YouTube, documentary, and educational content with retention-focused editing.',
-    videoEditFull: 'Premium editing for content 10+ minutes including structure optimization, pacing, cuts, transitions, text animations, and engagement hooks.',
-    videoEditSteps: 'Share raw footage via Google Drive or WeTransfer|Provide brief: key moments, style references, target length|Receive first cut within timeline|Review and request revisions (2 rounds included)|Final export in required format and resolution',
-    videoEditNeeds: 'Raw footage (organized by scene/topic)|Any B-roll or assets to include|Music preferences or licensed tracks|Reference videos for style/pacing',
+    videoEditTitle: 'Long-Form Premium Editing',
+    videoEditShort: 'Retention-focused editing with Color Grading, Sound Design, and 2.5D Parallax effects.',
+    videoEditFull: 'We transform raw footage into professional narratives.\n    **For Teachers:** Clean multi-cam sync, screen recording overlay, and text highlighting for distraction-free learning.\n    **For Creators:** High-retention editing with Pattern Interrupts, 2.5D Photo Animation (Parallax), Cinematic Color Grading, and immersive Sound Design (SFX & Noise Removal).',
+    videoEditSteps: 'Send Raw Files (Google Drive or Pendrive pickup)|We process: A-Roll Cleanup, Color Grading & Audio Mixing|We enhance: 2.5D Effects, B-Rolls, Intro/Outro|Review & Final Polish|Final Delivery',
+    videoEditNeeds: 'Raw Footage (Camera/Mobile/Screen Recording)|Audio files (if recorded separately)|Reference style link|Branding assets (Logo/Intro)',
     videoEditTimeline: 'Standard: 7-10 days for 15-20 min video | Depends on complexity',
 
-    thumbnailTitle: 'Thumbnail & Design',
-    thumbnailShort: 'High-CTR thumbnails and channel graphics that drive clicks.',
-    thumbnailFull: 'Scroll-stopping thumbnails, channel art, end screens, and social media graphics designed for maximum click-through.',
-    thumbnailSteps: 'Share video topic and target emotion|Provide face shots or key frames|Receive 2-3 thumbnail options|Select and request tweaks|Final delivery in all required sizes',
-    thumbnailNeeds: 'Video title and topic|High-quality still from video (or we extract)|Any text to include|Color preferences or brand guidelines',
-    thumbnailTimeline: 'Standard: 24-48 hours | Rush: Same-day available',
+    shortsTitle: 'Shorts & Reels Repurposing',
+    shortsShort: 'Viral-ready vertical videos with dynamic captions, hooks, and sound design.',
+    shortsFull: 'We turn your content into attention-grabbing vertical videos (9:16).\n    **For Teachers:** Clean, minimalist captions and distraction-free layouts.\n    **For Creators:** High-energy "Hormozi-style" editing, trending audio sync, and looping hooks to maximize retention.',
+    shortsSteps: 'Share Source (Long Video Link or Raw Files)|We Identify Viral Moments (Repurposing)|Editing: Captions, B-Roll, SFX, & Color|Review & Revisions|Final Upload-Ready Vertical File',
+    shortsNeeds: 'Link to your Podcast/YouTube video (for repurposing)|OR Raw vertical footage (Drive/WeTransfer)|Reference Reel style (optional)|Brand Logo (if needed)',
+    shortsTimeline: 'Standard: 24-48 hours per reel | Bulk: Monthly packages available',
 
     motionTitle: 'Motion Graphics & Animation',
     motionShort: 'Intros, outros, lower thirds, and animated elements.',
@@ -189,7 +189,7 @@ export const translations = {
 
     // Service Cards - Creator
     videoCardTitle: 'Video & Post-Production',
-    videoCardDesc: 'Retention-style editing for YouTube, Reels, and documentaries with cinematic scene polish.',
+    videoCardDesc: 'Complete post-production: Cuts, Color, Sound, and 2.5D Visuals for high retention.',
     brandingCardTitle: 'Branding & Design',
     brandingCardDesc: 'High-CTR thumbnails, brand identity systems, and event posters that demand attention.',
     motionCardTitle: 'Motion Graphics & VFX',
@@ -517,7 +517,7 @@ export const translations = {
 
     // FAQ Questions and Answers - Creator
     faqCreatorQuestion1: 'How do I submit my raw footage for editing?',
-    faqCreatorAnswer1: 'Share your raw footage via Google Drive or WeTransfer. Include a brief with key moments, style references, and target length. We\'ll provide the first cut within the agreed timeline, with 2 revision rounds included in the standard package.',
+    faqCreatorAnswer1: 'Local clients (Gorakhpur area) can provide raw files via Pendrive or Hard Disk pickup. Remote clients can share via Google Drive or Telegram. Include a brief with key moments, style references, and target length. We\'ll provide the first cut within the agreed timeline, with 2 revision rounds included in the standard package.',
 
     faqCreatorQuestion2: 'What video formats do you deliver?',
     faqCreatorAnswer2: 'We deliver in your required format and resolution—typically MP4 (H.264) optimized for platforms like YouTube, Instagram, or Facebook. Custom formats for specific platforms are available on request. All files are platform-ready and upload-optimized.',
@@ -745,19 +745,19 @@ export const translations = {
     dailySupportTimeline: 'माइक्रो-टास्क के लिए तुरंत (30-60 मिनट) | बड़े टाइपिंग काम के लिए उसी दिन।',
 
     // Services - Creator
-    videoEditTitle: 'लॉन्ग-फॉर्म वीडियो संपादन',
-    videoEditShort: 'रिटेंशन-केंद्रित संपादन के साथ YouTube, डॉक्यूमेंट्री और शैक्षिक सामग्री।',
-    videoEditFull: '10+ मिनट की सामग्री के लिए प्रीमियम संपादन जिसमें संरचना अनुकूलन, पेसिंग, कट्स, ट्रांज़िशन, टेक्स्ट एनिमेशन और एंगेजमेंट हुक शामिल हैं।',
-    videoEditSteps: 'Google Drive या WeTransfer के माध्यम से कच्चा फुटेज साझा करें|ब्रीफ प्रदान करें: मुख्य क्षण, शैली संदर्भ, लक्ष्य लंबाई|समय सीमा के भीतर पहला कट प्राप्त करें|समीक्षा और संशोधन का अनुरोध करें (2 राउंड शामिल)|आवश्यक प्रारूप और रिज़ॉल्यूशन में अंतिम निर्यात',
-    videoEditNeeds: 'कच्चा फुटेज (दृश्य/विषय द्वारा व्यवस्थित)|शामिल करने के लिए कोई बी-रोल या एसेट्स|संगीत प्राथमिकताएं या लाइसेंस प्राप्त ट्रैक|शैली/पेसिंग के लिए संदर्भ वीडियो',
+    videoEditTitle: 'लॉन्ग-फॉर्म प्रीमियम एडिटिंग',
+    videoEditShort: 'कलर ग्रेडिंग, साउंड डिजाइन और 2.5D इफेक्ट्स के साथ रिटेंशन-फोकस्ड एडिटिंग।',
+    videoEditFull: 'हम कच्चे फुटेज को प्रोफेशनल वीडियो में बदलते हैं।\n    **टीचर्स के लिए:** स्क्रीन रिकॉर्डिंग सिंक और टेक्स्ट हाईलाइटिंग के साथ साफ सुथरा वीडियो।\n    **क्रिएटर्स के लिए:** दर्शकों को बांधे रखने के लिए पैटर्न इंटरप्ट्स, 2.5D फोटो एनिमेशन (Parallax), सिनेमैटिक कलर ग्रेडिंग और बेहतरीन साउंड डिजाइन (SFX)।',
+    videoEditSteps: 'कच्ची फाइलें भेजें (Google Drive या पेनड्राइव पिकअप)|हम प्रोसेस करते हैं: कटिंग, कलर ग्रेडिंग और ऑडियो मिक्सिंग|हम सजाते हैं: 2.5D इफेक्ट्स, बी-रोल, इंट्रो/आउट्रो|रिव्यू और फाइनल पॉलिश|फाइनल डिलीवरी',
+    videoEditNeeds: 'कच्चा फुटेज (कैमरा/मोबाइल/स्क्रीन रिकॉर्डिंग)|ऑडियो फाइलें (यदि अलग से रिकॉर्ड की गई हों)|रेफरेंस वीडियो लिंक|ब्रांडिंग एसेट्स (लोगो/इंट्रो)',
     videoEditTimeline: 'मानक: 15-20 मिनट के वीडियो के लिए 7-10 दिन | जटिलता पर निर्भर करता है',
 
-    thumbnailTitle: 'थंबनेल एवं डिज़ाइन',
-    thumbnailShort: 'उच्च-CTR थंबनेल और चैनल ग्राफिक्स जो क्लिक बढ़ाते हैं।',
-    thumbnailFull: 'स्क्रॉल-स्टॉपिंग थंबनेल, चैनल आर्ट, एंड स्क्रीन और सोशल मीडिया ग्राफिक्स जिन्हें अधिकतम क्लिक-थ्रू के लिए डिज़ाइन किया गया है।',
-    thumbnailSteps: 'वीडियो विषय और लक्ष्य भावना साझा करें|फेस शॉट्स या की-फ्रेम प्रदान करें|2-3 थंबनेल विकल्प प्राप्त करें|चयन करें और बदलाव का अनुरोध करें|सभी आवश्यक आकारों में अंतिम डिलीवरी',
-    thumbnailNeeds: 'वीडियो शीर्षक और विषय|वीडियो से उच्च गुणवत्ता वाला स्टिल (या हम निकालते हैं)|शामिल करने के लिए कोई टेक्स्ट|रंग प्राथमिकताएं या ब्रांड दिशानिर्देश',
-    thumbnailTimeline: 'मानक: 24-48 घंटे | रश: उसी दिन उपलब्ध',
+    shortsTitle: 'शॉर्ट्स और रील्स एडिटिंग',
+    shortsShort: 'वायरल होने वाले वर्टिकल वीडियो, जिनमें डायनामिक कैप्शन, हुक और साउंड डिज़ाइन हो।',
+    shortsFull: 'हम आपके कंटेंट को ध्यान खींचने वाले वर्टिकल वीडियो (9:16) में बदलते हैं।\n    **टीचर्स के लिए:** साफ और सिंपल कैप्शन और छात्रों के लिए उपयुक्त लेआउट।\n    **क्रिएटर्स के लिए:** हाई-एनर्जी "Hormozi-स्टाइल" एडिटिंग, ट्रेंडिंग ऑडियो, और लूपिंग हुक ताकि व्यूअर वीडियो बार-बार देखे।',
+    shortsSteps: 'सोर्स शेयर करें (लॉन्ग वीडियो लिंक या कच्ची फाइलें)|हम बेस्ट वायरल पल चुनते हैं (Repurposing)|एडिटिंग: कैप्शन, बी-रोल, SFX, और कलर|रिव्यू और सुधार|अपलोड के लिए तैयार फाइनल वीडियो',
+    shortsNeeds: 'अपने पॉडकास्ट/YouTube वीडियो का लिंक (रिपर्पज़िंग के लिए)|या कच्चा वर्टिकल फुटेज (Drive/WeTransfer)|पसंद की रील का उदाहरण (वैकल्पिक)|ब्रांड लोगो (यदि चाहिए)',
+    shortsTimeline: 'मानक: 24-48 घंटे प्रति रील | बल्क: मासिक पैकेज उपलब्ध हैं',
 
     motionTitle: 'मोशन ग्राफिक्स एवं एनिमेशन',
     motionShort: 'इंट्रो, आउट्रो, लोअर थर्ड्स और एनिमेटेड तत्व।',
@@ -795,7 +795,7 @@ export const translations = {
 
     // Service Cards - Creator
     videoCardTitle: 'वीडियो एवं पोस्ट-प्रोडक्शन',
-    videoCardDesc: 'सिनेमाई सीन पॉलिश के साथ YouTube, Reels और डॉक्यूमेंट्री के लिए रिटेंशन-स्टाइल संपादन।',
+    videoCardDesc: 'पूरा पोस्ट-प्रोडक्शन: कट्स, कलर, साउंड और रिटेंशन के लिए 2.5D विजुअल्स।',
     brandingCardTitle: 'ब्रांडिंग एवं डिज़ाइन',
     brandingCardDesc: 'उच्च-CTR थंबनेल, ब्रांड पहचान प्रणाली और ध्यान आकर्षित करने वाले इवेंट पोस्टर।',
     motionCardTitle: 'मोशन ग्राफिक्स एवं VFX',
@@ -1050,7 +1050,7 @@ export const translations = {
 
     // FAQ Questions and Answers - Creator
     faqCreatorQuestion1: 'मैं संपादन के लिए अपना कच्चा फुटेज कैसे जमा करूं?',
-    faqCreatorAnswer1: 'अपना कच्चा फुटेज Google Drive या WeTransfer के माध्यम से साझा करें। मुख्य क्षणों, शैली संदर्भों और लक्ष्य लंबाई के साथ एक संक्षिप्त विवरण शामिल करें। हम सहमत समय-सीमा के भीतर पहला कट प्रदान करेंगे, मानक पैकेज में 2 संशोधन राउंड शामिल हैं।',
+    faqCreatorAnswer1: 'गोरखपुर क्षेत्र के स्थानीय ग्राहक पेनड्राइव या हार्ड डिस्क पिकअप के माध्यम से कच्ची फाइलें दे सकते हैं। दूरदराज के ग्राहक Google Drive या Telegram के माध्यम से साझा कर सकते हैं। मुख्य क्षणों, शैली संदर्भों और लक्ष्य लंबाई के साथ एक संक्षिप्त विवरण शामिल करें। हम सहमत समय-सीमा के भीतर पहला कट प्रदान करेंगे, मानक पैकेज में 2 संशोधन राउंड शामिल हैं।',
 
     faqCreatorQuestion2: 'आप किस वीडियो प्रारूप में डिलीवर करते हैं?',
     faqCreatorAnswer2: 'हम आपके आवश्यक प्रारूप और रिज़ॉल्यूशन में डिलीवर करते हैं—आमतौर पर YouTube, Instagram, या Facebook जैसे प्लेटफॉर्म के लिए अनुकूलित MP4 (H.264)। विशिष्ट प्लेटफॉर्म के लिए कस्टम प्रारूप अनुरोध पर उपलब्ध हैं। सभी फाइलें प्लेटफॉर्म-रेडी और अपलोड-अनुकूलित हैं।',
