@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
-import { motion } from 'framer-motion';
 
 interface EnterButtonProps {
   mode: 'institutional' | 'creator';
@@ -11,15 +10,11 @@ const EnterButton = ({ mode, onClick }: EnterButtonProps) => {
   const { t } = useTranslation();
 
   return (
-    <motion.button
+    <button
       onClick={onClick}
-      className="group relative mt-10 md:mt-14"
-      whileTap={{ scale: 0.92 }}
-      transition={{
-        type: "spring",
-        stiffness: 350,
-        damping: 18,
-        mass: 0.7
+      className="group relative mt-10 md:mt-14 active:scale-[0.92] transition-transform duration-150 ease-out"
+      style={{
+        WebkitTapHighlightColor: 'transparent',
       }}
     >
       {/* Outer glow */}
@@ -56,7 +51,7 @@ const EnterButton = ({ mode, onClick }: EnterButtonProps) => {
           strokeWidth={2}
         />
       </div>
-    </motion.button>
+    </button>
   );
 };
 

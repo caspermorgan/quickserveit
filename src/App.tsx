@@ -4,23 +4,35 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SpeedInsights } from "@/components/SpeedInsights";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { ModeProvider, useMode } from "@/context/ModeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
-import Landing from "./pages/Landing";
-import Home from "./pages/Home";
-import Services from "./pages/Services";
-import Pricing from "./pages/Pricing";
-import About from "./pages/About";
-import Founder from "./pages/Founder";
-import Contact from "./pages/Contact";
-import Portfolio from "./pages/Portfolio";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
-import Disclaimer from "./pages/Disclaimer";
-import FAQ from "./pages/FAQ";
-import NotFound from "./pages/NotFound";
+
+// Lazy load all page components for better performance
+const Landing = lazy(() => import("./pages/Landing"));
+const Home = lazy(() => import("./pages/Home"));
+const Services = lazy(() => import("./pages/Services"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const About = lazy(() => import("./pages/About"));
+const Founder = lazy(() => import("./pages/Founder"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-mode border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-muted-foreground">Loading...</p>
+    </div>
+  </div>
+);
 
 const queryClient = new QueryClient();
 
@@ -50,21 +62,23 @@ const AppRoutes = () => {
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
-        <Route path="/pricing" element={<ProtectedRoute><Pricing /></ProtectedRoute>} />
-        <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
-        <Route path="/founder" element={<ProtectedRoute><Founder /></ProtectedRoute>} />
-        <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
-        <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
-        <Route path="/terms" element={<ProtectedRoute><Terms /></ProtectedRoute>} />
-        <Route path="/privacy" element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
-        <Route path="/disclaimer" element={<ProtectedRoute><Disclaimer /></ProtectedRoute>} />
-        <Route path="/faq" element={<ProtectedRoute><FAQ /></ProtectedRoute>} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
+          <Route path="/pricing" element={<ProtectedRoute><Pricing /></ProtectedRoute>} />
+          <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+          <Route path="/founder" element={<ProtectedRoute><Founder /></ProtectedRoute>} />
+          <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+          <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
+          <Route path="/terms" element={<ProtectedRoute><Terms /></ProtectedRoute>} />
+          <Route path="/privacy" element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
+          <Route path="/disclaimer" element={<ProtectedRoute><Disclaimer /></ProtectedRoute>} />
+          <Route path="/faq" element={<ProtectedRoute><FAQ /></ProtectedRoute>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };
