@@ -439,7 +439,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const Icon = service.icon;
 
-  const whatsappNumber = '919876543210';
+  const whatsappNumber = '916388224877';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.whatsappTemplate)}`;
 
   const title = t(service.titleKey);

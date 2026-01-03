@@ -1,4 +1,5 @@
 import { CheckIcon } from './IconSystem';
+import { Link } from 'react-router-dom';
 
 interface PricingSectionProps {
   mode: 'institutional' | 'creator';
@@ -154,12 +155,15 @@ const PricingSection = ({ mode }: PricingSectionProps) => {
               </ul>
 
               {/* CTA */}
-              <button className={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${plan.highlight
-                ? 'btn-premium'
-                : 'btn-outline-premium'
-                }`}>
+              <Link
+                to="/contact"
+                className={`w-full py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center ${plan.highlight
+                  ? 'btn-premium'
+                  : 'btn-outline-premium'
+                  }`}
+              >
                 {plan.price === 'Custom' ? 'Contact Us' : 'Get Started'}
-              </button>
+              </Link>
             </div>
           ))}
         </div>

@@ -104,7 +104,7 @@ const Disclaimer = () => {
                                     {t('questionsAboutDisclaimer')}
                                 </p>
                                 <a
-                                    href={`https://wa.me/919876543210?text=${encodeURIComponent('Hello quickserveit, I have a question about your disclaimer.')}`}
+                                    href={`https://wa.me/916388224877?text=${encodeURIComponent('Hello quickserveit, I have a question about your disclaimer.')}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'

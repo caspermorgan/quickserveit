@@ -16,7 +16,7 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-const WHATSAPP_NUMBER = '919876543210'; // Replace with actual number
+const WHATSAPP_NUMBER = '916388224877';
 
 const ContactSection = ({ mode }: ContactSectionProps) => {
   const { toast } = useToast();

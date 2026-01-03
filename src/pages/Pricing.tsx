@@ -195,7 +195,7 @@ const Pricing = () => {
                     </div>
 
                     <a
-                      href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20need%20a%20quote%20for%20examination%20documentation."
+                      href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20a%20quote%20for%20examination%20documentation."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
@@ -268,7 +268,7 @@ const Pricing = () => {
                     </div>
 
                     <a
-                      href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20need%20UDISE%2B%20or%20scholarship%20data%20entry%20services."
+                      href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20UDISE%2B%20or%20scholarship%20data%20entry%20services."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
@@ -355,7 +355,7 @@ const Pricing = () => {
                     </div>
 
                     <a
-                      href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20want%20to%20understand%20your%20terms%20and%20protocol."
+                      href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20to%20understand%20your%20terms%20and%20protocol."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
@@ -425,7 +425,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20need%20weekly%20subscription%20for%20urgent%20project."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20weekly%20subscription%20for%20urgent%20project."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-institutional hover:bg-institutional hover:text-background"
@@ -488,7 +488,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20want%20a%20monthly%20retainer%20for%20my%20institution."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20a%20monthly%20retainer%20for%20my%20institution."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
@@ -546,7 +546,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20want%20to%20explore%20annual%20partnership."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20to%20explore%20annual%20partnership."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-institutional hover:bg-institutional hover:text-background"
@@ -571,7 +571,7 @@ const Pricing = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20need%20custom%20pricing%20details%20for%20my%20institution."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20custom%20pricing%20details%20for%20my%20institution."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-institutional text-background font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-institutional/30"
@@ -676,7 +676,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20need%20editing%20for%20a%20single%20video%20project."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20editing%20for%20a%20single%20video%20project."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
@@ -726,7 +726,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20need%20thumbnail%20design%20services."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20thumbnail%20design%20services."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
@@ -780,7 +780,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20need%20full%20production%20services."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20full%20production%20services."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
@@ -856,7 +856,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20want%20a%20monthly%20editing%20package."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20a%20monthly%20editing%20package."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
@@ -919,7 +919,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20want%20the%20quarterly%20Pro%20Creator%20plan."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%20quarterly%20Pro%20Creator%20plan."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-creator text-background hover:shadow-lg hover:shadow-creator/30"
@@ -977,7 +977,7 @@ const Pricing = () => {
                   </div>
 
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20want%20to%20discuss%20the%20Elite%20Partnership."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20to%20discuss%20the%20Elite%20Partnership."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
@@ -1002,7 +1002,7 @@ const Pricing = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
-                    href="https://wa.me/919876543210?text=Hello%20quickserveit%2C%20I%20want%20custom%20pricing%20for%20my%20content%20needs."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20custom%20pricing%20for%20my%20content%20needs."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-creator text-background font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-creator/30"

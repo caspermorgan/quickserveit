@@ -134,7 +134,7 @@ const Terms = () => {
                                     {t('questionsAboutTerms')}
                                 </p>
                                 <a
-                                    href={`https://wa.me/919876543210?text=${encodeURIComponent('Hello quickserveit, I have a question about your terms and conditions.')}`}
+                                    href={`https://wa.me/916388224877?text=${encodeURIComponent('Hello quickserveit, I have a question about your terms and conditions.')}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'

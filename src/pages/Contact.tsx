@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -11,6 +12,11 @@ import { Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle, Zap } from 'lu
 const Contact = () => {
   const { mode, setHasEntered } = useMode();
   const navigate = useNavigate();
+
+  // Scroll to top when page loads to ensure contact form is visible
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -80,23 +86,6 @@ const Contact = () => {
                 </p>
               </div>
               <ContactForm />
-
-              {/* WhatsApp Alternative */}
-              <div className="mt-8 pt-8 border-t border-border/20 text-center">
-                <p className="text-sm text-foreground/60 mb-4">Prefer instant messaging?</p>
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
-                    ? 'bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30'
-                    : 'bg-creator text-background hover:shadow-lg hover:shadow-creator/30'
-                    }`}
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Contact via WhatsApp
-                </a>
-              </div>
             </div>
           </div>
 
