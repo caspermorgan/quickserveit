@@ -44,7 +44,7 @@ const Home = () => {
     ? t('heroInstDesc')
     : t('heroCreatorDesc');
 
-  const whatsappNumber = '919876543210';
+  const whatsappNumber = '916388224877';
   const whatsappMessage = mode === 'institutional'
     ? `${t('contactUs')} ${t('brandName')}, I am from an educational institution and would like to discuss your services.`
     : `${t('contactUs')} ${t('brandName')}, I am a content creator and would like to discuss video editing services.`;
@@ -69,13 +69,13 @@ const Home = () => {
               : "Professional video editing and content creation services for YouTube creators. Specializing in video editing, thumbnail design, motion graphics, and content strategy.",
             "address": {
               "@type": "PostalAddress",
-              "addressLocality": "Gorakhpur",
+              "addressLocality": "Rural Gorakhpur",
               "addressRegion": "Uttar Pradesh",
               "addressCountry": "IN"
             },
             "areaServed": {
               "@type": "Place",
-              "name": "Gorakhpur, Uttar Pradesh, India"
+              "name": "Rural Gorakhpur, Uttar Pradesh, India"
             }
           })}
         </script>

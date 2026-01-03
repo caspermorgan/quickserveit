@@ -16,7 +16,7 @@ interface PortfolioAccessDialogProps {
 const PortfolioAccessDialog = ({ isOpen, onClose }: PortfolioAccessDialogProps) => {
     const { t } = useTranslation();
 
-    const whatsappNumber = '919876543210';
+    const whatsappNumber = '916388224877';
     const whatsappMessage = `Hello QuickServe IT, I am interested in learning more about your services and would like to discuss your portfolio work.`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 

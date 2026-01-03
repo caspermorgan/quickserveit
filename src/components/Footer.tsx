@@ -9,7 +9,7 @@ interface FooterProps {
 
 const Footer = ({ mode }: FooterProps) => {
   const { t } = useTranslation();
-  const whatsappNumber = '919876543210'; // Replace with actual number
+  const whatsappNumber = '916388224877';
   const whatsappMessage = encodeURIComponent('Hello quickserveit, I would like to inquire about your services.');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 

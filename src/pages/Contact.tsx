@@ -17,7 +17,7 @@ const Contact = () => {
     navigate('/');
   };
 
-  const whatsappNumber = '919876543210';
+  const whatsappNumber = '916388224877';
   const whatsappMessage = mode === 'institutional'
     ? 'Hello quickserveit, I need institutional documentation services.'
     : 'Hello quickserveit, I need creator production services.';
@@ -132,11 +132,11 @@ const Contact = () => {
                 </div>
                 <h3 className="font-medium text-sm mb-2">Email</h3>
                 <a
-                  href="mailto:hello@quickserveit.online"
+                  href="mailto:letsquickserveit@gmail.com"
                   className={`text-xs hover:underline block ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                     }`}
                 >
-                  hello@quickserveit.online
+                  letsquickserveit@gmail.com
                 </a>
                 <p className="text-foreground/40 text-xs mt-2">
                   Professional inquiries
@@ -154,7 +154,9 @@ const Contact = () => {
                 </div>
                 <h3 className="font-medium text-sm mb-2">Location</h3>
                 <p className="text-foreground/60 text-xs leading-relaxed">
-                  Gorakhpur, UP<br />Remote operations
+                  {mode === 'institutional'
+                    ? 'Rural Gorakhpur, UP (Remote Operations)'
+                    : 'Rural Gorakhpur, UP (Freelance \u0026 Remote)'}
                 </p>
               </div>
             </div>
