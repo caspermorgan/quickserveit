@@ -52,10 +52,10 @@ const HeaderStatusBadge = ({ mode, showText = true }: HeaderStatusBadgeProps) =>
     if (!showText) {
         return (
             <div
-                className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full backdrop-blur-md bg-background/20 border border-foreground/10 shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full backdrop-blur-md bg-background/20 border border-foreground/10 shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition-all duration-300"
             >
                 <span
-                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${isWithinHours
+                    className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${isWithinHours
                         ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]'
                         : 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)]'
                         }`}

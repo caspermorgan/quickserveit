@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useMode } from '@/context/ModeContext';
 import { Check, Send } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import confetti from 'canvas-confetti';
 import { toast } from 'sonner';
 
@@ -117,40 +116,31 @@ const ContactForm = () => {
 
     if (!validateForm()) return;
 
-    // Check if EmailJS credentials are configured
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      toast.error('Email service not configured. Please contact the administrator.');
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
       // Get service label for display
       const serviceLabel = services.find(s => s.value === formData.service)?.label || formData.service;
 
-      // Send email via EmailJS
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          from_mobile: formData.mobile,
-          service_type: serviceLabel,
-          message: formData.message,
-        },
-        publicKey
-      );
+      // Construct formatted WhatsApp message
+      const whatsappMessage = `*New Contact Form Submission*
 
-      // Success! Trigger confetti and show toast
+*Name:* ${formData.name}
+*Mobile:* ${formData.mobile}
+*Email:* ${formData.email}
+*Service:* ${serviceLabel}
+*Message:* ${formData.message}`;
+
+      // Construct WhatsApp URL
+      const whatsappNumber = '919876543210';
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      // Trigger confetti animation
       triggerConfetti();
-      toast.success('Message sent successfully!', {
-        description: "We'll contact you shortly.",
+
+      // Show success toast
+      toast.success('Redirecting to WhatsApp!', {
+        description: "Please send the message to complete your inquiry.",
       });
 
       // Reset form
@@ -163,9 +153,14 @@ const ContactForm = () => {
         agreed: false,
       });
       setErrors({});
+
+      // Redirect to WhatsApp after a brief delay to allow the user to see the confetti
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+      }, 500);
     } catch (error) {
       // Error handling
-      console.error('EmailJS Error:', error);
+      console.error('WhatsApp Error:', error);
       toast.error('Something went wrong.', {
         description: 'Please try again or contact us directly.',
       });
@@ -320,7 +315,7 @@ const ContactForm = () => {
             </div>
           </div>
           <span className="text-xs text-foreground/50 leading-relaxed">
-            I agree to the terms & conditions and understand that my inquiry will be sent via email.
+            I agree to the terms & conditions and understand that my inquiry will be sent via WhatsApp.
           </span>
         </label>
         {errors.agreed && <p className="mt-1.5 text-xs text-destructive/80 ml-8">{errors.agreed}</p>}

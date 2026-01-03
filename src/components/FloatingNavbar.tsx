@@ -167,7 +167,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           onClick={onReturn}
           className={`
             group flex items-center gap-0 overflow-hidden
-            h-12 md:h-14 pl-0 pr-0 rounded-full 
+            h-10 md:h-12 pl-0 pr-0 rounded-full 
             glass-nav
             transition-all duration-500 ease-out
             hover:pr-4 md:hover:pr-5
@@ -179,7 +179,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           aria-label="Return to landing"
         >
           {/* Perfect Circle Logo Container */}
-          <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden flex-shrink-0 bg-background/10 p-0.5 md:p-1">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
             <img
               src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
               alt="QuickServe IT"

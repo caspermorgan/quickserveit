@@ -140,14 +140,12 @@ const Home = () => {
                 {mode === 'institutional' ? t('viewServices') : t('seePortfolio')}
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium border border-border hover:bg-foreground/5 hover:border-border/60 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px]"
               >
                 {t('contactUs')}
-              </a>
+              </Link>
             </div>
           </div>
         </section>

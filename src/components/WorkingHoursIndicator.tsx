@@ -16,8 +16,8 @@ const WorkingHoursIndicator = () => {
 
       const hours = istTime.getHours();
 
-      // Working hours: 10:00 AM - 3:00 PM IST
-      const isWithinHours = hours >= 10 && hours < 15;
+      // Working hours: 10:00 AM - 4:00 PM IST
+      const isWithinHours = hours >= 10 && hours < 16;
       setIsActive(isWithinHours);
 
       const timeStr = istTime.toLocaleTimeString('en-IN', {

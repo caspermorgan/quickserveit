@@ -142,7 +142,7 @@ const About = () => {
             <div className={`p-8 rounded-2xl ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
               <Clock className={`w-8 h-8 mx-auto mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <h3 className="text-xl font-medium mb-3">{t('workingHours')}</h3>
-              <p className="text-2xl font-display mb-2">10:00 AM – 3:00 PM IST</p>
+              <p className="text-2xl font-display mb-2">10:00 AM – 4:00 PM IST</p>
               <p className="text-foreground/50">{t('workingDays')}</p>
               <p className="text-sm text-foreground/40 mt-4">
                 {t('outsideHoursNote')}

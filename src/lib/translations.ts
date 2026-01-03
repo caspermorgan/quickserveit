@@ -103,7 +103,7 @@ export const translations = {
     servicesInstDesc: 'Structured, confidential support for educational institutions. Each service designed for operational clarity.',
     servicesCreatorDesc: 'Premium production services for modern creators. Quality that elevates your content.',
     beforeYouBegin: 'Before You Begin',
-    beforeYouBeginItems: 'All services require clear specifications upfront|Working hours: 10:00 AM – 3:00 PM IST (Mon–Sat)|Response time during working hours: Within 2 hours|All files handled with strict confidentiality',
+    beforeYouBeginItems: 'All services require clear specifications upfront|Working hours: 10:00 AM – 4:00 PM IST (Mon–Sat)|Response time during working hours: Within 2 hours|All files handled with strict confidentiality',
     howItWorks: 'How It Works',
     whatYouNeed: 'What You\'ll Need to Prepare',
     timeline: 'Timeline',
@@ -428,7 +428,7 @@ export const translations = {
     termsSection3ListInstitutional: 'Final academic decisions remain with the institution|All data provided by the institution must be verified by authorized personnel|We provide technical execution only; academic correctness is the institution\'s responsibility|Institutions must review all deliverables before final submission|Student eligibility and record authenticity are solely institutional responsibilities',
     termsSection3ListCreator: 'Final creative decisions and content approval remain with the creator|Creators must approve all edits before publication|We provide production quality only; content strategy and messaging are the creator\'s responsibility|Creators must review all deliverables before use|Content compliance with platform guidelines is the creator\'s responsibility',
     termsSection4Title: '4. Timelines and Priority Work',
-    termsSection4Content: 'Standard timelines are provided at the time of engagement. Urgent requests may incur additional charges and are subject to availability. Working hours are Monday to Saturday, 10:00 AM to 3:00 PM IST. Responses and deliveries occur within working hours only. Delays due to government portal downtime, third-party dependencies, or incomplete information from clients are beyond our control.',
+    termsSection4Content: 'Standard timelines are provided at the time of engagement. Urgent requests may incur additional charges and are subject to availability. Working hours are Monday to Saturday, 10:00 AM to 4:00 PM IST. Responses and deliveries occur within working hours only. Delays due to government portal downtime, third-party dependencies, or incomplete information from clients are beyond our control.',
     termsSection5Title: '5. Confidentiality',
     termsSection5Content: 'All institutional data, student records, and creative content are handled with strict confidentiality. Data is retained only for the duration of the project and deleted upon completion unless otherwise agreed. We do not share client information with third parties except as required for service delivery (e.g., government portals).',
     // MODE-SPECIFIC:
@@ -513,7 +513,7 @@ export const translations = {
     faqInstAnswer4: 'Absolutely. Student records and institutional data are handled with strict confidentiality protocols. We retain data only during the project and delete it after completion unless you request archival. Your trust is our priority.',
 
     faqInstQuestion5: 'What are your operating hours for institutional support?',
-    faqInstAnswer5: 'Our support hours are 10:00 AM to 3:00 PM IST, Monday through Saturday. You can send messages anytime via WhatsApp, and we\'ll respond during working hours. For urgent institutional work, mention \'urgent\' in your message.',
+    faqInstAnswer5: 'Our support hours are 10:00 AM to 4:00 PM IST, Monday through Saturday. You can send messages anytime via WhatsApp, and we\'ll respond during working hours. For urgent institutional work, mention \'urgent\' in your message.',
 
     // FAQ Questions and Answers - Creator
     faqCreatorQuestion1: 'How do I submit my raw footage for editing?',
@@ -709,7 +709,7 @@ export const translations = {
     servicesInstDesc: 'स्कूल और कॉलेज के लिए सही और गोपनीय मदद। हर सेवा आपके काम को आसान बनाने के लिए।',
     servicesCreatorDesc: 'क्रिएटर्स के लिए बेहतरीन प्रोडक्शन सेवाएं। क्वालिटी जो आपके कंटेंट को अगले लेवल पर ले जाए।',
     beforeYouBegin: 'शुरू करने से पहले',
-    beforeYouBeginItems: 'सभी सेवाओं के लिए पहले से जानकारी चाहिए|काम का समय: सुबह 10 से दोपहर 3 बजे (सोम-शनि)|काम के समय में 2 घंटे में जवाब मिलेगा|सभी फाइलें पूरी गोपनीयता से रखी जाती हैं',
+    beforeYouBeginItems: 'सभी सेवाओं के लिए पहले से जानकारी चाहिए|काम का समय: सुबह 10 से शाम 4 बजे (सोम-शनि)|काम के समय में 2 घंटे में जवाब मिलेगा|सभी फाइलें पूरी गोपनीयता से रखी जाती हैं',
     howItWorks: 'कैसे काम करता है',
     whatYouNeed: 'आपको क्या तैयार रखना होगा',
     timeline: 'कितना समय लगेगा',
@@ -985,7 +985,7 @@ export const translations = {
     termsSection3Content: 'सभी संस्थागत सेवाओं के लिए, निम्नलिखित शर्तें लागू होती हैं:',
     termsSection3List: 'अंतिम शैक्षणिक निर्णय संस्था के पास रहते हैं|संस्था द्वारा प्रदान किए गए सभी डेटा को अधिकृत कर्मियों द्वारा सत्यापित किया जाना चाहिए|हम केवल तकनीकी निष्पादन प्रदान करते हैं; शैक्षणिक शुद्धता संस्था की जिम्मेदारी है|संस्थाओं को अंतिम सबमिशन से पहले सभी डिलिवरेबल्स की समीक्षा करनी चाहिए|छात्र पात्रता और रिकॉर्ड प्रामाणिकता पूरी तरह से संस्थागत जिम्मेदारियां हैं',
     termsSection4Title: '4. समय-सीमा और प्राथमिकता कार्य',
-    termsSection4Content: 'मानक समय-सीमा एंगेजमेंट के समय प्रदान की जाती है। तत्काल अनुरोधों में अतिरिक्त शुल्क लग सकता है और उपलब्धता के अधीन हैं। कार्य समय सोमवार से शनिवार, सुबह 10:00 बजे से दोपहर 3:00 बजे IST है। प्रतिक्रियाएं और डिलीवरी केवल कार्य समय के भीतर होती हैं। सरकारी पोर्टल डाउनटाइम, तृतीय-पक्ष निर्भरताओं या ग्राहकों से अपूर्ण जानकारी के कारण देरी हमारे नियंत्रण से बाहर है।',
+    termsSection4Content: 'मानक समय-सीमा एंगेजमेंट के समय प्रदान की जाती है। तत्काल अनुरोधों में अतिरिक्त शुल्क लग सकता है और उपलब्धता के अधीन हैं। कार्य समय सोमवार से शनिवार, सुबह 10:00 बजे से शाम 4:00 बजे IST है। प्रतिक्रियाएं और डिलीवरी केवल कार्य समय के भीतर होती हैं। सरकारी पोर्टल डाउनटाइम, तृतीय-पक्ष निर्भरताओं या ग्राहकों से अपूर्ण जानकारी के कारण देरी हमारे नियंत्रण से बाहर है।',
     termsSection5Title: '5. गोपनीयता',
     termsSection5Content: 'सभी संस्थागत डेटा, छात्र रिकॉर्ड और रचनात्मक कंटेंट को सख्त गोपनीयता के साथ संभाला जाता है। डेटा केवल प्रोजेक्ट की अवधि के लिए रखा जाता है और पूर्णता पर हटा दिया जाता है जब तक कि अन्यथा सहमति न हो। हम ग्राहक जानकारी को तृतीय पक्षों के साथ साझा नहीं करते हैं सिवाय सेवा वितरण के लिए आवश्यक के रूप में (जैसे, सरकारी पोर्टल)।',
     termsSection6Title: '6. दायित्व की सीमा',
@@ -1046,7 +1046,7 @@ export const translations = {
     faqInstAnswer4: 'बिल्कुल। छात्र रिकॉर्ड और संस्थागत डेटा सख्त गोपनीयता प्रोटोकॉल के साथ संभाला जाता है। हम डेटा केवल प्रोजेक्ट के दौरान रखते हैं और पूर्णता के बाद हटा देते हैं जब तक कि आप संग्रह का अनुरोध न करें। आपका विश्वास हमारी प्राथमिकता है।',
 
     faqInstQuestion5: 'संस्थागत सहायता के लिए आपके कार्य समय क्या हैं?',
-    faqInstAnswer5: 'हमारे सहायता घंटे सुबह 10:00 बजे से दोपहर 3:00 बजे IST, सोमवार से शनिवार हैं। आप किसी भी समय WhatsApp के माध्यम से संदेश भेज सकते हैं, और हम कार्य घंटों के दौरान प्रतिक्रिया देंगे। तत्काल संस्थागत कार्य के लिए, अपने संदेश में \'तत्काल\' का उल्लेख करें।',
+    faqInstAnswer5: 'हमारे सहायता घंटे सुबह 10:00 बजे से शाम 4:00 बजे IST, सोमवार से शनिवार हैं। आप किसी भी समय WhatsApp के माध्यम से संदेश भेज सकते हैं, और हम कार्य घंटों के दौरान प्रतिक्रिया देंगे। तत्काल संस्थागत कार्य के लिए, अपने संदेश में \'तत्काल\' का उल्लेख करें।',
 
     // FAQ Questions and Answers - Creator
     faqCreatorQuestion1: 'मैं संपादन के लिए अपना कच्चा फुटेज कैसे जमा करूं?',
