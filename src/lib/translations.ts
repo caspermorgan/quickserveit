@@ -110,11 +110,11 @@ export const translations = {
     whatsappNote: 'Click to open WhatsApp with a pre-filled message',
 
     // Services - Institutional
-    examDocTitle: 'Examination Documentation',
-    examDocShort: 'Complete exam record management from scheduling to result documentation.',
-    examDocFull: 'End-to-end examination documentation including student data entry, hall ticket generation, attendance records, answer sheet tracking, and result compilation.',
-    examDocSteps: 'Share exam schedule and student lists via WhatsApp|Provide raw data in any format (Excel, PDF, handwritten)|We structure and digitize all records|Review formatted documents before final submission|Receive complete examination package ready for submission',
-    examDocNeeds: 'Student master data (name, roll number, class)|Subject list and exam dates|Any existing documentation templates|Deadline for final submission',
+    examDocTitle: 'Exam Paper Typing',
+    examDocShort: 'Professional typing and formatting of exam question papers from handwritten or digital sources.',
+    examDocFull: 'We convert your handwritten notes, PDFs, or images into professionally typed and formatted exam question papers. Just send us the raw questions, and we deliver accurate, print-ready documents via a secure Drive link.',
+    examDocSteps: 'Share raw question papers (PDF, Image, or Handwritten)|We type, format, and structure the questions|Review the draft for any corrections|Receive final print-ready files via Drive Link',
+    examDocNeeds: 'Raw question content (Photo/PDF)|Exam pattern/format details|Subject and Class details|Submission deadline',
     examDocTimeline: 'Standard: 5-7 working days | Urgent: 2-3 working days (additional charges)',
 
     scholarshipTitle: 'Scholarship Support',
@@ -175,7 +175,7 @@ export const translations = {
 
     // Service Cards - Institutional
     examDocCardTitle: 'Exam Documentation',
-    examDocCardDesc: 'Confidential paper formatting, room-wise seating management, and secure printing with class-wise bundling.',
+    examDocCardDesc: 'Confidential typing and formatting of exam question papers from handwritten notes or PDFs.',
     scholarshipCardTitle: 'UP Scholarship Processing',
     scholarshipCardDesc: 'On-campus technical assistance, DSC-based locking, and complete scholarship workflow management.',
     udiseCardTitle: 'UDISE+ Data Management',
@@ -507,7 +507,7 @@ export const translations = {
     faqInstAnswer2: 'Standard UDISE+ work takes 3-5 working days. We collect your school data, verify accuracy, enter all fields with checks, and provide a preview before final submission. During the annual UDISE+ window, priority scheduling is available.',
 
     faqInstQuestion3: 'Can you handle examination documentation remotely?',
-    faqInstAnswer3: 'Yes! Share your exam schedule and student lists via WhatsApp in any format (Excel, PDF, handwritten). We structure and digitize everything, provide formatted documents for review, and deliver a complete examination package ready for submission within 5-7 working days.',
+    faqInstAnswer3: 'Yes! Just share your raw question papers via WhatsApp (photos, PDFs, or handwritten notes). We type and format them professionally, send you a draft for review, and deliver print-ready files via a secure Drive link within 5-7 working days.',
 
     faqInstQuestion4: 'Is my school data kept confidential?',
     faqInstAnswer4: 'Absolutely. Student records and institutional data are handled with strict confidentiality protocols. We retain data only during the project and delete it after completion unless you request archival. Your trust is our priority.',
@@ -716,11 +716,11 @@ export const translations = {
     whatsappNote: 'WhatsApp खोलने के लिए क्लिक करें (संदेश पहले से लिखा होगा)',
 
     // Services - Institutional
-    examDocTitle: 'परीक्षा दस्तावेज़ीकरण',
-    examDocShort: 'शेड्यूलिंग से लेकर रिजल्ट डॉक्यूमेंटेशन तक पूर्ण परीक्षा रिकॉर्ड प्रबंधन।',
-    examDocFull: 'एंड-टू-एंड परीक्षा दस्तावेज़ीकरण जिसमें छात्र डेटा एंट्री, हॉल टिकट जनरेशन, उपस्थिति रिकॉर्ड, उत्तर पुस्तिका ट्रैकिंग और परिणाम संकलन शामिल है।',
-    examDocSteps: 'WhatsApp के माध्यम से परीक्षा कार्यक्रम और छात्र सूचियां साझा करें|किसी भी प्रारूप (Excel, PDF, हस्तलिखित) में कच्चा डेटा प्रदान करें|हम सभी रिकॉर्ड्स को संरचित और डिजिटाइज़ करते हैं|अंतिम सबमिशन से पहले स्वरूपित दस्तावेजों की समीक्षा करें|जमा करने के लिए तैयार पूर्ण परीक्षा पैकेज प्राप्त करें',
-    examDocNeeds: 'छात्र मास्टर डेटा (नाम, रोल नंबर, कक्षा)|विषय सूची और परीक्षा तिथियां|कोई मौजूदा दस्तावेज़ टेम्पलेट|अंतिम सबमिशन की समय सीमा',
+    examDocTitle: 'परीक्षा पेपर टाइपिंग',
+    examDocShort: 'हाथ से लिखे या डिजिटल प्रश्न पत्रों की प्रोफेशनल टाइपिंग और फॉर्मेटिंग।',
+    examDocFull: 'हम आपके हाथ से लिखे नोट्स, पीडीएफ या फोटो को प्रोफेशनल टाइप किए हुए प्रश्न पत्रों में बदलते हैं। बस हमें कच्चे प्रश्न भेजें, और हम आपको प्रिंट के लिए तैयार साफ फाइल ड्राइव लिंक के जरिए देते हैं।',
+    examDocSteps: 'कच्चे प्रश्न पत्र साझा करें (PDF, इमेज या हस्तलिखित)|हम प्रश्नों को टाइप और फॉर्मेट करते हैं|सुधार के लिए ड्राफ्ट चेक करें|ड्राइव लिंक के जरिए फाइनल फाइल प्राप्त करें',
+    examDocNeeds: 'कच्चे प्रश्न (फोटो/पीडीएफ)|परीक्षा पैटर्न/फॉर्मेट की जानकारी|विषय और कक्षा का विवरण|समय सीमा',
     examDocTimeline: 'मानक: 5-7 कार्य दिवस | तत्काल: 2-3 कार्य दिवस (अतिरिक्त शुल्क)',
 
     scholarshipTitle: 'छात्रवृत्ति सहायता',
@@ -781,7 +781,7 @@ export const translations = {
 
     // Service Cards - Institutional
     examDocCardTitle: 'परीक्षा दस्तावेज़ीकरण',
-    examDocCardDesc: 'गोपनीय पेपर फॉर्मेटिंग, कक्ष-वार सीटिंग प्रबंधन और कक्षा-वार बंडलिंग के साथ सुरक्षित प्रिंटिंग।',
+    examDocCardDesc: 'हस्तलिखित नोट्स या पीडीएफ से परीक्षा प्रश्न पत्रों की गोपनीय टाइपिंग और फॉर्मेटिंग।',
     scholarshipCardTitle: 'UP छात्रवृत्ति प्रोसेसिंग',
     scholarshipCardDesc: 'परिसर में तकनीकी सहायता, DSC-आधारित लॉकिंग और संपूर्ण छात्रवृत्ति वर्कफ़्लो प्रबंधन।',
     udiseCardTitle: 'UDISE+ डेटा प्रबंधन',
