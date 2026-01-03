@@ -69,11 +69,42 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Info Cards - Top Row */}
+          {/* Contact Form - Top Section */}
+          <div className="max-w-3xl mx-auto mb-16">
+            <div className={`glass-card p-8 md:p-10 rounded-2xl border ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'
+              } animate-fade-in`} style={{ animationDelay: '0.3s' }}>
+              <div className="mb-8 text-center">
+                <h2 className="text-2xl md:text-3xl font-display mb-3">Send an Inquiry</h2>
+                <p className="text-foreground/60 text-sm">
+                  Fill out the form below and we'll get back to you within 24 hours.
+                </p>
+              </div>
+              <ContactForm />
+
+              {/* WhatsApp Alternative */}
+              <div className="mt-8 pt-8 border-t border-border/20 text-center">
+                <p className="text-sm text-foreground/60 mb-4">Prefer instant messaging?</p>
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
+                    ? 'bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30'
+                    : 'bg-creator text-background hover:shadow-lg hover:shadow-creator/30'
+                    }`}
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Contact via WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Info Cards - Below Form */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto">
             {/* Working Hours */}
             <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`}>
+              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.4s' }}>
               <div className="text-center">
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
                   }`}>
@@ -81,7 +112,7 @@ const Contact = () => {
                 </div>
                 <h3 className="font-medium text-sm mb-2">Working Hours</h3>
                 <p className="text-foreground/60 text-xs leading-relaxed mb-2">
-                  Mon–Sat<br />10 AM – 3 PM IST
+                  Mon–Sat<br />10 AM – 4 PM IST
                 </p>
                 <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
                   }`}>
@@ -93,7 +124,7 @@ const Contact = () => {
 
             {/* Email */}
             <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.1s' }}>
+              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.5s' }}>
               <div className="text-center">
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
                   }`}>
@@ -115,7 +146,7 @@ const Contact = () => {
 
             {/* Location */}
             <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.2s' }}>
+              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.6s' }}>
               <div className="text-center">
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
                   }`}>
@@ -130,7 +161,7 @@ const Contact = () => {
 
             {/* Confidentiality */}
             <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.3s' }}>
+              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.7s' }}>
               <div className="text-center">
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
                   }`}>
@@ -144,43 +175,12 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form - Centered */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <div className={`glass-card p-8 md:p-10 rounded-2xl border ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'
-              } animate-fade-in`} style={{ animationDelay: '0.4s' }}>
-              <div className="mb-8 text-center">
-                <h2 className="text-2xl md:text-3xl font-display mb-3">Send an Inquiry</h2>
-                <p className="text-foreground/60 text-sm">
-                  Fill out the form below and we'll get back to you within 24 hours.
-                </p>
-              </div>
-              <ContactForm />
-
-              {/* WhatsApp Alternative */}
-              <div className="mt-8 pt-8 border-t border-border/20 text-center">
-                <p className="text-sm text-foreground/60 mb-4">Prefer instant messaging?</p>
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
-                      ? 'bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30'
-                      : 'bg-creator text-background hover:shadow-lg hover:shadow-creator/30'
-                    }`}
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Contact via WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
-
           {/* Trust Note - Bottom */}
           <div className="max-w-3xl mx-auto mb-12">
             <div className={`p-6 rounded-xl border-l-4 text-center ${mode === 'institutional'
-                ? 'bg-institutional/5 border-institutional/40'
-                : 'bg-creator/5 border-creator/40'
-              } animate-fade-in`} style={{ animationDelay: '0.5s' }}>
+              ? 'bg-institutional/5 border-institutional/40'
+              : 'bg-creator/5 border-creator/40'
+              } animate-fade-in`} style={{ animationDelay: '0.8s' }}>
               <p className="text-sm text-foreground/70 leading-relaxed italic">
                 "We treat every client relationship as confidential by default. Your data, your trust, our responsibility."
               </p>
@@ -196,7 +196,7 @@ const Contact = () => {
           {/* Bottom CTA Section */}
           <div className="max-w-4xl mx-auto">
             <div className={`glass-card rounded-2xl p-8 md:p-10 border text-center ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'
-              } animate-fade-in`} style={{ animationDelay: '0.6s' }}>
+              } animate-fade-in`} style={{ animationDelay: '0.9s' }}>
               <h3 className="text-xl md:text-2xl font-display mb-3">
                 Ready to Start Your Project?
               </h3>
@@ -210,8 +210,8 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
-                      ? 'bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30'
-                      : 'bg-creator text-background hover:shadow-lg hover:shadow-creator/30'
+                    ? 'bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30'
+                    : 'bg-creator text-background hover:shadow-lg hover:shadow-creator/30'
                     }`}
                 >
                   <MessageCircle className="w-4 h-4" />

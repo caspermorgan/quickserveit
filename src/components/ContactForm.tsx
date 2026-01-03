@@ -123,13 +123,21 @@ const ContactForm = () => {
       const serviceLabel = services.find(s => s.value === formData.service)?.label || formData.service;
 
       // Construct formatted WhatsApp message
-      const whatsappMessage = `*New Contact Form Submission*
+      const whatsappMessage = `Hello QuickServe IT Team,
 
-*Name:* ${formData.name}
-*Mobile:* ${formData.mobile}
-*Email:* ${formData.email}
-*Service:* ${serviceLabel}
-*Message:* ${formData.message}`;
+I am reaching out to inquire about your services. Here are my details:
+
+👤 *Name:* ${formData.name}
+📱 *Mobile:* ${formData.mobile}
+📧 *Email:* ${formData.email}
+🔧 *Service Required:* ${serviceLabel}
+
+💬 *Message:*
+${formData.message}
+
+Looking forward to your response.
+
+Thank you!`;
 
       // Construct WhatsApp URL
       const whatsappNumber = '919876543210';
