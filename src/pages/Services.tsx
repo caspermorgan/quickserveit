@@ -27,13 +27,40 @@ import {
   Sparkles,
   Monitor,
   Smartphone,
-  Rocket
+  Rocket,
+  Layers
 } from 'lucide-react';
+import {
+  SiAdobepremierepro,
+  SiAdobeaftereffects,
+  SiAdobeillustrator,
+  SiAdobephotoshop,
+  SiAdobeaudition,
+  SiAdobemediaencoder,
+  SiDavinciresolve,
+  SiBlender,
+  SiNotion,
+  SiMidjourney
+} from 'react-icons/si';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+
+// Software Icon Mapping with Brand Colors - Module level for ServiceDetailCard access
+const softwareIconMap: Record<string, { icon: React.ElementType, color: string, name: string }> = {
+  'Pr': { icon: SiAdobepremierepro, color: '#9999FF', name: 'Premiere Pro' },
+  'Ae': { icon: SiAdobeaftereffects, color: '#9999FF', name: 'After Effects' },
+  'Ai': { icon: SiAdobeillustrator, color: '#FF9A00', name: 'Illustrator' },
+  'Ps': { icon: SiAdobephotoshop, color: '#31A8FF', name: 'Photoshop' },
+  'Au': { icon: SiAdobeaudition, color: '#00E676', name: 'Audition' },
+  'Me': { icon: SiAdobemediaencoder, color: '#9999FF', name: 'Media Encoder' },
+  'Dr': { icon: SiDavinciresolve, color: '#FF5500', name: 'DaVinci Resolve' },
+  'Bl': { icon: SiBlender, color: '#E87D0D', name: 'Blender' },
+  'Mj': { icon: SiMidjourney, color: '#FFFFFF', name: 'Midjourney' },
+  'N': { icon: SiNotion, color: '#FFFFFF', name: 'Notion' },
+};
 
 const Services = () => {
   const { mode, setHasEntered } = useMode();
@@ -98,6 +125,7 @@ const Services = () => {
       stepsKey: 'videoEditSteps' as const,
       needsKey: 'videoEditNeeds' as const,
       timelineKey: 'videoEditTimeline' as const,
+      software: ['Pr', 'Dr', 'Au'],
       whatsappTemplate: 'Hello quickserveit, I need video editing for a [type] video. It\'s approximately [duration] of raw footage targeting [final length].'
     },
     {
@@ -108,27 +136,30 @@ const Services = () => {
       stepsKey: 'shortsSteps' as const,
       needsKey: 'shortsNeeds' as const,
       timelineKey: 'shortsTimeline' as const,
+      software: ['Ae', 'Pr', 'Me'],
       whatsappTemplate: 'Hello quickserveit, I\'m interested in your Shorts & Reels repurposing service. I have [content type / link] that I want to turn into vertical videos.'
     },
     {
-      icon: Music,
+      icon: Layers,
       titleKey: 'motionTitle' as const,
       shortDescKey: 'motionShort' as const,
       fullDescKey: 'motionFull' as const,
       stepsKey: 'motionSteps' as const,
       needsKey: 'motionNeeds' as const,
       timelineKey: 'motionTimeline' as const,
+      software: ['Ae', 'Ai', 'Bl'],
       whatsappTemplate: 'Hello quickserveit, I need [intro/outro/motion graphics] for my channel [channel name]. My style is [describe style].'
     },
     {
       icon: Lightbulb,
-      titleKey: 'strategyTitle' as const,
-      shortDescKey: 'strategyShort' as const,
-      fullDescKey: 'strategyFull' as const,
-      stepsKey: 'strategySteps' as const,
-      needsKey: 'strategyNeeds' as const,
-      timelineKey: 'strategyTimeline' as const,
-      whatsappTemplate: 'Hello quickserveit, I need help with content strategy for my [niche] channel. Currently at [subscribers] subscribers.'
+      titleKey: 'thumbnailTitle' as const,
+      shortDescKey: 'thumbnailShort' as const,
+      fullDescKey: 'thumbnailFull' as const,
+      stepsKey: 'thumbnailSteps' as const,
+      needsKey: 'thumbnailNeeds' as const,
+      timelineKey: 'thumbnailTimeline' as const,
+      software: ['Ps', 'Mj', 'N'],
+      whatsappTemplate: 'Hello quickserveit, I need help with thumbnails and content strategy for my [niche] channel. I want to improve my CTR and scripting.'
     }
   ];
 
@@ -153,6 +184,7 @@ const Services = () => {
   ];
 
   const services = mode === 'institutional' ? institutionalServices : creatorServices;
+
 
   return (
     <>
@@ -429,6 +461,7 @@ interface ServiceDetailCardProps {
     stepsKey: string;
     needsKey: string;
     timelineKey: string;
+    software?: string[];
     whatsappTemplate: string;
   };
   mode: 'institutional' | 'creator';
@@ -525,6 +558,42 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
                 <span className="text-foreground/60">{timeline}</span>
               </div>
             </div>
+
+            {/* Software Stack - Creator Mode Only */}
+            {mode === 'creator' && service.software && service.software.length > 0 && (
+              <div className="mt-6 pt-5 border-t border-border/10">
+                <h4 className="text-xs font-medium text-foreground/60 mb-3">Software Stack</h4>
+                <div className="flex flex-wrap gap-2">
+                  {service.software.map((tool, i) => {
+                    // Extract shortcode (e.g., "Pr" from "Pr Premiere Pro")
+                    const shortcode = tool.split(' ')[0];
+                    const iconData = softwareIconMap[shortcode];
+
+                    if (!iconData) return null;
+
+                    const IconComponent = iconData.icon;
+
+                    return (
+                      <span
+                        key={i}
+                        title={iconData.name}
+                        className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg glass-card border border-creator/20 hover:border-creator/40 transition-all duration-200 hover:scale-105"
+                        style={{
+                          backdropFilter: 'blur(8px)',
+                          background: 'rgba(0, 188, 212, 0.05)'
+                        }}
+                      >
+                        <IconComponent
+                          className="w-4 h-4"
+                          style={{ color: iconData.color }}
+                        />
+                        <span className="text-foreground/70">{iconData.name}</span>
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* CTA */}
             <div className="mt-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
