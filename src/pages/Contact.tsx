@@ -1,26 +1,75 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import { Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle, Zap } from 'lucide-react';
+import { Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle, Zap, X, Sparkles } from 'lucide-react';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const { mode, setHasEntered } = useMode();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [showContextBadge, setShowContextBadge] = useState(false);
+  const [contextLabel, setContextLabel] = useState('');
 
   // Scroll to top when page loads to ensure contact form is visible
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Detect context from navigation state
+  useEffect(() => {
+    const state = location.state as { intent?: string; serviceName?: string; plan?: string } | null;
+
+    if (state?.intent) {
+      let label = '';
+
+      switch (state.intent) {
+        case 'general_project':
+          label = 'General Project Inquiry';
+          break;
+        case 'service':
+          if (state.serviceName) {
+            label = `Topic: ${state.serviceName}`;
+          }
+          break;
+        case 'pricing':
+          if (state.plan) {
+            label = `Topic: ${state.plan} Plan`;
+          }
+          break;
+        default:
+          break;
+      }
+
+      if (label) {
+        setContextLabel(label);
+        setShowContextBadge(true);
+      }
+    }
+  }, [location.state]);
+
   const handleReturn = () => {
     setHasEntered(false);
     navigate('/');
+  };
+
+  const handleEmailCopy = async () => {
+    try {
+      await navigator.clipboard.writeText('letsquickserveit@gmail.com');
+      toast.success('Email copied to clipboard!', {
+        description: 'You can now paste it in your email client.',
+      });
+    } catch (error) {
+      toast.error('Failed to copy email', {
+        description: 'Please try again or use the contact form below.',
+      });
+    }
   };
 
   const whatsappNumber = '916388224877';
@@ -77,6 +126,38 @@ const Contact = () => {
 
           {/* Contact Form - Top Section */}
           <div className="max-w-3xl mx-auto mb-16">
+            {/* Context Badge - Shows user we're on the same page */}
+            {showContextBadge && contextLabel && (
+              <div
+                className={`mb-6 animate-fade-in-up flex items-center justify-center`}
+                style={{ animationDelay: '0.2s' }}
+              >
+                <div className={`relative inline-flex items-center gap-3 px-6 py-3 rounded-full border backdrop-blur-md ${mode === 'institutional'
+                  ? 'bg-institutional/10 border-institutional/30'
+                  : 'bg-creator/10 border-creator/30'
+                  }`}
+                  style={{
+                    boxShadow: mode === 'institutional'
+                      ? '0 0 30px rgba(234, 179, 8, 0.15)'
+                      : '0 0 30px rgba(34, 211, 238, 0.15)'
+                  }}
+                >
+                  <Sparkles className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  <span className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                    {contextLabel}
+                  </span>
+                  <button
+                    onClick={() => setShowContextBadge(false)}
+                    className={`ml-2 p-1 rounded-full transition-all duration-200 hover:bg-white/10 ${mode === 'institutional' ? 'text-institutional/60 hover:text-institutional' : 'text-creator/60 hover:text-creator'
+                      }`}
+                    aria-label="Dismiss context badge"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className={`glass-card p-8 md:p-10 rounded-2xl border ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'
               } animate-fade-in`} style={{ animationDelay: '0.3s' }}>
               <div className="mb-8 text-center">
@@ -120,15 +201,15 @@ const Contact = () => {
                   <Mail className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 </div>
                 <h3 className="font-medium text-sm mb-2">Email</h3>
-                <a
-                  href="mailto:letsquickserveit@gmail.com"
+                <button
+                  onClick={handleEmailCopy}
                   className={`text-xs hover:underline block ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                    }`}
+                    } transition-all duration-200 hover:scale-105`}
                 >
                   letsquickserveit@gmail.com
-                </a>
+                </button>
                 <p className="text-foreground/40 text-xs mt-2">
-                  Professional inquiries
+                  Click to copy
                 </p>
               </div>
             </div>

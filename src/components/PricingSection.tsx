@@ -1,11 +1,21 @@
 import { CheckIcon } from './IconSystem';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface PricingSectionProps {
   mode: 'institutional' | 'creator';
 }
 
 const PricingSection = ({ mode }: PricingSectionProps) => {
+  const navigate = useNavigate();
+
+  const handlePlanSelect = (planName: string) => {
+    navigate('/contact', {
+      state: {
+        intent: 'pricing',
+        plan: planName
+      }
+    });
+  };
   const institutionalPlans = [
     {
       name: 'Silver',
@@ -155,15 +165,15 @@ const PricingSection = ({ mode }: PricingSectionProps) => {
               </ul>
 
               {/* CTA */}
-              <Link
-                to="/contact"
+              <button
+                onClick={() => handlePlanSelect(plan.name)}
                 className={`w-full py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center justify-center ${plan.highlight
                   ? 'btn-premium'
                   : 'btn-outline-premium'
                   }`}
               >
                 {plan.price === 'Custom' ? 'Contact Us' : 'Get Started'}
-              </Link>
+              </button>
             </div>
           ))}
         </div>

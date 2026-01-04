@@ -13,7 +13,7 @@ import {
 } from './IconSystem';
 import ServiceCard from './ServiceCard';
 import { useTranslation } from '@/hooks/useTranslation';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 interface ServicesSectionProps {
@@ -23,6 +23,16 @@ interface ServicesSectionProps {
 
 const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleServiceClick = (serviceName: string) => {
+    navigate('/contact', {
+      state: {
+        intent: 'service',
+        serviceName: serviceName
+      }
+    });
+  };
 
   const institutionalServices = [
     {
@@ -150,6 +160,7 @@ const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
               description={service.description}
               mode={mode}
               delay={index * 100}
+              onClick={() => handleServiceClick(service.title)}
             />
           ))}
         </div>

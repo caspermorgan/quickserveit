@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useMode } from '@/context/ModeContext';
 import { Check, Send } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -31,6 +32,7 @@ const services = [
 
 const ContactForm = () => {
   const { mode } = useMode();
+  const location = useLocation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -41,6 +43,37 @@ const ContactForm = () => {
     agreed: false,
   });
   const [errors, setErrors] = useState<FormErrors>({});
+
+  // Context-aware pre-fill based on navigation state
+  useEffect(() => {
+    const state = location.state as { intent?: string; serviceName?: string; plan?: string } | null;
+
+    if (state?.intent) {
+      let prefilledMessage = '';
+
+      switch (state.intent) {
+        case 'general_project':
+          prefilledMessage = "Hi Casper, I have a vision for a project and I'd like to discuss it...";
+          break;
+        case 'service':
+          if (state.serviceName) {
+            prefilledMessage = `I'm interested in your ${state.serviceName} services. I need...`;
+          }
+          break;
+        case 'pricing':
+          if (state.plan) {
+            prefilledMessage = `I'd like to inquire about the ${state.plan} Package...`;
+          }
+          break;
+        default:
+          break;
+      }
+
+      if (prefilledMessage) {
+        setFormData(prev => ({ ...prev, message: prefilledMessage }));
+      }
+    }
+  }, [location.state]);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};

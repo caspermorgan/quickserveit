@@ -12,12 +12,15 @@ interface ServiceCardProps {
   description: string;
   mode: 'institutional' | 'creator';
   delay?: number;
+  onClick?: () => void;
 }
 
-const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0 }: ServiceCardProps) => {
+const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0, onClick }: ServiceCardProps) => {
   return (
     <div
-      className="group relative glass-card rounded-2xl p-6 md:p-8 animate-fade-in-up trans-premium"
+      onClick={onClick}
+      className={`group relative glass-card rounded-2xl p-6 md:p-8 animate-fade-in-up trans-premium ${onClick ? 'cursor-pointer hover:scale-[1.02] active:scale-[0.98]' : ''
+        }`}
       style={{
         animationDelay: `${delay}ms`,
         border: '1px solid rgba(255, 255, 255, 0.08)',
