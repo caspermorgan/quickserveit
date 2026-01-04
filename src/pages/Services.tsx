@@ -36,11 +36,9 @@ import {
   SiAdobeillustrator,
   SiAdobephotoshop,
   SiAdobeaudition,
-  SiAdobemediaencoder,
   SiDavinciresolve,
   SiBlender,
-  SiNotion,
-  SiMidjourney
+  SiNotion
 } from 'react-icons/si';
 import {
   Collapsible,
@@ -48,18 +46,122 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
+// Custom Icon Components using uploaded images
+const PremiereProIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/premiere-pro-icon.png"
+    alt="Premiere Pro"
+    className={className}
+    style={style}
+  />
+);
+
+const IllustratorIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/illustrator-icon.png"
+    alt="Illustrator"
+    className={className}
+    style={style}
+  />
+);
+
+const PhotoshopIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/photoshop-icon.png"
+    alt="Photoshop"
+    className={className}
+    style={style}
+  />
+);
+
+const InDesignIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/indesign-icon.png"
+    alt="InDesign"
+    className={className}
+    style={style}
+  />
+);
+
+const MediaEncoderIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/media-encoder-icon.png"
+    alt="Media Encoder"
+    className={className}
+    style={style}
+  />
+);
+
+const CanvaIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/canva-icon.png"
+    alt="Canva Pro"
+    className={className}
+    style={style}
+  />
+);
+
+const BlenderIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/blender-icon.png"
+    alt="Blender"
+    className={className}
+    style={style}
+  />
+);
+
+const DaVinciIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/davinci-icon.png"
+    alt="DaVinci Resolve"
+    className={className}
+    style={style}
+  />
+);
+
+const FigmaIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/figma-icon.png"
+    alt="Figma"
+    className={className}
+    style={style}
+  />
+);
+
+const RushIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/rush-icon.png"
+    alt="Adobe Rush"
+    className={className}
+    style={style}
+  />
+);
+
+const AuditionIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <img
+    src="/audition-icon.png"
+    alt="Audition"
+    className={className}
+    style={style}
+  />
+);
+
 // Software Icon Mapping with Brand Colors - Module level for ServiceDetailCard access
 const softwareIconMap: Record<string, { icon: React.ElementType, color: string, name: string }> = {
-  'Pr': { icon: SiAdobepremierepro, color: '#9999FF', name: 'Premiere Pro' },
+  'Pr': { icon: PremiereProIcon, color: '#9999FF', name: 'Premiere Pro' },
   'Ae': { icon: SiAdobeaftereffects, color: '#9999FF', name: 'After Effects' },
-  'Ai': { icon: SiAdobeillustrator, color: '#FF9A00', name: 'Illustrator' },
-  'Ps': { icon: SiAdobephotoshop, color: '#31A8FF', name: 'Photoshop' },
-  'Au': { icon: SiAdobeaudition, color: '#00E676', name: 'Audition' },
-  'Me': { icon: SiAdobemediaencoder, color: '#9999FF', name: 'Media Encoder' },
-  'Dr': { icon: SiDavinciresolve, color: '#FF5500', name: 'DaVinci Resolve' },
-  'Bl': { icon: SiBlender, color: '#E87D0D', name: 'Blender' },
-  'Mj': { icon: SiMidjourney, color: '#FFFFFF', name: 'Midjourney' },
-  'N': { icon: SiNotion, color: '#FFFFFF', name: 'Notion' },
+  'Ai': { icon: IllustratorIcon, color: '#FF9A00', name: 'Illustrator' },
+  'Ps': { icon: PhotoshopIcon, color: '#31A8FF', name: 'Photoshop' },
+  'Id': { icon: InDesignIcon, color: '#FF3366', name: 'InDesign' },
+  'Me': { icon: MediaEncoderIcon, color: '#9999FF', name: 'Media Encoder' },
+  'Au': { icon: AuditionIcon, color: '#00E676', name: 'Audition' },
+  'Ru': { icon: RushIcon, color: '#9999FF', name: 'Adobe Rush' },
+  'Dr': { icon: DaVinciIcon, color: '#FF5500', name: 'DaVinci Resolve' },
+  'Bl': { icon: BlenderIcon, color: '#E87D0D', name: 'Blender' },
+  'Fg': { icon: FigmaIcon, color: '#F24E1E', name: 'Figma' },
+  'Cp': { icon: CanvaIcon, color: '#00C4CC', name: 'Canva Pro' },
+  'Mj': { icon: Sparkles, color: '#FFFFFF', name: 'Midjourney' },
+  'No': { icon: SiNotion, color: '#FFFFFF', name: 'Notion' },
 };
 
 const Services = () => {
@@ -136,7 +238,7 @@ const Services = () => {
       stepsKey: 'shortsSteps' as const,
       needsKey: 'shortsNeeds' as const,
       timelineKey: 'shortsTimeline' as const,
-      software: ['Ae', 'Pr', 'Me'],
+      software: ['Ae', 'Pr'],
       whatsappTemplate: 'Hello quickserveit, I\'m interested in your Shorts & Reels repurposing service. I have [content type / link] that I want to turn into vertical videos.'
     },
     {
@@ -158,7 +260,7 @@ const Services = () => {
       stepsKey: 'thumbnailSteps' as const,
       needsKey: 'thumbnailNeeds' as const,
       timelineKey: 'thumbnailTimeline' as const,
-      software: ['Ps', 'Mj', 'N'],
+      software: ['Ps', 'Mj', 'No'],
       whatsappTemplate: 'Hello quickserveit, I need help with thumbnails and content strategy for my [niche] channel. I want to improve my CTR and scripting.'
     }
   ];

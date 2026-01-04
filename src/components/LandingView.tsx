@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
-import ParticleCanvas from './ParticleCanvas';
-import FilmGrain from './FilmGrain';
-import CursorLight from './CursorLight';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import ModeSwitch from './ModeSwitch';
 import EnterButton from './EnterButton';
 import HeaderStatusBadge from './HeaderStatusBadge';
 import { useTranslation } from '@/hooks/useTranslation';
+
+// Lazy load decorative components for better initial load performance
+const ParticleCanvas = lazy(() => import('./ParticleCanvas'));
+const FilmGrain = lazy(() => import('./FilmGrain'));
+const CursorLight = lazy(() => import('./CursorLight'));
 
 interface LandingViewProps {
     mode: 'institutional' | 'creator';
@@ -41,14 +43,20 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                     }`}
             />
 
-            {/* Cursor Light */}
-            <CursorLight mode={mode} />
+            {/* Cursor Light - Lazy loaded */}
+            <Suspense fallback={null}>
+                <CursorLight mode={mode} />
+            </Suspense>
 
             {/* Particles - no dusting on load, only on exit */}
-            <ParticleCanvas mode={mode} isDusting={isExiting} />
+            <Suspense fallback={null}>
+                <ParticleCanvas mode={mode} isDusting={isExiting} />
+            </Suspense>
 
-            {/* Film Grain */}
-            <FilmGrain />
+            {/* Film Grain - Lazy loaded */}
+            <Suspense fallback={null}>
+                <FilmGrain />
+            </Suspense>
 
             {/* Status Badge - Top */}
             <div className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-40">

@@ -8,12 +8,13 @@ interface IconProps {
 interface ServiceCardProps {
   icon: React.FC<IconProps>;
   title: string;
+  subtitle?: string;
   description: string;
   mode: 'institutional' | 'creator';
   delay?: number;
 }
 
-const ServiceCard = ({ icon: Icon, title, description, mode, delay = 0 }: ServiceCardProps) => {
+const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0 }: ServiceCardProps) => {
   return (
     <div
       className="group relative glass-card rounded-2xl p-6 md:p-8 animate-fade-in-up trans-premium"
@@ -58,9 +59,16 @@ const ServiceCard = ({ icon: Icon, title, description, mode, delay = 0 }: Servic
       </div>
 
       {/* Title */}
-      <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3 group-hover:translate-x-1 transition-transform duration-500">
+      <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:translate-x-1 transition-transform duration-500">
         {title}
       </h3>
+
+      {/* Subtitle */}
+      {subtitle && (
+        <p className={`text-sm md:text-base font-medium mb-3 ${mode === 'institutional' ? 'text-institutional/80' : 'text-creator/80'}`}>
+          {subtitle}
+        </p>
+      )}
 
       {/* Description */}
       <p className="text-sm md:text-base text-foreground/60 leading-relaxed">

@@ -28,31 +28,37 @@ const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
     {
       icon: DocumentIcon,
       title: t('examDocCardTitle'),
+      subtitle: t('examDocCardSubtitle'),
       description: t('examDocCardDesc'),
     },
     {
       icon: GraduationIcon,
       title: t('scholarshipCardTitle'),
+      subtitle: t('scholarshipCardSubtitle'),
       description: t('scholarshipCardDesc'),
     },
     {
       icon: DatabaseIcon,
       title: t('udiseCardTitle'),
+      subtitle: t('udiseCardSubtitle'),
       description: t('udiseCardDesc'),
     },
     {
       icon: ShieldIcon,
       title: t('govProjectsTitle'),
+      subtitle: t('govProjectsSubtitle'),
       description: t('govProjectsDesc'),
     },
     {
       icon: ChatIcon,
       title: t('dailySupportCardTitle'),
+      subtitle: t('dailySupportCardSubtitle'),
       description: t('dailySupportCardDesc'),
     },
     {
       icon: LayersIcon,
       title: t('subscriptionTitle'),
+      subtitle: t('subscriptionSubtitle'),
       description: t('subscriptionDesc'),
     },
   ];
@@ -61,31 +67,37 @@ const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
     {
       icon: VideoIcon,
       title: t('videoCardTitle'),
+      subtitle: t('videoCardSubtitle'),
       description: t('videoCardDesc'),
     },
     {
       icon: PaletteIcon,
       title: t('brandingCardTitle'),
+      subtitle: t('brandingCardSubtitle'),
       description: t('brandingCardDesc'),
     },
     {
       icon: WandIcon,
       title: t('motionCardTitle'),
+      subtitle: t('motionCardSubtitle'),
       description: t('motionCardDesc'),
     },
     {
       icon: TrendingIcon,
       title: t('strategyCardTitle'),
+      subtitle: t('strategyCardSubtitle'),
       description: t('strategyCardDesc'),
     },
     {
       icon: SparklesIcon,
       title: t('aiCampaignsTitle'),
+      subtitle: t('aiCampaignsSubtitle'),
       description: t('aiCampaignsDesc'),
     },
     {
       icon: LayersIcon,
       title: t('studioSpaceTitle'),
+      subtitle: t('studioSpaceSubtitle'),
       description: t('studioSpaceDesc'),
     },
   ];
@@ -134,6 +146,7 @@ const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
               key={service.title}
               icon={service.icon}
               title={service.title}
+              subtitle={service.subtitle}
               description={service.description}
               mode={mode}
               delay={index * 100}
@@ -147,8 +160,8 @@ const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
             <Link
               to="/services"
               className={`group relative inline-flex items-center gap-3 px-10 py-5 rounded-full font-medium text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden ${mode === 'institutional'
-                  ? 'bg-institutional/10 text-institutional border-2 border-institutional/30 hover:bg-institutional/20 hover:border-institutional/50 focus:ring-institutional/50'
-                  : 'bg-creator/10 text-creator border-2 border-creator/30 hover:bg-creator/20 hover:border-creator/50 focus:ring-creator/50'
+                ? 'bg-institutional/10 text-institutional border-2 border-institutional/30 hover:bg-institutional/20 hover:border-institutional/50 focus:ring-institutional/50'
+                : 'bg-creator/10 text-creator border-2 border-creator/30 hover:bg-creator/20 hover:border-creator/50 focus:ring-creator/50'
                 }`}
               style={{
                 boxShadow: mode === 'institutional'
@@ -161,8 +174,8 @@ const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
 
               {/* Animated background gradient on hover */}
               <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${mode === 'institutional'
-                  ? 'bg-gradient-to-r from-institutional/5 via-institutional/10 to-institutional/5'
-                  : 'bg-gradient-to-r from-creator/5 via-creator/10 to-creator/5'
+                ? 'bg-gradient-to-r from-institutional/5 via-institutional/10 to-institutional/5'
+                : 'bg-gradient-to-r from-creator/5 via-creator/10 to-creator/5'
                 }`} />
             </Link>
           </div>

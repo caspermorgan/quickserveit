@@ -25,23 +25,45 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    target: 'es2020',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+      },
+    },
+    cssCodeSplit: true,
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
           // React core and router
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          // UI component library
-          'radix-ui': [
-            '@radix-ui/react-accordion',
-            '@radix-ui/react-alert-dialog',
+          // UI component library - split into smaller chunks
+          'radix-ui-core': [
             '@radix-ui/react-dialog',
             '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-tooltip',
+          ],
+          'radix-ui-extended': [
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-alert-dialog',
             '@radix-ui/react-tabs',
             '@radix-ui/react-toast',
-            '@radix-ui/react-tooltip',
+            '@radix-ui/react-collapsible',
           ],
           // Form and validation
           'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
+          // Icon libraries - defer loading
+          'icons': ['lucide-react', 'react-icons'],
+          // Animation libraries - lazy load
+          'animations': ['framer-motion', 'canvas-confetti'],
+          // Utilities
+          'utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
+          // Helmet and query
+          'meta-vendor': ['react-helmet-async', '@tanstack/react-query'],
         },
       },
     },
