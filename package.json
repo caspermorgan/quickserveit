@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:clean": "taskkill /F /IM node.exe /T 2>nul & vite",
+    "kill-ports": "powershell -Command \"Get-NetTCPConnection -LocalPort 8080,8081,8082,8083,8084,8085,8086,8087,8088,8089,8090 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }\"",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",

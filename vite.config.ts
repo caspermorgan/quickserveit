@@ -8,6 +8,12 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    strictPort: true, // Fail if port is occupied instead of auto-incrementing
+    open: true, // Auto-open browser
+    clearScreen: false, // Better terminal output
+    hmr: {
+      overlay: true, // Show errors as overlay
+    },
   },
   plugins: [
     react(),
