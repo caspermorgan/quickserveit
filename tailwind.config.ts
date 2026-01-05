@@ -7,9 +7,16 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1.25rem", // Mobile (20px)
+        sm: "1.5rem",       // Large Mobile
+        md: "2rem",         // Tablet
+        lg: "3rem",         // Laptop
+        xl: "4rem",         // Desktop
+        "2xl": "5rem",      // Ultra-Wide
+      },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1600px", // Expanded for luxury feel
       },
     },
     extend: {
@@ -17,6 +24,23 @@ export default {
         display: ['Montserrat', 'sans-serif'],
         body: ['Manrope', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+      },
+      fontSize: {
+        // Fluid Typography using clamp()
+        // Format: clamp(min, preferred, max)
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['clamp(0.9375rem, 0.5vw + 0.875rem, 1rem)', { lineHeight: '1.5rem' }],
+        'lg': ['clamp(1rem, 0.75vw + 0.875rem, 1.125rem)', { lineHeight: '1.75rem' }],
+        'xl': ['clamp(1.125rem, 1vw + 0.875rem, 1.25rem)', { lineHeight: '1.75rem' }],
+        '2xl': ['clamp(1.25rem, 1.5vw + 0.875rem, 1.5rem)', { lineHeight: '2rem' }],
+        '3xl': ['clamp(1.5rem, 2vw + 1rem, 1.875rem)', { lineHeight: '2.25rem' }],
+        '4xl': ['clamp(1.875rem, 3vw + 1rem, 2.25rem)', { lineHeight: '2.5rem' }],
+        '5xl': ['clamp(2.25rem, 4vw + 1rem, 3rem)', { lineHeight: '1' }],
+        '6xl': ['clamp(3rem, 5vw + 1rem, 3.75rem)', { lineHeight: '1' }],
+        '7xl': ['clamp(3.75rem, 6vw + 1rem, 4.5rem)', { lineHeight: '1' }],
+        '8xl': ['clamp(4.5rem, 7vw + 1rem, 6rem)', { lineHeight: '1' }],
+        '9xl': ['clamp(6rem, 8vw + 1rem, 8rem)', { lineHeight: '1' }],
       },
       colors: {
         border: "hsl(var(--border))",

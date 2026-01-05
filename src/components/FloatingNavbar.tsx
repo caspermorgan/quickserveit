@@ -18,11 +18,12 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
     <button
       onClick={toggleLanguage}
       className={`
-        relative flex items-center h-7 md:h-8 px-1 rounded-full
+        relative flex items-center h-8 md:h-9 px-1 rounded-full
         backdrop-blur-md bg-background/20 border border-foreground/10
         shadow-[0_2px_10px_rgba(0,0,0,0.1)] 
         transition-all duration-300 ease-out
         hover:bg-background/30 hover:border-foreground/20
+        min-h-[48px] md:min-h-0
         ${mode === 'institutional'
           ? 'hover:shadow-[0_0_15px_rgba(234,179,8,0.15)]'
           : 'hover:shadow-[0_0_15px_rgba(34,211,238,0.15)]'
@@ -33,20 +34,20 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       {/* Sliding indicator */}
       <span
         className={`
-          absolute top-0.5 h-6 md:h-7 w-8 md:w-9 rounded-full
+          absolute top-0.5 h-7 md:h-8 w-9 md:w-10 rounded-full
           transition-all duration-300 ease-out
           ${mode === 'institutional'
             ? 'bg-institutional/20 shadow-[inset_0_0_8px_rgba(234,179,8,0.2)]'
             : 'bg-creator/20 shadow-[inset_0_0_8px_rgba(34,211,238,0.2)]'
           }
-          ${isEnglish ? 'left-0.5' : 'left-[calc(100%-2.375rem)] md:left-[calc(100%-2.625rem)]'}
+          ${isEnglish ? 'left-0.5' : 'left-[calc(100%-2.625rem)] md:left-[calc(100%-2.875rem)]'}
         `}
       />
 
       {/* EN option */}
       <span
         className={`
-          relative z-10 px-2 md:px-2.5 py-1 text-[10px] md:text-xs font-medium
+          relative z-10 px-2.5 md:px-3 py-1 text-xs md:text-sm font-medium
           transition-colors duration-300
           ${isEnglish
             ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
@@ -60,7 +61,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       {/* Hindi option */}
       <span
         className={`
-          relative z-10 px-2 md:px-2.5 py-1 text-[10px] md:text-xs font-medium
+          relative z-10 px-2.5 md:px-3 py-1 text-xs md:text-sm font-medium
           transition-colors duration-300
           ${!isEnglish
             ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
@@ -227,7 +228,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group ${isActive
+                className={`relative px-3 py-2 md:px-4 md:py-2 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group min-h-[48px] md:min-h-0 flex items-center ${isActive
                   ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   : 'text-foreground/60 hover:text-foreground'
                   }`}

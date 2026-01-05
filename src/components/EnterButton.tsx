@@ -27,7 +27,7 @@ const EnterButton = ({ mode, onClick }: EnterButtonProps) => {
 
       {/* Button */}
       <div
-        className={`relative flex items-center gap-3 px-7 py-3.5 md:px-9 md:py-4 rounded-full backdrop-blur-xl bg-white/[0.03] border transition-all duration-500 group-hover:scale-[1.02] ${mode === 'institutional'
+        className={`relative flex items-center gap-3 px-7 py-3.5 md:px-9 md:py-4 rounded-full backdrop-blur-xl bg-white/[0.03] border transition-all duration-500 group-hover:scale-[1.02] min-h-[48px] ${mode === 'institutional'
           ? 'border-institutional/20 group-hover:border-institutional/40 group-hover:shadow-[0_0_40px_rgba(234,179,8,0.15)]'
           : 'border-creator/20 group-hover:border-creator/40 group-hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]'
           }`}
@@ -42,9 +42,9 @@ const EnterButton = ({ mode, onClick }: EnterButtonProps) => {
           {t('enter')}
         </span>
 
-        {/* Arrow */}
+        {/* Arrow - Sized relative to text cap height */}
         <ArrowRight
-          className={`w-4 h-4 transition-all duration-500 group-hover:translate-x-0.5 ${mode === 'institutional'
+          className={`w-3.5 h-3.5 md:w-4 md:h-4 transition-all duration-500 group-hover:translate-x-0.5 ${mode === 'institutional'
             ? 'text-institutional'
             : 'text-creator'
             }`}
