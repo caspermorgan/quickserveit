@@ -8,12 +8,9 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
-import ProblemSolverStatement from '@/components/ProblemSolverStatement';
 import ServicesTeaser from '@/components/ServicesTeaser';
 import FeaturedWork from '@/components/FeaturedWork';
 import TechTicker from '@/components/TechTicker';
-import SystemStatus from '@/components/SystemStatus';
-import PortalCTA from '@/components/PortalCTA';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -161,9 +158,6 @@ const Home = () => {
           </section>
         )}
 
-        {/* Problem Solver Statement - The Hook */}
-        <ProblemSolverStatement mode={mode} />
-
         {/* Services Teaser - Top 3 Only */}
         <ServicesTeaser mode={mode} />
 
@@ -173,11 +167,6 @@ const Home = () => {
         {/* Tech Ticker - Trust Signal */}
         <TechTicker mode={mode} />
 
-        {/* System Status - Live Status Widget */}
-        <SystemStatus mode={mode} />
-
-        {/* Portal CTA - Final Conversion Point */}
-        <PortalCTA mode={mode} />
       </main>
 
       <Footer mode={mode} />

@@ -621,9 +621,6 @@ export const translations = {
     creatorTypewriter3: 'design clean thumbnails',
     creatorTypewriter4: 'deliver platform-ready files',
 
-    // Living Website - Problem Solver Statements
-    problemSolverInst: 'Most agencies sell noise. We engineer clarity.',
-    problemSolverCreator: 'Most editors chase trends. We craft timeless impact.',
 
     // Living Website - Services Teaser
     exploreFullArsenal: 'Explore Full Arsenal',
@@ -1182,9 +1179,6 @@ export const translations = {
     creatorTypewriter3: 'साफ़ थंबनेल बनाती हैं',
     creatorTypewriter4: 'प्लेटफॉर्म-रेडी फाइल देती हैं',
 
-    // Living Website - Problem Solver Statements
-    problemSolverInst: 'ज्यादातर एजेंसियां शोर बेचती हैं। हम स्पष्टता इंजीनियर करते हैं।',
-    problemSolverCreator: 'ज्यादातर एडिटर ट्रेंड का पीछा करते हैं। हम कालातीत प्रभाव बनाते हैं।',
 
     // Living Website - Services Teaser
     exploreFullArsenal: 'पूरा शस्त्रागार देखें',
