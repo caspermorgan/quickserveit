@@ -274,8 +274,8 @@ const Services = () => {
   ];
 
   const appsAndTools = [
-    { name: t('figma'), category: 'UI/UX', icon: '🎯' },
-    { name: t('canvaPro'), category: 'Quick Design', icon: '🎪' },
+    { name: t('figma'), category: 'UI/UX', icon: <FigmaIcon className="w-5 h-5 text-[#F24E1E]" /> },
+    { name: t('canvaPro'), category: 'Quick Design', icon: <CanvaIcon className="w-5 h-5 text-[#00C4CC]" /> },
     { name: t('capcut'), category: 'Mobile Edit', icon: '📱' },
   ];
 
