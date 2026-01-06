@@ -171,78 +171,63 @@ const Contact = () => {
           </div>
 
           {/* Contact Info Cards - Below Form */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 max-w-5xl mx-auto">
             {/* Working Hours */}
-            <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.4s' }}>
-              <div className="text-center">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
+            <div className={`p-6 rounded-2xl border bg-background/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
+              }`}>
+              <div className="flex flex-col items-center text-center h-full">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
                   }`}>
-                  <Clock className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  <Clock className="w-5 h-5" />
                 </div>
-                <h3 className="font-medium text-sm mb-2">Working Hours</h3>
-                <p className="text-foreground/60 text-xs leading-relaxed mb-2">
-                  Mon–Sat<br />10 AM – 4 PM IST
-                </p>
-                <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
-                  }`}>
-                  <Zap className="w-3 h-3" />
-                  <span>24hr response</span>
-                </div>
+                <h3 className="font-semibold text-sm mb-1">Operating Hours</h3>
+                <p className="text-sm font-medium mb-1">Mon–Sat, 10 AM – 4 PM</p>
+                <span className="text-xs text-foreground/50">Messages accepted 24/7</span>
               </div>
             </div>
 
             {/* Email */}
-            <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.5s' }}>
-              <div className="text-center">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
+            <button
+              onClick={handleEmailCopy}
+              className={`p-6 rounded-2xl border bg-background/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 w-full group ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
+                }`}
+            >
+              <div className="flex flex-col items-center text-center h-full">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 transition-colors ${mode === 'institutional' ? 'bg-institutional/10 text-institutional group-hover:bg-institutional group-hover:text-background' : 'bg-creator/10 text-creator group-hover:bg-creator group-hover:text-background'
                   }`}>
-                  <Mail className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  <Mail className="w-5 h-5" />
                 </div>
-                <h3 className="font-medium text-sm mb-2">Email</h3>
-                <button
-                  onClick={handleEmailCopy}
-                  className={`text-xs hover:underline block ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                    } transition-all duration-200 hover:scale-105`}
-                >
-                  letsquickserveit@gmail.com
-                </button>
-                <p className="text-foreground/40 text-xs mt-2">
-                  Click to copy
-                </p>
+                <h3 className="font-semibold text-sm mb-1">Email Inquiry</h3>
+                <p className="text-sm font-medium mb-1 truncate w-full px-2">letsquickserveit@gmail.com</p>
+                <span className={`text-xs ${mode === 'institutional' ? 'text-institutional' : 'text-creator'} opacity-0 group-hover:opacity-100 transition-opacity`}>Click to Copy</span>
               </div>
-            </div>
+            </button>
 
             {/* Location */}
-            <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.6s' }}>
-              <div className="text-center">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
+            <div className={`p-6 rounded-2xl border bg-background/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
+              }`}>
+              <div className="flex flex-col items-center text-center h-full">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
                   }`}>
-                  <MapPin className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  <MapPin className="w-5 h-5" />
                 </div>
-                <h3 className="font-medium text-sm mb-2">Location</h3>
-                <p className="text-foreground/60 text-xs leading-relaxed">
-                  {mode === 'institutional'
-                    ? 'Rural Gorakhpur, UP (Remote Operations)'
-                    : 'Rural Gorakhpur, UP (Freelance \u0026 Remote)'}
-                </p>
+                <h3 className="font-semibold text-sm mb-1">Operations Base</h3>
+                <p className="text-sm font-medium mb-1">Gorakhpur, UP</p>
+                <span className="text-xs text-foreground/50">Remote-First Service</span>
               </div>
             </div>
 
             {/* Confidentiality */}
-            <div className={`glass-card p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
-              } transition-all duration-300 animate-fade-in`} style={{ animationDelay: '0.7s' }}>
-              <div className="text-center">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
+            <div className={`p-6 rounded-2xl border bg-background/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${mode === 'institutional' ? 'border-institutional/10 hover:border-institutional/30' : 'border-creator/10 hover:border-creator/30'
+              }`}>
+              <div className="flex flex-col items-center text-center h-full">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
                   }`}>
-                  <Shield className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  <Shield className="w-5 h-5" />
                 </div>
-                <h3 className="font-medium text-sm mb-2">Confidential</h3>
-                <p className="text-foreground/60 text-xs leading-relaxed">
-                  Strict discretion<br />guaranteed
-                </p>
+                <h3 className="font-semibold text-sm mb-1">Privacy Guarantee</h3>
+                <p className="text-sm font-medium mb-1">Strict Data Protocol</p>
+                <span className="text-xs text-foreground/50">100% Confidential Execution</span>
               </div>
             </div>
           </div>

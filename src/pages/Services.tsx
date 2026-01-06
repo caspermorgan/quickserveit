@@ -609,6 +609,7 @@ interface ServiceDetailCardProps {
 }
 
 const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
+  const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
   const Icon = service.icon;
 
@@ -740,10 +741,15 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
 
             {/* CTA */}
             <div className="mt-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  navigate('/contact', {
+                    state: {
+                      intent: 'service',
+                      serviceName: title
+                    }
+                  });
+                }}
                 className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
                   ? 'bg-institutional text-background hover:bg-institutional/90'
                   : 'bg-creator text-background hover:bg-creator/90'
@@ -751,7 +757,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
               >
                 <MessageCircle className="w-4 h-4" />
                 {t('startThisService')}
-              </a>
+              </button>
               <p className="text-[10px] text-foreground/40">
                 {t('whatsappNote')}
               </p>
