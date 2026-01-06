@@ -62,7 +62,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 }`}>
                 {/* Brand Name */}
                 <h1
-                    className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight md:tracking-tight text-foreground mb-4 md:mb-6 font-black uppercase"
+                    className="font-brand text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight md:tracking-tight text-foreground mb-4 md:mb-6 font-bold"
                     style={{ animationDelay: '200ms' }}
                 >
                     {t('brandName')}

@@ -24,6 +24,7 @@ export default {
         display: ['Montserrat', 'sans-serif'],
         body: ['Manrope', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        brand: ['Oxanium', 'sans-serif'],
       },
       fontSize: {
         // Fluid Typography using clamp()
