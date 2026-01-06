@@ -58,11 +58,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             </div>
 
             {/* Content */}
-            <div className={`relative z-40 flex flex-col items-center text-center px-6 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
+            <div className={`relative z-40 flex flex-col items-center text-center px-6 -mt-20 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
                 {/* Brand Name */}
                 <h1
-                    className="font-brand text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight md:tracking-tight text-foreground mb-4 md:mb-6 font-bold"
+                    className="font-brand text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tight md:tracking-tight text-foreground mb-2 font-bold"
                     style={{ animationDelay: '200ms' }}
                 >
                     {t('brandName')}
