@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion';
 import {
-    SiMicrosoftexcel,
-    SiGooglesheets,
-    SiAdobeacrobatreader,
     SiReact,
     SiTypescript,
     SiBlender,
@@ -12,6 +9,7 @@ import {
     SiAdobephotoshop,
     SiAdobeillustrator
 } from 'react-icons/si';
+import { FileSpreadsheet, FileText, Database, Cpu, Settings, Layout } from 'lucide-react';
 
 interface TechTickerProps {
     mode: 'institutional' | 'creator';
@@ -20,12 +18,12 @@ interface TechTickerProps {
 const TechTicker = ({ mode }: TechTickerProps) => {
     // Mode-specific tech stacks
     const institutionalTech = [
-        { icon: SiMicrosoftexcel, name: 'Microsoft Excel' },
-        { icon: SiGooglesheets, name: 'Google Sheets' },
-        { icon: SiAdobeacrobatreader, name: 'PDF Tools' },
-        { icon: SiReact, name: 'Data Systems' },
-        { icon: SiTypescript, name: 'Automation' },
-        { icon: SiFigma, name: 'Portal Management' },
+        { icon: FileSpreadsheet, name: 'Microsoft Office' },
+        { icon: FileSpreadsheet, name: 'Google Sheets' },
+        { icon: FileText, name: 'PDF Tools' },
+        { icon: Database, name: 'Data Systems' },
+        { icon: Cpu, name: 'Automation' },
+        { icon: Layout, name: 'Portal Management' },
     ];
 
     const creatorTech = [

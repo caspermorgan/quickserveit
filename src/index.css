@@ -168,7 +168,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   html {
@@ -178,7 +178,9 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Manrope', sans-serif;
     overflow-x: hidden;
     /* Improved mobile line-height for better readability */
     line-height: 1.6;
@@ -382,7 +384,14 @@
 
   /* Premium Button Styles */
   .btn-premium {
-    @apply relative px-8 py-4 rounded-full font-medium tracking-wide;
+    position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    letter-spacing: 0.025em;
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     color: hsl(0, 0%, 0%);
     transition: all 0.4s var(--ease-premium);
@@ -422,7 +431,14 @@
   }
 
   .btn-outline-premium {
-    @apply relative px-8 py-4 rounded-full font-medium tracking-wide;
+    position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    letter-spacing: 0.025em;
     background: transparent;
     border: 1px solid hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
     color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
@@ -468,26 +484,37 @@
 
   /* Terminal Styles */
   .terminal {
-    @apply rounded-xl font-mono;
+    border-radius: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .terminal-header {
-    @apply flex items-center gap-2 px-4 py-3 border-b border-border;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom-width: 1px;
+    border-color: hsl(var(--border));
   }
 
   .terminal-dot {
-    @apply w-3 h-3 rounded-full;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
   }
 
-  /* Typography Classes - Now handled by Tailwind */
+  /* Typography Classes */
   .font-display {
-    @apply font-display;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .font-mono {
-    @apply font-mono;
+    font-family: 'JetBrains Mono', monospace;
   }
 
   /* Cursor Light Effect */
@@ -516,21 +543,22 @@
 
     /* Safe horizontal padding for mobile */
     .mobile-safe-x {
-      @apply px-5;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
     }
 
     /* Mobile section spacing rhythm */
     .mobile-section-gap {
-      @apply mb-12;
+      margin-bottom: 3rem;
     }
 
     .mobile-section-gap-lg {
-      @apply mb-16;
+      margin-bottom: 4rem;
     }
 
     /* Mobile card spacing */
     .mobile-card-gap {
-      @apply gap-5;
+      gap: 1.25rem;
     }
 
     /* Ensure minimum touch target size */
