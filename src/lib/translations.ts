@@ -620,6 +620,30 @@ export const translations = {
     creatorTypewriter2: 'prepare upload-ready content',
     creatorTypewriter3: 'design clean thumbnails',
     creatorTypewriter4: 'deliver platform-ready files',
+
+    // Living Website - Problem Solver Statements
+    problemSolverInst: 'Most agencies sell noise. We engineer clarity.',
+    problemSolverCreator: 'Most editors chase trends. We craft timeless impact.',
+
+    // Living Website - Services Teaser
+    exploreFullArsenal: 'Explore Full Arsenal',
+
+    // Living Website - Featured Work
+    featuredProjectTitle: 'Featured Project',
+    decodeProject: 'Decode This Project',
+    openTheVault: 'Open The Vault',
+
+    // Living Website - System Status
+    systemStatus: 'System Status',
+    currentStatus: 'Current Status',
+    availableForProjects: 'Available for High-Ticket Projects',
+    nextSlot: 'Next Slot',
+    priorityQueue: 'Priority Queue',
+
+    // Living Website - Portal CTA
+    readyToEliminateChaos: 'Ready to Eliminate Digital Chaos?',
+    readyToDisintegrate: 'Ready to Disintegrate the Competition?',
+    initializeContact: 'Initialize Contact',
   },
   hi: {
     // Brand
@@ -1157,5 +1181,29 @@ export const translations = {
     creatorTypewriter2: 'अपलोड के लिए तैयार कंटेंट देती हैं',
     creatorTypewriter3: 'साफ़ थंबनेल बनाती हैं',
     creatorTypewriter4: 'प्लेटफॉर्म-रेडी फाइल देती हैं',
+
+    // Living Website - Problem Solver Statements
+    problemSolverInst: 'ज्यादातर एजेंसियां शोर बेचती हैं। हम स्पष्टता इंजीनियर करते हैं।',
+    problemSolverCreator: 'ज्यादातर एडिटर ट्रेंड का पीछा करते हैं। हम कालातीत प्रभाव बनाते हैं।',
+
+    // Living Website - Services Teaser
+    exploreFullArsenal: 'पूरा शस्त्रागार देखें',
+
+    // Living Website - Featured Work
+    featuredProjectTitle: 'विशेष प्रोजेक्ट',
+    decodeProject: 'यह प्रोजेक्ट देखें',
+    openTheVault: 'वॉल्ट खोलें',
+
+    // Living Website - System Status
+    systemStatus: 'सिस्टम स्टेटस',
+    currentStatus: 'वर्तमान स्थिति',
+    availableForProjects: 'बड़े प्रोजेक्ट्स के लिए उपलब्ध',
+    nextSlot: 'अगली स्लॉट',
+    priorityQueue: 'प्राथमिकता कतार',
+
+    // Living Website - Portal CTA
+    readyToEliminateChaos: 'डिजिटल अराजकता खत्म करने के लिए तैयार हैं?',
+    readyToDisintegrate: 'प्रतिस्पर्धा को मिटाने के लिए तैयार हैं?',
+    initializeContact: 'संपर्क शुरू करें',
   }
 } as const;

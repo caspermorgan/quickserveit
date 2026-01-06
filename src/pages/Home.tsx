@@ -8,8 +8,12 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
-import ClientWorkSummary from '@/components/ClientWorkSummary';
-import ServicesSection from '@/components/ServicesSection';
+import ProblemSolverStatement from '@/components/ProblemSolverStatement';
+import ServicesTeaser from '@/components/ServicesTeaser';
+import FeaturedWork from '@/components/FeaturedWork';
+import TechTicker from '@/components/TechTicker';
+import SystemStatus from '@/components/SystemStatus';
+import PortalCTA from '@/components/PortalCTA';
 import { ArrowRight, Shield, Clock, CheckCircle } from 'lucide-react';
 
 const Home = () => {
@@ -157,14 +161,23 @@ const Home = () => {
           </section>
         )}
 
+        {/* Problem Solver Statement - The Hook */}
+        <ProblemSolverStatement mode={mode} />
 
-        {/* Services Section - Teaser Mode (Top 3 Only) */}
-        <ServicesSection mode={mode} isTeaser={true} />
+        {/* Services Teaser - Top 3 Only */}
+        <ServicesTeaser mode={mode} />
 
-        {/* Client Work Summary Section */}
-        <section className="py-32 px-6 border-t border-border bg-black">
-          <ClientWorkSummary mode={mode} />
-        </section>
+        {/* Featured Work - Single Project Spotlight */}
+        <FeaturedWork mode={mode} />
+
+        {/* Tech Ticker - Trust Signal */}
+        <TechTicker mode={mode} />
+
+        {/* System Status - Live Status Widget */}
+        <SystemStatus mode={mode} />
+
+        {/* Portal CTA - Final Conversion Point */}
+        <PortalCTA mode={mode} />
       </main>
 
       <Footer mode={mode} />
