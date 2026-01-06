@@ -8,7 +8,7 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import HowWeWork from '@/components/HowWeWork';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   FileText,
   GraduationCap,
@@ -177,9 +177,11 @@ const Services = () => {
 
   const institutionalServices = [
     {
+      id: 'exam-paper-typing',
       icon: FileText,
       titleKey: 'examDocTitle' as const,
       shortDescKey: 'examDocShort' as const,
+      mediumDescKey: 'examDocMedium' as const,
       fullDescKey: 'examDocFull' as const,
       stepsKey: 'examDocSteps' as const,
       needsKey: 'examDocNeeds' as const,
@@ -187,9 +189,11 @@ const Services = () => {
       whatsappTemplate: 'Hello quickserveit, I need help with examination documentation for [school name]. We have [number] students and the exam starts on [date].'
     },
     {
+      id: 'scholarship-verification-biometric',
       icon: GraduationCap,
       titleKey: 'scholarshipTitle' as const,
       shortDescKey: 'scholarshipShort' as const,
+      mediumDescKey: 'scholarshipMedium' as const,
       fullDescKey: 'scholarshipFull' as const,
       stepsKey: 'scholarshipSteps' as const,
       needsKey: 'scholarshipNeeds' as const,
@@ -197,9 +201,11 @@ const Services = () => {
       whatsappTemplate: 'Hello quickserveit, I need help with [scholarship name] scholarship applications for [number] students. The deadline is [date].'
     },
     {
+      id: 'udise-management',
       icon: Building,
       titleKey: 'udiseTitle' as const,
       shortDescKey: 'udiseShort' as const,
+      mediumDescKey: 'udiseMedium' as const,
       fullDescKey: 'udiseFull' as const,
       stepsKey: 'udiseSteps' as const,
       needsKey: 'udiseNeeds' as const,
@@ -207,9 +213,11 @@ const Services = () => {
       whatsappTemplate: 'Hello quickserveit, I need help with UDISE+ data entry for [school name]. Our school code is [UDISE code].'
     },
     {
+      id: 'daily-tech-support',
       icon: Calendar,
       titleKey: 'dailySupportTitle' as const,
       shortDescKey: 'dailySupportShort' as const,
+      mediumDescKey: 'dailySupportMedium' as const,
       fullDescKey: 'dailySupportFull' as const,
       stepsKey: 'dailySupportSteps' as const,
       needsKey: 'dailySupportNeeds' as const,
@@ -220,9 +228,11 @@ const Services = () => {
 
   const creatorServices = [
     {
+      id: 'premium-long-form-production',
       icon: Video,
       titleKey: 'videoEditTitle' as const,
       shortDescKey: 'videoEditShort' as const,
+      mediumDescKey: 'videoEditMedium' as const,
       fullDescKey: 'videoEditFull' as const,
       stepsKey: 'videoEditSteps' as const,
       needsKey: 'videoEditNeeds' as const,
@@ -231,9 +241,11 @@ const Services = () => {
       whatsappTemplate: 'Hello quickserveit, I need video editing for a [type] video. It\'s approximately [duration] of raw footage targeting [final length].'
     },
     {
+      id: 'viral-shorts-reels',
       icon: Smartphone,
       titleKey: 'shortsTitle' as const,
       shortDescKey: 'shortsShort' as const,
+      mediumDescKey: 'shortsMedium' as const,
       fullDescKey: 'shortsFull' as const,
       stepsKey: 'shortsSteps' as const,
       needsKey: 'shortsNeeds' as const,
@@ -242,9 +254,11 @@ const Services = () => {
       whatsappTemplate: 'Hello quickserveit, I\'m interested in your Shorts & Reels repurposing service. I have [content type / link] that I want to turn into vertical videos.'
     },
     {
+      id: 'motion-graphics-vfx',
       icon: Layers,
       titleKey: 'motionTitle' as const,
       shortDescKey: 'motionShort' as const,
+      mediumDescKey: 'motionMedium' as const,
       fullDescKey: 'motionFull' as const,
       stepsKey: 'motionSteps' as const,
       needsKey: 'motionNeeds' as const,
@@ -253,9 +267,11 @@ const Services = () => {
       whatsappTemplate: 'Hello quickserveit, I need [intro/outro/motion graphics] for my channel [channel name]. My style is [describe style].'
     },
     {
+      id: 'thumbnails-strategy',
       icon: Lightbulb,
       titleKey: 'thumbnailTitle' as const,
       shortDescKey: 'thumbnailShort' as const,
+      mediumDescKey: 'thumbnailMedium' as const,
       fullDescKey: 'thumbnailFull' as const,
       stepsKey: 'thumbnailSteps' as const,
       needsKey: 'thumbnailNeeds' as const,
@@ -286,6 +302,26 @@ const Services = () => {
   ];
 
   const services = mode === 'institutional' ? institutionalServices : creatorServices;
+
+  // Scroll to service on hash change
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Add temporary highlight effect
+          element.classList.add('ring-2');
+          element.classList.add(mode === 'institutional' ? 'ring-institutional/50' : 'ring-creator/50');
+          setTimeout(() => {
+            element.classList.remove('ring-2');
+            element.classList.remove(mode === 'institutional' ? 'ring-institutional/50' : 'ring-creator/50');
+          }, 2000);
+        }
+      }, 100);
+    }
+  }, [mode]);
 
 
   return (
@@ -556,9 +592,11 @@ const Services = () => {
 
 interface ServiceDetailCardProps {
   service: {
+    id: string;
     icon: any;
     titleKey: string;
     shortDescKey: string;
+    mediumDescKey: string;
     fullDescKey: string;
     stepsKey: string;
     needsKey: string;
@@ -578,14 +616,17 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.whatsappTemplate)}`;
 
   const title = t(service.titleKey);
-  const shortDesc = t(service.shortDescKey);
+  const mediumDesc = t(service.mediumDescKey);
   const fullDesc = t(service.fullDescKey);
   const steps = t(service.stepsKey).split('|');
   const needs = t(service.needsKey).split('|');
   const timeline = t(service.timelineKey);
 
   return (
-    <div className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : 'hover:border-border/40 hover:-translate-y-0.5'}`}>
+    <div
+      id={service.id}
+      className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : 'hover:border-border/40 hover:-translate-y-0.5'}`}
+    >
       {/* Header - Always visible */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
@@ -596,8 +637,8 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
           <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-base sm:text-lg font-medium mb-1.5">{title}</h3>
-          <p className="text-xs sm:text-sm text-foreground/50 line-clamp-2 leading-relaxed">{shortDesc}</p>
+          <h3 className="text-base sm:text-lg font-medium mb-2">{title}</h3>
+          <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed">{mediumDesc}</p>
         </div>
         <div className="shrink-0 mt-1">
           {isExpanded ? (

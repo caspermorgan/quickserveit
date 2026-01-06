@@ -112,6 +112,7 @@ export const translations = {
     // Services - Institutional
     examDocTitle: 'Exam Paper Typing',
     examDocShort: 'Professional typing and formatting of exam question papers from handwritten or digital sources.',
+    examDocMedium: 'We convert your handwritten notes, PDFs, or images into professionally typed exam papers. Just send us the raw questions, and we deliver print-ready documents via secure Drive link within 5-7 days.',
     examDocFull: 'We convert your handwritten notes, PDFs, or images into professionally typed and formatted exam question papers. Just send us the raw questions, and we deliver accurate, print-ready documents via a secure Drive link.',
     examDocSteps: 'Share raw question papers (PDF, Image, or Handwritten)|We type, format, and structure the questions|Review the draft for any corrections|Receive final print-ready files via Drive Link',
     examDocNeeds: 'Raw question content (Photo/PDF)|Exam pattern/format details|Subject and Class details|Submission deadline',
@@ -119,6 +120,7 @@ export const translations = {
 
     scholarshipTitle: 'Scholarship Verification & Biometric',
     scholarshipShort: 'Institute portal management, remote verification, and on-site biometric authentication with DSC forwarding.',
+    scholarshipMedium: 'Complete hybrid solution: We handle portal work remotely (verification, updates, list preparation), then visit your campus with biometric machines for student authentication and DSC-based forwarding.',
     scholarshipFull: 'A complete hybrid solution for institutes. We manage the portal work remotely (updates, verification, list preparation). For final authentication, our team visits your campus with biometric machines to verify students and forwards the data using the Principal\'s Digital Signature (DSC/Dongle).',
     scholarshipSteps: 'Provide Institute Login & Student Data|We verify and update forms remotely on the portal|We schedule a campus visit for Biometric Authentication|Final Forwarding done using DSC (Dongle)|Submission Report generated',
     scholarshipNeeds: 'Institute Portal Credentials|Principal\'s Digital Signature (DSC Token/Dongle)|Student File/List for verification|Electricity/Internet for on-site Biometric camp',
@@ -126,6 +128,7 @@ export const translations = {
 
     udiseTitle: 'UDISE+ Management (2026-27)',
     udiseShort: 'Complete support for the new session starting April 2026: New Entry & Old Student Updates.',
+    udiseMedium: 'Ready for 2026-27 session starting April 2026. We upload new student data, update/promote existing records, and handle the complete progression module accurately.',
     udiseFull: 'We are ready for the 2026-27 academic session starting this April. Our service includes uploading data for all new students, updating/promoting existing student records, and handling the complete progression module accurately.',
     udiseSteps: 'Share school credentials for the 2026 session|We update/promote existing student data (Progression)|We upload new student profiles (Entry)|Verify all data fields|Finalize and Certify',
     udiseNeeds: 'School login credentials (shared securely)|Current year enrollment data|Infrastructure details and updates|Teacher information and qualifications',
@@ -133,6 +136,7 @@ export const translations = {
 
     dailySupportTitle: 'Daily Tech & Micro-Task Support',
     dailySupportShort: 'On-demand support for confusing government tasks, PDF conversions, translations, and academic content creation.',
+    dailySupportMedium: 'Stuck with confusing government portals, PDF conversions, or typing work? We handle these technical tasks instantly. Pay per task or hire us for a day—no monthly commitment needed.',
     dailySupportFull: 'Stuck with a confusing government portal? Need a PDF converted to an image instantly? Or need handwritten notes typed into a Model Paper? We handle these "time-wasting" technical tasks for you. No monthly commitment required—pay per task or hire us for a single day of focused work.',
     dailySupportSteps: 'Send the task via WhatsApp (e.g., "Fix this PDF" or "Translate this notice")|We confirm the cost (Per-Task/Per-Day)|We process the work immediately (PDF tools, Portal fix, Typing)|Receive final files instantly',
     dailySupportNeeds: 'Raw files (PDF/Images)|Clear instruction on what is needed (Translate/Convert/Create)|Govt Portal credentials (if related to portal work)',
@@ -141,6 +145,7 @@ export const translations = {
     // Services - Creator
     videoEditTitle: 'Premium Long-Form Production',
     videoEditShort: 'Broadcast-quality storytelling. We specialize in Multi-Cam Sync for podcasts, Cinematic Color Grading (DaVinci), and distraction-free editing for educational content.',
+    videoEditMedium: 'Broadcast-quality editing with Multi-Cam Sync for podcasts, Cinematic Color Grading in DaVinci, and distraction-free cuts for educational content. 7-10 days for 15-20 min videos.',
     videoEditFull: 'Broadcast-quality storytelling. We specialize in Multi-Cam Sync for podcasts, Cinematic Color Grading (DaVinci), and distraction-free editing for educational content.',
     videoEditSteps: 'Send Raw Files (Google Drive or Pendrive pickup)|We process in Premiere Pro: Multi-cam sync, A-Roll cleanup|Color grading in DaVinci Resolve for cinematic depth|Client review via Frame.io with timestamped feedback|Final delivery with archival-quality exports',
     videoEditNeeds: 'Raw Footage (Camera/Mobile/Screen Recording)|Audio files (if recorded separately)|Reference style link|Branding assets (Logo/Intro)',
@@ -148,6 +153,7 @@ export const translations = {
 
     shortsTitle: 'Viral Shorts & Reels',
     shortsShort: 'Algorithm-optimized vertical content. Features Kinetic Typography, 4K Upscaling, and precise Pattern Interrupts to maximize audience retention.',
+    shortsMedium: 'Algorithm-optimized vertical content with Kinetic Typography, 4K Upscaling, and precise Pattern Interrupts. We identify viral moments and maximize retention. 24-48 hours per reel.',
     shortsFull: 'Algorithm-optimized vertical content. Features Kinetic Typography, 4K Upscaling, and precise Pattern Interrupts to maximize audience retention.',
     shortsSteps: 'Share Source (Long Video Link or Raw Files)|We identify viral moments and script hooks|Custom kinetic typography designed in After Effects|Color grading and sound design for maximum impact|Export via Adobe Media Encoder for platform-perfect quality',
     shortsNeeds: 'Link to your Podcast/YouTube video (for repurposing)|OR Raw vertical footage (Drive/WeTransfer)|Reference Reel style (optional)|Brand Logo (if needed)',
@@ -155,6 +161,7 @@ export const translations = {
 
     motionTitle: 'Motion Graphics & VFX',
     motionShort: 'High-end visual engineering. Includes 2.5D Parallax Photos, Character Rigging, Custom Logo Reveals, and seamless Green Screen Compositing.',
+    motionMedium: 'High-end visual engineering: 2.5D Parallax Photos, Character Rigging, Custom Logo Reveals, and Green Screen Compositing. Intros/Outros in 5-7 days.',
     motionFull: 'High-end visual engineering. Includes 2.5D Parallax Photos, Character Rigging, Custom Logo Reveals, and seamless Green Screen Compositing.',
     motionSteps: 'Share brand assets and style preferences|Concept development and storyboarding|Vector design in Illustrator, animation in After Effects|3D elements created in Blender (if needed)|Final delivery with project files (optional)',
     motionNeeds: 'Logo files (preferably vector)|Brand colors and fonts|Reference animations you like|Duration and format requirements',
@@ -162,6 +169,7 @@ export const translations = {
 
     thumbnailTitle: 'Thumbnails & Strategy',
     thumbnailShort: 'The complete packaging suite. We combine Notion-based script structuring with Midjourney & Photoshop compositing for High-CTR thumbnails.',
+    thumbnailMedium: 'Complete packaging suite: Notion-based script structuring + Midjourney & Photoshop compositing for High-CTR thumbnails. Script + Thumbnail + Title suggestions in 5-7 days.',
     thumbnailFull: 'The complete packaging suite. We combine Notion-based script structuring with Midjourney & Photoshop compositing for High-CTR thumbnails.',
     thumbnailSteps: 'Share channel niche and target audience|We research topics and create script frameworks in Notion|Generate AI art concepts in Midjourney|Composite and refine in Photoshop for high-CTR impact|Final delivery: Script + Thumbnail + Title suggestions',
     thumbnailNeeds: 'Channel link and niche information|Content goals and target audience|Reference thumbnails you like|Brand assets (Logo, colors, fonts)',
@@ -751,6 +759,7 @@ export const translations = {
     // Services - Institutional
     examDocTitle: 'परीक्षा पेपर टाइपिंग',
     examDocShort: 'हाथ से लिखे या डिजिटल प्रश्न पत्रों की प्रोफेशनल टाइपिंग और फॉर्मेटिंग।',
+    examDocMedium: 'हम आपके हाथ से लिखे नोट्स, PDF या फोटो को प्रोफेशनल टाइप किए हुए परीक्षा पत्रों में बदलते हैं। बस हमें कच्चे प्रश्न भेजें, और हम 5-7 दिनों में प्रिंट के लिए तैयार फाइल ड्राइव लिंक से देते हैं।',
     examDocFull: 'हम आपके हाथ से लिखे नोट्स, पीडीएफ या फोटो को प्रोफेशनल टाइप किए हुए प्रश्न पत्रों में बदलते हैं। बस हमें कच्चे प्रश्न भेजें, और हम आपको प्रिंट के लिए तैयार साफ फाइल ड्राइव लिंक के जरिए देते हैं।',
     examDocSteps: 'कच्चे प्रश्न पत्र साझा करें (PDF, इमेज या हस्तलिखित)|हम प्रश्नों को टाइप और फॉर्मेट करते हैं|सुधार के लिए ड्राफ्ट चेक करें|ड्राइव लिंक के जरिए फाइनल फाइल प्राप्त करें',
     examDocNeeds: 'कच्चे प्रश्न (फोटो/पीडीएफ)|परीक्षा पैटर्न/फॉर्मेट की जानकारी|विषय और कक्षा का विवरण|समय सीमा',
@@ -758,6 +767,7 @@ export const translations = {
 
     scholarshipTitle: 'छात्रवृत्ति सत्यापन एवं बायोमेट्रिक',
     scholarshipShort: 'इंस्टीट्यूट पोर्टल मैनेजमेंट, रिमोट वेरिफिकेशन और स्कूल जाकर बायोमेट्रिक व DSC डोंगल से फॉरवर्डिंग।',
+    scholarshipMedium: 'पूरा हाइब्रिड समाधान: हम पोर्टल का काम रिमोटली करते हैं (वेरिफिकेशन, अपडेट, लिस्ट), फिर बायोमेट्रिक मशीन लेकर आपके कैंपस आते हैं और DSC से फॉरवर्ड करते हैं।',
     scholarshipFull: 'इंस्टीट्यूट के लिए हाइब्रिड समाधान। हम पोर्टल का काम (चेकिंग, अपडेट, लिस्ट बनाना) रिमोटली करते हैं। फाइनल वेरिफिकेशन के लिए हमारी टीम बायोमेट्रिक मशीन लेकर आपके कैंपस आती है, छात्रों का वेरिफिकेशन करती है और प्रिंसिपल के DSC (डोंगल) का उपयोग करके डाटा फॉरवर्ड करती है।',
     scholarshipSteps: 'लॉगिन आईडी और छात्र डेटा साझा करें|हम रिमोटली पोर्टल पर फॉर्म चेक और अपडेट करते हैं|बायोमेट्रिक के लिए हम कैंपस विजिट शेड्यूल करते हैं|DSC (डोंगल) लगाकर फाइनल फॉरवर्डिंग|सबमिशन रिपोर्ट जनरेशन',
     scholarshipNeeds: 'इंस्टीट्यूट पोर्टल आईडी-पासवर्ड|प्रिंसिपल का डिजिटल सिग्नेचर (DSC डोंगल)|सत्यापन के लिए छात्रों की लिस्ट|बायोमेट्रिक कैंप के लिए बिजली/इंटरनेट',
@@ -765,6 +775,7 @@ export const translations = {
 
     udiseTitle: 'UDISE+ प्रबंधन (2026-27)',
     udiseShort: 'अप्रैल 2026 से शुरू होने वाले नए सत्र के लिए: नई एंट्री और पुराने छात्रों का अपडेट।',
+    udiseMedium: 'अप्रैल 2026 से शुरू होने वाले 2026-27 सत्र के लिए तैयार। हम नए छात्रों का डेटा अपलोड करते हैं, पुराने रिकॉर्ड अपडेट/प्रमोट करते हैं, और पूरा प्रोग्रेशन मॉड्यूल सटीक रूप से संभालते हैं।',
     udiseFull: 'हम इस अप्रैल से शुरू होने वाले 2026-27 शैक्षणिक सत्र के लिए तैयार हैं। हमारी सेवा में सभी नए छात्रों का डेटा अपलोड करना, मौजूदा छात्रों के रिकॉर्ड को अपडेट/प्रमोट करना और पूरे प्रोग्रेशन मॉड्यूल को सटीक रूप से संभालना शामिल है।',
     udiseSteps: '2026 सत्र के लिए स्कूल लॉगिन साझा करें|हम पुराने छात्रों का डेटा अपडेट/प्रमोट करते हैं|हम नए छात्रों की प्रोफाइल अपलोड करते हैं|सभी डेटा की जांच करते हैं|फाइनल सबमिट और सर्टिफाई',
     udiseNeeds: 'स्कूल लॉगिन क्रेडेंशियल्स (सशर्त साझा)|वर्तमान वर्ष नामांकन डेटा|बुनियादी ढांचे का विवरण और अपडेट|शिक्षक जानकारी और योग्यता',
@@ -772,6 +783,7 @@ export const translations = {
 
     dailySupportTitle: 'दैनिक टेक्निकल और माइक्रो-टास्क सहायता',
     dailySupportShort: 'सरकारी काम की उलझनें, PDF टूल्स, अनुवाद और नोट्स/पेपर बनाने के लिए तुरंत ऑन-डिमांड सहायता।',
+    dailySupportMedium: 'सरकारी पोर्टल, PDF कन्वर्जन या टाइपिंग में अटक गए? हम ये टेक्निकल काम तुरंत करते हैं। हर काम के हिसाब से या एक दिन के लिए—कोई मासिक बंधन नहीं।',
     dailySupportFull: 'क्या आप किसी सरकारी पोर्टल पर अटक गए हैं? या PDF को इमेज में बदलना है? या हाथ से लिखे नोट्स को "मॉडल पेपर" में टाइप करना है? हम इन समय बरबाद करने वाले टेक्निकल कामों को संभालते हैं। कोई मासिक बंधन नहीं—हर काम (Per-Task) या एक दिन (Per-Day) के हिसाब से भुगतान करें।',
     dailySupportSteps: 'WhatsApp पर काम भेजें (जैसे "यह PDF सही कर दो" या "नोटिस ट्रांसलेट कर दो")|हम लागत बताते हैं (प्रति-काम या प्रति-दिन)|हम तुरंत काम शुरू करते हैं (PDF टूल्स, पोर्टल, टाइपिंग)|तुरंत फाइनल फाइल प्राप्त करें',
     dailySupportNeeds: 'कच्ची फाइलें (PDF/फोटो)|स्पष्ट निर्देश (अनुवाद/कन्वर्ट/बनाना)|सरकारी पोर्टल लॉगिन (यदि पोर्टल का काम हो)',
@@ -780,6 +792,7 @@ export const translations = {
     // Services - Creator
     videoEditTitle: 'प्रीमियम लॉन्ग-फॉर्म प्रोडक्शन',
     videoEditShort: 'ब्रॉडकास्ट-क्वालिटी स्टोरीटेलिंग। हम पॉडकास्ट के लिए मल्टी-कैम सिंक और डॉक्यूमेंट्री के लिए सिनेमैटिक कलर ग्रेडिंग में एक्सपर्ट हैं।',
+    videoEditMedium: 'ब्रॉडकास्ट-क्वालिटी एडिटिंग: पॉडकास्ट के लिए मल्टी-कैम सिंक, DaVinci में सिनेमैटिक कलर ग्रेडिंग, और शैक्षिक कंटेंट के लिए साफ कट। 15-20 मिनट के वीडियो के लिए 7-10 दिन।',
     videoEditFull: 'ब्रॉडकास्ट-क्वालिटी स्टोरीटेलिंग। हम पॉडकास्ट के लिए मल्टी-कैम सिंक और डॉक्यूमेंट्री के लिए सिनेमैटिक कलर ग्रेडिंग में एक्सपर्ट हैं।',
     videoEditSteps: 'कच्ची फाइलें भेजें (Google Drive या पेनड्राइव पिकअप)|Premiere Pro में मल्टी-कैम सिंक और A-Roll क्लीनअप|DaVinci Resolve में सिनेमैटिक कलर ग्रेडिंग|Frame.io से टाइमस्टैम्प फीडबैक के साथ क्लाइंट रिव्यू|आर्काइवल-क्वालिटी एक्सपोर्ट के साथ फाइनल डिलीवरी',
     videoEditNeeds: 'कच्चा फुटेज (कैमरा/मोबाइल/स्क्रीन रिकॉर्डिंग)|ऑडियो फाइलें (यदि अलग से रिकॉर्ड की गई हों)|रेफरेंस वीडियो लिंक|ब्रांडिंग एसेट्स (लोगो/इंट्रो)',
@@ -787,6 +800,7 @@ export const translations = {
 
     shortsTitle: 'वायरल शॉर्ट्स और रील्स',
     shortsShort: 'वायरल होने के लिए डिज़ाइन किया गया। ऑडियंस रिटेंशन बढ़ाने के लिए काइनेटिक टाइपोग्राफी और 4K अपस्केलिंग।',
+    shortsMedium: 'वायरल के लिए डिज़ाइन: काइनेटिक टाइपोग्राफी, 4K अपस्केलिंग, और सटीक पैटर्न इंटरप्ट। हम वायरल पल पहचानते हैं और रिटेंशन बढ़ाते हैं। 24-48 घंटे प्रति रील।',
     shortsFull: 'वायरल होने के लिए डिज़ाइन किया गया। ऑडियंस रिटेंशन बढ़ाने के लिए काइनेटिक टाइपोग्राफी और 4K अपस्केलिंग।',
     shortsSteps: 'सोर्स शेयर करें (लॉन्ग वीडियो लिंक या कच्ची फाइलें)|हम वायरल पल और स्क्रिप्ट हुक पहचानते हैं|After Effects में कस्टम काइनेटिक टाइपोग्राफी डिजाइन|मैक्सिमम इम्पैक्ट के लिए कलर ग्रेडिंग और साउंड डिजाइन|Adobe Media Encoder से प्लेटफॉर्म-परफेक्ट क्वालिटी एक्सपोर्ट',
     shortsNeeds: 'अपने पॉडकास्ट/YouTube वीडियो का लिंक (रिपर्पज़िंग के लिए)|या कच्चा वर्टिकल फुटेज (Drive/WeTransfer)|पसंद की रील का उदाहरण (वैकल्पिक)|ब्रांड लोगो (यदि चाहिए)',
@@ -794,6 +808,7 @@ export const translations = {
 
     motionTitle: 'मोशन ग्राफिक्स और VFX',
     motionShort: 'हाई-एंड विजुअल इंजीनियरिंग। इसमें 2.5D पैरालेक्स फोटो, कैरेक्टर रिगिंग, कस्टम लोगो रिवील और ग्रीन स्क्रीन कंपोजिटिंग शामिल हैं।',
+    motionMedium: 'हाई-एंड विजुअल: 2.5D पैरालेक्स फोटो, कैरेक्टर रिगिंग, कस्टम लोगो रिवील, और ग्रीन स्क्रीन कंपोजिटिंग। इंट्रो/आउट्रो 5-7 दिनों में।',
     motionFull: 'हाई-एंड विजुअल इंजीनियरिंग। इसमें 2.5D पैरालेक्स फोटो, कैरेक्टर रिगिंग, कस्टम लोगो रिवील और ग्रीन स्क्रीन कंपोजिटिंग शामिल हैं।',
     motionSteps: 'ब्रांड एसेट्स और शैली प्राथमिकताएं साझा करें|कॉन्सेप्ट डेवलपमेंट और स्टोरीबोर्डिंग|Illustrator में वेक्टर डिजाइन, After Effects में एनिमेशन|Blender में 3D एलिमेंट्स (यदि जरूरत हो)|प्रोजेक्ट फ़ाइलों के साथ अंतिम डिलीवरी (वैकल्पिक)',
     motionNeeds: 'लोगो फ़ाइलें (अधिमानतः वेक्टर)|ब्रांड रंग और फ़ॉन्ट|संदर्भ एनिमेशन जो आपको पसंद हैं|अवधि और प्रारूप आवश्यकताएँ',
@@ -801,6 +816,7 @@ export const translations = {
 
     thumbnailTitle: 'थंबनेल और स्ट्रेटेजी',
     thumbnailShort: 'पूरा पैकेजिंग सुइट। हम नोशन-बेस्ड स्क्रिप्ट स्ट्रक्चरिंग और मिडजर्नी+फोटोशॉप कंपोजिटिंग के साथ हाई-CTR थंबनेल बनाते हैं।',
+    thumbnailMedium: 'पूरा पैकेजिंग सूट: Notion में स्क्रिप्ट + Midjourney & Photoshop में हाई-CTR थंबनेल। स्क्रिप्ट + थंबनेल + टाइटल सुझाव 5-7 दिनों में।',
     thumbnailFull: 'पूरा पैकेजिंग सुइट। हम नोशन-बेस्ड स्क्रिप्ट स्ट्रक्चरिंग और मिडजर्नी+फोटोशॉप कंपोजिटिंग के साथ हाई-CTR थंबनेल बनाते हैं।',
     thumbnailSteps: 'चैनल निश और लक्षित दर्शकों को साझा करें|Notion में स्क्रिप्ट फ्रेमवर्क और टॉपिक रिसर्च|Midjourney में AI आर्ट कॉन्सेप्ट जेनरेट करें|Photoshop में हाई-CTR इम्पैक्ट के लिए कंपोजिट और रिफाइन|फाइनल डिलीवरी: स्क्रिप्ट + थंबनेल + टाइटल सुझाव',
     thumbnailNeeds: 'चैनल लिंक और निश जानकारी|कंटेंट लक्ष्य और लक्षित दर्शक|पसंदीदा थंबनेल रेफरेंस|ब्रांड एसेट्स (लोगो, रंग, फ़ॉन्ट)',

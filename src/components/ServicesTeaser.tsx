@@ -21,12 +21,9 @@ const ServicesTeaser = ({ mode }: ServicesTeaserProps) => {
     const navigate = useNavigate();
 
     const handleServiceClick = (serviceName: string) => {
-        navigate('/contact', {
-            state: {
-                intent: 'service',
-                serviceName: serviceName
-            }
-        });
+        // Convert service name to kebab-case ID for hash navigation
+        const serviceId = serviceName.toLowerCase().replace(/\s+/g, '-').replace(/[&]/g, '');
+        navigate(`/services#${serviceId}`);
     };
 
     const institutionalServices = [
@@ -147,8 +144,8 @@ const ServicesTeaser = ({ mode }: ServicesTeaserProps) => {
                     <Link
                         to="/services"
                         className={`group relative inline-flex items-center gap-3 px-10 py-5 rounded-full font-medium text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden ${mode === 'institutional'
-                                ? 'bg-institutional/10 text-institutional border-2 border-institutional/30 hover:bg-institutional/20 hover:border-institutional/50 focus:ring-institutional/50'
-                                : 'bg-creator/10 text-creator border-2 border-creator/30 hover:bg-creator/20 hover:border-creator/50 focus:ring-creator/50'
+                            ? 'bg-institutional/10 text-institutional border-2 border-institutional/30 hover:bg-institutional/20 hover:border-institutional/50 focus:ring-institutional/50'
+                            : 'bg-creator/10 text-creator border-2 border-creator/30 hover:bg-creator/20 hover:border-creator/50 focus:ring-creator/50'
                             }`}
                         style={{
                             boxShadow: mode === 'institutional'
@@ -162,8 +159,8 @@ const ServicesTeaser = ({ mode }: ServicesTeaserProps) => {
                         {/* Animated background gradient on hover */}
                         <div
                             className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${mode === 'institutional'
-                                    ? 'bg-gradient-to-r from-institutional/5 via-institutional/10 to-institutional/5'
-                                    : 'bg-gradient-to-r from-creator/5 via-creator/10 to-creator/5'
+                                ? 'bg-gradient-to-r from-institutional/5 via-institutional/10 to-institutional/5'
+                                : 'bg-gradient-to-r from-creator/5 via-creator/10 to-creator/5'
                                 }`}
                         />
                     </Link>
