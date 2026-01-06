@@ -40,11 +40,7 @@ import {
   SiBlender,
   SiNotion
 } from 'react-icons/si';
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+
 
 // Custom Icon Components using uploaded images
 const PremiereProIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
@@ -168,7 +164,7 @@ const Services = () => {
   const { mode, setHasEntered } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [isInnovationsOpen, setIsInnovationsOpen] = useState(false);
+
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -281,25 +277,7 @@ const Services = () => {
     }
   ];
 
-  const professionalSoftware = [
-    { name: t('adobePremierePro'), category: 'Video', icon: '🎬' },
-    { name: t('adobeAfterEffects'), category: 'Motion', icon: '✨' },
-    { name: t('davinciResolve'), category: 'Color', icon: '🎨' },
-    { name: t('adobePhotoshop'), category: 'Design', icon: '🖼️' },
-    { name: t('adobeIllustrator'), category: 'Vector', icon: '✏️' },
-  ];
 
-  const appsAndTools = [
-    { name: t('figma'), category: 'UI/UX', icon: <FigmaIcon className="w-5 h-5 text-[#F24E1E]" /> },
-    { name: t('canvaPro'), category: 'Quick Design', icon: <CanvaIcon className="w-5 h-5 text-[#00C4CC]" /> },
-    { name: t('capcut'), category: 'Mobile Edit', icon: '📱' },
-  ];
-
-  const upcomingInnovations = [
-    { name: t('aiAgents'), icon: Sparkles },
-    { name: t('scanToDigital'), icon: Monitor },
-    { name: t('creatorAutomation'), icon: Smartphone },
-  ];
 
   const services = mode === 'institutional' ? institutionalServices : creatorServices;
 
@@ -492,80 +470,7 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Creator Mode: Structured Sections */}
-          {mode === 'creator' && (
-            <div className="max-w-3xl mx-auto mb-10 md:mb-12 space-y-4 sm:space-y-5">
-              {/* Professional Software */}
-              <div className="glass-card rounded-xl p-4 sm:p-5 border border-border/20">
-                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <Monitor className="w-4 h-4 sm:w-5 sm:h-5 text-creator" />
-                  <h3 className="font-medium text-sm sm:text-base">{t('professionalSoftware')}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {professionalSoftware.map((software, i) => (
-                    <span key={i} className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg bg-creator/10 text-foreground/70 border border-creator/20 hover:bg-creator/15 transition-colors">
-                      <span className="text-base">{software.icon}</span>
-                      <span>{software.name}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
 
-              {/* Apps & Tools */}
-              <div className="glass-card rounded-xl p-4 sm:p-5 border border-border/20">
-                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-creator" />
-                  <h3 className="font-medium text-sm sm:text-base">{t('appsAndTools')}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {appsAndTools.map((tool, i) => (
-                    <span key={i} className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg bg-creator/10 text-foreground/70 border border-creator/20 hover:bg-creator/15 transition-colors">
-                      <span className="text-base">{tool.icon}</span>
-                      <span>{tool.name}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Upcoming Innovations - Collapsible */}
-              <Collapsible open={isInnovationsOpen} onOpenChange={setIsInnovationsOpen}>
-                <div className="glass-card rounded-xl border border-border/20 overflow-hidden">
-                  <CollapsibleTrigger className="w-full p-4 sm:p-5 flex items-center justify-between hover:bg-foreground/[0.02] transition-colors">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-creator" />
-                      <h3 className="font-medium text-sm sm:text-base">{t('upcomingInnovations')}</h3>
-                    </div>
-                    {isInnovationsOpen ? (
-                      <ChevronUp className="w-4 h-4 text-foreground/40" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-foreground/40" />
-                    )}
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-border/10">
-                      <div className="space-y-3">
-                        {upcomingInnovations.map((item, i) => {
-                          const Icon = item.icon;
-                          return (
-                            <div key={i} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-foreground/60">
-                              <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-creator/60" />
-                              <span>{item.name}</span>
-                              <span className="ml-auto px-2 py-0.5 text-[10px] rounded bg-creator/20 text-creator">
-                                {t('comingSoon')}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                      <p className="mt-3 sm:mt-4 text-[11px] sm:text-xs text-foreground/40 italic leading-relaxed">
-                        {t('moreDetailsNote')}
-                      </p>
-                    </div>
-                  </CollapsibleContent>
-                </div>
-              </Collapsible>
-            </div>
-          )}
 
           {/* Services Section */}
           <div className="pb-16 md:pb-20">

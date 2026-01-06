@@ -35,13 +35,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             {/* Background */}
             <div className="absolute inset-0 bg-background" />
 
-            {/* Ambient light - subtle mode glow */}
-            <div
-                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full blur-[120px] transition-all duration-1000 ${mode === 'institutional'
-                    ? 'bg-institutional/[0.03]'
-                    : 'bg-creator/[0.03]'
-                    }`}
-            />
+
 
             {/* Cursor Light - Lazy loaded */}
             <Suspense fallback={null}>

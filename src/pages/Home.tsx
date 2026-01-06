@@ -138,7 +138,7 @@ const Home = () => {
                   : 'bg-creator hover:bg-creator/90'
                   }`}
               >
-                {mode === 'institutional' ? t('viewServices') : t('seePortfolio')}
+                {mode === 'institutional' ? t('viewServices') : t('viewServices')}
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
               <Link
