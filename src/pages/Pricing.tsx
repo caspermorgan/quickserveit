@@ -24,12 +24,13 @@ import {
 } from 'lucide-react';
 
 const Pricing = () => {
-  const { mode, setHasEntered } = useMode();
+  const { mode, setHasEntered, setCurrentSection } = useMode();
   const navigate = useNavigate();
   const [activeServiceTab, setActiveServiceTab] = useState(0);
 
   const handleReturn = () => {
     setHasEntered(false);
+    setCurrentSection(mode);
     navigate('/');
   };
 

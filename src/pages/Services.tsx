@@ -161,13 +161,13 @@ const softwareIconMap: Record<string, { icon: React.ElementType, color: string, 
 };
 
 const Services = () => {
-  const { mode, setHasEntered } = useMode();
+  const { mode, setHasEntered, setCurrentSection } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-
   const handleReturn = () => {
     setHasEntered(false);
+    setCurrentSection(mode); // Persist current section before returning
     navigate('/');
   };
 

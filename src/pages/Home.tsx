@@ -16,12 +16,13 @@ import { DisplayText, BodyLarge } from '@/components/Typography';
 import { ArrowRight, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 
 const Home = () => {
-  const { mode, setHasEntered } = useMode();
+  const { mode, setHasEntered, setCurrentSection } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleReturn = () => {
     setHasEntered(false);
+    setCurrentSection(mode); // Persist current section before returning
     navigate('/');
   };
 

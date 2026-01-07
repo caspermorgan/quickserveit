@@ -5,7 +5,7 @@ import { useMode } from '@/context/ModeContext';
 import LandingView from '@/components/LandingView';
 
 const Landing = () => {
-  const { mode, setMode, setHasEntered } = useMode();
+  const { mode, setMode, setHasEntered, setCurrentSection } = useMode();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const navigate = useNavigate();
 
@@ -14,6 +14,7 @@ const Landing = () => {
 
     setTimeout(() => {
       setHasEntered(true);
+      setCurrentSection(mode); // Set current section based on selected mode
       navigate('/home');
     }, 800);
   };

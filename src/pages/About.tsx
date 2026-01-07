@@ -9,12 +9,13 @@ import Footer from '@/components/Footer';
 import { Shield, Target, Users, Zap, Eye, Clock } from 'lucide-react';
 
 const About = () => {
-  const { mode, setHasEntered } = useMode();
+  const { mode, setHasEntered, setCurrentSection } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleReturn = () => {
     setHasEntered(false);
+    setCurrentSection(mode);
     navigate('/');
   };
 

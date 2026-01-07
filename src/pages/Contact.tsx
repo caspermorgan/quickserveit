@@ -11,7 +11,7 @@ import { Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle, Zap, X, Sparkl
 import { toast } from 'sonner';
 
 const Contact = () => {
-  const { mode, setHasEntered } = useMode();
+  const { mode, setHasEntered, setCurrentSection } = useMode();
   const navigate = useNavigate();
   const location = useLocation();
   const [showContextBadge, setShowContextBadge] = useState(false);
@@ -56,6 +56,7 @@ const Contact = () => {
 
   const handleReturn = () => {
     setHasEntered(false);
+    setCurrentSection(mode);
     navigate('/');
   };
 
