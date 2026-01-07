@@ -124,7 +124,7 @@ const ServicesSection = ({ mode, isTeaser = false }: ServicesSectionProps) => {
   return (
     <section
       id="services"
-      className="relative py-24 md:py-32 px-6 overflow-hidden"
+      className="relative py-16 md:py-32 px-6 overflow-hidden"
       style={{
         background: mode === 'institutional'
           ? 'linear-gradient(180deg, rgba(43, 96, 56, 0.03) 0%, rgba(0, 0, 0, 0) 50%, rgba(30, 85, 35, 0.02) 100%)'
