@@ -18,7 +18,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
     <button
       onClick={toggleLanguage}
       className={`
-        relative flex items-center h-9 px-1 rounded-full
+        relative flex items-center h-7 md:h-8 px-0.5 md:px-1 rounded-full
         backdrop-blur-md bg-background/20 border border-foreground/10
         shadow-[0_2px_10px_rgba(0,0,0,0.1)] 
         transition-all duration-300 ease-out
@@ -33,20 +33,20 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       {/* Sliding indicator */}
       <span
         className={`
-          absolute top-1 h-7 w-[2.375rem] rounded-full
+          absolute top-0.5 md:top-1 h-6 md:h-6 w-[1.875rem] md:w-[2.125rem] rounded-full
           transition-all duration-300 ease-out
           ${mode === 'institutional'
             ? 'bg-institutional/20 shadow-[inset_0_0_8px_rgba(234,179,8,0.2)]'
             : 'bg-creator/20 shadow-[inset_0_0_8px_rgba(34,211,238,0.2)]'
           }
-          ${isEnglish ? 'left-1' : 'left-[calc(100%-2.75rem)]'}
+          ${isEnglish ? 'left-0.5 md:left-1' : 'left-[calc(100%-2rem)] md:left-[calc(100%-2.375rem)]'}
         `}
       />
 
       {/* EN option */}
       <span
         className={`
-          relative z-10 px-3 py-1.5 text-sm font-medium
+          relative z-10 px-2 md:px-2.5 py-1 md:py-1.5 text-xs md:text-sm font-medium
           transition-colors duration-300
           ${isEnglish
             ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
@@ -60,7 +60,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       {/* Hindi option */}
       <span
         className={`
-          relative z-10 px-3 py-1.5 text-sm font-medium
+          relative z-10 px-2 md:px-2.5 py-1 md:py-1.5 text-xs md:text-sm font-medium
           transition-colors duration-300
           ${!isEnglish
             ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
@@ -120,7 +120,6 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     { label: t('home'), href: '/home' },
     { label: t('services'), href: '/services' },
     { label: t('about'), href: '/about' },
-    { label: t('founder'), href: '/founder' },
     { label: t('pricing'), href: '/pricing' },
     { label: t('contact'), href: '/contact' },
   ];

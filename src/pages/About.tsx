@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
-import { Shield, Target, Users, Zap, Eye, Clock } from 'lucide-react';
+import { Shield, Target, Users, Zap, Eye, Clock, Quote, ArrowRight } from 'lucide-react';
 
 const About = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
@@ -78,6 +78,38 @@ const About = () => {
             </div>
           </section>
 
+          {/* Founder's Message Teaser */}
+          <section className="max-w-3xl mx-auto mb-20">
+            <Link
+              to="/founder"
+              className={`
+                block p-8 rounded-2xl glass-card border transition-all duration-300
+                ${mode === 'institutional'
+                  ? 'border-institutional/20 hover:border-institutional/40 hover:bg-institutional/5'
+                  : 'border-creator/20 hover:border-creator/40 hover:bg-creator/5'
+                }
+                group
+              `}
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <Quote className={`w-8 h-8 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <div className="flex-1">
+                  <h2 className="text-2xl font-display mb-2">A Note from the Founder</h2>
+                  <p className="text-foreground/50 text-sm">The story behind quickserveit</p>
+                </div>
+                <ArrowRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              </div>
+
+              <blockquote className="text-lg italic text-foreground/70 leading-relaxed border-l-2 pl-6 mb-4" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.3)' : 'rgba(34,211,238,0.3)' }}>
+                "I built quickserveit because I saw a gap — institutions drowning in digital chaos, creators struggling with inconsistent quality. Both needed a partner who understood their world, not just their tasks."
+              </blockquote>
+
+              <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                Read the full message →
+              </p>
+            </Link>
+          </section>
+
           {/* Who We Serve - Mode Specific */}
           <section className="max-w-4xl mx-auto mb-20">
             <h2 className="text-2xl font-display mb-8 text-center">{t('whoWeServe')}</h2>
@@ -136,6 +168,38 @@ const About = () => {
                 ))}
               </div>
             </div>
+          </section>
+
+          {/* Founder's Message Teaser */}
+          <section className="max-w-3xl mx-auto mb-20">
+            <Link
+              to="/founder"
+              className={`
+                block p-8 rounded-2xl glass-card border transition-all duration-300
+                ${mode === 'institutional'
+                  ? 'border-institutional/20 hover:border-institutional/40 hover:bg-institutional/5'
+                  : 'border-creator/20 hover:border-creator/40 hover:bg-creator/5'
+                }
+                group
+              `}
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <Quote className={`w-8 h-8 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <div className="flex-1">
+                  <h2 className="text-2xl font-display mb-2">A Note from the Founder</h2>
+                  <p className="text-foreground/50 text-sm">The story behind quickserveit</p>
+                </div>
+                <ArrowRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              </div>
+
+              <blockquote className="text-lg italic text-foreground/70 leading-relaxed border-l-2 pl-6 mb-4" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.3)' : 'rgba(34,211,238,0.3)' }}>
+                "I built quickserveit because I saw a gap — institutions drowning in digital chaos, creators struggling with inconsistent quality. Both needed a partner who understood their world, not just their tasks."
+              </blockquote>
+
+              <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                Read the full message →
+              </p>
+            </Link>
           </section>
 
           {/* Working Hours Notice */}
