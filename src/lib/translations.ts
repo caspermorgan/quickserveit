@@ -296,16 +296,105 @@ export const translations = {
     thankYouMessage: 'Thank you for considering quickserveit.',
     theFounder: '— The Founder',
 
-    // Founder Page
+    // Founder Page - Comprehensive Philosophical Content
     founderPageTitle: 'Founder\'s Message',
     founderPageSubtitle: 'A personal message from the founder of quickserveit about our mission, values, and commitment to calm digital execution.',
     aNoteFromFounder: 'A Note from the',
-    founderQuote: '"I built quickserveit because I saw a gap — institutions drowning in digital chaos, creators struggling with inconsistent quality. Both needed a partner who understood their world, not just their tasks."',
-    whyIStartedThis: 'Why I Started This',
-    whyText1: 'Working with schools, I noticed something painful: principals and teachers spending countless hours on documentation instead of education. UDISE+ forms, examination records, government reports — essential work, but exhausting.',
-    whyText2: 'On the other side, I saw talented creators with brilliant ideas but limited production resources. They were creating content that deserved premium polish but couldn\'t afford or access it.',
-    whyText3: 'quickserveit exists to bridge these gaps — not with flashy promises, but with calm, reliable execution.',
-    whatWeBelieve: 'What We Believe',
+    theStoryBehindQuickserve: 'The Story Behind quickserveit',
+
+    // Opening Philosophy - Shared
+    founderOpeningQuote: '"I didn\'t start quickserveit to build a business. I started it to solve a problem that kept me awake at night — watching good people drown in digital chaos while their real work waited."',
+
+    // The Origin Story - INSTITUTIONAL MODE
+    theOriginStory: 'The Origin Story',
+    originInstPara1: 'It started in a small school office in Chandrao. I was helping with UDISE+ data entry, and I watched a principal — a woman who had dedicated 25 years to education — spend her entire Saturday typing student records into a government portal. Her eyes were tired. Her back hurt. And the worst part? This wasn\'t teaching. This wasn\'t mentoring students. This was just... data entry.',
+    originInstPara2: 'That image stayed with me. Here was someone who chose education as a calling, now reduced to a data operator because the system demanded it. The digital revolution that promised efficiency had instead created a new kind of burden — one that fell heaviest on those least equipped to handle it.',
+    originInstPara3: 'I saw this pattern everywhere. Principals buried in compliance paperwork. Teachers spending evenings on exam documentation. Administrative staff overwhelmed by scholarship portals. Good people, doing important work, being crushed by the weight of digital bureaucracy.',
+    originInstPara4: 'I realized: these institutions didn\'t need another software solution. They needed a human partner who could quietly handle the technical burden, so educators could get back to educating.',
+
+    // The Origin Story - CREATOR MODE
+    originCreatorPara1: 'It started when I met a creator — a young educator making brilliant explainer videos on YouTube. His content was gold. His storytelling was captivating. But his editing? Basic. Not because he lacked vision, but because he lacked resources and time.',
+    originCreatorPara2: 'He was spending 12 hours editing a 10-minute video, learning software as he went, when he should have been researching his next topic. The technical barrier was killing his creative momentum. Every hour spent fumbling with editing tools was an hour stolen from content creation.',
+    originCreatorPara3: 'I saw this pattern with other creators too. Brilliant ideas, powerful messages, but trapped in the production bottleneck. They needed professional polish but couldn\'t afford big agencies. They were stuck between amateur quality and professional dreams.',
+    originCreatorPara4: 'I realized: creators didn\'t need another tutorial or plugin. They needed a production partner who understood their vision and could execute it professionally, so they could focus on what they do best — creating content.',
+
+    // The Problem I Saw - INSTITUTIONAL MODE
+    theProblemISaw: 'The Problem I Saw',
+    problemInstPara1: 'The world talks about "digital transformation" like it\'s a gift to education. But for schools, especially in rural areas, it\'s often a curse. They\'re told to digitize everything — attendance, exams, scholarships, compliance reports — but nobody asks: who will do this work?',
+    problemInstPara2: 'Teachers are educators, not data scientists. Principals are leaders, not IT professionals. Yet they\'re expected to master government portals, manage databases, and produce error-free documentation — all while running a school.',
+    problemInstPara3: 'What frustrated me most was the loneliness of it. Schools struggling in silence, too embarrassed to admit they can\'t keep up. Administrators working weekends, sacrificing family time, just to stay compliant. The system demands perfection but provides no support.',
+    problemInstPara4: 'I realized: what schools needed wasn\'t another software tool. They needed a human partner. Someone who understood the pressure, respected the mission of education, and could quietly handle the technical burden.',
+
+    // The Problem I Saw - CREATOR MODE
+    problemCreatorPara1: 'The world tells creators: "Just post consistently" and "Maintain quality." As if editing, thumbnails, color grading, and storytelling are simple tasks anyone can master in their spare time. The advice is everywhere, but the support isn\'t.',
+    problemCreatorPara2: 'The barrier to entry has never been lower — anyone can upload a video. But the barrier to quality has never been higher. Viewers expect cinematic production, perfect pacing, and professional polish. Creators are expected to be videographers, editors, designers, and marketers all at once.',
+    problemCreatorPara3: 'What frustrated me most was watching talented creators burn out. They had the ideas, the passion, the message — but they were drowning in the technical execution. Every hour spent learning editing software was an hour not spent creating content.',
+    problemCreatorPara4: 'I realized: what creators needed wasn\'t another tutorial or template. They needed a production partner. Someone who understood their vision, respected their craft, and could handle the technical execution professionally.',
+
+    // Core Philosophy - Shared (applies to both modes)
+    corePhilosophy: 'Core Philosophy',
+    philosophyIntro: 'quickserveit is built on principles I refuse to compromise:',
+
+    principle1Title: 'Calm Over Chaos',
+    principle1Text: 'Every interaction with quickserveit should reduce your stress, not add to it. No aggressive sales calls. No pushy follow-ups. No artificial urgency. If you message us, we respond with clarity and respect. If we can\'t help, we say so honestly. Your peace of mind is non-negotiable.',
+
+    principle2Title: 'Clarity Over Confusion',
+    principle2Text: 'You will always know where your work stands. Clear timelines. Honest estimates. If something delays, you hear about it immediately — with a reason and a revised plan. No vague promises. No disappearing acts. Transparency isn\'t a feature; it\'s the foundation.',
+
+    principle3Title: 'Confidentiality as Sacred Trust',
+    principle3Text: 'Your data — student records, exam papers, raw footage, scripts — is treated with the discretion it deserves. We don\'t showcase your work without permission. We don\'t discuss your projects publicly. What you share with us stays with us. Trust, once broken, can never be fully repaired. We guard it fiercely.',
+
+    principle4Title: 'Quality Without Ego',
+    principle4Text: 'We don\'t need credit. We don\'t need our name on your work. What we need is for your work to succeed. When a school\'s scholarship applications get approved, that\'s our win. When a creator\'s video hits 100K views, that\'s our satisfaction. We exist in the background, making you look good.',
+
+    principle5Title: 'Focused Expertise Over Scattered Services',
+    principle5Text: 'We don\'t do everything. We do institutional documentation and creator production — deeply and well. We say no to web development, app building, social media management, and other profitable services — because dilution kills quality. Our focus is our strength.',
+
+    // What Drives Me - INSTITUTIONAL MODE
+    whatDrivesMe: 'What Drives Me',
+    driveInstPara1: 'I think about that principal often. The one who spent her Saturday on data entry. I wonder how many Saturdays she\'s lost to administrative work that could have been delegated. How many students missed out on her mentorship because she was buried in paperwork.',
+    driveInstPara2: 'I think about the teachers who stay late, not to plan lessons, but to format exam papers. The administrators who sacrifice weekends to meet compliance deadlines. The educators who chose this profession to shape young minds, not to wrestle with government portals.',
+    driveInstPara3: 'That\'s what drives me. Not revenue. Not scale. Not building an empire. I want to give time back to educators. I want principals to lead, teachers to teach, and administrators to focus on students — not spreadsheets.',
+    driveInstPara4: 'This isn\'t just a service business. It\'s a mission. Because when you free an educator from digital overwhelm, you don\'t just complete a task — you restore their capacity to do what they were called to do. That\'s transformational.',
+
+    // What Drives Me - CREATOR MODE
+    driveCreatorPara1: 'I think about that creator often. The one editing until 2 AM, eyes burning, wondering if it\'s worth it. I think about the videos he didn\'t make because he was stuck in the technical weeds. The ideas that died because execution felt impossible.',
+    driveCreatorPara2: 'I think about the creators with powerful messages but amateur production. The educators building courses who spend more time editing than teaching. The storytellers whose vision deserves cinematic quality but can\'t afford big agencies.',
+    driveCreatorPara3: 'That\'s what drives me. Not revenue. Not scale. Not building an empire. I want to give time back to creators. I want them to focus on storytelling, not software. I want to be the invisible force that makes professional production accessible.',
+    driveCreatorPara4: 'This isn\'t just a service business. It\'s a mission. Because when you free a creator from technical overwhelm, you don\'t just edit a video — you enable them to share their message with the world. That\'s transformational.',
+
+    // The Vision - INSTITUTIONAL MODE
+    theVisionAhead: 'The Vision Ahead',
+    visionInstPara1: 'I don\'t want quickserveit to be the biggest. I want it to be the most trusted partner for educational institutions. I want schools to think of us first when they\'re drowning in compliance work. I want educators to know their data is in safe hands.',
+    visionInstPara2: 'Five years from now, I see quickserveit as the quiet constant that schools rely on. Not flashy, not famous, but deeply reliable. The kind of partner you don\'t have to worry about. The kind of service that just works, every time, without drama.',
+    visionInstPara3: 'I see us helping more schools navigate the digital burden without losing their soul. I see principals spending weekends with family, not with UDISE+ portals. I see teachers focused on lesson plans, not exam formatting. I see education reclaiming its time.',
+    visionInstPara4: 'We won\'t chase trends. We won\'t pivot to whatever\'s hot. We\'ll stay focused on institutional documentation, stay humble, and stay committed to the educators who trust us with their most important work.',
+
+    // The Vision - CREATOR MODE
+    visionCreatorPara1: 'I don\'t want quickserveit to be the biggest production house. I want it to be the most trusted partner for content creators. I want creators to know that when they send us their raw footage, it\'s in safe hands and will come back with professional polish.',
+    visionCreatorPara2: 'Five years from now, I see quickserveit as the quiet constant that creators rely on. Not flashy, not famous, but deeply reliable. The kind of partner you don\'t have to worry about. The kind of production quality that just works, every time.',
+    visionCreatorPara3: 'I see us enabling more creators to focus on storytelling instead of software. I see YouTubers spending time on research, not rendering. I see educators building courses, not learning editing tools. I see creators reclaiming their creative time.',
+    visionCreatorPara4: 'We won\'t chase trends. We won\'t pivot to whatever\'s hot. We\'ll stay focused on creator production, stay humble, and stay committed to the storytellers who trust us with their vision.',
+
+    // A Personal Promise - Shared
+    aPersonalPromise: 'A Personal Promise',
+    promisePara1: 'If you choose to work with quickserveit, here\'s what I promise you personally:',
+    promisePara2: 'I promise we will treat your work like it matters — because it does. Whether it\'s a scholarship form or a YouTube video, it represents someone\'s effort, someone\'s hope, someone\'s livelihood. We will handle it with care.',
+    promisePara3: 'I promise we will communicate honestly. If we make a mistake, we\'ll own it. If we can\'t meet a deadline, you\'ll know immediately. If something is outside our expertise, we\'ll say so instead of fumbling through it.',
+    promisePara4: 'I promise we will respect your time. No unnecessary meetings. No fluff emails. No "just checking in" messages that waste your day. When we reach out, it\'s because there\'s something you need to know.',
+    promisePara5: 'And I promise we will never take your trust for granted. Every project, every interaction, every file we handle — we treat it as an opportunity to prove we deserve your confidence.',
+
+    // Closing Reflection - Shared
+    closingReflection: 'A Final Thought',
+    closingPara1: 'Building quickserveit has taught me something profound: the best businesses aren\'t built on clever marketing or aggressive growth. They\'re built on solving real problems for real people, with real integrity.',
+    closingPara2: 'Every time someone tells me, "You saved me so much time," or "This is exactly what I imagined" — that\'s when I know we\'re on the right path.',
+    closingPara3: 'This isn\'t just a service. It\'s a commitment. A commitment to being the partner you wish existed when you were struggling alone. A commitment to making digital work feel less overwhelming and more manageable.',
+    closingPara4: 'Thank you for taking the time to read this. Thank you for considering quickserveit. And if you do choose to work with us — thank you for trusting us with your work. We won\'t let you down.',
+
+    // Signature - Shared
+    withGratitude: 'With gratitude and commitment,',
+    theFounder: '— The Founder',
+    quickserveitTeam: 'quickserveit',
 
     // Pricing Page
     transparentPricing: 'Transparent Pricing',
@@ -1287,5 +1376,81 @@ export const translations = {
     readyToEliminateChaos: 'डिजिटल अराजकता खत्म करने के लिए तैयार हैं?',
     readyToDisintegrate: 'प्रतिस्पर्धा को मिटाने के लिए तैयार हैं?',
     initializeContact: 'संपर्क शुरू करें',
+
+    // Founder Page - Hindi Comprehensive Philosophical Content
+    founderPageTitle: 'संस्थापक का संदेश',
+    founderPageSubtitle: 'quickserveit के संस्थापक का हमारे मिशन, मूल्यों और शांत डिजिटल निष्पादन के प्रति प्रतिबद्धता के बारे में व्यक्तिगत संदेश।',
+    aNoteFromFounder: 'संस्थापक की ओर से',
+    theStoryBehindQuickserve: 'quickserveit के पीछे की कहानी',
+
+    // Opening Philosophy - Hindi
+    founderOpeningQuote: '"मैंने quickserveit को व्यवसाय बनाने के लिए शुरू नहीं किया। मैंने इसे एक समस्या हल करने के लिए शुरू किया जो मुझे रात में जगाए रखती थी — अच्छे लोगों को डिजिटल अराजकता में डूबते देखना जबकि उनका असली काम इंतजार कर रहा था।"',
+
+    // The Origin Story - Deep Dive - Hindi
+    theOriginStory: 'शुरुआत की कहानी',
+    originPara1: 'यह चंद्रांव के एक छोटे स्कूल कार्यालय में शुरू हुआ। मैं UDISE+ डेटा एंट्री में मदद कर रहा था, और मैंने एक प्रिंसिपल को देखा — एक महिला जिसने शिक्षा के लिए 25 साल समर्पित किए थे — अपना पूरा शनिवार सरकारी पोर्टल में छात्र रिकॉर्ड टाइप करते हुए बिताते हुए। उनकी आंखें थकी हुई थीं। उनकी पीठ दर्द कर रही थी। और सबसे बुरा हिस्सा? यह पढ़ाना नहीं था। यह छात्रों को मार्गदर्शन देना नहीं था। यह सिर्फ... डेटा एंट्री थी।',
+    originPara2: 'वह छवि मेरे साथ रही। यहां कोई था जिसने शिक्षा को एक बुलावे के रूप में चुना, अब एक डेटा ऑपरेटर में बदल गया क्योंकि सिस्टम ने इसकी मांग की। डिजिटल क्रांति जिसने दक्षता का वादा किया था, उसने इसके बजाय एक नया बोझ पैदा किया था — जो उन लोगों पर सबसे भारी पड़ा जो इसे संभालने के लिए कम से कम सुसज्जित थे।',
+    originPara3: 'उसी समय के आसपास, मैं एक क्रिएटर से मिला — एक युवा शिक्षक जो YouTube पर शानदार एक्सप्लेनर वीडियो बना रहा था। उसका कंटेंट सोना था। लेकिन उसकी एडिटिंग? बेसिक। इसलिए नहीं कि उसमें विज़न की कमी थी, बल्कि इसलिए कि उसके पास संसाधन नहीं थे। वह 10 मिनट के वीडियो को एडिट करने में 12 घंटे बिता रहा था, सीखते हुए, जबकि उसे अपने अगले विषय पर शोध करना चाहिए था।',
+    originPara4: 'दो अलग दुनियाएं। दो अलग संघर्ष। लेकिन एक ही मूल समस्या: प्रतिभाशाली लोग तकनीकी बाधाओं से रोके जा रहे थे जो मौजूद नहीं होनी चाहिए।',
+
+    // The Problem I Saw - Philosophical Depth - Hindi
+    theProblemISaw: 'मैंने जो समस्या देखी',
+    problemPara1: 'दुनिया "डिजिटल परिवर्तन" के बारे में बात करती है जैसे यह एक उपहार है। लेकिन कई लोगों के लिए, यह एक अभिशाप है। स्कूलों को सब कुछ डिजिटाइज़ करने के लिए कहा जाता है — उपस्थिति, परीक्षा, छात्रवृत्ति, अनुपालन रिपोर्ट — लेकिन कोई नहीं पूछता: यह काम कौन करेगा? शिक्षक शिक्षक हैं, डेटा वैज्ञानिक नहीं। प्रिंसिपल नेता हैं, आईटी पेशेवर नहीं।',
+    problemPara2: 'और क्रिएटर्स? उन्हें कहा जाता है "बस लगातार पोस्ट करें" और "गुणवत्ता बनाए रखें।" जैसे कि एडिटिंग, थंबनेल, SEO, और कहानी कहना सरल कार्य हैं जिन्हें कोई भी अपने खाली समय में मास्टर कर सकता है। प्रवेश की बाधा कभी इतनी कम नहीं रही, लेकिन गुणवत्ता की बाधा कभी इतनी ऊंची नहीं रही।',
+    problemPara3: 'जो चीज़ मुझे सबसे ज़्यादा निराश करती थी वह थी इसकी अकेलापन। स्कूल चुपचाप संघर्ष कर रहे हैं, यह स्वीकार करने में बहुत शर्मिंदा हैं कि वे बनाए नहीं रख सकते। क्रिएटर्स जल रहे हैं, सोच रहे हैं कि उनका जुनून दूसरी नौकरी क्यों लगता है। हर कोई दिखावा कर रहा है कि उन्होंने इसे समझ लिया है।',
+    problemPara4: 'मुझे एहसास हुआ: उन्हें एक और सॉफ्टवेयर टूल की ज़रूरत नहीं थी। उन्हें एक मानव साथी की ज़रूरत थी। कोई जो दबाव को समझता हो, शिल्प का सम्मान करता हो, और चुपचाप तकनीकी बोझ संभाल सके ताकि वे अपने सबसे अच्छे काम पर ध्यान केंद्रित कर सकें।',
+
+    // Core Philosophy - Deeper Principles - Hindi
+    corePhilosophy: 'मूल दर्शन',
+    philosophyIntro: 'quickserveit उन सिद्धांतों पर बनाया गया है जिनसे मैं समझौता करने से इनकार करता हूं:',
+
+    principle1Title: 'अराजकता पर शांति',
+    principle1Text: 'quickserveit के साथ हर बातचीत आपके तनाव को कम करनी चाहिए, इसे बढ़ाना नहीं। कोई आक्रामक बिक्री कॉल नहीं। कोई दबाव वाले फॉलो-अप नहीं। कोई कृत्रिम तात्कालिकता नहीं। यदि आप हमें संदेश भेजते हैं, तो हम स्पष्टता और सम्मान के साथ जवाब देते हैं। यदि हम मदद नहीं कर सकते, तो हम ईमानदारी से कहते हैं। आपकी मानसिक शांति गैर-परक्राम्य है।',
+
+    principle2Title: 'भ्रम पर स्पष्टता',
+    principle2Text: 'आप हमेशा जानेंगे कि आपका काम कहां खड़ा है। स्पष्ट समय-सीमा। ईमानदार अनुमान। यदि कुछ देरी होती है, तो आप तुरंत इसके बारे में सुनते हैं — एक कारण और एक संशोधित योजना के साथ। कोई अस्पष्ट वादे नहीं। कोई गायब होने वाले कार्य नहीं। पारदर्शिता एक फीचर नहीं है; यह नींव है।',
+
+    principle3Title: 'पवित्र विश्वास के रूप में गोपनीयता',
+    principle3Text: 'आपका डेटा — छात्र रिकॉर्ड, परीक्षा पत्र, कच्चा फुटेज, स्क्रिप्ट — उस विवेक के साथ व्यवहार किया जाता है जिसके वह हकदार है। हम अनुमति के बिना आपके काम को प्रदर्शित नहीं करते। हम सार्वजनिक रूप से आपकी परियोजनाओं पर चर्चा नहीं करते। आप जो हमारे साथ साझा करते हैं वह हमारे साथ रहता है। विश्वास, एक बार टूट जाने पर, कभी पूरी तरह से मरम्मत नहीं किया जा सकता। हम इसे उग्रता से रक्षा करते हैं।',
+
+    principle4Title: 'अहंकार के बिना गुणवत्ता',
+    principle4Text: 'हमें श्रेय की ज़रूरत नहीं है। हमें आपके काम पर हमारे नाम की ज़रूरत नहीं है। हमें जो चाहिए वह है आपके काम की सफलता। जब किसी स्कूल के छात्रवृत्ति आवेदन स्वीकृत हो जाते हैं, तो यह हमारी जीत है। जब किसी क्रिएटर का वीडियो 100K व्यूज़ हिट करता है, तो यह हमारी संतुष्टि है। हम पृष्ठभूमि में मौजूद हैं, आपको अच्छा दिखाते हैं।',
+
+    principle5Title: 'बिखरी सेवाओं पर केंद्रित विशेषज्ञता',
+    principle5Text: 'हम सब कुछ नहीं करते। हम दो चीजें गहराई से करते हैं: संस्थागत दस्तावेज़ीकरण और क्रिएटर प्रोडक्शन। हम वेब डेवलपमेंट, ऐप बिल्डिंग, सोशल मीडिया मैनेजमेंट, और एक दर्जन अन्य लाभदायक सेवाओं को ना कहते हैं — क्योंकि कमजोर पड़ना गुणवत्ता को मारता है। हमारा फोकस हमारी ताकत है।',
+
+    // What Drives Me - Personal Motivation - Hindi
+    whatDrivesMe: 'मुझे क्या प्रेरित करता है',
+    drivePara1: 'मैं उस प्रिंसिपल के बारे में अक्सर सोचता हूं। वह जिसने अपना शनिवार डेटा एंट्री पर बिताया। मैं सोचता हूं कि उन्होंने कितने शनिवार प्रशासनिक काम में खो दिए जो सौंपे जा सकते थे। कितने छात्र उनके मार्गदर्शन से चूक गए क्योंकि वे कागजी कार्रवाई में दबी हुई थीं।',
+    drivePara2: 'मैं उस क्रिएटर के बारे में भी सोचता हूं। वह जो सुबह 2 बजे तक एडिट कर रहा था, आंखें जल रही थीं, सोच रहा था कि क्या यह इसके लायक है। मैं उन वीडियो के बारे में सोचता हूं जो उसने नहीं बनाए क्योंकि वह तकनीकी खरपतवार में फंसा हुआ था। वे विचार जो मर गए क्योंकि निष्पादन असंभव लगा।',
+    drivePara3: 'यही मुझे प्रेरित करता है। राजस्व नहीं। पैमाना नहीं। एक साम्राज्य बनाना नहीं। मैं उन लोगों को समय वापस देना चाहता हूं जो इसके हकदार हैं। मैं चाहता हूं कि शिक्षक शिक्षित करें। मैं चाहता हूं कि क्रिएटर्स बनाएं। और मैं वह अदृश्य शक्ति बनना चाहता हूं जो इसे संभव बनाती है।',
+    drivePara4: 'कुछ इसे सेवा व्यवसाय कहते हैं। मैं इसे एक मिशन कहता हूं। क्योंकि जब आप किसी को डिजिटल अभिभूत से मुक्त करते हैं, तो आप सिर्फ एक कार्य पूरा नहीं करते — आप सार्थक काम करने की उनकी क्षमता को बहाल करते हैं। यह लेन-देन नहीं है। यह परिवर्तनकारी है।',
+
+    // The Vision - Long-term Aspiration - Hindi
+    theVisionAhead: 'आगे का दृष्टिकोण',
+    visionPara1: 'मैं नहीं चाहता कि quickserveit सबसे बड़ा हो। मैं चाहता हूं कि यह सबसे भरोसेमंद हो। मैं चाहता हूं कि स्कूल हमारे बारे में पहले सोचें जब वे अनुपालन काम में डूब रहे हों। मैं चाहता हूं कि क्रिएटर्स जानें कि जब वे हमें अपना कच्चा फुटेज भेजते हैं, तो यह सुरक्षित हाथों में है।',
+    visionPara2: 'पांच साल बाद, मैं quickserveit को एक शांत स्थिरांक के रूप में देखता हूं — चमकदार नहीं, प्रसिद्ध नहीं, बल्कि गहराई से विश्वसनीय। वह प्रकार का साथी जिसके बारे में आपको चिंता करने की ज़रूरत नहीं है। वह प्रकार की सेवा जो बस काम करती है, हर बार, बिना नाटक के।',
+    visionPara3: 'मैं देखता हूं कि हम अधिक स्कूलों को अपनी आत्मा खोए बिना डिजिटल बोझ को नेविगेट करने में मदद कर रहे हैं। मैं देखता हूं कि हम अधिक क्रिएटर्स को सॉफ्टवेयर के बजाय कहानी कहने पर ध्यान केंद्रित करने में सक्षम बना रहे हैं। और मैं देखता हूं कि हम यह सब उसी शांत, केंद्रित दृष्टिकोण के साथ कर रहे हैं जिसके साथ हमने शुरुआत की थी।',
+    visionPara4: 'हम रुझानों का पीछा नहीं करेंगे। हम जो भी गर्म है उसमें पिवट नहीं करेंगे। हम केंद्रित रहेंगे, विनम्र रहेंगे, और उन लोगों के प्रति प्रतिबद्ध रहेंगे जो हमें अपने सबसे महत्वपूर्ण काम के साथ भरोसा करते हैं।',
+
+    // A Personal Promise - Hindi
+    aPersonalPromise: 'एक व्यक्तिगत वादा',
+    promisePara1: 'यदि आप quickserveit के साथ काम करना चुनते हैं, तो यहां वह है जो मैं आपसे व्यक्तिगत रूप से वादा करता हूं:',
+    promisePara2: 'मैं वादा करता हूं कि हम आपके काम को ऐसे व्यवहार करेंगे जैसे यह मायने रखता है — क्योंकि यह मायने रखता है। चाहे वह छात्रवृत्ति फॉर्म हो या YouTube वीडियो, यह किसी के प्रयास, किसी की आशा, किसी की आजीविका का प्रतिनिधित्व करता है। हम इसे देखभाल के साथ संभालेंगे।',
+    promisePara3: 'मैं वादा करता हूं कि हम ईमानदारी से संवाद करेंगे। यदि हम गलती करते हैं, तो हम इसे स्वीकार करेंगे। यदि हम समय सीमा को पूरा नहीं कर सकते, तो आप तुरंत जानेंगे। यदि कुछ हमारी विशेषज्ञता के बाहर है, तो हम इसे फंबल करने के बजाय कहेंगे।',
+    promisePara4: 'मैं वादा करता हूं कि हम आपके समय का सम्मान करेंगे। कोई अनावश्यक बैठकें नहीं। कोई फुलाने वाले ईमेल नहीं। कोई "बस चेक इन" संदेश नहीं जो आपके दिन को बर्बाद करते हैं। जब हम संपर्क करते हैं, तो यह इसलिए है क्योंकि कुछ है जो आपको जानने की ज़रूरत है।',
+    promisePara5: 'और मैं वादा करता हूं कि हम कभी भी आपके विश्वास को हल्के में नहीं लेंगे। हर परियोजना, हर बातचीत, हर फाइल जो हम संभालते हैं — हम इसे एक अवसर के रूप में मानते हैं कि हम आपके विश्वास के योग्य हैं।',
+
+    // Closing Reflection - Hindi
+    closingReflection: 'एक अंतिम विचार',
+    closingPara1: 'quickserveit बनाने ने मुझे कुछ गहरा सिखाया है: सर्वश्रेष्ठ व्यवसाय चतुर मार्केटिंग या आक्रामक विकास पर नहीं बनाए जाते। वे वास्तविक लोगों के लिए वास्तविक समस्याओं को हल करने पर बनाए जाते हैं, वास्तविक अखंडता के साथ।',
+    closingPara2: 'हर बार जब कोई स्कूल प्रिंसिपल मुझे बताता है, "आपने मुझे बहुत समय बचाया," या कोई क्रिएटर कहता है, "यह एडिट बिल्कुल वैसा ही है जैसा मैंने कल्पना की थी" — तभी मुझे पता चलता है कि हम सही रास्ते पर हैं।',
+    closingPara3: 'यह सिर्फ एक सेवा नहीं है। यह एक प्रतिबद्धता है। वह साथी होने की प्रतिबद्धता जिसकी आप चाहते थे कि जब आप अकेले संघर्ष कर रहे थे तब मौजूद होता। डिजिटल काम को कम भारी और अधिक प्रबंधनीय महसूस कराने की प्रतिबद्धता।',
+    closingPara4: 'इसे पढ़ने के लिए समय निकालने के लिए धन्यवाद। quickserveit पर विचार करने के लिए धन्यवाद। और यदि आप हमारे साथ काम करना चुनते हैं — अपने काम के साथ हमें भरोसा करने के लिए धन्यवाद। हम आपको निराश नहीं करेंगे।',
+
+    // Signature - Hindi
+    withGratitude: 'कृतज्ञता और प्रतिबद्धता के साथ,',
+    theFounder: '— संस्थापक',
+    quickserveitTeam: 'quickserveit',
   }
 } as const;

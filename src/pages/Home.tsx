@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import ServicesTeaser from '@/components/ServicesTeaser';
-import FeaturedWork from '@/components/FeaturedWork';
+import HowWeWork from '@/components/HowWeWork';
 import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
 import { DisplayText, BodyLarge } from '@/components/Typography';
@@ -183,8 +183,8 @@ const Home = () => {
         {/* Services Teaser - Top 3 Only */}
         <ServicesTeaser mode={mode} />
 
-        {/* Featured Work - Single Project Spotlight */}
-        <FeaturedWork mode={mode} />
+        {/* How We Work - Process Overview */}
+        <HowWeWork mode={mode} />
 
         {/* Tech Ticker - Trust Signal */}
         <TechTicker mode={mode} />
