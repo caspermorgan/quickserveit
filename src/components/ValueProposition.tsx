@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Shield, Clock, Heart, Zap } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { H2, BodyLarge, H4, BodySmall } from '@/components/Typography';
 
 interface ValuePropositionProps {
     mode: 'institutional' | 'creator';
@@ -58,7 +59,7 @@ const ValueProposition = ({ mode }: ValuePropositionProps) => {
     return (
         <section className="py-20 md:py-32 px-6">
             <div className="max-w-6xl mx-auto">
-                {/* Section Header */}
+                {/* Section Header - Typography System */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -66,12 +67,12 @@ const ValueProposition = ({ mode }: ValuePropositionProps) => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
+                    <H2 className="mb-4">
                         {t('whyChooseUsTitle')}
-                    </h2>
-                    <p className="text-base md:text-lg text-foreground/60 max-w-2xl mx-auto">
+                    </H2>
+                    <BodyLarge className="text-foreground/60 max-w-2xl mx-auto">
                         {t('whyChooseUsSubtitle')}
-                    </p>
+                    </BodyLarge>
                 </motion.div>
 
                 {/* Value Cards Grid */}
@@ -94,22 +95,22 @@ const ValueProposition = ({ mode }: ValuePropositionProps) => {
                                 <div className="relative p-6 md:p-8">
                                     {/* Icon */}
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${mode === 'institutional'
-                                            ? 'bg-institutional/10 group-hover:bg-institutional/20'
-                                            : 'bg-creator/10 group-hover:bg-creator/20'
+                                        ? 'bg-institutional/10 group-hover:bg-institutional/20'
+                                        : 'bg-creator/10 group-hover:bg-creator/20'
                                         }`}>
                                         <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                                             }`} />
                                     </div>
 
-                                    {/* Title */}
-                                    <h3 className="text-lg font-semibold mb-2 text-foreground">
+                                    {/* Title - Typography System: H4 */}
+                                    <H4 className="mb-2 text-foreground">
                                         {t(value.titleKey)}
-                                    </h3>
+                                    </H4>
 
-                                    {/* Description */}
-                                    <p className="text-sm text-foreground/60 leading-relaxed">
+                                    {/* Description - Typography System: BodySmall */}
+                                    <BodySmall className="text-foreground/60">
                                         {t(value.descKey)}
-                                    </p>
+                                    </BodySmall>
                                 </div>
                             </motion.div>
                         );

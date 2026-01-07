@@ -12,6 +12,7 @@ import ServicesTeaser from '@/components/ServicesTeaser';
 import FeaturedWork from '@/components/FeaturedWork';
 import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
+import { DisplayText, BodyLarge } from '@/components/Typography';
 import { ArrowRight, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 
 const Home = () => {
@@ -100,10 +101,10 @@ const Home = () => {
           <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
 
           <div className="relative max-w-5xl mx-auto text-center z-10">
-            {/* Main Heading - Premium Typography */}
-            <h1 className={`text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-8 leading-[1.1] ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            {/* Main Heading - Typography System: DisplayText */}
+            <DisplayText className={`mb-8 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
-            </h1>
+            </DisplayText>
 
             {/* Compact Typewriter Subtitle */}
             <div className="mb-10 flex justify-center">
@@ -117,10 +118,10 @@ const Home = () => {
               />
             </div>
 
-            {/* Description */}
-            <p className="text-base md:text-lg lg:text-xl text-foreground/60 max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            {/* Description - Typography System: BodyLarge */}
+            <BodyLarge className="mb-12 max-w-2xl mx-auto">
               {description}
-            </p>
+            </BodyLarge>
 
             {/* Trust indicators - Enhanced */}
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
