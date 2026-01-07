@@ -62,6 +62,18 @@ export const translations = {
     documents: 'Documents',
     viewsGenerated: 'Views Generated',
 
+    // Stats Section - Institutional
+    statsProjectsCompleted: 'Projects Completed',
+    statsInstitutionsServed: 'Institutions Served',
+    statsClientSatisfaction: 'Client Satisfaction',
+    statsResponseTime: 'Response Time',
+
+    // Stats Section - Creator
+    statsVideosEdited: 'Videos Edited',
+    statsWatchHours: 'Watch Hours Generated',
+    statsCreatorsServed: 'Creators Served',
+    statsTurnaroundTime: 'Turnaround Time',
+
     // Contact Form
     contactTitle: 'Get In Touch',
     contactSubtitle: 'Ready to discuss your project? Fill out the form below.',
@@ -708,6 +720,18 @@ export const translations = {
     uptimeGuarantee: 'सर्विस गारंटी',
     documents: 'दस्तावेज तैयार किए',
     viewsGenerated: 'व्यूज मिले',
+
+    // Stats Section - Institutional
+    statsProjectsCompleted: 'प्रोजेक्ट पूरे किए',
+    statsInstitutionsServed: 'संस्थानों की सेवा की',
+    statsClientSatisfaction: 'ग्राहक संतुष्टि',
+    statsResponseTime: 'जवाब देने का समय',
+
+    // Stats Section - Creator
+    statsVideosEdited: 'वीडियो एडिट किए',
+    statsWatchHours: 'वॉच आवर्स जनरेट किए',
+    statsCreatorsServed: 'क्रिएटर्स की सेवा की',
+    statsTurnaroundTime: 'काम पूरा करने का समय',
 
     // Contact Form
     contactTitle: 'हमसे बात करें',
