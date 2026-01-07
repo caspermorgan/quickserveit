@@ -74,6 +74,30 @@ export const translations = {
     statsCreatorsServed: 'Creators Served',
     statsTurnaroundTime: 'Turnaround Time',
 
+    // Value Proposition
+    whyChooseUsTitle: 'Why Choose Us',
+    whyChooseUsSubtitle: 'We focus on delivering quality work with personal attention',
+
+    // Institutional Values
+    valueSecurityTitle: 'Data Security',
+    valueSecurityDesc: 'Your school data stays confidential and secure',
+    valueTimelyTitle: 'On-Time Delivery',
+    valueTimelyDesc: 'We respect deadlines and deliver work when promised',
+    valuePersonalTitle: 'Personal Support',
+    valuePersonalDesc: 'Direct communication, no automated responses',
+    valueReliableTitle: 'Reliable Service',
+    valueReliableDesc: 'Consistent quality you can depend on',
+
+    // Creator Values
+    valueQualityTitle: 'Quality First',
+    valueQualityDesc: 'Professional editing that makes your content stand out',
+    valueFastTitle: 'Quick Turnaround',
+    valueFastDesc: 'Fast delivery without compromising on quality',
+    valueCreativeTitle: 'Creative Touch',
+    valueCreativeDesc: 'We understand your vision and bring it to life',
+    valueCommittedTitle: 'Committed Partner',
+    valueCommittedDesc: 'Your success is our success',
+
     // Contact Form
     contactTitle: 'Get In Touch',
     contactSubtitle: 'Ready to discuss your project? Fill out the form below.',
@@ -732,6 +756,30 @@ export const translations = {
     statsWatchHours: 'वॉच आवर्स जनरेट किए',
     statsCreatorsServed: 'क्रिएटर्स की सेवा की',
     statsTurnaroundTime: 'काम पूरा करने का समय',
+
+    // Value Proposition
+    whyChooseUsTitle: 'हमें क्यों चुनें',
+    whyChooseUsSubtitle: 'हम गुणवत्ता और व्यक्तिगत ध्यान के साथ काम करते हैं',
+
+    // Institutional Values
+    valueSecurityTitle: 'डेटा सुरक्षा',
+    valueSecurityDesc: 'आपके स्कूल का डेटा पूरी तरह सुरक्षित रहता है',
+    valueTimelyTitle: 'समय पर डिलीवरी',
+    valueTimelyDesc: 'हम समय सीमा का सम्मान करते हैं',
+    valuePersonalTitle: 'व्यक्तिगत सहायता',
+    valuePersonalDesc: 'सीधी बातचीत, कोई ऑटोमेटिक जवाब नहीं',
+    valueReliableTitle: 'भरोसेमंद सेवा',
+    valueReliableDesc: 'लगातार अच्छी क्वालिटी जिस पर आप भरोसा कर सकें',
+
+    // Creator Values
+    valueQualityTitle: 'क्वालिटी पहले',
+    valueQualityDesc: 'प्रोफेशनल एडिटिंग जो आपके कंटेंट को खास बनाए',
+    valueFastTitle: 'तेज़ डिलीवरी',
+    valueFastDesc: 'क्वालिटी के साथ तेज़ काम',
+    valueCreativeTitle: 'क्रिएटिव टच',
+    valueCreativeDesc: 'हम आपकी सोच को समझते हैं और उसे जीवंत करते हैं',
+    valueCommittedTitle: 'प्रतिबद्ध साथी',
+    valueCommittedDesc: 'आपकी सफलता ही हमारी सफलता है',
 
     // Contact Form
     contactTitle: 'हमसे बात करें',

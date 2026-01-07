@@ -11,6 +11,7 @@ import CreatorModeNotice from '@/components/CreatorModeNotice';
 import ServicesTeaser from '@/components/ServicesTeaser';
 import FeaturedWork from '@/components/FeaturedWork';
 import TechTicker from '@/components/TechTicker';
+import ValueProposition from '@/components/ValueProposition';
 import { ArrowRight, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 
 const Home = () => {
@@ -95,8 +96,8 @@ const Home = () => {
         {/* Hero Section - Premium Redesign */}
         <section className={`relative min-h-screen flex items-center justify-center px-6 py-20 md:py-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
-          {/* Large Gradient Orb Background */}
-          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[800px] h-[800px] top-1/4 left-1/2 -translate-x-1/2`} />
+          {/* Gradient Orb Background - Optimized Size */}
+          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
 
           <div className="relative max-w-5xl mx-auto text-center z-10">
             {/* Main Heading - Premium Typography */}
@@ -167,15 +168,15 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Statistics Section - New Premium Addition */}
-        <StatsSection mode={mode} />
-
         {/* Creator Mode Notice */}
         {mode === 'creator' && (
           <section className="px-6 pb-16">
             <CreatorModeNotice />
           </section>
         )}
+
+        {/* Value Proposition - Why Choose Us */}
+        <ValueProposition mode={mode} />
 
         {/* Services Teaser - Top 3 Only */}
         <ServicesTeaser mode={mode} />

@@ -934,27 +934,23 @@
   background-size: 200% 200%;
 }
 
-/* Animated Gradient Mesh Background */
+/* Optimized Gradient Mesh Background - Static for Performance */
 .mesh-gradient-institutional {
   background: linear-gradient(135deg,
-      rgba(43, 96, 56, 0.05) 0%,
-      rgba(38, 92, 50, 0.03) 25%,
+      rgba(43, 96, 56, 0.03) 0%,
       rgba(0, 0, 0, 0) 50%,
-      rgba(30, 85, 35, 0.03) 75%,
-      rgba(43, 96, 56, 0.05) 100%);
-  background-size: 400% 400%;
-  animation: meshGradient 15s ease infinite;
+      rgba(43, 96, 56, 0.03) 100%);
+  background-size: 100% 100%;
+  /* Removed animation for better performance */
 }
 
 .mesh-gradient-creator {
   background: linear-gradient(135deg,
-      rgba(0, 187, 212, 0.05) 0%,
-      rgba(0, 200, 220, 0.03) 25%,
+      rgba(0, 187, 212, 0.03) 0%,
       rgba(0, 0, 0, 0) 50%,
-      rgba(0, 195, 255, 0.03) 75%,
-      rgba(0, 187, 212, 0.05) 100%);
-  background-size: 400% 400%;
-  animation: meshGradient 15s ease infinite;
+      rgba(0, 187, 212, 0.03) 100%);
+  background-size: 100% 100%;
+  /* Removed animation for better performance */
 }
 
 /* Premium Shadow Utilities */
@@ -1037,7 +1033,8 @@
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(60px);
+  /* Reduced from 100px for better performance */
   opacity: 0.15;
   pointer-events: none;
   z-index: 0;
