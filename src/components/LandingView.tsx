@@ -1,8 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import ModeSwitch from './ModeSwitch';
-import EnterButton from './EnterButton';
-import HeaderStatusBadge from './HeaderStatusBadge';
 import { useTranslation } from '@/hooks/useTranslation';
+import HeaderStatusBadge from './HeaderStatusBadge';
 
 // Lazy load decorative components for better initial load performance
 const ParticleCanvas = lazy(() => import('./ParticleCanvas'));
@@ -17,8 +15,8 @@ interface LandingViewProps {
 }
 
 const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProps) => {
-    const [isLoaded, setIsLoaded] = useState(false);
     const { t } = useTranslation();
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -58,33 +56,123 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             </div>
 
             {/* Content */}
-            <div className={`relative z-40 flex flex-col items-center text-center px-6 -mt-20 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
+            <div className={`relative z-40 flex flex-col items-center text-center px-6 -mt-12 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
-                {/* Brand Name */}
+                {/* Brand Name - Premium Typography */}
                 <h1
-                    className="font-brand text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight md:tracking-tight text-foreground mb-2 font-bold"
-                    style={{ animationDelay: '200ms' }}
+                    className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-foreground mb-3 tracking-[-0.02em]"
+                    style={{
+                        animationDelay: '200ms',
+                        letterSpacing: '-0.02em',
+                        fontWeight: 700
+                    }}
                 >
-                    {t('brandName')}
+                    QuickServe IT
                 </h1>
 
-                {/* Minimal tagline */}
+                {/* Tagline - Minimal & Spaced */}
                 <p
-                    className={`font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase mb-12 md:mb-16 transition-colors duration-700 ${mode === 'institutional' ? 'text-institutional/50' : 'text-creator/50'
-                        }`}
-                    style={{ animationDelay: '400ms' }}
+                    className="font-sans text-sm md:text-base tracking-wide mb-16 md:mb-20 text-foreground/50 font-light"
+                    style={{
+                        animationDelay: '400ms',
+                        letterSpacing: '0.15em'
+                    }}
                 >
-                    {t('brandTagline')}
+                    Your Personal Tech Partner
                 </p>
 
-                {/* Mode Switch */}
-                <div style={{ animationDelay: '600ms' }}>
-                    <ModeSwitch mode={mode} onModeChange={onModeChange} />
-                </div>
+                {/* Decision Cards */}
+                <div
+                    className="flex flex-col md:flex-row gap-6 md:gap-8 w-full max-w-4xl"
+                    style={{ animationDelay: '600ms' }}
+                >
+                    {/* Institutional Card */}
+                    <button
+                        onClick={() => {
+                            onModeChange('institutional');
+                            setTimeout(() => onEnter(), 300);
+                        }}
+                        className={`group relative flex-1 p-8 md:p-10 rounded-2xl transition-all duration-500 ease-out ${mode === 'institutional'
+                            ? 'scale-[1.02]'
+                            : 'hover:scale-[1.02]'
+                            }`}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            backdropFilter: 'blur(40px)',
+                            WebkitBackdropFilter: 'blur(40px)',
+                            border: mode === 'institutional'
+                                ? '1px solid rgba(234, 179, 8, 0.3)'
+                                : '1px solid rgba(255, 255, 255, 0.08)',
+                            boxShadow: mode === 'institutional'
+                                ? '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(234, 179, 8, 0.15), inset 0 0 40px rgba(234, 179, 8, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                                : '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(234, 179, 8, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.08)'
+                        }}
+                    >
+                        {/* Radial ambient glow */}
+                        <div
+                            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                            style={{
+                                background: 'radial-gradient(circle at 50% 50%, rgba(234, 179, 8, 0.08) 0%, transparent 70%)'
+                            }}
+                        />
 
-                {/* Enter Button */}
-                <div style={{ animationDelay: '800ms' }}>
-                    <EnterButton mode={mode} onClick={onEnter} />
+                        <div className="relative z-10 text-left">
+                            <div className="text-xs font-mono tracking-[0.2em] uppercase text-institutional/60 mb-3">
+                                Institutional
+                            </div>
+                            <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-3 tracking-tight">
+                                Compliance & Scale
+                            </h3>
+                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light">
+                                Built for institutions that require reliability, compliance,<br className="hidden md:block" />
+                                and scalable IT systems.
+                            </p>
+                        </div>
+                    </button>
+
+                    {/* Creator Card */}
+                    <button
+                        onClick={() => {
+                            onModeChange('creator');
+                            setTimeout(() => onEnter(), 300);
+                        }}
+                        className={`group relative flex-1 p-8 md:p-10 rounded-2xl transition-all duration-500 ease-out ${mode === 'creator'
+                            ? 'scale-[1.02]'
+                            : 'hover:scale-[1.02]'
+                            }`}
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            backdropFilter: 'blur(40px)',
+                            WebkitBackdropFilter: 'blur(40px)',
+                            border: mode === 'creator'
+                                ? '1px solid rgba(34, 211, 238, 0.3)'
+                                : '1px solid rgba(255, 255, 255, 0.08)',
+                            boxShadow: mode === 'creator'
+                                ? '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(34, 211, 238, 0.15), inset 0 0 40px rgba(34, 211, 238, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                                : '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(34, 211, 238, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.08)'
+                        }}
+                    >
+                        {/* Radial ambient glow */}
+                        <div
+                            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                            style={{
+                                background: 'radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 70%)'
+                            }}
+                        />
+
+                        <div className="relative z-10 text-left">
+                            <div className="text-xs font-mono tracking-[0.2em] uppercase text-creator/60 mb-3">
+                                Creator
+                            </div>
+                            <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-3 tracking-tight">
+                                Growth & Impact
+                            </h3>
+                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed font-light">
+                                For creators, studios, and modern brands focused on reach,<br className="hidden md:block" />
+                                storytelling, and digital impact.
+                            </p>
+                        </div>
+                    </button>
                 </div>
             </div>
 

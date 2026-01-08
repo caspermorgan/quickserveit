@@ -21,10 +21,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Montserrat', 'sans-serif'],
-        body: ['Manrope', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
-        brand: ['Oxanium', 'sans-serif'],
+        brand: ['Space Grotesk', 'sans-serif'],
       },
       fontSize: {
         // Fluid Typography using clamp()

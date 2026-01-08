@@ -180,7 +180,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     /* Improved mobile line-height for better readability */
     line-height: 1.5;
@@ -528,7 +528,7 @@
 
   /* Typography Classes */
   .font-display {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   .font-mono {
@@ -611,6 +611,54 @@
   .scroll-snap-item {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
+  }
+
+  /* Premium Decision Cards - Landing Page */
+  .decision-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.5),
+      0 30px 80px rgba(0, 0, 0, 0.6),
+      inset 0 0 20px rgba(255, 255, 255, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.5s var(--ease-premium);
+  }
+
+  .decision-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.5),
+      0 40px 100px rgba(0, 0, 0, 0.7),
+      inset 0 0 30px rgba(255, 255, 255, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* Mobile optimization for decision cards */
+  @media (max-width: 768px) {
+    .decision-card {
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+    }
+
+    .decision-card:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Touch device optimization */
+  @media (hover: none) and (pointer: coarse) {
+    .decision-card:hover {
+      transform: none;
+    }
+
+    .decision-card:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
   }
 }
 
