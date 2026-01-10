@@ -39,6 +39,12 @@ const About = () => {
         <div className="container mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-20 max-w-3xl mx-auto">
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'} mb-6 animate-fade-in`}>
+              <Shield className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                Our Story
+              </span>
+            </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-6">
               {t('aboutPageTitle')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('brandName')}</span>
             </h1>

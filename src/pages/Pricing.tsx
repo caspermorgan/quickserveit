@@ -195,14 +195,12 @@ const Pricing = () => {
                       </p>
                     </div>
 
-                    <a
-                      href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20a%20quote%20for%20examination%20documentation."
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => navigate('/contact')}
                       className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
                     >
                       Get Instant Quote
-                    </a>
+                    </button>
                   </div>
                 )}
 
@@ -279,14 +277,12 @@ const Pricing = () => {
                       </p>
                     </div>
 
-                    <a
-                      href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20UDISE%2B%20or%20scholarship%20data%20entry%20services."
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => navigate('/contact')}
                       className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
                     >
                       Get Instant Quote
-                    </a>
+                    </button>
                   </div>
                 )}
 
@@ -366,14 +362,12 @@ const Pricing = () => {
                       </p>
                     </div>
 
-                    <a
-                      href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20to%20understand%20your%20terms%20and%20protocol."
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => navigate('/contact')}
                       className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
                     >
-                      View Full Terms
-                    </a>
+                      Contact Us
+                    </button>
                   </div>
                 )}
               </div>
@@ -443,14 +437,12 @@ const Pricing = () => {
                     <p className="text-xs text-foreground/50">Paper typing (₹20-₹30/page)</p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%20monthly%20subscription%20plan."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-institutional hover:bg-institutional hover:text-background"
                   >
                     Start Monthly Plan
-                  </a>
+                  </button>
                 </div>
 
                 {/* 6-Month Plan - HIGHLIGHTED */}
@@ -507,14 +499,12 @@ const Pricing = () => {
                     <p className="text-xs text-foreground/50">Paper typing (₹20-₹30/page)</p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%206-month%20subscription%20plan."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
                   >
                     Start 6-Month Plan
-                  </a>
+                  </button>
                 </div>
 
                 {/* Annual Plan */}
@@ -566,14 +556,12 @@ const Pricing = () => {
                     <p className="text-xs text-foreground/50">Paper typing (₹20-₹30/page)</p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%20annual%20subscription%20plan."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-institutional hover:bg-institutional hover:text-background"
                   >
                     Start Annual Plan
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -591,14 +579,12 @@ const Pricing = () => {
                 </blockquote>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20custom%20pricing%20details%20for%20my%20institution."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-institutional text-background font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-institutional/30"
                   >
                     Get Custom Quote Now
-                  </a>
+                  </button>
                   <p className="text-xs text-foreground/40">
                     💬 Response within 2 hours • No obligation
                   </p>
@@ -691,14 +677,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Starter%20video%20editing."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
 
                 {/* Growth (Simple) */}
@@ -737,14 +721,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Growth%20video%20editing."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
 
                 {/* Authority (Complex) */}
@@ -783,14 +765,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Authority%20video%20editing."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
 
                 {/* Series Plan (Complex) */}
@@ -829,14 +809,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Series%20Plan%20editing."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -878,14 +856,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20viral%20shorts%20editing."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
 
                 {/* Motion Graphics & VFX */}
@@ -924,14 +900,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20motion%20graphics%20or%20VFX."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
 
                 {/* Thumbnails */}
@@ -970,14 +944,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20thumbnail%20design."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1046,14 +1018,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20a%20monthly%20editing%20package."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Start Monthly Plan
-                  </a>
+                  </button>
                 </div>
 
                 {/* Quarterly Package - HIGHLIGHTED */}
@@ -1109,14 +1079,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%20quarterly%20Pro%20Creator%20plan."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-creator text-background hover:shadow-lg hover:shadow-creator/30"
                   >
                     Start Pro Plan
-                  </a>
+                  </button>
                 </div>
 
                 {/* Annual Partnership */}
@@ -1167,14 +1135,12 @@ const Pricing = () => {
                     </p>
                   </div>
 
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20to%20discuss%20the%20Elite%20Partnership."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
                     Explore Elite Plan
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1192,14 +1158,12 @@ const Pricing = () => {
                 </blockquote>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20custom%20pricing%20for%20my%20content%20needs."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => navigate('/contact')}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-creator text-background font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg hover:shadow-creator/30"
                   >
                     Get Custom Quote Now
-                  </a>
+                  </button>
                   <p className="text-xs text-foreground/40">
                     💬 Free consultation • Portfolio review included
                   </p>
