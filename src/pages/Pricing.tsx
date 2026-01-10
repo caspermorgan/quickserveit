@@ -58,11 +58,11 @@ const Pricing = () => {
                 <span className="text-xs font-medium text-institutional">100% Verified Pricing</span>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-5 animate-fade-in-up">
-                <span className="text-institutional">Transparent Value</span> Pricing
+                <span className="text-institutional">Professional</span> Institutional Pricing
               </h1>
               <p className="text-foreground/70 text-lg leading-relaxed mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                Fair pricing for Gorakhpur's educational institutions.<br />
-                <span className="text-foreground/50 text-base">We charge for the value of your peace of mind, not just the typing.</span>
+                Scope-based pricing for serious institutions.<br />
+                <span className="text-foreground/50 text-base">Only what is written here is promised and delivered.</span>
               </p>
 
               {/* Trust Indicators */}
@@ -157,8 +157,8 @@ const Pricing = () => {
                           <p className="text-sm text-foreground/50">Standard documentation & exam papers</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-xl font-bold text-institutional">₹X/page</p>
-                          <p className="text-xs text-foreground/40">Market rate</p>
+                          <p className="text-xl font-bold text-institutional">₹20/page</p>
+                          <p className="text-xs text-foreground/40">Per page</p>
                         </div>
                       </div>
 
@@ -168,19 +168,19 @@ const Pricing = () => {
                           <p className="text-sm text-foreground/50">Unicode formatting • Specialized skill</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-xl font-bold text-institutional">₹X/page</p>
-                          <p className="text-xs text-institutional/60">+25% premium</p>
+                          <p className="text-xl font-bold text-institutional">₹25/page</p>
+                          <p className="text-xs text-institutional/60">Per page</p>
                         </div>
                       </div>
 
                       <div className="flex items-start justify-between gap-4 p-4 rounded-lg bg-institutional/5 border border-institutional/10">
                         <div className="flex-1">
-                          <p className="font-medium text-foreground mb-1">Complex Subjects</p>
-                          <p className="text-sm text-foreground/50">Science, Math, Chemistry with equations & diagrams</p>
+                          <p className="font-medium text-foreground mb-1">Maths / Science</p>
+                          <p className="text-sm text-foreground/50">Formulas, diagrams, equations</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-xl font-bold text-institutional">₹X/page</p>
-                          <p className="text-xs text-institutional/60">+50% premium</p>
+                          <p className="text-xl font-bold text-institutional">₹30/page</p>
+                          <p className="text-xs text-institutional/60">Per page</p>
                         </div>
                       </div>
                     </div>
@@ -226,34 +226,45 @@ const Pricing = () => {
                     <div className="space-y-4 mb-8">
                       <div className="flex items-start justify-between gap-4 p-4 rounded-lg bg-institutional/5 border border-institutional/10">
                         <div className="flex-1">
-                          <p className="font-medium text-foreground mb-1">Existing Student Update</p>
-                          <p className="text-sm text-foreground/50">Maintenance work • Data correction</p>
+                          <p className="font-medium text-foreground mb-1">UDISE+ Existing Student</p>
+                          <p className="text-sm text-foreground/50">2026-27 session update</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-xl font-bold text-institutional">₹X/student</p>
-                          <p className="text-xs text-foreground/40">Base rate</p>
+                          <p className="text-xl font-bold text-institutional">₹10/student</p>
+                          <p className="text-xs text-foreground/40">Per student</p>
                         </div>
                       </div>
 
                       <div className="flex items-start justify-between gap-4 p-4 rounded-lg bg-institutional/5 border border-institutional/10">
                         <div className="flex-1">
-                          <p className="font-medium text-foreground mb-1">New Student Entry</p>
-                          <p className="text-sm text-foreground/50">Complete account creation • High-risk validation</p>
+                          <p className="font-medium text-foreground mb-1">UDISE+ New Student</p>
+                          <p className="text-sm text-foreground/50">Complete account creation • Validation</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-xl font-bold text-institutional">₹X/student</p>
-                          <p className="text-xs text-institutional/60">Premium service</p>
+                          <p className="text-xl font-bold text-institutional">₹15/student</p>
+                          <p className="text-xs text-institutional/60">Per student</p>
                         </div>
                       </div>
 
                       <div className="flex items-start justify-between gap-4 p-4 rounded-lg bg-institutional/5 border border-institutional/10">
                         <div className="flex-1">
-                          <p className="font-medium text-foreground mb-1">Scholarship Processing</p>
-                          <p className="text-sm text-foreground/50">Volume-based pricing • Application support</p>
+                          <p className="font-medium text-foreground mb-1">Scholarship Verification</p>
+                          <p className="text-sm text-foreground/50">Portal + Biometric + DSC forwarding</p>
                         </div>
                         <div className="text-right">
                           <p className="text-xl font-bold text-institutional">₹30-₹50</p>
                           <p className="text-xs text-foreground/40">Per student</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start justify-between gap-4 p-4 rounded-lg bg-institutional/5 border border-institutional/10">
+                        <div className="flex-1">
+                          <p className="font-medium text-foreground mb-1">Daily Tech Support</p>
+                          <p className="text-sm text-foreground/50">Micro to heavy tasks • Full working day</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-xl font-bold text-institutional">₹99-₹499</p>
+                          <p className="text-xs text-foreground/40">Based on scope</p>
                         </div>
                       </div>
                     </div>
@@ -303,15 +314,15 @@ const Pricing = () => {
                           <div className="flex items-start gap-3">
                             <CheckCircle className="w-5 h-5 text-institutional mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-foreground mb-1 font-medium">30% Advance (Initiation)</p>
-                              <p className="text-sm text-foreground/60">Required to start work on your project</p>
+                              <p className="text-foreground mb-1 font-medium">Small Tasks: 100% Advance</p>
+                              <p className="text-sm text-foreground/60">Full payment before starting</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
                             <CheckCircle className="w-5 h-5 text-institutional mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-foreground mb-1 font-medium">70% Before Delivery</p>
-                              <p className="text-sm text-foreground/60">Final payment before file handover</p>
+                              <p className="text-foreground mb-1 font-medium">Large Work: 50% Advance</p>
+                              <p className="text-sm text-foreground/60">Work starts only after confirmation</p>
                             </div>
                           </div>
                         </div>
@@ -330,15 +341,15 @@ const Pricing = () => {
                           <div className="flex items-start gap-3">
                             <CheckCircle className="w-5 h-5 text-institutional mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-foreground mb-1 font-medium">2 Validation Rounds Included</p>
-                              <p className="text-sm text-foreground/60">Free corrections for any errors on our part</p>
+                              <p className="text-foreground mb-1 font-medium">Minor Corrections Included</p>
+                              <p className="text-sm text-foreground/60">Within agreed scope</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
                             <CheckCircle className="w-5 h-5 text-institutional mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-foreground mb-1 font-medium">Scope Changes Billed Separately</p>
-                              <p className="text-sm text-foreground/60">Major structural changes to original requirements</p>
+                              <p className="text-foreground mb-1 font-medium">New Ideas Charged Separately</p>
+                              <p className="text-sm text-foreground/60">Late changes outside original scope</p>
                             </div>
                           </div>
                         </div>
@@ -373,41 +384,44 @@ const Pricing = () => {
               <div className="text-center mb-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-institutional/5 border border-institutional/10 mb-3">
                   <TrendingUp className="w-3.5 h-3.5 text-institutional" />
-                  <span className="text-xs text-institutional">Save Up to 30%</span>
+                  <span className="text-xs text-institutional">Save Up to 17%</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-display mb-2">
-                  <span className="text-institutional">Retainer & Subscription</span> Models
+                  <span className="text-institutional">Subscription</span> Plans
                 </h2>
                 <p className="text-foreground/60 text-sm">
-                  Ongoing support for institutions with regular needs — better rates, faster service
+                  Regular UDISE+ & scholarship support — better rates, priority service
+                </p>
+                <p className="text-foreground/40 text-xs mt-2">
+                  📄 Paper typing always billed separately at standard rates
                 </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {/* Weekly Sprint */}
+                {/* Monthly Plan */}
                 <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-institutional/30 transition-all duration-500 animate-float">
                   <div className="mb-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-institutional/10 border border-institutional/20 mb-4">
                       <Clock className="w-3 h-3 text-institutional" />
-                      <span className="text-xs font-medium text-institutional">Weekly</span>
+                      <span className="text-xs font-medium text-institutional">Monthly</span>
                     </div>
-                    <h3 className="text-xl font-display mb-1">Sprint Support</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Urgent, time-bound projects</p>
+                    <h3 className="text-xl font-display mb-1">Basic Support</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Month-to-month flexibility</p>
 
                     <div className="mb-4">
-                      <div className="text-3xl font-display text-institutional mb-1">Custom</div>
-                      <p className="text-xs text-foreground/40">Billed weekly • Flexible scope</p>
+                      <div className="text-3xl font-display text-institutional mb-1">₹2,999</div>
+                      <p className="text-xs text-foreground/40">Per month • No commitment</p>
                     </div>
                   </div>
 
                   <div className="space-y-2.5 mb-6">
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Immediate project start</span>
+                      <span>UDISE+ support included</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Daily progress reports</span>
+                      <span>Scholarship processing</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
@@ -415,27 +429,31 @@ const Pricing = () => {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Flexible scope adjustments</span>
+                      <span>48hr turnaround</span>
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-institutional/5 border border-institutional/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-institutional">Perfect for:</span> Exam season, urgent deadlines
-                    </p>
+                  <div className="p-3 rounded-lg bg-institutional/5 border border-institutional/10 mb-4">
+                    <p className="text-xs font-medium text-institutional mb-2">Included:</p>
+                    <p className="text-xs text-foreground/60">Up to 100 UDISE+ entries/month, scholarship support</p>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-background/50 border border-border/20 mb-6">
+                    <p className="text-xs font-medium text-foreground/70 mb-1">Billed Separately:</p>
+                    <p className="text-xs text-foreground/50">Paper typing (₹20-₹30/page)</p>
                   </div>
 
                   <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20weekly%20subscription%20for%20urgent%20project."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%20monthly%20subscription%20plan."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-institutional hover:bg-institutional hover:text-background"
                   >
-                    Discuss Weekly Plan
+                    Start Monthly Plan
                   </a>
                 </div>
 
-                {/* Monthly Retainer - HIGHLIGHTED */}
+                {/* 6-Month Plan - HIGHLIGHTED */}
                 <div className="glass-card rounded-2xl p-8 border-2 border-institutional/50 ring-2 ring-institutional/20 relative overflow-hidden animate-float" style={{ animationDelay: '0.15s' }}>
                   {/* Popular Badge */}
                   <div className="absolute top-0 right-0 bg-gradient-to-br from-institutional to-institutional/80 text-background px-4 py-1.5 text-xs font-bold tracking-wide">
@@ -445,75 +463,18 @@ const Pricing = () => {
                   <div className="mb-6 mt-2">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-institutional/20 border border-institutional/30 mb-4">
                       <Crown className="w-3 h-3 text-institutional" />
-                      <span className="text-xs font-medium text-institutional">Monthly</span>
+                      <span className="text-xs font-medium text-institutional">6 Months</span>
                     </div>
-                    <h3 className="text-xl font-display mb-1">Monthly Retainer</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Regular institutional support</p>
+                    <h3 className="text-xl font-display mb-1">Premium Support</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Best value for schools</p>
 
                     <div className="mb-4">
                       <div className="flex items-baseline gap-2">
-                        <div className="text-3xl font-display text-institutional">Custom</div>
-                        <div className="px-2 py-0.5 rounded bg-institutional/20 text-institutional text-xs font-bold">SAVE 20%</div>
+                        <div className="text-3xl font-display text-institutional">₹15,999</div>
+                        <div className="px-2 py-0.5 rounded bg-institutional/20 text-institutional text-xs font-bold">SAVE 11%</div>
                       </div>
-                      <p className="text-xs text-foreground/40">Billed monthly • Volume discounts</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span className="font-medium">All Weekly benefits</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Faster turnaround (48hrs)</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Dedicated support channel</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Unlimited minor tasks</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Monthly performance report</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-gradient-to-br from-institutional/15 to-institutional/5 border border-institutional/20 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-institutional">Perfect for:</span> Schools with ongoing documentation needs
-                    </p>
-                  </div>
-
-                  <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20a%20monthly%20retainer%20for%20my%20institution."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
-                  >
-                    Start Monthly Retainer
-                  </a>
-                </div>
-
-                {/* Annual Partnership */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-institutional/30 transition-all duration-500 animate-float" style={{ animationDelay: '0.3s' }}>
-                  <div className="mb-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-institutional/10 border border-institutional/20 mb-4">
-                      <Award className="w-3 h-3 text-institutional" />
-                      <span className="text-xs font-medium text-institutional">Best Value</span>
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Annual Partnership</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Long-term collaboration</p>
-
-                    <div className="mb-4">
-                      <div className="flex items-baseline gap-2">
-                        <div className="text-3xl font-display text-institutional">Custom</div>
-                        <div className="px-2 py-0.5 rounded bg-institutional/20 text-institutional text-xs font-bold">SAVE 30%</div>
-                      </div>
-                      <p className="text-xs text-foreground/40">Billed annually • Maximum savings</p>
+                      <p className="text-xs text-foreground/40">₹2,666/month • Save ₹2,000</p>
+                      <p className="text-xs text-foreground/30 line-through mt-0.5">Regular: ₹17,994</p>
                     </div>
                   </div>
 
@@ -524,35 +485,94 @@ const Pricing = () => {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>30% discounted rates</span>
+                      <span>24hr priority turnaround</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Annual planning support</span>
+                      <span>Dedicated support channel</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
-                      <span>Priority scheduling year-round</span>
+                      <span>Quarterly review calls</span>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-institutional/15 to-institutional/5 border border-institutional/20 mb-4">
+                    <p className="text-xs font-medium text-institutional mb-2">Included:</p>
+                    <p className="text-xs text-foreground/60">Up to 150 UDISE+ entries/month, priority scholarship processing</p>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-background/50 border border-border/20 mb-6">
+                    <p className="text-xs font-medium text-foreground/70 mb-1">Billed Separately:</p>
+                    <p className="text-xs text-foreground/50">Paper typing (₹20-₹30/page)</p>
+                  </div>
+
+                  <a
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%206-month%20subscription%20plan."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-institutional text-background hover:shadow-lg hover:shadow-institutional/30"
+                  >
+                    Start 6-Month Plan
+                  </a>
+                </div>
+
+                {/* Annual Plan */}
+                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-institutional/30 transition-all duration-500 animate-float" style={{ animationDelay: '0.3s' }}>
+                  <div className="mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-institutional/10 border border-institutional/20 mb-4">
+                      <Award className="w-3 h-3 text-institutional" />
+                      <span className="text-xs font-medium text-institutional">Best Value</span>
+                    </div>
+                    <h3 className="text-xl font-display mb-1">Annual Partnership</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Maximum savings</p>
+
+                    <div className="mb-4">
+                      <div className="flex items-baseline gap-2">
+                        <div className="text-3xl font-display text-institutional">₹29,999</div>
+                        <div className="px-2 py-0.5 rounded bg-institutional/20 text-institutional text-xs font-bold">SAVE 17%</div>
+                      </div>
+                      <p className="text-xs text-foreground/40">₹2,499/month • Save ₹6,000</p>
+                      <p className="text-xs text-foreground/30 line-through mt-0.5">Regular: ₹35,988</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
+                      <span className="font-medium">All 6-Month benefits</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
+                      <span>12hr rush support available</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
                       <span>Dedicated account manager</span>
                     </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-institutional shrink-0" />
+                      <span>Annual planning support</span>
+                    </div>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-institutional/5 border border-institutional/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-institutional">Perfect for:</span> Established institutions, year-round needs
-                    </p>
+                  <div className="p-3 rounded-lg bg-institutional/5 border border-institutional/10 mb-4">
+                    <p className="text-xs font-medium text-institutional mb-2">Included:</p>
+                    <p className="text-xs text-foreground/60">Up to 200 UDISE+ entries/month, VIP scholarship processing</p>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-background/50 border border-border/20 mb-6">
+                    <p className="text-xs font-medium text-foreground/70 mb-1">Billed Separately:</p>
+                    <p className="text-xs text-foreground/50">Paper typing (₹20-₹30/page)</p>
                   </div>
 
                   <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20to%20explore%20annual%20partnership."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20want%20the%20annual%20subscription%20plan."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-institutional hover:bg-institutional hover:text-background"
                   >
-                    Explore Partnership
+                    Start Annual Plan
                   </a>
                 </div>
               </div>
@@ -567,7 +587,7 @@ const Pricing = () => {
                 </div>
 
                 <blockquote className="text-foreground/70 leading-relaxed mb-8 italic text-lg">
-                  "These rates reflect Gorakhpur's local market standards. We believe in fair pricing — you're paying for accuracy, reliability, and your peace of mind, not just keystrokes."
+                  "This pricing is designed for serious institutions. All work is scope-based, clearly defined, and executed professionally. Only what is written here is promised and delivered."
                 </blockquote>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -596,26 +616,25 @@ const Pricing = () => {
                 <span className="text-xs font-medium text-creator">Flexible Creator Pricing</span>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-5 animate-fade-in-up">
-                Price Your <span className="text-creator">Creative Vision</span>
+                Premium <span className="text-creator">Creator Services</span>
               </h1>
               <p className="text-foreground/70 text-lg leading-relaxed mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                From single-project sprints to long-term partnerships.<br />
-                <span className="text-foreground/50 text-base">Choose what fits your content creation journey.</span>
+                Professional production for serious creators and institutions.<br />
+                <span className="text-foreground/50 text-base">Clearly defined scope. Professionally executed. Responsibly delivered.</span>
               </p>
 
-              {/* Trust Indicators */}
               <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-foreground/50 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-creator" />
-                  <span>Pro-Grade Quality</span>
+                  <span>1080p Delivery</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-creator" />
-                  <span>Fast Turnaround</span>
+                  <span>Platform-Ready</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-creator" />
-                  <span>Unlimited Revisions*</span>
+                  <span>Clear Scope</span>
                 </div>
               </div>
             </div>
@@ -628,56 +647,52 @@ const Pricing = () => {
                   <span className="text-xs text-creator">Pay Per Project</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-display mb-2">
-                  One-Time <span className="text-creator">Projects</span>
+                  Premium <span className="text-creator">Long-Form</span> Production
                 </h2>
                 <p className="text-foreground/60 text-sm">
-                  Perfect for testing our services or occasional content needs
+                  Cinematic editing & color grading (1080p)
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {/* Single Video */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
+                {/* Starter (Simple) */}
                 <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group">
                   <div className="mb-6">
                     <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <Video className="w-7 h-7 text-creator" />
                     </div>
-                    <h3 className="text-xl font-display mb-1">Single Video</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Individual projects</p>
+                    <h3 className="text-xl font-display mb-1">Starter</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Simple editing</p>
 
                     <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">From ₹2,500</div>
-                      <p className="text-xs text-foreground/40">Per video • Up to 15 min</p>
+                      <div className="text-3xl font-display text-creator mb-1">₹999</div>
+                      <p className="text-xs text-foreground/40">Per video</p>
                     </div>
                   </div>
 
                   <div className="space-y-2.5 mb-6">
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Up to 15 min final output</span>
+                      <span>Clean cuts</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>2 revision rounds</span>
+                      <span>Basic color correction</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Professional color grading</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Basic sound design</span>
+                      <span>Smooth flow</span>
                     </div>
                   </div>
 
                   <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
                     <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Perfect for:</span> Testing quality, one-off content
+                      <span className="font-medium text-creator">Simple:</span> Clean, professional basics
                     </p>
                   </div>
 
                   <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20editing%20for%20a%20single%20video%20project."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Starter%20video%20editing."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
@@ -686,107 +701,282 @@ const Pricing = () => {
                   </a>
                 </div>
 
-                {/* Thumbnail Pack */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.15s' }}>
+                {/* Growth (Simple) */}
+                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.1s' }}>
                   <div className="mb-6">
                     <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Palette className="w-7 h-7 text-creator" />
+                      <TrendingUp className="w-7 h-7 text-creator" />
                     </div>
-                    <h3 className="text-xl font-display mb-1">Thumbnail Design</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Eye-catching designs</p>
+                    <h3 className="text-xl font-display mb-1">Growth</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Simple editing</p>
 
                     <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹500/each</div>
-                      <p className="text-xs text-foreground/40">Bulk discounts available</p>
+                      <div className="text-3xl font-display text-creator mb-1">₹1,999</div>
+                      <p className="text-xs text-foreground/40">Per video</p>
                     </div>
                   </div>
 
                   <div className="space-y-2.5 mb-6">
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>High CTR design strategy</span>
+                      <span>Better pacing</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>2 concept variations</span>
+                      <span>Structured storytelling</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>YouTube-optimized (1280x720)</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Source files included</span>
+                      <span>Enhanced flow</span>
                     </div>
                   </div>
 
                   <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
                     <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Perfect for:</span> Boosting video clicks & views
+                      <span className="font-medium text-creator">Simple:</span> Narrative-focused
                     </p>
                   </div>
 
                   <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20thumbnail%20design%20services."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Growth%20video%20editing."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
-                    Order Thumbnail
+                    Get Started
                   </a>
                 </div>
 
-                {/* Full Production */}
+                {/* Authority (Complex) */}
+                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.2s' }}>
+                  <div className="mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Crown className="w-7 h-7 text-creator" />
+                    </div>
+                    <h3 className="text-xl font-display mb-1">Authority</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Complex editing</p>
+
+                    <div className="mb-4">
+                      <div className="text-3xl font-display text-creator mb-1">₹2,999</div>
+                      <p className="text-xs text-foreground/40">Per video</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Advanced color grading</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Motion graphics</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>VFX elements</span>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                    <p className="text-xs text-foreground/60">
+                      <span className="font-medium text-creator">Complex:</span> Premium production
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Authority%20video%20editing."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                  >
+                    Get Started
+                  </a>
+                </div>
+
+                {/* Series Plan (Complex) */}
                 <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.3s' }}>
                   <div className="mb-6">
                     <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <Sparkles className="w-7 h-7 text-creator" />
                     </div>
-                    <h3 className="text-xl font-display mb-1">Full Production</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Premium content</p>
+                    <h3 className="text-xl font-display mb-1">Series Plan</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Multi-video</p>
 
                     <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">Custom</div>
-                      <p className="text-xs text-foreground/40">Quote-based pricing</p>
+                      <div className="text-3xl font-display text-creator mb-1">₹4,999</div>
+                      <p className="text-xs text-foreground/40">Per series</p>
                     </div>
                   </div>
 
                   <div className="space-y-2.5 mb-6">
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Scripting support</span>
+                      <span>Consistent episodic</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Advanced motion graphics</span>
+                      <span>Long-form production</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Custom animations & VFX</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Music licensing help</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Multiple export formats</span>
+                      <span>Series branding</span>
                     </div>
                   </div>
 
                   <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
                     <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Perfect for:</span> High-production value content
+                      <span className="font-medium text-creator">Complex:</span> Multi-episode series
                     </p>
                   </div>
 
                   <a
-                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20full%20production%20services."
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20Series%20Plan%20editing."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
                   >
-                    Get Custom Quote
+                    Get Started
+                  </a>
+                </div>
+              </div>
+
+              {/* Viral Shorts & Additional Services */}
+              <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                {/* Viral Shorts */}
+                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group">
+                  <div className="mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Zap className="w-7 h-7 text-creator" />
+                    </div>
+                    <h3 className="text-xl font-display mb-1">Viral Shorts</h3>
+                    <p className="text-sm text-foreground/50 mb-4">Algorithm-optimized</p>
+
+                    <div className="mb-4">
+                      <div className="text-3xl font-display text-creator mb-1">₹499-₹999</div>
+                      <p className="text-xs text-foreground/40">Per short</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Standard: ₹499</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Premium: ₹999</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Platform-ready format</span>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                    <p className="text-xs text-foreground/60">
+                      <span className="font-medium text-creator">Perfect for:</span> Reels, Shorts, TikTok
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20viral%20shorts%20editing."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                  >
+                    Get Started
+                  </a>
+                </div>
+
+                {/* Motion Graphics & VFX */}
+                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.15s' }}>
+                  <div className="mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Sparkles className="w-7 h-7 text-creator" />
+                    </div>
+                    <h3 className="text-xl font-display mb-1">Motion & VFX</h3>
+                    <p className="text-sm text-foreground/50 mb-4">2.5D Animation</p>
+
+                    <div className="mb-4">
+                      <div className="text-3xl font-display text-creator mb-1">₹699-₹2,699</div>
+                      <p className="text-xs text-foreground/40">Based on complexity</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Basic: ₹699</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Advanced: ₹1,999</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Pro VFX: ₹2,699</span>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                    <p className="text-xs text-foreground/60">
+                      <span className="font-medium text-creator">Perfect for:</span> Intros, transitions, effects
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20motion%20graphics%20or%20VFX."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                  >
+                    Get Started
+                  </a>
+                </div>
+
+                {/* Thumbnails */}
+                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.3s' }}>
+                  <div className="mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Palette className="w-7 h-7 text-creator" />
+                    </div>
+                    <h3 className="text-xl font-display mb-1">Thumbnails</h3>
+                    <p className="text-sm text-foreground/50 mb-4">High-CTR design</p>
+
+                    <div className="mb-4">
+                      <div className="text-3xl font-display text-creator mb-1">₹299-₹699</div>
+                      <p className="text-xs text-foreground/40">Per thumbnail</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Thumbnail Only: ₹299</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>+ Strategy: ₹699</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-foreground/70">
+                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                      <span>Publishing direction</span>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                    <p className="text-xs text-foreground/60">
+                      <span className="font-medium text-creator">Perfect for:</span> Boosting CTR
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://wa.me/916388224877?text=Hello%20quickserveit%2C%20I%20need%20thumbnail%20design."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                  >
+                    Get Started
                   </a>
                 </div>
               </div>
@@ -998,7 +1188,7 @@ const Pricing = () => {
                 </div>
 
                 <blockquote className="text-foreground/70 leading-relaxed mb-8 italic text-lg">
-                  "Quality editing shouldn't break the bank. Our pricing scales with your growth — from your first video to 100K subscribers."
+                  "This pricing is designed for serious creators and institutions. All work is scope-based, clearly defined, and executed professionally. Only what is written here is promised and delivered."
                 </blockquote>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
