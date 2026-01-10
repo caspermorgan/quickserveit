@@ -593,7 +593,7 @@ const Pricing = () => {
             </div>
           </div>
         ) : (
-          // CREATOR MODE - Professional Marketing Design
+          // CREATOR MODE - Tab-Based Service Pricing
           <div className="container mx-auto px-6">
             {/* Hero Section */}
             <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -605,10 +605,11 @@ const Pricing = () => {
                 Premium <span className="text-creator">Creator Services</span>
               </h1>
               <p className="text-foreground/70 text-lg leading-relaxed mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                Professional production for serious creators and institutions.<br />
+                Professional production for serious creators.<br />
                 <span className="text-foreground/50 text-base">Clearly defined scope. Professionally executed. Responsibly delivered.</span>
               </p>
 
+              {/* Trust Indicators */}
               <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-foreground/50 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-creator" />
@@ -625,7 +626,7 @@ const Pricing = () => {
               </div>
             </div>
 
-            {/* Per-Project Pricing */}
+            {/* Service-Based Pricing */}
             <div className="mb-20">
               <div className="text-center mb-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-creator/5 border border-creator/10 mb-3">
@@ -633,324 +634,507 @@ const Pricing = () => {
                   <span className="text-xs text-creator">Pay Per Project</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-display mb-2">
-                  Premium <span className="text-creator">Long-Form</span> Production
+                  Service-Based <span className="text-creator">Pricing</span>
                 </h2>
                 <p className="text-foreground/60 text-sm">
-                  Cinematic editing & color grading (1080p)
+                  Perfect for one-time projects or occasional needs
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
-                {/* Starter (Simple) */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group">
-                  <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Video className="w-7 h-7 text-creator" />
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Starter</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Simple editing</p>
-
-                    <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹999</div>
-                      <p className="text-xs text-foreground/40">Per video</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Clean cuts</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Basic color correction</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Smooth flow</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Simple:</span> Clean, professional basics
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
-                  >
-                    Get Started
-                  </button>
-                </div>
-
-                {/* Growth (Simple) */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.1s' }}>
-                  <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <TrendingUp className="w-7 h-7 text-creator" />
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Growth</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Simple editing</p>
-
-                    <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹1,999</div>
-                      <p className="text-xs text-foreground/40">Per video</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Better pacing</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Structured storytelling</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Enhanced flow</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Simple:</span> Narrative-focused
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
-                  >
-                    Get Started
-                  </button>
-                </div>
-
-                {/* Authority (Complex) */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.2s' }}>
-                  <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Crown className="w-7 h-7 text-creator" />
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Authority</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Complex editing</p>
-
-                    <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹2,999</div>
-                      <p className="text-xs text-foreground/40">Per video</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Advanced color grading</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Motion graphics</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>VFX elements</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Complex:</span> Premium production
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
-                  >
-                    Get Started
-                  </button>
-                </div>
-
-                {/* Series Plan (Complex) */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.3s' }}>
-                  <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Sparkles className="w-7 h-7 text-creator" />
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Series Plan</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Multi-video</p>
-
-                    <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹4,999</div>
-                      <p className="text-xs text-foreground/40">Per series</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Consistent episodic</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Long-form production</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Series branding</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Complex:</span> Multi-episode series
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
-                  >
-                    Get Started
-                  </button>
-                </div>
+              {/* Tab Navigation */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8 max-w-4xl mx-auto">
+                <button
+                  onClick={() => setActiveServiceTab(0)}
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all duration-300 ${activeServiceTab === 0
+                    ? 'bg-creator text-background shadow-lg shadow-creator/30'
+                    : 'glass-card border border-border/20 hover:border-creator/40 text-foreground/70 hover:text-foreground'
+                    }`}
+                >
+                  <Video className="w-4 h-4" />
+                  <span>Video Production</span>
+                </button>
+                <button
+                  onClick={() => setActiveServiceTab(1)}
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all duration-300 ${activeServiceTab === 1
+                    ? 'bg-creator text-background shadow-lg shadow-creator/30'
+                    : 'glass-card border border-border/20 hover:border-creator/40 text-foreground/70 hover:text-foreground'
+                    }`}
+                >
+                  <Zap className="w-4 h-4" />
+                  <span>Short-Form Content</span>
+                </button>
+                <button
+                  onClick={() => setActiveServiceTab(2)}
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all duration-300 ${activeServiceTab === 2
+                    ? 'bg-creator text-background shadow-lg shadow-creator/30'
+                    : 'glass-card border border-border/20 hover:border-creator/40 text-foreground/70 hover:text-foreground'
+                    }`}
+                >
+                  <Palette className="w-4 h-4" />
+                  <span>Design Services</span>
+                </button>
+                <button
+                  onClick={() => setActiveServiceTab(3)}
+                  className={`inline-flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all duration-300 ${activeServiceTab === 3
+                    ? 'bg-creator text-background shadow-lg shadow-creator/30'
+                    : 'glass-card border border-border/20 hover:border-creator/40 text-foreground/70 hover:text-foreground'
+                    }`}
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>Terms & Workflow</span>
+                </button>
               </div>
 
-              {/* Viral Shorts & Additional Services */}
-              <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {/* Viral Shorts */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group">
-                  <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Zap className="w-7 h-7 text-creator" />
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Viral Shorts</h3>
-                    <p className="text-sm text-foreground/50 mb-4">Algorithm-optimized</p>
+              {/* Tab Content */}
+              <div className="max-w-7xl mx-auto">
+                {/* Video Production */}
+                {activeServiceTab === 0 && (
+                  <div className="animate-fade-in">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                      {/* Starter */}
+                      <div className="glass-card rounded-2xl p-8 border border-creator/30">
+                        <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4">
+                          <Video className="w-7 h-7 text-creator" />
+                        </div>
+                        <h3 className="text-xl font-display text-creator mb-1">Starter</h3>
+                        <p className="text-sm text-foreground/50 mb-4">Simple editing</p>
 
-                    <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹499-₹999</div>
-                      <p className="text-xs text-foreground/40">Per short</p>
+                        <div className="mb-6">
+                          <div className="text-3xl font-display text-creator mb-1">₹999</div>
+                          <p className="text-xs text-foreground/40">Per video</p>
+                        </div>
+
+                        <div className="space-y-2.5 mb-6">
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Clean cuts</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Basic color correction</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Smooth flow</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                          <p className="text-xs text-foreground/60">
+                            <span className="font-medium text-creator">Simple:</span> Clean, professional basics
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => navigate('/contact')}
+                          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                        >
+                          Get Started
+                        </button>
+                      </div>
+
+                      {/* Growth */}
+                      <div className="glass-card rounded-2xl p-8 border border-creator/30">
+                        <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4">
+                          <TrendingUp className="w-7 h-7 text-creator" />
+                        </div>
+                        <h3 className="text-xl font-display text-creator mb-1">Growth</h3>
+                        <p className="text-sm text-foreground/50 mb-4">Simple editing</p>
+
+                        <div className="mb-6">
+                          <div className="text-3xl font-display text-creator mb-1">₹1,999</div>
+                          <p className="text-xs text-foreground/40">Per video</p>
+                        </div>
+
+                        <div className="space-y-2.5 mb-6">
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Better pacing</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Structured storytelling</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Enhanced flow</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                          <p className="text-xs text-foreground/60">
+                            <span className="font-medium text-creator">Simple:</span> Narrative-focused
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => navigate('/contact')}
+                          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                        >
+                          Get Started
+                        </button>
+                      </div>
+
+                      {/* Authority */}
+                      <div className="glass-card rounded-2xl p-8 border border-creator/30">
+                        <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4">
+                          <Crown className="w-7 h-7 text-creator" />
+                        </div>
+                        <h3 className="text-xl font-display text-creator mb-1">Authority</h3>
+                        <p className="text-sm text-foreground/50 mb-4">Complex editing</p>
+
+                        <div className="mb-6">
+                          <div className="text-3xl font-display text-creator mb-1">₹2,999</div>
+                          <p className="text-xs text-foreground/40">Per video</p>
+                        </div>
+
+                        <div className="space-y-2.5 mb-6">
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Advanced color grading</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Motion graphics</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>VFX elements</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                          <p className="text-xs text-foreground/60">
+                            <span className="font-medium text-creator">Complex:</span> Premium production
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => navigate('/contact')}
+                          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                        >
+                          Get Started
+                        </button>
+                      </div>
+
+                      {/* Series Plan */}
+                      <div className="glass-card rounded-2xl p-8 border border-creator/30">
+                        <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4">
+                          <Sparkles className="w-7 h-7 text-creator" />
+                        </div>
+                        <h3 className="text-xl font-display text-creator mb-1">Series Plan</h3>
+                        <p className="text-sm text-foreground/50 mb-4">Multi-video</p>
+
+                        <div className="mb-6">
+                          <div className="text-3xl font-display text-creator mb-1">₹4,999</div>
+                          <p className="text-xs text-foreground/40">Per series</p>
+                        </div>
+
+                        <div className="space-y-2.5 mb-6">
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Consistent episodic</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Long-form production</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm text-foreground/70">
+                            <CheckCircle className="w-4 h-4 text-creator shrink-0" />
+                            <span>Series branding</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                          <p className="text-xs text-foreground/60">
+                            <span className="font-medium text-creator">Complex:</span> Multi-episode series
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => navigate('/contact')}
+                          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                        >
+                          Get Started
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="p-5 rounded-lg bg-gradient-to-br from-creator/10 to-creator/5 border border-creator/20 max-w-3xl mx-auto">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Star className="w-5 h-5 text-creator mt-0.5" />
+                        <p className="font-medium text-creator">Long-Form Excellence</p>
+                      </div>
+                      <p className="text-sm text-foreground/70 leading-relaxed">
+                        Professional 1080p delivery with cinematic color grading. All packages include platform-ready formatting and up to 2 rounds of revisions within agreed scope.
+                      </p>
                     </div>
                   </div>
+                )}
 
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Standard: ₹499</span>
+                {/* Short-Form Content */}
+                {activeServiceTab === 1 && (
+                  <div className="glass-card rounded-2xl p-8 md:p-10 border border-creator/30 animate-fade-in max-w-3xl mx-auto">
+                    <div className="flex items-start gap-6 mb-8">
+                      <div className="w-16 h-16 rounded-xl bg-creator/10 flex items-center justify-center shrink-0">
+                        <Zap className="w-8 h-8 text-creator" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-display text-creator mb-2">
+                          Viral Shorts
+                        </h3>
+                        <p className="text-foreground/60 leading-relaxed">
+                          Algorithm-optimized short-form content for maximum engagement
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Premium: ₹999</span>
+
+                    <div className="space-y-4 mb-8">
+                      <div className="flex items-start justify-between gap-4 p-4 rounded-lg bg-creator/5 border border-creator/10">
+                        <div className="flex-1">
+                          <p className="font-medium text-foreground mb-1">Standard Shorts</p>
+                          <p className="text-sm text-foreground/50">Clean edits • Trending audio • Quick delivery</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-xl font-bold text-creator">₹499</p>
+                          <p className="text-xs text-foreground/40">Per short</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start justify-between gap-4 p-4 rounded-lg bg-creator/5 border border-creator/10">
+                        <div className="flex-1">
+                          <p className="font-medium text-foreground mb-1">Premium Shorts</p>
+                          <p className="text-sm text-foreground/50">Advanced effects • Custom graphics • Priority queue</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-xl font-bold text-creator">₹999</p>
+                          <p className="text-xs text-creator/60">Per short</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Platform-ready format</span>
+
+                    <div className="p-5 rounded-lg bg-gradient-to-br from-creator/10 to-creator/5 border border-creator/20 mb-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Star className="w-5 h-5 text-creator mt-0.5" />
+                        <p className="font-medium text-creator">Platform-Ready</p>
+                      </div>
+                      <p className="text-sm text-foreground/70 leading-relaxed">
+                        Optimized for Instagram Reels, YouTube Shorts, and TikTok. Includes trending audio selection, hook optimization, and platform-specific formatting.
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => navigate('/contact')}
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-creator text-background hover:shadow-lg hover:shadow-creator/30"
+                    >
+                      Get Instant Quote
+                    </button>
+                  </div>
+                )}
+
+                {/* Design Services */}
+                {activeServiceTab === 2 && (
+                  <div className="animate-fade-in">
+                    <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-5xl mx-auto">
+                      {/* Motion Graphics & VFX */}
+                      <div className="glass-card rounded-2xl p-8 border border-creator/30">
+                        <div className="w-16 h-16 rounded-xl bg-creator/10 flex items-center justify-center mb-4">
+                          <Sparkles className="w-8 h-8 text-creator" />
+                        </div>
+                        <h3 className="text-2xl font-display text-creator mb-2">
+                          Motion Graphics & VFX
+                        </h3>
+                        <p className="text-foreground/60 mb-6">2.5D Animation & Visual Effects</p>
+
+                        <div className="space-y-3 mb-6">
+                          <div className="flex items-start justify-between gap-4 p-3 rounded-lg bg-creator/5 border border-creator/10">
+                            <div className="flex-1">
+                              <p className="font-medium text-foreground mb-1">Basic Motion</p>
+                              <p className="text-xs text-foreground/50">Simple animations</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-lg font-bold text-creator">₹699</p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start justify-between gap-4 p-3 rounded-lg bg-creator/5 border border-creator/10">
+                            <div className="flex-1">
+                              <p className="font-medium text-foreground mb-1">Advanced VFX</p>
+                              <p className="text-xs text-foreground/50">Complex effects</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-lg font-bold text-creator">₹1,999</p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start justify-between gap-4 p-3 rounded-lg bg-creator/5 border border-creator/10">
+                            <div className="flex-1">
+                              <p className="font-medium text-foreground mb-1">Pro VFX</p>
+                              <p className="text-xs text-foreground/50">Premium production</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-lg font-bold text-creator">₹2,699</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                          <p className="text-xs text-foreground/60">
+                            <span className="font-medium text-creator">Perfect for:</span> Intros, transitions, lower thirds, effects
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => navigate('/contact')}
+                          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                        >
+                          Get Started
+                        </button>
+                      </div>
+
+                      {/* Thumbnails */}
+                      <div className="glass-card rounded-2xl p-8 border border-creator/30">
+                        <div className="w-16 h-16 rounded-xl bg-creator/10 flex items-center justify-center mb-4">
+                          <Palette className="w-8 h-8 text-creator" />
+                        </div>
+                        <h3 className="text-2xl font-display text-creator mb-2">
+                          Thumbnails & Script Writing
+                        </h3>
+                        <p className="text-foreground/60 mb-6">High-CTR design + engaging scripts</p>
+
+                        <div className="space-y-3 mb-6">
+                          <div className="flex items-start justify-between gap-4 p-3 rounded-lg bg-creator/5 border border-creator/10">
+                            <div className="flex-1">
+                              <p className="font-medium text-foreground mb-1">Thumbnail Only</p>
+                              <p className="text-xs text-foreground/50">Design only</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-lg font-bold text-creator">₹299</p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start justify-between gap-4 p-3 rounded-lg bg-creator/5 border border-creator/10">
+                            <div className="flex-1">
+                              <p className="font-medium text-foreground mb-1">With Strategy + Script</p>
+                              <p className="text-xs text-foreground/50">Design + script writing + consultation</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-lg font-bold text-creator">₹699</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
+                          <p className="text-xs text-foreground/60">
+                            <span className="font-medium text-creator">Includes:</span> Script writing, A/B testing guidance, publishing direction
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => navigate('/contact')}
+                          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
+                        >
+                          Get Started
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="p-5 rounded-lg bg-gradient-to-br from-creator/10 to-creator/5 border border-creator/20 max-w-3xl mx-auto">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Award className="w-5 h-5 text-creator mt-0.5" />
+                        <p className="font-medium text-creator">Design Excellence</p>
+                      </div>
+                      <p className="text-sm text-foreground/70 leading-relaxed">
+                        Professional design services to elevate your content. All deliverables include source files and up to 2 rounds of revisions within agreed scope.
+                      </p>
                     </div>
                   </div>
+                )}
 
-                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Perfect for:</span> Reels, Shorts, TikTok
-                    </p>
+                {/* Terms & Workflow */}
+                {activeServiceTab === 3 && (
+                  <div className="glass-card rounded-2xl p-8 md:p-10 border border-creator/30 animate-fade-in max-w-3xl mx-auto">
+                    <div className="flex items-start gap-6 mb-8">
+                      <div className="w-16 h-16 rounded-xl bg-creator/10 flex items-center justify-center shrink-0">
+                        <ShieldCheck className="w-8 h-8 text-creator" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-display text-creator mb-2">
+                          Terms & Workflow
+                        </h3>
+                        <p className="text-foreground/60 leading-relaxed">
+                          Clear terms for smooth collaboration
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-6 mb-8">
+                      <div className="p-5 rounded-lg bg-creator/5 border border-creator/10">
+                        <p className="font-medium text-foreground mb-4 text-lg">Payment Terms</p>
+                        <div className="space-y-3">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-creator mt-0.5 shrink-0" />
+                            <div>
+                              <p className="text-foreground mb-1 font-medium">Small Projects: 100% Advance</p>
+                              <p className="text-sm text-foreground/60">Full payment before starting</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-creator mt-0.5 shrink-0" />
+                            <div>
+                              <p className="text-foreground mb-1 font-medium">Large Projects: 50% Advance</p>
+                              <p className="text-sm text-foreground/60">Work starts after confirmation</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="p-5 rounded-lg bg-creator/5 border border-creator/10">
+                        <p className="font-medium text-foreground mb-4 text-lg">Revision Policy</p>
+                        <div className="space-y-3">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-creator mt-0.5 shrink-0" />
+                            <div>
+                              <p className="text-foreground mb-1 font-medium">Up to 2 Rounds of Revisions</p>
+                              <p className="text-sm text-foreground/60">Within agreed scope only</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-creator mt-0.5 shrink-0" />
+                            <div>
+                              <p className="text-foreground mb-1 font-medium">Major Changes Charged Separately</p>
+                              <p className="text-sm text-foreground/60">Late changes outside original scope</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="p-5 rounded-lg bg-creator/5 border border-creator/10">
+                        <p className="font-medium text-foreground mb-3 text-lg">Delivery Timeline</p>
+                        <p className="text-foreground/70 leading-relaxed">
+                          <span className="font-medium text-creator">Standard:</span> 3-5 business days for most projects. Rush delivery available for subscription clients at no extra cost.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="p-5 rounded-lg bg-gradient-to-br from-creator/10 to-creator/5 border border-creator/20 mb-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <ShieldCheck className="w-5 h-5 text-creator mt-0.5" />
+                        <p className="font-medium text-creator">Professional Partnership</p>
+                      </div>
+                      <p className="text-sm text-foreground/70 leading-relaxed">
+                        Built on mutual respect and transparency. Our terms protect both parties and ensure smooth collaboration. No hidden clauses, no surprises.
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => navigate('/contact')}
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-creator text-background hover:shadow-lg hover:shadow-creator/30"
+                    >
+                      Contact Us
+                    </button>
                   </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
-                  >
-                    Get Started
-                  </button>
-                </div>
-
-                {/* Motion Graphics & VFX */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.15s' }}>
-                  <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Sparkles className="w-7 h-7 text-creator" />
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Motion & VFX</h3>
-                    <p className="text-sm text-foreground/50 mb-4">2.5D Animation</p>
-
-                    <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹699-₹2,699</div>
-                      <p className="text-xs text-foreground/40">Based on complexity</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Basic: ₹699</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Advanced: ₹1,999</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Pro VFX: ₹2,699</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Perfect for:</span> Intros, transitions, effects
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
-                  >
-                    Get Started
-                  </button>
-                </div>
-
-                {/* Thumbnails */}
-                <div className="glass-card rounded-2xl p-8 border border-border/20 hover:border-creator/40 transition-all duration-500 animate-float group" style={{ animationDelay: '0.3s' }}>
-                  <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-creator/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Palette className="w-7 h-7 text-creator" />
-                    </div>
-                    <h3 className="text-xl font-display mb-1">Thumbnails</h3>
-                    <p className="text-sm text-foreground/50 mb-4">High-CTR design</p>
-
-                    <div className="mb-4">
-                      <div className="text-3xl font-display text-creator mb-1">₹299-₹699</div>
-                      <p className="text-xs text-foreground/40">Per thumbnail</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Thumbnail Only: ₹299</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>+ Strategy: ₹699</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-foreground/70">
-                      <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Publishing direction</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-creator/5 border border-creator/10 mb-6">
-                    <p className="text-xs text-foreground/60">
-                      <span className="font-medium text-creator">Perfect for:</span> Boosting CTR
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-creator hover:bg-creator hover:text-background"
-                  >
-                    Get Started
-                  </button>
-                </div>
+                )}
               </div>
             </div>
 
@@ -1102,7 +1286,7 @@ const Pricing = () => {
                         <div className="text-3xl font-display text-creator">Custom</div>
                         <div className="px-2 py-0.5 rounded bg-creator/20 text-creator text-xs font-bold">SAVE 40%</div>
                       </div>
-                      <p className="text-xs text-foreground/40">Unlimited projects</p>
+                      <p className="text-xs text-foreground/40">Up to 50 projects/year</p>
                     </div>
                   </div>
 
@@ -1117,7 +1301,7 @@ const Pricing = () => {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
-                      <span>Unlimited minor edits</span>
+                      <span>Up to 3 revision rounds per project</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-foreground/70">
                       <CheckCircle className="w-4 h-4 text-creator shrink-0" />
