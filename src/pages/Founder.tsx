@@ -46,6 +46,17 @@ const Founder = () => {
             </p>
           </div>
 
+          {/* Founder Image */}
+          <div className="flex justify-center mb-12">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden glass-card border border-border/20">
+              <img
+                src="https://placehold.co/400x400/1a1a1a/gold?text=Casper+Morgan"
+                alt="Casper Morgan - Founder"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
           {/* Opening Quote */}
           <div className={`p-8 rounded-2xl mb-12 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
             <Quote className={`w-8 h-8 mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -62,13 +73,16 @@ const Founder = () => {
                 Why I Started This
               </h2>
               <p className="text-foreground/60 leading-relaxed">
-                Working with schools, I noticed something painful: principals and teachers spending countless hours on documentation instead of education. UDISE+ forms, examination records, government reports — essential work, but exhausting.
+                As a BCA graduate, I understand the code. As a Documentary Filmmaker, I understand the story.
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                On the other side, I saw talented creators with brilliant ideas but limited production resources. They were creating content that deserved premium polish but couldn't afford or access it.
+                Working with schools across rural Gorakhpur, I witnessed principals and teachers drowning in digital paperwork — UDISE+ forms, examination records, scholarship applications. Essential work that pulled them away from what they do best: educating.
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                quickserveit exists to bridge these gaps — not with flashy promises, but with calm, reliable execution.
+                Simultaneously, through my filmmaking journey, I saw talented creators with powerful stories but limited post-production resources. Their content deserved cinematic polish, professional sound design, and strategic editing — but access was the barrier.
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                I bridge the gap between technical compliance and creative expression. quickserveit exists to serve both worlds with precision, discretion, and calm execution.
               </p>
             </section>
 
@@ -126,10 +140,10 @@ const Founder = () => {
                 Thank you for considering quickserveit.
               </p>
               <p className={`font-display text-lg ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                — The Founder
+                — Casper Morgan
               </p>
               <p className="text-sm text-foreground/40 mt-2">
-                quickserveit
+                Founder, quickserveit
               </p>
             </div>
           </div>

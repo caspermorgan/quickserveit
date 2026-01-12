@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Terminal } from 'lucide-react';
 
 interface SystemTerminalProps {
@@ -6,22 +5,6 @@ interface SystemTerminalProps {
 }
 
 const SystemTerminal = ({ mode }: SystemTerminalProps) => {
-  const [uptime, setUptime] = useState('99.99');
-  const [latency, setLatency] = useState(12);
-  const [serverLoad, setServerLoad] = useState(42);
-  const [memory, setMemory] = useState(1.2);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Simulate metric fluctuations
-      setLatency(prev => Math.max(8, Math.min(18, prev + (Math.random() - 0.5) * 2)));
-      setServerLoad(prev => Math.max(30, Math.min(60, prev + (Math.random() - 0.5) * 5)));
-      setMemory(prev => Math.max(1.0, Math.min(2.0, prev + (Math.random() - 0.5) * 0.1)));
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const modeColorClass = mode === 'institutional' ? 'text-institutional' : 'text-creator';
 
   return (
@@ -33,7 +16,7 @@ const SystemTerminal = ({ mode }: SystemTerminalProps) => {
         <div className="terminal-dot bg-green-500/80" />
         <span className="ml-4 text-xs text-foreground/40 font-mono">quickserve@system ~ </span>
       </div>
-      
+
       {/* Terminal Body */}
       <div className="p-4 md:p-6 space-y-4">
         {/* Command */}
@@ -41,36 +24,36 @@ const SystemTerminal = ({ mode }: SystemTerminalProps) => {
           <span className={`${modeColorClass}`}>root@quickserve:~$</span>
           <span className="text-foreground/80 font-mono text-sm">sys_status</span>
         </div>
-        
-        {/* Output */}
+
+        {/* Output - Real Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-4">
-          <MetricBlock 
-            label="UPTIME" 
-            value={`${uptime}%`} 
+          <MetricBlock
+            label="PROJECTS"
+            value="06 Delivered"
             modeClass={modeColorClass}
           />
-          <MetricBlock 
-            label="LATENCY" 
-            value={`${Math.round(latency)}ms`} 
+          <MetricBlock
+            label="CLIENTS"
+            value="100% Satisfaction"
             modeClass={modeColorClass}
           />
-          <MetricBlock 
-            label="SERVER LOAD" 
-            value={`${Math.round(serverLoad)}%`} 
+          <MetricBlock
+            label="STACK"
+            value="React, TS, Adobe"
             modeClass={modeColorClass}
           />
-          <MetricBlock 
-            label="MEMORY" 
-            value={`${memory.toFixed(1)} GB`} 
+          <MetricBlock
+            label="STATUS"
+            value="Open for Contracts"
             modeClass={modeColorClass}
           />
         </div>
-        
+
         {/* Status line */}
         <div className="flex items-center gap-2 mt-6 pt-4 border-t border-border">
           <Terminal className={`w-4 h-4 ${modeColorClass}`} />
           <span className="text-xs text-foreground/40 font-mono">
-            All systems operational • Encryption: 
+            All systems operational • Encryption:
             <span className={`ml-1 ${modeColorClass}`}>SECURE</span>
           </span>
         </div>
@@ -90,7 +73,7 @@ const MetricBlock = ({ label, value, modeClass }: MetricBlockProps) => (
     <div className="text-[10px] md:text-xs text-foreground/30 tracking-wider mb-1">
       {label}
     </div>
-    <div className={`text-lg md:text-2xl font-mono ${modeClass}`}>
+    <div className={`text-sm md:text-lg font-mono ${modeClass}`}>
       {value}
     </div>
   </div>

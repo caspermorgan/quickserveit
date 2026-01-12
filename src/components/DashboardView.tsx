@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowUp } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import FloatingNavbar from './FloatingNavbar';
 import ServicesSection from './ServicesSection';
 import CredibilitySection from './CredibilitySection';
@@ -20,6 +21,7 @@ const DashboardView = ({ mode, onReturn, isEntering }: DashboardViewProps) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const lastScrollY = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const container = containerRef.current;
@@ -52,15 +54,15 @@ const DashboardView = ({ mode, onReturn, isEntering }: DashboardViewProps) => {
   return (
     <div
       className={`fixed inset-0 z-40 bg-background transition-all duration-1000 ${isEntering
-          ? 'opacity-100 scale-100 blur-0'
-          : 'opacity-0 scale-95 blur-lg pointer-events-none'
+        ? 'opacity-100 scale-100 blur-0'
+        : 'opacity-0 scale-95 blur-lg pointer-events-none'
         }`}
     >
-      {/* Cursor Light */}
-      <CursorLight mode={mode} />
+      {/* Cursor Light - Desktop Only */}
+      {!isMobile && <CursorLight mode={mode} />}
 
-      {/* Film Grain */}
-      <FilmGrain />
+      {/* Film Grain - Desktop Only */}
+      {!isMobile && <FilmGrain />}
 
       {/* Navbar */}
       <FloatingNavbar mode={mode} onReturn={onReturn} isVisible={isNavVisible} />
@@ -81,8 +83,8 @@ const DashboardView = ({ mode, onReturn, isEntering }: DashboardViewProps) => {
       <button
         onClick={scrollToTop}
         className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full glass-nav flex items-center justify-center transition-all duration-700 ${showBackToTop
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-10 pointer-events-none'
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-10 pointer-events-none'
           } ${mode === 'institutional'
             ? 'hover:border-institutional/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]'
             : 'hover:border-creator/30 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]'
