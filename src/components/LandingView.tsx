@@ -55,13 +55,13 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             </div>
 
             {/* Content */}
-            <div className={`relative z-40 flex flex-col items-center text-center px-4 sm:px-6 max-w-7xl w-full transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
+            <div className={`relative z-40 flex flex-col items-center text-center px-5 sm:px-6 max-w-7xl w-full transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
                 {/* Brand Name - Enhanced Typography with Text Shadow */}
                 <h1
                     className="font-display font-bold text-foreground mb-4 md:mb-6 tracking-tight"
                     style={{
-                        fontSize: 'clamp(3rem, 8vw, 7rem)',
+                        fontSize: 'clamp(2.5rem, 8vw, 7rem)',
                         lineHeight: '1.1',
                         letterSpacing: '-0.03em',
                         fontWeight: 800,
@@ -74,7 +74,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                 {/* Tagline - Enhanced Spacing and Readability */}
                 <p
-                    className="font-sans text-foreground/60 font-light mb-12 md:mb-16 lg:mb-20 max-w-2xl"
+                    className="font-sans text-foreground/60 font-light mb-10 md:mb-14 lg:mb-20 max-w-2xl"
                     style={{
                         fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
                         letterSpacing: '0.2em',
@@ -87,7 +87,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                 {/* Decision Cards - Enhanced Design */}
                 <div
-                    className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8 w-full max-w-5xl"
+                    className="flex flex-col lg:flex-row gap-5 sm:gap-6 lg:gap-8 w-full max-w-5xl"
                     style={{ animationDelay: '600ms' }}
                 >
                     {/* Institutional Card */}
@@ -99,11 +99,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
                         aria-label="Select Institutional Mode - For schools, colleges, and educational institutions"
-                        className={`group relative flex-1 p-6 sm:p-8 md:p-10 lg:p-12 rounded-3xl transition-all duration-700 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-institutional/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${mode === 'institutional'
-                            ? 'scale-[1.03] md:scale-[1.05]'
+                        className={`group relative flex-1 p-5 sm:p-7 md:p-9 lg:p-12 rounded-2xl sm:rounded-3xl transition-all duration-700 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-institutional/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${mode === 'institutional'
+                            ? 'scale-[1.01] sm:scale-[1.02] lg:scale-[1.05]'
                             : hoveredCard === 'institutional'
-                                ? 'scale-[1.02] md:scale-[1.03]'
-                                : 'hover:scale-[1.02]'
+                                ? 'scale-[1.005] sm:scale-[1.015] lg:scale-[1.03]'
+                                : 'hover:scale-[1.01] lg:hover:scale-[1.02]'
                             }`}
                         style={{
                             background: mode === 'institutional'
@@ -121,7 +121,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 : hoveredCard === 'institutional'
                                     ? '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(234, 179, 8, 0.12), inset 0 0 40px rgba(234, 179, 8, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.12)'
                                     : '0 0 0 1px rgba(0, 0, 0, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(234, 179, 8, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-                            minHeight: '280px',
+                            minHeight: '240px',
                         }}
                     >
                         {/* Animated Border Gradient */}
@@ -143,8 +143,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         />
 
                         {/* Icon Indicator */}
-                        <div className="absolute top-6 right-6 md:top-8 md:right-8 opacity-40 group-hover:opacity-70 transition-opacity duration-500">
-                            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ color: 'rgb(234, 179, 8)' }}>
+                        <div className="absolute top-5 right-5 sm:top-6 sm:right-6 md:top-8 md:right-8 opacity-40 group-hover:opacity-70 transition-opacity duration-500">
+                            <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ color: 'rgb(234, 179, 8)' }}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
                             </svg>
                         </div>
@@ -188,11 +188,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
                         aria-label="Select Creator Mode - For content creators, studios, and modern brands"
-                        className={`group relative flex-1 p-6 sm:p-8 md:p-10 lg:p-12 rounded-3xl transition-all duration-700 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-creator/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${mode === 'creator'
-                            ? 'scale-[1.03] md:scale-[1.05]'
+                        className={`group relative flex-1 p-5 sm:p-7 md:p-9 lg:p-12 rounded-2xl sm:rounded-3xl transition-all duration-700 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-creator/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${mode === 'creator'
+                            ? 'scale-[1.01] sm:scale-[1.02] lg:scale-[1.05]'
                             : hoveredCard === 'creator'
-                                ? 'scale-[1.02] md:scale-[1.03]'
-                                : 'hover:scale-[1.02]'
+                                ? 'scale-[1.005] sm:scale-[1.015] lg:scale-[1.03]'
+                                : 'hover:scale-[1.01] lg:hover:scale-[1.02]'
                             }`}
                         style={{
                             background: mode === 'creator'
@@ -210,7 +210,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 : hoveredCard === 'creator'
                                     ? '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(34, 211, 238, 0.12), inset 0 0 40px rgba(34, 211, 238, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.12)'
                                     : '0 0 0 1px rgba(0, 0, 0, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(34, 211, 238, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-                            minHeight: '280px',
+                            minHeight: '240px',
                         }}
                     >
                         {/* Animated Border Gradient */}
@@ -232,8 +232,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         />
 
                         {/* Icon Indicator */}
-                        <div className="absolute top-6 right-6 md:top-8 md:right-8 opacity-40 group-hover:opacity-70 transition-opacity duration-500">
-                            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ color: 'rgb(34, 211, 238)' }}>
+                        <div className="absolute top-5 right-5 sm:top-6 sm:right-6 md:top-8 md:right-8 opacity-40 group-hover:opacity-70 transition-opacity duration-500">
+                            <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ color: 'rgb(34, 211, 238)' }}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0118 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-3.75 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0118 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 016 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
                             </svg>
                         </div>
