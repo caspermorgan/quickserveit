@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +10,6 @@ import Footer from '@/components/Footer';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import HowWeWork from '@/components/HowWeWork';
 import { H1 } from '@/components/Typography';
-import { useState, useEffect } from 'react';
 import {
   FileText,
   GraduationCap,

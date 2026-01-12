@@ -290,11 +290,11 @@ export const translations = {
     confidentialityIsSacredDesc: 'Your data, your documents, your content — treated with the discretion they deserve.',
     qualityWithoutEgo: 'Quality Without Ego',
     qualityWithoutEgoDesc: 'We don\'t need credit. We need your work to succeed. That\'s our satisfaction.',
-    theVisionAhead: 'The Vision Ahead',
-    visionAheadText1: 'quickserveit is not trying to be everything to everyone. We\'re building a focused practice — deep expertise in institutional documentation and creator production. No distractions, no dilution.',
-    visionAheadText2: 'Whether you\'re a school administrator processing scholarship records or a YouTuber crafting your next video, I want quickserveit to feel like having a trusted colleague who just handles things quietly and well.',
-    thankYouMessage: 'Thank you for considering quickserveit.',
-    theFounder: '— The Founder',
+    aboutVisionAhead: 'The Vision Ahead',
+    aboutVisionAheadText1: 'quickserveit is not trying to be everything to everyone. We\'re building a focused practice — deep expertise in institutional documentation and creator production. No distractions, no dilution.',
+    aboutVisionAheadText2: 'Whether you\'re a school administrator processing scholarship records or a YouTuber crafting your next video, I want quickserveit to feel like having a trusted colleague who just handles things quietly and well.',
+    aboutThankYouMessage: 'Thank you for considering quickserveit.',
+    aboutTheFounder: '— The Founder',
 
     // Founder Page - Comprehensive Philosophical Content
     founderPageTitle: 'Founder\'s Message',
