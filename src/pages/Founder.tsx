@@ -48,9 +48,9 @@ const Founder = () => {
 
           {/* Founder Image */}
           <div className="flex justify-center mb-12">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden glass-card border border-border/20">
+            <div className="relative w-64 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden glass-card border border-border/20">
               <img
-                src="https://placehold.co/400x400/1a1a1a/gold?text=Casper+Morgan"
+                src="https://placehold.co/400x500/1a1a1a/gold?text=Casper"
                 alt="Casper Morgan - Founder"
                 className="w-full h-full object-cover"
               />
@@ -73,16 +73,16 @@ const Founder = () => {
                 Why I Started This
               </h2>
               <p className="text-foreground/60 leading-relaxed">
-                As a BCA graduate, I understand the code. As a Documentary Filmmaker, I understand the story.
+                <strong>Dual Expertise:</strong> As a BCA graduate, I understand the code. As a Documentary Filmmaker, I understand the story. This unique combination allows me to serve two distinct worlds with equal depth.
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                Working with schools across rural Gorakhpur, I witnessed principals and teachers drowning in digital paperwork — UDISE+ forms, examination records, scholarship applications. Essential work that pulled them away from what they do best: educating.
+                Working with schools across rural Gorakhpur, I witnessed principals and teachers drowning in digital paperwork — UDISE+ forms, examination records, scholarship applications. Essential work that pulled them away from what they do best: educating. My technical background (BCA) gave me the tools to digitize these processes efficiently.
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                Simultaneously, through my filmmaking journey, I saw talented creators with powerful stories but limited post-production resources. Their content deserved cinematic polish, professional sound design, and strategic editing — but access was the barrier.
+                Simultaneously, through my documentary filmmaking journey, I saw talented creators with powerful stories but limited post-production resources. Their content deserved cinematic polish, professional sound design, and strategic editing — but access was the barrier. My storytelling expertise became their bridge to professional-grade content.
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                I bridge the gap between technical compliance and creative expression. quickserveit exists to serve both worlds with precision, discretion, and calm execution.
+                I bridge the gap between technical compliance and creative expression. quickserveit exists to serve both worlds with precision, discretion, and calm execution — powered by a founder who genuinely understands both domains.
               </p>
             </section>
 

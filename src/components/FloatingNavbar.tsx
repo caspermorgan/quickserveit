@@ -244,15 +244,15 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             );
           })}
 
-          {/* Book a Call CTA Button */}
+          {/* Start Your Project CTA Button */}
           <Link
             to="/contact"
             className={`ml-2 px-4 py-2.5 md:px-5 md:py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap ${mode === 'institutional'
-                ? 'bg-institutional text-background hover:bg-institutional/90'
-                : 'bg-creator text-background hover:bg-creator/90'
+              ? 'bg-institutional text-background hover:bg-institutional/90'
+              : 'bg-creator text-background hover:bg-creator/90'
               }`}
           >
-            Book a Call
+            Start Your Project
           </Link>
         </nav>
       </div>

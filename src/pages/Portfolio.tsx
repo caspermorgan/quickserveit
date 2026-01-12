@@ -8,28 +8,28 @@ import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { FileText, Database, Film, Video, Palette, Sparkles } from 'lucide-react';
 
-// Real portfolio projects - visible to all users
+// Real portfolio projects - V2 Production Assets
 const portfolioItems = [
   // Institutional Projects
   {
     title: 'Rural Education Data System',
     category: 'Institutional',
     icon: Database,
-    description: 'Digitizing UDISE+ records for 50+ schools across rural Gorakhpur, ensuring compliance and accuracy.',
+    description: 'Digitizing UDISE+ records for 50+ schools.',
     type: 'institutional'
   },
   {
     title: 'Examination Record Portal',
     category: 'Institutional',
     icon: FileText,
-    description: 'Secure, compliant student data management system for examination records and scholarship verification.',
+    description: 'Secure, compliant student data management.',
     type: 'institutional'
   },
   {
     title: 'Scholarship Verification System',
     category: 'Institutional',
     icon: Database,
-    description: 'Streamlined biometric verification and scholarship application processing for educational institutions.',
+    description: 'Streamlined biometric verification and scholarship processing.',
     type: 'institutional'
   },
   // Creator Projects
@@ -37,21 +37,21 @@ const portfolioItems = [
     title: 'The Dark History of Witch Trials',
     category: 'Creator',
     icon: Film,
-    description: '3-Part Documentary Series with professional editing, sound design, and historical narrative storytelling.',
+    description: '3-Part Documentary Series (Editing & Sound Design).',
     type: 'creator'
   },
   {
     title: 'Mera Gaav Mera Desh',
     category: 'Creator',
     icon: Video,
-    description: 'Rural storytelling series capturing authentic Indian village stories with cinematic color grading.',
+    description: 'Rural storytelling series capturing real Indian stories.',
     type: 'creator'
   },
   {
     title: 'Tech Review Content',
     category: 'Creator',
     icon: Palette,
-    description: 'High-retention editing for tech YouTubers with dynamic pacing, motion graphics, and engaging transitions.',
+    description: 'High-retention editing for tech YouTubers.',
     type: 'creator'
   },
 ];

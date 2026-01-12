@@ -189,6 +189,30 @@ const Home = () => {
         {/* Tech Ticker - Trust Signal */}
         <TechTicker mode={mode} />
 
+        {/* Bottom CTA - Start Your Project */}
+        <section className="px-6 py-20 md:py-32">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-display mb-6 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+              Ready to {mode === 'institutional' ? 'Digitize Your Institution' : 'Elevate Your Content'}?
+            </h2>
+            <p className="text-foreground/60 text-lg mb-10 max-w-2xl mx-auto">
+              {mode === 'institutional'
+                ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
+                : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}
+            </p>
+            <Link
+              to="/contact"
+              className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+                ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
+                : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
+                }`}
+            >
+              Start Your Project
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </section>
+
       </main>
 
       <Footer mode={mode} />
