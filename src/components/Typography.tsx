@@ -21,15 +21,17 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
     );
 };
 
-// H1 - Page titles
+// H1 - Page titles (slightly thicker than homepage hero)
 export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component className={cn(
             'text-4xl md:text-5xl',
-            'font-display font-bold',
+            'font-display',
             'leading-tight',
             className
-        )}>
+        )}
+            style={{ fontWeight: 800 }}
+        >
             {children}
         </Component>
     );

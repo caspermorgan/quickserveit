@@ -103,16 +103,16 @@ const Home = () => {
 
           <div className="relative max-w-5xl mx-auto text-center z-10">
             {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mb-8 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <DisplayText className={`mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
             {/* Compact Typewriter Subtitle */}
-            <div className="mb-10 flex justify-center">
+            <div className="mb-10 flex justify-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <TypewriterText
                 anchorText={t('ourServices')}
                 phrases={typewriterSentences}
-                anchorClassName={mode === 'institutional' ? 'text-institutional font-semibold mr-1.5' : 'text-creator font-semibold mr-1.5'}
+                anchorClassName={`text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
                 className="text-lg md:text-xl text-foreground/60"
                 speed={120}
                 pauseDuration={2800}
@@ -120,7 +120,7 @@ const Home = () => {
             </div>
 
             {/* Description - Typography System: BodyLarge */}
-            <BodyLarge className="mb-12 max-w-2xl mx-auto">
+            <BodyLarge className="mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               {description}
             </BodyLarge>
 
@@ -144,7 +144,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 animate-fade-in-up mb-16" style={{ animationDelay: '500ms' }}>
               <Link
                 to="/services"
-                className={`group inline-flex items-center gap-3 px-10 py-5 rounded-full font-medium text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[56px] ${mode === 'institutional'
+                className={`group inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
                   : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
                   }`}
@@ -154,7 +154,7 @@ const Home = () => {
               </Link>
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-3 px-10 py-5 rounded-full font-medium text-lg border-2 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[56px] ${mode === 'institutional'
+                className={`inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg border-2 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'border-institutional/50 text-institutional hover:bg-institutional/10 hover:border-institutional'
                   : 'border-creator/50 text-creator hover:bg-creator/10 hover:border-creator'
                   }`}

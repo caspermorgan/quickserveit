@@ -22,6 +22,7 @@ import {
   Sparkles,
   Crown
 } from 'lucide-react';
+import { H1 } from '@/components/Typography';
 
 const Pricing = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
@@ -263,13 +264,13 @@ const Pricing = () => {
             className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4 sm:mb-5 md:mb-6">
+            <H1 className="mb-4 sm:mb-5 md:mb-6">
               {mode === 'institutional' ? (
                 <>Professional <span className="text-institutional">Institutional</span> Pricing</>
               ) : (
                 <>Premium <span className="text-creator">Creator</span> Services</>
               )}
-            </h1>
+            </H1>
             <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
               {mode === 'institutional'
                 ? 'Scope-based pricing for serious institutions. Only what is written here is promised and delivered.'
@@ -325,9 +326,9 @@ const Pricing = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveServiceTab(tab.id)}
-                    className={`inline-flex items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 ${activeServiceTab === tab.id
-                        ? `${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background shadow-lg ${mode === 'institutional' ? 'shadow-institutional/30' : 'shadow-creator/30'} scale-105`
-                        : `glass-card border border-border/20 ${mode === 'institutional' ? 'hover:border-institutional/40' : 'hover:border-creator/40'} text-foreground/70 hover:text-foreground hover:scale-102`
+                    className={`inline-flex items-center gap-2 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-full font-medium text-xs sm:text-sm md:text-base transition-all duration-300 min-h-[44px] ${activeServiceTab === tab.id
+                      ? `${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background shadow-lg ${mode === 'institutional' ? 'shadow-institutional/30' : 'shadow-creator/30'} scale-105`
+                      : `glass-card border border-border/20 ${mode === 'institutional' ? 'hover:border-institutional/40' : 'hover:border-creator/40'} text-foreground/70 hover:text-foreground hover:scale-102`
                       }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -347,7 +348,7 @@ const Pricing = () => {
                     {currentTab.plans.map((plan, idx) => (
                       <div
                         key={idx}
-                        className={`group glass-card rounded-2xl p-6 sm:p-8 border ${mode === 'institutional' ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20' : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'} hover:shadow-xl transition-all duration-500 hover:scale-[1.02]`}
+                        className={`group glass-card rounded-2xl p-4 sm:p-6 md:p-8 border ${mode === 'institutional' ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20' : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'} hover:shadow-xl transition-all duration-500 hover:scale-[1.02]`}
                       >
                         {plan.subtitle ? (
                           <>

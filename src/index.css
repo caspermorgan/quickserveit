@@ -403,21 +403,31 @@
   /* Premium Button Styles */
   .btn-premium {
     position: relative;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: clamp(0.75rem, 0.5rem + 1vw, 1rem) clamp(1.5rem, 1rem + 2vw, 2rem);
     border-radius: 9999px;
     font-weight: 500;
+    font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
     letter-spacing: 0.025em;
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     color: hsl(0, 0%, 0%);
     transition: all 0.4s var(--ease-premium);
-    min-height: 48px;
-    /* Mobile touch target */
+    min-height: 44px;
+    /* Mobile touch target - 44px minimum */
     box-shadow:
       0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  @media (min-width: 768px) {
+    .btn-premium {
+      min-height: 48px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn-premium {
+      min-height: 56px;
+    }
   }
 
   .btn-premium:hover {
@@ -450,19 +460,29 @@
 
   .btn-outline-premium {
     position: relative;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: clamp(0.75rem, 0.5rem + 1vw, 1rem) clamp(1.5rem, 1rem + 2vw, 2rem);
     border-radius: 9999px;
     font-weight: 500;
+    font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
     letter-spacing: 0.025em;
     background: transparent;
     border: 1px solid hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
     color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     transition: all 0.4s var(--ease-premium);
-    min-height: 48px;
-    /* Mobile touch target */
+    min-height: 44px;
+    /* Mobile touch target - 44px minimum */
+  }
+
+  @media (min-width: 768px) {
+    .btn-outline-premium {
+      min-height: 48px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn-outline-premium {
+      min-height: 56px;
+    }
   }
 
   .btn-outline-premium:hover {
@@ -740,6 +760,36 @@
   /* Radial gradient utility */
   .bg-gradient-radial {
     background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  /* Responsive Container Padding */
+  .container-padding {
+    padding-left: clamp(1rem, 2vw, 2rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
+  }
+
+  /* Responsive Section Spacing */
+  .section-spacing {
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+  }
+
+  /* Responsive Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  /* Touch-Friendly Spacing */
+  .touch-spacing {
+    padding: clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  /* Prevent Text Overflow */
+  .text-safe {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 }
 

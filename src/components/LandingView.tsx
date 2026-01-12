@@ -121,7 +121,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 : hoveredCard === 'institutional'
                                     ? '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(234, 179, 8, 0.12), inset 0 0 40px rgba(234, 179, 8, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.12)'
                                     : '0 0 0 1px rgba(0, 0, 0, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(234, 179, 8, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-                            minHeight: '240px',
+                            minHeight: 'clamp(200px, 50vw, 240px)',
                         }}
                     >
                         {/* Animated Border Gradient */}
@@ -210,7 +210,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 : hoveredCard === 'creator'
                                     ? '0 0 0 1px rgba(0, 0, 0, 0.5), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(34, 211, 238, 0.12), inset 0 0 40px rgba(34, 211, 238, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.12)'
                                     : '0 0 0 1px rgba(0, 0, 0, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(34, 211, 238, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-                            minHeight: '240px',
+                            minHeight: 'clamp(200px, 50vw, 240px)',
                         }}
                     >
                         {/* Animated Border Gradient */}

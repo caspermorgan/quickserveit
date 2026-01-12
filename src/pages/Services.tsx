@@ -8,6 +8,7 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import HowWeWork from '@/components/HowWeWork';
+import { H1 } from '@/components/Typography';
 import { useState, useEffect } from 'react';
 import {
   FileText,
@@ -436,13 +437,13 @@ const Services = () => {
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           {/* Header */}
           <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display mb-4 md:mb-4 leading-tight">
+            <H1 className="mb-4 md:mb-4">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
                 <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
               )}
-            </h1>
+            </H1>
             <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-0">
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
@@ -536,7 +537,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
       {/* Header - Always visible */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-5 sm:p-5 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
+        className="w-full p-4 sm:p-5 md:p-6 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
         aria-expanded={isExpanded}
       >
         <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
@@ -655,7 +656,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
                     }
                   });
                 }}
-                className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+                className={`inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 rounded-full text-sm sm:text-base font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] ${mode === 'institutional'
                   ? 'bg-institutional text-background hover:bg-institutional/90'
                   : 'bg-creator text-background hover:bg-creator/90'
                   }`}

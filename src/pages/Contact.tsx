@@ -11,6 +11,7 @@ import {
   Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle,
   Zap, X, Sparkles, ChevronDown, ChevronUp, Send
 } from 'lucide-react';
+import { H1, H2 } from '@/components/Typography';
 import { toast } from 'sonner';
 
 const Contact = () => {
@@ -161,9 +162,9 @@ const Contact = () => {
             className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display mb-4 sm:mb-5 md:mb-6">
+            <H1 className="mb-4 sm:mb-5 md:mb-6">
               Let's <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Connect</span>
-            </h1>
+            </H1>
             <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
               Share your project details and we'll respond within working hours.
             </p>
@@ -188,7 +189,7 @@ const Contact = () => {
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex items-center gap-4 p-4 sm:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
+                className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
@@ -225,19 +226,19 @@ const Contact = () => {
                     ? 'Hello QuickServe IT Team,\n\nI am interested in your institutional documentation services.\n\nInstitution Name: \nService Needed: \nProject Details: \n\nBest Regards'
                     : 'Hello QuickServe IT Team,\n\nI am interested in your creator production services.\n\nChannel/Brand Name: \nContent Type: \nProject Details: \n\nBest Regards'
                 )}`}
-                className={`group flex items-center gap-4 p-4 sm:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
-                    ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
-                    : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
+                className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
+                  ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
+                  : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
                 style={{ willChange: 'transform' }}
               >
                 <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
-                    ? 'bg-institutional/10 group-hover:bg-institutional'
-                    : 'bg-creator/10 group-hover:bg-creator'
+                  ? 'bg-institutional/10 group-hover:bg-institutional'
+                  : 'bg-creator/10 group-hover:bg-creator'
                   }`}>
                   <Mail className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors ${mode === 'institutional'
-                      ? 'text-institutional group-hover:text-background'
-                      : 'text-creator group-hover:text-background'
+                    ? 'text-institutional group-hover:text-background'
+                    : 'text-creator group-hover:text-background'
                     }`} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -308,7 +309,7 @@ const Contact = () => {
             className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-display text-center mb-6 sm:mb-7 md:mb-8">Frequently Asked Questions</h2>
+            <H2 className="text-center mb-6 sm:mb-7 md:mb-8">Frequently Asked Questions</H2>
             <div className="space-y-3 sm:space-y-4">
               {faqs.map((faq, index) => (
                 <div
@@ -380,8 +381,8 @@ const Contact = () => {
               style={{ willChange: 'transform' }}
             >
               <div className={`shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center transition-colors ${mode === 'institutional'
-                  ? 'bg-institutional/10 text-institutional group-hover:bg-institutional/20'
-                  : 'bg-creator/10 text-creator group-hover:bg-creator/20'
+                ? 'bg-institutional/10 text-institutional group-hover:bg-institutional/20'
+                : 'bg-creator/10 text-creator group-hover:bg-creator/20'
                 }`}>
                 <Mail className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
               </div>

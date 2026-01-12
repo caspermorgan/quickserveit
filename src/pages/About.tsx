@@ -7,6 +7,7 @@ import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import { Shield, Target, Users, Zap, Eye, Clock, Quote, ArrowRight } from 'lucide-react';
+import { H1, H2 } from '@/components/Typography';
 
 const About = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
@@ -39,9 +40,9 @@ const About = () => {
         <div className="container mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-20 max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-6">
+            <H1 className="mb-6">
               {t('aboutPageTitle')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('brandName')}</span>
-            </h1>
+            </H1>
             <p className="text-lg text-foreground/50 leading-relaxed">
               {t('aboutIntro')}
             </p>
@@ -49,7 +50,7 @@ const About = () => {
 
           {/* Philosophy Section */}
           <section className="max-w-4xl mx-auto mb-20">
-            <h2 className="text-2xl font-display mb-8 text-center">{t('ourPhilosophy')}</h2>
+            <H2 className="mb-8 text-center">{t('ourPhilosophy')}</H2>
             <div className="grid md:grid-cols-2 gap-6">
               <PhilosophyCard
                 icon={Shield}
@@ -112,7 +113,7 @@ const About = () => {
 
           {/* Who We Serve - Mode Specific */}
           <section className="max-w-4xl mx-auto mb-20">
-            <h2 className="text-2xl font-display mb-8 text-center">{t('whoWeServe')}</h2>
+            <H2 className="mb-8 text-center">{t('whoWeServe')}</H2>
             <div className="max-w-2xl mx-auto">
               {mode === 'institutional' ? (
                 <div className="p-8 rounded-2xl glass-card border border-institutional/30">
@@ -154,7 +155,7 @@ const About = () => {
 
           {/* What We Don't Do */}
           <section className="max-w-3xl mx-auto mb-20">
-            <h2 className="text-2xl font-display mb-8 text-center">{t('whatWeDontDo')}</h2>
+            <H2 className="mb-8 text-center">{t('whatWeDontDo')}</H2>
             <div className="p-8 rounded-2xl glass-card border border-border/20">
               <p className="text-foreground/60 mb-6">
                 {t('transparencyNote')}
@@ -230,7 +231,7 @@ interface PhilosophyCardProps {
 }
 
 const PhilosophyCard = ({ icon: Icon, title, description, mode }: PhilosophyCardProps) => (
-  <div className="p-6 rounded-2xl glass-card border border-border/20">
+  <div className="p-4 sm:p-5 md:p-6 rounded-2xl glass-card border border-border/20">
     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
       <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
     </div>
