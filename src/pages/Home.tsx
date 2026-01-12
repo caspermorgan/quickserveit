@@ -11,7 +11,6 @@ import CreatorModeNotice from '@/components/CreatorModeNotice';
 import ServicesTeaser from '@/components/ServicesTeaser';
 import HowWeWork from '@/components/HowWeWork';
 import TechTicker from '@/components/TechTicker';
-import PageTeasers from '@/components/PageTeasers';
 import ValueProposition from '@/components/ValueProposition';
 import { DisplayText, BodyLarge } from '@/components/Typography';
 import { ArrowRight, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react';
@@ -186,9 +185,6 @@ const Home = () => {
 
         {/* How We Work - Process Overview */}
         <HowWeWork mode={mode} />
-
-        {/* Page Teasers - Navigate to Main Pages */}
-        <PageTeasers mode={mode} />
 
         {/* Tech Ticker - Trust Signal */}
         <TechTicker mode={mode} />

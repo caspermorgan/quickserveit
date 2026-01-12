@@ -53,10 +53,6 @@ const Pricing = () => {
           <div className="container mx-auto px-6">
             {/* Hero Section */}
             <div className="text-center mb-16 max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-institutional/10 border border-institutional/20 mb-6 animate-fade-in">
-                <ShieldCheck className="w-4 h-4 text-institutional" />
-                <span className="text-xs font-medium text-institutional">100% Verified Pricing</span>
-              </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-5 animate-fade-in-up">
                 <span className="text-institutional">Professional</span> Institutional Pricing
               </h1>
@@ -597,10 +593,6 @@ const Pricing = () => {
           <div className="container mx-auto px-6">
             {/* Hero Section */}
             <div className="text-center mb-16 max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-creator/10 border border-creator/20 mb-6 animate-fade-in">
-                <Sparkles className="w-4 h-4 text-creator" />
-                <span className="text-xs font-medium text-creator">Flexible Creator Pricing</span>
-              </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-5 animate-fade-in-up">
                 Premium <span className="text-creator">Creator Services</span>
               </h1>
