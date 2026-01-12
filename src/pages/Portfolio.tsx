@@ -25,13 +25,6 @@ const portfolioItems = [
     description: 'Secure, compliant student data management.',
     type: 'institutional'
   },
-  {
-    title: 'Scholarship Verification System',
-    category: 'Institutional',
-    icon: Database,
-    description: 'Streamlined biometric verification and scholarship processing.',
-    type: 'institutional'
-  },
   // Creator Projects
   {
     title: 'The Dark History of Witch Trials',
@@ -52,6 +45,13 @@ const portfolioItems = [
     category: 'Creator',
     icon: Palette,
     description: 'High-retention editing for tech YouTubers.',
+    type: 'creator'
+  },
+  {
+    title: 'Lifestyle Vlogs',
+    category: 'Creator',
+    icon: Sparkles,
+    description: 'Cinematic color grading for influencers.',
     type: 'creator'
   },
 ];
