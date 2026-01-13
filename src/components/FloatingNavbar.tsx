@@ -121,7 +121,6 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     { label: t('services'), href: '/services' },
     { label: t('about'), href: '/about' },
     { label: t('pricing'), href: '/pricing' },
-    { label: 'Start Project', href: '/contact' },
   ];
 
   const creatorLinks = [
@@ -130,7 +129,6 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     { label: t('portfolio'), href: '/portfolio' },
     { label: t('about'), href: '/about' },
     { label: t('pricing'), href: '/pricing' },
-    { label: 'Start Project', href: '/contact' },
   ];
 
   const links = mode === 'institutional' ? institutionalLinks : creatorLinks;
