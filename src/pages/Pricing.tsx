@@ -266,16 +266,16 @@ const Pricing = () => {
               }`}
           >
             {/* Main Heading */}
-            <H1 className="mb-4 sm:mb-5">
+            <h1 className="page-title mb-4 sm:mb-5">
               {mode === 'institutional' ? (
                 <>Professional <span className="text-institutional">Institutional</span> Pricing</>
               ) : (
                 <>Premium <span className="text-creator">Creator</span> Services</>
               )}
-            </H1>
+            </h1>
 
             {/* Subtitle */}
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-3xl mx-auto">
+            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-3xl mx-auto text-balance">
               {mode === 'institutional'
                 ? 'Scope-based pricing for serious institutions. Only what is written here is promised and delivered.'
                 : 'Professional production for serious creators. Clearly defined scope. Professionally executed.'

@@ -40,10 +40,10 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
-            <H1 className="mb-4 sm:mb-5 md:mb-6">
-              {t('aboutPageTitle')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('brandName')}</span>
-            </H1>
-            <p className="text-sm sm:text-base md:text-lg text-foreground/60 leading-relaxed px-4">
+            <h1 className="page-title mb-4 sm:mb-5 md:mb-6">
+              About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Us</span>
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-foreground/60 leading-relaxed px-4 text-balance">
               {t('aboutIntro')}
             </p>
           </div>

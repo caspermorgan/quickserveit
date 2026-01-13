@@ -58,7 +58,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 {/* Brand Identity Hero - Typography First */}
                 <div className="mb-10 md:mb-14">
                     <h1
-                        className="font-display font-bold text-foreground tracking-tight mb-3"
+                        className="font-display font-bold text-foreground tracking-tight mb-3 text-balance"
                         style={{
                             fontSize: 'clamp(2.25rem, 6vw, 5rem)',
                             lineHeight: '1.05',
@@ -85,10 +85,10 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
                         className={`group relative p-7 md:p-8 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'institutional'
-                                ? 'border-institutional/60 bg-institutional/8 scale-[1.02]'
-                                : hoveredCard === 'creator'
-                                    ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
-                                    : 'border-white/10 bg-white/[0.03] hover:border-institutional/40 hover:bg-institutional/5'
+                            ? 'border-institutional/60 bg-institutional/8 scale-[1.02]'
+                            : hoveredCard === 'creator'
+                                ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
+                                : 'border-white/10 bg-white/[0.03] hover:border-institutional/40 hover:bg-institutional/5'
                             }`}
                         style={{
                             backdropFilter: 'blur(24px) saturate(150%)',
@@ -108,8 +108,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                             {/* Icon + Label */}
                             <div className="flex items-center gap-3 mb-4">
                                 <div className={`p-2.5 rounded-lg transition-all duration-300 ${mode === 'institutional'
-                                        ? 'bg-institutional/25 text-institutional'
-                                        : 'bg-white/5 text-foreground/60 group-hover:bg-institutional/15 group-hover:text-institutional'
+                                    ? 'bg-institutional/25 text-institutional'
+                                    : 'bg-white/5 text-foreground/60 group-hover:bg-institutional/15 group-hover:text-institutional'
                                     }`}>
                                     <Building2 size={22} strokeWidth={1.5} />
                                 </div>
@@ -119,12 +119,12 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight">
+                            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight text-balance">
                                 Compliance & Scale
                             </h3>
 
                             {/* Description */}
-                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed mb-5">
+                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed mb-5 text-balance">
                                 Reliable IT systems, documentation, and operational efficiency for institutions.
                             </p>
 
@@ -145,10 +145,10 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
                         className={`group relative p-7 md:p-8 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'creator'
-                                ? 'border-creator/60 bg-creator/8 scale-[1.02]'
-                                : hoveredCard === 'institutional'
-                                    ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
-                                    : 'border-white/10 bg-white/[0.03] hover:border-creator/40 hover:bg-creator/5'
+                            ? 'border-creator/60 bg-creator/8 scale-[1.02]'
+                            : hoveredCard === 'institutional'
+                                ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
+                                : 'border-white/10 bg-white/[0.03] hover:border-creator/40 hover:bg-creator/5'
                             }`}
                         style={{
                             backdropFilter: 'blur(24px) saturate(150%)',
@@ -168,8 +168,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                             {/* Icon + Label */}
                             <div className="flex items-center gap-3 mb-4">
                                 <div className={`p-2.5 rounded-lg transition-all duration-300 ${mode === 'creator'
-                                        ? 'bg-creator/25 text-creator'
-                                        : 'bg-white/5 text-foreground/60 group-hover:bg-creator/15 group-hover:text-creator'
+                                    ? 'bg-creator/25 text-creator'
+                                    : 'bg-white/5 text-foreground/60 group-hover:bg-creator/15 group-hover:text-creator'
                                     }`}>
                                     <Sparkles size={22} strokeWidth={1.5} />
                                 </div>
@@ -179,12 +179,12 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight">
+                            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight text-balance">
                                 Growth & Impact
                             </h3>
 
                             {/* Description */}
-                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed mb-5">
+                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed mb-5 text-balance">
                                 Video editing, storytelling, and digital reach expansion for modern brands.
                             </p>
 

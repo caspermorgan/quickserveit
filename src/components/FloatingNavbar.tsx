@@ -82,17 +82,30 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const lastScrollY = useRef(0);
 
-  // Smart scroll behavior
+  // Smart auto-hide menu behavior
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+    let isScrolling = false;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Handle visibility
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        setNavVisible(false);
-      } else {
-        setNavVisible(true);
+      // Show menu while scrolling
+      setNavVisible(true);
+      isScrolling = true;
+
+      // Clear existing timeout
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
       }
+
+      // Set timeout to hide menu after scroll stops (3 seconds)
+      scrollTimeout = setTimeout(() => {
+        if (currentScrollY > 100) {
+          setNavVisible(false);
+        }
+        isScrolling = false;
+      }, 3000);
 
       // Handle shadow/sticky state
       setIsScrolled(currentScrollY > 20);
@@ -100,8 +113,34 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       lastScrollY.current = currentScrollY;
     };
 
+    // Show menu instantly on any touch/interaction
+    const handleTouch = () => {
+      setNavVisible(true);
+      // Clear auto-hide timeout when user touches
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
+
+    // Show menu on mouse movement (for desktop)
+    const handleMouseMove = () => {
+      if (!isScrolling && window.scrollY > 100) {
+        setNavVisible(true);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('touchstart', handleTouch, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchstart', handleTouch);
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
   }, []);
 
   // Lock body scroll when mobile menu is open
