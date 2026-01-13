@@ -262,36 +262,52 @@ const Pricing = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`text-center mb-12 sm:mb-14 md:mb-16 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H1 className="mb-4 sm:mb-5 md:mb-6">
+            {/* Main Heading */}
+            <H1 className="mb-4 sm:mb-5">
               {mode === 'institutional' ? (
                 <>Professional <span className="text-institutional">Institutional</span> Pricing</>
               ) : (
                 <>Premium <span className="text-creator">Creator</span> Services</>
               )}
             </H1>
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
+
+            {/* Subtitle */}
+            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-3xl mx-auto">
               {mode === 'institutional'
                 ? 'Scope-based pricing for serious institutions. Only what is written here is promised and delivered.'
                 : 'Professional production for serious creators. Clearly defined scope. Professionally executed.'
               }
             </p>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-foreground/50">
-              <div className="flex items-center gap-2">
+            {/* Trust Indicators / Promise Tags */}
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
+              <div className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/20' : 'bg-creator/5 border-creator/20'}`}>
                 <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span>{mode === 'institutional' ? 'No Hidden Fees' : '1080p Delivery'}</span>
+                <span className="text-sm font-medium">{mode === 'institutional' ? 'No Hidden Fees' : '1080p Delivery'}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/20' : 'bg-creator/5 border-creator/20'}`}>
                 <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span>{mode === 'institutional' ? 'Clear Terms' : 'Platform-Ready'}</span>
+                <span className="text-sm font-medium">{mode === 'institutional' ? 'Clear Terms' : 'Platform-Ready'}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/20' : 'bg-creator/5 border-creator/20'}`}>
                 <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span>{mode === 'institutional' ? 'Zero-Rejection Guarantee' : 'Clear Scope'}</span>
+                <span className="text-sm font-medium">{mode === 'institutional' ? 'Zero-Rejection Guarantee' : 'Clear Scope'}</span>
+              </div>
+            </div>
+
+            {/* Pricing Type Indicators */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+              <div className="flex items-center gap-2 text-foreground/60">
+                <Zap className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className="text-sm font-medium">{mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}</span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-border/30"></div>
+              <div className="flex items-center gap-2 text-foreground/60">
+                <TrendingUp className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className="text-sm font-medium">Subscription Plans Available</span>
               </div>
             </div>
           </div>
@@ -303,18 +319,18 @@ const Pricing = () => {
             className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <div className="text-center mb-6 sm:mb-8">
-              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
+            <div className="text-center mb-8 sm:mb-10">
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
                 }`}>
-                <Zap className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className={`text-xs ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                <Zap className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
                   {mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-2 sm:mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-3 sm:mb-4">
                 Service-Based <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Pricing</span>
               </h2>
-              <p className="text-foreground/60 text-sm sm:text-base">
+              <p className="text-foreground/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
                 Perfect for one-time projects or occasional needs
               </p>
             </div>
@@ -536,25 +552,25 @@ const Pricing = () => {
             className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <div className="text-center mb-8 sm:mb-10">
-              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
                 }`}>
-                <TrendingUp className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className={`text-xs ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                <TrendingUp className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
                   Save Up to {mode === 'institutional' ? '17%' : '40%'}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-2 sm:mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-3 sm:mb-4">
                 <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Subscription</span> Plans
               </h2>
-              <p className="text-foreground/60 text-sm sm:text-base">
+              <p className="text-foreground/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
                 {mode === 'institutional'
                   ? 'Regular UDISE+ & scholarship support — better rates, priority service'
                   : 'Consistent content output with better rates and priority support'
                 }
               </p>
               {mode === 'institutional' && (
-                <p className="text-foreground/40 text-xs mt-2">
+                <p className="text-foreground/40 text-xs sm:text-sm mt-3">
                   📄 Paper typing always billed separately at standard rates
                 </p>
               )}
