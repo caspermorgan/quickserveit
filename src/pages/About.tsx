@@ -95,18 +95,18 @@ const About = () => {
               <div className="flex items-start gap-4 mb-6">
                 <Quote className={`w-8 h-8 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 <div className="flex-1">
-                  <h2 className="text-2xl font-display mb-2">A Note from the Founder</h2>
-                  <p className="text-foreground/50 text-sm">The story behind quickserveit</p>
+                  <h2 className="text-2xl font-display mb-2">{t('aNoteFromFounder')} {t('theFounder')}</h2>
+                  <p className="text-foreground/50 text-sm">{t('theStoryBehindQuickserve')}</p>
                 </div>
                 <ArrowRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               </div>
 
               <blockquote className="text-lg italic text-foreground/70 leading-relaxed border-l-2 pl-6 mb-4" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.3)' : 'rgba(34,211,238,0.3)' }}>
-                "I built quickserveit because I saw a gap — institutions drowning in digital chaos, creators struggling with inconsistent quality. Both needed a partner who understood their world, not just their tasks."
+                {t('founderOpeningQuote')}
               </blockquote>
 
               <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                Read the full message →
+                {t('aboutTheFounder')} →
               </p>
             </Link>
           </section>
@@ -187,18 +187,18 @@ const About = () => {
               <div className="flex items-start gap-4 mb-6">
                 <Quote className={`w-8 h-8 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 <div className="flex-1">
-                  <h2 className="text-2xl font-display mb-2">A Note from the Founder</h2>
-                  <p className="text-foreground/50 text-sm">The story behind quickserveit</p>
+                  <h2 className="text-2xl font-display mb-2">{t('aNoteFromFounder')} {t('theFounder')}</h2>
+                  <p className="text-foreground/50 text-sm">{t('theStoryBehindQuickserve')}</p>
                 </div>
                 <ArrowRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               </div>
 
               <blockquote className="text-lg italic text-foreground/70 leading-relaxed border-l-2 pl-6 mb-4" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.3)' : 'rgba(34,211,238,0.3)' }}>
-                "I built quickserveit because I saw a gap — institutions drowning in digital chaos, creators struggling with inconsistent quality. Both needed a partner who understood their world, not just their tasks."
+                {t('founderOpeningQuote')}
               </blockquote>
 
               <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                Read the full message →
+                {t('aboutTheFounder')} →
               </p>
             </Link>
           </section>

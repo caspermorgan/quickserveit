@@ -164,7 +164,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           onClick={onReturn}
           className={`
             group flex items-center gap-0 overflow-hidden
-            h-10 md:h-12 pl-0 pr-0 rounded-full 
+            h-9 md:h-10 lg:h-12 pl-0 pr-0 rounded-full 
             glass-nav
             transition-all duration-500 ease-out
             hover:pr-4 md:hover:pr-5
@@ -176,7 +176,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           aria-label="Return to landing"
         >
           {/* Perfect Circle Logo Container */}
-          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
+          <div className="relative w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden flex-shrink-0">
             <img
               src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
               alt="QuickServe IT"
@@ -189,7 +189,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             className={`
               flex items-center h-full
               whitespace-nowrap overflow-hidden
-              font-display font-medium text-sm md:text-base tracking-wide
+              font-display font-medium text-xs md:text-sm lg:text-base tracking-wide
               transition-all duration-500 ease-out
               max-w-0 opacity-0 pl-0
               group-hover:max-w-[150px] group-hover:opacity-100 group-hover:pl-3
@@ -217,14 +217,14 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
           }`}
       >
-        <nav className="flex items-center gap-1 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
+        <nav className="flex items-center gap-0.5 md:gap-1 lg:gap-2 px-3 py-2.5 md:px-4 md:py-3 lg:px-6 lg:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             return (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative px-3 py-2.5 md:px-4 md:py-2 text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center ${isActive
+                className={`relative px-2 py-2 md:px-3 md:py-2.5 lg:px-4 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center ${isActive
                   ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   : 'text-foreground/60 hover:text-foreground'
                   }`}
@@ -245,7 +245,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Start Your Project CTA Button */}
           <Link
             to="/contact"
-            className={`ml-2 px-4 py-2.5 md:px-5 md:py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap ${mode === 'institutional'
+            className={`ml-1 md:ml-2 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 text-xs md:text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap ${mode === 'institutional'
               ? 'bg-institutional text-background hover:bg-institutional/90'
               : 'bg-creator text-background hover:bg-creator/90'
               }`}
