@@ -433,36 +433,36 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 md:pt-32 pb-16 md:pb-20">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
-          <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
-            <H1 className="mb-4 md:mb-4">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto">
+            <H1 className="mb-4 sm:mb-5 md:mb-6">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
                 <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
               )}
             </H1>
-            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-0">
+            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed px-4">
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
 
           {/* Creator Mode Notice */}
           {mode === 'creator' && (
-            <div className="mb-8 md:mb-10">
+            <div className="mb-8 sm:mb-9 md:mb-10">
               <CreatorModeNotice />
             </div>
           )}
 
           {/* Important Notice */}
-          <div className={`max-w-3xl mx-auto mb-10 md:mb-12 p-4 sm:p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
-            <div className="flex items-start gap-4 sm:gap-4">
-              <AlertCircle className={`w-5 h-5 sm:w-5 sm:h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+          <div className={`max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12 p-4 sm:p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
+            <div className="flex items-start gap-3 sm:gap-4">
+              <AlertCircle className={`w-4 h-4 sm:w-5 sm:h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <div>
-                <h3 className="font-medium mb-2 text-sm sm:text-sm">{t('beforeYouBegin')}</h3>
-                <ul className="text-xs sm:text-xs text-foreground/60 space-y-2 leading-relaxed">
+                <h3 className="font-semibold mb-2 text-sm sm:text-base">{t('beforeYouBegin')}</h3>
+                <ul className="text-xs sm:text-sm text-foreground/60 space-y-1.5 sm:space-y-2 leading-relaxed">
                   {t('beforeYouBeginItems').split('|').map((item, i) => (
                     <li key={i}>• {item}</li>
                   ))}
@@ -474,8 +474,8 @@ const Services = () => {
 
 
           {/* Services Section */}
-          <div className="pb-16 md:pb-20">
-            <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
+          <div className="pb-12 sm:pb-16 md:pb-20">
+            <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
               {services.map((service, index) => (
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
@@ -484,8 +484,8 @@ const Services = () => {
         </div>
 
         {/* How We Work Section - Completely Separate with Different Background */}
-        <section className="bg-black border-t border-border py-20 md:py-24">
-          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+        <section className="bg-black border-t border-border py-16 sm:py-20 md:py-24">
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
             <HowWeWork mode={mode} />
           </div>
         </section>

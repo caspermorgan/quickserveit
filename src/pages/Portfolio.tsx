@@ -108,13 +108,13 @@ const Portfolio = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-32 pb-20">
-        <section className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-4">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
+        <section className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display mb-4 sm:mb-5 md:mb-6">
               <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Real</span> {t('portfolio')}
             </h1>
-            <p className="text-foreground/50 max-w-2xl mx-auto">
+            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto px-4">
               {mode === 'institutional'
                 ? 'Proven track record of digitizing educational records and streamlining institutional processes across rural Gorakhpur.'
                 : 'Professional video editing and content creation work spanning documentaries, storytelling, and high-retention content.'}
@@ -122,7 +122,7 @@ const Portfolio = () => {
           </div>
 
           {/* Portfolio Grid - Show ALL projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {displayedProjects.map((item, index) => (
               <PortfolioCard
                 key={index}

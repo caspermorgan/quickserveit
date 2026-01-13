@@ -95,66 +95,66 @@ const Home = () => {
       />
 
       <main className="min-h-screen bg-background">
-        {/* Hero Section - Premium Redesign */}
-        <section className={`relative min-h-screen flex items-center justify-center px-6 py-20 md:py-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        {/* Hero Section - Minimal & Professional */}
+        <section className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-28 md:py-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
-          {/* Gradient Orb Background - Optimized Size */}
-          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
+          {/* Gradient Orb Background - Subtle */}
+          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-1/4 left-1/2 -translate-x-1/2 opacity-15`} />
 
-          <div className="relative max-w-5xl mx-auto text-center z-10">
+          <div className="relative max-w-4xl mx-auto text-center z-10">
             {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
             {/* Compact Typewriter Subtitle */}
-            <div className="mb-10 flex justify-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <div className="mb-8 sm:mb-9 md:mb-10 flex justify-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <TypewriterText
                 anchorText={t('ourServices')}
                 phrases={typewriterSentences}
-                anchorClassName={`text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
-                className="text-lg md:text-xl text-foreground/60"
+                anchorClassName={`text-base sm:text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
+                className="text-base sm:text-lg md:text-xl text-foreground/60"
                 speed={120}
                 pauseDuration={2800}
               />
             </div>
 
             {/* Description - Typography System: BodyLarge */}
-            <BodyLarge className="mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '300ms' }}>
               {description}
             </BodyLarge>
 
             {/* Trust indicators - Enhanced */}
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
-                <Shield className="w-5 h-5" />
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-13 md:mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/50">
+                <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>{t('confidentialityTitle')}</span>
               </div>
-              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
-                <CheckCircle className="w-5 h-5" />
+              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/50">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>{t('realisticTimelinesTitle')}</span>
               </div>
-              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
-                <Clock className="w-5 h-5" />
+              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/50">
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>10 AM - 4 PM IST</span>
               </div>
             </div>
 
             {/* CTAs - Premium Styling */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 animate-fade-in-up mb-16" style={{ animationDelay: '500ms' }}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 md:gap-6 animate-fade-in-up mb-12 sm:mb-14 md:mb-16" style={{ animationDelay: '500ms' }}>
               <Link
                 to="/services"
-                className={`group inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
                   : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
                   }`}
               >
                 {mode === 'institutional' ? t('viewServices') : t('viewServices')}
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg border-2 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg border-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'border-institutional/50 text-institutional hover:bg-institutional/10 hover:border-institutional'
                   : 'border-creator/50 text-creator hover:bg-creator/10 hover:border-creator'
                   }`}
@@ -165,7 +165,7 @@ const Home = () => {
 
             {/* Scroll Indicator */}
             <div className="scroll-indicator opacity-40">
-              <ChevronDown className="w-6 h-6 text-foreground/60" />
+              <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/60" />
             </div>
           </div>
         </section>
@@ -190,25 +190,25 @@ const Home = () => {
         <TechTicker mode={mode} />
 
         {/* Bottom CTA - Start Your Project */}
-        <section className="px-6 py-20 md:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-display mb-6 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+        <section className="px-4 sm:px-6 py-16 sm:py-20 md:py-24">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className={`text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 sm:mb-5 md:mb-6 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               Ready to {mode === 'institutional' ? 'Digitize Your Institution' : 'Elevate Your Content'}?
             </h2>
-            <p className="text-foreground/60 text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-9 md:mb-10 max-w-2xl mx-auto px-4">
               {mode === 'institutional'
                 ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
                 : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}
             </p>
             <Link
               to="/contact"
-              className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+              className={`group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                 ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
                 : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
                 }`}
             >
               Start Your Project
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </section>

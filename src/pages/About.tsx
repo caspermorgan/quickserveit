@@ -36,22 +36,22 @@ const About = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-32 pb-20">
-        <div className="container mx-auto px-6">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
-          <div className="text-center mb-20 max-w-3xl mx-auto">
-            <H1 className="mb-6">
+          <div className="text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
+            <H1 className="mb-4 sm:mb-5 md:mb-6">
               {t('aboutPageTitle')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('brandName')}</span>
             </H1>
-            <p className="text-lg text-foreground/50 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-foreground/60 leading-relaxed px-4">
               {t('aboutIntro')}
             </p>
           </div>
 
           {/* Philosophy Section */}
-          <section className="max-w-4xl mx-auto mb-20">
-            <H2 className="mb-8 text-center">{t('ourPhilosophy')}</H2>
-            <div className="grid md:grid-cols-2 gap-6">
+          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
+            <H2 className="mb-6 sm:mb-7 md:mb-8 text-center">{t('ourPhilosophy')}</H2>
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               <PhilosophyCard
                 icon={Shield}
                 title={t('confidentialityTitle')}
@@ -80,7 +80,7 @@ const About = () => {
           </section>
 
           {/* Founder's Message Teaser */}
-          <section className="max-w-3xl mx-auto mb-20">
+          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
             <Link
               to="/founder"
               className={`
@@ -112,8 +112,8 @@ const About = () => {
           </section>
 
           {/* Who We Serve - Mode Specific */}
-          <section className="max-w-4xl mx-auto mb-20">
-            <H2 className="mb-8 text-center">{t('whoWeServe')}</H2>
+          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
+            <H2 className="mb-6 sm:mb-7 md:mb-8 text-center">{t('whoWeServe')}</H2>
             <div className="max-w-2xl mx-auto">
               {mode === 'institutional' ? (
                 <div className="p-8 rounded-2xl glass-card border border-institutional/30">
@@ -154,8 +154,8 @@ const About = () => {
           </section>
 
           {/* What We Don't Do */}
-          <section className="max-w-3xl mx-auto mb-20">
-            <H2 className="mb-8 text-center">{t('whatWeDontDo')}</H2>
+          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
+            <H2 className="mb-6 sm:mb-7 md:mb-8 text-center">{t('whatWeDontDo')}</H2>
             <div className="p-8 rounded-2xl glass-card border border-border/20">
               <p className="text-foreground/60 mb-6">
                 {t('transparencyNote')}
