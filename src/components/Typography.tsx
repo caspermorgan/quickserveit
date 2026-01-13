@@ -13,7 +13,7 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
         <Component className={cn(
             'text-5xl md:text-6xl lg:text-7xl',
             'font-display font-bold',
-            'leading-tight tracking-tight',
+            'leading-normal tracking-tight',
             className
         )}>
             {children}
@@ -28,7 +28,7 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
             className={cn(
                 'text-4xl md:text-5xl',
                 'font-display',
-                'leading-tight',
+                'leading-normal',
                 className
             )}
             style={{ fontWeight: 800 }}
@@ -44,7 +44,7 @@ export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProp
         <Component className={cn(
             'text-3xl md:text-4xl',
             'font-display font-bold',
-            'leading-snug',
+            'leading-normal',
             className
         )}>
             {children}
@@ -58,7 +58,7 @@ export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProp
         <Component className={cn(
             'text-2xl md:text-3xl',
             'font-display font-semibold',
-            'leading-snug',
+            'leading-relaxed',
             className
         )}>
             {children}

@@ -63,16 +63,16 @@ export const translations = {
     viewsGenerated: 'Views Generated',
 
     // Stats Section - Institutional
-    statsProjectsCompleted: 'Projects Completed',
-    statsInstitutionsServed: 'Institutions Served',
-    statsClientSatisfaction: 'Client Satisfaction',
+    statsOnTimeDelivery: 'On-Time Delivery',
     statsResponseTime: 'Response Time',
+    statsDataAccuracy: 'Data Accuracy',
+    statsAvailability: 'Availability',
 
     // Stats Section - Creator
-    statsVideosEdited: 'Videos Edited',
-    statsWatchHours: 'Watch Hours Generated',
-    statsCreatorsServed: 'Creators Served',
-    statsTurnaroundTime: 'Turnaround Time',
+    statsQualityScore: 'Quality Score',
+    statsRevisionTime: 'Revision Time',
+    statsClientRetention: 'Client Retention',
+    statsDeliverySpeed: 'Delivery Speed',
 
     // Value Proposition
     whyChooseUsTitle: 'Why Choose Us',
@@ -474,9 +474,9 @@ export const translations = {
     creatorAutomation: 'Creator-side Automation Tools',
 
     // Creator Mode Status Notice
-    creatorModeStatusTitle: 'Development Status',
-    creatorModeStatusMessage: 'This service is currently under development and is not live yet. It will be available in the coming months.',
-    creatorModeStatusNote: 'We are finalizing our production workflows and quality standards to ensure the best service for creators.',
+    creatorModeStatusTitle: 'Limited Availability',
+    creatorModeStatusMessage: 'Now Accepting Limited Clients for January.',
+    creatorModeStatusNote: 'We are onboarding select creators to ensure personalized attention and quality execution.',
 
     // Portfolio Protection
     portfolioLocked: 'Protected Content',
@@ -484,7 +484,7 @@ export const translations = {
     portfolioAccessMessage: 'This portfolio content is intended only for users evaluating our services. The work showcased may represent real institutional use-cases and client projects. To protect privacy and maintain trust, this material is not shared publicly.',
     portfolioAccessNote: 'If you are evaluating our services and would like to discuss specific case studies, please contact us directly.',
     portfolioUnderstand: 'I Understand',
-    portfolioContactUs: 'Contact Us',
+    portfolioContactUs: 'Request Access & Consultation',
     portfolioViewContent: 'View Content',
 
     // Work Experience & Institutional Exposure
