@@ -268,9 +268,9 @@ const Pricing = () => {
             {/* Main Heading */}
             <h1 className="page-title mb-4 sm:mb-5">
               {mode === 'institutional' ? (
-                <>Professional <span className="text-institutional">Institutional</span> Pricing</>
+                <><span className="text-institutional">Institutional</span> Pricing</>
               ) : (
-                <>Premium <span className="text-creator">Creator</span> Services</>
+                <><span className="text-creator">Creator</span> Pricing</>
               )}
             </h1>
 
