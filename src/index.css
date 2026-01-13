@@ -289,9 +289,28 @@
     opacity: 0.4;
   }
 
+  /* Mode-specific film grain opacity */
+  .film-grain-institutional {
+    opacity: 0.2;
+    /* Clean, paper-like aesthetic for schools */
+  }
+
+  .film-grain-creator {
+    opacity: 0.4;
+    /* Cinematic, gritty energy for creators */
+  }
+
   @media (max-width: 768px) {
     .film-grain {
       opacity: 0.2;
+    }
+
+    .film-grain-institutional {
+      opacity: 0.15;
+    }
+
+    .film-grain-creator {
+      opacity: 0.25;
     }
   }
 
@@ -1266,14 +1285,14 @@
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  /* Reduced from 100px for better performance */
-  opacity: 0.15;
   pointer-events: none;
   z-index: 0;
 }
 
 .gradient-orb-institutional {
+  filter: blur(60px);
+  /* Subtle, clean blur for institutional */
+  opacity: 0.15;
   background: radial-gradient(circle,
       rgba(43, 96, 56, 0.4) 0%,
       rgba(43, 96, 56, 0.2) 50%,
@@ -1281,9 +1300,13 @@
 }
 
 .gradient-orb-creator {
+  filter: blur(120px);
+  /* Enhanced neon cyberpunk glow */
+  opacity: 0.25;
+  /* Increased for dramatic effect */
   background: radial-gradient(circle,
-      rgba(0, 187, 212, 0.4) 0%,
-      rgba(0, 187, 212, 0.2) 50%,
+      rgba(0, 187, 212, 0.6) 0%,
+      rgba(0, 187, 212, 0.3) 50%,
       transparent 100%);
 }
 

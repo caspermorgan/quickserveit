@@ -86,7 +86,7 @@ const Home = () => {
       </Helmet>
 
       <CursorLight mode={mode} />
-      <FilmGrain />
+      <FilmGrain mode={mode} />
 
       <FloatingNavbar
         mode={mode}
@@ -112,7 +112,7 @@ const Home = () => {
               <TypewriterText
                 anchorText={t('ourServices')}
                 phrases={typewriterSentences}
-                anchorClassName={`text-base sm:text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
+                anchorClassName={`text-base sm:text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional-readable' : 'text-creator'}`}
                 className="text-base sm:text-lg md:text-xl text-foreground/60"
                 speed={120}
                 pauseDuration={2800}

@@ -79,7 +79,8 @@ export default {
         },
         // Mode colors - Institutional Premium Gold
         institutional: {
-          DEFAULT: "hsl(43, 96%, 56%)",
+          DEFAULT: "hsl(43, 96%, 56%)", // Bright gold for buttons/backgrounds
+          readable: "hsl(38, 70%, 45%)", // Darker metallic gold for text/icons (better readability)
           foreground: "hsl(0, 0%, 0%)",
           secondary: "hsl(38, 92%, 50%)",
           tertiary: "hsl(30, 85%, 35%)",

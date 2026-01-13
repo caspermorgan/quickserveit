@@ -284,7 +284,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Start Your Project CTA Button */}
           <Link
             to="/contact"
-            className={`ml-1 md:ml-2 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 text-xs md:text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap ${mode === 'institutional'
+            className={`ml-1 md:ml-2 px-3 py-2.5 md:px-4 md:py-3 lg:px-5 text-xs md:text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center ${mode === 'institutional'
               ? 'bg-institutional text-background hover:bg-institutional/90'
               : 'bg-creator text-background hover:bg-creator/90'
               }`}

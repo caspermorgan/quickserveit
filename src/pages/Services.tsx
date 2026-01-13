@@ -433,7 +433,7 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto">
@@ -475,7 +475,7 @@ const Services = () => {
 
           {/* Services Section */}
           <div className="pb-12 sm:pb-16 md:pb-20">
-            <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
+            <div className="space-y-5 sm:space-y-6 md:space-y-8 max-w-3xl mx-auto">
               {services.map((service, index) => (
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
@@ -561,7 +561,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
         className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
       >
         <div className="overflow-hidden">
-          <div className="px-5 sm:px-5 pb-5 sm:pb-5 border-t border-border/10 pt-5 sm:pt-5">
+          <div className="px-5 sm:px-6 pb-6 sm:pb-7 border-t border-border/10 pt-6 sm:pt-7">
             <p className="text-xs sm:text-sm text-foreground/60 mb-6 sm:mb-6 leading-relaxed">{fullDesc}</p>
 
             <div className="grid md:grid-cols-2 gap-6">

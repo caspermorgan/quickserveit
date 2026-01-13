@@ -7,13 +7,38 @@ interface TypographyProps {
     as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
 }
 
-// Display Text - Hero headings only
+interface BodyTypographyProps extends TypographyProps {
+    hindi?: boolean;
+}
+
+// ============================================
+// DISPLAY TEXT - MASSIVE POSTER-STYLE HERO
+// ============================================
+
+/**
+ * DisplayText - Massive, poster-style hero headings
+ * 
+ * Features:
+ * - Massive sizing: text-6xl to text-9xl (responsive)
+ * - Tight letter-spacing (tracking-tighter) for impact
+ * - text-balance for perfect line wrapping
+ * - font-display family for premium aesthetic
+ * 
+ * Usage: Hero sections, landing pages, major announcements
+ */
 export const DisplayText = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-5xl md:text-6xl lg:text-7xl',
+            // Massive poster-style sizing
+            'text-6xl sm:text-7xl md:text-8xl lg:text-9xl',
+            // Font family and weight
             'font-display font-bold',
-            'leading-normal tracking-tight',
+            // Tight tracking for visual impact
+            'tracking-tighter',
+            // Perfect line wrapping
+            'text-balance',
+            // Tight leading for poster aesthetic
+            'leading-[0.95]',
             className
         )}>
             {children}
@@ -21,30 +46,40 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
     );
 };
 
-// H1 - Page titles (slightly thicker than homepage hero)
+// ============================================
+// HEADING HIERARCHY - DISPLAY FONT
+// ============================================
+
+/**
+ * H1 - Page titles
+ * Slightly smaller than DisplayText, used for page headers
+ */
 export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component
             className={cn(
-                'text-4xl md:text-5xl',
-                'font-display',
-                'leading-normal',
+                'text-4xl md:text-5xl lg:text-6xl',
+                'font-display font-extrabold',
+                'leading-tight tracking-tight',
+                'text-balance',
                 className
             )}
-            style={{ fontWeight: 800 }}
         >
             {children}
         </Component>
     );
 };
 
-// H2 - Section headings
+/**
+ * H2 - Section headings
+ */
 export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-3xl md:text-4xl',
+            'text-3xl md:text-4xl lg:text-5xl',
             'font-display font-bold',
-            'leading-normal',
+            'leading-tight tracking-tight',
+            'text-balance',
             className
         )}>
             {children}
@@ -52,13 +87,16 @@ export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProp
     );
 };
 
-// H3 - Subsection headings
+/**
+ * H3 - Subsection headings
+ */
 export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-2xl md:text-3xl',
+            'text-2xl md:text-3xl lg:text-4xl',
             'font-display font-semibold',
-            'leading-relaxed',
+            'leading-snug tracking-tight',
+            'text-balance',
             className
         )}>
             {children}
@@ -66,13 +104,15 @@ export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProp
     );
 };
 
-// H4 - Card/Component titles
+/**
+ * H4 - Card/Component titles
+ */
 export const H4 = ({ children, className, as: Component = 'h4' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-xl md:text-2xl',
-            'font-sans font-semibold',
-            'leading-normal',
+            'text-xl md:text-2xl lg:text-3xl',
+            'font-display font-semibold',
+            'leading-snug',
             className
         )}>
             {children}
@@ -80,12 +120,14 @@ export const H4 = ({ children, className, as: Component = 'h4' }: TypographyProp
     );
 };
 
-// H5 - Small headings
+/**
+ * H5 - Small headings
+ */
 export const H5 = ({ children, className, as: Component = 'h5' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-lg md:text-xl',
-            'font-sans font-semibold',
+            'text-lg md:text-xl lg:text-2xl',
+            'font-display font-semibold',
             'leading-normal',
             className
         )}>
@@ -94,12 +136,14 @@ export const H5 = ({ children, className, as: Component = 'h5' }: TypographyProp
     );
 };
 
-// H6 - Micro headings
+/**
+ * H6 - Micro headings
+ */
 export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-base md:text-lg',
-            'font-sans font-medium',
+            'text-base md:text-lg lg:text-xl',
+            'font-display font-medium',
             'leading-normal',
             className
         )}>
@@ -108,13 +152,27 @@ export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProp
     );
 };
 
-// Body Large - Lead text
-export const BodyLarge = ({ children, className, as: Component = 'p' }: TypographyProps) => {
+// ============================================
+// BODY TEXT - SANS FONT WITH HINDI SUPPORT
+// ============================================
+
+/**
+ * BodyLarge - Lead text with Hindi support
+ * 
+ * Features:
+ * - Hindi prop: When true, uses looser line-height (leading-[1.8])
+ * - Accommodates Hindi script ascenders/descenders
+ * - font-sans family for body content
+ * 
+ * Usage: Lead paragraphs, introductions, important body text
+ */
+export const BodyLarge = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (
         <Component className={cn(
-            'text-lg md:text-xl',
+            'text-lg md:text-xl lg:text-2xl',
             'font-sans font-normal',
-            'leading-relaxed',
+            // Hindi-aware line-height
+            hindi ? 'leading-[1.8]' : 'leading-relaxed',
             'text-foreground/80',
             className
         )}>
@@ -123,13 +181,23 @@ export const BodyLarge = ({ children, className, as: Component = 'p' }: Typograp
     );
 };
 
-// Body Text - Regular content
-export const BodyText = ({ children, className, as: Component = 'p' }: TypographyProps) => {
+/**
+ * BodyText - Regular content with Hindi support
+ * 
+ * Features:
+ * - Hindi prop: When true, uses looser line-height (leading-[1.8])
+ * - Prevents cramped appearance with mixed English/Hindi
+ * - font-sans family for readability
+ * 
+ * Usage: Standard paragraphs, descriptions, general content
+ */
+export const BodyText = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (
         <Component className={cn(
             'text-base md:text-lg',
             'font-sans font-normal',
-            'leading-relaxed',
+            // Hindi-aware line-height
+            hindi ? 'leading-[1.8]' : 'leading-relaxed',
             'text-foreground/70',
             className
         )}>
@@ -138,7 +206,9 @@ export const BodyText = ({ children, className, as: Component = 'p' }: Typograph
     );
 };
 
-// Body Small - Secondary content
+/**
+ * BodySmall - Secondary content
+ */
 export const BodySmall = ({ children, className, as: Component = 'p' }: TypographyProps) => {
     return (
         <Component className={cn(
@@ -153,7 +223,9 @@ export const BodySmall = ({ children, className, as: Component = 'p' }: Typograp
     );
 };
 
-// Caption - Meta text
+/**
+ * Caption - Meta text
+ */
 export const Caption = ({ children, className, as: Component = 'span' }: TypographyProps) => {
     return (
         <Component className={cn(
@@ -167,3 +239,26 @@ export const Caption = ({ children, className, as: Component = 'span' }: Typogra
         </Component>
     );
 };
+
+// ============================================
+// UTILITY EXPORTS
+// ============================================
+
+/**
+ * Typography component map for dynamic rendering
+ */
+export const Typography = {
+    DisplayText,
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    BodyLarge,
+    BodyText,
+    BodySmall,
+    Caption,
+};
+
+export default Typography;
