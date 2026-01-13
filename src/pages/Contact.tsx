@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -16,6 +17,7 @@ import { toast } from 'sonner';
 
 const Contact = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [showContextBadge, setShowContextBadge] = useState(false);
@@ -102,47 +104,45 @@ const Contact = () => {
   const handleEmailCopy = async () => {
     try {
       await navigator.clipboard.writeText('letsquickserveit@gmail.com');
-      toast.success('Email copied to clipboard!', {
-        description: 'You can now paste it in your email client.',
+      toast.success(t('emailCopied'), {
+        description: t('emailCopiedDesc'),
       });
     } catch (error) {
-      toast.error('Failed to copy email', {
-        description: 'Please try again or use the contact form below.',
+      toast.error(t('emailCopyFailed'), {
+        description: t('emailCopyFailedDesc'),
       });
     }
   };
 
   const whatsappNumber = '916388224877';
   const whatsappMessage = mode === 'institutional'
-    ? 'Hello quickserveit, I need institutional documentation services.'
-    : 'Hello quickserveit, I need creator production services.';
+    ? t('whatsappMessageInst')
+    : t('whatsappMessageCreator');
 
   const faqs = [
     {
-      question: "How quickly will I get a response?",
-      answer: "We typically respond within 2-4 hours during working hours (10 AM - 4 PM IST, Mon-Sat). Messages sent outside working hours will be answered the next business day."
+      question: t('faqQuestion1'),
+      answer: t('faqAnswer1')
     },
     {
-      question: "What information should I include in my inquiry?",
-      answer: mode === 'institutional'
-        ? "Please include: your institution name, type of service needed (exam typing, UDISE+, etc.), approximate volume/scope, and any deadlines. This helps us provide an accurate quote faster."
-        : "Please include: your channel/brand name, type of content, video length, editing style preferences, and deadline. Sample videos or references are very helpful!"
+      question: t('faqQuestion2'),
+      answer: mode === 'institutional' ? t('faqAnswer2Inst') : t('faqAnswer2Creator')
     },
     {
-      question: "Do you offer free consultations?",
-      answer: "Yes! We offer a free initial consultation to understand your requirements and provide a detailed quote. No obligation to proceed."
+      question: t('faqQuestion3'),
+      answer: t('faqAnswer3')
     },
     {
-      question: "How do you handle confidential information?",
-      answer: "We treat all client data with strict confidentiality. We never share, store unnecessarily, or reuse any client information. Your data is deleted after project completion unless you request otherwise."
+      question: t('faqQuestion4'),
+      answer: t('faqAnswer4')
     }
   ];
 
   return (
     <>
       <Helmet>
-        <title>Contact Us | QuickServe IT</title>
-        <meta name="description" content="Get in touch with QuickServe IT for institutional documentation or creator production services. We respond within 24 hours." />
+        <title>{t('contactPageTitle')} | QuickServe IT</title>
+        <meta name="description" content={t('contactPageDesc')} />
       </Helmet>
 
       <CursorLight mode={mode} />
@@ -163,16 +163,16 @@ const Contact = () => {
               }`}
           >
             <H1 className="mb-4 sm:mb-5 md:mb-6">
-              Let's <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Connect</span>
+              {t('letsConnect').split(' ')[0]} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('letsConnect').split(' ').slice(1).join(' ')}</span>
             </H1>
             <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
-              Share your project details and we'll respond within working hours.
+              {t('shareProjectDetails')}
             </p>
 
             {/* Response Time Badge */}
             <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card border border-border/30 mb-6 sm:mb-7 md:mb-8 transition-all duration-300 hover:scale-105">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium">Usually responds in 2-4 hours</span>
+              <span className="text-xs sm:text-sm font-medium">{t('usuallyResponds')}</span>
             </div>
           </div>
 
