@@ -249,60 +249,72 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <LanguageSwitch mode={mode} />
       </div>
 
-      {/* Navigation Bar - Bottom with iOS Safe Area */}
+      {/* MAGNETIC DOCK - Conversion-Focused Navigation */}
       <div
-        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe ${combinedVisible
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe max-w-[95vw] ${combinedVisible
           ? 'opacity-100 translate-y-0 transition-all duration-300 ease-spring'
           : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
           }`}
       >
-        <nav className="flex items-center gap-0.5 md:gap-1 lg:gap-2 px-3 py-2.5 md:px-4 md:py-3 lg:px-6 lg:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
-          {links.map((link, index) => {
-            const isActive = location.pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={`relative px-2 py-2 md:px-3 md:py-2.5 lg:px-4 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center rounded-lg ${isActive
-                  ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                  : 'text-foreground/60 hover:text-foreground'
-                  }`}
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                {/* ACTIVE TAB GLOW - Instant visual feedback */}
-                {isActive && (
-                  <span
-                    className={`absolute inset-0 rounded-lg transition-all duration-300 ${mode === 'institutional'
-                      ? 'bg-institutional/15 shadow-[0_0_20px_rgba(234,179,8,0.3)]'
-                      : 'bg-creator/15 shadow-[0_0_20px_rgba(34,211,238,0.3)]'
-                      }`}
-                    aria-hidden="true"
-                  />
-                )}
+        <div className="relative flex items-center gap-0 rounded-full glass-nav overflow-hidden">
 
-                <span className="relative z-10">{link.label}</span>
-
-                {/* Active/Hover underline */}
-                <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'
-                    } ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'
+          {/* THE STREAM - Scrollable Navigation Links (Flow on Left) */}
+          <div
+            className="relative flex items-center overflow-x-auto no-scrollbar pl-3 md:pl-4 pr-2 z-10"
+            style={{
+              // BEHIND EFFECT - Gradient mask makes links emerge from behind CTA
+              maskImage: 'linear-gradient(to left, transparent 0%, black 20px, black 100%)',
+              WebkitMaskImage: 'linear-gradient(to left, transparent 0%, black 20px, black 100%)',
+            }}
+          >
+            {links.map((link, index) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`relative px-2 py-2 md:px-3 md:py-2.5 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center rounded-lg ${isActive
+                    ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                    : 'text-foreground/60 hover:text-foreground'
                     }`}
-                />
-              </Link>
-            );
-          })}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  {/* ACTIVE TAB GLOW - Instant visual feedback */}
+                  {isActive && (
+                    <span
+                      className={`absolute inset-0 rounded-lg transition-all duration-300 ${mode === 'institutional'
+                        ? 'bg-institutional/15 shadow-[0_0_20px_rgba(234,179,8,0.3)]'
+                        : 'bg-creator/15 shadow-[0_0_20px_rgba(34,211,238,0.3)]'
+                        }`}
+                      aria-hidden="true"
+                    />
+                  )}
 
-          {/* Start Your Project CTA Button */}
+                  <span className="relative z-10">{link.label}</span>
+
+                  {/* Active/Hover underline */}
+                  <span
+                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'
+                      } ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'
+                      }`}
+                  />
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* THE ANCHOR - Fixed CTA on Right (Protagonist) */}
           <Link
             to="/contact"
-            className={`ml-1 md:ml-2 px-3 py-2.5 md:px-4 md:py-3 lg:px-5 text-xs md:text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center ${mode === 'institutional'
+            className={`relative flex-shrink-0 px-4 py-3 md:px-5 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
               ? 'bg-institutional text-background hover:bg-institutional/90'
               : 'bg-creator text-background hover:bg-creator/90'
               }`}
           >
             Start Your Project
           </Link>
-        </nav>
+
+        </div>
       </div>
     </>
   );
