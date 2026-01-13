@@ -289,22 +289,17 @@
     opacity: 0.4;
   }
 
-  /* Mode-specific film grain opacity */
+  /* Film Grain Overlay - Mode-specific opacity */
   .film-grain-institutional {
     opacity: 0.2;
-    /* Clean, paper-like aesthetic for schools */
   }
 
   .film-grain-creator {
     opacity: 0.4;
-    /* Cinematic, gritty energy for creators */
   }
 
+  /* Mobile: Reduce film grain for performance */
   @media (max-width: 768px) {
-    .film-grain {
-      opacity: 0.2;
-    }
-
     .film-grain-institutional {
       opacity: 0.15;
     }
@@ -312,6 +307,23 @@
     .film-grain-creator {
       opacity: 0.25;
     }
+  }
+
+  /* iOS SAFE AREA - Prevents overlap with home indicator */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .pl-safe {
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+
+  .pr-safe {
+    padding-right: env(safe-area-inset-right, 0px);
   }
 
   /* Glass Morphism - Premium Edition */
@@ -360,14 +372,17 @@
     }
   }
 
+  /* V2 GLASS EFFECT - Enhanced with saturation boost */
   .glass-card {
     position: relative;
     background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* Smart trick: saturation boost makes background colors pop through glass */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: var(--shadow-premium-md);
-    transition: all 0.5s var(--ease-premium);
+    /* V2 SPRING EASING - Physics-based transitions */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   /* Noise texture overlay for tactile glass feel */
@@ -391,9 +406,10 @@
 
   @media (max-width: 768px) {
     .glass-card {
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all 0.3s var(--ease-premium);
+      /* Reduced blur on mobile for performance, keep saturation */
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     /* Reduce noise opacity on mobile for better performance */
@@ -405,6 +421,7 @@
   .glass-card:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
+    /* Spring easing makes hover feel like it has weight */
     transform: translateY(-6px);
     box-shadow:
       0 30px 80px rgba(0, 0, 0, 0.6),
@@ -421,6 +438,13 @@
     }
   }
 
+  /* V2 MAGNETIC MICRO-INTERACTION - Universal tactile feedback */
+  .magnetic-click:active,
+  .glass-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
   /* Mobile Touch Optimization */
   @media (hover: none) and (pointer: coarse) {
     .glass-card:hover {
@@ -429,7 +453,7 @@
 
     .glass-card:active {
       transform: scale(0.98);
-      transition: transform 0.1s ease;
+      transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
   }
 

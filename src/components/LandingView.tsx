@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
-import { ArrowRight, Building2, Clapperboard, Sparkles, Wrench, Youtube, BookOpen } from 'lucide-react';
+import { ArrowRight, Building2, Sparkles, Wrench, Youtube, BookOpen, AlertCircle, Clock } from 'lucide-react';
 
 // Lazy load decorative components for better initial load performance
 const ParticleCanvas = lazy(() => import('./ParticleCanvas'));
@@ -27,7 +27,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
     return (
         <div
-            className={`fixed inset-0 z-30 flex flex-col items-center justify-center overflow-hidden transition-all duration-1000 ease-out ${isExiting
+            className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-all duration-1000 ease-out ${isExiting
                 ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
                 : 'opacity-100 scale-100 blur-0'
                 }`}
@@ -51,32 +51,33 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 <HeaderStatusBadge mode={mode} />
             </div>
 
-            {/* Main Content Container */}
+            {/* STRICT CENTRAL AXIS LAYOUT - Flexbox Column with Consistent Gaps */}
             <div className={`relative z-40 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-6xl transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
 
-                {/* Brand Identity Hero - Typography First */}
-                <div className="mb-10 md:mb-14">
+                {/* MASSIVE HERO TITLE - Anchors the Page */}
+                <div className="mb-12 md:mb-16">
                     <h1
-                        className="font-display font-bold text-foreground tracking-tight mb-3 text-balance"
+                        className="font-display font-bold text-foreground tracking-tighter mb-4 text-balance"
                         style={{
-                            fontSize: 'clamp(2.25rem, 6vw, 5rem)',
-                            lineHeight: '1.05',
-                            letterSpacing: '-0.02em',
-                            textShadow: '0 2px 30px rgba(255, 255, 255, 0.12)',
+                            // MASSIVE sizing to anchor the page
+                            fontSize: 'clamp(3.5rem, 10vw, 8rem)',
+                            lineHeight: '0.95',
+                            letterSpacing: '-0.04em',
+                            textShadow: '0 4px 40px rgba(255, 255, 255, 0.15)',
                         }}
                     >
                         QuickServe IT
                     </h1>
-                    <p className="font-sans text-foreground/50 text-xs md:text-sm tracking-widest font-light uppercase">
-                        Your Personal Tech Partner
+                    <p className="font-sans text-foreground/60 text-sm md:text-base tracking-wide font-normal">
+                        Your Calm Digital Partner
                     </p>
                 </div>
 
-                {/* Compact Bento Grid - Premium Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 w-full max-w-4xl mb-12">
+                {/* DECISION CARDS - Reduced Dominance, Descriptive Labels */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl mb-12">
 
-                    {/* Institutional Card - Gold Theme */}
+                    {/* Institutional Services Card - Gold Theme */}
                     <button
                         onClick={() => {
                             onModeChange('institutional');
@@ -84,11 +85,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         }}
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-7 md:p-8 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'institutional'
+                        className={`group relative p-6 md:p-7 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'institutional'
                             ? 'border-institutional/60 bg-institutional/8 scale-[1.02]'
                             : hoveredCard === 'creator'
                                 ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
-                                : 'border-white/10 bg-white/[0.03] hover:border-institutional/40 hover:bg-institutional/5'
+                                : 'border-white/10 bg-white/[0.03] hover:border-institutional/40 hover:bg-institutional/5 hover:scale-[1.01]'
                             }`}
                         style={{
                             backdropFilter: 'blur(24px) saturate(150%)',
@@ -105,38 +106,46 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         <div className={`absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-institutional/20 to-transparent blur-sm`} style={{ zIndex: -1 }} />
 
                         <div className="relative z-10">
-                            {/* Icon + Label */}
+                            {/* Icon + Category Label */}
                             <div className="flex items-center gap-3 mb-4">
                                 <div className={`p-2.5 rounded-lg transition-all duration-300 ${mode === 'institutional'
                                     ? 'bg-institutional/25 text-institutional'
                                     : 'bg-white/5 text-foreground/60 group-hover:bg-institutional/15 group-hover:text-institutional'
                                     }`}>
-                                    <Building2 size={22} strokeWidth={1.5} />
+                                    <Building2 size={20} strokeWidth={1.5} />
                                 </div>
                                 <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.15em] text-foreground/40 group-hover:text-foreground/60 transition-colors">
-                                    For Schools & NGOs
+                                    For Schools & Colleges
                                 </span>
                             </div>
 
-                            {/* Title */}
-                            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight text-balance">
-                                Compliance & Scale
+                            {/* DESCRIPTIVE TITLE */}
+                            <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3 tracking-tight text-balance">
+                                Institutional Services
                             </h3>
 
+                            {/* THE "WHY" - Pain Point Solved */}
+                            <div className="flex items-start gap-2 mb-4 p-3 rounded-lg bg-institutional/5 border border-institutional/10">
+                                <AlertCircle className="w-4 h-4 text-institutional shrink-0 mt-0.5" />
+                                <p className="text-xs md:text-sm text-foreground/70 leading-relaxed text-balance font-medium">
+                                    Eliminate data entry errors and deadline stress
+                                </p>
+                            </div>
+
                             {/* Description */}
-                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed mb-5 text-balance">
-                                Reliable IT systems, documentation, and operational efficiency for institutions.
+                            <p className="text-xs md:text-sm text-foreground/50 leading-relaxed mb-4 text-balance">
+                                Exam documentation, UDISE+, scholarships, and daily digital support for institutions.
                             </p>
 
                             {/* CTA Arrow */}
                             <div className="flex items-center gap-2 text-institutional/70 group-hover:text-institutional transition-colors">
-                                <span className="text-xs font-medium tracking-wide">Enter</span>
+                                <span className="text-xs font-medium tracking-wide">Explore Services</span>
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
                             </div>
                         </div>
                     </button>
 
-                    {/* Creator Card - Cyan Theme */}
+                    {/* Creator Studio Card - Cyan Theme */}
                     <button
                         onClick={() => {
                             onModeChange('creator');
@@ -144,11 +153,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         }}
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-7 md:p-8 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'creator'
+                        className={`group relative p-6 md:p-7 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'creator'
                             ? 'border-creator/60 bg-creator/8 scale-[1.02]'
                             : hoveredCard === 'institutional'
                                 ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
-                                : 'border-white/10 bg-white/[0.03] hover:border-creator/40 hover:bg-creator/5'
+                                : 'border-white/10 bg-white/[0.03] hover:border-creator/40 hover:bg-creator/5 hover:scale-[1.01]'
                             }`}
                         style={{
                             backdropFilter: 'blur(24px) saturate(150%)',
@@ -165,32 +174,40 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         <div className={`absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-creator/20 to-transparent blur-sm`} style={{ zIndex: -1 }} />
 
                         <div className="relative z-10">
-                            {/* Icon + Label */}
+                            {/* Icon + Category Label */}
                             <div className="flex items-center gap-3 mb-4">
                                 <div className={`p-2.5 rounded-lg transition-all duration-300 ${mode === 'creator'
                                     ? 'bg-creator/25 text-creator'
                                     : 'bg-white/5 text-foreground/60 group-hover:bg-creator/15 group-hover:text-creator'
                                     }`}>
-                                    <Sparkles size={22} strokeWidth={1.5} />
+                                    <Sparkles size={20} strokeWidth={1.5} />
                                 </div>
                                 <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.15em] text-foreground/40 group-hover:text-foreground/60 transition-colors">
-                                    For Creators & Brands
+                                    For YouTubers & Brands
                                 </span>
                             </div>
 
-                            {/* Title */}
-                            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight text-balance">
-                                Growth & Impact
+                            {/* DESCRIPTIVE TITLE */}
+                            <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3 tracking-tight text-balance">
+                                Creator Studio
                             </h3>
 
+                            {/* THE "WHY" - Pain Point Solved */}
+                            <div className="flex items-start gap-2 mb-4 p-3 rounded-lg bg-creator/5 border border-creator/10">
+                                <Clock className="w-4 h-4 text-creator shrink-0 mt-0.5" />
+                                <p className="text-xs md:text-sm text-foreground/70 leading-relaxed text-balance font-medium">
+                                    Stop editing until 2 AM—get your life back
+                                </p>
+                            </div>
+
                             {/* Description */}
-                            <p className="text-sm md:text-base text-foreground/60 leading-relaxed mb-5 text-balance">
-                                Video editing, storytelling, and digital reach expansion for modern brands.
+                            <p className="text-xs md:text-sm text-foreground/50 leading-relaxed mb-4 text-balance">
+                                Video editing, thumbnails, motion graphics, and content strategy for creators.
                             </p>
 
                             {/* CTA Arrow */}
                             <div className="flex items-center gap-2 text-creator/70 group-hover:text-creator transition-colors">
-                                <span className="text-xs font-medium tracking-wide">Enter</span>
+                                <span className="text-xs font-medium tracking-wide">Explore Studio</span>
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
                             </div>
                         </div>
@@ -198,9 +215,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                 </div>
 
-                {/* Future-Proof Glass Dock - Bottom Navigation */}
+                {/* ALIGNED GLASS DOCK - Locked to Central Axis */}
                 <div
-                    className="relative px-6 py-4 rounded-full border border-white/10 bg-white/[0.02]"
+                    className="relative px-6 py-4 rounded-full border border-white/10 bg-white/[0.02] max-w-2xl w-full"
                     style={{
                         backdropFilter: 'blur(20px)',
                         WebkitBackdropFilter: 'blur(20px)',

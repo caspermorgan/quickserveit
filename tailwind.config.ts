@@ -96,7 +96,13 @@ export default {
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        sm: "calc(--radius) - 4px)",
+      },
+      // V2 PHYSICS-BASED EASING - Spring curve for weight/momentum
+      transitionTimingFunction: {
+        'spring': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+        'spring-smooth': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+        'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       keyframes: {
         "accordion-down": {
@@ -113,6 +119,11 @@ export default {
         },
         "fade-in-up": {
           from: { opacity: "0", transform: "translateY(30px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        // V2 STAGGERED ENTRANCE - Cascade effect for list items
+        "staggered-fade-in-up": {
+          from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "scale-in": {
@@ -141,6 +152,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        // V2 STAGGERED ENTRANCE - Smooth cascade with spring easing
+        "staggered-fade-in-up": "staggered-fade-in-up 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
         "scale-in": "scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "blur-in": "blur-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",

@@ -66,20 +66,41 @@ interface PortfolioCardProps {
 
 const PortfolioCard = ({ title, category, description, icon: Icon, mode }: PortfolioCardProps) => {
   return (
-    <div className="group p-6 rounded-2xl glass-card border border-border/20 hover:border-creator/30 transition-all duration-300">
+    <div className="group relative p-6 rounded-2xl glass-card border border-border/20 hover:border-creator/30 transition-all duration-300 h-full flex flex-col">
+      {/* FIXED BADGE - Top Right Absolute Position */}
+      <span className={`absolute top-4 right-4 text-xs font-medium uppercase tracking-wider px-2.5 py-1 rounded-full ${mode === 'institutional'
+        ? 'bg-institutional/10 text-institutional'
+        : 'bg-creator/10 text-creator'
+        }`}>
+        {category}
+      </span>
+
+      {/* Icon */}
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'
         }`}>
         <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
       </div>
-      <span className={`text-xs font-medium uppercase tracking-wider ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
-        }`}>
-        {category}
-      </span>
-      <h3 className={`text-lg font-medium mt-2 mb-2 transition-colors ${mode === 'institutional' ? 'group-hover:text-institutional' : 'group-hover:text-creator'
+
+      {/* Title */}
+      <h3 className={`text-lg font-medium mb-2 transition-colors pr-20 ${mode === 'institutional' ? 'group-hover:text-institutional' : 'group-hover:text-creator'
         }`}>
         {title}
       </h3>
-      <p className="text-sm text-foreground/50 leading-relaxed">{description}</p>
+
+      {/* FLEX-GROW Description - Pushes footer to bottom */}
+      <p className="text-sm text-foreground/50 leading-relaxed flex-grow">
+        {description}
+      </p>
+
+      {/* PINNED FOOTER - Always at bottom */}
+      <div className="mt-4 pt-4 border-t border-border/10">
+        <button className={`text-xs font-medium uppercase tracking-wider transition-colors ${mode === 'institutional'
+          ? 'text-institutional/70 hover:text-institutional'
+          : 'text-creator/70 hover:text-creator'
+          }`}>
+          View Project →
+        </button>
+      </div>
     </div>
   );
 };
@@ -121,8 +142,8 @@ const Portfolio = () => {
             </p>
           </div>
 
-          {/* Portfolio Grid - Show ALL projects */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+          {/* STRICT MATHEMATICAL GRID - Equal Heights with gap-6 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayedProjects.map((item, index) => (
               <PortfolioCard
                 key={index}

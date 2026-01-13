@@ -249,10 +249,10 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <LanguageSwitch mode={mode} />
       </div>
 
-      {/* Navigation Bar - Bottom */}
+      {/* Navigation Bar - Bottom with iOS Safe Area */}
       <div
-        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 ${combinedVisible
-          ? 'opacity-100 translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,1,1)]'
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe ${combinedVisible
+          ? 'opacity-100 translate-y-0 transition-all duration-300 ease-spring'
           : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
           }`}
       >
@@ -263,13 +263,24 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative px-2 py-2 md:px-3 md:py-2.5 lg:px-4 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center ${isActive
+                className={`relative px-2 py-2 md:px-3 md:py-2.5 lg:px-4 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center rounded-lg ${isActive
                   ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   : 'text-foreground/60 hover:text-foreground'
                   }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                {link.label}
+                {/* ACTIVE TAB GLOW - Instant visual feedback */}
+                {isActive && (
+                  <span
+                    className={`absolute inset-0 rounded-lg transition-all duration-300 ${mode === 'institutional'
+                      ? 'bg-institutional/15 shadow-[0_0_20px_rgba(234,179,8,0.3)]'
+                      : 'bg-creator/15 shadow-[0_0_20px_rgba(34,211,238,0.3)]'
+                      }`}
+                    aria-hidden="true"
+                  />
+                )}
+
+                <span className="relative z-10">{link.label}</span>
 
                 {/* Active/Hover underline */}
                 <span
