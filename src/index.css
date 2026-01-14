@@ -1005,7 +1005,19 @@
      PHANTOM INTERFACE - TRUE Z-INDEX LAYERING
      ============================================ */
 
-  /* No masks - Content slides cleanly under glass headers/footers */
+  /* Scroll Edge Fade - Content emerges from gradient at top/bottom */
+  .scroll-mask {
+    mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%);
+  }
 
   /* Phantom Interface Transition Physics */
   .phantom-slide {

@@ -34,7 +34,7 @@ const Founder = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative z-0">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative z-0 scroll-mask">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-14 md:mb-16">

@@ -129,7 +129,7 @@ const Portfolio = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative z-0 scroll-mask">
         <section className="container mx-auto px-4 sm:px-6 max-w-6xl">
           <div className="text-center mb-10 sm:mb-12 md:mb-14">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display mb-4 sm:mb-5 md:mb-6">
