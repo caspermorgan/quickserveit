@@ -165,6 +165,7 @@ const Services = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -475,7 +476,70 @@ const Services = () => {
 
           {/* Services Section */}
           <div className="pb-12 sm:pb-16 md:pb-20">
-            <div className="space-y-5 sm:space-y-6 md:space-y-8 max-w-3xl mx-auto">
+            {/* Mobile: Horizontal Scroll Snap Carousel */}
+            <div className="md:hidden">
+              <div
+                ref={(el) => {
+                  if (el) {
+                    // IntersectionObserver for focus detection
+                    const observer = new IntersectionObserver(
+                      (entries) => {
+                        entries.forEach((entry) => {
+                          if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
+                            const index = parseInt(
+                              entry.target.getAttribute('data-service-index') || '0'
+                            );
+                            setActiveServiceIndex(index);
+                          }
+                        });
+                      },
+                      {
+                        root: el,
+                        threshold: [0.75],
+                      }
+                    );
+
+                    const cards = el.querySelectorAll('[data-service-index]');
+                    cards.forEach((card) => observer.observe(card));
+
+                    return () => observer.disconnect();
+                  }
+                }}
+                className="overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar flex gap-4 px-4 pb-6"
+              >
+                {services.map((service, index) => (
+                  <div
+                    key={index}
+                    className="snap-center min-w-full"
+                    data-service-index={index}
+                  >
+                    <ServiceDetailCard
+                      service={service}
+                      mode={mode}
+                      t={t}
+                      isMobile={true}
+                      isFocused={activeServiceIndex === index}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Progress Dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {services.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${index === activeServiceIndex
+                      ? `w-8 ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'}`
+                      : 'w-1.5 bg-foreground/20'
+                      }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: Vertical Stack (unchanged) */}
+            <div className="hidden md:block space-y-5 sm:space-y-6 md:space-y-8 max-w-3xl mx-auto">
               {services.map((service, index) => (
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
@@ -512,9 +576,11 @@ interface ServiceDetailCardProps {
   };
   mode: 'institutional' | 'creator';
   t: (key: any) => string;
+  isMobile?: boolean;
+  isFocused?: boolean;
 }
 
-const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
+const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = true }: ServiceDetailCardProps) => {
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
   const Icon = service.icon;
@@ -532,7 +598,14 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
   return (
     <div
       id={service.id}
-      className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : 'hover:border-border/40 hover:-translate-y-0.5'}`}
+      className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-500 ease-out ${isMobile
+          ? isFocused
+            ? 'scale-105 opacity-100'
+            : 'scale-100 opacity-50'
+          : isExpanded
+            ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30')
+            : 'hover:border-border/40 hover:-translate-y-0.5'
+        }`}
     >
       {/* Header - Always visible */}
       <button
