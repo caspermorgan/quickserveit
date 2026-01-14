@@ -434,18 +434,18 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 relative">
+      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto">
-            <H1 className="mb-4 sm:mb-5 md:mb-6">
+          <div className="min-h-[50vh] flex flex-col justify-center text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto">
+            <H1 className="mb-4 sm:mb-5 md:mb-6 animate-fade-in">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
                 <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
               )}
             </H1>
-            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed px-4">
+            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed px-4 max-w-[60ch] mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
@@ -598,7 +598,7 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
   return (
     <div
       id={service.id}
-      className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-500 ease-out ${isMobile
+      className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-500 ease-out scroll-mt-32 ${isMobile
         ? isFocused
           ? 'scale-105 opacity-100'
           : 'scale-100 opacity-50'
@@ -609,7 +609,16 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
     >
       {/* Header - Always visible */}
       <button
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={(e) => {
+          setIsExpanded(!isExpanded);
+          // Smooth scroll to center the accordion item after expansion
+          setTimeout(() => {
+            e.currentTarget.closest('[id]')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }, 100);
+        }}
         className="w-full p-4 sm:p-5 md:p-6 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
         aria-expanded={isExpanded}
       >

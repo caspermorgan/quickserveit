@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import {
   Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle,
-  Zap, X, Sparkles, ChevronDown, ChevronUp, Send
+  Zap, X, Sparkles, ChevronDown, ChevronUp, Send, HelpCircle
 } from 'lucide-react';
 import { H1, H2 } from '@/components/Typography';
 import { toast } from 'sonner';
@@ -149,7 +149,7 @@ const Contact = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative overflow-hidden">
+      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
@@ -159,18 +159,18 @@ const Contact = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`min-h-[50vh] flex flex-col justify-center text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H1 className="mb-4 sm:mb-5 md:mb-6">
+            <H1 className="mb-4 sm:mb-5 md:mb-6 animate-fade-in">
               {t('letsConnect').split(' ')[0]} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('letsConnect').split(' ').slice(1).join(' ')}</span>
             </H1>
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
+            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4 max-w-[60ch] mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
               {t('shareProjectDetails')}
             </p>
 
             {/* Response Time Badge */}
-            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card border border-border/30 mb-6 sm:mb-7 md:mb-8 transition-all duration-300 hover:scale-105">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card border border-border/30 mb-6 sm:mb-7 md:mb-8 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: '200ms' }}>
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-xs sm:text-sm font-medium">{t('usuallyResponds')}</span>
             </div>

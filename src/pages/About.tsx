@@ -6,7 +6,7 @@ import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
-import { Shield, Target, Users, Zap, Eye, Clock, Quote, ArrowRight } from 'lucide-react';
+import { Shield, Target, Users, Zap, Eye, Clock, Quote, ArrowRight, School, Building2, GraduationCap, BookOpen, Video, Palette, Mic, TrendingUp } from 'lucide-react';
 import { H1, H2 } from '@/components/Typography';
 
 const About = () => {
@@ -36,14 +36,14 @@ const About = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative">
+      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 relative">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
-            <h1 className="page-title mb-4 sm:mb-5 md:mb-6">
+          <div className="min-h-[50vh] flex flex-col justify-center text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
+            <h1 className="page-title mb-4 sm:mb-5 md:mb-6 animate-fade-in">
               About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Us</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-foreground/60 leading-relaxed px-4 text-balance">
+            <p className="text-sm sm:text-base md:text-lg text-foreground/60 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
               {t('aboutIntro')}
             </p>
           </div>
@@ -124,12 +124,18 @@ const About = () => {
                     <h3 className="text-xl font-medium">{t('institutions')}</h3>
                   </div>
                   <ul className="space-y-3 text-foreground/60">
-                    {t('institutionsList').split('|').map((item, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-institutional mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
+                    {t('institutionsList').split('|').map((item, i) => {
+                      const icons = [School, Building2, GraduationCap, BookOpen];
+                      const IconComponent = icons[i % icons.length];
+                      return (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="bg-white/5 p-2 rounded-full shrink-0">
+                            <IconComponent className="w-4 h-4 text-institutional" />
+                          </div>
+                          <span>{item}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ) : (
@@ -141,12 +147,18 @@ const About = () => {
                     <h3 className="text-xl font-medium">{t('creators')}</h3>
                   </div>
                   <ul className="space-y-3 text-foreground/60">
-                    {t('creatorsList').split('|').map((item, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-creator mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
+                    {t('creatorsList').split('|').map((item, i) => {
+                      const icons = [Video, Palette, Mic, TrendingUp];
+                      const IconComponent = icons[i % icons.length];
+                      return (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="bg-white/5 p-2 rounded-full shrink-0">
+                            <IconComponent className="w-4 h-4 text-creator" />
+                          </div>
+                          <span>{item}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               )}

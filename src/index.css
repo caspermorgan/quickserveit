@@ -682,6 +682,24 @@
     animation-duration: 3s;
   }
 
+  /* Staggered Fade-In Animation for Storytelling Pacing */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
   /* Mobile: Reduce animation complexity */
   @media (max-width: 768px) {
     .sheen-overlay {
@@ -691,98 +709,9 @@
     .sheen-active {
       animation-duration: 4s;
     }
-  }
 
-  /* Disable magnetic effect on touch devices */
-  @media (hover: none) and (pointer: coarse) {
-    .magnetic-button-wrapper {
-      transform: none !important;
-    }
-  }
-
-  /* Terminal Styles */
-  .terminal {
-    border-radius: 0.75rem;
-    font-family: 'JetBrains Mono', monospace;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .terminal-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom-width: 1px;
-    border-color: hsl(var(--border));
-  }
-
-  .terminal-dot {
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 9999px;
-  }
-
-  /* Typography Classes */
-  .font-display {
-    font-family: 'Space Grotesk', sans-serif;
-  }
-
-  .font-mono {
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* Cursor Light Effect */
-  .cursor-light {
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle,
-        hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.03) 0%,
-        transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    transition: opacity 0.5s ease;
-  }
-
-  @media (max-width: 768px) {
-    .cursor-light {
-      display: none;
-    }
-  }
-
-  /* Mobile Spacing Utilities */
-  @media (max-width: 768px) {
-
-    /* Safe horizontal padding for mobile */
-    .mobile-safe-x {
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-    }
-
-    /* Mobile section spacing rhythm */
-    .mobile-section-gap {
-      margin-bottom: 3rem;
-    }
-
-    .mobile-section-gap-lg {
-      margin-bottom: 4rem;
-    }
-
-    /* Mobile card spacing */
-    .mobile-card-gap {
-      gap: 1.25rem;
-    }
-
-    /* Ensure minimum touch target size */
-    .touch-target {
-      min-height: 44px;
-      min-width: 44px;
+    .animate-fade-in {
+      animation-duration: 0.6s;
     }
   }
 
