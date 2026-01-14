@@ -126,36 +126,36 @@ const Home = () => {
             </BodyLarge>
 
             {/* Trust indicators - Enhanced */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-12 mb-12 sm:mb-13 md:mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/50">
-                <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>{t('confidentialityTitle')}</span>
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-14 md:mb-16 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 transition-colors">
+                <Shield className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+                <span className="font-medium">{t('confidentialityTitle')}</span>
               </div>
-              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/50">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>{t('realisticTimelinesTitle')}</span>
+              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 transition-colors">
+                <CheckCircle className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+                <span className="font-medium">{t('realisticTimelinesTitle')}</span>
               </div>
-              <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/50">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>10 AM - 4 PM IST</span>
+              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 transition-colors">
+                <Clock className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+                <span className="font-medium">10 AM - 4 PM IST</span>
               </div>
             </div>
 
             {/* CTAs - Premium Styling */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 md:gap-6 animate-fade-in-up mb-12 sm:mb-14 md:mb-16" style={{ animationDelay: '500ms' }}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 animate-fade-in-up mb-12 sm:mb-14 md:mb-16" style={{ animationDelay: '500ms' }}>
               <Link
                 to="/services"
-                className={`group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
-                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
+                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional hover:shadow-2xl'
+                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator hover:shadow-2xl'
                   }`}
               >
                 {mode === 'institutional' ? t('viewServices') : t('viewServices')}
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-2" />
               </Link>
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg border-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-semibold text-sm sm:text-base md:text-lg border-2 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'border-institutional/50 text-institutional hover:bg-institutional/10 hover:border-institutional'
                   : 'border-creator/50 text-creator hover:bg-creator/10 hover:border-creator'
                   }`}
@@ -191,12 +191,12 @@ const Home = () => {
         <TechTicker mode={mode} />
 
         {/* Bottom CTA - Start Your Project */}
-        <section className="px-4 sm:px-6 py-16 sm:py-20 md:py-24">
+        <section className="px-4 sm:px-6 py-20 sm:py-24 md:py-28">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className={`text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 sm:mb-5 md:mb-6 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               Ready to {mode === 'institutional' ? 'Digitize Your Institution' : 'Elevate Your Content'}?
             </h2>
-            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-9 md:mb-10 max-w-2xl mx-auto px-4">
+            <p className="text-foreground/65 text-base sm:text-lg md:text-xl leading-relaxed mb-10 sm:mb-12 max-w-2xl mx-auto px-4 font-light">
               {mode === 'institutional'
                 ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
                 : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}
@@ -204,13 +204,13 @@ const Home = () => {
             <MagneticButton mode={mode}>
               <Link
                 to="/contact"
-                className={`group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
-                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
+                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional hover:shadow-2xl'
+                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator hover:shadow-2xl'
                   }`}
               >
                 Start Your Project
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-2" />
               </Link>
             </MagneticButton>
           </div>

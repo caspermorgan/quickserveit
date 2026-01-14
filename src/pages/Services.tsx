@@ -435,17 +435,17 @@ const Services = () => {
       />
 
       <main className="min-h-screen bg-background pt-40 md:pt-48 lg:pt-56 pb-16 sm:pb-20 md:pb-24 relative">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header - V2.0 OPTICAL CENTERING at 35% mark */}
-          <div className="min-h-[35vh] flex flex-col justify-center text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
-            <H1 className="mb-6 sm:mb-7 md:mb-8 animate-fade-in">
+          <div className="min-h-[35vh] flex flex-col justify-center text-center mb-16 sm:mb-20 md:mb-24 max-w-3xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
                 <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
               )}
-            </H1>
-            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed px-4 max-w-[60ch] mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
+            </h1>
+            <p className="text-foreground/65 text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
@@ -458,12 +458,12 @@ const Services = () => {
           )}
 
           {/* Important Notice */}
-          <div className={`max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12 p-4 sm:p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
-            <div className="flex items-start gap-3 sm:gap-4">
-              <AlertCircle className={`w-4 h-4 sm:w-5 sm:h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+          <div className={`max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14 p-5 sm:p-6 rounded-2xl border-2 backdrop-blur-sm ${mode === 'institutional' ? 'border-institutional/25 bg-institutional/8' : 'border-creator/25 bg-creator/8'}`}>
+            <div className="flex items-start gap-4">
+              <AlertCircle className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <div>
-                <h3 className="font-semibold mb-2 text-sm sm:text-base">{t('beforeYouBegin')}</h3>
-                <ul className="text-xs sm:text-sm text-foreground/60 space-y-1.5 sm:space-y-2 leading-relaxed">
+                <h3 className="font-semibold mb-3 text-sm sm:text-base">{t('beforeYouBegin')}</h3>
+                <ul className="text-xs sm:text-sm text-foreground/70 space-y-2 leading-relaxed">
                   {t('beforeYouBeginItems').split('|').map((item, i) => (
                     <li key={i}>• {item}</li>
                   ))}
@@ -598,13 +598,13 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
   return (
     <div
       id={service.id}
-      className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-500 ease-out scroll-mt-32 ${isMobile
+      className={`rounded-2xl glass-card border transition-all duration-500 ease-out scroll-mt-32 ${isMobile
         ? isFocused
-          ? 'scale-105 opacity-100'
-          : 'scale-100 opacity-50'
+          ? 'scale-105 opacity-100 border-border/30'
+          : 'scale-100 opacity-50 border-border/20'
         : isExpanded
-          ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30')
-          : 'hover:border-border/40 hover:-translate-y-0.5'
+          ? 'ring-2 border-border/30 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30')
+          : 'border-border/25 hover:border-border/40 hover:-translate-y-1 hover:shadow-xl'
         }`}
     >
       {/* Header - Always visible */}
@@ -619,22 +619,22 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
             });
           }, 100);
         }}
-        className="w-full p-4 sm:p-5 md:p-6 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
+        className="w-full p-5 sm:p-6 md:p-7 flex items-start gap-4 sm:gap-5 text-left hover:bg-foreground/[0.03] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
         aria-expanded={isExpanded}
       >
         {/* V2.0 PREMIUM ICONOGRAPHY - Glass Circle Wrapper */}
-        <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${mode === 'institutional' ? 'bg-institutional/10 ring-1 ring-institutional/20' : 'bg-creator/10 ring-1 ring-creator/20'}`}>
-          <Icon className={`w-6 h-6 sm:w-7 sm:h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+        <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${mode === 'institutional' ? 'bg-institutional/12 ring-1 ring-institutional/25' : 'bg-creator/12 ring-1 ring-creator/25'}`}>
+          <Icon className={`w-7 h-7 sm:w-8 sm:h-8 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-base sm:text-lg font-medium mb-2">{title}</h3>
-          <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed">{mediumDesc}</p>
+          <h3 className="text-lg sm:text-xl font-display font-semibold mb-2">{title}</h3>
+          <p className="text-sm sm:text-base text-foreground/65 leading-relaxed">{mediumDesc}</p>
         </div>
         <div className="shrink-0 mt-1">
           {isExpanded ? (
-            <ChevronUp className="w-4 h-4 text-foreground/40" />
+            <ChevronUp className="w-5 h-5 text-foreground/50" />
           ) : (
-            <ChevronDown className="w-4 h-4 text-foreground/40" />
+            <ChevronDown className="w-5 h-5 text-foreground/50" />
           )}
         </div>
       </button>

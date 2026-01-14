@@ -149,30 +149,30 @@ const Contact = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 relative overflow-hidden">
+      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero Section */}
           <div
             ref={heroRef}
             id="hero"
-            className={`min-h-[50vh] flex flex-col justify-center text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`min-h-[50vh] flex flex-col justify-center text-center mb-12 sm:mb-16 md:mb-20 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H1 className="mb-4 sm:mb-5 md:mb-6 animate-fade-in">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
               {t('letsConnect').split(' ')[0]} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('letsConnect').split(' ').slice(1).join(' ')}</span>
-            </H1>
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4 max-w-[60ch] mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
+            </h1>
+            <p className="text-foreground/65 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
               {t('shareProjectDetails')}
             </p>
 
             {/* Response Time Badge */}
-            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card border border-border/30 mb-6 sm:mb-7 md:mb-8 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: '200ms' }}>
+            <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full glass-card border border-border/30 mb-8 sm:mb-10 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: '200ms' }}>
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium">{t('usuallyResponds')}</span>
+              <span className="text-xs sm:text-sm font-semibold">{t('usuallyResponds')}</span>
             </div>
           </div>
 
@@ -180,38 +180,38 @@ const Contact = () => {
           <div
             ref={contactMethodsRef}
             id="contact-methods"
-            className={`max-w-2xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-2xl mx-auto mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <div className="flex flex-col gap-3 sm:gap-4">
+            <div className="flex flex-col gap-4 sm:gap-5">
               {/* WhatsApp */}
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
+                className={`group flex items-center gap-4 sm:gap-5 p-5 sm:p-6 md:p-7 rounded-2xl glass-card border-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] ${mode === 'institutional'
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
                 style={{ willChange: 'transform' }}
               >
-                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
-                  ? 'bg-institutional/10 group-hover:bg-institutional'
-                  : 'bg-creator/10 group-hover:bg-creator'
+                <div className={`shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
+                  ? 'bg-institutional/12 group-hover:bg-institutional'
+                  : 'bg-creator/12 group-hover:bg-creator'
                   }`}>
-                  <MessageCircle className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors ${mode === 'institutional'
+                  <MessageCircle className={`w-7 h-7 sm:w-8 sm:h-8 transition-colors ${mode === 'institutional'
                     ? 'text-institutional group-hover:text-background'
                     : 'text-creator group-hover:text-background'
                     }`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">WhatsApp</h3>
-                  <p className="text-foreground/60 text-xs sm:text-sm truncate">Instant messaging • Quick responses</p>
+                  <h3 className="font-display font-semibold text-lg sm:text-xl mb-1">WhatsApp</h3>
+                  <p className="text-foreground/65 text-sm sm:text-base truncate">Instant messaging • Quick responses</p>
                 </div>
-                <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                <div className={`shrink-0 flex items-center gap-2 text-sm sm:text-base font-semibold transition-transform group-hover:translate-x-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   }`}>
                   <span className="hidden sm:inline">Chat</span>
-                  <Zap className="w-4 h-4" />
+                  <Zap className="w-5 h-5" />
                 </div>
               </a>
 
@@ -306,11 +306,11 @@ const Contact = () => {
           <div
             ref={faqRef}
             id="faq"
-            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H2 className="text-center mb-6 sm:mb-7 md:mb-8">Frequently Asked Questions</H2>
-            <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-8 sm:mb-10 md:mb-12">Frequently Asked Questions</h2>
+            <div className="space-y-4 sm:gap-5">
               {faqs.map((faq, index) => (
                 <div
                   key={index}

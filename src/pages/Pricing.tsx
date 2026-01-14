@@ -257,16 +257,16 @@ const Pricing = () => {
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero Section */}
           <div
             ref={heroRef}
             id="hero"
-            className={`text-center mb-12 sm:mb-14 md:mb-16 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`text-center mb-16 sm:mb-20 md:mb-24 max-w-5xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Main Heading */}
-            <h1 className="page-title mb-4 sm:mb-5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
               {mode === 'institutional' ? (
                 <><span className="text-institutional">Institutional</span> Pricing</>
               ) : (
@@ -275,7 +275,7 @@ const Pricing = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-3xl mx-auto text-balance">
+            <p className="text-foreground/65 text-lg sm:text-xl md:text-2xl leading-relaxed mb-10 sm:mb-12 px-4 max-w-3xl mx-auto text-balance font-light">
               {mode === 'institutional'
                 ? 'Scope-based pricing for serious institutions. Only what is written here is promised and delivered.'
                 : 'Professional production for serious creators. Clearly defined scope. Professionally executed.'
@@ -283,31 +283,31 @@ const Pricing = () => {
             </p>
 
             {/* Trust Indicators / Promise Tags */}
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
-              <div className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/20' : 'bg-creator/5 border-creator/20'}`}>
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className="text-sm font-medium">{mode === 'institutional' ? 'No Hidden Fees' : '1080p Delivery'}</span>
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16">
+              <div className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-105 ${mode === 'institutional' ? 'bg-institutional/8 border-institutional/25 hover:border-institutional/40' : 'bg-creator/8 border-creator/25 hover:border-creator/40'}`}>
+                <CheckCircle className={`w-4.5 h-4.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className="text-sm font-semibold">{mode === 'institutional' ? 'No Hidden Fees' : '1080p Delivery'}</span>
               </div>
-              <div className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/20' : 'bg-creator/5 border-creator/20'}`}>
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className="text-sm font-medium">{mode === 'institutional' ? 'Clear Terms' : 'Platform-Ready'}</span>
+              <div className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-105 ${mode === 'institutional' ? 'bg-institutional/8 border-institutional/25 hover:border-institutional/40' : 'bg-creator/8 border-creator/25 hover:border-creator/40'}`}>
+                <CheckCircle className={`w-4.5 h-4.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className="text-sm font-semibold">{mode === 'institutional' ? 'Clear Terms' : 'Platform-Ready'}</span>
               </div>
-              <div className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/20' : 'bg-creator/5 border-creator/20'}`}>
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className="text-sm font-medium">{mode === 'institutional' ? 'Zero-Rejection Guarantee' : 'Clear Scope'}</span>
+              <div className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-105 ${mode === 'institutional' ? 'bg-institutional/8 border-institutional/25 hover:border-institutional/40' : 'bg-creator/8 border-creator/25 hover:border-creator/40'}`}>
+                <CheckCircle className={`w-4.5 h-4.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className="text-sm font-semibold">{mode === 'institutional' ? 'Zero-Rejection Guarantee' : 'Clear Scope'}</span>
               </div>
             </div>
 
             {/* Pricing Type Indicators */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-              <div className="flex items-center gap-2 text-foreground/60">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10">
+              <div className="flex items-center gap-3 text-foreground/70 transition-colors hover:text-foreground">
                 <Zap className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className="text-sm font-medium">{mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}</span>
+                <span className="text-sm font-medium tracking-wide">{mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}</span>
               </div>
-              <div className="hidden sm:block w-px h-6 bg-border/30"></div>
-              <div className="flex items-center gap-2 text-foreground/60">
+              <div className="hidden sm:block w-px h-7 bg-border/40"></div>
+              <div className="flex items-center gap-3 text-foreground/70 transition-colors hover:text-foreground">
                 <TrendingUp className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className="text-sm font-medium">Subscription Plans Available</span>
+                <span className="text-sm font-medium tracking-wide">Subscription Plans Available</span>
               </div>
             </div>
           </div>
@@ -316,21 +316,21 @@ const Pricing = () => {
           <div
             ref={servicesRef}
             id="services"
-            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <div className="text-center mb-8 sm:mb-10">
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
+            <div className="text-center mb-10 sm:mb-14">
+              <div className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full mb-6 backdrop-blur-sm ${mode === 'institutional' ? 'bg-institutional/8 border border-institutional/20' : 'bg-creator/8 border border-creator/20'
                 }`}>
-                <Zap className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                <Zap className={`w-4.5 h-4.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className={`text-sm font-semibold tracking-wide ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
                   {mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-3 sm:mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 sm:mb-5">
                 Service-Based <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Pricing</span>
               </h2>
-              <p className="text-foreground/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+              <p className="text-foreground/65 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
                 Perfect for one-time projects or occasional needs
               </p>
             </div>
@@ -549,97 +549,97 @@ const Pricing = () => {
           <div
             ref={subscriptionsRef}
             id="subscriptions"
-            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
+            <div className="text-center mb-10 sm:mb-14 md:mb-16">
+              <div className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full mb-6 backdrop-blur-sm ${mode === 'institutional' ? 'bg-institutional/8 border border-institutional/20' : 'bg-creator/8 border border-creator/20'
                 }`}>
-                <TrendingUp className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                <TrendingUp className={`w-4.5 h-4.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <span className={`text-sm font-semibold tracking-wide ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
                   Save Up to {mode === 'institutional' ? '17%' : '40%'}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-3 sm:mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 sm:mb-5">
                 <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Subscription</span> Plans
               </h2>
-              <p className="text-foreground/60 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+              <p className="text-foreground/65 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
                 {mode === 'institutional'
                   ? 'Regular UDISE+ & scholarship support — better rates, priority service'
                   : 'Consistent content output with better rates and priority support'
                 }
               </p>
               {mode === 'institutional' && (
-                <p className="text-foreground/40 text-xs sm:text-sm mt-3">
+                <p className="text-foreground/45 text-xs sm:text-sm mt-4">
                   📄 Paper typing always billed separately at standard rates
                 </p>
               )}
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 max-w-6xl mx-auto">
               {mode === 'institutional' ? (
                 <>
                   {/* Monthly Plan */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
-                    <div className="mb-6">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
-                        <Clock className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Monthly</span>
+                  <div className={`glass-card rounded-3xl p-7 sm:p-9 border transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/35' : 'border-border/20 hover:border-creator/35'}`}>
+                    <div className="mb-7">
+                      <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5 backdrop-blur-sm ${mode === 'institutional' ? 'bg-institutional/12 border border-institutional/25' : 'bg-creator/12 border border-creator/25'}`}>
+                        <Clock className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                        <span className={`text-xs font-semibold tracking-wide ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Monthly</span>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Basic Support</h3>
-                      <p className="text-xs sm:text-sm text-foreground/50 mb-4">Month-to-month flexibility</p>
-                      <div className="mb-4">
-                        <div className={`text-2xl sm:text-3xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>₹2,999</div>
-                        <p className="text-xs text-foreground/40">Per month • No commitment</p>
+                      <h3 className="text-xl sm:text-2xl font-display font-bold mb-2">Basic Support</h3>
+                      <p className="text-sm text-foreground/55 mb-5 font-light">Month-to-month flexibility</p>
+                      <div className="mb-5">
+                        <div className={`text-3xl sm:text-4xl font-display font-bold mb-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>₹2,999</div>
+                        <p className="text-xs text-foreground/45">Per month • No commitment</p>
                       </div>
                     </div>
-                    <div className="space-y-2.5 mb-6">
+                    <div className="space-y-3 mb-7">
                       {['UDISE+ support included', 'Scholarship processing', 'Priority WhatsApp support', '48hr turnaround'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                        <div key={i} className="flex items-center gap-2.5 text-sm text-foreground/75 transition-all hover:text-foreground hover:translate-x-1">
+                          <CheckCircle className={`w-4.5 h-4.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                           <span>{feature}</span>
                         </div>
                       ))}
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-5 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] border-2 ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base hover:shadow-lg`}
                     >
                       Start Monthly Plan
                     </button>
                   </div>
 
                   {/* 6-Month Plan - HIGHLIGHTED */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border-2 relative overflow-hidden transition-all duration-500 hover:scale-[1.02] ${mode === 'institutional' ? 'border-institutional/60 ring-4 ring-institutional/30 hover:border-institutional/80 hover:shadow-institutional/30' : 'border-creator/60 ring-4 ring-creator/30 hover:border-creator/80 hover:shadow-creator/30'} hover:shadow-2xl`}>
-                    <div className={`absolute top-0 right-0 px-4 py-1.5 text-xs font-bold tracking-wide ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background`}>
+                  <div className={`glass-card rounded-3xl p-7 sm:p-9 border-2 relative overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl ${mode === 'institutional' ? 'border-institutional/70 ring-4 ring-institutional/20 hover:border-institutional/90 hover:shadow-institutional/40' : 'border-creator/70 ring-4 ring-creator/20 hover:border-creator/90 hover:shadow-creator/40'}`}>
+                    <div className={`absolute top-0 right-0 px-5 py-2 text-xs font-black tracking-wider ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background shadow-lg`}>
                       MOST POPULAR
                     </div>
-                    <div className="mb-6 mt-2">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/20 border border-institutional/30' : 'bg-creator/20 border border-creator/30'}`}>
-                        <Crown className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>6 Months</span>
+                    <div className="mb-7 mt-3">
+                      <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5 backdrop-blur-sm ${mode === 'institutional' ? 'bg-institutional/20 border border-institutional/40' : 'bg-creator/20 border border-creator/40'}`}>
+                        <Crown className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                        <span className={`text-xs font-semibold tracking-wide ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>6 Months</span>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Premium Support</h3>
-                      <p className="text-xs sm:text-sm text-foreground/40 mb-4">Best value for schools</p>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2">
-                          <div className={`text-2xl sm:text-3xl font-display ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>₹15,999</div>
-                          <div className={`px-2 py-0.5 rounded text-xs font-bold ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>SAVE 11%</div>
+                      <h3 className="text-xl sm:text-2xl font-display font-bold mb-2">Premium Support</h3>
+                      <p className="text-sm text-foreground/55 mb-5 font-light">Best value for schools</p>
+                      <div className="mb-5">
+                        <div className="flex items-baseline gap-3">
+                          <div className={`text-3xl sm:text-4xl font-display font-bold ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>₹15,999</div>
+                          <div className={`px-2.5 py-1 rounded-md text-xs font-black ${mode === 'institutional' ? 'bg-institutional/25 text-institutional' : 'bg-creator/25 text-creator'}`}>SAVE 11%</div>
                         </div>
-                        <p className="text-xs text-foreground/40">₹2,666/month • Save ₹2,000</p>
+                        <p className="text-xs text-foreground/45 mt-1.5">₹2,666/month • Save ₹2,000</p>
                       </div>
                     </div>
-                    <div className="space-y-2.5 mb-6">
+                    <div className="space-y-3 mb-7">
                       {['All Monthly benefits', '24hr priority turnaround', 'Dedicated support channel', 'Quarterly review calls'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                          <span className={i === 0 ? 'font-medium' : ''}>{feature}</span>
+                        <div key={i} className="flex items-center gap-2.5 text-sm text-foreground/75 transition-all hover:text-foreground hover:translate-x-1">
+                          <CheckCircle className={`w-4.5 h-4.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                          <span className={i === 0 ? 'font-semibold' : ''}>{feature}</span>
                         </div>
                       ))}
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/40' : 'bg-creator hover:shadow-creator/40'} text-background hover:shadow-xl text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-5 py-4 rounded-full font-bold transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/50' : 'bg-creator hover:shadow-creator/50'} text-background hover:shadow-2xl text-sm sm:text-base`}
                     >
                       Start 6-Month Plan
                     </button>
@@ -793,26 +793,26 @@ const Pricing = () => {
             className={`max-w-4xl mx-auto transition-all duration-700 ease-out delay-300 ${visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border text-center ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'}`}>
-              <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
-                {mode === 'institutional' ? <Users className="w-5 h-5 text-institutional" /> : <TrendingUp className="w-5 h-5 text-creator" />}
-                <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+            <div className={`glass-card rounded-3xl p-8 sm:p-10 md:p-12 border-2 text-center backdrop-blur-xl ${mode === 'institutional' ? 'border-institutional/30 bg-institutional/5' : 'border-creator/30 bg-creator/5'}`}>
+              <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
+                {mode === 'institutional' ? <Users className="w-6 h-6 text-institutional" /> : <TrendingUp className="w-6 h-6 text-creator" />}
+                <p className={`text-base font-semibold tracking-wide ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
                   {mode === 'institutional' ? 'Trusted by Educational Institutions in Gorakhpur' : 'Trusted by Growing Content Creators'}
                 </p>
               </div>
 
-              <blockquote className="text-foreground/70 leading-relaxed mb-6 sm:mb-8 italic text-base sm:text-lg">
+              <blockquote className="text-foreground/75 leading-relaxed mb-8 sm:mb-10 italic text-lg sm:text-xl font-light max-w-2xl mx-auto">
                 "This pricing is designed for serious {mode === 'institutional' ? 'institutions' : 'creators'}. All work is scope-based, clearly defined, and executed professionally. Only what is written here is promised and delivered."
               </blockquote>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
                 <button
                   onClick={() => navigate('/contact')}
-                  className={`inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
+                  className={`inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95 ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/40' : 'bg-creator hover:shadow-creator/40'} text-background hover:shadow-2xl text-base sm:text-lg`}
                 >
                   Get Custom Quote Now
                 </button>
-                <p className="text-xs text-foreground/40">
+                <p className="text-sm text-foreground/50 font-medium">
                   💬 {mode === 'institutional' ? 'Response within 2 hours • No obligation' : 'Free consultation • Portfolio review included'}
                 </p>
               </div>

@@ -36,22 +36,22 @@ const About = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 relative">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
-          <div className="min-h-[50vh] flex flex-col justify-center text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
-            <h1 className="page-title mb-4 sm:mb-5 md:mb-6 animate-fade-in">
+          <div className="min-h-[50vh] flex flex-col justify-center text-center mb-16 sm:mb-20 md:mb-24 max-w-3xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
               About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Us</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-foreground/60 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <p className="text-base sm:text-lg md:text-xl text-foreground/65 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
               {t('aboutIntro')}
             </p>
           </div>
 
           {/* Philosophy Section */}
-          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
-            <H2 className="mb-6 sm:mb-7 md:mb-8 text-center">{t('ourPhilosophy')}</H2>
-            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('ourPhilosophy')}</h2>
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
               <PhilosophyCard
                 icon={Shield}
                 title={t('confidentialityTitle')}
@@ -80,82 +80,82 @@ const About = () => {
           </section>
 
           {/* Founder's Message Teaser */}
-          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
+          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
             <Link
               to="/founder"
               className={`
-                block p-8 rounded-2xl glass-card border transition-all duration-300
+                block p-8 sm:p-9 md:p-10 rounded-3xl glass-card border-2 transition-all duration-500 hover:scale-[1.01]
                 ${mode === 'institutional'
-                  ? 'border-institutional/20 hover:border-institutional/40 hover:bg-institutional/5'
-                  : 'border-creator/20 hover:border-creator/40 hover:bg-creator/5'
+                  ? 'border-institutional/25 hover:border-institutional/50 hover:bg-institutional/8 hover:shadow-institutional/20'
+                  : 'border-creator/25 hover:border-creator/50 hover:bg-creator/8 hover:shadow-creator/20'
                 }
-                group
+                group hover:shadow-2xl
               `}
             >
-              <div className="flex items-start gap-4 mb-6">
-                <Quote className={`w-8 h-8 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              <div className="flex items-start gap-5 mb-7">
+                <Quote className={`w-9 h-9 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 <div className="flex-1">
-                  <h2 className="text-2xl font-display mb-2">{t('aNoteFromFounder')} {t('theFounder')}</h2>
-                  <p className="text-foreground/50 text-sm">{t('theStoryBehindQuickserve')}</p>
+                  <h2 className="text-2xl sm:text-3xl font-display font-bold mb-2">{t('aNoteFromFounder')} {t('theFounder')}</h2>
+                  <p className="text-foreground/55 text-sm sm:text-base font-light">{t('theStoryBehindQuickserve')}</p>
                 </div>
-                <ArrowRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <ArrowRight className={`w-6 h-6 transition-transform duration-300 group-hover:translate-x-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               </div>
 
-              <blockquote className="text-lg italic text-foreground/70 leading-relaxed border-l-2 pl-6 mb-4" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.3)' : 'rgba(34,211,238,0.3)' }}>
+              <blockquote className="text-lg sm:text-xl italic text-foreground/75 leading-relaxed border-l-4 pl-6 mb-5 font-light" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.4)' : 'rgba(34,211,238,0.4)' }}>
                 {t('founderOpeningQuote')}
               </blockquote>
 
-              <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+              <p className={`text-sm sm:text-base font-semibold tracking-wide ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
                 {t('aboutTheFounder')} →
               </p>
             </Link>
           </section>
 
           {/* Who We Serve - Mode Specific */}
-          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
-            <H2 className="mb-6 sm:mb-7 md:mb-8 text-center">{t('whoWeServe')}</H2>
+          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whoWeServe')}</h2>
             <div className="max-w-2xl mx-auto">
               {mode === 'institutional' ? (
-                <div className="p-8 rounded-2xl glass-card border border-institutional/30">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-institutional/10 flex items-center justify-center">
-                      <Users className="w-6 h-6 text-institutional" />
+                <div className="p-8 sm:p-9 md:p-10 rounded-3xl glass-card border-2 border-institutional/35 hover:border-institutional/50 transition-all duration-500 hover:shadow-2xl hover:shadow-institutional/10">
+                  <div className="flex items-center gap-4 mb-7">
+                    <div className="w-14 h-14 rounded-xl bg-institutional/15 flex items-center justify-center">
+                      <Users className="w-7 h-7 text-institutional" />
                     </div>
-                    <h3 className="text-xl font-medium">{t('institutions')}</h3>
+                    <h3 className="text-xl sm:text-2xl font-display font-bold">{t('institutions')}</h3>
                   </div>
-                  <ul className="space-y-3 text-foreground/60">
+                  <ul className="space-y-4 text-foreground/70">
                     {t('institutionsList').split('|').map((item, i) => {
                       const icons = [School, Building2, GraduationCap, BookOpen];
                       const IconComponent = icons[i % icons.length];
                       return (
-                        <li key={i} className="flex items-start gap-3">
-                          <div className="bg-white/5 p-2 rounded-full shrink-0">
-                            <IconComponent className="w-4 h-4 text-institutional" />
+                        <li key={i} className="flex items-start gap-3.5 group transition-all hover:translate-x-1">
+                          <div className="bg-white/8 p-2.5 rounded-full shrink-0 group-hover:bg-institutional/15 transition-colors">
+                            <IconComponent className="w-4.5 h-4.5 text-institutional" />
                           </div>
-                          <span>{item}</span>
+                          <span className="text-sm sm:text-base group-hover:text-foreground transition-colors">{item}</span>
                         </li>
                       );
                     })}
                   </ul>
                 </div>
               ) : (
-                <div className="p-8 rounded-2xl glass-card border border-creator/30">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-creator/10 flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-creator" />
+                <div className="p-8 sm:p-9 md:p-10 rounded-3xl glass-card border-2 border-creator/35 hover:border-creator/50 transition-all duration-500 hover:shadow-2xl hover:shadow-creator/10">
+                  <div className="flex items-center gap-4 mb-7">
+                    <div className="w-14 h-14 rounded-xl bg-creator/15 flex items-center justify-center">
+                      <Zap className="w-7 h-7 text-creator" />
                     </div>
-                    <h3 className="text-xl font-medium">{t('creators')}</h3>
+                    <h3 className="text-xl sm:text-2xl font-display font-bold">{t('creators')}</h3>
                   </div>
-                  <ul className="space-y-3 text-foreground/60">
+                  <ul className="space-y-4 text-foreground/70">
                     {t('creatorsList').split('|').map((item, i) => {
                       const icons = [Video, Palette, Mic, TrendingUp];
                       const IconComponent = icons[i % icons.length];
                       return (
-                        <li key={i} className="flex items-start gap-3">
-                          <div className="bg-white/5 p-2 rounded-full shrink-0">
-                            <IconComponent className="w-4 h-4 text-creator" />
+                        <li key={i} className="flex items-start gap-3.5 group transition-all hover:translate-x-1">
+                          <div className="bg-white/8 p-2.5 rounded-full shrink-0 group-hover:bg-creator/15 transition-colors">
+                            <IconComponent className="w-4.5 h-4.5 text-creator" />
                           </div>
-                          <span>{item}</span>
+                          <span className="text-sm sm:text-base group-hover:text-foreground transition-colors">{item}</span>
                         </li>
                       );
                     })}
@@ -166,16 +166,16 @@ const About = () => {
           </section>
 
           {/* What We Don't Do */}
-          <section className="max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
-            <H2 className="mb-6 sm:mb-7 md:mb-8 text-center">{t('whatWeDontDo')}</H2>
-            <div className="p-8 rounded-2xl glass-card border border-border/20">
-              <p className="text-foreground/60 mb-6">
+          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whatWeDontDo')}</h2>
+            <div className="p-8 sm:p-9 md:p-10 rounded-3xl glass-card border-2 border-border/25 hover:border-border/40 transition-all duration-500">
+              <p className="text-foreground/70 mb-7 text-base sm:text-lg font-light leading-relaxed">
                 {t('transparencyNote')}
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 {t('dontDoList').split('|').map((item, i) => (
-                  <div key={i} className="flex items-start gap-2 text-foreground/50">
-                    <span className="text-red-400/60">✗</span>
+                  <div key={i} className="flex items-start gap-3 text-foreground/60 text-sm sm:text-base">
+                    <span className="text-red-400/70 text-lg">✗</span>
                     <span>{item}</span>
                   </div>
                 ))}
@@ -243,12 +243,12 @@ interface PhilosophyCardProps {
 }
 
 const PhilosophyCard = ({ icon: Icon, title, description, mode }: PhilosophyCardProps) => (
-  <div className="p-4 sm:p-5 md:p-6 rounded-2xl glass-card border border-border/20">
-    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
-      <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+  <div className="p-6 sm:p-7 rounded-3xl glass-card border border-border/25 hover:border-border/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl group">
+    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 ${mode === 'institutional' ? 'bg-institutional/12 group-hover:bg-institutional/20' : 'bg-creator/12 group-hover:bg-creator/20'}`}>
+      <Icon className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
     </div>
-    <h3 className="text-lg font-medium mb-2">{title}</h3>
-    <p className="text-sm text-foreground/50 leading-relaxed">{description}</p>
+    <h3 className="text-lg sm:text-xl font-display font-semibold mb-3 group-hover:text-foreground transition-colors">{title}</h3>
+    <p className="text-sm sm:text-base text-foreground/60 leading-relaxed group-hover:text-foreground/75 transition-colors">{description}</p>
   </div>
 );
 
