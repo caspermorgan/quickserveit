@@ -612,6 +612,61 @@
     will-change: transform;
   }
 
+  /* Liquid Sheen Animation - Premium Light Reflection */
+  .liquid-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Sheen overlay animation */
+  @keyframes sheen-sweep {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(30deg);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(200%) translateY(200%) rotate(30deg);
+      opacity: 0;
+    }
+  }
+
+  .sheen-overlay {
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    animation: sheen-sweep 5s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  /* Faster sheen on hover for interactive feedback */
+  .sheen-active {
+    animation-duration: 3s;
+  }
+
+  /* Mobile: Reduce animation complexity */
+  @media (max-width: 768px) {
+    .sheen-overlay {
+      animation-duration: 6s;
+    }
+
+    .sheen-active {
+      animation-duration: 4s;
+    }
+  }
+
+  /* Disable magnetic effect on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .magnetic-button-wrapper {
+      transform: none !important;
+    }
+  }
+
   /* Terminal Styles */
   .terminal {
     border-radius: 0.75rem;

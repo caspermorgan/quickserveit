@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
+import MagneticButton from './MagneticButton';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -304,15 +305,17 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           </div>
 
           {/* THE ANCHOR - Fixed CTA on Right (Protagonist) */}
-          <Link
-            to="/contact"
-            className={`relative flex-shrink-0 px-4 py-3 md:px-5 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
-              ? 'bg-institutional text-background hover:bg-institutional/90'
-              : 'bg-creator text-background hover:bg-creator/90'
-              }`}
-          >
-            Start Your Project
-          </Link>
+          <MagneticButton mode={mode}>
+            <Link
+              to="/contact"
+              className={`relative flex-shrink-0 px-4 py-3 md:px-5 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
+                ? 'bg-institutional text-background hover:bg-institutional/90'
+                : 'bg-creator text-background hover:bg-creator/90'
+                }`}
+            >
+              Start Your Project
+            </Link>
+          </MagneticButton>
 
         </div>
       </div>

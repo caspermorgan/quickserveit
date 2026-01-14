@@ -12,6 +12,7 @@ import ServicesTeaser from '@/components/ServicesTeaser';
 import HowWeWork from '@/components/HowWeWork';
 import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
+import MagneticButton from '@/components/MagneticButton';
 import { DisplayText, BodyLarge } from '@/components/Typography';
 import { ArrowRight, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 
@@ -200,16 +201,18 @@ const Home = () => {
                 ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
                 : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}
             </p>
-            <Link
-              to="/contact"
-              className={`group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
-                : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
-                }`}
-            >
-              Start Your Project
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            <MagneticButton mode={mode}>
+              <Link
+                to="/contact"
+                className={`group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
+                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
+                  }`}
+              >
+                Start Your Project
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </MagneticButton>
           </div>
         </section>
 
