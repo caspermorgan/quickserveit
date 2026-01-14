@@ -53,21 +53,21 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             </div>
 
             {/* STRICT CENTRAL AXIS LAYOUT - Flexbox Column with Consistent Gaps */}
-            <div className={`relative z-40 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-6xl transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
+            <div className={`relative z-40 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full max-w-6xl transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
 
                 {/* V2.0 MASSIVE HERO TITLE - THE KING - Anchors the Page */}
-                <div className="mb-16 md:mb-20">
-                    <DisplayText className="mb-6 text-balance">
+                <div className="mb-12 sm:mb-16 md:mb-20">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] mb-4 sm:mb-6 text-balance">
                         QuickServe IT
-                    </DisplayText>
-                    <p className="font-sans text-foreground/40 text-xs md:text-sm tracking-[0.2em] font-normal uppercase">
+                    </h1>
+                    <p className="font-sans text-foreground/50 text-sm sm:text-base md:text-lg tracking-wider font-medium uppercase text-center">
                         Your Calm Digital Partner
                     </p>
                 </div>
 
                 {/* V2.0 GLASS TILES - Reduced Dominance, Sleek Entry Doors */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full max-w-4xl mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full max-w-4xl mx-auto mb-12">
 
                     {/* Institutional Systems Card - Gold Theme */}
                     <button
