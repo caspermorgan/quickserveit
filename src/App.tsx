@@ -95,6 +95,23 @@ const App = () => {
               <Sonner />
               <SpeedInsights />
               <BrowserRouter>
+                {/* Fixed Gradient Overlays - Viewport Edge Fade Effect */}
+                {/* Top Fade Layer - Content emerges from darkness */}
+                <div
+                  className="fixed top-0 left-0 right-0 h-[150px] pointer-events-none z-40"
+                  style={{
+                    background: 'linear-gradient(to bottom, hsl(var(--background)) 10%, transparent 100%)'
+                  }}
+                />
+
+                {/* Bottom Fade Layer - Content disappears into darkness */}
+                <div
+                  className="fixed bottom-0 left-0 right-0 h-[150px] pointer-events-none z-40"
+                  style={{
+                    background: 'linear-gradient(to top, hsl(var(--background)) 10%, transparent 100%)'
+                  }}
+                />
+
                 <AppRoutes />
               </BrowserRouter>
             </TooltipProvider>

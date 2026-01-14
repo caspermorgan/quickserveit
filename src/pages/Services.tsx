@@ -434,7 +434,7 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 relative z-0 scroll-mask">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 relative">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto">

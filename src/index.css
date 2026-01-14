@@ -1005,19 +1005,7 @@
      PHANTOM INTERFACE - TRUE Z-INDEX LAYERING
      ============================================ */
 
-  /* Scroll Edge Fade - Content emerges from gradient at top/bottom */
-  .scroll-mask {
-    mask-image: linear-gradient(to bottom,
-        transparent 0%,
-        black 5%,
-        black 95%,
-        transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom,
-        transparent 0%,
-        black 5%,
-        black 95%,
-        transparent 100%);
-  }
+  /* Gradient overlays are now implemented as fixed div elements in App.tsx */
 
   /* Phantom Interface Transition Physics */
   .phantom-slide {
