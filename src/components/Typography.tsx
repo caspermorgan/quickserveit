@@ -16,33 +16,43 @@ interface BodyTypographyProps extends TypographyProps {
 // ============================================
 
 /**
- * DisplayText - Massive, poster-style hero headings
+ * DisplayText - MASSIVE, poster-style hero headings (V2.0 - THE KING)
  * 
  * Features:
- * - AGGRESSIVE mobile scaling: text-4xl on mobile (compact for hierarchy)
- * - Scales up to text-7xl on desktop
- * - Tight letter-spacing (tracking-tighter) for impact
+ * - ULTRA-AGGRESSIVE sizing: text-5xl on mobile → text-9xl on desktop
+ * - Custom clamp for perfect scaling: clamp(3rem, 10vw, 10rem)
+ * - Tight letter-spacing (tracking-tighter) for maximum impact
  * - text-balance for perfect line wrapping
  * - font-display family for premium aesthetic
  * 
- * Usage: Hero sections, landing pages, major announcements
- * Mobile: Compact sizing to establish clear hierarchy vs subtitle (3:1 ratio)
+ * Usage: ONLY for landing page hero title - this is the visual anchor
+ * Hierarchy: This is THE KING - everything else must be smaller
+ * Mobile: Still large (text-5xl) to maintain dominance, but controlled
  */
 export const DisplayText = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
-        <Component className={cn(
-            // AGGRESSIVE mobile clamp: compact on mobile (text-4xl), scales to desktop
-            'text-4xl sm:text-5xl md:text-6xl lg:text-7xl',
-            // Font family and weight
-            'font-display font-bold',
-            // Tight tracking for visual impact
-            'tracking-tighter',
-            // Perfect line wrapping
-            'text-balance',
-            // Tight leading for poster aesthetic
-            'leading-[0.95]',
-            className
-        )}>
+        <Component
+            className={cn(
+                // V2.0 MASSIVE sizing - THE KING of typography
+                'text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl',
+                // Font family and weight
+                'font-display font-bold',
+                // Tight tracking for visual impact
+                'tracking-tighter',
+                // Perfect line wrapping
+                'text-balance',
+                // Tight leading for poster aesthetic
+                'leading-[0.95]',
+                // V2.0 Opacity - never pure white
+                'text-foreground/90',
+                className
+            )}
+            style={{
+                // Custom clamp for perfect control
+                fontSize: 'clamp(3rem, 10vw, 10rem)',
+                ...((className?.includes('style') ? {} : {}) as any)
+            }}
+        >
             {children}
         </Component>
     );
@@ -53,17 +63,23 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
 // ============================================
 
 /**
- * H1 - Page titles
- * Slightly smaller than DisplayText, used for page headers
+ * H1 - Page titles (V2.0 - THE LEADER)
+ * Strictly smaller than DisplayText, used for inner page headers
+ * 
+ * Hierarchy: THE LEADER - commands attention but respects THE KING
+ * Usage: Services, About, Portfolio page titles
  */
 export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component
             className={cn(
-                'text-4xl md:text-5xl lg:text-6xl',
+                // V2.0 sizing - strictly smaller than DisplayText
+                'text-3xl md:text-4xl lg:text-5xl xl:text-6xl',
                 'font-display font-extrabold',
                 'leading-tight tracking-tight',
                 'text-balance',
+                // V2.0 Opacity - never pure white
+                'text-foreground/90',
                 className
             )}
         >
@@ -73,15 +89,21 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
 };
 
 /**
- * H2 - Section headings
+ * H2 - Section headings (V2.0 - THE SUB-LEADER)
+ * 
+ * Hierarchy: THE SUB-LEADER - organizes content sections
+ * Usage: Section titles within pages
  */
 export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-3xl md:text-4xl lg:text-5xl',
+            // V2.0 sizing - strictly smaller than H1
+            'text-2xl md:text-3xl lg:text-4xl xl:text-5xl',
             'font-display font-bold',
             'leading-tight tracking-tight',
             'text-balance',
+            // V2.0 Opacity
+            'text-foreground/90',
             className
         )}>
             {children}
@@ -90,15 +112,21 @@ export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProp
 };
 
 /**
- * H3 - Subsection headings
+ * H3 - Subsection headings (V2.0 - THE DETAIL)
+ * 
+ * Hierarchy: THE DETAIL - card and component titles
+ * Usage: Service cards, feature sections
  */
 export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-2xl md:text-3xl lg:text-4xl',
+            // V2.0 sizing - card level
+            'text-xl md:text-2xl lg:text-3xl',
             'font-display font-semibold',
             'leading-snug tracking-tight',
             'text-balance',
+            // V2.0 Opacity
+            'text-foreground/85',
             className
         )}>
             {children}
@@ -107,14 +135,20 @@ export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProp
 };
 
 /**
- * H4 - Card/Component titles
+ * H4 - Card/Component titles (V2.0 - THE MICRO)
+ * 
+ * Hierarchy: THE MICRO - small headings
+ * Usage: Small cards, list headers
  */
 export const H4 = ({ children, className, as: Component = 'h4' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-xl md:text-2xl lg:text-3xl',
+            // V2.0 sizing - micro level
+            'text-lg md:text-xl lg:text-2xl',
             'font-display font-semibold',
             'leading-snug',
+            // V2.0 Opacity
+            'text-foreground/85',
             className
         )}>
             {children}
@@ -159,26 +193,28 @@ export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProp
 // ============================================
 
 /**
- * BodyLarge - Lead text with Hindi support
+ * BodyLarge - Lead text with Hindi support (V2.0 - THE SUBTITLE)
  * 
  * Features:
- * - AGGRESSIVE mobile reduction: text-sm on mobile (whisper vs shout)
- * - Hindi prop: When true, uses looser line-height (leading-[1.8])
+ * - V2.0 mobile reduction: text-sm on mobile (whisper vs shout)
+ * - Hindi prop: When true, uses 2.0 line-height for script clarity
  * - Accommodates Hindi script ascenders/descenders
  * - font-sans family for body content
  * 
- * Usage: Lead paragraphs, introductions, important body text
- * Mobile: Drastically reduced for subtitle usage (3:1 ratio with DisplayText)
+ * Usage: Lead paragraphs, hero subtitles, introductions
+ * Hierarchy: THE SUBTITLE - supports THE KING/LEADER, never competes
+ * Mobile: Drastically reduced for clear hierarchy (3:1 ratio with DisplayText)
  */
 export const BodyLarge = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (
         <Component className={cn(
-            // AGGRESSIVE mobile reduction: text-sm on mobile for subtitle hierarchy
+            // V2.0 mobile reduction: text-sm on mobile for subtitle hierarchy
             'text-sm md:text-base lg:text-lg',
             'font-sans font-normal',
-            // Hindi-aware line-height
-            hindi ? 'leading-[1.8]' : 'leading-relaxed',
-            'text-foreground/80',
+            // V2.0 Hindi-aware line-height: 2.0 for Hindi, relaxed for English
+            hindi ? 'leading-[2.0]' : 'leading-relaxed',
+            // V2.0 Opacity - subtitles are whispers, not shouts
+            'text-foreground/60',
             // Better text wrapping
             'text-balance',
             className
@@ -189,22 +225,24 @@ export const BodyLarge = ({ children, className, as: Component = 'p', hindi = fa
 };
 
 /**
- * BodyText - Regular content with Hindi support
+ * BodyText - Regular content with Hindi support (V2.0)
  * 
  * Features:
- * - Hindi prop: When true, uses looser line-height (leading-[1.8])
+ * - Hindi prop: When true, uses 2.0 line-height for script clarity
  * - Prevents cramped appearance with mixed English/Hindi
  * - font-sans family for readability
  * 
  * Usage: Standard paragraphs, descriptions, general content
+ * Hierarchy: Regular body text - readable and clear
  */
 export const BodyText = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (
         <Component className={cn(
             'text-base md:text-lg',
             'font-sans font-normal',
-            // Hindi-aware line-height
-            hindi ? 'leading-[1.8]' : 'leading-relaxed',
+            // V2.0 Hindi-aware line-height: 2.0 for Hindi
+            hindi ? 'leading-[2.0]' : 'leading-relaxed',
+            // V2.0 Opacity
             'text-foreground/70',
             className
         )}>
@@ -214,7 +252,10 @@ export const BodyText = ({ children, className, as: Component = 'p', hindi = fal
 };
 
 /**
- * BodySmall - Secondary content
+ * BodySmall - Secondary content (V2.0)
+ * 
+ * Hierarchy: Secondary text - supporting information
+ * Usage: Captions, metadata, supporting text
  */
 export const BodySmall = ({ children, className, as: Component = 'p' }: TypographyProps) => {
     return (
@@ -222,6 +263,7 @@ export const BodySmall = ({ children, className, as: Component = 'p' }: Typograp
             'text-sm md:text-base',
             'font-sans font-normal',
             'leading-relaxed',
+            // V2.0 Opacity
             'text-foreground/60',
             className
         )}>

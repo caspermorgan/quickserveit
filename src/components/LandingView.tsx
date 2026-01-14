@@ -1,6 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
+import { DisplayText } from '@/components/Typography';
 import { ArrowRight, Building2, Sparkles, Wrench, Youtube, BookOpen, AlertCircle, Clock } from 'lucide-react';
 
 // Lazy load decorative components for better initial load performance
@@ -55,29 +56,20 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             <div className={`relative z-40 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-6xl transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
 
-                {/* MASSIVE HERO TITLE - Anchors the Page */}
-                <div className="mb-12 md:mb-16">
-                    <h1
-                        className="font-display font-bold text-foreground tracking-tighter mb-4 text-balance"
-                        style={{
-                            // MASSIVE sizing to anchor the page
-                            fontSize: 'clamp(3.5rem, 10vw, 8rem)',
-                            lineHeight: '0.95',
-                            letterSpacing: '-0.04em',
-                            textShadow: '0 4px 40px rgba(255, 255, 255, 0.15)',
-                        }}
-                    >
+                {/* V2.0 MASSIVE HERO TITLE - THE KING - Anchors the Page */}
+                <div className="mb-16 md:mb-20">
+                    <DisplayText className="mb-6 text-balance">
                         QuickServe IT
-                    </h1>
-                    <p className="font-sans text-foreground/60 text-sm md:text-base tracking-wide font-normal">
+                    </DisplayText>
+                    <p className="font-sans text-foreground/40 text-xs md:text-sm tracking-[0.2em] font-normal uppercase">
                         Your Calm Digital Partner
                     </p>
                 </div>
 
-                {/* DECISION CARDS - Reduced Dominance, Descriptive Labels */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl mb-12">
+                {/* V2.0 GLASS TILES - Reduced Dominance, Sleek Entry Doors */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full max-w-4xl mb-12">
 
-                    {/* Institutional Services Card - Gold Theme */}
+                    {/* Institutional Systems Card - Gold Theme */}
                     <button
                         onClick={() => {
                             onModeChange('institutional');
@@ -85,7 +77,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         }}
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-6 md:p-7 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'institutional'
+                        className={`group relative p-5 md:p-6 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'institutional'
                             ? 'border-institutional/60 bg-institutional/8 scale-[1.02]'
                             : hoveredCard === 'creator'
                                 ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
@@ -107,39 +99,31 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                         <div className="relative z-10">
                             {/* Icon + Category Label */}
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className={`p-2.5 rounded-lg transition-all duration-300 ${mode === 'institutional'
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className={`p-2 rounded-lg transition-all duration-300 ${mode === 'institutional'
                                     ? 'bg-institutional/25 text-institutional'
                                     : 'bg-white/5 text-foreground/60 group-hover:bg-institutional/15 group-hover:text-institutional'
                                     }`}>
-                                    <Building2 size={20} strokeWidth={1.5} />
+                                    <Building2 size={18} strokeWidth={1.5} />
                                 </div>
-                                <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.15em] text-foreground/40 group-hover:text-foreground/60 transition-colors">
-                                    For Schools & Colleges
+                                <span className="text-[9px] md:text-[10px] font-mono uppercase tracking-[0.15em] text-foreground/40 group-hover:text-foreground/60 transition-colors">
+                                    For Schools
                                 </span>
                             </div>
 
-                            {/* DESCRIPTIVE TITLE */}
-                            <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3 tracking-tight text-balance">
-                                Institutional Services
+                            {/* V2.0 DESCRIPTIVE TITLE - "Systems" not "Services" */}
+                            <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-2 tracking-tight text-balance">
+                                Institutional Systems
                             </h3>
 
-                            {/* THE "WHY" - Pain Point Solved */}
-                            <div className="flex items-start gap-2 mb-4 p-3 rounded-lg bg-institutional/5 border border-institutional/10">
-                                <AlertCircle className="w-4 h-4 text-institutional shrink-0 mt-0.5" />
-                                <p className="text-xs md:text-sm text-foreground/70 leading-relaxed text-balance font-medium">
-                                    Eliminate data entry errors and deadline stress
-                                </p>
-                            </div>
-
-                            {/* Description */}
-                            <p className="text-xs md:text-sm text-foreground/50 leading-relaxed mb-4 text-balance">
-                                Exam documentation, UDISE+, scholarships, and daily digital support for institutions.
+                            {/* V2.0 ONE-LINE VALUE PROP - Instantly readable */}
+                            <p className="text-xs md:text-sm text-foreground/50 leading-relaxed mb-3 text-balance">
+                                Exam docs, UDISE+, scholarships & daily support
                             </p>
 
                             {/* CTA Arrow */}
                             <div className="flex items-center gap-2 text-institutional/70 group-hover:text-institutional transition-colors">
-                                <span className="text-xs font-medium tracking-wide">Explore Services</span>
+                                <span className="text-xs font-medium tracking-wide">Explore</span>
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
                             </div>
                         </div>
@@ -153,7 +137,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         }}
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-6 md:p-7 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'creator'
+                        className={`group relative p-5 md:p-6 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'creator'
                             ? 'border-creator/60 bg-creator/8 scale-[1.02]'
                             : hoveredCard === 'institutional'
                                 ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
@@ -175,39 +159,31 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                         <div className="relative z-10">
                             {/* Icon + Category Label */}
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className={`p-2.5 rounded-lg transition-all duration-300 ${mode === 'creator'
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className={`p-2 rounded-lg transition-all duration-300 ${mode === 'creator'
                                     ? 'bg-creator/25 text-creator'
                                     : 'bg-white/5 text-foreground/60 group-hover:bg-creator/15 group-hover:text-creator'
                                     }`}>
-                                    <Sparkles size={20} strokeWidth={1.5} />
+                                    <Sparkles size={18} strokeWidth={1.5} />
                                 </div>
-                                <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.15em] text-foreground/40 group-hover:text-foreground/60 transition-colors">
-                                    For YouTubers & Brands
+                                <span className="text-[9px] md:text-[10px] font-mono uppercase tracking-[0.15em] text-foreground/40 group-hover:text-foreground/60 transition-colors">
+                                    For Creators
                                 </span>
                             </div>
 
-                            {/* DESCRIPTIVE TITLE */}
-                            <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3 tracking-tight text-balance">
+                            {/* V2.0 DESCRIPTIVE TITLE */}
+                            <h3 className="text-lg md:text-xl font-display font-bold text-foreground mb-2 tracking-tight text-balance">
                                 Creator Studio
                             </h3>
 
-                            {/* THE "WHY" - Pain Point Solved */}
-                            <div className="flex items-start gap-2 mb-4 p-3 rounded-lg bg-creator/5 border border-creator/10">
-                                <Clock className="w-4 h-4 text-creator shrink-0 mt-0.5" />
-                                <p className="text-xs md:text-sm text-foreground/70 leading-relaxed text-balance font-medium">
-                                    Stop editing until 2 AM—get your life back
-                                </p>
-                            </div>
-
-                            {/* Description */}
-                            <p className="text-xs md:text-sm text-foreground/50 leading-relaxed mb-4 text-balance">
-                                Video editing, thumbnails, motion graphics, and content strategy for creators.
+                            {/* V2.0 ONE-LINE VALUE PROP - Instantly readable */}
+                            <p className="text-xs md:text-sm text-foreground/50 leading-relaxed mb-3 text-balance">
+                                Video editing, thumbnails, motion graphics & strategy
                             </p>
 
                             {/* CTA Arrow */}
                             <div className="flex items-center gap-2 text-creator/70 group-hover:text-creator transition-colors">
-                                <span className="text-xs font-medium tracking-wide">Explore Studio</span>
+                                <span className="text-xs font-medium tracking-wide">Explore</span>
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2} />
                             </div>
                         </div>

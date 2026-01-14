@@ -434,11 +434,11 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative">
+      <main className="min-h-screen bg-background pt-40 md:pt-48 lg:pt-56 pb-16 sm:pb-20 md:pb-24 relative">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-          {/* Header */}
-          <div className="min-h-[50vh] flex flex-col justify-center text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto">
-            <H1 className="mb-4 sm:mb-5 md:mb-6 animate-fade-in">
+          {/* Header - V2.0 OPTICAL CENTERING at 35% mark */}
+          <div className="min-h-[35vh] flex flex-col justify-center text-center mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto">
+            <H1 className="mb-6 sm:mb-7 md:mb-8 animate-fade-in">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
@@ -622,8 +622,9 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
         className="w-full p-4 sm:p-5 md:p-6 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
         aria-expanded={isExpanded}
       >
-        <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
-          <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+        {/* V2.0 PREMIUM ICONOGRAPHY - Glass Circle Wrapper */}
+        <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${mode === 'institutional' ? 'bg-institutional/10 ring-1 ring-institutional/20' : 'bg-creator/10 ring-1 ring-creator/20'}`}>
+          <Icon className={`w-6 h-6 sm:w-7 sm:h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-base sm:text-lg font-medium mb-2">{title}</h3>

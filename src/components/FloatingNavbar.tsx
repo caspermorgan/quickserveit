@@ -255,7 +255,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <LanguageSwitch mode={mode} />
       </div>
 
-      {/* MAGNETIC DOCK - Conversion-Focused Navigation */}
+      {/* V2.0 ANCHOR DOCK - Conversion-Focused Navigation */}
       <div
         className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe max-w-[95vw] phantom-slide ${combinedVisible && !isImmersive
           ? 'opacity-100 translate-y-0'
@@ -264,13 +264,28 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       >
         <div className="relative flex items-center gap-0 rounded-full bg-background/80 backdrop-blur-xl border border-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
 
-          {/* THE STREAM - Scrollable Navigation Links (Flow on Left) */}
+          {/* V2.0 THE ANCHOR - Fixed CTA on LEFT (Visual Anchor) */}
+          <MagneticButton mode={mode}>
+            <Link
+              to="/contact"
+              className={`relative flex-shrink-0 px-4 py-3 md:px-6 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
+                ? 'bg-institutional text-background hover:bg-institutional/90'
+                : 'bg-creator text-background hover:bg-creator/90'
+                }`}
+            >
+              {/* Mobile: "Start" | Desktop: "Start Project" */}
+              <span className="hidden sm:inline">Start Project</span>
+              <span className="inline sm:hidden">Start</span>
+            </Link>
+          </MagneticButton>
+
+          {/* V2.0 THE STREAM - Scrollable Navigation Links (Flow on RIGHT) */}
           <div
-            className="relative flex items-center overflow-x-auto no-scrollbar pl-3 md:pl-4 pr-2 z-10"
+            className="relative flex items-center overflow-x-auto no-scrollbar pr-3 md:pr-4 pl-2 z-10"
             style={{
-              // BEHIND EFFECT - Enhanced gradient mask for smooth fade
-              maskImage: 'linear-gradient(to left, transparent 0%, black 30px, black 100%)',
-              WebkitMaskImage: 'linear-gradient(to left, transparent 0%, black 30px, black 100%)',
+              // V2.0 BEHIND EFFECT - Enhanced gradient mask for smooth fade
+              maskImage: 'linear-gradient(to right, transparent 0%, black 20px, black 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20px, black 100%)',
             }}
           >
             {links.map((link, index) => {
@@ -308,21 +323,6 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
               );
             })}
           </div>
-
-          {/* THE ANCHOR - Fixed CTA on Right (Smart Collapse on Mobile) */}
-          <MagneticButton mode={mode}>
-            <Link
-              to="/contact"
-              className={`relative flex-shrink-0 px-3 py-3 md:px-5 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
-                ? 'bg-institutional text-background hover:bg-institutional/90'
-                : 'bg-creator text-background hover:bg-creator/90'
-                }`}
-            >
-              {/* Mobile: "Start" | Desktop: "Start Your Project" */}
-              <span className="hidden sm:inline">Start Your Project</span>
-              <span className="inline sm:hidden">Start</span>
-            </Link>
-          </MagneticButton>
 
         </div>
       </div>
