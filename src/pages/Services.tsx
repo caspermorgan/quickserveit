@@ -434,7 +434,7 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 mask-scroller relative z-10">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto">
@@ -599,12 +599,12 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
     <div
       id={service.id}
       className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-500 ease-out ${isMobile
-          ? isFocused
-            ? 'scale-105 opacity-100'
-            : 'scale-100 opacity-50'
-          : isExpanded
-            ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30')
-            : 'hover:border-border/40 hover:-translate-y-0.5'
+        ? isFocused
+          ? 'scale-105 opacity-100'
+          : 'scale-100 opacity-50'
+        : isExpanded
+          ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30')
+          : 'hover:border-border/40 hover:-translate-y-0.5'
         }`}
     >
       {/* Header - Always visible */}

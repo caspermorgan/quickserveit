@@ -298,14 +298,13 @@
     opacity: 0.4;
   }
 
-  /* Mobile: Reduce film grain for performance */
+  /* Mobile: Completely disable film grain for GPU performance */
   @media (max-width: 768px) {
-    .film-grain-institutional {
-      opacity: 0.15;
-    }
 
+    .film-grain,
+    .film-grain-institutional,
     .film-grain-creator {
-      opacity: 0.25;
+      display: none;
     }
   }
 
@@ -342,10 +341,10 @@
   /* Mobile Performance Optimization & Better Visibility */
   @media (max-width: 768px) {
     .glass-premium {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
   }
 
@@ -363,8 +362,8 @@
   @media (max-width: 768px) {
     .glass-nav {
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.2),
@@ -406,9 +405,9 @@
 
   @media (max-width: 768px) {
     .glass-card {
-      /* Reduced blur on mobile for performance, keep saturation */
-      backdrop-filter: blur(12px) saturate(180%);
-      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      /* Aggressive blur reduction for low-end GPU performance */
+      backdrop-filter: blur(8px) saturate(180%);
+      -webkit-backdrop-filter: blur(8px) saturate(180%);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
@@ -807,8 +806,8 @@
   /* Mobile optimization for decision cards */
   @media (max-width: 768px) {
     .decision-card {
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .decision-card:hover {
@@ -997,6 +996,44 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* ============================================
+     PHANTOM INTERFACE - CINEMATIC SCROLL MASKS
+     ============================================ */
+
+  /* Gradient Fade Mask - Content Dissolve Effect (Mobile Only) */
+  @media (max-width: 768px) {
+    .mask-scroller {
+      mask-image: linear-gradient(to bottom,
+          transparent 0%,
+          black 15%,
+          black 85%,
+          transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom,
+          transparent 0%,
+          black 15%,
+          black 85%,
+          transparent 100%);
+    }
+  }
+
+  /* Phantom Interface Transition Physics */
+  .phantom-slide {
+    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  /* Immersive Mode Transforms */
+  .immersive-hide-top {
+    transform: translateY(-100%);
+  }
+
+  .immersive-hide-bottom {
+    transform: translateY(150%);
+  }
+
+  .immersive-show {
+    transform: translateY(0);
   }
 }
 

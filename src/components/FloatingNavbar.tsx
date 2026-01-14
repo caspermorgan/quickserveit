@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useIdleScroller } from '@/hooks/useIdleScroller';
 import HeaderStatusBadge from './HeaderStatusBadge';
 import MagneticButton from './MagneticButton';
 
@@ -82,6 +83,9 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
   const [navVisible, setNavVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const lastScrollY = useRef(0);
+
+  // Phantom Interface: Immersive mode for mobile
+  const isImmersive = useIdleScroller();
 
   // Smart auto-hide menu behavior
   useEffect(() => {
@@ -193,10 +197,10 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       <div
         className={`
           fixed top-6 left-6 md:top-8 md:left-8 z-50 
-          animate-float
-          ${combinedVisible
-            ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
-            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+          animate-float phantom-slide
+          ${combinedVisible && !isImmersive
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 immersive-hide-top'
           }
         `}
       >
@@ -243,18 +247,18 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
 
 
       {/* Language Switch - Top Right */}
-      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 ${combinedVisible
-        ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
-        : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 phantom-slide ${combinedVisible && !isImmersive
+        ? 'opacity-100 translate-y-0'
+        : 'opacity-0 immersive-hide-top'
         }`}>
         <LanguageSwitch mode={mode} />
       </div>
 
       {/* MAGNETIC DOCK - Conversion-Focused Navigation */}
       <div
-        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe max-w-[95vw] ${combinedVisible
-          ? 'opacity-100 translate-y-0 transition-all duration-300 ease-spring'
-          : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe max-w-[95vw] phantom-slide ${combinedVisible && !isImmersive
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 immersive-hide-bottom pointer-events-none'
           }`}
       >
         <div className="relative flex items-center gap-0 rounded-full glass-nav overflow-hidden">

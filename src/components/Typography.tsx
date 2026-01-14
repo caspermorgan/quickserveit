@@ -29,8 +29,8 @@ interface BodyTypographyProps extends TypographyProps {
 export const DisplayText = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component className={cn(
-            // Massive poster-style sizing
-            'text-6xl sm:text-7xl md:text-8xl lg:text-9xl',
+            // Medium-sized heading for better readability on desktop
+            'text-5xl sm:text-6xl md:text-7xl lg:text-7xl',
             // Font family and weight
             'font-display font-bold',
             // Tight tracking for visual impact

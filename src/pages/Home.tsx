@@ -95,7 +95,7 @@ const Home = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background mask-scroller relative z-10">
         {/* Hero Section - Minimal & Professional */}
         <section className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-28 md:py-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
