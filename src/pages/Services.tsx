@@ -445,7 +445,7 @@ const Services = () => {
                 <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
               )}
             </h1>
-            <p className="text-foreground/65 text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
@@ -628,7 +628,7 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-lg sm:text-xl font-display font-semibold mb-2">{title}</h3>
-          <p className="text-sm sm:text-base text-foreground/65 leading-relaxed">{mediumDesc}</p>
+          <p className="text-sm sm:text-base text-body-v25 leading-relaxed">{mediumDesc}</p>
         </div>
         <div className="shrink-0 mt-1">
           {isExpanded ? (

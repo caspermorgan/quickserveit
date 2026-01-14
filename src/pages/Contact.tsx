@@ -165,7 +165,7 @@ const Contact = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
               {t('letsConnect').split(' ')[0]} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('letsConnect').split(' ').slice(1).join(' ')}</span>
             </h1>
-            <p className="text-foreground/65 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
               {t('shareProjectDetails')}
             </p>
 
@@ -206,7 +206,7 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-display font-semibold text-lg sm:text-xl mb-1">WhatsApp</h3>
-                  <p className="text-foreground/65 text-sm sm:text-base truncate">Instant messaging • Quick responses</p>
+                  <p className="text-body-v25 text-sm sm:text-base truncate">Instant messaging • Quick responses</p>
                 </div>
                 <div className={`shrink-0 flex items-center gap-2 text-sm sm:text-base font-semibold transition-transform group-hover:translate-x-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   }`}>
@@ -243,7 +243,7 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-base sm:text-lg mb-0.5">Email</h3>
-                  <p className="text-foreground/60 text-xs sm:text-sm truncate">Open in your mail app</p>
+                  <p className="text-caption text-xs sm:text-sm truncate">Open in your mail app</p>
                 </div>
                 <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   }`}>

@@ -275,7 +275,7 @@ const Pricing = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-foreground/65 text-lg sm:text-xl md:text-2xl leading-relaxed mb-10 sm:mb-12 px-4 max-w-3xl mx-auto text-balance font-light">
+            <p className="text-secondary text-lg sm:text-xl md:text-2xl leading-relaxed mb-10 sm:mb-12 px-4 max-w-3xl mx-auto text-balance font-light">
               {mode === 'institutional'
                 ? 'Scope-based pricing for serious institutions. Only what is written here is promised and delivered.'
                 : 'Professional production for serious creators. Clearly defined scope. Professionally executed.'
@@ -330,7 +330,7 @@ const Pricing = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 sm:mb-5">
                 Service-Based <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Pricing</span>
               </h2>
-              <p className="text-foreground/65 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
+              <p className="text-body-v25 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
                 Perfect for one-time projects or occasional needs
               </p>
             </div>

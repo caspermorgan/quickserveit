@@ -77,17 +77,32 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Mode colors - Institutional Premium Gold
+        // V2.5 Surface Elevation System
+        surface: {
+          0: "hsl(var(--surface-0))",
+          1: "hsl(var(--surface-1))",
+          2: "hsl(var(--surface-2))",
+        },
+        // V2.5 Text Hierarchy
+        text: {
+          primary: "hsl(var(--text-primary))",
+          secondary: "hsl(var(--text-secondary))",
+          body: "hsl(var(--text-body))",
+          muted: "hsl(var(--text-muted))",
+        },
+        // Mode colors - Institutional Premium Gold (V2.5 Tonal Spectrum)
         institutional: {
           DEFAULT: "hsl(43, 96%, 56%)", // Bright gold for buttons/backgrounds
+          muted: "hsl(38, 70%, 45%)", // V2.5 Muted tone for text/borders
           readable: "hsl(38, 70%, 45%)", // Darker metallic gold for text/icons (better readability)
           foreground: "hsl(0, 0%, 0%)",
           secondary: "hsl(38, 92%, 50%)",
           tertiary: "hsl(30, 85%, 35%)",
         },
-        // Mode colors - Creator Premium Cyan  
+        // Mode colors - Creator Premium Cyan (V2.5 Tonal Spectrum)
         creator: {
           DEFAULT: "hsl(187, 100%, 42%)",
+          muted: "hsl(187, 80%, 35%)", // V2.5 Muted tone for text/borders
           foreground: "hsl(0, 0%, 0%)",
           secondary: "hsl(200, 98%, 48%)",
           tertiary: "hsl(195, 100%, 55%)",
