@@ -269,6 +269,37 @@
     }
   }
 
+  /* Ultra-small screens (< 380px) - Extreme mobile optimization */
+  @media (max-width: 380px) {
+
+    /* Force even more compact typography */
+    h1 {
+      font-size: 2rem !important;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 1.5rem !important;
+      line-height: 1.2;
+    }
+
+    /* Reduce padding on containers */
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Ensure cards don't overflow */
+    .grid {
+      gap: 1rem;
+    }
+
+    /* Compact navigation */
+    .min-h-\[44px\] {
+      min-height: 40px;
+    }
+  }
+
   /* Hide scrollbar but allow scrolling */
   .no-scrollbar::-webkit-scrollbar {
     display: none;

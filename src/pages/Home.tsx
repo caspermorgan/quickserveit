@@ -97,7 +97,7 @@ const Home = () => {
 
       <main className="min-h-screen bg-background relative">
         {/* Hero Section - Minimal & Professional */}
-        <section className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-28 md:py-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        <section className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-28 md:py-32 overflow-hidden mb-16 md:mb-20 ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Gradient Orb Background - Subtle */}
           <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-1/4 left-1/2 -translate-x-1/2 opacity-15`} />
@@ -120,13 +120,13 @@ const Home = () => {
               />
             </div>
 
-            {/* Description - Typography System: BodyLarge */}
-            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '300ms' }}>
+            {/* Description - Typography System: BodyLarge with AGGRESSIVE opacity for mobile hierarchy */}
+            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto animate-fade-in-up px-4 opacity-60 md:opacity-80" style={{ animationDelay: '300ms' }}>
               {description}
             </BodyLarge>
 
             {/* Trust indicators - Enhanced */}
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-13 md:mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-12 mb-12 sm:mb-13 md:mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/50">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>{t('confidentialityTitle')}</span>

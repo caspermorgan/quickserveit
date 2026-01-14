@@ -268,9 +268,9 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           <div
             className="relative flex items-center overflow-x-auto no-scrollbar pl-3 md:pl-4 pr-2 z-10"
             style={{
-              // BEHIND EFFECT - Gradient mask makes links emerge from behind CTA
-              maskImage: 'linear-gradient(to left, transparent 0%, black 20px, black 100%)',
-              WebkitMaskImage: 'linear-gradient(to left, transparent 0%, black 20px, black 100%)',
+              // BEHIND EFFECT - Enhanced gradient mask for smooth fade
+              maskImage: 'linear-gradient(to left, transparent 0%, black 30px, black 100%)',
+              WebkitMaskImage: 'linear-gradient(to left, transparent 0%, black 30px, black 100%)',
             }}
           >
             {links.map((link, index) => {
@@ -309,16 +309,18 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             })}
           </div>
 
-          {/* THE ANCHOR - Fixed CTA on Right (Protagonist) */}
+          {/* THE ANCHOR - Fixed CTA on Right (Smart Collapse on Mobile) */}
           <MagneticButton mode={mode}>
             <Link
               to="/contact"
-              className={`relative flex-shrink-0 px-4 py-3 md:px-5 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
+              className={`relative flex-shrink-0 px-3 py-3 md:px-5 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
                 ? 'bg-institutional text-background hover:bg-institutional/90'
                 : 'bg-creator text-background hover:bg-creator/90'
                 }`}
             >
-              Start Your Project
+              {/* Mobile: "Start" | Desktop: "Start Your Project" */}
+              <span className="hidden sm:inline">Start Your Project</span>
+              <span className="inline sm:hidden">Start</span>
             </Link>
           </MagneticButton>
 

@@ -19,18 +19,20 @@ interface BodyTypographyProps extends TypographyProps {
  * DisplayText - Massive, poster-style hero headings
  * 
  * Features:
- * - Massive sizing: text-6xl to text-9xl (responsive)
+ * - AGGRESSIVE mobile scaling: text-4xl on mobile (compact for hierarchy)
+ * - Scales up to text-7xl on desktop
  * - Tight letter-spacing (tracking-tighter) for impact
  * - text-balance for perfect line wrapping
  * - font-display family for premium aesthetic
  * 
  * Usage: Hero sections, landing pages, major announcements
+ * Mobile: Compact sizing to establish clear hierarchy vs subtitle (3:1 ratio)
  */
 export const DisplayText = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component className={cn(
-            // Medium-sized heading for better readability on desktop
-            'text-5xl sm:text-6xl md:text-7xl lg:text-7xl',
+            // AGGRESSIVE mobile clamp: compact on mobile (text-4xl), scales to desktop
+            'text-4xl sm:text-5xl md:text-6xl lg:text-7xl',
             // Font family and weight
             'font-display font-bold',
             // Tight tracking for visual impact
@@ -160,16 +162,19 @@ export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProp
  * BodyLarge - Lead text with Hindi support
  * 
  * Features:
+ * - AGGRESSIVE mobile reduction: text-sm on mobile (whisper vs shout)
  * - Hindi prop: When true, uses looser line-height (leading-[1.8])
  * - Accommodates Hindi script ascenders/descenders
  * - font-sans family for body content
  * 
  * Usage: Lead paragraphs, introductions, important body text
+ * Mobile: Drastically reduced for subtitle usage (3:1 ratio with DisplayText)
  */
 export const BodyLarge = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (
         <Component className={cn(
-            'text-base md:text-lg lg:text-xl',
+            // AGGRESSIVE mobile reduction: text-sm on mobile for subtitle hierarchy
+            'text-sm md:text-base lg:text-lg',
             'font-sans font-normal',
             // Hindi-aware line-height
             hindi ? 'leading-[1.8]' : 'leading-relaxed',
