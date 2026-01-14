@@ -169,11 +169,13 @@ export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProp
 export const BodyLarge = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (
         <Component className={cn(
-            'text-lg md:text-xl lg:text-2xl',
+            'text-base md:text-lg lg:text-xl',
             'font-sans font-normal',
             // Hindi-aware line-height
             hindi ? 'leading-[1.8]' : 'leading-relaxed',
             'text-foreground/80',
+            // Better text wrapping
+            'text-balance',
             className
         )}>
             {children}
