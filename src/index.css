@@ -175,6 +175,9 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Scroll padding to prevent content from hiding behind fixed glass header/footer */
+    scroll-padding-top: 80px;
+    scroll-padding-bottom: 80px;
   }
 
   body {
@@ -999,24 +1002,10 @@
   }
 
   /* ============================================
-     PHANTOM INTERFACE - CINEMATIC SCROLL MASKS
+     PHANTOM INTERFACE - TRUE Z-INDEX LAYERING
      ============================================ */
 
-  /* Gradient Fade Mask - Content Dissolve Effect (Mobile Only) */
-  @media (max-width: 768px) {
-    .mask-scroller {
-      mask-image: linear-gradient(to bottom,
-          transparent 0%,
-          black 15%,
-          black 85%,
-          transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom,
-          transparent 0%,
-          black 15%,
-          black 85%,
-          transparent 100%);
-    }
-  }
+  /* No masks - Content slides cleanly under glass headers/footers */
 
   /* Phantom Interface Transition Physics */
   .phantom-slide {

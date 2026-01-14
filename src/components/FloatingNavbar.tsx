@@ -21,10 +21,10 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       onClick={toggleLanguage}
       className={`
         relative flex items-center h-7 md:h-8 px-0.5 md:px-1 rounded-full
-        backdrop-blur-md bg-background/20 border border-foreground/10
-        shadow-[0_2px_10px_rgba(0,0,0,0.1)] 
+        bg-background/80 backdrop-blur-xl border border-white/10
+        shadow-[0_20px_50px_rgba(0,0,0,0.5)] 
         transition-all duration-300 ease-out
-        hover:bg-background/30 hover:border-foreground/20
+        hover:bg-background/90 hover:border-white/20
         ${mode === 'institutional'
           ? 'hover:shadow-[0_0_15px_rgba(234,179,8,0.15)]'
           : 'hover:shadow-[0_0_15px_rgba(34,211,238,0.15)]'
@@ -209,7 +209,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           className={`
             group flex items-center gap-0 overflow-hidden
             h-9 md:h-10 lg:h-12 pl-0 pr-0 rounded-full 
-            glass-nav
+            bg-background/80 backdrop-blur-xl border border-white/10
+            shadow-[0_20px_50px_rgba(0,0,0,0.5)]
             transition-all duration-500 ease-out
             hover:pr-4 md:hover:pr-5
             ${mode === 'institutional'
@@ -257,11 +258,11 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       {/* MAGNETIC DOCK - Conversion-Focused Navigation */}
       <div
         className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe max-w-[95vw] phantom-slide ${combinedVisible && !isImmersive
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 immersive-hide-bottom pointer-events-none'
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 immersive-hide-bottom pointer-events-none'
           }`}
       >
-        <div className="relative flex items-center gap-0 rounded-full glass-nav overflow-hidden">
+        <div className="relative flex items-center gap-0 rounded-full bg-background/80 backdrop-blur-xl border border-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
 
           {/* THE STREAM - Scrollable Navigation Links (Flow on Left) */}
           <div
