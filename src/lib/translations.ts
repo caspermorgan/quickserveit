@@ -35,13 +35,13 @@ export const translations = {
     heroInst2: 'Structured Academic Support',
     heroInst3: 'Quiet Progress, Clear Files',
     heroInst4: 'Trusted Institutional Partner',
-    heroInstDesc: 'We transform chaotic digital workloads into organized, confidential, and deadline-calm execution. From examination documentation to government compliance, your institution deserves peace.',
+    heroInstDesc: 'Professional digital support for educational institutions. From exam documentation to UDISE+ compliance—handled with care and confidentiality.',
 
     // Hero Section - Creator
     heroCreator1: 'Cinematic Content Creation',
     heroCreator2: 'Retention-Style Editing',
     heroCreator3: 'World-Class Production',
-    heroCreatorDesc: 'We transform raw footage into premium content designed for retention and impact. From YouTube long-form to cinematic documentaries, your vision deserves world-class polish.',
+    heroCreatorDesc: 'Premium video production for content creators. From raw footage to platform-ready content—delivered with professional polish.',
 
     // CTAs
     getStarted: 'Get Started',
