@@ -16,18 +16,20 @@ interface BodyTypographyProps extends TypographyProps {
 // ============================================
 
 /**
- * DisplayText - MASSIVE, poster-style hero headings (V2.0 - THE KING)
+ * DisplayText - Landing Page Hero ONLY (Design System Enforced)
  * 
- * Features:
- * - ULTRA-AGGRESSIVE sizing: text-5xl on mobile → text-9xl on desktop
- * - Custom clamp for perfect scaling: clamp(3rem, 10vw, 10rem)
- * - Tight letter-spacing (tracking-tighter) for maximum impact
- * - text-balance for perfect line wrapping
- * - font-display family for premium aesthetic
+ * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
+ * - Desktop: clamp(2rem, 5vw, 4rem)
+ * - Mobile: text-4xl (2.25rem)
+ * - Weight: extrabold (800)
+ * - Tracking: tight (-0.025em)
+ * - Leading: 1.1
+ * - Color: text-foreground/90 (NEVER pure white)
  * 
  * Usage: ONLY for landing page hero title - this is the visual anchor
- * Hierarchy: This is THE KING - everything else must be smaller
- * Mobile: Still large (text-5xl) to maintain dominance, but controlled
+ * Hierarchy: THE KING - everything else must be smaller
+ * 
+ * ⚠️ ENFORCEMENT: Any changes to sizing, weight, or spacing require design system approval
  */
 export const DisplayText = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
@@ -63,11 +65,21 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
 // ============================================
 
 /**
- * H1 - Page titles (V2.0 - THE LEADER)
- * Strictly smaller than DisplayText, used for inner page headers
+ * H1 - Page Titles (Design System Enforced)
  * 
- * Hierarchy: THE LEADER - commands attention but respects THE KING
- * Usage: Services, About, Portfolio page titles
+ * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
+ * - Desktop: text-5xl (3rem)
+ * - Tablet: text-4xl (2.25rem)
+ * - Mobile: text-3xl (1.875rem)
+ * - Weight: bold (700)
+ * - Tracking: tight
+ * - Leading: 1.1
+ * - Color: text-foreground/90
+ * 
+ * Usage: Internal page titles (Services, About, Portfolio, etc.)
+ * Hierarchy: THE LEADER - strictly smaller than DisplayText
+ * 
+ * ⚠️ ENFORCEMENT: Locked sizing for zero drift across pages
  */
 export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
@@ -89,10 +101,21 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
 };
 
 /**
- * H2 - Section headings (V2.0 - THE SUB-LEADER)
+ * H2 - Section Headings (Design System Enforced)
  * 
- * Hierarchy: THE SUB-LEADER - organizes content sections
+ * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
+ * - Desktop: text-4xl (2.25rem)
+ * - Tablet: text-3xl (1.875rem)
+ * - Mobile: text-2xl (1.5rem)
+ * - Weight: bold (700)
+ * - Tracking: tight
+ * - Leading: 1.2
+ * - Color: text-foreground/90
+ * 
  * Usage: Section titles within pages
+ * Hierarchy: THE SUB-LEADER - organizes content sections
+ * 
+ * ⚠️ ENFORCEMENT: Maintains strict hierarchy H1 > H2
  */
 export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProps) => {
     return (
@@ -112,10 +135,21 @@ export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProp
 };
 
 /**
- * H3 - Subsection headings (V2.0 - THE DETAIL)
+ * H3 - Subsection/Card Titles (Design System Enforced)
  * 
- * Hierarchy: THE DETAIL - card and component titles
- * Usage: Service cards, feature sections
+ * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
+ * - Desktop: text-3xl (1.875rem)
+ * - Tablet: text-2xl (1.5rem)
+ * - Mobile: text-xl (1.25rem)
+ * - Weight: semibold (600)
+ * - Tracking: tight
+ * - Leading: 1.3
+ * - Color: text-foreground/85
+ * 
+ * Usage: Card titles, subsection headings
+ * Hierarchy: THE DETAIL - card and component level
+ * 
+ * ⚠️ ENFORCEMENT: Maintains strict hierarchy H2 > H3
  */
 export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProps) => {
     return (
@@ -135,10 +169,20 @@ export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProp
 };
 
 /**
- * H4 - Card/Component titles (V2.0 - THE MICRO)
+ * H4 - Component Titles (Design System Enforced)
  * 
- * Hierarchy: THE MICRO - small headings
- * Usage: Small cards, list headers
+ * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
+ * - Desktop: text-2xl (1.5rem)
+ * - Tablet: text-xl (1.25rem)
+ * - Mobile: text-lg (1.125rem)
+ * - Weight: semibold (600)
+ * - Leading: 1.4
+ * - Color: text-foreground/85
+ * 
+ * Usage: Small cards, list headers, component titles
+ * Hierarchy: THE MICRO - smallest heading level
+ * 
+ * ⚠️ ENFORCEMENT: Maintains strict hierarchy H3 > H4
  */
 export const H4 = ({ children, className, as: Component = 'h4' }: TypographyProps) => {
     return (
@@ -193,17 +237,21 @@ export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProp
 // ============================================
 
 /**
- * BodyLarge - Lead text with Hindi support (V2.0 - THE SUBTITLE)
+ * BodyLarge - Lead Paragraphs (Design System Enforced)
  * 
- * Features:
- * - V2.0 mobile reduction: text-sm on mobile (whisper vs shout)
- * - Hindi prop: When true, uses 2.0 line-height for script clarity
- * - Accommodates Hindi script ascenders/descenders
- * - font-sans family for body content
+ * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
+ * - Desktop: text-lg (1.125rem)
+ * - Tablet: text-base (1rem)
+ * - Mobile: text-sm (0.875rem)
+ * - Weight: normal (400)
+ * - Leading: 1.7 (2.0 for Hindi)
+ * - Color: text-foreground/70-80
+ * - Max-width: 65ch
  * 
  * Usage: Lead paragraphs, hero subtitles, introductions
- * Hierarchy: THE SUBTITLE - supports THE KING/LEADER, never competes
- * Mobile: Drastically reduced for clear hierarchy (3:1 ratio with DisplayText)
+ * Hierarchy: THE SUBTITLE - supports headings, never competes
+ * 
+ * ⚠️ ENFORCEMENT: Mobile reduction creates clear hierarchy with headings
  */
 export const BodyLarge = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (

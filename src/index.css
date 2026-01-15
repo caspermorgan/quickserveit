@@ -1606,9 +1606,11 @@
   @apply text-xs md:text-sm font-sans font-normal leading-normal text-foreground/50;
 }
 
-   
+
 /* ============================================
    V2.5 CHROMATIC DEPTH UTILITIES
+   DESIGN SYSTEM ENFORCEMENT: These utilities enforce the flagship-level
+   color & surface system. Do not create custom color utilities.
    ============================================ */
 
 /* V2.5 Surface Elevation Utilities */
