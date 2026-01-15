@@ -12,8 +12,8 @@ export default {
         sm: "1.5rem",       // Large Mobile
         md: "2rem",         // Tablet
         lg: "3rem",         // Laptop
-        xl: "4rem",         // Desktop
-        "2xl": "5rem",      // Ultra-Wide
+        xl: "5rem",         // Desktop - Increased for flagship presence
+        "2xl": "6rem",      // Ultra-Wide
       },
       screens: {
         "2xl": "1600px", // Expanded for luxury feel
@@ -82,6 +82,7 @@ export default {
           0: "hsl(var(--surface-0))",
           1: "hsl(var(--surface-1))",
           2: "hsl(var(--surface-2))",
+          3: "hsl(var(--surface-3))",
         },
         // V2.5 Text Hierarchy
         text: {

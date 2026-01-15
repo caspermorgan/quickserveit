@@ -57,11 +57,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 }`}>
 
                 {/* V2.0 MASSIVE HERO TITLE - THE KING - Anchors the Page */}
-                <div className="mb-12 sm:mb-16 md:mb-20">
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] mb-4 sm:mb-6 text-balance">
+                <div className="mb-16 sm:mb-20 md:mb-24">
+                    <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-extrabold tracking-tight leading-[1.1] mb-4 sm:mb-6 text-balance">
                         QuickServe IT
                     </h1>
-                    <p className="font-sans text-foreground/50 text-sm sm:text-base md:text-lg tracking-wider font-medium uppercase text-center">
+                    <p className="font-sans text-foreground/40 text-sm sm:text-base md:text-lg tracking-wider font-medium uppercase text-center max-w-md mx-auto">
                         Your Calm Digital Partner
                     </p>
                 </div>
@@ -77,11 +77,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         }}
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-5 md:p-6 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'institutional'
+                        className={`group relative p-4 md:p-5 rounded-3xl border transition-all duration-500 text-left overflow-hidden ${mode === 'institutional'
                             ? 'border-institutional/60 bg-institutional/8 scale-[1.02]'
                             : hoveredCard === 'creator'
                                 ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
-                                : 'border-white/10 bg-white/[0.03] hover:border-institutional/40 hover:bg-institutional/5 hover:scale-[1.01]'
+                                : 'border-white/10 bg-white/[0.03] hover:border-institutional/40 hover:bg-institutional/5 hover:scale-[1.02]'
                             }`}
                         style={{
                             backdropFilter: 'blur(24px) saturate(150%)',
@@ -91,11 +91,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 : '0 4px 16px rgba(0, 0, 0, 0.3)',
                         }}
                     >
-                        {/* Gradient Overlay on Hover */}
-                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-institutional/15 via-transparent to-transparent`} />
-
                         {/* Glow Effect */}
-                        <div className={`absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-institutional/20 to-transparent blur-sm`} style={{ zIndex: -1 }} />
+                        <div className={`absolute -inset-[1px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-institutional/20 to-transparent blur-sm`} style={{ zIndex: -1 }} />
 
                         <div className="relative z-10">
                             {/* Icon + Category Label */}
@@ -137,11 +134,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         }}
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-5 md:p-6 rounded-2xl border transition-all duration-500 text-left overflow-hidden ${mode === 'creator'
+                        className={`group relative p-4 md:p-5 rounded-3xl border transition-all duration-500 text-left overflow-hidden ${mode === 'creator'
                             ? 'border-creator/60 bg-creator/8 scale-[1.02]'
                             : hoveredCard === 'institutional'
                                 ? 'border-white/5 bg-white/[0.01] opacity-40 scale-[0.98]'
-                                : 'border-white/10 bg-white/[0.03] hover:border-creator/40 hover:bg-creator/5 hover:scale-[1.01]'
+                                : 'border-white/10 bg-white/[0.03] hover:border-creator/40 hover:bg-creator/5 hover:scale-[1.02]'
                             }`}
                         style={{
                             backdropFilter: 'blur(24px) saturate(150%)',
@@ -151,11 +148,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 : '0 4px 16px rgba(0, 0, 0, 0.3)',
                         }}
                     >
-                        {/* Gradient Overlay on Hover */}
-                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-creator/15 via-transparent to-transparent`} />
-
                         {/* Glow Effect */}
-                        <div className={`absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-creator/20 to-transparent blur-sm`} style={{ zIndex: -1 }} />
+                        <div className={`absolute -inset-[1px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-creator/20 to-transparent blur-sm`} style={{ zIndex: -1 }} />
 
                         <div className="relative z-10">
                             {/* Icon + Category Label */}
@@ -193,10 +187,10 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                 {/* ALIGNED GLASS DOCK - Locked to Central Axis */}
                 <div
-                    className="relative px-6 py-4 rounded-full border border-white/10 bg-white/[0.02] max-w-2xl w-full"
+                    className="relative px-6 py-3 rounded-full border border-white/10 bg-white/[0.02] max-w-2xl w-full"
                     style={{
-                        backdropFilter: 'blur(20px)',
-                        WebkitBackdropFilter: 'blur(20px)',
+                        backdropFilter: 'blur(24px)',
+                        WebkitBackdropFilter: 'blur(24px)',
                         boxShadow: '0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
                     }}
                 >

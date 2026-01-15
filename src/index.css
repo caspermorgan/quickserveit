@@ -102,14 +102,16 @@
     /* Dark Charcoal - Cards/Sections */
     --surface-2: 0 0% 12%;
     /* Medium Grey - Hovers/Dropdowns */
+    --surface-3: 0 0% 18%;
+    /* Light Grey - Elevated Interactive Elements */
 
     /* V2.5 TEXT HIERARCHY - Greyscale Semantic Roles */
     --text-primary: 0 0% 100%;
     /* Pure White - H1/Main Titles */
     --text-secondary: 0 0% 85%;
     /* Light Grey - H2/H3 */
-    --text-body: 0 0% 70%;
-    /* Medium Grey - Paragraphs */
+    --text-body: 0 0% 75%;
+    /* Medium Grey - Paragraphs - Enhanced for readability */
     --text-muted: 0 0% 55%;
     /* Dark Grey - Meta/Captions */
 
@@ -142,8 +144,8 @@
     /* Portfolio/special pages */
 
     /* Layout Padding - Unified Top Spacing */
-    --layout-pt-desktop: 10rem;
-    /* 160px - Desktop top padding */
+    --layout-pt-desktop: 8rem;
+    /* 128px - Desktop top padding - Tightened for better rhythm */
     --layout-pt-tablet: 9rem;
     /* 144px - Tablet top padding */
     --layout-pt-mobile: 8rem;
@@ -193,7 +195,7 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     --shadow-premium-lg:
-      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 8px 32px rgba(0, 0, 0, 0.75),
       0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
@@ -510,10 +512,10 @@
 
   /* Glass Morphism - Premium Edition */
   .glass-premium {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
     box-shadow:
       0 0 0 1px rgba(0, 0, 0, 0.5),
       0 30px 80px rgba(0, 0, 0, 0.6),
@@ -559,11 +561,11 @@
   /* V2 GLASS EFFECT - Enhanced with saturation boost */
   .glass-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.10);
-    /* Smart trick: saturation boost makes background colors pop through glass */
+    background: rgba(255, 255, 255, 0.06);
+    /* Refined opacity for better contrast on dark backgrounds */
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: var(--shadow-premium-md);
     /* V2 SPRING EASING - Physics-based transitions */
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);

@@ -96,32 +96,25 @@ const Home = () => {
       />
 
       <main className="min-h-screen bg-background relative">
-        {/* Hero Section - Minimal & Professional */}
-        <section className={`relative hero-center px-4 sm:px-6 py-24 sm:py-28 md:py-32 overflow-hidden section-gap-standard ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        {/* Hero Section - Flagship Optical Center */}
+        <section className={`relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 py-20 sm:py-24 md:py-28 overflow-hidden section-gap-standard ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Gradient Orb Background - Subtle */}
-          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-1/4 left-1/2 -translate-x-1/2 opacity-15`} />
+          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-1/4 left-1/2 -translate-x-1/2 opacity-10`} />
 
           <div className="relative max-w-4xl mx-auto text-center z-10">
             {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
-            {/* Compact Typewriter Subtitle */}
-            <div className="mb-8 sm:mb-9 md:mb-10 flex justify-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <TypewriterText
-                anchorText={t('ourServices')}
-                phrases={typewriterSentences}
-                anchorClassName={`text-base sm:text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional-readable' : 'text-creator'}`}
-                className="text-base sm:text-lg md:text-xl text-foreground/60"
-                speed={120}
-                pauseDuration={2800}
-              />
-            </div>
+            {/* Static Subtitle for Stability */}
+            <p className={`mb-8 sm:mb-9 md:mb-10 text-base sm:text-lg md:text-xl font-semibold animate-fade-in-up ${mode === 'institutional' ? 'text-institutional-readable' : 'text-creator'}`} style={{ animationDelay: '200ms' }}>
+              {t('ourServices')}
+            </p>
 
-            {/* Description - Typography System: BodyLarge with AGGRESSIVE opacity for mobile hierarchy */}
-            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto animate-fade-in-up px-4 opacity-60 md:opacity-80" style={{ animationDelay: '300ms' }}>
+            {/* Description - Typography System: BodyLarge with improved mobile opacity */}
+            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '300ms' }}>
               {description}
             </BodyLarge>
 

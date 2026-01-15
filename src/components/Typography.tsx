@@ -34,13 +34,13 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
         <Component
             className={cn(
                 // V3.0 REDUCED sizing - More reasonable for all pages
-                'text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl',
-                // Font family and weight
-                'font-display font-bold',
+                'text-4xl sm:text-5xl md:text-6xl lg:text-7xl',
+                // Font family and weight - Stronger for flagship presence
+                'font-display font-extrabold',
                 // Tight tracking for visual impact
                 'tracking-tight',
-                // Perfect line wrapping
-                'text-balance',
+                // Perfect line wrapping with max-width constraint
+                'text-balance max-w-[20ch]',
                 // Comfortable leading
                 'leading-[1.1]',
                 // V2.0 Opacity - never pure white
@@ -73,10 +73,10 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
     return (
         <Component
             className={cn(
-                // V2.0 sizing - strictly smaller than DisplayText
-                'text-3xl md:text-4xl lg:text-5xl xl:text-6xl',
-                'font-display font-extrabold',
-                'leading-tight tracking-tight',
+                // Locked sizing for zero drift across pages
+                'text-3xl sm:text-4xl md:text-5xl',
+                'font-display font-bold',
+                'leading-[1.1] tracking-tight',
                 'text-balance',
                 // V2.0 Opacity - never pure white
                 'text-foreground/90',
@@ -212,11 +212,11 @@ export const BodyLarge = ({ children, className, as: Component = 'p', hindi = fa
             'text-sm md:text-base lg:text-lg',
             'font-sans font-normal',
             // V2.0 Hindi-aware line-height: 2.0 for Hindi, relaxed for English
-            hindi ? 'leading-[2.0]' : 'leading-relaxed',
-            // V2.0 Opacity - subtitles are whispers, not shouts
-            'text-foreground/60',
-            // Better text wrapping
-            'text-balance',
+            hindi ? 'leading-[2.0]' : 'leading-[1.7]',
+            // Improved mobile opacity for better readability
+            'text-foreground/70 md:text-foreground/80',
+            // Better text wrapping with optimal line length
+            'text-balance max-w-[65ch]',
             className
         )}>
             {children}
