@@ -475,15 +475,20 @@ const Services = () => {
       <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header - V2.0 OPTICAL CENTERING at 35% mark */}
-          <div className="hero-anchor text-center section-gap-standard max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 page-enter">
+          <div
+            ref={heroRef}
+            id="hero"
+            className={`hero-anchor text-center section-gap-standard max-w-3xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
                 <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
               )}
             </h1>
-            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light page-enter delay-1">
+            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light">
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
@@ -513,7 +518,12 @@ const Services = () => {
 
 
           {/* Services Section */}
-          <div className="pb-12 sm:pb-16 md:pb-20">
+          <section
+            ref={servicesRef}
+            id="services"
+            className={`pb-12 sm:pb-16 md:pb-20 transition-all duration-700 ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
             {/* Mobile: Horizontal Scroll Snap Carousel */}
             <div className="md:hidden">
               <div
@@ -582,16 +592,16 @@ const Services = () => {
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
             </div>
-          </div>
         </div>
+      </div>
 
-        {/* How We Work Section - Completely Separate with Different Background */}
-        <section className="bg-black border-t border-border py-16 sm:py-20 md:py-24">
-          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-            <HowWeWork mode={mode} />
-          </div>
-        </section>
-      </main>
+      {/* How We Work Section - Completely Separate with Different Background */}
+      <section className="bg-black border-t border-border py-16 sm:py-20 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+          <HowWeWork mode={mode} />
+        </div>
+      </section>
+    </main >
 
       <Footer mode={mode} />
     </>
