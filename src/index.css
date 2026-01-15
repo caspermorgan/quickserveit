@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Motion Design System */
+@import './styles/motion-tokens.css';
+
 /* QuickServe IT Ultra-Premium Design System */
 
 @layer base {
@@ -204,10 +207,10 @@
       0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
-    /* Transitions */
+    /* Transitions - DEPRECATED: Use motion-tokens.css instead */
     --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
-    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Removed --ease-spring (too bouncy, not premium) */
   }
 
   /* Creator Mode Override */
@@ -567,8 +570,8 @@
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: var(--shadow-premium-md);
-    /* V2 SPRING EASING - Physics-based transitions */
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* MOTION SYSTEM: Standard card transition */
+    transition: all var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
   }
 
   /* Noise texture overlay for tactile glass feel */
@@ -595,7 +598,8 @@
       /* V2.0 PERFORMANCE MODE: Aggressive blur reduction for low-end GPU performance */
       backdrop-filter: blur(12px) saturate(180%);
       -webkit-backdrop-filter: blur(12px) saturate(180%);
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      /* MOTION SYSTEM: Faster on mobile */
+      transition: all var(--motion-base, 300ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     }
 
     /* Reduce noise opacity on mobile for better performance */
@@ -607,8 +611,8 @@
   .glass-card:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
-    /* Spring easing makes hover feel like it has weight */
-    transform: translateY(-6px);
+    /* MOTION SYSTEM: Tier 2 Standard hover */
+    transform: translateY(calc(-1 * var(--motion-standard-translate, 4px))) scale(var(--motion-standard-scale, 1.01));
     box-shadow:
       0 30px 80px rgba(0, 0, 0, 0.6),
       0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
@@ -628,7 +632,8 @@
   .magnetic-click:active,
   .glass-card:active {
     transform: scale(0.98);
-    transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* MOTION SYSTEM: Instant feedback */
+    transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
   }
 
   /* Mobile Touch Optimization */
@@ -639,7 +644,8 @@
 
     .glass-card:active {
       transform: scale(0.98);
-      transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      /* MOTION SYSTEM: Instant feedback */
+      transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     }
   }
 
@@ -688,7 +694,8 @@
     letter-spacing: 0.025em;
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     color: hsl(0, 0%, 0%);
-    transition: all 0.4s var(--ease-premium);
+    /* MOTION SYSTEM: Interactive transition */
+    transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     min-height: 44px;
     /* Mobile touch target - 44px minimum */
     box-shadow:
@@ -709,7 +716,8 @@
   }
 
   .btn-premium:hover {
-    transform: translateY(-2px) scale(1.02);
+    /* MOTION SYSTEM: Tier 1 Micro hover */
+    transform: translateY(calc(-1 * var(--motion-micro-translate, 2px))) scale(var(--motion-micro-scale, 1.01));
     box-shadow:
       0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5),
       0 20px 40px rgba(0, 0, 0, 0.3),
@@ -719,7 +727,8 @@
   /* Mobile Button Optimization */
   @media (max-width: 768px) {
     .btn-premium {
-      transition: all 0.2s var(--ease-premium);
+      /* MOTION SYSTEM: Fast on mobile */
+      transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
       min-height: 44px;
     }
   }
@@ -731,8 +740,9 @@
     }
 
     .btn-premium:active {
-      transform: scale(0.96);
-      transition: transform 0.1s ease;
+      transform: scale(var(--motion-micro-scale-active, 0.99));
+      /* MOTION SYSTEM: Instant feedback */
+      transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     }
   }
 
@@ -746,7 +756,8 @@
     background: transparent;
     border: 1px solid hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
     color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-    transition: all 0.4s var(--ease-premium);
+    /* MOTION SYSTEM: Interactive transition */
+    transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     min-height: 44px;
     /* Mobile touch target - 44px minimum */
   }
@@ -766,14 +777,16 @@
   .btn-outline-premium:hover {
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-    transform: translateY(-2px);
+    /* MOTION SYSTEM: Tier 1 Micro hover */
+    transform: translateY(calc(-1 * var(--motion-micro-translate, 2px)));
     box-shadow: 0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
   }
 
   /* Mobile Button Optimization */
   @media (max-width: 768px) {
     .btn-outline-premium {
-      transition: all 0.2s var(--ease-premium);
+      /* MOTION SYSTEM: Fast on mobile */
+      transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
       min-height: 44px;
     }
   }
@@ -785,16 +798,18 @@
     }
 
     .btn-outline-premium:active {
-      transform: scale(0.96);
+      transform: scale(var(--motion-micro-scale-active, 0.99));
       background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15);
-      transition: all 0.1s ease;
+      /* MOTION SYSTEM: Instant feedback */
+      transition: all var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     }
   }
 
   /* Magnetic Button Wrapper */
   .magnetic-wrap {
     display: inline-block;
-    transition: transform 0.4s var(--ease-smooth);
+    /* MOTION SYSTEM: Base transition */
+    transition: transform var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     will-change: transform;
   }
 
@@ -907,11 +922,13 @@
       0 30px 80px rgba(0, 0, 0, 0.6),
       inset 0 0 20px rgba(255, 255, 255, 0.02),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: all 0.5s var(--ease-premium);
+    /* MOTION SYSTEM: Standard card transition (same as glass-card) */
+    transition: all var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
   }
 
   .decision-card:hover {
-    transform: translateY(-4px) scale(1.01);
+    /* MOTION SYSTEM: Tier 2 Standard hover (same as glass-card) */
+    transform: translateY(calc(-1 * var(--motion-standard-translate, 4px))) scale(var(--motion-standard-scale, 1.01));
     box-shadow:
       0 0 0 1px rgba(0, 0, 0, 0.5),
       0 40px 100px rgba(0, 0, 0, 0.7),
@@ -939,7 +956,8 @@
 
     .decision-card:active {
       transform: scale(0.98);
-      transition: transform 0.1s ease;
+      /* MOTION SYSTEM: Instant feedback */
+      transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
     }
   }
 }
@@ -951,64 +969,56 @@
 
 @layer utilities {
 
-  /* Smooth transitions */
+  /* MOTION SYSTEM: Transition Utilities */
   .trans-premium {
-    transition: all 0.5s var(--ease-premium);
+    transition: all var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
   }
 
   .trans-smooth {
-    transition: all 0.4s var(--ease-smooth);
+    transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
   }
 
-  .trans-spring {
-    transition: all 0.6s var(--ease-spring);
-  }
+  /* Removed .trans-spring - too bouncy, not premium */
 
-  /* Hover scale */
+  /* MOTION SYSTEM: Hover utilities */
   .hover-scale {
-    transition: transform 0.3s var(--ease-premium);
+    transition: transform var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
   }
 
   .hover-scale:hover {
-    transform: scale(1.05);
+    transform: scale(var(--motion-micro-scale, 1.01));
   }
 
-  /* Animate utilities */
+  /* MOTION SYSTEM: Page entry animations - Use .page-enter instead */
   .animate-fade-in {
-    animation: fadeIn 0.8s var(--ease-premium) forwards;
+    animation: pageEnter var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
+    opacity: 0;
   }
 
   .animate-fade-in-up {
-    animation: fadeInUp 0.8s var(--ease-premium) forwards;
+    animation: pageEnter var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
+    opacity: 0;
   }
 
   .animate-fade-in-down {
-    animation: fadeInDown 0.8s var(--ease-premium) forwards;
+    animation: pageEnter var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
+    opacity: 0;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.6s var(--ease-premium) forwards;
+    animation: scaleIn var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
+    opacity: 0;
   }
 
   .animate-blur-in {
-    animation: blurIn 0.8s var(--ease-premium) forwards;
+    animation: blurIn var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
+    opacity: 0;
   }
 
-  .animate-glow-pulse {
-    animation: glowPulse 3s ease-in-out infinite;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-dust {
-    animation: dustDrift 1.8s var(--ease-premium) forwards;
-  }
-
-  .animate-slow-pulse {
-    animation: slowPulse 3s ease-in-out infinite;
-  }
+  /* REMOVED: .animate-glow-pulse - Too flashy, not premium */
+  /* REMOVED: .animate-float - Unnecessary movement */
+  /* REMOVED: .animate-dust - Not needed */
+  /* REMOVED: .animate-slow-pulse - Use sparingly, status indicators only */
 
   /* Pointer utilities */
   .pointer-none {
@@ -1139,7 +1149,24 @@
   }
 }
 
-/* Keyframes */
+/* ============================================
+   MOTION SYSTEM KEYFRAMES
+   ============================================ */
+
+/* Unified page entry animation - Use this for all page transitions */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Legacy keyframes - DEPRECATED: Use pageEnter instead */
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -104,51 +104,51 @@ const Home = () => {
 
           <div className="relative max-w-4xl mx-auto text-center z-10">
             {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 page-enter ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
             {/* Static Subtitle for Stability */}
-            <p className={`mb-8 sm:mb-9 md:mb-10 text-base sm:text-lg md:text-xl font-semibold animate-fade-in-up ${mode === 'institutional' ? 'text-institutional-readable' : 'text-creator'}`} style={{ animationDelay: '200ms' }}>
+            <p className={`mb-8 sm:mb-9 md:mb-10 text-base sm:text-lg md:text-xl font-semibold page-enter delay-1 ${mode === 'institutional' ? 'text-institutional-readable' : 'text-creator'}`}>
               {t('ourServices')}
             </p>
 
             {/* Description - Typography System: BodyLarge with improved mobile opacity */}
-            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '300ms' }}>
+            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto page-enter delay-2 px-4">
               {description}
             </BodyLarge>
 
             {/* Trust indicators - Enhanced */}
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-14 md:mb-16 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 transition-colors">
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-14 md:mb-16 page-enter delay-3">
+              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
                 <Shield className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                 <span className="font-medium">{t('confidentialityTitle')}</span>
               </div>
-              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 transition-colors">
+              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
                 <CheckCircle className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                 <span className="font-medium">{t('realisticTimelinesTitle')}</span>
               </div>
-              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 transition-colors">
+              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
                 <Clock className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                 <span className="font-medium">10 AM - 4 PM IST</span>
               </div>
             </div>
 
             {/* CTAs - Premium Styling */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 animate-fade-in-up mb-12 sm:mb-14 md:mb-16" style={{ animationDelay: '500ms' }}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 page-enter delay-4 mb-12 sm:mb-14 md:mb-16">
               <Link
                 to="/services"
-                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional hover:shadow-2xl'
                   : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator hover:shadow-2xl'
                   }`}
               >
                 {mode === 'institutional' ? t('viewServices') : t('viewServices')}
-                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-2" />
+                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 trans-smooth group-hover:translate-x-2" />
               </Link>
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-semibold text-sm sm:text-base md:text-lg border-2 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-semibold text-sm sm:text-base md:text-lg border-2 trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'border-institutional/50 text-institutional hover:bg-institutional/10 hover:border-institutional'
                   : 'border-creator/50 text-creator hover:bg-creator/10 hover:border-creator'
                   }`}
@@ -197,13 +197,13 @@ const Home = () => {
             <MagneticButton mode={mode}>
               <Link
                 to="/contact"
-                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional hover:shadow-2xl'
                   : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator hover:shadow-2xl'
                   }`}
               >
                 Start Your Project
-                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-2" />
+                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 trans-smooth group-hover:translate-x-2" />
               </Link>
             </MagneticButton>
           </div>

@@ -438,14 +438,14 @@ const Services = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header - V2.0 OPTICAL CENTERING at 35% mark */}
           <div className="hero-anchor text-center section-gap-standard max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 page-enter">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
                 <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
               )}
             </h1>
-            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light page-enter delay-1">
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
@@ -619,11 +619,11 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
             });
           }, 100);
         }}
-        className="w-full p-5 sm:p-6 md:p-7 flex items-start gap-4 sm:gap-5 text-left hover:bg-foreground/[0.03] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
+        className="w-full p-5 sm:p-6 md:p-7 flex items-start gap-4 sm:gap-5 text-left hover:bg-foreground/[0.03] trans-smooth focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
         aria-expanded={isExpanded}
       >
         {/* V2.0 PREMIUM ICONOGRAPHY - Glass Circle Wrapper */}
-        <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${mode === 'institutional' ? 'bg-institutional/12 ring-1 ring-institutional/25' : 'bg-creator/12 ring-1 ring-creator/25'}`}>
+        <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 trans-card ${mode === 'institutional' ? 'bg-institutional/12 ring-1 ring-institutional/25' : 'bg-creator/12 ring-1 ring-creator/25'}`}>
           <Icon className={`w-7 h-7 sm:w-8 sm:h-8 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
@@ -641,7 +641,7 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
 
       {/* Expanded Content with smooth animation */}
       <div
-        className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
+        className={`grid trans-card ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
       >
         <div className="overflow-hidden">
           <div className="px-5 sm:px-6 pb-6 sm:pb-7 border-t border-border/10 pt-6 sm:pt-7">
@@ -710,7 +710,7 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
                       <span
                         key={i}
                         title={iconData.name}
-                        className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg glass-card border border-creator/20 hover:border-creator/40 transition-all duration-200 hover:scale-105"
+                        className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg glass-card border border-creator/20 hover:border-creator/40 trans-smooth hover-micro"
                         style={{
                           backdropFilter: 'blur(8px)',
                           background: 'rgba(0, 188, 212, 0.05)'
@@ -739,7 +739,7 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
                     }
                   });
                 }}
-                className={`inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 rounded-full text-sm sm:text-base font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] ${mode === 'institutional'
+                className={`inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 rounded-full text-sm sm:text-base font-medium trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] ${mode === 'institutional'
                   ? 'bg-institutional text-background hover:bg-institutional/90'
                   : 'bg-creator text-background hover:bg-creator/90'
                   }`}
