@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, Link } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
@@ -13,6 +14,46 @@ const About = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+
+  const heroRef = useRef<HTMLDivElement>(null);
+  const philosophyRef = useRef<HTMLElement>(null);
+  const founderRef = useRef<HTMLElement>(null);
+  const serveRef = useRef<HTMLElement>(null);
+  const dontDoRef = useRef<HTMLElement>(null);
+  const hoursRef = useRef<HTMLElement>(null);
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisibleSections(prev => new Set(prev).add(entry.target.id));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = [heroRef, philosophyRef, founderRef, serveRef, dontDoRef, hoursRef];
+    sections.forEach(ref => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -39,17 +80,27 @@ const About = () => {
       <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
-          <div className="hero-anchor text-center section-gap-standard max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
+          <div
+            ref={heroRef}
+            id="hero"
+            className={`hero-anchor text-center section-gap-standard max-w-3xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
               About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Us</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto font-light">
               {t('aboutIntro')}
             </p>
           </div>
 
           {/* Philosophy Section */}
-          <section className="max-w-3xl mx-auto section-gap-standard">
+          <section
+            ref={philosophyRef}
+            id="philosophy"
+            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-100 ${visibleSections.has('philosophy') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('ourPhilosophy')}</h2>
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
               <PhilosophyCard
@@ -80,7 +131,12 @@ const About = () => {
           </section>
 
           {/* Founder's Message Teaser */}
-          <section className="max-w-3xl mx-auto section-gap-standard">
+          <section
+            ref={founderRef}
+            id="founder"
+            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-200 ${visibleSections.has('founder') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
             <Link
               to="/founder"
               className={`
@@ -112,7 +168,12 @@ const About = () => {
           </section>
 
           {/* Who We Serve - Mode Specific */}
-          <section className="max-w-3xl mx-auto section-gap-standard">
+          <section
+            ref={serveRef}
+            id="serve"
+            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-300 ${visibleSections.has('serve') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whoWeServe')}</h2>
             <div className="max-w-2xl mx-auto">
               {mode === 'institutional' ? (
@@ -166,7 +227,12 @@ const About = () => {
           </section>
 
           {/* What We Don't Do */}
-          <section className="max-w-3xl mx-auto section-gap-standard">
+          <section
+            ref={dontDoRef}
+            id="dont-do"
+            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-400 ${visibleSections.has('dont-do') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whatWeDontDo')}</h2>
             <div className="p-8 sm:p-9 md:p-10 rounded-3xl glass-card border-2 border-border/25 hover:border-border/40 transition-all duration-500">
               <p className="text-foreground/70 mb-7 text-base sm:text-lg font-light leading-relaxed">
@@ -184,7 +250,12 @@ const About = () => {
           </section>
 
           {/* Working Hours Notice */}
-          <section className="max-w-2xl mx-auto text-center">
+          <section
+            ref={hoursRef}
+            id="hours"
+            className={`max-w-2xl mx-auto text-center transition-all duration-700 ease-out delay-500 ${visibleSections.has('hours') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
             <div className={`p-8 rounded-2xl ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
               <Clock className={`w-8 h-8 mx-auto mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <h3 className="text-xl font-medium mb-3">{t('workingHours')}</h3>

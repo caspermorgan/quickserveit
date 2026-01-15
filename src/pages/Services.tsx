@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
@@ -166,6 +166,44 @@ const Services = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+
+  const heroRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
+  const techStackRef = useRef<HTMLDivElement>(null);
+  const howWeWorkRef = useRef<HTMLElement>(null);
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisibleSections(prev => new Set(prev).add(entry.target.id));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = [heroRef, servicesRef, techStackRef, howWeWorkRef];
+    sections.forEach(ref => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleReturn = () => {
     setHasEntered(false);

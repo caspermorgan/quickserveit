@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, Link } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
@@ -20,6 +21,47 @@ const Home = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+
+  const heroRef = useRef<HTMLElement>(null);
+  const creatorNoticeRef = useRef<HTMLElement>(null);
+  const valueRef = useRef<HTMLElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
+  const howWeWorkRef = useRef<HTMLElement>(null);
+  const techTickerRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLElement>(null);
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisibleSections(prev => new Set(prev).add(entry.target.id));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = [heroRef, creatorNoticeRef, valueRef, servicesRef, howWeWorkRef, techTickerRef, ctaRef];
+    sections.forEach(ref => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -97,7 +139,12 @@ const Home = () => {
 
       <main className="min-h-screen bg-background relative">
         {/* Hero Section - Flagship Optical Center */}
-        <section className={`relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 py-20 sm:py-24 md:py-28 overflow-hidden section-gap-standard ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        <section
+          ref={heroRef}
+          id="hero"
+          className={`relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 py-20 sm:py-24 md:py-28 overflow-hidden section-gap-standard ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'} transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
 
           {/* Gradient Orb Background - Subtle */}
           <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-1/4 left-1/2 -translate-x-1/2 opacity-10`} />
@@ -166,25 +213,63 @@ const Home = () => {
 
         {/* Creator Mode Notice */}
         {mode === 'creator' && (
-          <section className="px-6 pb-16">
+          <section
+            ref={creatorNoticeRef}
+            id="creator-notice"
+            className={`px-6 pb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('creator-notice') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+          >
             <CreatorModeNotice />
           </section>
         )}
 
         {/* Value Proposition - Why Choose Us */}
-        <ValueProposition mode={mode} />
+        <div
+          ref={valueRef}
+          id="value"
+          className={`transition-all duration-700 ease-out delay-200 ${visibleSections.has('value') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <ValueProposition mode={mode} />
+        </div>
 
         {/* Services Teaser - Top 3 Only */}
-        <ServicesTeaser mode={mode} />
+        <div
+          ref={servicesRef}
+          id="services"
+          className={`transition-all duration-700 ease-out delay-300 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <ServicesTeaser mode={mode} />
+        </div>
 
         {/* How We Work - Process Overview */}
-        <HowWeWork mode={mode} />
+        <div
+          ref={howWeWorkRef}
+          id="how-we-work"
+          className={`transition-all duration-700 ease-out delay-400 ${visibleSections.has('how-we-work') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <HowWeWork mode={mode} />
+        </div>
 
         {/* Tech Ticker - Trust Signal */}
-        <TechTicker mode={mode} />
+        <div
+          ref={techTickerRef}
+          id="tech-ticker"
+          className={`transition-all duration-700 ease-out delay-500 ${visibleSections.has('tech-ticker') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <TechTicker mode={mode} />
+        </div>
 
         {/* Bottom CTA - Start Your Project */}
-        <section className="px-4 sm:px-6 py-20 sm:py-24 md:py-28">
+        <section
+          ref={ctaRef}
+          id="cta"
+          className={`px-4 sm:px-6 py-20 sm:py-24 md:py-28 transition-all duration-700 ease-out delay-600 ${visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
           <div className="max-w-3xl mx-auto text-center">
             <h2 className={`text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               Ready to {mode === 'institutional' ? 'Digitize Your Institution' : 'Elevate Your Content'}?
