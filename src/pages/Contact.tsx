@@ -159,10 +159,10 @@ const Contact = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`min-h-[50vh] flex flex-col justify-center text-center mb-12 sm:mb-16 md:mb-20 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`hero-anchor text-center section-gap-standard max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
               {t('letsConnect').split(' ')[0]} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('letsConnect').split(' ').slice(1).join(' ')}</span>
             </h1>
             <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
@@ -180,7 +180,7 @@ const Contact = () => {
           <div
             ref={contactMethodsRef}
             id="contact-methods"
-            className={`max-w-2xl mx-auto mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-2xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <div className="flex flex-col gap-4 sm:gap-5">
@@ -258,7 +258,7 @@ const Contact = () => {
           <div
             ref={formRef}
             id="form"
-            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-200 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-200 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Context Badge */}
@@ -306,10 +306,10 @@ const Contact = () => {
           <div
             ref={faqRef}
             id="faq"
-            className={`max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-center mb-8 sm:mb-10 md:mb-12">Frequently Asked Questions</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-center mb-8 sm:mb-10 md:mb-12">Frequently Asked Questions</h2>
             <div className="space-y-4 sm:gap-5">
               {faqs.map((faq, index) => (
                 <div
@@ -355,7 +355,7 @@ const Contact = () => {
           <div
             ref={infoCardsRef}
             id="info-cards"
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto transition-all duration-700 ease-out delay-400 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 section-gap-standard max-w-3xl mx-auto transition-all duration-700 ease-out delay-400 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Working Hours */}

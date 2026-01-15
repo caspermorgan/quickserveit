@@ -97,14 +97,14 @@ const Home = () => {
 
       <main className="min-h-screen bg-background relative">
         {/* Hero Section - Minimal & Professional */}
-        <section className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-28 md:py-32 overflow-hidden mb-16 md:mb-20 ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        <section className={`relative hero-center px-4 sm:px-6 py-24 sm:py-28 md:py-32 overflow-hidden section-gap-standard ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Gradient Orb Background - Subtle */}
           <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-1/4 left-1/2 -translate-x-1/2 opacity-15`} />
 
           <div className="relative max-w-4xl mx-auto text-center z-10">
             {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
@@ -193,10 +193,10 @@ const Home = () => {
         {/* Bottom CTA - Start Your Project */}
         <section className="px-4 sm:px-6 py-20 sm:py-24 md:py-28">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <h2 className={`text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               Ready to {mode === 'institutional' ? 'Digitize Your Institution' : 'Elevate Your Content'}?
             </h2>
-            <p className="text-foreground/65 text-base sm:text-lg md:text-xl leading-relaxed mb-10 sm:mb-12 max-w-2xl mx-auto px-4 font-light">
+            <p className="text-foreground/80 text-base sm:text-lg md:text-xl leading-relaxed mb-10 sm:mb-12 max-w-2xl mx-auto px-4 font-light">
               {mode === 'institutional'
                 ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
                 : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}

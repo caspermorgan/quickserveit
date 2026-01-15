@@ -36,22 +36,14 @@ const Portfolio = () => {
 
         <section className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
           {/* Hero Section */}
-          <div className="min-h-[60vh] flex flex-col justify-center items-center text-center">
-            {/* Icon */}
-            <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center mb-8 sm:mb-10 backdrop-blur-sm ${mode === 'institutional'
-                ? 'bg-institutional/15 ring-2 ring-institutional/30'
-                : 'bg-creator/15 ring-2 ring-creator/30'
-              }`}>
-              <Rocket className={`w-10 h-10 sm:w-12 sm:h-12 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-            </div>
-
+          <div className="hero-feature text-center">
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
               Portfolio <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Coming Soon</span>
             </h1>
 
             {/* Description */}
-            <p className="text-foreground/65 text-base sm:text-lg md:text-xl leading-relaxed mb-10 sm:mb-12 max-w-[60ch] mx-auto font-light px-4">
+            <p className="text-foreground/80 text-base sm:text-lg md:text-xl leading-relaxed mb-10 sm:mb-12 max-w-[60ch] mx-auto font-light px-4">
               {mode === 'institutional'
                 ? 'We\'re preparing a showcase of our institutional work. Check back soon to see how we\'ve helped educational institutions digitize and streamline their processes.'
                 : 'We\'re curating our best creator projects. Check back soon to see our video editing, content creation, and production work.'}
@@ -61,8 +53,8 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full max-w-2xl mb-10 sm:mb-12">
               {/* In Progress */}
               <div className={`p-6 sm:p-7 rounded-2xl glass-card border-2 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] ${mode === 'institutional'
-                  ? 'border-institutional/30 hover:border-institutional/40'
-                  : 'border-creator/30 hover:border-creator/40'
+                ? 'border-institutional/30 hover:border-institutional/40'
+                : 'border-creator/30 hover:border-creator/40'
                 }`}>
                 <div className="flex items-center gap-3 mb-3">
                   <Clock className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -75,8 +67,8 @@ const Portfolio = () => {
 
               {/* Coming Soon */}
               <div className={`p-6 sm:p-7 rounded-2xl glass-card border-2 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] ${mode === 'institutional'
-                  ? 'border-institutional/30 hover:border-institutional/40'
-                  : 'border-creator/30 hover:border-creator/40'
+                ? 'border-institutional/30 hover:border-institutional/40'
+                : 'border-creator/30 hover:border-creator/40'
                 }`}>
                 <div className="flex items-center gap-3 mb-3">
                   <Sparkles className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -92,8 +84,8 @@ const Portfolio = () => {
             <button
               onClick={() => navigate('/contact')}
               className={`inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95 ${mode === 'institutional'
-                  ? 'bg-institutional hover:shadow-institutional/40'
-                  : 'bg-creator hover:shadow-creator/40'
+                ? 'bg-institutional hover:shadow-institutional/40'
+                : 'bg-creator hover:shadow-creator/40'
                 } text-background hover:shadow-2xl text-base sm:text-lg`}
             >
               Get in Touch

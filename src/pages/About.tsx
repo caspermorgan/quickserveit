@@ -39,18 +39,18 @@ const About = () => {
       <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
-          <div className="min-h-[35vh] flex flex-col justify-center text-center mb-16 sm:mb-20 md:mb-24 max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
+          <div className="hero-anchor text-center section-gap-standard max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
               About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Us</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-foreground/65 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
               {t('aboutIntro')}
             </p>
           </div>
 
           {/* Philosophy Section */}
-          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('ourPhilosophy')}</h2>
+          <section className="max-w-3xl mx-auto section-gap-standard">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('ourPhilosophy')}</h2>
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
               <PhilosophyCard
                 icon={Shield}
@@ -80,7 +80,7 @@ const About = () => {
           </section>
 
           {/* Founder's Message Teaser */}
-          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
+          <section className="max-w-3xl mx-auto section-gap-standard">
             <Link
               to="/founder"
               className={`
@@ -112,8 +112,8 @@ const About = () => {
           </section>
 
           {/* Who We Serve - Mode Specific */}
-          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whoWeServe')}</h2>
+          <section className="max-w-3xl mx-auto section-gap-standard">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whoWeServe')}</h2>
             <div className="max-w-2xl mx-auto">
               {mode === 'institutional' ? (
                 <div className="p-8 sm:p-9 md:p-10 rounded-3xl glass-card border-2 border-institutional/35 hover:border-institutional/50 transition-all duration-500 hover:shadow-2xl hover:shadow-institutional/10">
@@ -166,8 +166,8 @@ const About = () => {
           </section>
 
           {/* What We Don't Do */}
-          <section className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whatWeDontDo')}</h2>
+          <section className="max-w-3xl mx-auto section-gap-standard">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-8 sm:mb-10 md:mb-12 text-center">{t('whatWeDontDo')}</h2>
             <div className="p-8 sm:p-9 md:p-10 rounded-3xl glass-card border-2 border-border/25 hover:border-border/40 transition-all duration-500">
               <p className="text-foreground/70 mb-7 text-base sm:text-lg font-light leading-relaxed">
                 {t('transparencyNote')}
@@ -181,38 +181,6 @@ const About = () => {
                 ))}
               </div>
             </div>
-          </section>
-
-          {/* Founder's Message Teaser */}
-          <section className="max-w-3xl mx-auto mb-20">
-            <Link
-              to="/founder"
-              className={`
-                block p-8 rounded-2xl glass-card border transition-all duration-300
-                ${mode === 'institutional'
-                  ? 'border-institutional/20 hover:border-institutional/40 hover:bg-institutional/5'
-                  : 'border-creator/20 hover:border-creator/40 hover:bg-creator/5'
-                }
-                group
-              `}
-            >
-              <div className="flex items-start gap-4 mb-6">
-                <Quote className={`w-8 h-8 flex-shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <div className="flex-1">
-                  <h2 className="text-2xl font-display mb-2">{t('aNoteFromFounder')} {t('theFounder')}</h2>
-                  <p className="text-foreground/50 text-sm">{t('theStoryBehindQuickserve')}</p>
-                </div>
-                <ArrowRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-              </div>
-
-              <blockquote className="text-lg italic text-foreground/70 leading-relaxed border-l-2 pl-6 mb-4" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.3)' : 'rgba(34,211,238,0.3)' }}>
-                {t('founderOpeningQuote')}
-              </blockquote>
-
-              <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                {t('aboutTheFounder')} →
-              </p>
-            </Link>
           </section>
 
           {/* Working Hours Notice */}

@@ -33,23 +33,23 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
     return (
         <Component
             className={cn(
-                // V2.0 MASSIVE sizing - THE KING of typography
-                'text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl',
+                // V3.0 REDUCED sizing - More reasonable for all pages
+                'text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl',
                 // Font family and weight
                 'font-display font-bold',
                 // Tight tracking for visual impact
-                'tracking-tighter',
+                'tracking-tight',
                 // Perfect line wrapping
                 'text-balance',
-                // Tight leading for poster aesthetic
-                'leading-[0.95]',
+                // Comfortable leading
+                'leading-[1.1]',
                 // V2.0 Opacity - never pure white
                 'text-foreground/90',
                 className
             )}
             style={{
-                // Custom clamp for perfect control
-                fontSize: 'clamp(3rem, 10vw, 10rem)',
+                // V3.0 Reduced clamp for reasonable sizing
+                fontSize: 'clamp(2rem, 5vw, 4rem)',
                 ...((className?.includes('style') ? {} : {}) as any)
             }}
         >

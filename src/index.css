@@ -129,6 +129,43 @@
     --creator-muted-s: 80%;
     --creator-muted-l: 35%;
 
+    /* ============================================
+       V3.0 LAYOUT GRID SYSTEM - "ZERO DRIFT"
+       ============================================ */
+
+    /* Layout Hero Heights - Strict Positioning */
+    --layout-hero-anchor: 35vh;
+    /* Standard internal pages */
+    --layout-hero-center: 100vh;
+    /* Home page only */
+    --layout-hero-feature: 60vh;
+    /* Portfolio/special pages */
+
+    /* Layout Padding - Unified Top Spacing */
+    --layout-pt-desktop: 10rem;
+    /* 160px - Desktop top padding */
+    --layout-pt-tablet: 9rem;
+    /* 144px - Tablet top padding */
+    --layout-pt-mobile: 8rem;
+    /* 128px - Mobile top padding */
+
+    /* Layout Section Gaps - Between Major Sections */
+    --layout-section-gap-desktop: 6rem;
+    /* 96px - Desktop section gap */
+    --layout-section-gap-tablet: 5rem;
+    /* 80px - Tablet section gap */
+    --layout-section-gap-mobile: 4rem;
+    /* 64px - Mobile section gap */
+
+    /* Layout Content Gaps - Within Sections */
+    --layout-content-gap-desktop: 3rem;
+    /* 48px - Desktop content gap */
+    --layout-content-gap-tablet: 2.5rem;
+    /* 40px - Tablet content gap */
+    --layout-content-gap-mobile: 2rem;
+    /* 32px - Mobile content gap */
+
+
     /* Premium Glow Effects - Multi-layer */
     --glow-soft:
       0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
@@ -357,6 +394,70 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* ============================================
+     V3.0 LAYOUT GRID UTILITIES
+     ============================================ */
+
+  /* Hero Pattern: Anchor Title (35vh) - Internal Pages */
+  .hero-anchor {
+    min-height: var(--layout-hero-anchor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Hero Pattern: Center (100vh) - Home Page */
+  .hero-center {
+    min-height: var(--layout-hero-center);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hero Pattern: Feature (60vh) - Portfolio/Special */
+  .hero-feature {
+    min-height: var(--layout-hero-feature);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Standard Section Gap */
+  .section-gap-standard {
+    margin-bottom: var(--layout-section-gap-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section-gap-standard {
+      margin-bottom: var(--layout-section-gap-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-gap-standard {
+      margin-bottom: var(--layout-section-gap-desktop);
+    }
+  }
+
+  /* Standard Content Gap */
+  .content-gap-standard {
+    margin-bottom: var(--layout-content-gap-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .content-gap-standard {
+      margin-bottom: var(--layout-content-gap-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-gap-standard {
+      margin-bottom: var(--layout-content-gap-desktop);
+    }
+  }
+
 }
 
 @layer components {
@@ -1474,26 +1575,57 @@
 
 .caption-text {
   @apply text-xs md:text-sm font-sans font-normal leading-normal text-foreground/50;
-} 
- /* ============================================
+}
+
+   
+/* ============================================
    V2.5 CHROMATIC DEPTH UTILITIES
    ============================================ */
 
 /* V2.5 Surface Elevation Utilities */
-.bg-surface-0 { background-color: hsl(var(--surface-0)); }
-.bg-surface-1 { background-color: hsl(var(--surface-1)); }
-.bg-surface-2 { background-color: hsl(var(--surface-2)); }
+.bg-surface-0 {
+  background-color: hsl(var(--surface-0));
+}
+
+.bg-surface-1 {
+  background-color: hsl(var(--surface-1));
+}
+
+.bg-surface-2 {
+  background-color: hsl(var(--surface-2));
+}
 
 /* V2.5 Text Hierarchy Utilities */
-.text-heading { color: hsl(var(--text-primary)); }
-.text-subheading { color: hsl(var(--text-secondary)); }
-.text-body-v25 { color: hsl(var(--text-body)); }
-.text-caption { color: hsl(var(--text-muted)); }
+.text-heading {
+  color: hsl(var(--text-primary));
+}
+
+.text-subheading {
+  color: hsl(var(--text-secondary));
+}
+
+.text-body-v25 {
+  color: hsl(var(--text-body));
+}
+
+.text-caption {
+  color: hsl(var(--text-muted));
+}
 
 /* V2.5 Muted Accent Colors - For secondary text highlights */
-.text-institutional-muted { color: hsl(var(--institutional-muted-h), var(--institutional-muted-s), var(--institutional-muted-l)); }
-.text-creator-muted { color: hsl(var(--creator-muted-h), var(--creator-muted-s), var(--creator-muted-l)); }
+.text-institutional-muted {
+  color: hsl(var(--institutional-muted-h), var(--institutional-muted-s), var(--institutional-muted-l));
+}
+
+.text-creator-muted {
+  color: hsl(var(--creator-muted-h), var(--creator-muted-s), var(--creator-muted-l));
+}
 
 /* V2.5 Border Utilities */
-.border-institutional-muted { border-color: hsl(var(--institutional-muted-h), var(--institutional-muted-s), var(--institutional-muted-l), 0.3); }
-.border-creator-muted { border-color: hsl(var(--creator-muted-h), var(--creator-muted-s), var(--creator-muted-l), 0.3); }
+.border-institutional-muted {
+  border-color: hsl(var(--institutional-muted-h), var(--institutional-muted-s), var(--institutional-muted-l), 0.3);
+}
+
+.border-creator-muted {
+  border-color: hsl(var(--creator-muted-h), var(--creator-muted-s), var(--creator-muted-l), 0.3);
+}

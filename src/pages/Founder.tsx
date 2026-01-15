@@ -34,11 +34,11 @@ const Founder = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative">
+      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 relative">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-14 md:mb-16">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display mb-4 sm:mb-5 md:mb-6">
+          <div className="hero-anchor text-center section-gap-standard">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-display mb-4 sm:mb-5 md:mb-6">
               {t('aNoteFromFounder')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('theFounder')}</span>
             </h1>
             <p className="text-foreground/60 text-sm sm:text-base px-4">

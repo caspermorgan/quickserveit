@@ -252,7 +252,7 @@ const Pricing = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative overflow-hidden">
+      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
@@ -262,11 +262,11 @@ const Pricing = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`text-center mb-16 sm:mb-20 md:mb-24 max-w-5xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`hero-anchor text-center section-gap-standard max-w-5xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
               {mode === 'institutional' ? (
                 <><span className="text-institutional">Institutional</span> Pricing</>
               ) : (
@@ -316,7 +316,7 @@ const Pricing = () => {
           <div
             ref={servicesRef}
             id="services"
-            className={`mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`section-gap-standard transition-all duration-700 ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <div className="text-center mb-10 sm:mb-14">
@@ -327,7 +327,7 @@ const Pricing = () => {
                   {mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 sm:mb-5">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-4 sm:mb-5">
                 Service-Based <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Pricing</span>
               </h2>
               <p className="text-body-v25 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
@@ -549,7 +549,7 @@ const Pricing = () => {
           <div
             ref={subscriptionsRef}
             id="subscriptions"
-            className={`mb-16 sm:mb-20 md:mb-24 transition-all duration-700 ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`section-gap-standard transition-all duration-700 ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <div className="text-center mb-10 sm:mb-14 md:mb-16">
@@ -560,10 +560,10 @@ const Pricing = () => {
                   Save Up to {mode === 'institutional' ? '17%' : '40%'}
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 sm:mb-5">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-4 sm:mb-5">
                 <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Subscription</span> Plans
               </h2>
-              <p className="text-foreground/65 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
+              <p className="text-foreground/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
                 {mode === 'institutional'
                   ? 'Regular UDISE+ & scholarship support — better rates, priority service'
                   : 'Consistent content output with better rates and priority support'
