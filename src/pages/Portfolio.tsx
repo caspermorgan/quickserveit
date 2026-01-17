@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { PageTitle, PageTitleAccent, PageSubtitle } from '@/components/PageTitle';
+import { ClockIcon as Clock, SparklesIcon as Sparkles } from '@/components/IconSystem';
 
 const Portfolio = () => {
   const { mode, setHasEntered } = useMode();

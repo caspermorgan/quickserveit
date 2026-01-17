@@ -485,7 +485,7 @@ const Services = () => {
               {mode === 'institutional' ? t('institutionalServices') : t('creatorServices')}
             </PageTitle>
             <PageSubtitle>
-              {mode === 'institutional' ? t('institutionalServicesDesc') : t('creatorServicesDesc')}
+              {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </PageSubtitle>
           </div>
 
