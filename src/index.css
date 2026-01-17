@@ -9,215 +9,137 @@
 
 @layer base {
   :root {
-    /* Core Dark Background */
-    --background: 0 0% 0.4%;
-    --foreground: 0 0% 98%;
+    /* ============================================
+       STRICT COLOR TOKEN SYSTEM (PREMIUM TECH/AGENCY STANDARD)
+       13 Tokens Total: 1 Primary Family + 7 Neutrals + 3 Utilities + 2 System
+       ============================================ */
 
-    /* Card surfaces */
-    --card: 0 0% 2%;
-    --card-foreground: 0 0% 98%;
+    /* PRIMARY (Brand Action) - Mode-Dependent - ONE COLOR FAMILY ONLY */
+    /* Active primary changes based on mode class (.mode-institutional / .mode-creator) */
+    --primary-h: 43;
+    /* Default: Institutional gold */
+    --primary-s: 65%;
+    --primary-l: 58%;
 
-    /* Popover */
-    --popover: 0 0% 2%;
-    --popover-foreground: 0 0% 98%;
+    --primary-900: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    --primary-700: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+    --primary-500: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 10%));
 
-    /* Primary - Dynamic based on mode */
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 0.4%;
+    /* NEUTRAL (Foundation) - Mode-Independent - Strict Hierarchy */
+    --neutral-950: hsl(0, 0%, 98%);
+    /* Primary text - headings */
+    --neutral-800: hsl(0, 0%, 78%);
+    /* Secondary text - body */
+    --neutral-600: hsl(0, 0%, 60%);
+    /* Meta text - captions */
+    --neutral-300: hsl(0, 0%, 15%);
+    /* Borders/dividers */
+    --neutral-100: hsl(0, 0%, 7%);
+    /* Light backgrounds - cards */
+    --neutral-50: hsl(0, 0%, 2%);
+    /* Section background */
+    --neutral-0: hsl(0, 0%, 0.4%);
+    /* App background - true black */
 
-    /* Secondary */
-    --secondary: 0 0% 8%;
-    --secondary-foreground: 0 0% 98%;
+    /* UTILITY (Strictly Limited) - Rare Functional Usage Only */
+    --success-600: hsl(142, 76%, 36%);
+    /* Confirmations only */
+    --warning-600: hsl(38, 92%, 50%);
+    /* Alerts only */
+    --error-600: hsl(0, 84%, 60%);
+    /* Form errors only */
 
-    /* Muted */
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
-
-    /* Accent - Mode dependent */
-    --accent: 0 0% 8%;
-    --accent-foreground: 0 0% 98%;
-
-    /* Destructive */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    /* Borders */
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 40%;
-
+    /* SYSTEM (ShadCN Compatibility) - Map to compliant tokens */
+    --background: var(--neutral-0);
+    --foreground: var(--neutral-950);
+    --card: var(--neutral-50);
+    --card-foreground: var(--neutral-950);
+    --popover: var(--neutral-50);
+    --popover-foreground: var(--neutral-950);
+    --primary: var(--neutral-950);
+    --primary-foreground: var(--neutral-0);
+    --secondary: var(--neutral-100);
+    --secondary-foreground: var(--neutral-950);
+    --muted: var(--neutral-100);
+    --muted-foreground: var(--neutral-600);
+    --accent: var(--neutral-100);
+    --accent-foreground: var(--neutral-950);
+    --destructive: var(--error-600);
+    --destructive-foreground: var(--neutral-950);
+    --border: var(--neutral-300);
+    --input: var(--neutral-300);
+    --ring: var(--neutral-600);
     --radius: 0.75rem;
 
-    /* Mode Colors - Institutional Premium Gold */
+    /* ============================================
+       DEPRECATED TOKENS (For Migration Reference)
+       These will be removed in next cleanup phase
+       ============================================ */
+
+    /* OLD: Mode-specific colors - REPLACED by --primary-900/700/500 */
     --mode-institutional-h: 43;
-    --mode-institutional-s: 96%;
-    --mode-institutional-l: 56%;
-
-    /* Institutional Secondary Colors */
-    --mode-institutional-secondary-h: 38;
-    --mode-institutional-secondary-s: 92%;
-    --mode-institutional-secondary-l: 50%;
-
-    /* Institutional Tertiary Colors */
-    --mode-institutional-tertiary-h: 30;
-    --mode-institutional-tertiary-s: 85%;
-    --mode-institutional-tertiary-l: 35%;
-
-    /* Mode Colors - Creator Premium Cyan */
+    --mode-institutional-s: 65%;
+    --mode-institutional-l: 58%;
     --mode-creator-h: 187;
-    --mode-creator-s: 100%;
-    --mode-creator-l: 42%;
+    --mode-creator-s: 75%;
+    --mode-creator-l: 48%;
 
-    /* Creator Secondary Colors */
-    --mode-creator-secondary-h: 200;
-    --mode-creator-secondary-s: 98%;
-    --mode-creator-secondary-l: 48%;
+    /* OLD: Text hierarchy - REPLACED by --neutral-950/800/600 */
+    --text-primary: var(--neutral-950);
+    --text-secondary: var(--neutral-800);
+    --text-body: var(--neutral-800);
+    --text-muted: var(--neutral-600);
+    --text-focus: var(--neutral-950);
 
-    /* Creator Tertiary Colors */
-    --mode-creator-tertiary-h: 195;
-    --mode-creator-tertiary-s: 100%;
-    --mode-creator-tertiary-l: 55%;
-
-    /* Active mode color (default: institutional) */
-    --mode-h: var(--mode-institutional-h);
-    --mode-s: var(--mode-institutional-s);
-    --mode-l: var(--mode-l);
-    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-
-    /* Secondary mode colors */
-    --mode-secondary-h: var(--mode-institutional-secondary-h);
-    --mode-secondary-s: var(--mode-institutional-secondary-s);
-    --mode-secondary-l: var(--mode-institutional-secondary-l);
-
-    /* Tertiary mode colors */
-    --mode-tertiary-h: var(--mode-institutional-tertiary-h);
-    --mode-tertiary-s: var(--mode-institutional-tertiary-s);
-    --mode-tertiary-l: var(--mode-institutional-tertiary-l);
+    /* OLD: Surface elevation - REPLACED by --neutral-50/100 */
+    --surface-0: var(--neutral-50);
+    --surface-1: var(--neutral-100);
+    --surface-2: var(--neutral-100);
+    --surface-3: var(--neutral-100);
 
     /* ============================================
-       V2.5 CHROMATIC DEPTH SYSTEM
+       V6.1 PROFESSIONAL REFINEMENT TOKENS
        ============================================ */
 
-    /* V2.5 ELEVATION SYSTEM - Surface Layering */
-    --surface-0: 0 0% 2%;
-    /* Rich Black - App Background */
-    --surface-1: 0 0% 7%;
-    /* Dark Charcoal - Cards/Sections */
-    --surface-2: 0 0% 12%;
-    /* Medium Grey - Hovers/Dropdowns */
-    --surface-3: 0 0% 18%;
-    /* Light Grey - Elevated Interactive Elements */
+    /* Strict Spacing Scale - Use these instead of arbitrary values */
+    --space-xs: 0.5rem;
+    /* 8px - Tight spacing */
+    --space-sm: 1rem;
+    /* 16px - Small gaps */
+    --space-md: 1.5rem;
+    /* 24px - Medium gaps */
+    --space-lg: 2rem;
+    /* 32px - Large gaps */
+    --space-xl: 3rem;
+    /* 48px - Extra large gaps */
+    --space-2xl: 4rem;
+    /* 64px - Section spacing */
+    --space-3xl: 6rem;
+    /* 96px - Major section spacing */
 
-    /* V4.1 TEXT HIERARCHY - Enhanced Focus & Readability */
-    --text-primary: 0 0% 98%;
-    /* Near White - H1/Main Titles - V4.1: Softer for less eye strain */
-    --text-secondary: 0 0% 88%;
-    /* Light Grey - H2/H3 - V4.1: Increased for better hierarchy */
-    --text-body: 0 0% 78%;
-    /* Medium Grey - Paragraphs - V4.1: Enhanced readability */
-    --text-muted: 0 0% 60%;
-    /* Dark Grey - Meta/Captions - V4.1: Improved visibility */
-    --text-focus: 0 0% 95%;
-    /* V4.1 NEW: Primary attention areas */
+    /* Button Sizing Tokens - Consistent padding across all CTAs */
+    --btn-padding-x-sm: 2rem;
+    /* 32px - Small buttons */
+    --btn-padding-x-md: 2.5rem;
+    /* 40px - Medium buttons */
+    --btn-padding-x-lg: 3rem;
+    /* 48px - Large buttons */
+    --btn-padding-y-sm: 0.75rem;
+    /* 12px - Small buttons */
+    --btn-padding-y-md: 1rem;
+    /* 16px - Medium buttons */
+    --btn-padding-y-lg: 1.25rem;
+    /* 20px - Large buttons */
 
-    /* V2.5 INSTITUTIONAL TONAL SPECTRUM */
-    --institutional-highlight-h: 43;
-    --institutional-highlight-s: 96%;
-    --institutional-highlight-l: 56%;
-    --institutional-muted-h: 38;
-    --institutional-muted-s: 70%;
-    --institutional-muted-l: 45%;
-
-    /* V2.5 CREATOR TONAL SPECTRUM */
-    --creator-highlight-h: 187;
-    --creator-highlight-s: 100%;
-    --creator-highlight-l: 42%;
-    --creator-muted-h: 187;
-    --creator-muted-s: 80%;
-    --creator-muted-l: 35%;
-
-    /* ============================================
-       V3.0 LAYOUT GRID SYSTEM - "ZERO DRIFT"
-       ============================================ */
-
-    /* Layout Hero Heights - Strict Positioning */
-    --layout-hero-anchor: 35vh;
-    /* Standard internal pages */
-    --layout-hero-center: 100vh;
-    /* Home page only */
-    --layout-hero-feature: 60vh;
-    /* Portfolio/special pages */
-
-    /* Layout Padding - Unified Top Spacing */
-    --layout-pt-desktop: 8rem;
-    /* 128px - Desktop top padding */
-    --layout-pt-tablet: 9rem;
-    /* 144px - Tablet top padding */
-    --layout-pt-mobile: 8rem;
-    /* 128px - Mobile top padding */
-
-    /* V4.1 Layout Section Gaps - Enhanced Breathing Room */
-    --layout-section-gap-desktop: 7rem;
-    /* 112px - V4.1: +16px for better separation */
-    --layout-section-gap-tablet: 5.5rem;
-    /* 88px - V4.1: +8px for improved rhythm */
-    --layout-section-gap-mobile: 4.5rem;
-    /* 72px - V4.1: +8px for reduced cramping */
-
-    /* V4.1 Layout Content Gaps - Improved Scannability */
-    --layout-content-gap-desktop: 3.5rem;
-    /* 56px - V4.1: +8px for clearer grouping */
-    --layout-content-gap-tablet: 3rem;
-    /* 48px - V4.1: +8px for better flow */
-    --layout-content-gap-mobile: 2.5rem;
-    /* 40px - V4.1: +8px for mobile comfort */
-
-
-    /* Premium Glow Effects - Multi-layer */
-    --glow-soft:
-      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
-      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
-      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
-
-    --glow-medium:
-      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
-      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
-      0 0 90px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
-
-    --glow-intense:
-      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4),
-      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
-      0 0 120px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
-
-    /* V4.1 Premium Shadow System - Calm Depth */
-    --shadow-premium-sm:
-      0 2px 8px rgba(0, 0, 0, 0.3),
-      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.04);
-
-    --shadow-premium-md:
-      0 4px 16px rgba(0, 0, 0, 0.4),
-      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-
-    --shadow-premium-lg:
-      0 8px 32px rgba(0, 0, 0, 0.6),
-      0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-    --shadow-premium-xl:
-      0 20px 60px rgba(0, 0, 0, 0.5),
-      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-    /* V4.1 NEW: Calm Depth for Focus Guidance */
-    --shadow-calm: 0 2px 12px rgba(0, 0, 0, 0.2);
-    --shadow-focus: 0 0 0 3px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
-
-    /* V6 NEW: Mode-Specific Border Colors (Enterprise Fix #3) */
-    --border-mode-subtle: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
-    --border-mode-default: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
-    --border-mode-emphasis: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
-    --border-mode-strong: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
+    /* Semantic Text Opacity - Simplified from 8 to 4 levels */
+    --text-opacity-primary: 0.95;
+    /* Headings - Maximum visibility */
+    --text-opacity-secondary: 0.80;
+    /* Subheadings - Clear hierarchy */
+    --text-opacity-body: 0.70;
+    /* Body text - Comfortable reading */
+    --text-opacity-muted: 0.50;
+    /* Captions/meta - Supporting info */
 
     /* Transitions - DEPRECATED: Use motion-tokens.css instead */
     --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
@@ -225,38 +147,295 @@
     /* Removed --ease-spring (too bouncy, not premium) */
   }
 
-  /* Creator Mode Override */
+  /* ============================================
+     MODE SWITCHING - Dual-Mode Primary Color
+     ============================================ */
+
+  /* Creator Mode Override - Changes primary color to cyan */
   .mode-creator {
-    --mode-h: var(--mode-creator-h);
-    --mode-s: var(--mode-creator-s);
-    --mode-l: var(--mode-creator-l);
-    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-
-    --mode-secondary-h: var(--mode-creator-secondary-h);
-    --mode-secondary-s: var(--mode-creator-secondary-s);
-    --mode-secondary-l: var(--mode-creator-secondary-l);
-
-    --mode-tertiary-h: var(--mode-creator-tertiary-h);
-    --mode-tertiary-s: var(--mode-creator-tertiary-s);
-    --mode-tertiary-l: var(--mode-creator-tertiary-l);
+    --primary-h: 187;
+    --primary-s: 75%;
+    --primary-l: 48%;
   }
 
-  /* Institutional Mode Override */
+  /* Institutional Mode Override - Changes primary color to gold */
   .mode-institutional {
-    --mode-h: var(--mode-institutional-h);
-    --mode-s: var(--mode-institutional-s);
-    --mode-l: var(--mode-institutional-l);
-    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-
-    --mode-secondary-h: var(--mode-institutional-secondary-h);
-    --mode-secondary-s: var(--mode-institutional-secondary-s);
-    --mode-secondary-l: var(--mode-institutional-secondary-l);
-
-    --mode-tertiary-h: var(--mode-institutional-tertiary-h);
-    --mode-tertiary-s: var(--mode-institutional-tertiary-s);
-    --mode-tertiary-l: var(--mode-institutional-tertiary-l);
+    --primary-h: 43;
+    --primary-s: 65%;
+    --primary-l: 58%;
   }
+
+  /* ============================================
+     THEME SWITCHING - Light/Dark Mode
+     ============================================ */
+
+  /* Dark Mode - Explicit class (matches root defaults) */
+  .theme-dark {
+    /* NEUTRAL (Foundation) - Dark theme */
+    --neutral-950: hsl(0, 0%, 98%);
+    /* Primary text - light on dark */
+    --neutral-800: hsl(0, 0%, 78%);
+    /* Secondary text */
+    --neutral-600: hsl(0, 0%, 60%);
+    /* Meta text */
+    --neutral-300: hsl(0, 0%, 15%);
+    /* Borders/dividers */
+    --neutral-100: hsl(0, 0%, 7%);
+    /* Light backgrounds - cards */
+    --neutral-50: hsl(0, 0%, 2%);
+    /* Section background */
+    --neutral-0: hsl(0, 0%, 0.4%);
+    /* App background - true black */
+
+    /* PRIMARY - Standard contrast for dark backgrounds */
+    --primary-900: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    --primary-700: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+    --primary-500: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 10%));
+  }
+
+  /* Light Mode Override - Inverts neutrals, preserves primary colors */
+  .theme-light {
+    /* NEUTRAL (Foundation) - Inverted for light backgrounds */
+    --neutral-950: hsl(0, 0%, 10%);
+    /* Primary text - dark on light */
+    --neutral-800: hsl(0, 0%, 30%);
+    /* Secondary text */
+    --neutral-600: hsl(0, 0%, 50%);
+    /* Meta text */
+    --neutral-300: hsl(0, 0%, 85%);
+    /* Borders/dividers */
+    --neutral-100: hsl(0, 0%, 95%);
+    /* Light backgrounds - cards */
+    --neutral-50: hsl(0, 0%, 98%);
+    /* Section background */
+    --neutral-0: hsl(0, 0%, 100%);
+    /* App background - pure white */
+
+    /* PRIMARY - Slightly darker for better contrast on white */
+    --primary-900: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%));
+    --primary-700: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 15%));
+    --primary-500: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 5%));
+  }
+
+  /* Dark Mode Glass Morphism (default) */
+  .theme-dark .glass-card,
+  .glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .theme-dark .glass-card:hover,
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .theme-dark .glass-nav,
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .theme-dark .glass-premium,
+  .glass-premium {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  /* Light Mode Glass Morphism Adjustments */
+  .theme-light .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .theme-light .glass-card:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+
+  .theme-light .glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+
+  .theme-light .glass-premium {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  /* ============================================
+       V3.0 LAYOUT GRID SYSTEM - "ZERO DRIFT"
+       ============================================ */
+
+  /* Layout Hero Heights - Strict Positioning */
+  --layout-hero-anchor: 35vh;
+  /* Standard internal pages */
+  --layout-hero-center: 100vh;
+  /* Home page only */
+  --layout-hero-feature: 60vh;
+  /* Portfolio/special pages */
+
+  /* Layout Padding - Unified Top Spacing */
+  --layout-pt-desktop: 8rem;
+  /* 128px - Desktop top padding */
+  --layout-pt-tablet: 9rem;
+  /* 144px - Tablet top padding */
+  --layout-pt-mobile: 8rem;
+  /* 128px - Mobile top padding */
+
+  /* V4.1 Layout Section Gaps - Enhanced Breathing Room */
+  --layout-section-gap-desktop: 7rem;
+  /* 112px - V4.1: +16px for better separation */
+  --layout-section-gap-tablet: 5.5rem;
+  /* 88px - V4.1: +8px for improved rhythm */
+  --layout-section-gap-mobile: 4.5rem;
+  /* 72px - V4.1: +8px for reduced cramping */
+
+  /* V4.1 Layout Content Gaps - Improved Scannability */
+  --layout-content-gap-desktop: 3.5rem;
+  /* 56px - V4.1: +8px for clearer grouping */
+  --layout-content-gap-tablet: 3rem;
+  /* 48px - V4.1: +8px for better flow */
+  --layout-content-gap-mobile: 2.5rem;
+  /* 40px - V4.1: +8px for mobile comfort */
+
+
+  /* Premium Glow Effects - Multi-layer */
+  --glow-soft: 0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+  0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+  0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+
+  --glow-medium: 0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
+  0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+  0 0 90px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+
+  --glow-intense: 0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4),
+  0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
+  0 0 120px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
+
+  /* V4.1 Premium Shadow System - Calm Depth */
+  --shadow-premium-sm: 0 2px 8px rgba(0, 0, 0, 0.3),
+  0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.04);
+
+  --shadow-premium-md: 0 4px 16px rgba(0, 0, 0, 0.4),
+  0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.06),
+  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  --shadow-premium-lg: 0 8px 32px rgba(0, 0, 0, 0.6),
+  0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1),
+  inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  --shadow-premium-xl: 0 20px 60px rgba(0, 0, 0, 0.5),
+  0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
+  inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* V4.1 NEW: Calm Depth for Focus Guidance */
+  --shadow-calm: 0 2px 12px rgba(0, 0, 0, 0.2);
+  --shadow-focus: 0 0 0 3px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
+
+  /* V6 NEW: Mode-Specific Border Colors (Enterprise Fix #3) */
+  --border-mode-subtle: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+  --border-mode-default: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
+  --border-mode-emphasis: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
+  --border-mode-strong: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
+
+  /* ============================================
+       V6.1 PROFESSIONAL REFINEMENT TOKENS
+       ============================================ */
+
+  /* Strict Spacing Scale - Use these instead of arbitrary values */
+  --space-xs: 0.5rem;
+  /* 8px - Tight spacing */
+  --space-sm: 1rem;
+  /* 16px - Small gaps */
+  --space-md: 1.5rem;
+  /* 24px - Medium gaps */
+  --space-lg: 2rem;
+  /* 32px - Large gaps */
+  --space-xl: 3rem;
+  /* 48px - Extra large gaps */
+  --space-2xl: 4rem;
+  /* 64px - Section spacing */
+  --space-3xl: 6rem;
+  /* 96px - Major section spacing */
+
+  /* Button Sizing Tokens - Consistent padding across all CTAs */
+  --btn-padding-x-sm: 2rem;
+  /* 32px - Small buttons */
+  --btn-padding-x-md: 2.5rem;
+  /* 40px - Medium buttons */
+  --btn-padding-x-lg: 3rem;
+  /* 48px - Large buttons */
+  --btn-padding-y-sm: 0.75rem;
+  /* 12px - Small buttons */
+  --btn-padding-y-md: 1rem;
+  /* 16px - Medium buttons */
+  --btn-padding-y-lg: 1.25rem;
+  /* 20px - Large buttons */
+
+  /* Semantic Text Opacity - Simplified from 8 to 4 levels */
+  --text-opacity-primary: 0.95;
+  /* Headings - Maximum visibility */
+  --text-opacity-secondary: 0.80;
+  /* Subheadings - Clear hierarchy */
+  --text-opacity-body: 0.70;
+  /* Body text - Comfortable reading */
+  --text-opacity-muted: 0.50;
+  /* Captions/meta - Supporting info */
+
+  /* Transitions - DEPRECATED: Use motion-tokens.css instead */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  /* Removed --ease-spring (too bouncy, not premium) */
 }
+
+/* Creator Mode Override */
+.mode-creator {
+  --mode-h: var(--mode-creator-h);
+  --mode-s: var(--mode-creator-s);
+  --mode-l: var(--mode-creator-l);
+  --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+  --mode-secondary-h: var(--mode-creator-secondary-h);
+  --mode-secondary-s: var(--mode-creator-secondary-s);
+  --mode-secondary-l: var(--mode-creator-secondary-l);
+
+  --mode-tertiary-h: var(--mode-creator-tertiary-h);
+  --mode-tertiary-s: var(--mode-creator-tertiary-s);
+  --mode-tertiary-l: var(--mode-creator-tertiary-l);
+}
+
+/* Institutional Mode Override */
+.mode-institutional {
+  --mode-h: var(--mode-institutional-h);
+  --mode-s: var(--mode-institutional-s);
+  --mode-l: var(--mode-institutional-l);
+  --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+  --mode-secondary-h: var(--mode-institutional-secondary-h);
+  --mode-secondary-s: var(--mode-institutional-secondary-s);
+  --mode-secondary-l: var(--mode-institutional-secondary-l);
+
+
+  --mode-tertiary-h: var(--mode-institutional-tertiary-h);
+  --mode-tertiary-s: var(--mode-institutional-tertiary-s);
+  --mode-tertiary-l: var(--mode-institutional-tertiary-l);
+}
+
 
 @layer base {
   * {
@@ -379,24 +558,11 @@
     }
   }
 
-  /* Ultra-small screens (<400px) - Compact Premium Mode */
+  /* V6.1 Ultra-small screens (<400px) - Refined Premium Mode */
   @media (max-width: 400px) {
 
-    /* More aggressive heading scale-down to prevent awkward breaks */
-    h1 {
-      font-size: clamp(1.5rem, 5vw, 2rem) !important;
-      line-height: 1.15;
-    }
-
-    h2 {
-      font-size: clamp(1.25rem, 4vw, 1.75rem) !important;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-size: clamp(1.125rem, 3.5vw, 1.5rem) !important;
-      line-height: 1.25;
-    }
+    /* V6.1: Removed !important - component-level responsive props handle this */
+    /* Typography components (DisplayText, H1, etc.) now have proper clamp ranges */
 
     /* Compact button sizing for premium feel without dominating viewport */
     .btn-premium,
@@ -404,7 +570,8 @@
     button[class*="rounded-full"] {
       padding: 0.625rem 1.25rem;
       font-size: 0.875rem;
-      min-height: 42px;
+      min-height: 44px;
+      /* iOS minimum touch target */
     }
 
     /* Reduce container padding for better space utilization */
@@ -426,7 +593,7 @@
 
     /* Compact navigation */
     .min-h-\[44px\] {
-      min-height: 42px;
+      min-height: 44px;
     }
 
     /* Reduce card padding for better fit */
@@ -664,14 +831,17 @@
     }
   }
 
+  /* V6.2: Fixed glass hover - increase opacity for proper elevation */
   .glass-card:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
+    /* Increased from 0.05 - proper elevation */
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
     /* MOTION SYSTEM: Tier 2 Standard hover */
     transform: translateY(calc(-1 * var(--motion-standard-translate, 4px))) scale(var(--motion-standard-scale, 1.01));
     box-shadow:
       0 30px 80px rgba(0, 0, 0, 0.6),
-      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+      /* Reduced from 0.2 */
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
@@ -1557,37 +1727,47 @@
 }
 
 /* Optimized Gradient Mesh Background - Static for Performance */
+/* V6.2: Calmed mesh gradients for premium subtlety */
 .mesh-gradient-institutional {
   background: linear-gradient(135deg,
-      rgba(43, 96, 56, 0.03) 0%,
+      rgba(43, 96, 56, 0.02) 0%,
+      /* Reduced from 0.03 - extra calm */
       rgba(0, 0, 0, 0) 50%,
-      rgba(43, 96, 56, 0.03) 100%);
+      rgba(43, 96, 56, 0.02) 100%);
   background-size: 100% 100%;
   /* Removed animation for better performance */
 }
 
 .mesh-gradient-creator {
   background: linear-gradient(135deg,
-      rgba(0, 187, 212, 0.03) 0%,
+      rgba(0, 187, 212, 0.02) 0%,
+      /* Reduced from 0.03 - extra calm */
       rgba(0, 0, 0, 0) 50%,
-      rgba(0, 187, 212, 0.03) 100%);
+      rgba(0, 187, 212, 0.02) 100%);
   background-size: 100% 100%;
   /* Removed animation for better performance */
 }
 
 /* Premium Shadow Utilities */
+/* V6.2: Refined button glow - subtle hint, not neon sign */
 .shadow-premium-glow-institutional {
   box-shadow:
-    0 0 40px rgba(43, 96, 56, 0.2),
-    0 0 80px rgba(43, 96, 56, 0.1),
+    0 0 30px rgba(43, 96, 56, 0.12),
+    /* Reduced intensity and spread */
+    0 0 60px rgba(43, 96, 56, 0.06),
+    /* Softer outer glow */
     0 20px 60px rgba(0, 0, 0, 0.3);
+  /* Maintained depth shadow */
 }
 
 .shadow-premium-glow-creator {
   box-shadow:
-    0 0 40px rgba(0, 187, 212, 0.2),
-    0 0 80px rgba(0, 187, 212, 0.1),
+    0 0 30px rgba(0, 187, 212, 0.12),
+    /* Reduced intensity and spread */
+    0 0 60px rgba(0, 187, 212, 0.06),
+    /* Softer outer glow */
     0 20px 60px rgba(0, 0, 0, 0.3);
+  /* Maintained depth shadow */
 }
 
 /* Magnetic Button Container */
@@ -1659,24 +1839,30 @@
   z-index: 0;
 }
 
+/* V6.2: Calmed gradient orbs - barely noticeable depth, not neon signs */
 .gradient-orb-institutional {
-  filter: blur(60px);
-  /* Subtle, clean blur for institutional */
-  opacity: 0.15;
+  filter: blur(80px);
+  /* Increased from 60px - softer edges */
+  opacity: 0.08;
+  /* Reduced from 0.15 - subtle presence */
   background: radial-gradient(circle,
-      rgba(43, 96, 56, 0.4) 0%,
-      rgba(43, 96, 56, 0.2) 50%,
+      rgba(43, 96, 56, 0.25) 0%,
+      /* Reduced from 0.4 - calm */
+      rgba(43, 96, 56, 0.12) 50%,
+      /* Reduced from 0.2 - gentle */
       transparent 100%);
 }
 
 .gradient-orb-creator {
-  filter: blur(120px);
-  /* Enhanced neon cyberpunk glow */
-  opacity: 0.25;
-  /* Increased for dramatic effect */
+  filter: blur(100px);
+  /* Reduced from 120px - controlled blur */
+  opacity: 0.12;
+  /* Reduced from 0.25 - professional, not gaming */
   background: radial-gradient(circle,
-      rgba(0, 187, 212, 0.6) 0%,
-      rgba(0, 187, 212, 0.3) 50%,
+      rgba(0, 187, 212, 0.3) 0%,
+      /* Reduced from 0.6 - calm */
+      rgba(0, 187, 212, 0.15) 50%,
+      /* Reduced from 0.3 - subtle */
       transparent 100%);
 }
 

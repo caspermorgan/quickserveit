@@ -8,6 +8,7 @@ import { useEffect, lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { ModeProvider, useMode } from "@/context/ModeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 // Lazy load all page components for better performance
 const Landing = lazy(() => import("./pages/Landing"));
@@ -89,33 +90,35 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <LanguageProvider>
-          <ModeProvider>
-            <TooltipProvider>
-              <Toaster />
-              <Sonner />
-              <SpeedInsights />
-              <BrowserRouter>
-                {/* Fixed Gradient Overlays - Viewport Edge Fade Effect */}
-                {/* Top Fade Layer - Content emerges from darkness */}
-                <div
-                  className="fixed top-0 left-0 right-0 h-[150px] pointer-events-none z-40"
-                  style={{
-                    background: 'linear-gradient(to bottom, hsl(var(--background)) 10%, transparent 100%)'
-                  }}
-                />
+          <ThemeProvider>
+            <ModeProvider>
+              <TooltipProvider>
+                <Toaster />
+                <Sonner />
+                <SpeedInsights />
+                <BrowserRouter>
+                  {/* Fixed Gradient Overlays - Viewport Edge Fade Effect */}
+                  {/* Top Fade Layer - Content emerges from darkness */}
+                  <div
+                    className="fixed top-0 left-0 right-0 h-[150px] pointer-events-none z-40"
+                    style={{
+                      background: 'linear-gradient(to bottom, hsl(var(--background)) 10%, transparent 100%)'
+                    }}
+                  />
 
-                {/* Bottom Fade Layer - Content disappears into darkness */}
-                <div
-                  className="fixed bottom-0 left-0 right-0 h-[150px] pointer-events-none z-40"
-                  style={{
-                    background: 'linear-gradient(to top, hsl(var(--background)) 10%, transparent 100%)'
-                  }}
-                />
+                  {/* Bottom Fade Layer - Content disappears into darkness */}
+                  <div
+                    className="fixed bottom-0 left-0 right-0 h-[150px] pointer-events-none z-40"
+                    style={{
+                      background: 'linear-gradient(to top, hsl(var(--background)) 10%, transparent 100%)'
+                    }}
+                  />
 
-                <AppRoutes />
-              </BrowserRouter>
-            </TooltipProvider>
-          </ModeProvider>
+                  <AppRoutes />
+                </BrowserRouter>
+              </TooltipProvider>
+            </ModeProvider>
+          </ThemeProvider>
         </LanguageProvider>
       </HelmetProvider>
     </QueryClientProvider>

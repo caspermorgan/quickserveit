@@ -16,12 +16,12 @@ interface BodyTypographyProps extends TypographyProps {
 // ============================================
 
 /**
- * DisplayText - Landing Page Hero ONLY (V4.1 Enhanced)
+ * DisplayText - Landing Page Hero ONLY (V6.1 Professional)
  * 
- * V4.1 IMPROVEMENTS:
- * - Increased max size for better dominance (4rem → 4.5rem)
- * - Enhanced breathing room (20ch → 24ch)
- * - Softer color for reduced eye strain (90% → 95% opacity)
+ * V6.1 PROFESSIONAL REFINEMENTS:
+ * - Better mobile scaling: clamp(2rem, 5vw, 4rem) for improved hierarchy
+ * - Optimized max-width: 22ch for better balance
+ * - Semantic opacity token: --text-opacity-primary
  * 
  * Usage: ONLY for landing page hero title - this is the PRIMARY FOCUS
  * Hierarchy: THE KING - everything else must be visibly smaller
@@ -30,25 +30,26 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
     return (
         <Component
             className={cn(
-                // V4.1: Enhanced sizing for better dominance
+                // V6.1: Refined sizing for better mobile hierarchy
                 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl',
                 // Font family and weight - Stronger for flagship presence
                 'font-display font-extrabold',
-                // V4.1: Slightly relaxed tracking for better readability
+                // V6.1: Slightly relaxed tracking for better readability
                 'tracking-[-0.02em]',
-                // V4.1: More breathing room for less cramped appearance
-                'text-balance max-w-[24ch]',
+                // V6.1: Optimized breathing room
+                'text-balance max-w-[22ch]',
                 // Comfortable leading
                 'leading-[1.1]',
-                // V4.1: Softer for less eye strain
-                'text-foreground/95',
-                // V4.1: Consistent bottom margin
+                // V6.1: Semantic opacity token
+                'text-foreground',
+                // V6.1: Consistent bottom margin
                 'mb-6',
                 className
             )}
             style={{
-                // V4.1: Increased max for better hierarchy
-                fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)',
+                // V6.1: Better mobile scaling for improved hierarchy
+                fontSize: 'clamp(2rem, 5vw, 4rem)',
+                opacity: 'var(--text-opacity-primary)',
                 ...((className?.includes('style') ? {} : {}) as any)
             }}
         >
@@ -62,16 +63,11 @@ export const DisplayText = ({ children, className, as: Component = 'h1' }: Typog
 // ============================================
 
 /**
- * H1 - Page Titles (Design System Enforced)
+ * H1 - Page Titles (V6.1 Professional)
  * 
- * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
- * - Desktop: text-5xl (3rem)
- * - Tablet: text-4xl (2.25rem)
- * - Mobile: text-3xl (1.875rem)
- * - Weight: bold (700)
- * - Tracking: tight
- * - Leading: 1.1
- * - Color: text-foreground/90
+ * V6.1 PROFESSIONAL REFINEMENTS:
+ * - Semantic opacity token for consistency
+ * - Locked sizing for zero drift across pages
  * 
  * Usage: Internal page titles (Services, About, Portfolio, etc.)
  * Hierarchy: THE LEADER - strictly smaller than DisplayText
@@ -85,15 +81,18 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
                 // Locked sizing for zero drift across pages
                 'text-3xl sm:text-4xl md:text-5xl',
                 'font-display font-bold',
-                // V4.1: Slightly relaxed tracking for scannability
+                // V6.1: Slightly relaxed tracking for scannability
                 'leading-[1.15] tracking-[-0.015em]',
                 'text-balance',
-                // V4.1: Enhanced opacity for better hierarchy
-                'text-foreground/95',
-                // V4.1: Consistent spacing
+                // V6.1: Semantic opacity token
+                'text-foreground',
+                // V6.1: Consistent spacing
                 'mb-4',
                 className
             )}
+            style={{
+                opacity: 'var(--text-opacity-primary)'
+            }}
         >
             {children}
         </Component>
@@ -237,16 +236,11 @@ export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProp
 // ============================================
 
 /**
- * BodyLarge - Lead Paragraphs (Design System Enforced)
+ * BodyLarge - Lead Paragraphs (V6.1 Professional)
  * 
- * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
- * - Desktop: text-lg (1.125rem)
- * - Tablet: text-base (1rem)
- * - Mobile: text-sm (0.875rem)
- * - Weight: normal (400)
- * - Leading: 1.7 (2.0 for Hindi)
- * - Color: text-foreground/70-80
- * - Max-width: 65ch
+ * V6.1 PROFESSIONAL REFINEMENTS:
+ * - Semantic opacity token for consistency
+ * - Enhanced mobile readability
  * 
  * Usage: Lead paragraphs, hero subtitles, introductions
  * Hierarchy: THE SUBTITLE - supports headings, never competes
@@ -255,18 +249,23 @@ export const H6 = ({ children, className, as: Component = 'h6' }: TypographyProp
  */
 export const BodyLarge = ({ children, className, as: Component = 'p', hindi = false }: BodyTypographyProps) => {
     return (
-        <Component className={cn(
-            // V2.0 mobile reduction: text-sm on mobile for subtitle hierarchy
-            'text-sm md:text-base lg:text-lg',
-            'font-sans font-normal',
-            // V4.1: Enhanced line-height for better breathing
-            hindi ? 'leading-[2.0]' : 'leading-[1.75]',
-            // V4.1: Improved opacity for better readability
-            'text-foreground/75 md:text-foreground/80',
-            // Better text wrapping with optimal line length
-            'text-balance max-w-[65ch]',
-            className
-        )}>
+        <Component
+            className={cn(
+                // V6.1: Mobile reduction for clear hierarchy
+                'text-sm md:text-base lg:text-lg',
+                'font-sans font-normal',
+                // V6.1: Enhanced line-height for better breathing
+                hindi ? 'leading-[2.0]' : 'leading-[1.75]',
+                // V6.1: Semantic opacity token
+                'text-foreground',
+                // Better text wrapping with optimal line length
+                'text-balance max-w-[65ch]',
+                className
+            )}
+            style={{
+                opacity: 'var(--text-opacity-body)'
+            }}
+        >
             {children}
         </Component>
     );

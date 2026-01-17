@@ -5,6 +5,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useIdleScroller } from '@/hooks/useIdleScroller';
 import HeaderStatusBadge from './HeaderStatusBadge';
 import MagneticButton from './MagneticButton';
+import { ThemeToggle } from './ThemeToggle';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -246,11 +247,12 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       </div>
 
 
-      {/* Language Switch - Top Right */}
-      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 phantom-slide ${combinedVisible && !isImmersive
+      {/* Theme & Language Controls - Top Right */}
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 flex items-center gap-3 phantom-slide ${combinedVisible && !isImmersive
         ? 'opacity-100 translate-y-0'
         : 'opacity-0 immersive-hide-top'
         }`}>
+        <ThemeToggle />
         <LanguageSwitch mode={mode} />
       </div>
 
