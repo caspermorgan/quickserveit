@@ -8,6 +8,7 @@ import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import { Shield, Target, Users, Zap, Eye, Clock, Quote, ArrowRight, School, Building2, GraduationCap, BookOpen, Video, Palette, Mic, TrendingUp } from 'lucide-react';
+import { PageTitle, PageTitleAccent, PageSubtitle } from '@/components/PageTitle';
 import { H1, H2 } from '@/components/Typography';
 
 const About = () => {
@@ -83,15 +84,15 @@ const About = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`hero-anchor text-center section-gap-standard max-w-3xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`hero-anchor text-center section-gap-standard max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
-              About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Us</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed px-4 text-balance max-w-[60ch] mx-auto font-light">
+            <PageTitle mode={mode}>
+              About <PageTitleAccent mode={mode}>Us</PageTitleAccent>
+            </PageTitle>
+            <PageSubtitle>
               {t('aboutIntro')}
-            </p>
+            </PageSubtitle>
           </div>
 
           {/* Philosophy Section */}
@@ -157,7 +158,7 @@ const About = () => {
                 <ArrowRight className={`w-6 h-6 transition-transform duration-300 group-hover:translate-x-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               </div>
 
-              <blockquote className="text-lg sm:text-xl italic text-foreground/75 leading-relaxed border-l-4 pl-6 mb-5 font-light" style={{ borderColor: mode === 'institutional' ? 'rgba(234,179,8,0.4)' : 'rgba(34,211,238,0.4)' }}>
+              <blockquote className={`text-lg sm:text-xl italic text-foreground/75 leading-relaxed pl-6 mb-5 font-light ${mode === 'institutional' ? 'border-l-4 border-institutional/40' : 'border-l-4 border-creator/40'}`}>
                 {t('founderOpeningQuote')}
               </blockquote>
 
@@ -259,7 +260,8 @@ const About = () => {
             <div className={`p-8 rounded-2xl ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
               <Clock className={`w-8 h-8 mx-auto mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <h3 className="text-xl font-medium mb-3">{t('workingHours')}</h3>
-              <p className="text-2xl font-display mb-2">10:00 AM – 4:00 PM IST</p>
+              <p className="text-2xl font-display mb-2">Support Hours</p>
+              <p className="text-lg mb-1">Mon–Sat: 10:00 AM – 4:00 PM IST</p>
               <p className="text-foreground/50">{t('workingDays')}</p>
               <p className="text-sm text-foreground/40 mt-4">
                 {t('outsideHoursNote')}

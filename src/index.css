@@ -108,15 +108,17 @@
     --surface-3: 0 0% 18%;
     /* Light Grey - Elevated Interactive Elements */
 
-    /* V2.5 TEXT HIERARCHY - Greyscale Semantic Roles */
-    --text-primary: 0 0% 100%;
-    /* Pure White - H1/Main Titles */
-    --text-secondary: 0 0% 85%;
-    /* Light Grey - H2/H3 */
-    --text-body: 0 0% 75%;
-    /* Medium Grey - Paragraphs - Enhanced for readability */
-    --text-muted: 0 0% 55%;
-    /* Dark Grey - Meta/Captions */
+    /* V4.1 TEXT HIERARCHY - Enhanced Focus & Readability */
+    --text-primary: 0 0% 98%;
+    /* Near White - H1/Main Titles - V4.1: Softer for less eye strain */
+    --text-secondary: 0 0% 88%;
+    /* Light Grey - H2/H3 - V4.1: Increased for better hierarchy */
+    --text-body: 0 0% 78%;
+    /* Medium Grey - Paragraphs - V4.1: Enhanced readability */
+    --text-muted: 0 0% 60%;
+    /* Dark Grey - Meta/Captions - V4.1: Improved visibility */
+    --text-focus: 0 0% 95%;
+    /* V4.1 NEW: Primary attention areas */
 
     /* V2.5 INSTITUTIONAL TONAL SPECTRUM */
     --institutional-highlight-h: 43;
@@ -148,27 +150,27 @@
 
     /* Layout Padding - Unified Top Spacing */
     --layout-pt-desktop: 8rem;
-    /* 128px - Desktop top padding - Tightened for better rhythm */
+    /* 128px - Desktop top padding */
     --layout-pt-tablet: 9rem;
     /* 144px - Tablet top padding */
     --layout-pt-mobile: 8rem;
     /* 128px - Mobile top padding */
 
-    /* Layout Section Gaps - Between Major Sections */
-    --layout-section-gap-desktop: 6rem;
-    /* 96px - Desktop section gap */
-    --layout-section-gap-tablet: 5rem;
-    /* 80px - Tablet section gap */
-    --layout-section-gap-mobile: 4rem;
-    /* 64px - Mobile section gap */
+    /* V4.1 Layout Section Gaps - Enhanced Breathing Room */
+    --layout-section-gap-desktop: 7rem;
+    /* 112px - V4.1: +16px for better separation */
+    --layout-section-gap-tablet: 5.5rem;
+    /* 88px - V4.1: +8px for improved rhythm */
+    --layout-section-gap-mobile: 4.5rem;
+    /* 72px - V4.1: +8px for reduced cramping */
 
-    /* Layout Content Gaps - Within Sections */
-    --layout-content-gap-desktop: 3rem;
-    /* 48px - Desktop content gap */
-    --layout-content-gap-tablet: 2.5rem;
-    /* 40px - Tablet content gap */
-    --layout-content-gap-mobile: 2rem;
-    /* 32px - Mobile content gap */
+    /* V4.1 Layout Content Gaps - Improved Scannability */
+    --layout-content-gap-desktop: 3.5rem;
+    /* 56px - V4.1: +8px for clearer grouping */
+    --layout-content-gap-tablet: 3rem;
+    /* 48px - V4.1: +8px for better flow */
+    --layout-content-gap-mobile: 2.5rem;
+    /* 40px - V4.1: +8px for mobile comfort */
 
 
     /* Premium Glow Effects - Multi-layer */
@@ -187,25 +189,35 @@
       0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
       0 0 120px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
 
-    /* Premium Shadow System */
+    /* V4.1 Premium Shadow System - Calm Depth */
     --shadow-premium-sm:
-      0 2px 8px rgba(0, 0, 0, 0.4),
-      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.05);
+      0 2px 8px rgba(0, 0, 0, 0.3),
+      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.04);
 
     --shadow-premium-md:
-      0 4px 16px rgba(0, 0, 0, 0.5),
-      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08),
+      0 4px 16px rgba(0, 0, 0, 0.4),
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     --shadow-premium-lg:
-      0 8px 32px rgba(0, 0, 0, 0.75),
-      0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
     --shadow-premium-xl:
-      0 20px 60px rgba(0, 0, 0, 0.7),
-      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    /* V4.1 NEW: Calm Depth for Focus Guidance */
+    --shadow-calm: 0 2px 12px rgba(0, 0, 0, 0.2);
+    --shadow-focus: 0 0 0 3px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
+
+    /* V6 NEW: Mode-Specific Border Colors (Enterprise Fix #3) */
+    --border-mode-subtle: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+    --border-mode-default: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
+    --border-mode-emphasis: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
+    --border-mode-strong: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
 
     /* Transitions - DEPRECATED: Use motion-tokens.css instead */
     --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
@@ -312,23 +324,25 @@
     line-height: 1.4;
   }
 
-  /* V2.5 Paragraph styles - Regular + Grey for hierarchy */
+  /* V4.1 Paragraph styles - Enhanced Readability */
   p {
     font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    line-height: 1.7;
+    line-height: 1.75;
+    /* V4.1: +0.05 for better breathing */
     font-weight: 400;
     color: hsl(var(--text-body));
     /* Medium Grey */
-    margin-bottom: 1rem;
-    /* Consistent spacing */
+    margin-bottom: 1.25rem;
+    /* V4.1: +0.25rem for improved rhythm */
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
-  /* Mobile typography improvements */
+  /* V4.1 Mobile typography improvements - Enhanced breathing */
   @media (max-width: 768px) {
     body {
-      line-height: 1.65;
+      line-height: 1.7;
+      /* V4.1: +0.05 for better mobile readability */
       font-size: 16px;
       /* Prevent zoom on iOS */
     }
@@ -339,16 +353,22 @@
     h4,
     h5,
     h6 {
-      line-height: 1.2;
+      line-height: 1.25;
+      /* V4.1: +0.05 for better breathing */
       font-weight: 700;
       /* Better text wrapping on mobile */
       text-wrap: balance;
       word-break: break-word;
+      margin-bottom: 1.25rem;
+      /* V4.1: Consistent spacing */
     }
 
     p {
-      line-height: 1.7;
+      line-height: 1.8;
+      /* V4.1: +0.1 for improved comfort */
       font-size: clamp(0.9375rem, 2vw, 1rem);
+      margin-bottom: 1.5rem;
+      /* V4.1: More breathing room */
     }
 
     /* Ensure buttons and links don't break awkwardly */
@@ -561,14 +581,15 @@
     }
   }
 
-  /* V2 GLASS EFFECT - Enhanced with saturation boost */
+  /* V4.1 GLASS EFFECT - Enhanced with improved borders and depth */
   .glass-card {
     position: relative;
     background: rgba(255, 255, 255, 0.06);
     /* Refined opacity for better contrast on dark backgrounds */
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* V4.1: +0.06 for clearer boundaries */
     box-shadow: var(--shadow-premium-md);
     /* MOTION SYSTEM: Standard card transition */
     transition: all var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));

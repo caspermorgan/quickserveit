@@ -7,7 +7,7 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import { Sparkles, Clock, Rocket } from 'lucide-react';
+import { PageTitle, PageTitleAccent, PageSubtitle } from '@/components/PageTitle';
 
 const Portfolio = () => {
   const { mode, setHasEntered } = useMode();
@@ -77,20 +77,20 @@ const Portfolio = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`hero-feature text-center transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`hero-anchor text-center section-gap-standard max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
-              Portfolio <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Coming Soon</span>
-            </h1>
+            <PageTitle mode={mode}>
+              Portfolio <PageTitleAccent mode={mode}>Coming Soon</PageTitleAccent>
+            </PageTitle>
 
             {/* Description */}
-            <p className="text-foreground/80 text-base sm:text-lg md:text-xl leading-relaxed mb-10 sm:mb-12 max-w-[60ch] mx-auto font-light px-4">
+            <PageSubtitle>
               {mode === 'institutional'
                 ? 'We\'re preparing a showcase of our institutional work. Check back soon to see how we\'ve helped educational institutions digitize and streamline their processes.'
                 : 'We\'re curating our best creator projects. Check back soon to see our video editing, content creation, and production work.'}
-            </p>
+            </PageSubtitle>
 
             {/* Status Cards */}
             <div

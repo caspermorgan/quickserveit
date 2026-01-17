@@ -16,42 +16,39 @@ interface BodyTypographyProps extends TypographyProps {
 // ============================================
 
 /**
- * DisplayText - Landing Page Hero ONLY (Design System Enforced)
+ * DisplayText - Landing Page Hero ONLY (V4.1 Enhanced)
  * 
- * DESIGN SYSTEM RULES (DO NOT OVERRIDE):
- * - Desktop: clamp(2rem, 5vw, 4rem)
- * - Mobile: text-4xl (2.25rem)
- * - Weight: extrabold (800)
- * - Tracking: tight (-0.025em)
- * - Leading: 1.1
- * - Color: text-foreground/90 (NEVER pure white)
+ * V4.1 IMPROVEMENTS:
+ * - Increased max size for better dominance (4rem → 4.5rem)
+ * - Enhanced breathing room (20ch → 24ch)
+ * - Softer color for reduced eye strain (90% → 95% opacity)
  * 
- * Usage: ONLY for landing page hero title - this is the visual anchor
- * Hierarchy: THE KING - everything else must be smaller
- * 
- * ⚠️ ENFORCEMENT: Any changes to sizing, weight, or spacing require design system approval
+ * Usage: ONLY for landing page hero title - this is the PRIMARY FOCUS
+ * Hierarchy: THE KING - everything else must be visibly smaller
  */
 export const DisplayText = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component
             className={cn(
-                // V3.0 REDUCED sizing - More reasonable for all pages
+                // V4.1: Enhanced sizing for better dominance
                 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl',
                 // Font family and weight - Stronger for flagship presence
                 'font-display font-extrabold',
-                // Tight tracking for visual impact
-                'tracking-tight',
-                // Perfect line wrapping with max-width constraint
-                'text-balance max-w-[20ch]',
+                // V4.1: Slightly relaxed tracking for better readability
+                'tracking-[-0.02em]',
+                // V4.1: More breathing room for less cramped appearance
+                'text-balance max-w-[24ch]',
                 // Comfortable leading
                 'leading-[1.1]',
-                // V2.0 Opacity - never pure white
-                'text-foreground/90',
+                // V4.1: Softer for less eye strain
+                'text-foreground/95',
+                // V4.1: Consistent bottom margin
+                'mb-6',
                 className
             )}
             style={{
-                // V3.0 Reduced clamp for reasonable sizing
-                fontSize: 'clamp(2rem, 5vw, 4rem)',
+                // V4.1: Increased max for better hierarchy
+                fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)',
                 ...((className?.includes('style') ? {} : {}) as any)
             }}
         >
@@ -88,10 +85,13 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
                 // Locked sizing for zero drift across pages
                 'text-3xl sm:text-4xl md:text-5xl',
                 'font-display font-bold',
-                'leading-[1.1] tracking-tight',
+                // V4.1: Slightly relaxed tracking for scannability
+                'leading-[1.15] tracking-[-0.015em]',
                 'text-balance',
-                // V2.0 Opacity - never pure white
-                'text-foreground/90',
+                // V4.1: Enhanced opacity for better hierarchy
+                'text-foreground/95',
+                // V4.1: Consistent spacing
+                'mb-4',
                 className
             )}
         >
@@ -259,10 +259,10 @@ export const BodyLarge = ({ children, className, as: Component = 'p', hindi = fa
             // V2.0 mobile reduction: text-sm on mobile for subtitle hierarchy
             'text-sm md:text-base lg:text-lg',
             'font-sans font-normal',
-            // V2.0 Hindi-aware line-height: 2.0 for Hindi, relaxed for English
-            hindi ? 'leading-[2.0]' : 'leading-[1.7]',
-            // Improved mobile opacity for better readability
-            'text-foreground/70 md:text-foreground/80',
+            // V4.1: Enhanced line-height for better breathing
+            hindi ? 'leading-[2.0]' : 'leading-[1.75]',
+            // V4.1: Improved opacity for better readability
+            'text-foreground/75 md:text-foreground/80',
             // Better text wrapping with optimal line length
             'text-balance max-w-[65ch]',
             className

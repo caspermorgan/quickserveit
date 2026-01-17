@@ -170,7 +170,6 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
   const creatorLinks = [
     { label: t('home'), href: '/home' },
     { label: t('studio'), href: '/services' },
-    { label: t('portfolio'), href: '/portfolio' },
     { label: t('about'), href: '/about' },
     { label: t('pricing'), href: '/pricing' },
   ];

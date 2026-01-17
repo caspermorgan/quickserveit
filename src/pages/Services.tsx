@@ -9,7 +9,7 @@ import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import HowWeWork from '@/components/HowWeWork';
-import { H1 } from '@/components/Typography';
+import { PageTitle, PageTitleAccent, PageSubtitle } from '@/components/PageTitle';
 import {
   FileText,
   GraduationCap,
@@ -478,19 +478,15 @@ const Services = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`hero-anchor text-center section-gap-standard max-w-3xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`hero-anchor text-center section-gap-standard max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8">
-              {mode === 'institutional' ? (
-                <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
-              ) : (
-                <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
-              )}
-            </h1>
-            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed px-4 max-w-[60ch] mx-auto font-light">
-              {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
-            </p>
+            <PageTitle mode={mode}>
+              {mode === 'institutional' ? t('institutionalServices') : t('creatorServices')}
+            </PageTitle>
+            <PageSubtitle>
+              {mode === 'institutional' ? t('institutionalServicesDesc') : t('creatorServicesDesc')}
+            </PageSubtitle>
           </div>
 
           {/* Creator Mode Notice */}
@@ -500,13 +496,13 @@ const Services = () => {
             </div>
           )}
 
-          {/* Important Notice */}
-          <div className={`max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14 p-5 sm:p-6 rounded-2xl border-2 backdrop-blur-sm ${mode === 'institutional' ? 'border-institutional/25 bg-institutional/8' : 'border-creator/25 bg-creator/8'}`}>
-            <div className="flex items-start gap-4">
-              <AlertCircle className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+          {/* Important Notice - V4.1: Enhanced spacing and clarity */}
+          <div className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 p-6 sm:p-7 rounded-2xl border-2 backdrop-blur-sm ${mode === 'institutional' ? 'border-institutional/25 bg-institutional/8' : 'border-creator/25 bg-creator/8'}`}>
+            <div className="flex items-start gap-4 sm:gap-5">
+              <AlertCircle className={`w-5 h-5 sm:w-6 sm:h-6 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <div>
-                <h3 className="font-semibold mb-3 text-sm sm:text-base">{t('beforeYouBegin')}</h3>
-                <ul className="text-xs sm:text-sm text-foreground/70 space-y-2 leading-relaxed">
+                <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">{t('beforeYouBegin')}</h3>
+                <ul className="text-xs sm:text-sm text-foreground/70 space-y-2.5 leading-relaxed">
                   {t('beforeYouBeginItems').split('|').map((item, i) => (
                     <li key={i}>• {item}</li>
                   ))}
@@ -586,8 +582,8 @@ const Services = () => {
               </div>
             </div>
 
-            {/* Desktop: Vertical Stack (unchanged) */}
-            <div className="hidden md:block space-y-5 sm:space-y-6 md:space-y-8 max-w-3xl mx-auto">
+            {/* Desktop: Vertical Stack - V4.1: Enhanced spacing */}
+            <div className="hidden md:block space-y-6 sm:space-y-7 md:space-y-9 max-w-3xl mx-auto">
               {services.map((service, index) => (
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
@@ -655,7 +651,7 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
           : 'border-border/25 hover:border-border/40 hover:-translate-y-1 hover:shadow-xl'
         }`}
     >
-      {/* Header - Always visible */}
+      {/* Header - Always visible - V4.1: Enhanced spacing and clarity */}
       <button
         onClick={(e) => {
           setIsExpanded(!isExpanded);
@@ -667,22 +663,22 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
             });
           }, 100);
         }}
-        className="w-full p-5 sm:p-6 md:p-7 flex items-start gap-4 sm:gap-5 text-left hover:bg-foreground/[0.03] trans-smooth focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
+        className="w-full p-6 sm:p-7 md:p-8 flex items-start gap-5 sm:gap-6 text-left hover:bg-foreground/[0.03] trans-smooth focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
         aria-expanded={isExpanded}
       >
-        {/* V2.0 PREMIUM ICONOGRAPHY - Glass Circle Wrapper */}
-        <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shrink-0 trans-card ${mode === 'institutional' ? 'bg-institutional/12 ring-1 ring-institutional/25' : 'bg-creator/12 ring-1 ring-creator/25'}`}>
-          <Icon className={`w-7 h-7 sm:w-8 sm:h-8 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+        {/* V4.1: Slightly smaller icon for better balance */}
+        <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shrink-0 trans-card ${mode === 'institutional' ? 'bg-institutional/12 ring-1 ring-institutional/25' : 'bg-creator/12 ring-1 ring-creator/25'}`}>
+          <Icon className={`w-6 h-6 sm:w-7 sm:h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg sm:text-xl font-display font-semibold mb-2">{title}</h3>
+          <h3 className="text-lg sm:text-xl font-display font-semibold mb-2.5">{title}</h3>
           <p className="text-sm sm:text-base text-body-v25 leading-relaxed">{mediumDesc}</p>
         </div>
         <div className="shrink-0 mt-1">
           {isExpanded ? (
-            <ChevronUp className="w-5 h-5 text-foreground/50" />
+            <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/50" />
           ) : (
-            <ChevronDown className="w-5 h-5 text-foreground/50" />
+            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/50" />
           )}
         </div>
       </button>
@@ -695,16 +691,16 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
           <div className="px-5 sm:px-6 pb-6 sm:pb-7 border-t border-border/10 pt-6 sm:pt-7">
             <p className="text-xs sm:text-sm text-foreground/60 mb-6 sm:mb-6 leading-relaxed">{fullDesc}</p>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-7">
               {/* How It Works */}
               <div>
-                <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
+                <h4 className="flex items-center gap-2 text-sm font-medium mb-4">
                   <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   {t('howItWorks')}
                 </h4>
-                <ol className="space-y-2.5">
+                <ol className="space-y-3">
                   {steps.map((step, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-foreground/60">
                       <span className={`w-4 h-4 rounded-full text-[9px] flex items-center justify-center shrink-0 mt-0.5 ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>
                         {i + 1}
                       </span>
@@ -716,11 +712,11 @@ const ServiceDetailCard = ({ service, mode, t, isMobile = false, isFocused = tru
 
               {/* What You Need */}
               <div>
-                <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
+                <h4 className="flex items-center gap-2 text-sm font-medium mb-4">
                   <AlertCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   {t('whatYouNeed')}
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {needs.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
                       <span className="text-foreground/30">•</span>

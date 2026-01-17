@@ -165,37 +165,37 @@ const Home = () => {
               {description}
             </BodyLarge>
 
-            {/* Trust indicators - Enhanced */}
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-14 md:mb-16 page-enter delay-3">
-              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
-                <Shield className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+            {/* Trust indicators - V4.1: Enhanced spacing and breathing */}
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-14 mb-12 sm:mb-14 md:mb-16 page-enter delay-3">
+              <div className="flex items-center gap-3 sm:gap-3.5 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
+                <Shield className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
                 <span className="font-medium">{t('confidentialityTitle')}</span>
               </div>
-              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
-                <CheckCircle className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+              <div className="flex items-center gap-3 sm:gap-3.5 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
+                <CheckCircle className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
                 <span className="font-medium">{t('realisticTimelinesTitle')}</span>
               </div>
-              <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
-                <Clock className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
-                <span className="font-medium">10 AM - 4 PM IST</span>
+              <div className="flex items-center gap-3 sm:gap-3.5 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
+                <Clock className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
+                <span className="font-medium">Support: Mon-Sat, 10 AM-4 PM IST</span>
               </div>
             </div>
 
-            {/* CTAs - Premium Styling */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 page-enter delay-4 mb-12 sm:mb-14 md:mb-16">
+            {/* CTAs - V4.1: Enhanced spacing and prominence */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 page-enter delay-4 mb-12 sm:mb-14 md:mb-16">
               <Link
                 to="/services"
-                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`group inline-flex items-center gap-3 sm:gap-3.5 px-9 sm:px-11 md:px-13 py-4 sm:py-5 md:py-5.5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px] sm:min-h-[52px] md:min-h-[58px] ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional hover:shadow-2xl'
                   : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator hover:shadow-2xl'
                   }`}
               >
                 {mode === 'institutional' ? t('viewServices') : t('viewServices')}
-                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 trans-smooth group-hover:translate-x-2" />
+                <ArrowRight className="w-5 h-5 sm:w-5.5 sm:h-5.5 trans-smooth group-hover:translate-x-2" />
               </Link>
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-semibold text-sm sm:text-base md:text-lg border-2 trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                className={`inline-flex items-center gap-3 sm:gap-3.5 px-9 sm:px-11 md:px-13 py-4 sm:py-5 md:py-5.5 rounded-full font-semibold text-sm sm:text-base md:text-lg border-2 trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px] sm:min-h-[52px] md:min-h-[58px] ${mode === 'institutional'
                   ? 'border-institutional/50 text-institutional hover:bg-institutional/10 hover:border-institutional'
                   : 'border-creator/50 text-creator hover:bg-creator/10 hover:border-creator'
                   }`}

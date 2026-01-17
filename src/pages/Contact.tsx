@@ -12,6 +12,7 @@ import {
   Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle,
   Zap, X, Sparkles, ChevronDown, ChevronUp, Send, HelpCircle
 } from 'lucide-react';
+import { PageTitle, PageTitleAccent, PageSubtitle } from '@/components/PageTitle';
 import { H1, H2 } from '@/components/Typography';
 import { toast } from 'sonner';
 
@@ -162,15 +163,15 @@ const Contact = () => {
             className={`hero-anchor text-center section-gap-standard max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 animate-fade-in">
-              {t('letsConnect').split(' ')[0]} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('letsConnect').split(' ').slice(1).join(' ')}</span>
-            </h1>
-            <p className="text-secondary text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 px-4 max-w-[60ch] mx-auto font-light animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <PageTitle mode={mode}>
+              {t('letsConnect').split(' ')[0]} <PageTitleAccent mode={mode}>{t('letsConnect').split(' ').slice(1).join(' ')}</PageTitleAccent>
+            </PageTitle>
+            <PageSubtitle data-stagger="1">
               {t('shareProjectDetails')}
-            </p>
+            </PageSubtitle>
 
             {/* Response Time Badge */}
-            <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full glass-card border border-border/30 mb-8 sm:mb-10 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: '200ms' }}>
+            <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full glass-card border border-border/30 mb-8 sm:mb-10 transition-all duration-300 hover:scale-105 animate-fade-in" data-stagger="2">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-xs sm:text-sm font-semibold">{t('usuallyResponds')}</span>
             </div>
@@ -193,7 +194,6 @@ const Contact = () => {
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
-                style={{ willChange: 'transform' }}
               >
                 <div className={`shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
                   ? 'bg-institutional/12 group-hover:bg-institutional'
@@ -230,7 +230,6 @@ const Contact = () => {
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
-                style={{ willChange: 'transform' }}
               >
                 <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
                   ? 'bg-institutional/10 group-hover:bg-institutional'
@@ -265,14 +264,9 @@ const Contact = () => {
             {showContextBadge && contextLabel && (
               <div className="mb-4 sm:mb-5 md:mb-6 flex items-center justify-center">
                 <div className={`relative inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full border backdrop-blur-md ${mode === 'institutional'
-                  ? 'bg-institutional/10 border-institutional/30'
-                  : 'bg-creator/10 border-creator/30'
+                  ? 'bg-institutional/10 border-institutional/30 shadow-[0_0_30px_rgba(234,179,8,0.15)]'
+                  : 'bg-creator/10 border-creator/30 shadow-[0_0_30px_rgba(34,211,238,0.15)]'
                   }`}
-                  style={{
-                    boxShadow: mode === 'institutional'
-                      ? '0 0 30px rgba(234, 179, 8, 0.15)'
-                      : '0 0 30px rgba(34, 211, 238, 0.15)'
-                  }}
                 >
                   <Sparkles className={`w-3 h-3 sm:w-4 sm:h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   <span className={`text-xs sm:text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
@@ -378,7 +372,6 @@ const Contact = () => {
               href="mailto:letsquickserveit@gmail.com"
               className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-300 hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] group ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
                 }`}
-              style={{ willChange: 'transform' }}
             >
               <div className={`shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center transition-colors ${mode === 'institutional'
                 ? 'bg-institutional/10 text-institutional group-hover:bg-institutional/20'
