@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -10,15 +9,13 @@ import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import {
   Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle,
-  Zap, X, Sparkles, ChevronDown, ChevronUp, Send, HelpCircle
+  Zap, X, Sparkles, ChevronDown, ChevronUp, Send
 } from 'lucide-react';
-import { PageTitle, PageTitleAccent, PageSubtitle } from '@/components/PageTitle';
 import { H1, H2 } from '@/components/Typography';
 import { toast } from 'sonner';
 
 const Contact = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
-  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [showContextBadge, setShowContextBadge] = useState(false);
@@ -105,75 +102,77 @@ const Contact = () => {
   const handleEmailCopy = async () => {
     try {
       await navigator.clipboard.writeText('letsquickserveit@gmail.com');
-      toast.success(t('emailCopied'), {
-        description: t('emailCopiedDesc'),
+      toast.success('Email copied to clipboard!', {
+        description: 'You can now paste it in your email client.',
       });
     } catch (error) {
-      toast.error(t('emailCopyFailed'), {
-        description: t('emailCopyFailedDesc'),
+      toast.error('Failed to copy email', {
+        description: 'Please try again or use the contact form below.',
       });
     }
   };
 
   const whatsappNumber = '916388224877';
   const whatsappMessage = mode === 'institutional'
-    ? t('whatsappMessageInst')
-    : t('whatsappMessageCreator');
+    ? 'Hello quickserveit, I need institutional documentation services.'
+    : 'Hello quickserveit, I need creator production services.';
 
   const faqs = [
     {
-      question: t('faqQuestion1'),
-      answer: t('faqAnswer1')
+      question: "How quickly will I get a response?",
+      answer: "We typically respond within 2-4 hours during working hours (10 AM - 4 PM IST, Mon-Sat). Messages sent outside working hours will be answered the next business day."
     },
     {
-      question: t('faqQuestion2'),
-      answer: mode === 'institutional' ? t('faqAnswer2Inst') : t('faqAnswer2Creator')
+      question: "What information should I include in my inquiry?",
+      answer: mode === 'institutional'
+        ? "Please include: your institution name, type of service needed (exam typing, UDISE+, etc.), approximate volume/scope, and any deadlines. This helps us provide an accurate quote faster."
+        : "Please include: your channel/brand name, type of content, video length, editing style preferences, and deadline. Sample videos or references are very helpful!"
     },
     {
-      question: t('faqQuestion3'),
-      answer: t('faqAnswer3')
+      question: "Do you offer free consultations?",
+      answer: "Yes! We offer a free initial consultation to understand your requirements and provide a detailed quote. No obligation to proceed."
     },
     {
-      question: t('faqQuestion4'),
-      answer: t('faqAnswer4')
+      question: "How do you handle confidential information?",
+      answer: "We treat all client data with strict confidentiality. We never share, store unnecessarily, or reuse any client information. Your data is deleted after project completion unless you request otherwise."
     }
   ];
 
   return (
     <>
       <Helmet>
-        <title>{t('contactPageTitle')} | QuickServe IT</title>
-        <meta name="description" content={t('contactPageDesc')} />
+        <title>Contact Us | QuickServe IT</title>
+        <meta name="description" content="Get in touch with QuickServe IT for institutional documentation or creator production services. We respond within 24 hours." />
       </Helmet>
 
       <CursorLight mode={mode} />
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 relative overflow-hidden">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           {/* Hero Section */}
           <div
             ref={heroRef}
             id="hero"
-            className={`hero-anchor text-center section-gap-standard max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <PageTitle mode={mode}>
-              {t('letsConnect').split(' ')[0]} <PageTitleAccent mode={mode}>{t('letsConnect').split(' ').slice(1).join(' ')}</PageTitleAccent>
-            </PageTitle>
-            <PageSubtitle data-stagger="1">
-              {t('shareProjectDetails')}
-            </PageSubtitle>
+            <H1 className="mb-4 sm:mb-5 md:mb-6">
+              Let's <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Connect</span>
+            </H1>
+            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
+              Share your project details and we'll respond within working hours.
+            </p>
 
             {/* Response Time Badge */}
-            <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full glass-card border border-border/30 mb-8 sm:mb-10 transition-all duration-300 hover:scale-105 animate-fade-in" data-stagger="2">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card border border-border/30 mb-6 sm:mb-7 md:mb-8 transition-all duration-300 hover:scale-105">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs sm:text-sm font-semibold">{t('usuallyResponds')}</span>
+              <span className="text-xs sm:text-sm font-medium">Usually responds in 2-4 hours</span>
             </div>
           </div>
 
@@ -181,37 +180,38 @@ const Contact = () => {
           <div
             ref={contactMethodsRef}
             id="contact-methods"
-            className={`max-w-2xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-2xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <div className="flex flex-col gap-4 sm:gap-5">
+            <div className="flex flex-col gap-3 sm:gap-4">
               {/* WhatsApp */}
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex items-center gap-4 sm:gap-5 p-5 sm:p-6 md:p-7 rounded-2xl glass-card border-2 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] ${mode === 'institutional'
+                className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
+                style={{ willChange: 'transform' }}
               >
-                <div className={`shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
-                  ? 'bg-institutional/12 group-hover:bg-institutional'
-                  : 'bg-creator/12 group-hover:bg-creator'
+                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
+                  ? 'bg-institutional/10 group-hover:bg-institutional'
+                  : 'bg-creator/10 group-hover:bg-creator'
                   }`}>
-                  <MessageCircle className={`w-7 h-7 sm:w-8 sm:h-8 transition-colors ${mode === 'institutional'
+                  <MessageCircle className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors ${mode === 'institutional'
                     ? 'text-institutional group-hover:text-background'
                     : 'text-creator group-hover:text-background'
                     }`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-display font-semibold text-lg sm:text-xl mb-1">WhatsApp</h3>
-                  <p className="text-body-v25 text-sm sm:text-base truncate">Instant messaging • Quick responses</p>
+                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">WhatsApp</h3>
+                  <p className="text-foreground/60 text-xs sm:text-sm truncate">Instant messaging • Quick responses</p>
                 </div>
-                <div className={`shrink-0 flex items-center gap-2 text-sm sm:text-base font-semibold transition-transform group-hover:translate-x-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   }`}>
                   <span className="hidden sm:inline">Chat</span>
-                  <Zap className="w-5 h-5" />
+                  <Zap className="w-4 h-4" />
                 </div>
               </a>
 
@@ -230,6 +230,7 @@ const Contact = () => {
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
+                style={{ willChange: 'transform' }}
               >
                 <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
                   ? 'bg-institutional/10 group-hover:bg-institutional'
@@ -242,7 +243,7 @@ const Contact = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-base sm:text-lg mb-0.5">Email</h3>
-                  <p className="text-caption text-xs sm:text-sm truncate">Open in your mail app</p>
+                  <p className="text-foreground/60 text-xs sm:text-sm truncate">Open in your mail app</p>
                 </div>
                 <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   }`}>
@@ -257,16 +258,21 @@ const Contact = () => {
           <div
             ref={formRef}
             id="form"
-            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-200 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-200 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Context Badge */}
             {showContextBadge && contextLabel && (
               <div className="mb-4 sm:mb-5 md:mb-6 flex items-center justify-center">
                 <div className={`relative inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full border backdrop-blur-md ${mode === 'institutional'
-                  ? 'bg-institutional/10 border-institutional/30 shadow-[0_0_30px_rgba(234,179,8,0.15)]'
-                  : 'bg-creator/10 border-creator/30 shadow-[0_0_30px_rgba(34,211,238,0.15)]'
+                  ? 'bg-institutional/10 border-institutional/30'
+                  : 'bg-creator/10 border-creator/30'
                   }`}
+                  style={{
+                    boxShadow: mode === 'institutional'
+                      ? '0 0 30px rgba(234, 179, 8, 0.15)'
+                      : '0 0 30px rgba(34, 211, 238, 0.15)'
+                  }}
                 >
                   <Sparkles className={`w-3 h-3 sm:w-4 sm:h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   <span className={`text-xs sm:text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
@@ -300,11 +306,11 @@ const Contact = () => {
           <div
             ref={faqRef}
             id="faq"
-            className={`max-w-3xl mx-auto section-gap-standard transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-center mb-8 sm:mb-10 md:mb-12">Frequently Asked Questions</h2>
-            <div className="space-y-4 sm:gap-5">
+            <H2 className="text-center mb-6 sm:mb-7 md:mb-8">Frequently Asked Questions</H2>
+            <div className="space-y-3 sm:space-y-4">
               {faqs.map((faq, index) => (
                 <div
                   key={index}
@@ -349,7 +355,7 @@ const Contact = () => {
           <div
             ref={infoCardsRef}
             id="info-cards"
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 section-gap-standard max-w-3xl mx-auto transition-all duration-700 ease-out delay-400 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto transition-all duration-700 ease-out delay-400 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Working Hours */}
@@ -372,6 +378,7 @@ const Contact = () => {
               href="mailto:letsquickserveit@gmail.com"
               className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-300 hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] group ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
                 }`}
+              style={{ willChange: 'transform' }}
             >
               <div className={`shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center transition-colors ${mode === 'institutional'
                 ? 'bg-institutional/10 text-institutional group-hover:bg-institutional/20'

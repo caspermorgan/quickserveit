@@ -35,13 +35,13 @@ export const translations = {
     heroInst2: 'Structured Academic Support',
     heroInst3: 'Quiet Progress, Clear Files',
     heroInst4: 'Trusted Institutional Partner',
-    heroInstDesc: 'Professional digital support for educational institutions. From exam documentation to UDISE+ compliance—handled with care and confidentiality.',
+    heroInstDesc: 'We transform chaotic digital workloads into organized, confidential, and deadline-calm execution. From examination documentation to government compliance, your institution deserves peace.',
 
     // Hero Section - Creator
     heroCreator1: 'Cinematic Content Creation',
     heroCreator2: 'Retention-Style Editing',
     heroCreator3: 'World-Class Production',
-    heroCreatorDesc: 'Premium video production for content creators. From raw footage to platform-ready content—delivered with professional polish.',
+    heroCreatorDesc: 'We transform raw footage into premium content designed for retention and impact. From YouTube long-form to cinematic documentaries, your vision deserves world-class polish.',
 
     // CTAs
     getStarted: 'Get Started',
@@ -63,16 +63,16 @@ export const translations = {
     viewsGenerated: 'Views Generated',
 
     // Stats Section - Institutional
-    statsOnTimeDelivery: 'On-Time Delivery',
+    statsProjectsCompleted: 'Projects Completed',
+    statsInstitutionsServed: 'Institutions Served',
+    statsClientSatisfaction: 'Client Satisfaction',
     statsResponseTime: 'Response Time',
-    statsDataAccuracy: 'Data Accuracy',
-    statsAvailability: 'Availability',
 
     // Stats Section - Creator
-    statsQualityScore: 'Quality Score',
-    statsRevisionTime: 'Revision Time',
-    statsClientRetention: 'Client Retention',
-    statsDeliverySpeed: 'Delivery Speed',
+    statsVideosEdited: 'Videos Edited',
+    statsWatchHours: 'Watch Hours Generated',
+    statsCreatorsServed: 'Creators Served',
+    statsTurnaroundTime: 'Turnaround Time',
 
     // Value Proposition
     whyChooseUsTitle: 'Why Choose Us',
@@ -474,9 +474,9 @@ export const translations = {
     creatorAutomation: 'Creator-side Automation Tools',
 
     // Creator Mode Status Notice
-    creatorModeStatusTitle: 'Limited Availability',
-    creatorModeStatusMessage: 'Now Accepting Limited Clients for January.',
-    creatorModeStatusNote: 'We are onboarding select creators to ensure personalized attention and quality execution.',
+    creatorModeStatusTitle: 'Development Status',
+    creatorModeStatusMessage: 'This service is currently under development and is not live yet. It will be available in the coming months.',
+    creatorModeStatusNote: 'We are finalizing our production workflows and quality standards to ensure the best service for creators.',
 
     // Portfolio Protection
     portfolioLocked: 'Protected Content',
@@ -484,7 +484,7 @@ export const translations = {
     portfolioAccessMessage: 'This portfolio content is intended only for users evaluating our services. The work showcased may represent real institutional use-cases and client projects. To protect privacy and maintain trust, this material is not shared publicly.',
     portfolioAccessNote: 'If you are evaluating our services and would like to discuss specific case studies, please contact us directly.',
     portfolioUnderstand: 'I Understand',
-    portfolioContactUs: 'Request Access & Consultation',
+    portfolioContactUs: 'Contact Us',
     portfolioViewContent: 'View Content',
 
     // Work Experience & Institutional Exposure
@@ -770,54 +770,10 @@ export const translations = {
     nextSlot: 'Next Slot',
     priorityQueue: 'Priority Queue',
 
-
     // Living Website - Portal CTA
     readyToEliminateChaos: 'Ready to Eliminate Digital Chaos?',
     readyToDisintegrate: 'Ready to Disintegrate the Competition?',
     initializeContact: 'Initialize Contact',
-
-    // Contact Page
-    contactPageTitle: 'Contact Us',
-    contactPageDesc: 'Get in touch with QuickServe IT for institutional documentation or creator production services. We respond within 24 hours.',
-    letsConnect: 'Let\'s Connect',
-    shareProjectDetails: 'Share your project details and we\'ll respond within working hours.',
-    usuallyResponds: 'Usually responds in 2-4 hours',
-    whatsappQuick: 'WhatsApp',
-    whatsappDesc: 'Instant messaging • Quick responses',
-    chatNow: 'Chat',
-    emailUs: 'Email',
-    emailDesc: 'Open in your mail app',
-    sendEmail: 'Send',
-    sendInquiry: 'Send an Inquiry',
-    fillFormBelow: 'Fill out the form below and we\'ll get back to you within 24 hours.',
-    faqTitle: 'Frequently Asked Questions',
-    faqQuestion1: 'How quickly will I get a response?',
-    faqAnswer1: 'We typically respond within 2-4 hours during working hours (10 AM - 4 PM IST, Mon-Sat). Messages sent outside working hours will be answered the next business day.',
-    faqQuestion2: 'What information should I include in my inquiry?',
-    faqAnswer2Inst: 'Please include: your institution name, type of service needed (exam typing, UDISE+, etc.), approximate volume/scope, and any deadlines. This helps us provide an accurate quote faster.',
-    faqAnswer2Creator: 'Please include: your channel/brand name, type of content, video length, editing style preferences, and deadline. Sample videos or references are very helpful!',
-    faqQuestion3: 'Do you offer free consultations?',
-    faqAnswer3: 'Yes! We offer a free initial consultation to understand your requirements and provide a detailed quote. No obligation to proceed.',
-    faqQuestion4: 'How do you handle confidential information?',
-    faqAnswer4: 'We treat all client data with strict confidentiality. We never share, store unnecessarily, or reuse any client information. Your data is deleted after project completion unless you request otherwise.',
-    workingHoursFull: 'Mon–Sat • 10 AM–4 PM IST',
-    messagesAccepted: 'Messages accepted 24/7',
-    clickToCompose: 'Click to compose email',
-    gorakhpurLocation: 'Gorakhpur, UP',
-    remoteFirstService: 'Remote-first service',
-    confidentialService: '100% Confidential',
-    strictDataProtocol: 'Strict data protocol',
-    trustQuote: '"We treat every client relationship as confidential by default. Your data, your trust, our responsibility."',
-    privacyGuaranteed: '100% Privacy Guaranteed',
-    emailCopied: 'Email copied to clipboard!',
-    emailCopiedDesc: 'You can now paste it in your email client.',
-    emailCopyFailed: 'Failed to copy email',
-    emailCopyFailedDesc: 'Please try again or use the contact form below.',
-    whatsappMessageInst: 'Hello quickserveit, I need institutional documentation services.',
-    whatsappMessageCreator: 'Hello quickserveit, I need creator production services.',
-    generalProjectInquiry: 'General Project Inquiry',
-    topicLabel: 'Topic',
-    planLabel: 'Plan',
   },
   hi: {
     // Brand
@@ -1496,48 +1452,5 @@ export const translations = {
     withGratitude: 'कृतज्ञता और प्रतिबद्धता के साथ,',
     theFounder: '— संस्थापक',
     quickserveitTeam: 'quickserveit',
-
-    // Contact Page - Hindi
-    contactPageTitle: 'संपर्क करें',
-    contactPageDesc: 'संस्थागत दस्तावेज़ीकरण या क्रिएटर उत्पादन सेवाओं के लिए QuickServe IT से संपर्क करें। हम 24 घंटे के भीतर जवाब देते हैं।',
-    letsConnect: 'आइए जुड़ें',
-    shareProjectDetails: 'अपनी परियोजना का विवरण साझा करें और हम कार्य घंटों के भीतर जवाब देंगे।',
-    usuallyResponds: 'आमतौर पर 2-4 घंटे में जवाब देता है',
-    whatsappQuick: 'WhatsApp',
-    whatsappDesc: 'त्वरित संदेश • तेज़ जवाब',
-    chatNow: 'चैट करें',
-    emailUs: 'ईमेल',
-    emailDesc: 'अपने मेल ऐप में खोलें',
-    sendEmail: 'भेजें',
-    sendInquiry: 'पूछताछ भेजें',
-    fillFormBelow: 'नीचे दिया गया फॉर्म भरें और हम 24 घंटे के भीतर आपसे संपर्क करेंगे।',
-    faqTitle: 'अक्सर पूछे जाने वाले प्रश्न',
-    faqQuestion1: 'मुझे कितनी जल्दी जवाब मिलेगा?',
-    faqAnswer1: 'हम आमतौर पर कार्य घंटों (सुबह 10 बजे - शाम 4 बजे IST, सोम-शनि) के दौरान 2-4 घंटे के भीतर जवाब देते हैं। कार्य घंटों के बाहर भेजे गए संदेशों का जवाब अगले कार्य दिवस पर दिया जाएगा।',
-    faqQuestion2: 'मुझे अपनी पूछताछ में क्या जानकारी शामिल करनी चाहिए?',
-    faqAnswer2Inst: 'कृपया शामिल करें: आपका संस्थान का नाम, आवश्यक सेवा का प्रकार (परीक्षा टाइपिंग, UDISE+, आदि), अनुमानित मात्रा/दायरा, और कोई समय सीमा। यह हमें तेजी से सटीक उद्धरण प्रदान करने में मदद करता है।',
-    faqAnswer2Creator: 'कृपया शामिल करें: आपका चैनल/ब्रांड नाम, सामग्री का प्रकार, वीडियो की लंबाई, संपादन शैली प्राथमिकताएं, और समय सीमा। नमूना वीडियो या संदर्भ बहुत मददगार हैं!',
-    faqQuestion3: 'क्या आप मुफ्त परामर्श प्रदान करते हैं?',
-    faqAnswer3: 'हां! हम आपकी आवश्यकताओं को समझने और विस्तृत उद्धरण प्रदान करने के लिए एक मुफ्त प्रारंभिक परामर्श प्रदान करते हैं। आगे बढ़ने की कोई बाध्यता नहीं।',
-    faqQuestion4: 'आप गोपनीय जानकारी को कैसे संभालते हैं?',
-    faqAnswer4: 'हम सभी ग्राहक डेटा को सख्त गोपनीयता के साथ व्यवहार करते हैं। हम कभी भी किसी ग्राहक की जानकारी को साझा, अनावश्यक रूप से संग्रहीत या पुन: उपयोग नहीं करते हैं। आपका डेटा परियोजना पूर्ण होने के बाद हटा दिया जाता है जब तक कि आप अन्यथा अनुरोध न करें।',
-    workingHoursFull: 'सोम–शनि • सुबह 10 बजे–शाम 4 बजे IST',
-    messagesAccepted: 'संदेश 24/7 स्वीकार किए जाते हैं',
-    clickToCompose: 'ईमेल लिखने के लिए क्लिक करें',
-    gorakhpurLocation: 'गोरखपुर, यूपी',
-    remoteFirstService: 'रिमोट-फर्स्ट सेवा',
-    confidentialService: '100% गोपनीय',
-    strictDataProtocol: 'सख्त डेटा प्रोटोकॉल',
-    trustQuote: '"हम हर ग्राहक संबंध को डिफ़ॉल्ट रूप से गोपनीय मानते हैं। आपका डेटा, आपका विश्वास, हमारी जिम्मेदारी।"',
-    privacyGuaranteed: '100% गोपनीयता की गारंटी',
-    emailCopied: 'ईमेल क्लिपबोर्ड पर कॉपी किया गया!',
-    emailCopiedDesc: 'अब आप इसे अपने ईमेल क्लाइंट में पेस्ट कर सकते हैं।',
-    emailCopyFailed: 'ईमेल कॉपी करने में विफल',
-    emailCopyFailedDesc: 'कृपया पुनः प्रयास करें या नीचे दिए गए संपर्क फॉर्म का उपयोग करें।',
-    whatsappMessageInst: 'नमस्ते quickserveit, मुझे संस्थागत दस्तावेज़ीकरण सेवाओं की आवश्यकता है।',
-    whatsappMessageCreator: 'नमस्ते quickserveit, मुझे क्रिएटर उत्पादन सेवाओं की आवश्यकता है।',
-    generalProjectInquiry: 'सामान्य परियोजना पूछताछ',
-    topicLabel: 'विषय',
-    planLabel: 'योजना',
   }
 } as const;

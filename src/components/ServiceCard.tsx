@@ -68,7 +68,7 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
       }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className={`group relative rounded-2xl p-5 md:p-6 lg:p-8 h-auto min-h-[280px] md:min-h-[320px] ${onClick ? 'cursor-pointer' : ''
+      className={`group relative rounded-2xl p-6 md:p-8 ${onClick ? 'cursor-pointer' : ''
         }`}
       transition={{ duration: 0.3 }}
     >
@@ -103,8 +103,8 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
         {/* Icon with Premium Glow */}
         <div
           className={`relative w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 ${mode === 'institutional'
-            ? 'bg-institutional/10 group-hover:bg-institutional/20'
-            : 'bg-creator/10 group-hover:bg-creator/20'
+              ? 'bg-institutional/10 group-hover:bg-institutional/20'
+              : 'bg-creator/10 group-hover:bg-creator/20'
             }`}
           style={{
             boxShadow:
@@ -125,8 +125,8 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
           />
         </div>
 
-        {/* Title - Responsive sizing */}
-        <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-foreground mb-2 group-hover:translate-x-1 transition-transform duration-500">
+        {/* Title */}
+        <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:translate-x-1 transition-transform duration-500">
           {title}
         </h3>
 
@@ -140,8 +140,8 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
           </p>
         )}
 
-        {/* Description - Line clamp on mobile for compactness */}
-        <p className="text-sm md:text-base text-foreground/60 leading-relaxed line-clamp-3 md:line-clamp-none">
+        {/* Description */}
+        <p className="text-sm md:text-base text-foreground/60 leading-relaxed">
           {description}
         </p>
       </div>

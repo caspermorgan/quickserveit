@@ -2,440 +2,169 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Motion Design System */
-@import './styles/motion-tokens.css';
-
 /* QuickServe IT Ultra-Premium Design System */
 
 @layer base {
   :root {
-    /* ============================================
-       STRICT COLOR TOKEN SYSTEM (PREMIUM TECH/AGENCY STANDARD)
-       13 Tokens Total: 1 Primary Family + 7 Neutrals + 3 Utilities + 2 System
-       ============================================ */
+    /* Core Dark Background */
+    --background: 0 0% 0.4%;
+    --foreground: 0 0% 98%;
 
-    /* PRIMARY (Brand Action) - Mode-Dependent - ONE COLOR FAMILY ONLY */
-    /* Active primary changes based on mode class (.mode-institutional / .mode-creator) */
-    --primary-h: 43;
-    /* Default: Institutional gold */
-    --primary-s: 65%;
-    --primary-l: 58%;
+    /* Card surfaces */
+    --card: 0 0% 2%;
+    --card-foreground: 0 0% 98%;
 
-    --primary-900: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
-    --primary-700: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
-    --primary-500: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 10%));
+    /* Popover */
+    --popover: 0 0% 2%;
+    --popover-foreground: 0 0% 98%;
 
-    /* NEUTRAL (Foundation) - Mode-Independent - Strict Hierarchy */
-    --neutral-950: hsl(0, 0%, 98%);
-    /* Primary text - headings */
-    --neutral-800: hsl(0, 0%, 78%);
-    /* Secondary text - body */
-    --neutral-600: hsl(0, 0%, 60%);
-    /* Meta text - captions */
-    --neutral-300: hsl(0, 0%, 15%);
-    /* Borders/dividers */
-    --neutral-100: hsl(0, 0%, 7%);
-    /* Light backgrounds - cards */
-    --neutral-50: hsl(0, 0%, 2%);
-    /* Section background */
-    --neutral-0: hsl(0, 0%, 0.4%);
-    /* App background - true black */
+    /* Primary - Dynamic based on mode */
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 0.4%;
 
-    /* UTILITY (Strictly Limited) - Rare Functional Usage Only */
-    --success-600: hsl(142, 76%, 36%);
-    /* Confirmations only */
-    --warning-600: hsl(38, 92%, 50%);
-    /* Alerts only */
-    --error-600: hsl(0, 84%, 60%);
-    /* Form errors only */
+    /* Secondary */
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 98%;
 
-    /* SYSTEM (ShadCN Compatibility) - Map to compliant tokens */
-    --background: var(--neutral-0);
-    --foreground: var(--neutral-950);
-    --card: var(--neutral-50);
-    --card-foreground: var(--neutral-950);
-    --popover: var(--neutral-50);
-    --popover-foreground: var(--neutral-950);
-    --primary: var(--neutral-950);
-    --primary-foreground: var(--neutral-0);
-    --secondary: var(--neutral-100);
-    --secondary-foreground: var(--neutral-950);
-    --muted: var(--neutral-100);
-    --muted-foreground: var(--neutral-600);
-    --accent: var(--neutral-100);
-    --accent-foreground: var(--neutral-950);
-    --destructive: var(--error-600);
-    --destructive-foreground: var(--neutral-950);
-    --border: var(--neutral-300);
-    --input: var(--neutral-300);
-    --ring: var(--neutral-600);
+    /* Muted */
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    /* Accent - Mode dependent */
+    --accent: 0 0% 8%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders */
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 40%;
+
     --radius: 0.75rem;
 
-    /* ============================================
-       DEPRECATED TOKENS (For Migration Reference)
-       These will be removed in next cleanup phase
-       ============================================ */
-
-    /* OLD: Mode-specific colors - REPLACED by --primary-900/700/500 */
+    /* Mode Colors - Institutional Premium Gold */
     --mode-institutional-h: 43;
-    --mode-institutional-s: 65%;
-    --mode-institutional-l: 58%;
+    --mode-institutional-s: 96%;
+    --mode-institutional-l: 56%;
+
+    /* Institutional Secondary Colors */
+    --mode-institutional-secondary-h: 38;
+    --mode-institutional-secondary-s: 92%;
+    --mode-institutional-secondary-l: 50%;
+
+    /* Institutional Tertiary Colors */
+    --mode-institutional-tertiary-h: 30;
+    --mode-institutional-tertiary-s: 85%;
+    --mode-institutional-tertiary-l: 35%;
+
+    /* Mode Colors - Creator Premium Cyan */
     --mode-creator-h: 187;
-    --mode-creator-s: 75%;
-    --mode-creator-l: 48%;
+    --mode-creator-s: 100%;
+    --mode-creator-l: 42%;
 
-    /* OLD: Text hierarchy - REPLACED by --neutral-950/800/600 */
-    --text-primary: var(--neutral-950);
-    --text-secondary: var(--neutral-800);
-    --text-body: var(--neutral-800);
-    --text-muted: var(--neutral-600);
-    --text-focus: var(--neutral-950);
+    /* Creator Secondary Colors */
+    --mode-creator-secondary-h: 200;
+    --mode-creator-secondary-s: 98%;
+    --mode-creator-secondary-l: 48%;
 
-    /* OLD: Surface elevation - REPLACED by --neutral-50/100 */
-    --surface-0: var(--neutral-50);
-    --surface-1: var(--neutral-100);
-    --surface-2: var(--neutral-100);
-    --surface-3: var(--neutral-100);
+    /* Creator Tertiary Colors */
+    --mode-creator-tertiary-h: 195;
+    --mode-creator-tertiary-s: 100%;
+    --mode-creator-tertiary-l: 55%;
 
-    /* ============================================
-       V6.1 PROFESSIONAL REFINEMENT TOKENS
-       ============================================ */
+    /* Active mode color (default: institutional) */
+    --mode-h: var(--mode-institutional-h);
+    --mode-s: var(--mode-institutional-s);
+    --mode-l: var(--mode-l);
+    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
 
-    /* Strict Spacing Scale - Use these instead of arbitrary values */
-    --space-xs: 0.5rem;
-    /* 8px - Tight spacing */
-    --space-sm: 1rem;
-    /* 16px - Small gaps */
-    --space-md: 1.5rem;
-    /* 24px - Medium gaps */
-    --space-lg: 2rem;
-    /* 32px - Large gaps */
-    --space-xl: 3rem;
-    /* 48px - Extra large gaps */
-    --space-2xl: 4rem;
-    /* 64px - Section spacing */
-    --space-3xl: 6rem;
-    /* 96px - Major section spacing */
+    /* Secondary mode colors */
+    --mode-secondary-h: var(--mode-institutional-secondary-h);
+    --mode-secondary-s: var(--mode-institutional-secondary-s);
+    --mode-secondary-l: var(--mode-institutional-secondary-l);
 
-    /* Button Sizing Tokens - Consistent padding across all CTAs */
-    --btn-padding-x-sm: 2rem;
-    /* 32px - Small buttons */
-    --btn-padding-x-md: 2.5rem;
-    /* 40px - Medium buttons */
-    --btn-padding-x-lg: 3rem;
-    /* 48px - Large buttons */
-    --btn-padding-y-sm: 0.75rem;
-    /* 12px - Small buttons */
-    --btn-padding-y-md: 1rem;
-    /* 16px - Medium buttons */
-    --btn-padding-y-lg: 1.25rem;
-    /* 20px - Large buttons */
+    /* Tertiary mode colors */
+    --mode-tertiary-h: var(--mode-institutional-tertiary-h);
+    --mode-tertiary-s: var(--mode-institutional-tertiary-s);
+    --mode-tertiary-l: var(--mode-institutional-tertiary-l);
 
-    /* Semantic Text Opacity - Simplified from 8 to 4 levels */
-    --text-opacity-primary: 0.95;
-    /* Headings - Maximum visibility */
-    --text-opacity-secondary: 0.80;
-    /* Subheadings - Clear hierarchy */
-    --text-opacity-body: 0.70;
-    /* Body text - Comfortable reading */
-    --text-opacity-muted: 0.50;
-    /* Captions/meta - Supporting info */
+    /* Premium Glow Effects - Multi-layer */
+    --glow-soft:
+      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
 
-    /* Transitions - DEPRECATED: Use motion-tokens.css instead */
+    --glow-medium:
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
+      0 0 90px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
+
+    --glow-intense:
+      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4),
+      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
+      0 0 120px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
+
+    /* Premium Shadow System */
+    --shadow-premium-sm:
+      0 2px 8px rgba(0, 0, 0, 0.4),
+      0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.05);
+
+    --shadow-premium-md:
+      0 4px 16px rgba(0, 0, 0, 0.5),
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    --shadow-premium-lg:
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    --shadow-premium-xl:
+      0 20px 60px rgba(0, 0, 0, 0.7),
+      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    /* Transitions */
     --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
-    /* Removed --ease-spring (too bouncy, not premium) */
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  /* ============================================
-     MODE SWITCHING - Dual-Mode Primary Color
-     ============================================ */
-
-  /* Creator Mode Override - Changes primary color to cyan */
+  /* Creator Mode Override */
   .mode-creator {
-    --primary-h: 187;
-    --primary-s: 75%;
-    --primary-l: 48%;
+    --mode-h: var(--mode-creator-h);
+    --mode-s: var(--mode-creator-s);
+    --mode-l: var(--mode-creator-l);
+    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-creator-secondary-h);
+    --mode-secondary-s: var(--mode-creator-secondary-s);
+    --mode-secondary-l: var(--mode-creator-secondary-l);
+
+    --mode-tertiary-h: var(--mode-creator-tertiary-h);
+    --mode-tertiary-s: var(--mode-creator-tertiary-s);
+    --mode-tertiary-l: var(--mode-creator-tertiary-l);
   }
 
-  /* Institutional Mode Override - Changes primary color to gold */
+  /* Institutional Mode Override */
   .mode-institutional {
-    --primary-h: 43;
-    --primary-s: 65%;
-    --primary-l: 58%;
+    --mode-h: var(--mode-institutional-h);
+    --mode-s: var(--mode-institutional-s);
+    --mode-l: var(--mode-institutional-l);
+    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-institutional-secondary-h);
+    --mode-secondary-s: var(--mode-institutional-secondary-s);
+    --mode-secondary-l: var(--mode-institutional-secondary-l);
+
+    --mode-tertiary-h: var(--mode-institutional-tertiary-h);
+    --mode-tertiary-s: var(--mode-institutional-tertiary-s);
+    --mode-tertiary-l: var(--mode-institutional-tertiary-l);
   }
-
-  /* ============================================
-     THEME SWITCHING - Light/Dark Mode
-     ============================================ */
-
-  /* Dark Mode - Explicit class (matches root defaults) */
-  .theme-dark {
-    /* NEUTRAL (Foundation) - Dark theme */
-    --neutral-950: hsl(0, 0%, 98%);
-    /* Primary text - light on dark */
-    --neutral-800: hsl(0, 0%, 78%);
-    /* Secondary text */
-    --neutral-600: hsl(0, 0%, 60%);
-    /* Meta text */
-    --neutral-300: hsl(0, 0%, 15%);
-    /* Borders/dividers */
-    --neutral-100: hsl(0, 0%, 7%);
-    /* Light backgrounds - cards */
-    --neutral-50: hsl(0, 0%, 2%);
-    /* Section background */
-    --neutral-0: hsl(0, 0%, 0.4%);
-    /* App background - true black */
-
-    /* PRIMARY - Standard contrast for dark backgrounds */
-    --primary-900: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
-    --primary-700: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
-    --primary-500: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 10%));
-  }
-
-  /* Light Mode Override - Inverts neutrals, preserves primary colors */
-  .theme-light {
-    /* NEUTRAL (Foundation) - Inverted for light backgrounds */
-    --neutral-950: hsl(0, 0%, 10%);
-    /* Primary text - dark on light */
-    --neutral-800: hsl(0, 0%, 30%);
-    /* Secondary text */
-    --neutral-600: hsl(0, 0%, 50%);
-    /* Meta text */
-    --neutral-300: hsl(0, 0%, 85%);
-    /* Borders/dividers */
-    --neutral-100: hsl(0, 0%, 95%);
-    /* Light backgrounds - cards */
-    --neutral-50: hsl(0, 0%, 98%);
-    /* Section background */
-    --neutral-0: hsl(0, 0%, 100%);
-    /* App background - pure white */
-
-    /* PRIMARY - Slightly darker for better contrast on white */
-    --primary-900: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%));
-    --primary-700: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 15%));
-    --primary-500: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 5%));
-  }
-
-  /* Dark Mode Glass Morphism (default) */
-  .theme-dark .glass-card,
-  .glass-card {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .theme-dark .glass-card:hover,
-  .glass-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  .theme-dark .glass-nav,
-  .glass-nav {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .theme-dark .glass-premium,
-  .glass-premium {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-  }
-
-  /* Light Mode Glass Morphism Adjustments */
-  .theme-light .glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow:
-      0 4px 16px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  }
-
-  .theme-light .glass-card:hover {
-    background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow:
-      0 8px 24px rgba(0, 0, 0, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 1);
-  }
-
-  .theme-light .glass-nav {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow:
-      0 4px 20px rgba(0, 0, 0, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 1);
-  }
-
-  .theme-light .glass-premium {
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.95);
-  }
-
-  /* ============================================
-       V3.0 LAYOUT GRID SYSTEM - "ZERO DRIFT"
-       ============================================ */
-
-  /* Layout Hero Heights - Strict Positioning */
-  --layout-hero-anchor: 35vh;
-  /* Standard internal pages */
-  --layout-hero-center: 100vh;
-  /* Home page only */
-  --layout-hero-feature: 60vh;
-  /* Portfolio/special pages */
-
-  /* Layout Padding - Unified Top Spacing */
-  --layout-pt-desktop: 8rem;
-  /* 128px - Desktop top padding */
-  --layout-pt-tablet: 9rem;
-  /* 144px - Tablet top padding */
-  --layout-pt-mobile: 8rem;
-  /* 128px - Mobile top padding */
-
-  /* V4.1 Layout Section Gaps - Enhanced Breathing Room */
-  --layout-section-gap-desktop: 7rem;
-  /* 112px - V4.1: +16px for better separation */
-  --layout-section-gap-tablet: 5.5rem;
-  /* 88px - V4.1: +8px for improved rhythm */
-  --layout-section-gap-mobile: 4.5rem;
-  /* 72px - V4.1: +8px for reduced cramping */
-
-  /* V4.1 Layout Content Gaps - Improved Scannability */
-  --layout-content-gap-desktop: 3.5rem;
-  /* 56px - V4.1: +8px for clearer grouping */
-  --layout-content-gap-tablet: 3rem;
-  /* 48px - V4.1: +8px for better flow */
-  --layout-content-gap-mobile: 2.5rem;
-  /* 40px - V4.1: +8px for mobile comfort */
-
-
-  /* Premium Glow Effects - Multi-layer */
-  --glow-soft: 0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
-  0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
-  0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
-
-  --glow-medium: 0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
-  0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
-  0 0 90px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
-
-  --glow-intense: 0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4),
-  0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
-  0 0 120px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
-
-  /* V4.1 Premium Shadow System - Calm Depth */
-  --shadow-premium-sm: 0 2px 8px rgba(0, 0, 0, 0.3),
-  0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.04);
-
-  --shadow-premium-md: 0 4px 16px rgba(0, 0, 0, 0.4),
-  0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.06),
-  inset 0 1px 0 rgba(255, 255, 255, 0.05);
-
-  --shadow-premium-lg: 0 8px 32px rgba(0, 0, 0, 0.6),
-  0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1),
-  inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-  --shadow-premium-xl: 0 20px 60px rgba(0, 0, 0, 0.5),
-  0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.12),
-  inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-  /* V4.1 NEW: Calm Depth for Focus Guidance */
-  --shadow-calm: 0 2px 12px rgba(0, 0, 0, 0.2);
-  --shadow-focus: 0 0 0 3px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
-
-  /* V6 NEW: Mode-Specific Border Colors (Enterprise Fix #3) */
-  --border-mode-subtle: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
-  --border-mode-default: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
-  --border-mode-emphasis: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
-  --border-mode-strong: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
-
-  /* ============================================
-       V6.1 PROFESSIONAL REFINEMENT TOKENS
-       ============================================ */
-
-  /* Strict Spacing Scale - Use these instead of arbitrary values */
-  --space-xs: 0.5rem;
-  /* 8px - Tight spacing */
-  --space-sm: 1rem;
-  /* 16px - Small gaps */
-  --space-md: 1.5rem;
-  /* 24px - Medium gaps */
-  --space-lg: 2rem;
-  /* 32px - Large gaps */
-  --space-xl: 3rem;
-  /* 48px - Extra large gaps */
-  --space-2xl: 4rem;
-  /* 64px - Section spacing */
-  --space-3xl: 6rem;
-  /* 96px - Major section spacing */
-
-  /* Button Sizing Tokens - Consistent padding across all CTAs */
-  --btn-padding-x-sm: 2rem;
-  /* 32px - Small buttons */
-  --btn-padding-x-md: 2.5rem;
-  /* 40px - Medium buttons */
-  --btn-padding-x-lg: 3rem;
-  /* 48px - Large buttons */
-  --btn-padding-y-sm: 0.75rem;
-  /* 12px - Small buttons */
-  --btn-padding-y-md: 1rem;
-  /* 16px - Medium buttons */
-  --btn-padding-y-lg: 1.25rem;
-  /* 20px - Large buttons */
-
-  /* Semantic Text Opacity - Simplified from 8 to 4 levels */
-  --text-opacity-primary: 0.95;
-  /* Headings - Maximum visibility */
-  --text-opacity-secondary: 0.80;
-  /* Subheadings - Clear hierarchy */
-  --text-opacity-body: 0.70;
-  /* Body text - Comfortable reading */
-  --text-opacity-muted: 0.50;
-  /* Captions/meta - Supporting info */
-
-  /* Transitions - DEPRECATED: Use motion-tokens.css instead */
-  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
-  /* Removed --ease-spring (too bouncy, not premium) */
 }
-
-/* Creator Mode Override */
-.mode-creator {
-  --mode-h: var(--mode-creator-h);
-  --mode-s: var(--mode-creator-s);
-  --mode-l: var(--mode-creator-l);
-  --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-
-  --mode-secondary-h: var(--mode-creator-secondary-h);
-  --mode-secondary-s: var(--mode-creator-secondary-s);
-  --mode-secondary-l: var(--mode-creator-secondary-l);
-
-  --mode-tertiary-h: var(--mode-creator-tertiary-h);
-  --mode-tertiary-s: var(--mode-creator-tertiary-s);
-  --mode-tertiary-l: var(--mode-creator-tertiary-l);
-}
-
-/* Institutional Mode Override */
-.mode-institutional {
-  --mode-h: var(--mode-institutional-h);
-  --mode-s: var(--mode-institutional-s);
-  --mode-l: var(--mode-institutional-l);
-  --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-
-  --mode-secondary-h: var(--mode-institutional-secondary-h);
-  --mode-secondary-s: var(--mode-institutional-secondary-s);
-  --mode-secondary-l: var(--mode-institutional-secondary-l);
-
-
-  --mode-tertiary-h: var(--mode-institutional-tertiary-h);
-  --mode-tertiary-s: var(--mode-institutional-tertiary-s);
-  --mode-tertiary-l: var(--mode-institutional-tertiary-l);
-}
-
 
 @layer base {
   * {
@@ -446,9 +175,6 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Scroll padding to prevent content from hiding behind fixed glass header/footer */
-    scroll-padding-top: 80px;
-    scroll-padding-bottom: 80px;
   }
 
   body {
@@ -457,13 +183,10 @@
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     /* Improved mobile line-height for better readability */
-    line-height: 1.6;
-    /* Prevent text overflow */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    line-height: 1.5;
   }
 
-  /* V2.5 Global heading styles - Bold + Pure White for hierarchy */
+  /* Global heading styles - all headings bold */
   h1,
   h2,
   h3,
@@ -471,59 +194,12 @@
   h5,
   h6 {
     font-weight: 700;
-    color: hsl(var(--text-primary));
-    /* Pure White */
-    margin-bottom: 1rem;
-    /* Consistent spacing */
-    /* Prevent awkward line breaks */
-    text-wrap: balance;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
   }
 
-  /* Responsive fluid typography */
-  h1 {
-    font-size: clamp(1.75rem, 4vw + 1rem, 3.5rem);
-    line-height: 1.1;
-  }
-
-  h2 {
-    font-size: clamp(1.5rem, 3vw + 0.75rem, 2.5rem);
-    line-height: 1.2;
-  }
-
-  h3 {
-    font-size: clamp(1.25rem, 2vw + 0.5rem, 1.875rem);
-    line-height: 1.3;
-  }
-
-  h4 {
-    font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
-    line-height: 1.4;
-  }
-
-  /* V4.1 Paragraph styles - Enhanced Readability */
-  p {
-    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
-    line-height: 1.75;
-    /* V4.1: +0.05 for better breathing */
-    font-weight: 400;
-    color: hsl(var(--text-body));
-    /* Medium Grey */
-    margin-bottom: 1.25rem;
-    /* V4.1: +0.25rem for improved rhythm */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* V4.1 Mobile typography improvements - Enhanced breathing */
+  /* Mobile typography improvements */
   @media (max-width: 768px) {
     body {
-      line-height: 1.7;
-      /* V4.1: +0.05 for better mobile readability */
-      font-size: 16px;
-      /* Prevent zoom on iOS */
+      line-height: 1.65;
     }
 
     h1,
@@ -532,159 +208,24 @@
     h4,
     h5,
     h6 {
-      line-height: 1.25;
-      /* V4.1: +0.05 for better breathing */
+      line-height: 1.2;
       font-weight: 700;
-      /* Better text wrapping on mobile */
-      text-wrap: balance;
-      word-break: break-word;
-      margin-bottom: 1.25rem;
-      /* V4.1: Consistent spacing */
     }
 
     p {
-      line-height: 1.8;
-      /* V4.1: +0.1 for improved comfort */
-      font-size: clamp(0.9375rem, 2vw, 1rem);
-      margin-bottom: 1.5rem;
-      /* V4.1: More breathing room */
-    }
-
-    /* Ensure buttons and links don't break awkwardly */
-    button,
-    a {
-      word-break: keep-all;
-      hyphens: none;
-    }
-  }
-
-  /* V6.1 Ultra-small screens (<400px) - Refined Premium Mode */
-  @media (max-width: 400px) {
-
-    /* V6.1: Removed !important - component-level responsive props handle this */
-    /* Typography components (DisplayText, H1, etc.) now have proper clamp ranges */
-
-    /* Compact button sizing for premium feel without dominating viewport */
-    .btn-premium,
-    .btn-outline-premium,
-    button[class*="rounded-full"] {
-      padding: 0.625rem 1.25rem;
-      font-size: 0.875rem;
-      min-height: 44px;
-      /* iOS minimum touch target */
-    }
-
-    /* Reduce container padding for better space utilization */
-    .container {
-      padding-left: 0.875rem;
-      padding-right: 0.875rem;
-    }
-
-    /* Reduce padding on containers */
-    .px-4 {
-      padding-left: 0.875rem;
-      padding-right: 0.875rem;
-    }
-
-    /* Tighter grid gaps for compact layout */
-    .grid {
-      gap: 0.875rem;
-    }
-
-    /* Compact navigation */
-    .min-h-\[44px\] {
-      min-height: 44px;
-    }
-
-    /* Reduce card padding for better fit */
-    .p-6 {
-      padding: 1rem;
-    }
-
-    .p-7 {
-      padding: 1.25rem;
-    }
-
-    .p-8 {
-      padding: 1.5rem;
+      line-height: 1.7;
     }
   }
 
   /* Hide scrollbar but allow scrolling */
-  .no-scrollbar::-webkit-scrollbar,
-  .scrollbar-hide::-webkit-scrollbar {
+  .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
 
-  .no-scrollbar,
-  .scrollbar-hide {
+  .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-
-  /* ============================================
-     V3.0 LAYOUT GRID UTILITIES
-     ============================================ */
-
-  /* Hero Pattern: Anchor Title (35vh) - Internal Pages */
-  .hero-anchor {
-    min-height: var(--layout-hero-anchor);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* Hero Pattern: Center (100vh) - Home Page */
-  .hero-center {
-    min-height: var(--layout-hero-center);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Hero Pattern: Feature (60vh) - Portfolio/Special */
-  .hero-feature {
-    min-height: var(--layout-hero-feature);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Standard Section Gap */
-  .section-gap-standard {
-    margin-bottom: var(--layout-section-gap-mobile);
-  }
-
-  @media (min-width: 768px) {
-    .section-gap-standard {
-      margin-bottom: var(--layout-section-gap-tablet);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-gap-standard {
-      margin-bottom: var(--layout-section-gap-desktop);
-    }
-  }
-
-  /* Standard Content Gap */
-  .content-gap-standard {
-    margin-bottom: var(--layout-content-gap-mobile);
-  }
-
-  @media (min-width: 768px) {
-    .content-gap-standard {
-      margin-bottom: var(--layout-content-gap-tablet);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .content-gap-standard {
-      margin-bottom: var(--layout-content-gap-desktop);
-    }
-  }
-
 }
 
 @layer components {
@@ -699,48 +240,18 @@
     opacity: 0.4;
   }
 
-  /* Film Grain Overlay - Mode-specific opacity */
-  .film-grain-institutional {
-    opacity: 0.2;
-  }
-
-  .film-grain-creator {
-    opacity: 0.4;
-  }
-
-  /* Mobile: Completely disable film grain for GPU performance */
   @media (max-width: 768px) {
-
-    .film-grain,
-    .film-grain-institutional,
-    .film-grain-creator {
-      display: none;
+    .film-grain {
+      opacity: 0.2;
     }
-  }
-
-  /* iOS SAFE AREA - Prevents overlap with home indicator */
-  .pb-safe {
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-
-  .pt-safe {
-    padding-top: env(safe-area-inset-top, 0px);
-  }
-
-  .pl-safe {
-    padding-left: env(safe-area-inset-left, 0px);
-  }
-
-  .pr-safe {
-    padding-right: env(safe-area-inset-right, 0px);
   }
 
   /* Glass Morphism - Premium Edition */
   .glass-premium {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
       0 0 0 1px rgba(0, 0, 0, 0.5),
       0 30px 80px rgba(0, 0, 0, 0.6),
@@ -751,11 +262,10 @@
   /* Mobile Performance Optimization & Better Visibility */
   @media (max-width: 768px) {
     .glass-premium {
-      background: rgba(255, 255, 255, 0.12);
-      /* V2.0 PERFORMANCE MODE: Reduced blur from 40px to 12px for 60fps scrolling */
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
   }
 
@@ -773,9 +283,8 @@
   @media (max-width: 768px) {
     .glass-nav {
       background: rgba(255, 255, 255, 0.12);
-      /* V2.0 PERFORMANCE MODE: Reduced blur for 60fps */
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.2),
@@ -783,18 +292,14 @@
     }
   }
 
-  /* V4.1 GLASS EFFECT - Enhanced with improved borders and depth */
   .glass-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.06);
-    /* Refined opacity for better contrast on dark backgrounds */
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    /* V4.1: +0.06 for clearer boundaries */
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: var(--shadow-premium-md);
-    /* MOTION SYSTEM: Standard card transition */
-    transition: all var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: all 0.5s var(--ease-premium);
   }
 
   /* Noise texture overlay for tactile glass feel */
@@ -818,11 +323,9 @@
 
   @media (max-width: 768px) {
     .glass-card {
-      /* V2.0 PERFORMANCE MODE: Aggressive blur reduction for low-end GPU performance */
-      backdrop-filter: blur(12px) saturate(180%);
-      -webkit-backdrop-filter: blur(12px) saturate(180%);
-      /* MOTION SYSTEM: Faster on mobile */
-      transition: all var(--motion-base, 300ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.3s var(--ease-premium);
     }
 
     /* Reduce noise opacity on mobile for better performance */
@@ -831,17 +334,13 @@
     }
   }
 
-  /* V6.2: Fixed glass hover - increase opacity for proper elevation */
   .glass-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    /* Increased from 0.05 - proper elevation */
+    background: rgba(255, 255, 255, 0.05);
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
-    /* MOTION SYSTEM: Tier 2 Standard hover */
-    transform: translateY(calc(-1 * var(--motion-standard-translate, 4px))) scale(var(--motion-standard-scale, 1.01));
+    transform: translateY(-6px);
     box-shadow:
       0 30px 80px rgba(0, 0, 0, 0.6),
-      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
-      /* Reduced from 0.2 */
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
@@ -854,14 +353,6 @@
     }
   }
 
-  /* V2 MAGNETIC MICRO-INTERACTION - Universal tactile feedback */
-  .magnetic-click:active,
-  .glass-card:active {
-    transform: scale(0.98);
-    /* MOTION SYSTEM: Instant feedback */
-    transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
-  }
-
   /* Mobile Touch Optimization */
   @media (hover: none) and (pointer: coarse) {
     .glass-card:hover {
@@ -870,8 +361,7 @@
 
     .glass-card:active {
       transform: scale(0.98);
-      /* MOTION SYSTEM: Instant feedback */
-      transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+      transition: transform 0.1s ease;
     }
   }
 
@@ -920,8 +410,7 @@
     letter-spacing: 0.025em;
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     color: hsl(0, 0%, 0%);
-    /* MOTION SYSTEM: Interactive transition */
-    transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: all 0.4s var(--ease-premium);
     min-height: 44px;
     /* Mobile touch target - 44px minimum */
     box-shadow:
@@ -942,8 +431,7 @@
   }
 
   .btn-premium:hover {
-    /* MOTION SYSTEM: Tier 1 Micro hover */
-    transform: translateY(calc(-1 * var(--motion-micro-translate, 2px))) scale(var(--motion-micro-scale, 1.01));
+    transform: translateY(-2px) scale(1.02);
     box-shadow:
       0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5),
       0 20px 40px rgba(0, 0, 0, 0.3),
@@ -953,8 +441,7 @@
   /* Mobile Button Optimization */
   @media (max-width: 768px) {
     .btn-premium {
-      /* MOTION SYSTEM: Fast on mobile */
-      transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+      transition: all 0.2s var(--ease-premium);
       min-height: 44px;
     }
   }
@@ -966,9 +453,8 @@
     }
 
     .btn-premium:active {
-      transform: scale(var(--motion-micro-scale-active, 0.99));
-      /* MOTION SYSTEM: Instant feedback */
-      transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+      transform: scale(0.96);
+      transition: transform 0.1s ease;
     }
   }
 
@@ -982,8 +468,7 @@
     background: transparent;
     border: 1px solid hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
     color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-    /* MOTION SYSTEM: Interactive transition */
-    transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: all 0.4s var(--ease-premium);
     min-height: 44px;
     /* Mobile touch target - 44px minimum */
   }
@@ -1003,16 +488,14 @@
   .btn-outline-premium:hover {
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1);
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-    /* MOTION SYSTEM: Tier 1 Micro hover */
-    transform: translateY(calc(-1 * var(--motion-micro-translate, 2px)));
+    transform: translateY(-2px);
     box-shadow: 0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2);
   }
 
   /* Mobile Button Optimization */
   @media (max-width: 768px) {
     .btn-outline-premium {
-      /* MOTION SYSTEM: Fast on mobile */
-      transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+      transition: all 0.2s var(--ease-premium);
       min-height: 44px;
     }
   }
@@ -1024,157 +507,102 @@
     }
 
     .btn-outline-premium:active {
-      transform: scale(var(--motion-micro-scale-active, 0.99));
+      transform: scale(0.96);
       background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15);
-      /* MOTION SYSTEM: Instant feedback */
-      transition: all var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+      transition: all 0.1s ease;
     }
   }
-
-  /* ============================================
-     RESPONSIVE UTILITY CLASSES
-     ============================================ */
-
-  /* Responsive text utilities - fluid sizing across all breakpoints */
-  .text-responsive-xs {
-    font-size: clamp(0.75rem, 2vw, 0.875rem);
-  }
-
-  .text-responsive-sm {
-    font-size: clamp(0.875rem, 2.5vw, 1rem);
-  }
-
-  .text-responsive-base {
-    font-size: clamp(1rem, 3vw, 1.125rem);
-  }
-
-  .text-responsive-lg {
-    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
-  }
-
-  .text-responsive-xl {
-    font-size: clamp(1.25rem, 4vw, 1.5rem);
-  }
-
-  /* Responsive spacing utilities - adaptive padding and gaps */
-  .gap-responsive {
-    gap: clamp(0.5rem, 2vw, 1rem);
-  }
-
-  .gap-responsive-sm {
-    gap: clamp(0.25rem, 1vw, 0.5rem);
-  }
-
-  .gap-responsive-lg {
-    gap: clamp(0.75rem, 3vw, 1.5rem);
-  }
-
-  .p-responsive {
-    padding: clamp(0.75rem, 2vw, 1.5rem);
-  }
-
-  .px-responsive {
-    padding-left: clamp(0.75rem, 2vw, 1.5rem);
-    padding-right: clamp(0.75rem, 2vw, 1.5rem);
-  }
-
-  .py-responsive {
-    padding-top: clamp(0.75rem, 2vw, 1.5rem);
-    padding-bottom: clamp(0.75rem, 2vw, 1.5rem);
-  }
-
-  /* Compact mode for very small screens */
-  @media (max-width: 400px) {
-    .compact-mobile {
-      padding: 0.5rem;
-      font-size: 0.875rem;
-    }
-
-    .compact-mobile-text {
-      font-size: 0.8125rem;
-    }
-
-    .compact-mobile-gap {
-      gap: 0.5rem;
-    }
-  }
-
 
   /* Magnetic Button Wrapper */
   .magnetic-wrap {
     display: inline-block;
-    /* MOTION SYSTEM: Base transition */
-    transition: transform var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: transform 0.4s var(--ease-smooth);
     will-change: transform;
   }
 
-  /* Liquid Sheen Animation - Premium Light Reflection */
-  .liquid-sheen {
-    position: relative;
-    overflow: hidden;
+  /* Terminal Styles */
+  .terminal {
+    border-radius: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* Sheen overlay animation */
-  @keyframes sheen-sweep {
-    0% {
-      transform: translateX(-100%) translateY(-100%) rotate(30deg);
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(200%) translateY(200%) rotate(30deg);
-      opacity: 0;
-    }
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom-width: 1px;
+    border-color: hsl(var(--border));
   }
 
-  .sheen-overlay {
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    animation: sheen-sweep 5s ease-in-out infinite;
-    animation-delay: 1s;
+  .terminal-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
   }
 
-  /* Faster sheen on hover for interactive feedback */
-  .sheen-active {
-    animation-duration: 3s;
+  /* Typography Classes */
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
   }
 
-  /* Staggered Fade-In Animation for Storytelling Pacing */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 
-  .animate-fade-in {
-    animation: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
+  /* Cursor Light Effect */
+  .cursor-light {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.03) 0%,
+        transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: opacity 0.5s ease;
   }
 
-  /* Mobile: Reduce animation complexity */
   @media (max-width: 768px) {
-    .sheen-overlay {
-      animation-duration: 6s;
+    .cursor-light {
+      display: none;
+    }
+  }
+
+  /* Mobile Spacing Utilities */
+  @media (max-width: 768px) {
+
+    /* Safe horizontal padding for mobile */
+    .mobile-safe-x {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
     }
 
-    .sheen-active {
-      animation-duration: 4s;
+    /* Mobile section spacing rhythm */
+    .mobile-section-gap {
+      margin-bottom: 3rem;
     }
 
-    .animate-fade-in {
-      animation-duration: 0.6s;
+    .mobile-section-gap-lg {
+      margin-bottom: 4rem;
+    }
+
+    /* Mobile card spacing */
+    .mobile-card-gap {
+      gap: 1.25rem;
+    }
+
+    /* Ensure minimum touch target size */
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
     }
   }
 
@@ -1217,13 +645,11 @@
       0 30px 80px rgba(0, 0, 0, 0.6),
       inset 0 0 20px rgba(255, 255, 255, 0.02),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    /* MOTION SYSTEM: Standard card transition (same as glass-card) */
-    transition: all var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: all 0.5s var(--ease-premium);
   }
 
   .decision-card:hover {
-    /* MOTION SYSTEM: Tier 2 Standard hover (same as glass-card) */
-    transform: translateY(calc(-1 * var(--motion-standard-translate, 4px))) scale(var(--motion-standard-scale, 1.01));
+    transform: translateY(-4px) scale(1.01);
     box-shadow:
       0 0 0 1px rgba(0, 0, 0, 0.5),
       0 40px 100px rgba(0, 0, 0, 0.7),
@@ -1234,12 +660,12 @@
   /* Mobile optimization for decision cards */
   @media (max-width: 768px) {
     .decision-card {
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
     }
 
     .decision-card:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
   }
 
@@ -1251,8 +677,7 @@
 
     .decision-card:active {
       transform: scale(0.98);
-      /* MOTION SYSTEM: Instant feedback */
-      transition: transform var(--motion-instant, 100ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+      transition: transform 0.1s ease;
     }
   }
 }
@@ -1264,56 +689,64 @@
 
 @layer utilities {
 
-  /* MOTION SYSTEM: Transition Utilities */
+  /* Smooth transitions */
   .trans-premium {
-    transition: all var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: all 0.5s var(--ease-premium);
   }
 
   .trans-smooth {
-    transition: all var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: all 0.4s var(--ease-smooth);
   }
 
-  /* Removed .trans-spring - too bouncy, not premium */
+  .trans-spring {
+    transition: all 0.6s var(--ease-spring);
+  }
 
-  /* MOTION SYSTEM: Hover utilities */
+  /* Hover scale */
   .hover-scale {
-    transition: transform var(--motion-fast, 200ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1));
+    transition: transform 0.3s var(--ease-premium);
   }
 
   .hover-scale:hover {
-    transform: scale(var(--motion-micro-scale, 1.01));
+    transform: scale(1.05);
   }
 
-  /* MOTION SYSTEM: Page entry animations - Use .page-enter instead */
+  /* Animate utilities */
   .animate-fade-in {
-    animation: pageEnter var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
-    opacity: 0;
+    animation: fadeIn 0.8s var(--ease-premium) forwards;
   }
 
   .animate-fade-in-up {
-    animation: pageEnter var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
-    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-premium) forwards;
   }
 
   .animate-fade-in-down {
-    animation: pageEnter var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
-    opacity: 0;
+    animation: fadeInDown 0.8s var(--ease-premium) forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn var(--motion-base, 400ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
-    opacity: 0;
+    animation: scaleIn 0.6s var(--ease-premium) forwards;
   }
 
   .animate-blur-in {
-    animation: blurIn var(--motion-slow, 600ms) var(--ease-out-premium, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
-    opacity: 0;
+    animation: blurIn 0.8s var(--ease-premium) forwards;
   }
 
-  /* REMOVED: .animate-glow-pulse - Too flashy, not premium */
-  /* REMOVED: .animate-float - Unnecessary movement */
-  /* REMOVED: .animate-dust - Not needed */
-  /* REMOVED: .animate-slow-pulse - Use sparingly, status indicators only */
+  .animate-glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-dust {
+    animation: dustDrift 1.8s var(--ease-premium) forwards;
+  }
+
+  .animate-slow-pulse {
+    animation: slowPulse 3s ease-in-out infinite;
+  }
 
   /* Pointer utilities */
   .pointer-none {
@@ -1358,110 +791,9 @@
     word-wrap: break-word;
     hyphens: auto;
   }
-
-  /* Mobile Container - Safe padding */
-  .mobile-container {
-    padding-left: clamp(1rem, 4vw, 1.5rem);
-    padding-right: clamp(1rem, 4vw, 1.5rem);
-  }
-
-  /* Mobile Center - Perfect centering */
-  .mobile-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  /* Mobile Spacing - Consistent gaps */
-  .mobile-spacing {
-    gap: clamp(0.75rem, 2vw, 1.25rem);
-  }
-
-  /* Text Balance - Better line breaks */
-  .text-balance {
-    text-wrap: balance;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* Page Title - Distinct from body headings */
-  .page-title {
-    font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-    margin-bottom: clamp(1rem, 3vw, 1.5rem);
-  }
-
-  /* No Wrap - Prevent breaking */
-  .no-wrap {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* Mobile Grid - Responsive grid */
-  .mobile-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-    gap: clamp(1rem, 2vw, 1.5rem);
-  }
-
-  /* Touch Safe - Minimum touch target */
-  .touch-safe {
-    min-height: 44px;
-    min-width: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* ============================================
-     PHANTOM INTERFACE - TRUE Z-INDEX LAYERING
-     ============================================ */
-
-  /* Gradient overlays are now implemented as fixed div elements in App.tsx */
-
-  /* Phantom Interface Transition Physics */
-  .phantom-slide {
-    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
-  }
-
-  /* Immersive Mode Transforms */
-  .immersive-hide-top {
-    transform: translateY(-100%);
-  }
-
-  .immersive-hide-bottom {
-    transform: translateY(150%);
-  }
-
-  .immersive-show {
-    transform: translateY(0);
-  }
 }
 
-/* ============================================
-   MOTION SYSTEM KEYFRAMES
-   ============================================ */
-
-/* Unified page entry animation - Use this for all page transitions */
-@keyframes pageEnter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Legacy keyframes - DEPRECATED: Use pageEnter instead */
+/* Keyframes */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1727,47 +1059,37 @@
 }
 
 /* Optimized Gradient Mesh Background - Static for Performance */
-/* V6.2: Calmed mesh gradients for premium subtlety */
 .mesh-gradient-institutional {
   background: linear-gradient(135deg,
-      rgba(43, 96, 56, 0.02) 0%,
-      /* Reduced from 0.03 - extra calm */
+      rgba(43, 96, 56, 0.03) 0%,
       rgba(0, 0, 0, 0) 50%,
-      rgba(43, 96, 56, 0.02) 100%);
+      rgba(43, 96, 56, 0.03) 100%);
   background-size: 100% 100%;
   /* Removed animation for better performance */
 }
 
 .mesh-gradient-creator {
   background: linear-gradient(135deg,
-      rgba(0, 187, 212, 0.02) 0%,
-      /* Reduced from 0.03 - extra calm */
+      rgba(0, 187, 212, 0.03) 0%,
       rgba(0, 0, 0, 0) 50%,
-      rgba(0, 187, 212, 0.02) 100%);
+      rgba(0, 187, 212, 0.03) 100%);
   background-size: 100% 100%;
   /* Removed animation for better performance */
 }
 
 /* Premium Shadow Utilities */
-/* V6.2: Refined button glow - subtle hint, not neon sign */
 .shadow-premium-glow-institutional {
   box-shadow:
-    0 0 30px rgba(43, 96, 56, 0.12),
-    /* Reduced intensity and spread */
-    0 0 60px rgba(43, 96, 56, 0.06),
-    /* Softer outer glow */
+    0 0 40px rgba(43, 96, 56, 0.2),
+    0 0 80px rgba(43, 96, 56, 0.1),
     0 20px 60px rgba(0, 0, 0, 0.3);
-  /* Maintained depth shadow */
 }
 
 .shadow-premium-glow-creator {
   box-shadow:
-    0 0 30px rgba(0, 187, 212, 0.12),
-    /* Reduced intensity and spread */
-    0 0 60px rgba(0, 187, 212, 0.06),
-    /* Softer outer glow */
+    0 0 40px rgba(0, 187, 212, 0.2),
+    0 0 80px rgba(0, 187, 212, 0.1),
     0 20px 60px rgba(0, 0, 0, 0.3);
-  /* Maintained depth shadow */
 }
 
 /* Magnetic Button Container */
@@ -1835,34 +1157,24 @@
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
+  filter: blur(60px);
+  /* Reduced from 100px for better performance */
+  opacity: 0.15;
   pointer-events: none;
   z-index: 0;
 }
 
-/* V6.2: Calmed gradient orbs - barely noticeable depth, not neon signs */
 .gradient-orb-institutional {
-  filter: blur(80px);
-  /* Increased from 60px - softer edges */
-  opacity: 0.08;
-  /* Reduced from 0.15 - subtle presence */
   background: radial-gradient(circle,
-      rgba(43, 96, 56, 0.25) 0%,
-      /* Reduced from 0.4 - calm */
-      rgba(43, 96, 56, 0.12) 50%,
-      /* Reduced from 0.2 - gentle */
+      rgba(43, 96, 56, 0.4) 0%,
+      rgba(43, 96, 56, 0.2) 50%,
       transparent 100%);
 }
 
 .gradient-orb-creator {
-  filter: blur(100px);
-  /* Reduced from 120px - controlled blur */
-  opacity: 0.12;
-  /* Reduced from 0.25 - professional, not gaming */
   background: radial-gradient(circle,
-      rgba(0, 187, 212, 0.3) 0%,
-      /* Reduced from 0.6 - calm */
-      rgba(0, 187, 212, 0.15) 50%,
-      /* Reduced from 0.3 - subtle */
+      rgba(0, 187, 212, 0.4) 0%,
+      rgba(0, 187, 212, 0.2) 50%,
       transparent 100%);
 }
 
@@ -1915,59 +1227,4 @@
 
 .caption-text {
   @apply text-xs md:text-sm font-sans font-normal leading-normal text-foreground/50;
-}
-
-
-/* ============================================
-   V2.5 CHROMATIC DEPTH UTILITIES
-   DESIGN SYSTEM ENFORCEMENT: These utilities enforce the flagship-level
-   color & surface system. Do not create custom color utilities.
-   ============================================ */
-
-/* V2.5 Surface Elevation Utilities */
-.bg-surface-0 {
-  background-color: hsl(var(--surface-0));
-}
-
-.bg-surface-1 {
-  background-color: hsl(var(--surface-1));
-}
-
-.bg-surface-2 {
-  background-color: hsl(var(--surface-2));
-}
-
-/* V2.5 Text Hierarchy Utilities */
-.text-heading {
-  color: hsl(var(--text-primary));
-}
-
-.text-subheading {
-  color: hsl(var(--text-secondary));
-}
-
-.text-body-v25 {
-  color: hsl(var(--text-body));
-}
-
-.text-caption {
-  color: hsl(var(--text-muted));
-}
-
-/* V2.5 Muted Accent Colors - For secondary text highlights */
-.text-institutional-muted {
-  color: hsl(var(--institutional-muted-h), var(--institutional-muted-s), var(--institutional-muted-l));
-}
-
-.text-creator-muted {
-  color: hsl(var(--creator-muted-h), var(--creator-muted-s), var(--creator-muted-l));
-}
-
-/* V2.5 Border Utilities */
-.border-institutional-muted {
-  border-color: hsl(var(--institutional-muted-h), var(--institutional-muted-s), var(--institutional-muted-l), 0.3);
-}
-
-.border-creator-muted {
-  border-color: hsl(var(--creator-muted-h), var(--creator-muted-s), var(--creator-muted-l), 0.3);
 }

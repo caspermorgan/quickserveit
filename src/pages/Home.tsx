@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, Link } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
@@ -13,7 +12,6 @@ import ServicesTeaser from '@/components/ServicesTeaser';
 import HowWeWork from '@/components/HowWeWork';
 import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
-import MagneticButton from '@/components/MagneticButton';
 import { DisplayText, BodyLarge } from '@/components/Typography';
 import { ArrowRight, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react';
 
@@ -21,47 +19,6 @@ const Home = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
-
-  const heroRef = useRef<HTMLElement>(null);
-  const creatorNoticeRef = useRef<HTMLElement>(null);
-  const valueRef = useRef<HTMLElement>(null);
-  const servicesRef = useRef<HTMLElement>(null);
-  const howWeWorkRef = useRef<HTMLElement>(null);
-  const techTickerRef = useRef<HTMLElement>(null);
-  const ctaRef = useRef<HTMLElement>(null);
-
-  // Scroll to top when page loads
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setVisibleSections(prev => new Set(prev).add(entry.target.id));
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const sections = [heroRef, creatorNoticeRef, valueRef, servicesRef, howWeWorkRef, techTickerRef, ctaRef];
-    sections.forEach(ref => {
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -129,7 +86,7 @@ const Home = () => {
       </Helmet>
 
       <CursorLight mode={mode} />
-      <FilmGrain mode={mode} />
+      <FilmGrain />
 
       <FloatingNavbar
         mode={mode}
@@ -137,65 +94,67 @@ const Home = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background relative">
-        {/* Hero Section - Flagship Optical Center */}
-        <section
-          ref={heroRef}
-          id="hero"
-          className={`relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 py-20 sm:py-24 md:py-28 overflow-hidden section-gap-standard ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'} transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-        >
+      <main className="min-h-screen bg-background">
+        {/* Hero Section - Premium Redesign */}
+        <section className={`relative min-h-screen flex items-center justify-center px-6 py-20 md:py-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
-          {/* Gradient Orb Background - Subtle */}
-          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-1/4 left-1/2 -translate-x-1/2 opacity-10`} />
+          {/* Gradient Orb Background - Optimized Size */}
+          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
 
-          <div className="relative max-w-4xl mx-auto text-center z-10">
+          <div className="relative max-w-5xl mx-auto text-center z-10">
             {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mb-6 sm:mb-7 md:mb-8 page-enter ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <DisplayText className={`mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
-            {/* Static Subtitle for Stability */}
-            <p className={`mb-8 sm:mb-9 md:mb-10 text-base sm:text-lg md:text-xl font-semibold page-enter delay-1 ${mode === 'institutional' ? 'text-institutional-readable' : 'text-creator'}`}>
-              {t('ourServices')}
-            </p>
+            {/* Compact Typewriter Subtitle */}
+            <div className="mb-10 flex justify-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <TypewriterText
+                anchorText={t('ourServices')}
+                phrases={typewriterSentences}
+                anchorClassName={`text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
+                className="text-lg md:text-xl text-foreground/60"
+                speed={120}
+                pauseDuration={2800}
+              />
+            </div>
 
-            {/* Description - Typography System: BodyLarge with improved mobile opacity */}
-            <BodyLarge className="mb-10 sm:mb-11 md:mb-12 max-w-2xl mx-auto page-enter delay-2 px-4">
+            {/* Description - Typography System: BodyLarge */}
+            <BodyLarge className="mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               {description}
             </BodyLarge>
 
-            {/* Trust indicators - V4.1: Enhanced spacing and breathing */}
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-14 mb-12 sm:mb-14 md:mb-16 page-enter delay-3">
-              <div className="flex items-center gap-3 sm:gap-3.5 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
-                <Shield className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
-                <span className="font-medium">{t('confidentialityTitle')}</span>
+            {/* Trust indicators - Enhanced */}
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
+                <Shield className="w-5 h-5" />
+                <span>{t('confidentialityTitle')}</span>
               </div>
-              <div className="flex items-center gap-3 sm:gap-3.5 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
-                <CheckCircle className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
-                <span className="font-medium">{t('realisticTimelinesTitle')}</span>
+              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
+                <CheckCircle className="w-5 h-5" />
+                <span>{t('realisticTimelinesTitle')}</span>
               </div>
-              <div className="flex items-center gap-3 sm:gap-3.5 text-xs sm:text-sm md:text-base text-foreground/60 hover:text-foreground/80 trans-smooth">
-                <Clock className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
-                <span className="font-medium">Support: Mon-Sat, 10 AM-4 PM IST</span>
+              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
+                <Clock className="w-5 h-5" />
+                <span>10 AM - 4 PM IST</span>
               </div>
             </div>
 
-            {/* CTAs - V4.1: Enhanced spacing and prominence */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 page-enter delay-4 mb-12 sm:mb-14 md:mb-16">
+            {/* CTAs - Premium Styling */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 animate-fade-in-up mb-16" style={{ animationDelay: '500ms' }}>
               <Link
                 to="/services"
-                className={`group inline-flex items-center gap-3 sm:gap-3.5 px-9 sm:px-11 md:px-13 py-4 sm:py-5 md:py-5.5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px] sm:min-h-[52px] md:min-h-[58px] ${mode === 'institutional'
-                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional hover:shadow-2xl'
-                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator hover:shadow-2xl'
+                className={`group inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
+                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
                   }`}
               >
                 {mode === 'institutional' ? t('viewServices') : t('viewServices')}
-                <ArrowRight className="w-5 h-5 sm:w-5.5 sm:h-5.5 trans-smooth group-hover:translate-x-2" />
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-3 sm:gap-3.5 px-9 sm:px-11 md:px-13 py-4 sm:py-5 md:py-5.5 rounded-full font-semibold text-sm sm:text-base md:text-lg border-2 trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[48px] sm:min-h-[52px] md:min-h-[58px] ${mode === 'institutional'
+                className={`inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg border-2 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
                   ? 'border-institutional/50 text-institutional hover:bg-institutional/10 hover:border-institutional'
                   : 'border-creator/50 text-creator hover:bg-creator/10 hover:border-creator'
                   }`}
@@ -206,91 +165,51 @@ const Home = () => {
 
             {/* Scroll Indicator */}
             <div className="scroll-indicator opacity-40">
-              <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/60" />
+              <ChevronDown className="w-6 h-6 text-foreground/60" />
             </div>
           </div>
         </section>
 
         {/* Creator Mode Notice */}
         {mode === 'creator' && (
-          <section
-            ref={creatorNoticeRef}
-            id="creator-notice"
-            className={`px-6 pb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('creator-notice') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
+          <section className="px-6 pb-16">
             <CreatorModeNotice />
           </section>
         )}
 
         {/* Value Proposition - Why Choose Us */}
-        <div
-          ref={valueRef}
-          id="value"
-          className={`transition-all duration-700 ease-out delay-200 ${visibleSections.has('value') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-        >
-          <ValueProposition mode={mode} />
-        </div>
+        <ValueProposition mode={mode} />
 
         {/* Services Teaser - Top 3 Only */}
-        <div
-          ref={servicesRef}
-          id="services"
-          className={`transition-all duration-700 ease-out delay-300 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-        >
-          <ServicesTeaser mode={mode} />
-        </div>
+        <ServicesTeaser mode={mode} />
 
         {/* How We Work - Process Overview */}
-        <div
-          ref={howWeWorkRef}
-          id="how-we-work"
-          className={`transition-all duration-700 ease-out delay-400 ${visibleSections.has('how-we-work') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-        >
-          <HowWeWork mode={mode} />
-        </div>
+        <HowWeWork mode={mode} />
 
         {/* Tech Ticker - Trust Signal */}
-        <div
-          ref={techTickerRef}
-          id="tech-ticker"
-          className={`transition-all duration-700 ease-out delay-500 ${visibleSections.has('tech-ticker') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-        >
-          <TechTicker mode={mode} />
-        </div>
+        <TechTicker mode={mode} />
 
         {/* Bottom CTA - Start Your Project */}
-        <section
-          ref={ctaRef}
-          id="cta"
-          className={`px-4 sm:px-6 py-20 sm:py-24 md:py-28 transition-all duration-700 ease-out delay-600 ${visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-        >
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className={`text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+        <section className="px-6 py-20 md:py-32">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-display mb-6 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               Ready to {mode === 'institutional' ? 'Digitize Your Institution' : 'Elevate Your Content'}?
             </h2>
-            <p className="text-foreground/80 text-base sm:text-lg md:text-xl leading-relaxed mb-10 sm:mb-12 max-w-2xl mx-auto px-4 font-light">
+            <p className="text-foreground/60 text-lg mb-10 max-w-2xl mx-auto">
               {mode === 'institutional'
                 ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
                 : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}
             </p>
-            <MagneticButton mode={mode}>
-              <Link
-                to="/contact"
-                className={`group inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-5 rounded-full font-bold text-sm sm:text-base md:text-lg text-background trans-interactive hover-micro focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional hover:shadow-2xl'
-                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator hover:shadow-2xl'
-                  }`}
-              >
-                Start Your Project
-                <ArrowRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 trans-smooth group-hover:translate-x-2" />
-              </Link>
-            </MagneticButton>
+            <Link
+              to="/contact"
+              className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+                ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
+                : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
+                }`}
+            >
+              Start Your Project
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
         </section>
 

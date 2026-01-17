@@ -28,11 +28,8 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
     const size = Math.random() * 1.2 + 0.4;
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
-    // Mobile: 50% slower movement for smoother performance
-    const isMobile = window.innerWidth < 768;
-    const speedMultiplier = isMobile ? 0.5 : 1;
-    const directionX = ((Math.random() * 0.4) - 0.2) * speedMultiplier;
-    const directionY = ((Math.random() * 0.4) - 0.2) * speedMultiplier;
+    const directionX = (Math.random() * 0.4) - 0.2;
+    const directionY = (Math.random() * 0.4) - 0.2;
     const density = Math.random() * 30 + 1;
     return { x, y, directionX, directionY, size, density };
   }, []);
@@ -43,8 +40,7 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
 
     particlesRef.current = [];
     const isMobile = window.innerWidth < 768;
-    // Mobile: 60000 density = ~70% fewer particles for better GPU performance
-    const densityFactor = isMobile ? 60000 : 10000;
+    const densityFactor = isMobile ? 18000 : 10000;
     const numberOfParticles = (canvas.height * canvas.width) / densityFactor;
 
     for (let i = 0; i < numberOfParticles; i++) {
@@ -64,8 +60,8 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
       const isMobile = window.innerWidth < 768;
       const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
-      // Mobile: Reduced to 100 particles for GPU performance
-      const dustCount = isMobile ? 100 : (isTablet ? 450 : 600);
+      // Dramatically increased particle counts for smooth effect
+      const dustCount = isMobile ? 350 : (isTablet ? 450 : 600);
 
       for (let i = 0; i < dustCount; i++) {
         // Smaller, more varied particle sizes for a finer dust effect

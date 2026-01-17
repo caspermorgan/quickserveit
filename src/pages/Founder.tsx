@@ -21,8 +21,8 @@ const Founder = () => {
   return (
     <>
       <Helmet>
-        <title>{t('founderPageTitle')} | {t('brandName')}</title>
-        <meta name="description" content={t('founderPageSubtitle')} />
+        <title>Founder's Message | quickserveit</title>
+        <meta name="description" content="A personal message from the founder of quickserveit about our mission, values, and commitment to calm digital execution." />
       </Helmet>
 
       <CursorLight mode={mode} />
@@ -34,15 +34,15 @@ const Founder = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 relative">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <main className="min-h-screen bg-background pt-32 pb-20">
+        <div className="container mx-auto px-6 max-w-4xl">
           {/* Header */}
-          <div className="hero-anchor text-center section-gap-standard">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-display mb-4 sm:mb-5 md:mb-6">
-              {t('aNoteFromFounder')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('theFounder')}</span>
+          <div className="text-center mb-16">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-4">
+              A Note from the <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Founder</span>
             </h1>
-            <p className="text-foreground/60 text-sm sm:text-base px-4">
-              {t('theStoryBehindQuickserve')}
+            <p className="text-foreground/50">
+              The story behind quickserveit
             </p>
           </div>
 
@@ -61,7 +61,7 @@ const Founder = () => {
           <div className={`p-8 rounded-2xl mb-12 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
             <Quote className={`w-8 h-8 mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
             <p className="text-lg md:text-xl italic text-foreground/70 leading-relaxed">
-              {t('founderOpeningQuote')}
+              "I built quickserveit because I saw a gap — institutions drowning in digital chaos, creators struggling with inconsistent quality. Both needed a partner who understood their world, not just their tasks."
             </p>
           </div>
 
@@ -70,53 +70,50 @@ const Founder = () => {
             <section>
               <h2 className="text-xl font-display mb-4 flex items-center gap-3">
                 <Heart className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                {t('whatDrivesMe')}
+                Why I Started This
               </h2>
-              {mode === 'institutional' ? (
-                <>
-                  <p className="text-foreground/60 leading-relaxed">{t('originInstPara1')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('originInstPara2')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('problemInstPara1')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('problemInstPara2')}</p>
-                </>
-              ) : (
-                <>
-                  <p className="text-foreground/60 leading-relaxed">{t('originCreatorPara1')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('originCreatorPara2')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('problemCreatorPara1')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('problemCreatorPara2')}</p>
-                </>
-              )}
+              <p className="text-foreground/60 leading-relaxed">
+                <strong>Dual Expertise:</strong> As a BCA graduate, I understand the code. As a Documentary Filmmaker, I understand the story. This unique combination allows me to serve two distinct worlds with equal depth.
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                Working with schools across rural Gorakhpur, I witnessed principals and teachers drowning in digital paperwork — UDISE+ forms, examination records, scholarship applications. Essential work that pulled them away from what they do best: educating. My technical background (BCA) gave me the tools to digitize these processes efficiently.
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                Simultaneously, through my documentary filmmaking journey, I saw talented creators with powerful stories but limited post-production resources. Their content deserved cinematic polish, professional sound design, and strategic editing — but access was the barrier. My storytelling expertise became their bridge to professional-grade content.
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                I bridge the gap between technical compliance and creative expression. quickserveit exists to serve both worlds with precision, discretion, and calm execution — powered by a founder who genuinely understands both domains.
+              </p>
             </section>
 
             <section>
               <h2 className="text-xl font-display mb-4 flex items-center gap-3">
                 <Target className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                {t('corePhilosophy')}
+                What We Believe
               </h2>
               <div className="grid md:grid-cols-2 gap-6 mt-6">
                 <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">{t('calmOverChaos')}</h3>
+                  <h3 className="font-medium mb-2">Calm Over Chaos</h3>
                   <p className="text-sm text-foreground/50">
-                    {t('calmOverChaosDesc')}
+                    We don't add to your stress. Every interaction is designed to reduce anxiety, not increase it.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">{t('clarityOverConfusion')}</h3>
+                  <h3 className="font-medium mb-2">Clarity Over Confusion</h3>
                   <p className="text-sm text-foreground/50">
-                    {t('clarityOverConfusionDesc')}
+                    Clear expectations, honest timelines, no hidden surprises. You always know where things stand.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">{t('confidentialityIsSacred')}</h3>
+                  <h3 className="font-medium mb-2">Confidentiality is Sacred</h3>
                   <p className="text-sm text-foreground/50">
-                    {t('confidentialityIsSacredDesc')}
+                    Your data, your documents, your content — treated with the discretion they deserve.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">{t('qualityWithoutEgo')}</h3>
+                  <h3 className="font-medium mb-2">Quality Without Ego</h3>
                   <p className="text-sm text-foreground/50">
-                    {t('qualityWithoutEgoDesc')}
+                    We don't need credit. We need your work to succeed. That's our satisfaction.
                   </p>
                 </div>
               </div>
@@ -125,19 +122,14 @@ const Founder = () => {
             <section>
               <h2 className="text-xl font-display mb-4 flex items-center gap-3">
                 <Eye className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                {t('theVisionAhead')}
+                The Vision Ahead
               </h2>
-              {mode === 'institutional' ? (
-                <>
-                  <p className="text-foreground/60 leading-relaxed">{t('visionInstPara1')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('visionInstPara2')}</p>
-                </>
-              ) : (
-                <>
-                  <p className="text-foreground/60 leading-relaxed">{t('visionCreatorPara1')}</p>
-                  <p className="text-foreground/60 leading-relaxed mt-4">{t('visionCreatorPara2')}</p>
-                </>
-              )}
+              <p className="text-foreground/60 leading-relaxed">
+                quickserveit is not trying to be everything to everyone. We're building a focused practice — deep expertise in institutional documentation and creator production. No distractions, no dilution.
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                Whether you're a school administrator processing scholarship records or a YouTuber crafting your next video, I want quickserveit to feel like having a trusted colleague who just handles things quietly and well.
+              </p>
             </section>
           </div>
 
@@ -145,16 +137,13 @@ const Founder = () => {
           <div className="mt-16 text-center">
             <div className={`inline-block p-8 rounded-2xl glass-card border ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'}`}>
               <p className="text-foreground/60 mb-4">
-                {t('aboutThankYouMessage')}
+                Thank you for considering quickserveit.
               </p>
               <p className={`font-display text-lg ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                {t('withGratitude')}
-              </p>
-              <p className={`font-display text-lg ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                {t('theFounder')}
+                — Casper Morgan
               </p>
               <p className="text-sm text-foreground/40 mt-2">
-                {t('quickserveitTeam')}
+                Founder, quickserveit
               </p>
             </div>
           </div>

@@ -12,8 +12,8 @@ export default {
         sm: "1.5rem",       // Large Mobile
         md: "2rem",         // Tablet
         lg: "3rem",         // Laptop
-        xl: "5rem",         // Desktop - Increased for flagship presence
-        "2xl": "6rem",      // Ultra-Wide
+        xl: "4rem",         // Desktop
+        "2xl": "5rem",      // Ultra-Wide
       },
       screens: {
         "2xl": "1600px", // Expanded for luxury feel
@@ -77,33 +77,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // V2.5 Surface Elevation System
-        surface: {
-          0: "hsl(var(--surface-0))",
-          1: "hsl(var(--surface-1))",
-          2: "hsl(var(--surface-2))",
-          3: "hsl(var(--surface-3))",
-        },
-        // V2.5 Text Hierarchy
-        text: {
-          primary: "hsl(var(--text-primary))",
-          secondary: "hsl(var(--text-secondary))",
-          body: "hsl(var(--text-body))",
-          muted: "hsl(var(--text-muted))",
-        },
-        // Mode colors - Institutional Premium Gold (V2.5 Tonal Spectrum)
+        // Mode colors - Institutional Premium Gold
         institutional: {
-          DEFAULT: "hsl(43, 96%, 56%)", // Bright gold for buttons/backgrounds
-          muted: "hsl(38, 70%, 45%)", // V2.5 Muted tone for text/borders
-          readable: "hsl(38, 70%, 45%)", // Darker metallic gold for text/icons (better readability)
+          DEFAULT: "hsl(43, 96%, 56%)",
           foreground: "hsl(0, 0%, 0%)",
           secondary: "hsl(38, 92%, 50%)",
           tertiary: "hsl(30, 85%, 35%)",
         },
-        // Mode colors - Creator Premium Cyan (V2.5 Tonal Spectrum)
+        // Mode colors - Creator Premium Cyan  
         creator: {
           DEFAULT: "hsl(187, 100%, 42%)",
-          muted: "hsl(187, 80%, 35%)", // V2.5 Muted tone for text/borders
           foreground: "hsl(0, 0%, 0%)",
           secondary: "hsl(200, 98%, 48%)",
           tertiary: "hsl(195, 100%, 55%)",
@@ -112,13 +95,7 @@ export default {
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
-        sm: "calc(--radius) - 4px)",
-      },
-      // V2 PHYSICS-BASED EASING - Spring curve for weight/momentum
-      transitionTimingFunction: {
-        'spring': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-        'spring-smooth': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-        'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {
@@ -135,11 +112,6 @@ export default {
         },
         "fade-in-up": {
           from: { opacity: "0", transform: "translateY(30px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-        // V2 STAGGERED ENTRANCE - Cascade effect for list items
-        "staggered-fade-in-up": {
-          from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "scale-in": {
@@ -168,8 +140,6 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        // V2 STAGGERED ENTRANCE - Smooth cascade with spring easing
-        "staggered-fade-in-up": "staggered-fade-in-up 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
         "scale-in": "scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "blur-in": "blur-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",

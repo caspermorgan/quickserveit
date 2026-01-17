@@ -45,42 +45,6 @@
   <meta name="twitter:image" content="https://www.quickserveit.online/twitter-image.png" />
   <!-- Theme Color -->
   <meta name="theme-color" content="#010101" />
-
-  <!-- CRITICAL: Theme initialization script - MUST run before React hydration -->
-  <!-- Prevents flash of unstyled content (FOUC) by applying theme class synchronously -->
-  <script>
-    (function () {
-      try {
-        var storageKey = 'theme-preference';
-        var classNameDark = 'theme-dark';
-        var classNameLight = 'theme-light';
-
-        // 1. Check LocalStorage
-        var preference = localStorage.getItem(storageKey);
-        var systemMatchesLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-        var themeToAdd;
-
-        if (preference === 'dark') {
-          themeToAdd = classNameDark;
-        } else if (preference === 'light') {
-          themeToAdd = classNameLight;
-        } else {
-          // 'system' or null/undefined -> Use System
-          themeToAdd = systemMatchesLight ? classNameLight : classNameDark;
-        }
-
-        // 2. Apply Class Immediately
-        document.documentElement.classList.add(themeToAdd);
-        document.documentElement.style.colorScheme = (themeToAdd === classNameLight) ? 'light' : 'dark';
-
-      } catch (e) {
-        console.error('Theme initialization failed:', e);
-        document.documentElement.classList.add('theme-dark'); // Safe fallback
-      }
-    })();
-  </script>
-
 </head>
 
 <body>

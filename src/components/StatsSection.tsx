@@ -13,17 +13,17 @@ const StatsSection = ({ mode }: StatsSectionProps) => {
 
     // Mode-specific stats
     const institutionalStats = [
-        { value: 100, suffix: '%', label: t('statsOnTimeDelivery') },
-        { value: 2, suffix: 'hr', label: t('statsResponseTime') },
-        { value: 99.9, suffix: '%', label: t('statsDataAccuracy') },
-        { value: 6, suffix: ' days', label: t('statsAvailability') },
+        { value: 500, suffix: '+', label: t('statsProjectsCompleted') },
+        { value: 50, suffix: '+', label: t('statsInstitutionsServed') },
+        { value: 98, suffix: '%', label: t('statsClientSatisfaction') },
+        { value: 24, suffix: 'hr', label: t('statsResponseTime') },
     ];
 
     const creatorStats = [
-        { value: 98, suffix: '%', label: t('statsQualityScore') },
-        { value: 24, suffix: 'hr', label: t('statsRevisionTime') },
-        { value: 95, suffix: '%', label: t('statsClientRetention') },
-        { value: 48, suffix: 'hr', label: t('statsDeliverySpeed') },
+        { value: 1000, suffix: '+', label: t('statsVideosEdited') },
+        { value: 5, suffix: 'M+', label: t('statsWatchHours') },
+        { value: 100, suffix: '+', label: t('statsCreatorsServed') },
+        { value: 48, suffix: 'hr', label: t('statsTurnaroundTime') },
     ];
 
     const stats = mode === 'institutional' ? institutionalStats : creatorStats;

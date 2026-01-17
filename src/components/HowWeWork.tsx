@@ -78,9 +78,9 @@ const HowWeWork = ({ mode }: HowWeWorkProps) => {
                                         key={index}
                                         className="flex-shrink-0 w-72 md:w-80 group"
                                     >
-                                        <div className="relative h-full bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-border/20 rounded-2xl p-6 hover:border-border/40 trans-card hover:shadow-xl hover:-translate-y-1">
+                                        <div className="relative h-full bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-border/20 rounded-2xl p-6 hover:border-border/40 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                                             {/* Gradient Accent - Only visible on hover */}
-                                            <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 trans-card ${isInstitutional
+                                            <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isInstitutional
                                                 ? 'from-institutional/60 via-institutional to-institutional/60'
                                                 : 'from-creator/60 via-creator to-creator/60'
                                                 }`}></div>
@@ -93,7 +93,7 @@ const HowWeWork = ({ mode }: HowWeWorkProps) => {
                                                     } border ${isInstitutional
                                                         ? 'border-institutional/20'
                                                         : 'border-creator/20'
-                                                    } flex items-center justify-center group-hover:scale-110 trans-card`}>
+                                                    } flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                                                     <Icon className={`w-6 h-6 ${isInstitutional
                                                         ? 'text-institutional'
                                                         : 'text-creator'
@@ -141,6 +141,15 @@ const HowWeWork = ({ mode }: HowWeWorkProps) => {
                 </div>
             </div>
 
+            <style jsx>{`
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+            `}</style>
         </section>
     );
 };

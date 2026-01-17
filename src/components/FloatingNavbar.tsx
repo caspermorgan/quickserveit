@@ -2,10 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
-import { useIdleScroller } from '@/hooks/useIdleScroller';
 import HeaderStatusBadge from './HeaderStatusBadge';
-import MagneticButton from './MagneticButton';
-import { ThemeToggle } from './ThemeToggle';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -22,10 +19,10 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       onClick={toggleLanguage}
       className={`
         relative flex items-center h-7 md:h-8 px-0.5 md:px-1 rounded-full
-        bg-background/80 backdrop-blur-xl border border-white/10
-        shadow-[0_20px_50px_rgba(0,0,0,0.5)] 
+        backdrop-blur-md bg-background/20 border border-foreground/10
+        shadow-[0_2px_10px_rgba(0,0,0,0.1)] 
         transition-all duration-300 ease-out
-        hover:bg-background/90 hover:border-white/20
+        hover:bg-background/30 hover:border-foreground/20
         ${mode === 'institutional'
           ? 'hover:shadow-[0_0_15px_rgba(234,179,8,0.15)]'
           : 'hover:shadow-[0_0_15px_rgba(34,211,238,0.15)]'
@@ -85,33 +82,17 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const lastScrollY = useRef(0);
 
-  // Phantom Interface: Immersive mode for mobile
-  const isImmersive = useIdleScroller();
-
-  // Smart auto-hide menu behavior
+  // Smart scroll behavior
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
-    let isScrolling = false;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Show menu while scrolling
-      setNavVisible(true);
-      isScrolling = true;
-
-      // Clear existing timeout
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
+      // Handle visibility
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setNavVisible(false);
+      } else {
+        setNavVisible(true);
       }
-
-      // Set timeout to hide menu after scroll stops (3 seconds)
-      scrollTimeout = setTimeout(() => {
-        if (currentScrollY > 100) {
-          setNavVisible(false);
-        }
-        isScrolling = false;
-      }, 3000);
 
       // Handle shadow/sticky state
       setIsScrolled(currentScrollY > 20);
@@ -119,34 +100,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       lastScrollY.current = currentScrollY;
     };
 
-    // Show menu instantly on any touch/interaction
-    const handleTouch = () => {
-      setNavVisible(true);
-      // Clear auto-hide timeout when user touches
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-      }
-    };
-
-    // Show menu on mouse movement (for desktop)
-    const handleMouseMove = () => {
-      if (!isScrolling && window.scrollY > 100) {
-        setNavVisible(true);
-      }
-    };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('touchstart', handleTouch, { passive: true });
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('touchstart', handleTouch);
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-      }
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -166,13 +121,16 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     { label: t('services'), href: '/services' },
     { label: t('about'), href: '/about' },
     { label: t('pricing'), href: '/pricing' },
+    { label: t('contact'), href: '/contact' },
   ];
 
   const creatorLinks = [
     { label: t('home'), href: '/home' },
     { label: t('studio'), href: '/services' },
+    { label: t('portfolio'), href: '/portfolio' },
     { label: t('about'), href: '/about' },
     { label: t('pricing'), href: '/pricing' },
+    { label: t('contact'), href: '/contact' },
   ];
 
   const links = mode === 'institutional' ? institutionalLinks : creatorLinks;
@@ -197,10 +155,10 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       <div
         className={`
           fixed top-6 left-6 md:top-8 md:left-8 z-50 
-          animate-float phantom-slide
-          ${combinedVisible && !isImmersive
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 immersive-hide-top'
+          animate-float
+          ${combinedVisible
+            ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
+            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
           }
         `}
       >
@@ -208,9 +166,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           onClick={onReturn}
           className={`
             group flex items-center gap-0 overflow-hidden
-            h-9 md:h-10 lg:h-12 pl-0 pr-0 rounded-full 
-            bg-background/80 backdrop-blur-xl border border-white/10
-            shadow-[0_20px_50px_rgba(0,0,0,0.5)]
+            h-10 md:h-12 pl-0 pr-0 rounded-full 
+            glass-nav
             transition-all duration-500 ease-out
             hover:pr-4 md:hover:pr-5
             ${mode === 'institutional'
@@ -221,7 +178,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           aria-label="Return to landing"
         >
           {/* Perfect Circle Logo Container */}
-          <div className="relative w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden flex-shrink-0">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
             <img
               src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
               alt="QuickServe IT"
@@ -234,7 +191,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             className={`
               flex items-center h-full
               whitespace-nowrap overflow-hidden
-              font-display font-medium text-xs md:text-sm lg:text-base tracking-wide
+              font-display font-medium text-sm md:text-base tracking-wide
               transition-all duration-500 ease-out
               max-w-0 opacity-0 pl-0
               group-hover:max-w-[150px] group-hover:opacity-100 group-hover:pl-3
@@ -247,85 +204,57 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       </div>
 
 
-      {/* Theme & Language Controls - Top Right */}
-      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 flex items-center gap-3 phantom-slide ${combinedVisible && !isImmersive
-        ? 'opacity-100 translate-y-0'
-        : 'opacity-0 immersive-hide-top'
+      {/* Language Switch - Top Right */}
+      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 ${combinedVisible
+        ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
+        : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
         }`}>
-        <ThemeToggle />
         <LanguageSwitch mode={mode} />
       </div>
 
-      {/* V2.0 ANCHOR DOCK - Conversion-Focused Navigation */}
+      {/* Navigation Bar - Bottom */}
       <div
-        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pb-safe max-w-[95vw] phantom-slide ${combinedVisible && !isImmersive
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 immersive-hide-bottom pointer-events-none'
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 ${combinedVisible
+          ? 'opacity-100 translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,1,1)]'
+          : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
           }`}
       >
-        <div className="relative flex items-center gap-0 rounded-full bg-background/80 backdrop-blur-xl border border-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        <nav className="flex items-center gap-1 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
+          {links.map((link, index) => {
+            const isActive = location.pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`relative px-3 py-2.5 md:px-4 md:py-2 text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center ${isActive
+                  ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                  : 'text-foreground/60 hover:text-foreground'
+                  }`}
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                {link.label}
 
-          {/* V2.0 THE ANCHOR - Fixed CTA on LEFT (Visual Anchor) */}
-          <MagneticButton mode={mode}>
-            <Link
-              to="/contact"
-              className={`relative flex-shrink-0 px-4 py-3 md:px-6 md:py-3.5 text-xs md:text-sm font-semibold tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center justify-center z-20 ${mode === 'institutional'
-                ? 'bg-institutional text-background hover:bg-institutional/90'
-                : 'bg-creator text-background hover:bg-creator/90'
-                }`}
-            >
-              {/* Mobile: "Start" | Desktop: "Start Project" */}
-              <span className="hidden sm:inline">Start Project</span>
-              <span className="inline sm:hidden">Start</span>
-            </Link>
-          </MagneticButton>
-
-          {/* V2.0 THE STREAM - Scrollable Navigation Links (Flow on RIGHT) */}
-          <div
-            className="relative flex items-center overflow-x-auto no-scrollbar pr-3 md:pr-4 pl-2 z-10"
-            style={{
-              // V2.0 BEHIND EFFECT - Enhanced gradient mask for smooth fade
-              maskImage: 'linear-gradient(to right, transparent 0%, black 20px, black 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20px, black 100%)',
-            }}
-          >
-            {links.map((link, index) => {
-              const isActive = location.pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`relative px-2 py-2 md:px-3 md:py-2.5 text-xs md:text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center rounded-lg ${isActive
-                    ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                    : 'text-foreground/60 hover:text-foreground'
+                {/* Active/Hover underline */}
+                <span
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'
+                    } ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'
                     }`}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  {/* ACTIVE TAB GLOW - Instant visual feedback */}
-                  {isActive && (
-                    <span
-                      className={`absolute inset-0 rounded-lg transition-all duration-300 ${mode === 'institutional'
-                        ? 'bg-institutional/15 shadow-[0_0_20px_rgba(234,179,8,0.3)]'
-                        : 'bg-creator/15 shadow-[0_0_20px_rgba(34,211,238,0.3)]'
-                        }`}
-                      aria-hidden="true"
-                    />
-                  )}
+                />
+              </Link>
+            );
+          })}
 
-                  <span className="relative z-10">{link.label}</span>
-
-                  {/* Active/Hover underline */}
-                  <span
-                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'
-                      } ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'
-                      }`}
-                  />
-                </Link>
-              );
-            })}
-          </div>
-
-        </div>
+          {/* Start Your Project CTA Button */}
+          <Link
+            to="/contact"
+            className={`ml-2 px-4 py-2.5 md:px-5 md:py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap ${mode === 'institutional'
+              ? 'bg-institutional text-background hover:bg-institutional/90'
+              : 'bg-creator text-background hover:bg-creator/90'
+              }`}
+          >
+            Start Your Project
+          </Link>
+        </nav>
       </div>
     </>
   );

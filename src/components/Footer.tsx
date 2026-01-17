@@ -15,11 +15,14 @@ const Footer = ({ mode }: FooterProps) => {
 
   return (
     <footer
-      className="relative py-12 md:py-16 px-6 border-t overflow-hidden border-border/10"
+      className="relative py-12 md:py-16 px-6 border-t overflow-hidden"
       style={{
+        borderColor: mode === 'institutional'
+          ? 'hsl(43, 96%, 56%, 0.1)'
+          : 'hsl(187, 100%, 42%, 0.1)',
         background: mode === 'institutional'
-          ? 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(234, 179, 8, 0.02) 100%)'
-          : 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(6, 182, 212, 0.02) 100%)'
+          ? 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(43, 96%, 56%, 0.02) 100%)'
+          : 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(187, 100%, 42%, 0.02) 100%)'
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -33,15 +36,6 @@ const Footer = ({ mode }: FooterProps) => {
             <p className="text-sm text-foreground/50 mb-4 leading-relaxed">
               {mode === 'institutional' ? t('brandTaglineInstitutional') : t('brandTaglineCreator')}
             </p>
-            {/* V6 Enterprise Identity Markers */}
-            <div className="space-y-2 mb-4">
-              <div className="text-xs text-foreground/60">
-                <span className="font-medium">Location:</span> Gorakhpur, Uttar Pradesh, India
-              </div>
-              <div className="text-xs text-foreground/60">
-                <span className="font-medium">Contact:</span> letsquickserveit@gmail.com
-              </div>
-            </div>
             <div className="flex items-center gap-2 text-xs text-foreground/40">
               <ShieldIcon className="w-3 h-3" />
               <span>All data handled with strict confidentiality</span>
@@ -75,10 +69,15 @@ const Footer = ({ mode }: FooterProps) => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium trans-premium shadow-[0_0_20px_rgba(0,0,0,0.1)] ${mode === 'institutional'
-                ? 'bg-institutional/10 text-institutional hover:bg-institutional/20 hover:shadow-institutional/20'
-                : 'bg-creator/10 text-creator hover:bg-creator/20 hover:shadow-creator/20'
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium trans-premium ${mode === 'institutional'
+                ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
+                : 'bg-creator/10 text-creator hover:bg-creator/20'
                 }`}
+              style={{
+                boxShadow: mode === 'institutional'
+                  ? '0 0 20px hsl(43, 96%, 56%, 0.1)'
+                  : '0 0 20px hsl(187, 100%, 42%, 0.1)'
+              }}
             >
               <MessageCircleIcon className="w-4 h-4" />
               Chat on WhatsApp
@@ -98,10 +97,10 @@ const Footer = ({ mode }: FooterProps) => {
             </div>
             <div className="text-[10px] text-foreground/10 font-mono mt-1">
               <span className={mode === 'institutional' ? 'text-institutional/40' : 'text-creator/40'}>
-                PROFESSIONAL SERVICE
+                CONFIDENTIAL
               </span>
               {' • '}
-              GORAKHPUR, UP, INDIA
+              INDIA
             </div>
           </div>
 
