@@ -592,16 +592,16 @@ const Services = () => {
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
             </div>
+          </section>
         </div>
-      </div>
 
-      {/* How We Work Section - Completely Separate with Different Background */}
-      <section className="bg-black border-t border-border py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-          <HowWeWork mode={mode} />
-        </div>
-      </section>
-    </main >
+        {/* How We Work Section - Completely Separate with Different Background */}
+        <section className="bg-black border-t border-border py-16 sm:py-20 md:py-24">
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+            <HowWeWork mode={mode} />
+          </div>
+        </section>
+      </main >
 
       <Footer mode={mode} />
     </>
