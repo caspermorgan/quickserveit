@@ -172,6 +172,29 @@ const Services = () => {
     navigate('/');
   };
 
+  // Scroll-triggered animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const elements = document.querySelectorAll('.observe-on-scroll');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   const institutionalServices = [
     {
       id: 'exam-paper-typing',
@@ -436,7 +459,7 @@ const Services = () => {
       <main className="min-h-screen bg-background pt-24 md:pt-32 pb-28 md:pb-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           {/* Header */}
-          <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto px-4 md:px-0">
+          <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto px-4 md:px-0 animate-fade-in-up">
             <H1 className="mb-5 md:mb-4">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
@@ -457,7 +480,7 @@ const Services = () => {
           )}
 
           {/* Important Notice */}
-          <div className={`max-w-3xl mx-auto mb-10 md:mb-12 p-4 sm:p-5 rounded-xl border ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
+          <div className={`max-w-3xl mx-auto mb-10 md:mb-12 p-4 sm:p-5 rounded-xl border observe-on-scroll ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
             <div className="flex items-start gap-4 sm:gap-4">
               <AlertCircle className={`w-5 h-5 sm:w-5 sm:h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <div>
@@ -474,7 +497,7 @@ const Services = () => {
 
 
           {/* Services Section */}
-          <div className="pb-16 md:pb-20">
+          <div className="pb-16 md:pb-20 observe-on-scroll">
             <div className="space-y-5 sm:space-y-6 max-w-3xl mx-auto">
               {services.map((service, index) => (
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
@@ -547,8 +570,8 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className={`shrink-0 p-2.5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring min-w-[44px] min-h-[44px] flex items-center justify-center ${mode === 'institutional'
-              ? 'hover:bg-institutional/10 active:bg-institutional/20'
-              : 'hover:bg-creator/10 active:bg-creator/20'
+            ? 'hover:bg-institutional/10 active:bg-institutional/20'
+            : 'hover:bg-creator/10 active:bg-creator/20'
             }`}
           aria-expanded={isExpanded}
           aria-label={isExpanded ? "Collapse service details" : "Expand service details"}

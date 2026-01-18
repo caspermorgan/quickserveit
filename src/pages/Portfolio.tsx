@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useEffect } from 'react';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -97,6 +98,29 @@ const Portfolio = () => {
   // Filter projects based on mode
   const displayedProjects = portfolioItems.filter(item => item.type === mode);
 
+  // Scroll-triggered animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const elements = document.querySelectorAll('.observe-on-scroll');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -110,7 +134,7 @@ const Portfolio = () => {
 
       <main className="min-h-screen bg-background pt-32 pb-20">
         <section className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in-up">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-4">
               <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Real</span> {t('portfolio')}
             </h1>
@@ -122,7 +146,7 @@ const Portfolio = () => {
           </div>
 
           {/* Portfolio Grid - Show ALL projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 observe-on-scroll">
             {displayedProjects.map((item, index) => (
               <PortfolioCard
                 key={index}

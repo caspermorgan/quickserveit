@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useEffect } from 'react';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -19,6 +20,29 @@ const About = () => {
     setCurrentSection(mode);
     navigate('/');
   };
+
+  // Scroll-triggered animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const elements = document.querySelectorAll('.observe-on-scroll');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -39,7 +63,7 @@ const About = () => {
       <main className="min-h-screen bg-background pt-32 pb-28 md:pb-20">
         <div className="container mx-auto px-6">
           {/* Header */}
-          <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="text-center mb-20 max-w-3xl mx-auto animate-fade-in-up">
             <H1 className="mb-6">
               {t('aboutPageTitle')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('brandName')}</span>
             </H1>
@@ -49,7 +73,7 @@ const About = () => {
           </div>
 
           {/* Philosophy Section */}
-          <section className="max-w-4xl mx-auto mb-20">
+          <section className="max-w-4xl mx-auto mb-20 observe-on-scroll">
             <H2 className="mb-8 text-center">{t('ourPhilosophy')}</H2>
             <div className="grid md:grid-cols-2 gap-6">
               <PhilosophyCard
@@ -80,7 +104,7 @@ const About = () => {
           </section>
 
           {/* Founder's Message Teaser */}
-          <section className="max-w-3xl mx-auto mb-20">
+          <section className="max-w-3xl mx-auto mb-20 observe-on-scroll">
             <Link
               to="/founder"
               className={`
@@ -112,7 +136,7 @@ const About = () => {
           </section>
 
           {/* Who We Serve - Mode Specific */}
-          <section className="max-w-4xl mx-auto mb-20">
+          <section className="max-w-4xl mx-auto mb-20 observe-on-scroll">
             <H2 className="mb-8 text-center">{t('whoWeServe')}</H2>
             <div className="max-w-2xl mx-auto">
               {mode === 'institutional' ? (
@@ -154,7 +178,7 @@ const About = () => {
           </section>
 
           {/* What We Don't Do */}
-          <section className="max-w-3xl mx-auto mb-20">
+          <section className="max-w-3xl mx-auto mb-20 observe-on-scroll">
             <H2 className="mb-8 text-center">{t('whatWeDontDo')}</H2>
             <div className="p-8 rounded-2xl glass-card border border-border/20">
               <p className="text-foreground/60 mb-6">
@@ -204,7 +228,7 @@ const About = () => {
           </section>
 
           {/* Working Hours Notice */}
-          <section className="max-w-2xl mx-auto text-center">
+          <section className="max-w-2xl mx-auto text-center observe-on-scroll">
             <div className={`p-8 rounded-2xl ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
               <Clock className={`w-8 h-8 mx-auto mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <h3 className="text-xl font-medium mb-3">{t('workingHours')}</h3>
