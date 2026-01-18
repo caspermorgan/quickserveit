@@ -26,9 +26,9 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
     return (
         <Component
             className={cn(
-                'text-4xl md:text-5xl',
+                'text-3xl md:text-4xl lg:text-5xl',
                 'font-display',
-                'leading-tight',
+                'leading-snug',
                 className
             )}
             style={{ fontWeight: 800 }}
@@ -42,9 +42,9 @@ export const H1 = ({ children, className, as: Component = 'h1' }: TypographyProp
 export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-3xl md:text-4xl',
+            'text-2xl md:text-3xl lg:text-4xl',
             'font-display font-bold',
-            'leading-snug',
+            'leading-relaxed',
             className
         )}>
             {children}
@@ -56,9 +56,9 @@ export const H2 = ({ children, className, as: Component = 'h2' }: TypographyProp
 export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-2xl md:text-3xl',
+            'text-xl md:text-2xl lg:text-3xl',
             'font-display font-semibold',
-            'leading-snug',
+            'leading-relaxed',
             className
         )}>
             {children}
@@ -70,9 +70,9 @@ export const H3 = ({ children, className, as: Component = 'h3' }: TypographyProp
 export const H4 = ({ children, className, as: Component = 'h4' }: TypographyProps) => {
     return (
         <Component className={cn(
-            'text-xl md:text-2xl',
+            'text-lg md:text-xl lg:text-2xl',
             'font-sans font-semibold',
-            'leading-normal',
+            'leading-relaxed',
             className
         )}>
             {children}
@@ -129,8 +129,8 @@ export const BodyText = ({ children, className, as: Component = 'p' }: Typograph
         <Component className={cn(
             'text-base md:text-lg',
             'font-sans font-normal',
-            'leading-relaxed',
-            'text-foreground/70',
+            'leading-loose',
+            'text-foreground/75',
             className
         )}>
             {children}

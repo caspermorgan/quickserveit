@@ -436,8 +436,8 @@ const Services = () => {
       <main className="min-h-screen bg-background pt-24 md:pt-32 pb-16 md:pb-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           {/* Header */}
-          <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
-            <H1 className="mb-4 md:mb-4">
+          <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto px-4 md:px-0">
+            <H1 className="mb-5 md:mb-4">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
@@ -544,7 +544,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
           <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-base sm:text-lg font-medium mb-2">{title}</h3>
+          <h3 className="text-base sm:text-lg font-medium mb-2.5 leading-snug">{title}</h3>
           <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed">{mediumDesc}</p>
         </div>
         <div className="shrink-0 mt-1">

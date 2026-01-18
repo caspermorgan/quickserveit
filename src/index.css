@@ -204,16 +204,20 @@
 
     h1,
     h2,
-    h3,
+    h3 {
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
     h4,
     h5,
     h6 {
-      line-height: 1.2;
+      line-height: 1.4;
       font-weight: 700;
     }
 
     p {
-      line-height: 1.7;
+      line-height: 1.75;
     }
   }
 
@@ -603,6 +607,20 @@
     .touch-target {
       min-height: 44px;
       min-width: 44px;
+    }
+
+    /* Mobile Typography Spacing */
+    .mobile-heading-spacing {
+      padding-left: 1.25rem;
+      /* 20px */
+      padding-right: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-text-breathe {
+      padding-left: 1rem;
+      /* 16px */
+      padding-right: 1rem;
     }
   }
 

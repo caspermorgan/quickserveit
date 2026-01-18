@@ -162,10 +162,10 @@ const Contact = () => {
             className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H1 className="mb-4 sm:mb-5 md:mb-6">
+            <H1 className="mb-5 sm:mb-6 md:mb-7 px-4 md:px-0">
               Let's <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Connect</span>
             </H1>
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
+            <p className="text-foreground/75 text-base sm:text-lg md:text-xl leading-loose mb-6 sm:mb-7 md:mb-8 px-5 md:px-4">
               Share your project details and we'll respond within working hours.
             </p>
 
