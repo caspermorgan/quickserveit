@@ -88,6 +88,22 @@ const ScrollToTop = () => {
   return null;
 };
 
+// Smart landing route that bypasses for returning users
+const LandingRoute = () => {
+  const { hasEntered } = useMode();
+  const location = useLocation();
+
+  // If user has already entered and is on landing page, redirect to home
+  // Allow explicit navigation to landing page via state flag
+  const isExplicitNavigation = location.state?.explicit === true;
+
+  if (hasEntered && !isExplicitNavigation) {
+    return <Navigate to="/home" replace />;
+  }
+
+  return <Landing />;
+};
+
 // Protected route wrapper that redirects to landing if not entered
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { hasEntered } = useMode();
@@ -105,7 +121,7 @@ const AppRoutes = () => {
       <ScrollToTop />
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<LandingRoute />} />
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
           <Route path="/pricing" element={<ProtectedRoute><Pricing /></ProtectedRoute>} />

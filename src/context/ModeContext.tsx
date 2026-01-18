@@ -9,6 +9,7 @@ interface ModeContextType {
   setHasEntered: (entered: boolean) => void;
   currentSection: Mode;
   setCurrentSection: (section: Mode) => void;
+  resetMode: () => void; // Reset mode and return to landing
 }
 
 const ModeContext = createContext<ModeContextType | undefined>(undefined);
@@ -53,8 +54,18 @@ export const ModeProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem(CURRENT_SECTION_KEY, section);
   };
 
+  // Clear all stored preferences and return to landing page
+  const resetMode = () => {
+    setHasEnteredState(false);
+    setModeState('institutional'); // Reset to default mode
+    setCurrentSectionState('institutional'); // Reset to default section
+    localStorage.removeItem(MODE_STORAGE_KEY);
+    localStorage.removeItem(ENTERED_STORAGE_KEY);
+    localStorage.removeItem(CURRENT_SECTION_KEY);
+  };
+
   return (
-    <ModeContext.Provider value={{ mode, setMode, hasEntered, setHasEntered, currentSection, setCurrentSection }}>
+    <ModeContext.Provider value={{ mode, setMode, hasEntered, setHasEntered, currentSection, setCurrentSection, resetMode }}>
       {children}
     </ModeContext.Provider>
   );

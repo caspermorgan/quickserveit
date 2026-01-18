@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
+import SwitchModeButton from './SwitchModeButton';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator';
@@ -243,6 +244,9 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
               </Link>
             );
           })}
+
+          {/* Switch Mode Button */}
+          <SwitchModeButton variant="minimal" className="ml-2" />
 
           {/* Start Your Project CTA Button */}
           <Link
