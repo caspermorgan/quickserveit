@@ -25,7 +25,11 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
   const modeColor = mode === 'institutional' ? '234, 179, 8' : '34, 211, 238';
 
   const createParticle = useCallback((canvas: HTMLCanvasElement): Particle => {
-    const size = Math.random() * 1.2 + 0.4;
+    const isMobile = window.innerWidth < 768;
+    // Slightly larger particles on mobile for visibility
+    const sizeMin = isMobile ? 0.6 : 0.4;
+    const sizeMax = isMobile ? 1.4 : 1.2;
+    const size = Math.random() * sizeMax + sizeMin;
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
     const directionX = (Math.random() * 0.4) - 0.2;
@@ -40,8 +44,21 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
 
     particlesRef.current = [];
     const isMobile = window.innerWidth < 768;
-    const densityFactor = isMobile ? 18000 : 10000;
-    const numberOfParticles = (canvas.height * canvas.width) / densityFactor;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+    // Lower divisor = MORE particles (mobile needs denser field)
+    // Account for device pixel ratio on high-DPI screens
+    const pixelRatio = window.devicePixelRatio || 1;
+    const dpiMultiplier = Math.min(pixelRatio, 2); // Cap at 2x to avoid performance issues
+
+    const densityFactor = isMobile
+      ? 6000  // Mobile: densest (was 18000 - 3x more particles)
+      : isTablet
+        ? 8000  // Tablet: medium density
+        : 10000; // Desktop: baseline
+
+    const baseParticles = (canvas.height * canvas.width) / densityFactor;
+    const numberOfParticles = Math.floor(baseParticles * dpiMultiplier);
 
     for (let i = 0; i < numberOfParticles; i++) {
       particlesRef.current.push(createParticle(canvas));
@@ -65,7 +82,10 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
 
       for (let i = 0; i < dustCount; i++) {
         // Smaller, more varied particle sizes for a finer dust effect
-        const size = Math.random() * 1.2 + 0.3;
+        // Use same sizing logic as regular particles for consistency
+        const sizeMin = isMobile ? 0.6 : 0.3;
+        const sizeMax = isMobile ? 1.4 : 1.2;
+        const size = Math.random() * sizeMax + sizeMin;
 
         // More spread across the screen with concentrated center
         const spreadX = Math.random() < 0.7
@@ -158,9 +178,15 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
 
     const connect = () => {
       const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+      // Smaller screens need CLOSER connections, not farther
+      // Use absolute pixel distances instead of proportional
       const connectDist = isMobile
-        ? (canvas.width / 15) * (canvas.height / 15)
-        : (canvas.width / 9) * (canvas.height / 9);
+        ? 80 * 80      // 80px radius on mobile (was ~26px)
+        : isTablet
+          ? 100 * 100  // 100px radius on tablet
+          : (canvas.width / 9) * (canvas.height / 9); // Desktop: keep proportional
 
       for (let a = 0; a < particlesRef.current.length; a++) {
         for (let b = a; b < particlesRef.current.length; b++) {
@@ -173,7 +199,9 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
           if (distance < connectDist) {
             const opacity = 1 - distance / connectDist;
             if (opacity > 0) {
-              ctx.strokeStyle = `rgba(${modeColor}, ${opacity * 0.12})`;
+              // Slightly stronger connections on mobile for visibility
+              const baseOpacity = isMobile ? 0.15 : 0.12;
+              ctx.strokeStyle = `rgba(${modeColor}, ${opacity * baseOpacity})`;
               ctx.lineWidth = 0.5;
               ctx.beginPath();
               ctx.moveTo(pA.x, pA.y);
