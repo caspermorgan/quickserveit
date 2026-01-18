@@ -622,6 +622,23 @@
       /* 16px */
       padding-right: 1rem;
     }
+
+    /* Mobile Safe Area Padding */
+    .mobile-safe-top {
+      padding-top: 6rem;
+      /* 96px - navbar clearance */
+    }
+
+    .mobile-safe-bottom {
+      padding-bottom: 7rem;
+      /* 112px - bottom nav clearance */
+    }
+
+    .mobile-container-x {
+      padding-left: 1.25rem;
+      /* 20px */
+      padding-right: 1.25rem;
+    }
   }
 
   /* Horizontal Scroll Utilities for Testimonials */

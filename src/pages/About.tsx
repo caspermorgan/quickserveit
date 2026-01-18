@@ -36,7 +36,7 @@ const About = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-32 pb-20">
+      <main className="min-h-screen bg-background pt-32 pb-28 md:pb-20">
         <div className="container mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-20 max-w-3xl mx-auto">

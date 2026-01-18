@@ -433,7 +433,7 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 md:pt-32 pb-16 md:pb-20">
+      <main className="min-h-screen bg-background pt-24 md:pt-32 pb-28 md:pb-20">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           {/* Header */}
           <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto px-4 md:px-0">
@@ -475,7 +475,7 @@ const Services = () => {
 
           {/* Services Section */}
           <div className="pb-16 md:pb-20">
-            <div className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
+            <div className="space-y-5 sm:space-y-6 max-w-3xl mx-auto">
               {services.map((service, index) => (
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
@@ -537,7 +537,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
       {/* Header - Always visible */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-4 sm:p-5 md:p-6 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
+        className="w-full p-5 sm:p-6 md:p-6 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
         aria-expanded={isExpanded}
       >
         <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>

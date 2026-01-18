@@ -56,7 +56,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             </div>
 
             {/* Main Content Area */}
-            <div className={`relative z-40 flex flex-col items-center text-center px-4 w-full max-w-6xl transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
+            <div className={`relative z-40 flex flex-col items-center text-center px-5 md:px-4 w-full max-w-6xl pt-20 md:pt-0 transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
 
                 {/* 1. Brand Identity - Fixed Size & Position */}
@@ -85,8 +85,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
                         className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden ${mode === 'institutional'
-                                ? 'border-institutional/50 bg-institutional/5'
-                                : 'border-white/10 bg-white/[0.02] hover:border-institutional/30'
+                            ? 'border-institutional/50 bg-institutional/5'
+                            : 'border-white/10 bg-white/[0.02] hover:border-institutional/30'
                             }`}
                         style={{
                             backdropFilter: 'blur(20px)',
@@ -118,8 +118,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
                         className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden ${mode === 'creator'
-                                ? 'border-creator/50 bg-creator/5'
-                                : 'border-white/10 bg-white/[0.02] hover:border-creator/30'
+                            ? 'border-creator/50 bg-creator/5'
+                            : 'border-white/10 bg-white/[0.02] hover:border-creator/30'
                             }`}
                         style={{
                             backdropFilter: 'blur(20px)',
