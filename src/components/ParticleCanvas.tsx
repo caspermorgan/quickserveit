@@ -154,10 +154,11 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
         p.y -= Math.random() * 8 + 2;
         p.size *= 0.96;
       } else {
-        // Normal movement
+        // Boundary bounces
         if (p.x > canvas.width || p.x < 0) p.directionX = -p.directionX;
         if (p.y > canvas.height || p.y < 0) p.directionY = -p.directionY;
 
+        // Mouse interaction (enhancement, not requirement)
         const dx = mouseRef.current.x - p.x;
         const dy = mouseRef.current.y - p.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -170,8 +171,13 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
           p.y -= forceDirectionY * force * p.density * 0.5;
         }
 
-        p.x += p.directionX;
-        p.y += p.directionY;
+        // Subtle ambient drift (always active) - Brownian-motion-like organic movement
+        const ambientDriftX = (Math.random() - 0.5) * 0.15; // Very subtle random drift
+        const ambientDriftY = (Math.random() - 0.5) * 0.15;
+
+        // Base movement + ambient drift
+        p.x += p.directionX + ambientDriftX;
+        p.y += p.directionY + ambientDriftY;
       }
       drawParticle(p);
     };

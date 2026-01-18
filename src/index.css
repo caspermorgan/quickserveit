@@ -958,6 +958,7 @@
   }
 }
 
+
 @keyframes slowPulse {
 
   0%,
@@ -997,6 +998,52 @@
     background-position: 0% 50%;
   }
 }
+
+/* Premium Loader Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes orbit-1 {
+  from {
+    transform: rotate(0deg) translateX(-2rem);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(-2rem);
+  }
+}
+
+@keyframes orbit-2 {
+  from {
+    transform: rotate(120deg) translateX(-2.5rem);
+  }
+
+  to {
+    transform: rotate(480deg) translateX(-2.5rem);
+  }
+}
+
 
 
 /* Premium Gradient Mesh Animation */

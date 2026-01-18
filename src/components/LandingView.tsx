@@ -64,7 +64,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                     <h1
                         className="font-display font-bold text-foreground tracking-tight mb-2"
                         style={{
-                            fontSize: 'clamp(2rem, 5vw, 4.5rem)', // Reduced from 7rem
+                            fontSize: 'clamp(2rem, 5vw, 3.5rem)', // Reduced max from 4.5rem to 3.5rem for balance on large screens
                             lineHeight: '1.1',
                             textShadow: '0 2px 20px rgba(255, 255, 255, 0.1)',
                         }}

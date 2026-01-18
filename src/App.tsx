@@ -24,16 +24,56 @@ const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Minimal loading fallback for page transitions
-const PageLoader = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="text-center">
-      <p className="font-mono text-sm tracking-[0.3em] text-muted-foreground uppercase animate-pulse">
-        Loading
-      </p>
+// Premium glassmorphism loader matching brand language
+const PageLoader = () => {
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 bg-gradient-radial from-foreground/5 via-transparent to-transparent opacity-30" />
+
+      {/* Premium glassmorphism loader */}
+      <div className="relative">
+        {/* Animated particles container */}
+        <div className="relative w-20 h-20 md:w-24 md:h-24">
+          {/* Outer rotating ring */}
+          <div
+            className="absolute inset-0 rounded-full border border-foreground/10"
+            style={{
+              animation: 'spin-slow 3s linear infinite'
+            }}
+          />
+
+          {/* Inner pulsing core */}
+          <div
+            className="absolute inset-4 rounded-full glass-card border border-foreground/20 flex items-center justify-center"
+            style={{
+              animation: 'pulse-slow 2s ease-in-out infinite'
+            }}
+          >
+            {/* Center dot */}
+            <div className="w-2 h-2 rounded-full bg-foreground/40 animate-glow-pulse" />
+          </div>
+
+          {/* Orbiting particles */}
+          <div
+            className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full bg-foreground/60"
+            style={{
+              transformOrigin: '-2rem 0',
+              animation: 'orbit-1 4s linear infinite'
+            }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 w-1 h-1 rounded-full bg-foreground/40"
+            style={{
+              transformOrigin: '-2.5rem 0',
+              animation: 'orbit-2 5s linear infinite'
+            }}
+          />
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const queryClient = new QueryClient();
 
