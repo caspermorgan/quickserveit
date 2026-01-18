@@ -84,9 +84,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onClick={() => { onModeChange('institutional'); setTimeout(() => onEnter(), 300); }}
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden ${mode === 'institutional'
+                        className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden active:scale-[0.98] ${mode === 'institutional'
                             ? 'border-institutional/50 bg-institutional/5'
-                            : 'border-white/10 bg-white/[0.02] hover:border-institutional/30'
+                            : 'border-white/10 bg-white/[0.02] md:hover:border-institutional/30'
                             }`}
                         style={{
                             backdropFilter: 'blur(20px)',
@@ -117,9 +117,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         onClick={() => { onModeChange('creator'); setTimeout(() => onEnter(), 300); }}
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden ${mode === 'creator'
+                        className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden active:scale-[0.98] ${mode === 'creator'
                             ? 'border-creator/50 bg-creator/5'
-                            : 'border-white/10 bg-white/[0.02] hover:border-creator/30'
+                            : 'border-white/10 bg-white/[0.02] md:hover:border-creator/30'
                             }`}
                         style={{
                             backdropFilter: 'blur(20px)',

@@ -534,12 +534,8 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
       id={service.id}
       className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : 'hover:border-border/40 hover:-translate-y-0.5'}`}
     >
-      {/* Header - Always visible */}
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-5 sm:p-6 md:p-6 flex items-start gap-4 sm:gap-4 text-left hover:bg-foreground/[0.02] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-ring"
-        aria-expanded={isExpanded}
-      >
+      {/* Header - Safe scroll zone with chevron-only interaction */}
+      <div className="w-full p-5 sm:p-6 md:p-6 flex items-start gap-4 sm:gap-4">
         <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
           <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
@@ -547,14 +543,23 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
           <h3 className="text-base sm:text-lg font-medium mb-2.5 leading-snug">{title}</h3>
           <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed">{mediumDesc}</p>
         </div>
-        <div className="shrink-0 mt-1">
+        {/* Only chevron is clickable - 44×44px minimum touch target */}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className={`shrink-0 p-2.5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring min-w-[44px] min-h-[44px] flex items-center justify-center ${mode === 'institutional'
+              ? 'hover:bg-institutional/10 active:bg-institutional/20'
+              : 'hover:bg-creator/10 active:bg-creator/20'
+            }`}
+          aria-expanded={isExpanded}
+          aria-label={isExpanded ? "Collapse service details" : "Expand service details"}
+        >
           {isExpanded ? (
-            <ChevronUp className="w-4 h-4 text-foreground/40" />
+            <ChevronUp className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
           ) : (
-            <ChevronDown className="w-4 h-4 text-foreground/40" />
+            <ChevronDown className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
           )}
-        </div>
-      </button>
+        </button>
+      </div>
 
       {/* Expanded Content with smooth animation */}
       <div

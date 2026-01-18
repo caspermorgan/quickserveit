@@ -219,14 +219,14 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
           }`}
       >
-        <nav className="flex items-center gap-1 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
+        <nav className="flex items-center gap-4 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             return (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative px-3 py-2.5 md:px-4 md:py-2 text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center ${isActive
+                className={`relative px-4 py-3 md:px-4 md:py-2 text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center min-h-[44px] ${isActive
                   ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   : 'text-foreground/60 hover:text-foreground'
                   }`}
@@ -247,7 +247,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Start Your Project CTA Button */}
           <Link
             to="/contact"
-            className={`ml-2 px-4 py-2.5 md:px-5 md:py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap ${mode === 'institutional'
+            className={`ml-4 px-4 py-2.5 md:px-5 md:py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center ${mode === 'institutional'
               ? 'bg-institutional text-background hover:bg-institutional/90'
               : 'bg-creator text-background hover:bg-creator/90'
               }`}

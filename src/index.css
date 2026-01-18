@@ -639,6 +639,16 @@
       /* 20px */
       padding-right: 1.25rem;
     }
+
+    /* Touch Safety Utilities */
+    .touch-safe-gap {
+      gap: 1rem;
+      /* 16px minimum between touch targets */
+    }
+
+    .mobile-no-hover-scale {
+      transform: scale(1) !important;
+    }
   }
 
   /* Horizontal Scroll Utilities for Testimonials */
