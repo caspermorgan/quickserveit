@@ -131,6 +131,18 @@
     --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Unified Duration Scale */
+    --duration-instant: 0.1s;
+    /* Touch feedback, active states */
+    --duration-fast: 0.2s;
+    /* Mobile transitions, quick interactions */
+    --duration-normal: 0.3s;
+    /* Standard desktop interactions */
+    --duration-slow: 0.4s;
+    /* Complex state changes */
+    --duration-ambient: 3s;
+    /* Infinite subtle animations */
   }
 
   /* Creator Mode Override */
@@ -303,7 +315,8 @@
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: var(--shadow-premium-md);
-    transition: all 0.5s var(--ease-premium);
+    transition: all var(--duration-slow) var(--ease-premium);
+    will-change: transform;
   }
 
   /* Noise texture overlay for tactile glass feel */
@@ -329,7 +342,7 @@
     .glass-card {
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      transition: all 0.3s var(--ease-premium);
+      transition: all var(--duration-normal) var(--ease-premium);
     }
 
     /* Reduce noise opacity on mobile for better performance */
@@ -341,7 +354,7 @@
   .glass-card:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4);
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow:
       0 30px 80px rgba(0, 0, 0, 0.6),
       0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
@@ -414,7 +427,8 @@
     letter-spacing: 0.025em;
     background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
     color: hsl(0, 0%, 0%);
-    transition: all 0.4s var(--ease-premium);
+    transition: all var(--duration-slow) var(--ease-premium);
+    will-change: transform;
     min-height: 44px;
     /* Mobile touch target - 44px minimum */
     box-shadow:
@@ -435,7 +449,7 @@
   }
 
   .btn-premium:hover {
-    transform: translateY(-2px) scale(1.02);
+    transform: translateY(-2px);
     box-shadow:
       0 0 50px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5),
       0 20px 40px rgba(0, 0, 0, 0.3),
@@ -445,7 +459,7 @@
   /* Mobile Button Optimization */
   @media (max-width: 768px) {
     .btn-premium {
-      transition: all 0.2s var(--ease-premium);
+      transition: all var(--duration-fast) var(--ease-premium);
       min-height: 44px;
     }
   }
@@ -472,7 +486,8 @@
     background: transparent;
     border: 1px solid hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
     color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
-    transition: all 0.4s var(--ease-premium);
+    transition: all var(--duration-slow) var(--ease-premium);
+    will-change: transform;
     min-height: 44px;
     /* Mobile touch target - 44px minimum */
   }
@@ -499,7 +514,7 @@
   /* Mobile Button Optimization */
   @media (max-width: 768px) {
     .btn-outline-premium {
-      transition: all 0.2s var(--ease-premium);
+      transition: all var(--duration-fast) var(--ease-premium);
       min-height: 44px;
     }
   }
@@ -513,7 +528,7 @@
     .btn-outline-premium:active {
       transform: scale(0.96);
       background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15);
-      transition: all 0.1s ease;
+      transition: all var(--duration-instant) ease;
     }
   }
 
@@ -690,11 +705,12 @@
       0 30px 80px rgba(0, 0, 0, 0.6),
       inset 0 0 20px rgba(255, 255, 255, 0.02),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: all 0.5s var(--ease-premium);
+    transition: all var(--duration-slow) var(--ease-premium);
+    will-change: transform;
   }
 
   .decision-card:hover {
-    transform: translateY(-4px) scale(1.01);
+    transform: translateY(-4px);
     box-shadow:
       0 0 0 1px rgba(0, 0, 0, 0.5),
       0 40px 100px rgba(0, 0, 0, 0.7),
@@ -758,39 +774,31 @@
 
   /* Animate utilities */
   .animate-fade-in {
-    animation: fadeIn 0.8s var(--ease-premium) forwards;
+    animation: fadeIn var(--duration-slow) var(--ease-premium) forwards;
   }
 
   .animate-fade-in-up {
-    animation: fadeInUp 0.8s var(--ease-premium) forwards;
+    animation: fadeInUp var(--duration-slow) var(--ease-premium) forwards;
   }
 
   .animate-fade-in-down {
-    animation: fadeInDown 0.8s var(--ease-premium) forwards;
+    animation: fadeInDown var(--duration-slow) var(--ease-premium) forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.6s var(--ease-premium) forwards;
-  }
-
-  .animate-blur-in {
-    animation: blurIn 0.8s var(--ease-premium) forwards;
+    animation: scaleIn var(--duration-normal) var(--ease-premium) forwards;
   }
 
   .animate-glow-pulse {
-    animation: glowPulse 3s ease-in-out infinite;
+    animation: glowPulse var(--duration-ambient) ease-in-out infinite;
   }
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
-  .animate-dust {
-    animation: dustDrift 1.8s var(--ease-premium) forwards;
-  }
-
   .animate-slow-pulse {
-    animation: slowPulse 3s ease-in-out infinite;
+    animation: slowPulse var(--duration-ambient) ease-in-out infinite;
   }
 
   /* Pointer utilities */
@@ -885,17 +893,7 @@
   }
 }
 
-@keyframes blurIn {
-  from {
-    opacity: 0;
-    filter: blur(20px);
-  }
-
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
+/* blurIn removed - GPU-heavy filter not suitable for mobile performance */
 
 @keyframes glowPulse {
 
@@ -921,19 +919,7 @@
   }
 }
 
-@keyframes dustDrift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 1;
-    filter: blur(0px);
-  }
-
-  100% {
-    transform: translate3d(200px, -200px, 0) scale(1.2) rotate(5deg);
-    opacity: 0;
-    filter: blur(20px);
-  }
-}
+/* dustDrift removed - too flashy and distracting */
 
 @keyframes typewriter {
   from {
@@ -985,19 +971,7 @@
   }
 }
 
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
+/* gradient-shift removed - unused */
 
 /* Premium Loader Animations */
 @keyframes spin-slow {
@@ -1024,40 +998,11 @@
   }
 }
 
-@keyframes orbit-1 {
-  from {
-    transform: rotate(0deg) translateX(-2rem);
-  }
-
-  to {
-    transform: rotate(360deg) translateX(-2rem);
-  }
-}
-
-@keyframes orbit-2 {
-  from {
-    transform: rotate(120deg) translateX(-2.5rem);
-  }
-
-  to {
-    transform: rotate(480deg) translateX(-2.5rem);
-  }
-}
+/* orbit-1 and orbit-2 removed - unused */
 
 
 
-/* Premium Gradient Mesh Animation */
-@keyframes meshGradient {
-
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-}
+/* meshGradient removed - already disabled, unused */
 
 /* Counter Animation */
 @keyframes countUp {
@@ -1072,16 +1017,7 @@
   }
 }
 
-/* Magnetic Pull Effect */
-@keyframes magneticPull {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(var(--magnetic-x, 0), var(--magnetic-y, 0));
-  }
-}
+/* magneticPull removed - unused complex animation */
 
 /* Shimmer Effect */
 @keyframes shimmer {
@@ -1319,4 +1255,27 @@
 
 .caption-text {
   @apply text-xs md:text-sm font-sans font-normal leading-normal text-foreground/50;
+}
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION SUPPORT
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable floating animations */
+  .animate-float,
+  .animate-glow-pulse,
+  .animate-slow-pulse {
+    animation: none !important;
+  }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useMode } from '@/context/Mode/ModeContext';
+import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
@@ -45,28 +45,8 @@ const FAQ = () => {
             { question: t('faqCreatorQuestion5'), answer: t('faqCreatorAnswer5') }
         ];
 
-    // Scroll-triggered animations
-    useEffect(() => {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observerCallback = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const elements = document.querySelectorAll('.observe-on-scroll');
-        elements.forEach(el => observer.observe(el));
-
-        return () => observer.disconnect();
-    }, []);
+    // Centralized scroll-triggered animations
+    useScrollAnimation({ staggerDelay: 100 });
 
 
     return (
@@ -87,7 +67,7 @@ const FAQ = () => {
 
             <main className="min-h-screen bg-background">
                 {/* Hero Section */}
-                <section className="pt-32 pb-16 px-6">
+                <section className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 px-4 sm:px-6">
                     <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
                         <h1 className="text-3xl md:text-5xl font-display tracking-wide mb-4 text-foreground">
                             {t('faqPageTitle')}
@@ -100,7 +80,7 @@ const FAQ = () => {
 
                 {/* FAQ Accordion Section */}
                 <section className="pb-32 px-6">
-                    <div className="max-w-3xl mx-auto observe-on-scroll">
+                    <div className="max-w-3xl mx-auto">
                         <div className="space-y-4">
                             {faqData.map((faq, index) => (
                                 <div
