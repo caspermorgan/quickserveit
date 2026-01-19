@@ -88,27 +88,38 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Smart landing route that bypasses for returning users
+// Smart landing route that only shows for root visits
 const LandingRoute = () => {
-  const { hasEntered } = useMode();
+  const { hasEntered, setHasEntered, setMode } = useMode();
   const location = useLocation();
 
-  // If user has already entered and is on landing page, redirect to home
-  // Allow explicit navigation to landing page via state flag
-  const isExplicitNavigation = location.state?.explicit === true;
-
-  if (hasEntered && !isExplicitNavigation) {
+  // If user has already entered, redirect to home
+  if (hasEntered) {
     return <Navigate to="/home" replace />;
   }
 
   return <Landing />;
 };
 
-// Protected route wrapper that redirects to landing if not entered
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { hasEntered } = useMode();
+// Intelligent route wrapper that auto-enters for deep links
+const SmartRoute = ({ children, defaultMode }: { children: React.ReactNode; defaultMode?: 'institutional' | 'creator' }) => {
+  const { hasEntered, setHasEntered, setMode } = useMode();
+  const location = useLocation();
 
-  if (!hasEntered) {
+  // Auto-enter for deep links (any non-root path)
+  // This respects user intent from ads, shared links, bookmarks
+  useEffect(() => {
+    if (!hasEntered && location.pathname !== '/') {
+      // Set mode based on URL context or default to institutional
+      const mode = defaultMode || 'institutional';
+      setMode(mode);
+      setHasEntered(true);
+    }
+  }, [hasEntered, location.pathname, setHasEntered, setMode, defaultMode]);
+
+  // If not entered yet and on root, this shouldn't happen
+  // but redirect to landing as fallback
+  if (!hasEntered && location.pathname === '/') {
     return <Navigate to="/" replace />;
   }
 
@@ -121,18 +132,23 @@ const AppRoutes = () => {
       <ScrollToTop />
       <Suspense fallback={<PageLoader />}>
         <Routes>
+          {/* Landing page - only for root visits */}
           <Route path="/" element={<LandingRoute />} />
-          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/services" element={<ProtectedRoute><Services /></ProtectedRoute>} />
-          <Route path="/pricing" element={<ProtectedRoute><Pricing /></ProtectedRoute>} />
-          <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
-          <Route path="/founder" element={<ProtectedRoute><Founder /></ProtectedRoute>} />
-          <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
-          <Route path="/portfolio" element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
-          <Route path="/terms" element={<ProtectedRoute><Terms /></ProtectedRoute>} />
-          <Route path="/privacy" element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
-          <Route path="/disclaimer" element={<ProtectedRoute><Disclaimer /></ProtectedRoute>} />
-          <Route path="/faq" element={<ProtectedRoute><FAQ /></ProtectedRoute>} />
+
+          {/* All content pages - auto-enter for deep links */}
+          <Route path="/home" element={<SmartRoute><Home /></SmartRoute>} />
+          <Route path="/services" element={<SmartRoute><Services /></SmartRoute>} />
+          <Route path="/pricing" element={<SmartRoute><Pricing /></SmartRoute>} />
+          <Route path="/about" element={<SmartRoute><About /></SmartRoute>} />
+          <Route path="/founder" element={<SmartRoute><Founder /></SmartRoute>} />
+          <Route path="/contact" element={<SmartRoute><Contact /></SmartRoute>} />
+          <Route path="/portfolio" element={<SmartRoute><Portfolio /></SmartRoute>} />
+          <Route path="/terms" element={<SmartRoute><Terms /></SmartRoute>} />
+          <Route path="/privacy" element={<SmartRoute><Privacy /></SmartRoute>} />
+          <Route path="/disclaimer" element={<SmartRoute><Disclaimer /></SmartRoute>} />
+          <Route path="/faq" element={<SmartRoute><FAQ /></SmartRoute>} />
+
+          {/* 404 - no gate needed */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

@@ -456,18 +456,18 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 md:pt-32 pb-28 md:pb-20">
+      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 md:pb-28">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           {/* Header */}
-          <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto px-4 md:px-0 animate-fade-in-up">
-            <H1 className="mb-5 md:mb-4">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20 max-w-3xl mx-auto animate-fade-in-up">
+            <H1 className="mb-4 sm:mb-5 md:mb-6">
               {mode === 'institutional' ? (
                 <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
               ) : (
-                <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-creator/20 text-creator border border-creator/30">{t('betaVersion')}</span></>
+                <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full bg-creator/10 text-creator border border-creator/20">{t('betaVersion')}</span></>
               )}
             </H1>
-            <p className="text-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-0">
+            <p className="text-foreground/60 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
               {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
             </p>
           </div>
@@ -480,12 +480,12 @@ const Services = () => {
           )}
 
           {/* Important Notice */}
-          <div className={`max-w-3xl mx-auto mb-10 md:mb-12 p-4 sm:p-5 rounded-xl border observe-on-scroll ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
-            <div className="flex items-start gap-4 sm:gap-4">
-              <AlertCircle className={`w-5 h-5 sm:w-5 sm:h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+          <div className={`max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20 p-5 sm:p-6 rounded-xl border observe-on-scroll ${mode === 'institutional' ? 'border-institutional/20 bg-institutional/5' : 'border-creator/20 bg-creator/5'}`}>
+            <div className="flex items-start gap-4">
+              <AlertCircle className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
               <div>
-                <h3 className="font-medium mb-2 text-sm sm:text-sm">{t('beforeYouBegin')}</h3>
-                <ul className="text-xs sm:text-xs text-foreground/60 space-y-2 leading-relaxed">
+                <h3 className="font-semibold mb-2.5 text-sm">{t('beforeYouBegin')}</h3>
+                <ul className="text-xs text-foreground/60 space-y-1.5 leading-relaxed">
                   {t('beforeYouBeginItems').split('|').map((item, i) => (
                     <li key={i}>• {item}</li>
                   ))}
@@ -497,8 +497,8 @@ const Services = () => {
 
 
           {/* Services Section */}
-          <div className="pb-16 md:pb-20 observe-on-scroll">
-            <div className="space-y-5 sm:space-y-6 max-w-3xl mx-auto">
+          <div className="pb-16 sm:pb-20 md:pb-24 observe-on-scroll">
+            <div className="space-y-6 max-w-3xl mx-auto">
               {services.map((service, index) => (
                 <ServiceDetailCard key={index} service={service} mode={mode} t={t} />
               ))}
@@ -555,23 +555,23 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
   return (
     <div
       id={service.id}
-      className={`rounded-xl glass-card border border-border/20 overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'ring-1 ' + (mode === 'institutional' ? 'ring-institutional/30' : 'ring-creator/30') : 'hover:border-border/40 hover:-translate-y-0.5'}`}
+      className={`rounded-xl glass-card border overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'border-border/40 shadow-lg' : 'border-border/20 hover:border-border/30 hover:shadow-md'}`}
     >
       {/* Header - Safe scroll zone with chevron-only interaction */}
-      <div className="w-full p-5 sm:p-6 md:p-6 flex items-start gap-4 sm:gap-4">
-        <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
-          <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+      <div className="w-full p-5 sm:p-6 flex items-start gap-4">
+        <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+          <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="text-base sm:text-lg font-medium mb-2.5 leading-snug">{title}</h3>
-          <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed">{mediumDesc}</p>
+          <h3 className="text-lg font-semibold mb-2 leading-tight">{title}</h3>
+          <p className="text-sm text-foreground/60 leading-relaxed">{mediumDesc}</p>
         </div>
         {/* Only chevron is clickable - 44×44px minimum touch target */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className={`shrink-0 p-2.5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring min-w-[44px] min-h-[44px] flex items-center justify-center ${mode === 'institutional'
-            ? 'hover:bg-institutional/10 active:bg-institutional/20'
-            : 'hover:bg-creator/10 active:bg-creator/20'
+            ? 'hover:bg-institutional/10 active:bg-institutional/15'
+            : 'hover:bg-creator/10 active:bg-creator/15'
             }`}
           aria-expanded={isExpanded}
           aria-label={isExpanded ? "Collapse service details" : "Expand service details"}
@@ -589,20 +589,20 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
         className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
       >
         <div className="overflow-hidden">
-          <div className="px-5 sm:px-5 pb-5 sm:pb-5 border-t border-border/10 pt-5 sm:pt-5">
-            <p className="text-xs sm:text-sm text-foreground/60 mb-6 sm:mb-6 leading-relaxed">{fullDesc}</p>
+          <div className="px-5 sm:px-6 pb-6 border-t border-border/10 pt-5 sm:pt-6">
+            <p className="text-sm text-foreground/60 mb-6 leading-relaxed">{fullDesc}</p>
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* How It Works */}
               <div>
-                <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
+                <h4 className="flex items-center gap-2 text-sm font-semibold mb-3">
                   <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   {t('howItWorks')}
                 </h4>
-                <ol className="space-y-2.5">
+                <ol className="space-y-2">
                   {steps.map((step, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
-                      <span className={`w-4 h-4 rounded-full text-[9px] flex items-center justify-center shrink-0 mt-0.5 ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-foreground/70">
+                      <span className={`w-5 h-5 rounded-full text-[10px] font-medium flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/15 text-institutional' : 'bg-creator/15 text-creator'}`}>
                         {i + 1}
                       </span>
                       {step}
@@ -613,14 +613,14 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
 
               {/* What You Need */}
               <div>
-                <h4 className="flex items-center gap-2 text-sm font-medium mb-3.5">
+                <h4 className="flex items-center gap-2 text-sm font-semibold mb-3">
                   <AlertCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   {t('whatYouNeed')}
                 </h4>
                 <ul className="space-y-2">
                   {needs.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/60">
-                      <span className="text-foreground/30">•</span>
+                    <li key={i} className="flex items-start gap-2 text-xs text-foreground/70">
+                      <span className={`${mode === 'institutional' ? 'text-institutional/50' : 'text-creator/50'}`}>•</span>
                       {item}
                     </li>
                   ))}
@@ -684,9 +684,9 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
                     }
                   });
                 }}
-                className={`inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 rounded-full text-sm sm:text-base font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] ${mode === 'institutional'
-                  ? 'bg-institutional text-background hover:bg-institutional/90'
-                  : 'bg-creator text-background hover:bg-creator/90'
+                className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring min-h-[44px] ${mode === 'institutional'
+                  ? 'bg-institutional text-background hover:bg-institutional/90 hover:shadow-lg hover:shadow-institutional/20'
+                  : 'bg-creator text-background hover:bg-creator/90 hover:shadow-lg hover:shadow-creator/20'
                   }`}
               >
                 <MessageCircle className="w-4 h-4" />
