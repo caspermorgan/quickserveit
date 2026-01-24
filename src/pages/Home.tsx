@@ -12,8 +12,9 @@ import ServicesTeaser from '@/components/ServicesTeaser';
 import HowWeWork from '@/components/HowWeWork';
 import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
+import TrustIndicators from '@/components/TrustIndicators';
 import { DisplayText, BodyLarge } from '@/components/Typography';
-import { ArrowRight, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Home = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
@@ -107,8 +108,8 @@ const Home = () => {
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
-            {/* Compact Typewriter Subtitle */}
-            <div className="mb-10 flex justify-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            {/* Compact Typewriter Subtitle - Fixed height to prevent layout shift */}
+            <div className="mb-10 flex justify-center animate-fade-in-up min-h-[3.5rem] md:min-h-[2rem] items-center" style={{ animationDelay: '200ms' }}>
               <TypewriterText
                 anchorText={t('ourServices')}
                 phrases={typewriterSentences}
@@ -126,21 +127,8 @@ const Home = () => {
               </BodyLarge>
             </div>
 
-            {/* Trust indicators - Enhanced */}
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
-                <Shield className="w-5 h-5" />
-                <span>{t('confidentialityTitle')}</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
-                <CheckCircle className="w-5 h-5" />
-                <span>{t('realisticTimelinesTitle')}</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm md:text-base text-foreground/50">
-                <Clock className="w-5 h-5" />
-                <span>10 AM - 4 PM IST</span>
-              </div>
-            </div>
+            {/* Trust indicators - Icon-only with tooltips */}
+            <TrustIndicators mode={mode} />
 
             {/* CTAs - Premium Styling */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 animate-fade-in-up mb-16" style={{ animationDelay: '500ms' }}>
