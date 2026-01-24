@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
+import { motion } from 'framer-motion';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -15,6 +16,7 @@ import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
 import TrustIndicators from '@/components/TrustIndicators';
 import { DisplayText, BodyLarge } from '@/components/Typography';
+import { Reveal, Magnetic } from '@/components/motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Home = () => {
@@ -100,67 +102,89 @@ const Home = () => {
       <FloatingContactButton mode={mode} />
 
       <main className="min-h-screen bg-background">
-        {/* Hero Section - Premium Redesign */}
-        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-32 pb-20 md:pb-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        {/* Hero Section - v2.1 Refined */}
+        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-28 pb-20 md:pb-28 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Gradient Orb Background - Optimized Size */}
           <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
 
           <div className="relative max-w-5xl mx-auto text-center z-10">
-            {/* Main Heading - Typography System: DisplayText - Optimized hierarchy */}
-            <DisplayText className={`mt-4 md:mt-0 mb-8 tracking-tight md:tracking-normal animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
-              {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
-            </DisplayText>
+            {/* Main Heading - Elite Motion */}
+            <Reveal delay={0.1} duration={0.8} y={30} blur>
+              <DisplayText className={`mt-4 md:mt-0 mb-7 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+                {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
+              </DisplayText>
+            </Reveal>
 
-            {/* Compact Typewriter Subtitle - Fixed height to prevent layout shift - Reduced weight for hierarchy */}
-            <div className="mb-12 flex justify-center animate-fade-in-up min-h-[3.5rem] md:min-h-[2rem] items-center" style={{ animationDelay: '200ms' }}>
-              <TypewriterText
-                anchorText={t('ourServices')}
-                phrases={typewriterSentences}
-                anchorClassName={`text-lg md:text-xl font-medium mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
-                className="text-lg md:text-xl text-foreground/70"
-                speed={120}
-                pauseDuration={2800}
-              />
-            </div>
+            {/* Typewriter Subtitle - Elite Motion */}
+            <Reveal delay={0.25} duration={0.6} y={20}>
+              <div className="mb-11 flex justify-center min-h-[3.5rem] md:min-h-[2rem] items-center">
+                <TypewriterText
+                  anchorText={t('ourServices')}
+                  phrases={typewriterSentences}
+                  anchorClassName={`text-base md:text-lg font-medium mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
+                  className="text-base md:text-lg text-foreground/70"
+                  speed={120}
+                  pauseDuration={3200}
+                />
+              </div>
+            </Reveal>
 
-            {/* Description - Typography System: BodyLarge - Optimized max-width for mobile */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            {/* Description - Elite Motion */}
+            <Reveal delay={0.35} duration={0.6} y={20}>
               <BodyLarge className="mb-12 max-w-xl md:max-w-2xl mx-auto">
                 {description}
               </BodyLarge>
-            </div>
+            </Reveal>
 
             {/* Trust indicators - Icon-only with tooltips */}
             <TrustIndicators mode={mode} />
 
-            {/* CTAs - Premium Styling */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 animate-fade-in-up mb-16" style={{ animationDelay: '500ms' }}>
-              <Link
-                to="/services"
-                className={`group inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                  ? 'bg-institutional hover:bg-institutional/90 shadow-[0_4px_20px_rgba(234,179,8,0.25),0_8px_40px_rgba(234,179,8,0.15)]'
-                  : 'bg-creator hover:bg-creator/90 shadow-[0_4px_20px_rgba(34,211,238,0.25),0_8px_40px_rgba(34,211,238,0.15)]'
-                  }`}
-              >
-                {mode === 'institutional' ? t('viewServices') : t('viewServices')}
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/contact"
-                className={`inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg border-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                  ? 'border-institutional/40 text-institutional hover:bg-institutional/10 hover:border-institutional/60'
-                  : 'border-creator/40 text-creator hover:bg-creator/10 hover:border-creator/60'
-                  }`}
-              >
-                {t('contactUs')}
-              </Link>
-            </div>
+            {/* CTAs - Elite Motion with Magnetic */}
+            <Reveal delay={0.5} duration={0.5} y={20}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-16">
+                <Magnetic strength={0.3} maxDistance={80}>
+                  <Link
+                    to="/services"
+                    className={`group inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
+                      ? 'bg-institutional hover:bg-institutional/90 shadow-[0_4px_20px_rgba(234,179,8,0.25),0_8px_40px_rgba(234,179,8,0.15)]'
+                      : 'bg-creator hover:bg-creator/90 shadow-[0_4px_20px_rgba(34,211,238,0.25),0_8px_40px_rgba(34,211,238,0.15)]'
+                      }`}
+                  >
+                    {mode === 'institutional' ? t('viewServices') : t('viewServices')}
+                    <ArrowRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Magnetic>
+                <Magnetic strength={0.25} maxDistance={70}>
+                  <Link
+                    to="/contact"
+                    className={`inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg border-1.5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
+                      ? 'border-institutional/40 text-institutional hover:bg-institutional/10 hover:border-institutional/60'
+                      : 'border-creator/40 text-creator hover:bg-creator/10 hover:border-creator/60'
+                      }`}
+                  >
+                    {t('contactUs')}
+                  </Link>
+                </Magnetic>
+              </div>
+            </Reveal>
 
-            {/* Scroll Indicator */}
-            <div className="scroll-indicator opacity-40">
+            {/* Scroll Indicator - Elite Motion */}
+            <motion.div
+              className="scroll-indicator opacity-40"
+              animate={{
+                y: [0, 10, 0],
+                opacity: [0.4, 0.7, 0.4]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              whileHover={{ scale: 1.1, opacity: 0.8 }}
+            >
               <ChevronDown className="w-6 h-6 text-foreground/60" />
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -194,16 +218,18 @@ const Home = () => {
                 ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
                 : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}
             </p>
-            <Link
-              to="/contact"
-              className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
-                ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
-                : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
-                }`}
-            >
-              Start Your Project
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            <Magnetic strength={0.35} maxDistance={100}>
+              <Link
+                to="/contact"
+                className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-300 hover:scale-[1.05] hover:shadow-2xl active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
+                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
+                  }`}
+              >
+                Start Your Project
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </Magnetic>
           </div>
         </section>
 

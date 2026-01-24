@@ -17,16 +17,16 @@ interface IndicatorItemProps {
 
 const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeactivate }: IndicatorItemProps) => {
     return (
-        <div className="relative">
-            {/* Icon with subtle glow */}
+        <div className="relative opacity-60 scale-90 transition-all duration-300 hover:opacity-100 hover:scale-100">
+            {/* Icon with subtle glow - v2.1 Refined */}
             <button
                 onMouseEnter={onActivate}
                 onMouseLeave={onDeactivate}
                 onTouchStart={onActivate}
                 onTouchEnd={onDeactivate}
                 className={`
-          group relative p-3 rounded-full
-          backdrop-blur-md bg-background/5 border border-foreground/5
+          group relative p-2.5 rounded-full
+          glass-surface-3
           transition-all duration-200 ease-out
           min-h-[44px] min-w-[44px] flex items-center justify-center
           ${isActive
@@ -40,22 +40,22 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
             >
                 <Icon
                     className={`
-            w-5 h-5 transition-all duration-200
+            w-4.5 h-4.5 transition-all duration-200
             ${mode === 'institutional' ? 'text-institutional/70' : 'text-creator/70'}
           `}
                     style={{
                         filter: mode === 'institutional'
-                            ? 'drop-shadow(0 0 4px rgba(234, 179, 8, 0.2))'
-                            : 'drop-shadow(0 0 4px rgba(34, 211, 238, 0.2))'
+                            ? 'drop-shadow(0 0 3px rgba(234, 179, 8, 0.15))'
+                            : 'drop-shadow(0 0 3px rgba(34, 211, 238, 0.15))'
                     }}
                 />
             </button>
 
-            {/* Tooltip - only shows when active */}
+            {/* Tooltip - only shows when active - v2.1 Refined */}
             <div
                 className={`
           absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2
-          rounded-lg backdrop-blur-xl bg-background/95 border
+          rounded-lg glass-surface-1 border
           whitespace-nowrap text-xs font-medium
           transition-all duration-200 ease-out pointer-events-none
           ${isActive
@@ -63,8 +63,8 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
                         : 'opacity-0 translate-y-2 invisible'
                     }
           ${mode === 'institutional'
-                        ? 'border-institutional/30 text-institutional shadow-[0_0_15px_rgba(234,179,8,0.2)]'
-                        : 'border-creator/30 text-creator shadow-[0_0_15px_rgba(34,211,238,0.2)]'
+                        ? 'border-institutional/30 text-institutional shadow-[0_0_12px_rgba(234,179,8,0.15)]'
+                        : 'border-creator/30 text-creator shadow-[0_0_12px_rgba(34,211,238,0.15)]'
                     }
         `}
             >
@@ -96,7 +96,7 @@ const TrustIndicators = ({ mode }: TrustIndicatorProps) => {
     ];
 
     return (
-        <div className="flex items-center justify-center gap-4 md:gap-6 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+        <div className="flex items-center justify-center gap-5 md:gap-7 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             {indicators.map((indicator, index) => (
                 <IndicatorItem
                     key={index}

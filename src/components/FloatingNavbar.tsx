@@ -20,8 +20,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       onClick={toggleLanguage}
       className={`
         relative flex items-center h-8 md:h-8 px-1 rounded-full
-        backdrop-blur-md bg-background/20 border border-foreground/10
-        shadow-[0_2px_10px_rgba(0,0,0,0.1)] 
+        glass-surface-1
         transition-all duration-300 ease-out
         hover:bg-background/30 hover:border-foreground/20
         ${mode === 'institutional'
@@ -253,8 +252,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           `}
           aria-label="Return to landing"
         >
-          {/* Perfect Circle Logo Container - Equal to hamburger size */}
-          <div className="relative w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
+          {/* Perfect Circle Logo Container - v2.1 Refined */}
+          <div className="relative w-11 h-11 md:w-11 md:h-11 rounded-full overflow-hidden flex-shrink-0">
             <img
               src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
               alt="QuickServe IT"
@@ -330,7 +329,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           }
         `}
       >
-        <nav className="flex items-center gap-2 px-6 py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
+        <nav className="flex items-center gap-1.5 px-5 py-3 rounded-full glass-surface-1 overflow-x-auto no-scrollbar max-w-[90vw]">
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             return (
@@ -338,23 +337,23 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
                 key={link.href}
                 to={link.href}
                 className={`
-                  relative px-4 py-2 text-sm font-medium tracking-wide 
+                  relative px-3.5 py-2 text-sm font-medium tracking-wide 
                   transition-all duration-300 whitespace-nowrap group flex items-center 
                   min-h-[44px]
                   ${isActive
                     ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                    : 'text-foreground/60 hover:text-foreground'
+                    : 'text-foreground/70 hover:text-foreground'
                   }
                 `}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {link.label}
 
-                {/* Active/Hover underline */}
+                {/* Active/Hover underline - v2.1 Refined */}
                 <span
                   className={`
-                    absolute bottom-0 left-1/2 -translate-x-1/2 h-px 
-                    transition-all duration-300
+                    absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 
+                    transition-all duration-200
                     ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'}
                     ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'}
                   `}
@@ -366,15 +365,16 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Switch Mode Button */}
           <SwitchModeButton variant="minimal" className="ml-2" />
 
-          {/* Start Your Project CTA Button */}
+          {/* Start Your Project CTA Button - v2.1 Refined */}
           <Link
             to="/contact"
             className={`
-              ml-4 px-5 py-2.5 text-sm font-medium tracking-wide rounded-full 
+              ml-3 px-4.5 py-2.5 text-sm font-medium tracking-wide rounded-full 
               transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center
+              hover:scale-[1.02] active:scale-[0.98]
               ${mode === 'institutional'
-                ? 'bg-institutional text-background hover:bg-institutional/90'
-                : 'bg-creator text-background hover:bg-creator/90'
+                ? 'bg-institutional text-background hover:bg-institutional/90 shadow-[0_0_20px_rgba(234,179,8,0.25)]'
+                : 'bg-creator text-background hover:bg-creator/90 shadow-[0_0_20px_rgba(34,211,238,0.25)]'
               }
             `}
           >

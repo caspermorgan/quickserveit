@@ -66,24 +66,22 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
         rotateY,
         transformStyle: 'preserve-3d',
       }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.015 }}
       whileTap={{ scale: 0.98 }}
-      className={`group relative rounded-2xl p-6 md:p-8 ${onClick ? 'cursor-pointer' : ''
+      className={`group relative rounded-2xl p-5 md:p-7 ${onClick ? 'cursor-pointer' : ''
         }`}
       transition={{ duration: 0.3 }}
     >
-      {/* Enhanced Glassmorphism Background */}
+      {/* Enhanced Glassmorphism Background - v2.1 */}
       <div
-        className="absolute inset-0 rounded-2xl backdrop-blur-xl"
+        className="absolute inset-0 rounded-2xl glass-surface-2"
         style={{
-          background: 'rgba(255, 255, 255, 0.03)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
           boxShadow: isHovered
             ? mode === 'institutional'
-              ? '0 0 60px rgba(43, 96, 56, 0.2), inset 0 0 30px rgba(43, 96, 56, 0.05)'
-              : '0 0 60px rgba(187, 100, 42, 0.2), inset 0 0 30px rgba(187, 100, 42, 0.05)'
-            : '0 4px 20px rgba(0, 0, 0, 0.1)',
-          transition: 'all 0.5s ease',
+              ? '0 0 50px rgba(234, 179, 8, 0.15), inset 0 0 25px rgba(234, 179, 8, 0.04)'
+              : '0 0 50px rgba(34, 211, 238, 0.15), inset 0 0 25px rgba(34, 211, 238, 0.04)'
+            : 'var(--shadow-directional-md), var(--shadow-ambient-md)',
+          transition: 'all 0.4s ease',
         }}
       />
 
@@ -93,40 +91,40 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
         style={{
           background:
             mode === 'institutional'
-              ? 'radial-gradient(circle at 50% 0%, rgba(43, 96, 56, 0.15), transparent 70%)'
-              : 'radial-gradient(circle at 50% 0%, rgba(187, 100, 42, 0.15), transparent 70%)',
+              ? 'radial-gradient(circle at 50% 0%, rgba(234, 179, 8, 0.12), transparent 70%)'
+              : 'radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.12), transparent 70%)',
         }}
       />
 
       {/* Content Container with 3D depth */}
       <div className="relative" style={{ transform: 'translateZ(20px)' }}>
-        {/* Icon with Premium Glow */}
+        {/* Icon with Premium Glow - v2.1 Refined */}
         <div
-          className={`relative w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 ${mode === 'institutional'
-              ? 'bg-institutional/10 group-hover:bg-institutional/20'
-              : 'bg-creator/10 group-hover:bg-creator/20'
+          className={`relative w-11 h-11 md:w-13 md:h-13 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:rotate-2 ${mode === 'institutional'
+            ? 'bg-institutional/10 group-hover:bg-institutional/15'
+            : 'bg-creator/10 group-hover:bg-creator/15'
             }`}
           style={{
             boxShadow:
               mode === 'institutional'
-                ? '0 0 20px rgba(43, 96, 56, 0.1)'
-                : '0 0 20px rgba(187, 100, 42, 0.1)',
+                ? '0 0 15px rgba(234, 179, 8, 0.08)'
+                : '0 0 15px rgba(34, 211, 238, 0.08)',
           }}
         >
           <Icon
-            className={`w-6 h-6 md:w-7 md:h-7 transition-all duration-500 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+            className={`w-6 h-6 md:w-6.5 md:h-6.5 transition-all duration-500 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
               }`}
             style={{
               filter:
                 mode === 'institutional'
-                  ? 'drop-shadow(0 0 8px rgba(43, 96, 56, 0.3))'
-                  : 'drop-shadow(0 0 8px rgba(187, 100, 42, 0.3))',
+                  ? 'drop-shadow(0 0 6px rgba(234, 179, 8, 0.25))'
+                  : 'drop-shadow(0 0 6px rgba(34, 211, 238, 0.25))',
             }}
           />
         </div>
 
-        {/* Title */}
-        <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:translate-x-1 transition-transform duration-500">
+        {/* Title - v2.1 Refined */}
+        <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:translate-x-0.5 transition-transform duration-400">
           {title}
         </h3>
 
@@ -140,20 +138,20 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
           </p>
         )}
 
-        {/* Description */}
-        <p className="text-sm md:text-base text-foreground/60 leading-relaxed">
+        {/* Description - v2.1 Refined */}
+        <p className="text-sm md:text-base text-foreground/70 leading-[1.6]">
           {description}
         </p>
       </div>
 
-      {/* Bottom Gradient Accent Line */}
+      {/* Bottom Gradient Accent Line - v2.1 Refined */}
       <div
-        className="absolute bottom-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-all duration-500"
+        className="absolute bottom-0 left-5 right-5 h-0.5 opacity-0 group-hover:opacity-100 transition-all duration-400"
         style={{
           background:
             mode === 'institutional'
-              ? 'linear-gradient(90deg, transparent 0%, rgba(43, 96, 56, 0.4) 50%, transparent 100%)'
-              : 'linear-gradient(90deg, transparent 0%, rgba(187, 100, 42, 0.4) 50%, transparent 100%)',
+              ? 'linear-gradient(90deg, transparent 0%, rgba(234, 179, 8, 0.3) 50%, transparent 100%)'
+              : 'linear-gradient(90deg, transparent 0%, rgba(34, 211, 238, 0.3) 50%, transparent 100%)',
         }}
       />
     </motion.div>
