@@ -147,33 +147,31 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     <>
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-lg transition-all duration-500 md:hidden ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-lg transition-all duration-400 md:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
         onClick={() => setIsMenuOpen(false)}
       >
         {/* Mobile Menu Content */}
         <div
-          className={`absolute top-0 right-0 w-full max-w-sm h-full bg-background/80 backdrop-blur-xl border-l border-foreground/10 transition-transform duration-500 ease-out ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          className={`absolute top-0 right-0 w-full max-w-sm h-full bg-background/80 backdrop-blur-xl border-l border-foreground/10 transition-transform duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-6 border-b border-foreground/10">
+          {/* Mobile Menu Header - Centered */}
+          <div className="flex items-center justify-center p-6 border-b border-foreground/10 relative">
             <h2 className="text-lg font-display font-semibold text-foreground">Menu</h2>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="p-2 rounded-lg hover:bg-foreground/5 transition-colors"
+              className="absolute right-6 p-2 rounded-lg hover:bg-foreground/5 transition-colors"
               aria-label="Close menu"
             >
               <X className="w-6 h-6 text-foreground/70" />
             </button>
           </div>
 
-          {/* Mobile Navigation Links */}
+          {/* Mobile Navigation Links - Stagger animation */}
           <nav className="flex flex-col p-6 space-y-4">
-            {links.map((link) => {
+            {links.map((link, index) => {
               const isActive = location.pathname === link.href;
               return (
                 <Link
@@ -183,13 +181,15 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
                     relative px-4 py-3.5 text-base font-medium tracking-wide 
                     transition-all duration-300 rounded-lg
                     min-h-[44px] flex items-center
+                    animate-fade-in-up
                     ${isActive
-                      ? mode === 'institutional' 
-                        ? 'text-institutional bg-institutional/10 border border-institutional/20' 
+                      ? mode === 'institutional'
+                        ? 'text-institutional bg-institutional/10 border border-institutional/20'
                         : 'text-creator bg-creator/10 border border-creator/20'
                       : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5 border border-transparent'
                     }
                   `}
+                  style={{ animationDelay: isMenuOpen ? `${index * 50}ms` : '0ms' }}
                 >
                   {link.label}
                 </Link>
@@ -227,14 +227,14 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         </div>
       </div>
 
-      {/* Logo Pill - Anti-Gravity Style */}
+      {/* Logo Pill - Anti-Gravity Style - Reduced opacity for lighter feel */}
       <div
         className={`
           fixed top-6 left-6 md:top-8 md:left-8 z-50 
-          animate-float
+          animate-float opacity-90
           ${combinedVisible
-            ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
-            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+            ? 'translate-y-0 transition-all duration-200 ease-in'
+            : '-translate-y-2 opacity-0 transition-all duration-[350ms] ease-out'
           }
         `}
       >
@@ -242,7 +242,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           onClick={onReturn}
           className={`
             group flex items-center gap-0 overflow-hidden
-            h-10 md:h-12 pl-0 pr-0 rounded-full 
+            h-11 md:h-12 pl-0 pr-0 rounded-full 
             glass-nav
             transition-all duration-500 ease-out
             hover:pr-4 md:hover:pr-5
@@ -253,8 +253,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           `}
           aria-label="Return to landing"
         >
-          {/* Perfect Circle Logo Container */}
-          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
+          {/* Perfect Circle Logo Container - Equal to hamburger size */}
+          <div className="relative w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden flex-shrink-0">
             <img
               src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
               alt="QuickServe IT"
@@ -279,7 +279,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         </button>
       </div>
 
-      {/* Mobile: Hamburger Menu Button (Top Right) */}
+      {/* Mobile: Hamburger Menu Button (Top Right) - Equal size to logo */}
       <div
         className={`
           fixed top-6 right-6 z-50 md:hidden
@@ -292,19 +292,18 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={`
-            p-3 rounded-full glass-nav
+            p-0 rounded-full glass-nav
             transition-all duration-300
-            min-h-[44px] min-w-[44px] flex items-center justify-center
+            w-11 h-11 flex items-center justify-center
             ${mode === 'institutional'
-              ? 'hover:border-institutional/30 hover:shadow-[0_0_15px_rgba(234,179,8,0.15)]'
-              : 'hover:border-creator/30 hover:shadow-[0_0_15px_rgba(34,211,238,0.15)]'
+              ? 'hover:border-institutional/20 hover:shadow-[0_0_12px_rgba(234,179,8,0.12)]'
+              : 'hover:border-creator/20 hover:shadow-[0_0_12px_rgba(34,211,238,0.12)]'
             }
           `}
           aria-label="Toggle menu"
         >
-          <Menu className={`w-6 h-6 transition-colors ${
-            mode === 'institutional' ? 'text-institutional' : 'text-creator'
-          }`} />
+          <Menu className={`w-5 h-5 transition-colors opacity-90 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+            }`} />
         </button>
       </div>
 

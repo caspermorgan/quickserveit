@@ -6,6 +6,7 @@ import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
+import FloatingContactButton from '@/components/FloatingContactButton';
 import TypewriterText from '@/components/TypewriterText';
 import CreatorModeNotice from '@/components/CreatorModeNotice';
 import ServicesTeaser from '@/components/ServicesTeaser';
@@ -95,6 +96,9 @@ const Home = () => {
         isVisible={true}
       />
 
+      {/* Floating Contact Button - Appears on scroll */}
+      <FloatingContactButton mode={mode} />
+
       <main className="min-h-screen bg-background">
         {/* Hero Section - Premium Redesign */}
         <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-32 pb-20 md:pb-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
@@ -103,26 +107,26 @@ const Home = () => {
           <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
 
           <div className="relative max-w-5xl mx-auto text-center z-10">
-            {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mt-4 md:mt-0 mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            {/* Main Heading - Typography System: DisplayText - Optimized hierarchy */}
+            <DisplayText className={`mt-4 md:mt-0 mb-8 tracking-tight md:tracking-normal animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
-            {/* Compact Typewriter Subtitle - Fixed height to prevent layout shift */}
-            <div className="mb-10 flex justify-center animate-fade-in-up min-h-[3.5rem] md:min-h-[2rem] items-center" style={{ animationDelay: '200ms' }}>
+            {/* Compact Typewriter Subtitle - Fixed height to prevent layout shift - Reduced weight for hierarchy */}
+            <div className="mb-12 flex justify-center animate-fade-in-up min-h-[3.5rem] md:min-h-[2rem] items-center" style={{ animationDelay: '200ms' }}>
               <TypewriterText
                 anchorText={t('ourServices')}
                 phrases={typewriterSentences}
-                anchorClassName={`text-lg md:text-xl font-semibold mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
-                className="text-lg md:text-xl text-foreground/60"
+                anchorClassName={`text-lg md:text-xl font-medium mr-1.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}
+                className="text-lg md:text-xl text-foreground/70"
                 speed={120}
                 pauseDuration={2800}
               />
             </div>
 
-            {/* Description - Typography System: BodyLarge */}
+            {/* Description - Typography System: BodyLarge - Optimized max-width for mobile */}
             <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <BodyLarge className="mb-12 max-w-2xl mx-auto">
+              <BodyLarge className="mb-12 max-w-xl md:max-w-2xl mx-auto">
                 {description}
               </BodyLarge>
             </div>
@@ -134,9 +138,9 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6 animate-fade-in-up mb-16" style={{ animationDelay: '500ms' }}>
               <Link
                 to="/services"
-                className={`group inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                  ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
-                  : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
+                className={`group inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                  ? 'bg-institutional hover:bg-institutional/90 shadow-[0_4px_20px_rgba(234,179,8,0.25),0_8px_40px_rgba(234,179,8,0.15)]'
+                  : 'bg-creator hover:bg-creator/90 shadow-[0_4px_20px_rgba(34,211,238,0.25),0_8px_40px_rgba(34,211,238,0.15)]'
                   }`}
               >
                 {mode === 'institutional' ? t('viewServices') : t('viewServices')}
@@ -144,9 +148,9 @@ const Home = () => {
               </Link>
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg border-2 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
-                  ? 'border-institutional/50 text-institutional hover:bg-institutional/10 hover:border-institutional'
-                  : 'border-creator/50 text-creator hover:bg-creator/10 hover:border-creator'
+                className={`inline-flex items-center gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full font-medium text-base sm:text-lg border-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[48px] md:min-h-[56px] ${mode === 'institutional'
+                  ? 'border-institutional/40 text-institutional hover:bg-institutional/10 hover:border-institutional/60'
+                  : 'border-creator/40 text-creator hover:bg-creator/10 hover:border-creator/60'
                   }`}
               >
                 {t('contactUs')}
