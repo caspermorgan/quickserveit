@@ -664,6 +664,16 @@
     .mobile-no-hover-scale {
       transform: scale(1) !important;
     }
+
+    /* Mobile Menu Utilities */
+    .mobile-menu-overlay {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .mobile-menu-slide {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 
   /* Horizontal Scroll Utilities for Testimonials */

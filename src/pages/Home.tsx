@@ -96,14 +96,14 @@ const Home = () => {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section - Premium Redesign */}
-        <section className={`relative min-h-screen flex items-center justify-center px-6 py-20 md:py-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-32 pb-20 md:pb-32 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Gradient Orb Background - Optimized Size */}
           <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
 
           <div className="relative max-w-5xl mx-auto text-center z-10">
             {/* Main Heading - Typography System: DisplayText */}
-            <DisplayText className={`mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+            <DisplayText className={`mt-4 md:mt-0 mb-8 animate-fade-in-up ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
             </DisplayText>
 
@@ -120,9 +120,11 @@ const Home = () => {
             </div>
 
             {/* Description - Typography System: BodyLarge */}
-            <BodyLarge className="mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              {description}
-            </BodyLarge>
+            <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+              <BodyLarge className="mb-12 max-w-2xl mx-auto">
+                {description}
+              </BodyLarge>
+            </div>
 
             {/* Trust indicators - Enhanced */}
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>

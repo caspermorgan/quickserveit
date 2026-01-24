@@ -52,7 +52,7 @@ const HeaderStatusBadge = ({ mode, showText = true }: HeaderStatusBadgeProps) =>
     if (!showText) {
         return (
             <div
-                className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full backdrop-blur-md bg-background/20 border border-foreground/10 shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition-all duration-300"
+                className="inline-flex items-center justify-center w-7 h-7 md:w-10 md:h-10 rounded-full backdrop-blur-md bg-background/20 border border-foreground/10 shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition-all duration-300"
             >
                 <span
                     className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${isWithinHours
@@ -80,7 +80,7 @@ const HeaderStatusBadge = ({ mode, showText = true }: HeaderStatusBadgeProps) =>
         >
             {/* Status dot with soft blink animation - color based on mode and availability */}
             <span
-                className={`w-1.5 h-1.5 rounded-full transition-colors animate-[softBlink_5s_ease-in-out_infinite] ${isWithinHours
+                className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full transition-colors animate-[softBlink_5s_ease-in-out_infinite] ${isWithinHours
                     ? 'bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.6)]'
                     : mode === 'institutional'
                         ? 'bg-yellow-500 shadow-[0_0_6px_rgba(234,179,8,0.6)]'
@@ -90,7 +90,7 @@ const HeaderStatusBadge = ({ mode, showText = true }: HeaderStatusBadgeProps) =>
 
             {/* Status text with live clock */}
             <span
-                className="text-[10px] md:text-xs font-medium text-foreground/60 tracking-wide whitespace-nowrap"
+                className="text-[9px] md:text-xs font-medium text-foreground/60 tracking-wide whitespace-nowrap"
             >
                 {isWithinHours ? t('availableNow') : t('onRequest')} | {formatTime(currentTime)}
             </span>

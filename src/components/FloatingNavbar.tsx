@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
-import HeaderStatusBadge from './HeaderStatusBadge';
 import SwitchModeButton from './SwitchModeButton';
 
 interface FloatingNavbarProps {
@@ -19,7 +19,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
     <button
       onClick={toggleLanguage}
       className={`
-        relative flex items-center h-7 md:h-8 px-0.5 md:px-1 rounded-full
+        relative flex items-center h-8 md:h-8 px-1 rounded-full
         backdrop-blur-md bg-background/20 border border-foreground/10
         shadow-[0_2px_10px_rgba(0,0,0,0.1)] 
         transition-all duration-300 ease-out
@@ -34,20 +34,20 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       {/* Sliding indicator */}
       <span
         className={`
-          absolute top-0.5 md:top-1 h-6 md:h-6 w-[1.875rem] md:w-[2.125rem] rounded-full
+          absolute top-1 h-6 w-[2rem] rounded-full
           transition-all duration-300 ease-out
           ${mode === 'institutional'
             ? 'bg-institutional/20 shadow-[inset_0_0_8px_rgba(234,179,8,0.2)]'
             : 'bg-creator/20 shadow-[inset_0_0_8px_rgba(34,211,238,0.2)]'
           }
-          ${isEnglish ? 'left-0.5 md:left-1' : 'left-[calc(100%-2rem)] md:left-[calc(100%-2.375rem)]'}
+          ${isEnglish ? 'left-1' : 'left-[calc(100%-2.25rem)]'}
         `}
       />
 
       {/* EN option */}
       <span
         className={`
-          relative z-10 px-2 md:px-2.5 py-1 md:py-1.5 text-xs md:text-sm font-medium
+          relative z-10 px-2.5 py-1.5 text-sm font-medium
           transition-colors duration-300
           ${isEnglish
             ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
@@ -61,7 +61,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       {/* Hindi option */}
       <span
         className={`
-          relative z-10 px-2 md:px-2.5 py-1 md:py-1.5 text-xs md:text-sm font-medium
+          relative z-10 px-2.5 py-1.5 text-sm font-medium
           transition-colors duration-300
           ${!isEnglish
             ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
@@ -136,21 +136,96 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
 
   const links = mode === 'institutional' ? institutionalLinks : creatorLinks;
 
-  // Close menu on outside click
-  const handleOverlayClick = () => {
+  // Close menu on route change
+  useEffect(() => {
     setIsMenuOpen(false);
-  };
+  }, [location.pathname]);
 
   const combinedVisible = isVisible && navVisible;
 
   return (
     <>
-      {/* Dark Overlay when menu is focused */}
+      {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-background/80 backdrop-blur-sm transition-opacity duration-500 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-lg transition-all duration-500 md:hidden ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        {/* Mobile Menu Content */}
+        <div
+          className={`absolute top-0 right-0 w-full max-w-sm h-full bg-background/80 backdrop-blur-xl border-l border-foreground/10 transition-transform duration-500 ease-out ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
-        onClick={handleOverlayClick}
-      />
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-foreground/10">
+            <h2 className="text-lg font-display font-semibold text-foreground">Menu</h2>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-foreground/5 transition-colors"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6 text-foreground/70" />
+            </button>
+          </div>
+
+          {/* Mobile Navigation Links */}
+          <nav className="flex flex-col p-6 space-y-4">
+            {links.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`
+                    relative px-4 py-3.5 text-base font-medium tracking-wide 
+                    transition-all duration-300 rounded-lg
+                    min-h-[44px] flex items-center
+                    ${isActive
+                      ? mode === 'institutional' 
+                        ? 'text-institutional bg-institutional/10 border border-institutional/20' 
+                        : 'text-creator bg-creator/10 border border-creator/20'
+                      : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5 border border-transparent'
+                    }
+                  `}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+
+            {/* Language Switch in Mobile Menu */}
+            <div className="pt-4 border-t border-foreground/10">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-medium text-foreground/60">Language</span>
+                <LanguageSwitch mode={mode} />
+              </div>
+            </div>
+
+            {/* Switch Mode Button in Mobile Menu */}
+            <div className="pt-2">
+              <SwitchModeButton variant="minimal" className="w-full justify-center" />
+            </div>
+
+            {/* CTA Button in Mobile Menu */}
+            <Link
+              to="/contact"
+              className={`
+                mt-4 px-6 py-3.5 text-base font-medium tracking-wide rounded-full 
+                transition-all duration-300 text-center min-h-[44px] flex items-center justify-center
+                ${mode === 'institutional'
+                  ? 'bg-institutional text-background hover:bg-institutional/90'
+                  : 'bg-creator text-background hover:bg-creator/90'
+                }
+              `}
+            >
+              Start Your Project
+            </Link>
+          </nav>
+        </div>
+      </div>
 
       {/* Logo Pill - Anti-Gravity Style */}
       <div
@@ -204,42 +279,86 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         </button>
       </div>
 
+      {/* Mobile: Hamburger Menu Button (Top Right) */}
+      <div
+        className={`
+          fixed top-6 right-6 z-50 md:hidden
+          ${combinedVisible
+            ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
+            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+          }
+        `}
+      >
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={`
+            p-3 rounded-full glass-nav
+            transition-all duration-300
+            min-h-[44px] min-w-[44px] flex items-center justify-center
+            ${mode === 'institutional'
+              ? 'hover:border-institutional/30 hover:shadow-[0_0_15px_rgba(234,179,8,0.15)]'
+              : 'hover:border-creator/30 hover:shadow-[0_0_15px_rgba(34,211,238,0.15)]'
+            }
+          `}
+          aria-label="Toggle menu"
+        >
+          <Menu className={`w-6 h-6 transition-colors ${
+            mode === 'institutional' ? 'text-institutional' : 'text-creator'
+          }`} />
+        </button>
+      </div>
 
-      {/* Language Switch - Top Right */}
-      <div className={`fixed top-6 right-6 md:top-8 md:right-8 z-50 ${combinedVisible
-        ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
-        : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
-        }`}>
+      {/* Desktop: Language Switch (Top Right) */}
+      <div
+        className={`
+          fixed top-6 right-6 md:top-8 md:right-8 z-50 hidden md:block
+          ${combinedVisible
+            ? 'opacity-100 translate-y-0 transition-all duration-200 ease-in'
+            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+          }
+        `}
+      >
         <LanguageSwitch mode={mode} />
       </div>
 
-      {/* Navigation Bar - Bottom */}
+      {/* Desktop: Navigation Bar (Bottom) */}
       <div
-        className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 ${combinedVisible
-          ? 'opacity-100 translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,1,1)]'
-          : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
-          }`}
+        className={`
+          fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex
+          ${combinedVisible
+            ? 'opacity-100 translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,1,1)]'
+            : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
+          }
+        `}
       >
-        <nav className="flex items-center gap-4 md:gap-2 px-4 py-3 md:px-6 md:py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
+        <nav className="flex items-center gap-2 px-6 py-4 rounded-full glass-nav overflow-x-auto no-scrollbar max-w-[90vw]">
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             return (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative px-4 py-3 md:px-4 md:py-2 text-sm font-medium tracking-wide transition-all duration-300 whitespace-nowrap group flex items-center min-h-[44px] ${isActive
-                  ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                  : 'text-foreground/60 hover:text-foreground'
-                  }`}
+                className={`
+                  relative px-4 py-2 text-sm font-medium tracking-wide 
+                  transition-all duration-300 whitespace-nowrap group flex items-center 
+                  min-h-[44px]
+                  ${isActive
+                    ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                    : 'text-foreground/60 hover:text-foreground'
+                  }
+                `}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {link.label}
 
                 {/* Active/Hover underline */}
                 <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'
-                    } ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'
-                    }`}
+                  className={`
+                    absolute bottom-0 left-1/2 -translate-x-1/2 h-px 
+                    transition-all duration-300
+                    ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'}
+                    ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'}
+                  `}
                 />
               </Link>
             );
@@ -251,10 +370,14 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           {/* Start Your Project CTA Button */}
           <Link
             to="/contact"
-            className={`ml-4 px-4 py-2.5 md:px-5 md:py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center ${mode === 'institutional'
-              ? 'bg-institutional text-background hover:bg-institutional/90'
-              : 'bg-creator text-background hover:bg-creator/90'
-              }`}
+            className={`
+              ml-4 px-5 py-2.5 text-sm font-medium tracking-wide rounded-full 
+              transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center
+              ${mode === 'institutional'
+                ? 'bg-institutional text-background hover:bg-institutional/90'
+                : 'bg-creator text-background hover:bg-creator/90'
+              }
+            `}
           >
             Start Your Project
           </Link>
