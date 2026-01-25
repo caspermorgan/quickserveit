@@ -187,19 +187,12 @@
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Unified Duration Scale */
-    --duration-instant: 0.1s;
-    /* Touch feedback, active states */
-    --duration-fast: 0.2s;
-    /* Mobile transitions, quick interactions */
-    --duration-normal: 0.3s;
-    /* Standard desktop interactions */
-    --duration-slow: 0.4s;
-    /* Complex state changes */
-    --duration-slower: 0.6s;
-    /* Elaborate transitions */
-    --duration-ambient: 3s;
-    /* Infinite subtle animations */
+    /* Advanced Premium Easing Curves */
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-smooth-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-anticipate: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+    --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
   }
 
   /* Creator Mode Override */
@@ -441,6 +434,61 @@
         var(--shadow-directional-sm),
         var(--shadow-ambient-sm),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  /* Premium Multi-Layer Glassmorphism - Elite Surface */
+  .glass-surface-premium {
+    position: relative;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%),
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 50%),
+      radial-gradient(circle at bottom right, hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.05), transparent 50%);
+    backdrop-filter: blur(60px) saturate(180%);
+    -webkit-backdrop-filter: blur(60px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transition: all var(--duration-normal) var(--ease-premium);
+  }
+
+  .glass-surface-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .glass-surface-premium>* {
+    position: relative;
+    z-index: 2;
+  }
+
+  .glass-surface-premium:hover {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%),
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 50%),
+      radial-gradient(circle at bottom right, hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08), transparent 50%);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.5),
+      0 0 100px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .glass-surface-premium {
+      backdrop-filter: blur(30px) saturate(150%);
+      -webkit-backdrop-filter: blur(30px) saturate(150%);
     }
   }
 
@@ -1007,6 +1055,32 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+  }
+
+  /* Parallax Scroll Utilities - GPU Accelerated */
+  .parallax-slow {
+    will-change: transform;
+    transform: translateY(calc(var(--scroll-progress, 0) * 50px));
+  }
+
+  .parallax-medium {
+    will-change: transform;
+    transform: translateY(calc(var(--scroll-progress, 0) * 30px));
+  }
+
+  .parallax-fast {
+    will-change: transform;
+    transform: translateY(calc(var(--scroll-progress, 0) * 10px));
+  }
+
+  /* 3D Transform Utilities */
+  .transform-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
   }
 }
 

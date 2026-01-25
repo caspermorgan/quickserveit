@@ -17,6 +17,7 @@ import ValueProposition from '@/components/ValueProposition';
 import TrustIndicators from '@/components/TrustIndicators';
 import { DisplayText, BodyLarge } from '@/components/Typography';
 import { Reveal, Magnetic } from '@/components/motion';
+import ParallaxSection from '@/components/motion/ParallaxSection';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Home = () => {
@@ -102,11 +103,17 @@ const Home = () => {
       <FloatingContactButton mode={mode} />
 
       <main className="min-h-screen bg-background">
-        {/* Hero Section - v2.1 Refined */}
+        {/* Hero Section - v2.1 Enhanced with Parallax */}
         <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-28 pb-20 md:pb-28 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
-          {/* Gradient Orb Background - Optimized Size */}
-          <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
+          {/* Parallax Gradient Orbs - Multi-layer Depth */}
+          <ParallaxSection speed={0.3} direction="up">
+            <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[500px] h-[500px] top-1/4 left-1/2 -translate-x-1/2`} />
+          </ParallaxSection>
+
+          <ParallaxSection speed={0.5} direction="down">
+            <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[300px] h-[300px] bottom-1/4 right-1/4 opacity-50`} />
+          </ParallaxSection>
 
           <div className="relative max-w-5xl mx-auto text-center z-10">
             {/* Main Heading - Elite Motion */}
