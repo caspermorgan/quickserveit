@@ -56,35 +56,35 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             </div>
 
             {/* Main Content Area */}
-            <div className={`relative z-40 flex flex-col items-center text-center px-5 md:px-4 w-full max-w-6xl pt-20 md:pt-0 transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
+            <div className={`relative z-40 flex flex-col items-center text-center px-5 md:px-4 w-full max-w-6xl pt-24 md:pt-0 transition-all duration-700 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'
                 }`}>
 
-                {/* 1. Brand Identity - Fixed Size & Position */}
-                <div className="mb-8 md:mb-12 mt-[-5vh]"> {/* Slight negative margin to pull up */}
+                {/* 1. Brand Identity - Enhanced for Mobile */}
+                <div className="mb-10 md:mb-12 mt-[-3vh] md:mt-[-5vh]"> {/* Better mobile spacing */}
                     <h1
-                        className="font-display font-bold text-foreground tracking-tight mb-2"
+                        className="font-display font-bold text-foreground tracking-tight mb-3 md:mb-2"
                         style={{
-                            fontSize: 'clamp(2rem, 5vw, 3.5rem)', // Reduced max from 4.5rem to 3.5rem for balance on large screens
+                            fontSize: 'clamp(3rem, 8vw, 4.5rem)', // Larger minimum for mobile visibility
                             lineHeight: '1.1',
-                            textShadow: '0 2px 20px rgba(255, 255, 255, 0.1)',
+                            textShadow: '0 2px 20px rgba(255, 255, 255, 0.15), 0 4px 40px rgba(255, 255, 255, 0.08)',
                         }}
                     >
                         QuickServe IT
                     </h1>
-                    <p className="font-sans text-foreground/60 text-sm md:text-lg tracking-[0.2em] font-light">
+                    <p className="font-sans text-foreground/70 text-base md:text-lg tracking-[0.15em] md:tracking-[0.2em] font-light px-4 md:px-0">
                         YOUR PERSONAL TECH PARTNER
                     </p>
                 </div>
 
-                {/* 2. Compact Selection Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full max-w-3xl">
+                {/* 2. Minimal Selection Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 w-full max-w-3xl">
 
-                    {/* Institutional Card - Compact */}
+                    {/* Institutional Card - Minimal */}
                     <button
                         onClick={() => { onModeChange('institutional'); setTimeout(() => onEnter(), 300); }}
                         onMouseEnter={() => setHoveredCard('institutional')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden active:scale-[0.98] ${mode === 'institutional'
+                        className={`group relative p-8 md:p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden active:scale-[0.98] min-h-[140px] ${mode === 'institutional'
                             ? 'border-institutional/50 bg-institutional/5'
                             : 'border-white/10 bg-white/[0.02] md:hover:border-institutional/30'
                             }`}
@@ -96,28 +96,25 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-institutional/10 to-transparent`} />
 
                         <div className="relative z-10 flex items-start justify-between">
-                            <div>
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className={`p-2 rounded-lg ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-white/5 text-foreground/70 group-hover:text-institutional'}`}>
-                                        <Building2 size={20} />
+                            <div className="flex-1">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className={`p-2.5 rounded-lg transition-colors ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-white/5 text-foreground/70 group-hover:text-institutional'}`}>
+                                        <Building2 size={22} />
                                     </div>
                                     <span className="text-xs font-mono uppercase tracking-wider text-foreground/50">For Schools & NGOs</span>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">Compliance & Scale</h3>
-                                <p className="text-sm text-foreground/60 leading-relaxed max-w-[280px]">
-                                    Reliable IT systems, documentation, and operational efficiency.
-                                </p>
+                                <h3 className="text-2xl md:text-2xl font-bold text-foreground">Compliance & Scale</h3>
                             </div>
-                            <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${hoveredCard === 'institutional' ? 'translate-x-1 text-institutional' : 'text-foreground/20'}`} />
+                            <ArrowRight className={`w-5 h-5 mt-1 transition-transform duration-300 flex-shrink-0 ${hoveredCard === 'institutional' ? 'translate-x-1 text-institutional' : 'text-foreground/20'}`} />
                         </div>
                     </button>
 
-                    {/* Creator Card - Compact */}
+                    {/* Creator Card - Minimal */}
                     <button
                         onClick={() => { onModeChange('creator'); setTimeout(() => onEnter(), 300); }}
                         onMouseEnter={() => setHoveredCard('creator')}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className={`group relative p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden active:scale-[0.98] ${mode === 'creator'
+                        className={`group relative p-8 md:p-6 rounded-xl border transition-all duration-300 text-left overflow-hidden active:scale-[0.98] min-h-[140px] ${mode === 'creator'
                             ? 'border-creator/50 bg-creator/5'
                             : 'border-white/10 bg-white/[0.02] md:hover:border-creator/30'
                             }`}
@@ -129,19 +126,16 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-creator/10 to-transparent`} />
 
                         <div className="relative z-10 flex items-start justify-between">
-                            <div>
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className={`p-2 rounded-lg ${mode === 'creator' ? 'bg-creator/20 text-creator' : 'bg-white/5 text-foreground/70 group-hover:text-creator'}`}>
-                                        <Clapperboard size={20} />
+                            <div className="flex-1">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className={`p-2.5 rounded-lg transition-colors ${mode === 'creator' ? 'bg-creator/20 text-creator' : 'bg-white/5 text-foreground/70 group-hover:text-creator'}`}>
+                                        <Clapperboard size={22} />
                                     </div>
                                     <span className="text-xs font-mono uppercase tracking-wider text-foreground/50">For Creators & Brands</span>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">Growth & Impact</h3>
-                                <p className="text-sm text-foreground/60 leading-relaxed max-w-[280px]">
-                                    Video editing, storytelling, and digital reach expansion.
-                                </p>
+                                <h3 className="text-2xl md:text-2xl font-bold text-foreground">Growth & Impact</h3>
                             </div>
-                            <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${hoveredCard === 'creator' ? 'translate-x-1 text-creator' : 'text-foreground/20'}`} />
+                            <ArrowRight className={`w-5 h-5 mt-1 transition-transform duration-300 flex-shrink-0 ${hoveredCard === 'creator' ? 'translate-x-1 text-creator' : 'text-foreground/20'}`} />
                         </div>
                     </button>
 

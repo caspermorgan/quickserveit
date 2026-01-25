@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { MessageCircleIcon, ShieldIcon } from './IconSystem';
 import AvailabilityIndicator from './AvailabilityIndicator';
 import { useTranslation } from '@/hooks/useTranslation';
+import SwitchModeButton from './SwitchModeButton';
 
 interface FooterProps {
   mode: 'institutional' | 'creator';
@@ -102,6 +103,11 @@ const Footer = ({ mode }: FooterProps) => {
               {' • '}
               INDIA
             </div>
+          </div>
+
+          {/* Switch Mode Button */}
+          <div className="flex items-center">
+            <SwitchModeButton variant="minimal" />
           </div>
 
           {/* Links */}

@@ -362,24 +362,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             );
           })}
 
-          {/* Switch Mode Button */}
-          <SwitchModeButton variant="minimal" className="ml-2" />
 
-          {/* Start Your Project CTA Button - v2.1 Refined */}
-          <Link
-            to="/contact"
-            className={`
-              ml-3 px-4.5 py-2.5 text-sm font-medium tracking-wide rounded-full 
-              transition-all duration-300 whitespace-nowrap min-h-[44px] flex items-center
-              hover:scale-[1.02] active:scale-[0.98]
-              ${mode === 'institutional'
-                ? 'bg-institutional text-background hover:bg-institutional/90 shadow-[0_0_20px_rgba(234,179,8,0.25)]'
-                : 'bg-creator text-background hover:bg-creator/90 shadow-[0_0_20px_rgba(34,211,238,0.25)]'
-              }
-            `}
-          >
-            Start Your Project
-          </Link>
         </nav>
       </div>
     </>
