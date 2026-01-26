@@ -154,7 +154,7 @@ const Contact = () => {
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
 
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero Section */}
           <div
             ref={heroRef}

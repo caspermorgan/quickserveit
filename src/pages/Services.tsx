@@ -457,7 +457,7 @@ const Services = () => {
       />
 
       <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 md:pb-28">
-        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20 max-w-3xl mx-auto animate-fade-in-up">
             <H1 className="mb-4 sm:mb-5 md:mb-6">
@@ -508,7 +508,7 @@ const Services = () => {
 
         {/* How We Work Section - Completely Separate with Different Background */}
         <section className="bg-black border-t border-border py-20 md:py-24">
-          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
             <HowWeWork mode={mode} />
           </div>
         </section>
@@ -589,10 +589,10 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
         className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
       >
         <div className="overflow-hidden">
-          <div className="px-5 sm:px-6 pb-6 border-t border-border/10 pt-5 sm:pt-6">
+          <div className="px-4 sm:px-5 md:px-6 pb-6 border-t border-border/10 pt-5 sm:pt-6">
             <p className="text-sm text-foreground/60 mb-6 leading-relaxed">{fullDesc}</p>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* How It Works */}
               <div>
                 <h4 className="flex items-center gap-2 text-sm font-semibold mb-3">
@@ -630,7 +630,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
 
             {/* Timeline */}
             <div className={`mt-6 p-3 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5' : 'bg-creator/5'}`}>
-              <div className="flex items-center gap-2 text-xs">
+              <div className="flex flex-wrap items-center gap-2 text-xs">
                 <Clock className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 <span className="font-medium">{t('timeline')}:</span>
                 <span className="text-foreground/60">{timeline}</span>
@@ -662,7 +662,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
                         }}
                       >
                         <IconComponent
-                          className="w-4 h-4"
+                          className="w-4 h-4 sm:w-4 sm:h-4"
                           style={{ color: iconData.color }}
                         />
                         <span className="text-foreground/70">{iconData.name}</span>

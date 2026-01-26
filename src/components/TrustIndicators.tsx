@@ -40,7 +40,7 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
             >
                 <Icon
                     className={`
-            w-4.5 h-4.5 transition-all duration-200
+            w-4 h-4 sm:w-4.5 sm:h-4.5 transition-all duration-200
             ${mode === 'institutional' ? 'text-institutional/70' : 'text-creator/70'}
           `}
                     style={{
@@ -96,7 +96,7 @@ const TrustIndicators = ({ mode }: TrustIndicatorProps) => {
     ];
 
     return (
-        <div className="flex items-center justify-center gap-5 md:gap-7 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+        <div className="flex items-center justify-center gap-3 sm:gap-5 md:gap-7 mb-14 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             {indicators.map((indicator, index) => (
                 <IndicatorItem
                     key={index}

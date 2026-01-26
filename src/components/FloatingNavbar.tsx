@@ -19,7 +19,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
     <button
       onClick={toggleLanguage}
       className={`
-        relative flex items-center h-8 md:h-8 px-1 rounded-full
+        relative flex items-center h-11 px-1 rounded-full
         glass-surface-1
         transition-all duration-300 ease-out
         hover:bg-background/30 hover:border-foreground/20
@@ -33,7 +33,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       {/* Sliding indicator */}
       <span
         className={`
-          absolute top-1 h-6 w-[2rem] rounded-full
+          absolute top-1 h-9 w-[2rem] rounded-full
           transition-all duration-300 ease-out
           ${mode === 'institutional'
             ? 'bg-institutional/20 shadow-[inset_0_0_8px_rgba(234,179,8,0.2)]'
@@ -253,7 +253,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           aria-label="Return to landing"
         >
           {/* Perfect Circle Logo Container - v2.1 Refined */}
-          <div className="relative w-11 h-11 md:w-11 md:h-11 rounded-full overflow-hidden flex-shrink-0">
+          <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0">
             <img
               src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
               alt="QuickServe IT"

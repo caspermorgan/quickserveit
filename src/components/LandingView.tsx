@@ -114,7 +114,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                         <h1
                             className="font-display font-black text-foreground tracking-tighter mb-6 sm:mb-8"
                             style={{
-                                fontSize: 'clamp(3rem, 10vw, 6.5rem)',
+                                fontSize: 'clamp(2.5rem, 10vw, 6.5rem)',
                                 lineHeight: '1.05',
                                 letterSpacing: '-0.02em',
                                 background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 100%)',
@@ -145,7 +145,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 {/* BOTTOM 50% - CARDS & FOOTER */}
                 <div className="flex-1 flex flex-col justify-between px-4 sm:px-6 lg:px-8 pb-8 min-h-[50vh]">
                     {/* Cards Grid - Premium Layout */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5 max-w-7xl w-full mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-5 max-w-7xl w-full mx-auto">
                         {cards.map((card, index) => {
                             const Icon = card.icon;
                             const isHovered = hoveredCard === card.id;
@@ -156,7 +156,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                     onClick={() => handleCardClick(card.mode, card.id)}
                                     onMouseEnter={() => setHoveredCard(card.id)}
                                     onMouseLeave={() => setHoveredCard(null)}
-                                    className={`group relative px-4 py-4 sm:px-7 sm:py-9 rounded-xl sm:rounded-2xl border transition-all duration-500 ease-out text-left overflow-hidden min-h-[100px] sm:min-h-[180px] ${isHovered
+                                    className={`group relative px-3 py-3 sm:px-5 sm:py-7 md:px-7 md:py-9 rounded-xl sm:rounded-2xl border transition-all duration-500 ease-out text-left overflow-hidden min-h-[100px] sm:min-h-[180px] ${isHovered
                                         ? card.color === 'institutional'
                                             ? 'border-institutional/60 bg-institutional/[0.15] -translate-y-2 shadow-2xl shadow-institutional/30 scale-[1.02]'
                                             : card.color === 'creator'
@@ -274,7 +274,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                     </div>
 
                     {/* Footer - Compact & Professional */}
-                    <div className="mt-8 text-center border-t border-white/[0.08] pt-6">
+                    <div className="mt-8 text-center border-t border-white/[0.08] pt-8">
                         <p className="text-xs text-foreground/40 font-mono tracking-wide">
                             Quickserve IT © 2026
                         </p>

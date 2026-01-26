@@ -322,9 +322,97 @@
     }
   }
 
-  /* Glass Morphism - v2.1 Multi-Layer Depth System */
+  /* ============================================
+     GLASSMORPHISM SYSTEM v2.1 - CONSOLIDATED
+     ============================================
+     
+     Simplified to 3 levels for consistency:
+     - glass-1: Floating elements (nav, modals, dialogs)
+     - glass-2: Primary cards and containers
+     - glass-3: Nested content and subtle backgrounds
+     
+     Migration from old system:
+     - glass-surface-1, glass-nav → glass-1
+     - glass-surface-2, glass-premium, glass-card → glass-2
+     - glass-surface-3, glass-surface-4 → glass-3
+  */
 
-  /* Surface Layer 1 - Floating Elements (Nav, Modals) */
+  /* Level 1 - Floating Elements (Highest Elevation) */
+  .glass-1 {
+    background: var(--surface-1);
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      var(--shadow-directional-lg),
+      var(--shadow-ambient-lg),
+      0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* Level 2 - Primary Cards (Medium Elevation) */
+  .glass-2 {
+    background: var(--surface-2);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      var(--shadow-directional-md),
+      var(--shadow-ambient-md),
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Level 3 - Nested Content (Low Elevation) */
+  .glass-3 {
+    background: var(--surface-3);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      var(--shadow-directional-sm),
+      var(--shadow-ambient-sm),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* Mobile Performance Optimization */
+  @media (max-width: 768px) {
+    .glass-1 {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .glass-2 {
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+    }
+
+    .glass-3 {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  }
+
+  /* ============================================
+     DEPRECATED CLASSES (Backward Compatibility)
+     ============================================
+     
+     These classes are maintained for backward compatibility
+     but should be migrated to the new system:
+     
+     MIGRATION GUIDE:
+     - .glass-surface-1 → .glass-1
+     - .glass-surface-2 → .glass-2
+     - .glass-surface-3 → .glass-3
+     - .glass-surface-4 → .glass-3
+     - .glass-premium → .glass-2
+     - .glass-card → .glass-2
+     - .glass-nav → .glass-1
+  */
+
+  /* DEPRECATED: Use .glass-1 instead */
   .glass-surface-1 {
     background: var(--surface-1);
     backdrop-filter: blur(60px);
@@ -337,7 +425,7 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
-  /* Surface Layer 2 - Primary Cards */
+  /* DEPRECATED: Use .glass-2 instead */
   .glass-surface-2 {
     background: var(--surface-2);
     backdrop-filter: blur(40px);
@@ -350,7 +438,7 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
-  /* Surface Layer 3 - Nested Content */
+  /* DEPRECATED: Use .glass-3 instead */
   .glass-surface-3 {
     background: var(--surface-3);
     backdrop-filter: blur(30px);
@@ -362,7 +450,7 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
-  /* Surface Layer 4 - Subtle Backgrounds */
+  /* DEPRECATED: Use .glass-3 instead */
   .glass-surface-4 {
     background: var(--surface-4);
     backdrop-filter: blur(20px);
@@ -371,7 +459,7 @@
     box-shadow: var(--shadow-ambient-sm);
   }
 
-  /* Legacy class - maps to surface-2 for compatibility */
+  /* DEPRECATED: Use .glass-2 instead */
   .glass-premium {
     background: var(--surface-2);
     backdrop-filter: blur(40px);
@@ -384,11 +472,25 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
-  /* Mobile Performance Optimization */
+  /* DEPRECATED: Use .glass-1 instead */
+  .glass-nav {
+    background: var(--surface-1);
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      var(--shadow-directional-md),
+      var(--shadow-ambient-md),
+      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Mobile optimizations for deprecated classes */
   @media (max-width: 768px) {
 
     .glass-surface-1,
-    .glass-premium {
+    .glass-premium,
+    .glass-nav {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
@@ -411,88 +513,7 @@
     }
   }
 
-  /* Navigation Glass - Enhanced */
-  .glass-nav {
-    background: var(--surface-1);
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow:
-      var(--shadow-directional-md),
-      var(--shadow-ambient-md),
-      0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  @media (max-width: 768px) {
-    .glass-nav {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow:
-        var(--shadow-directional-sm),
-        var(--shadow-ambient-sm),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-  }
-
-  /* Premium Multi-Layer Glassmorphism - Elite Surface */
-  .glass-surface-premium {
-    position: relative;
-    background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%),
-      radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 50%),
-      radial-gradient(circle at bottom right, hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.05), transparent 50%);
-    backdrop-filter: blur(60px) saturate(180%);
-    -webkit-backdrop-filter: blur(60px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    transition: all var(--duration-normal) var(--ease-premium);
-  }
-
-  .glass-surface-premium::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .glass-surface-premium>* {
-    position: relative;
-    z-index: 2;
-  }
-
-  .glass-surface-premium:hover {
-    background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%),
-      radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 50%),
-      radial-gradient(circle at bottom right, hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.08), transparent 50%);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow:
-      0 12px 48px rgba(0, 0, 0, 0.5),
-      0 0 100px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 768px) {
-    .glass-surface-premium {
-      backdrop-filter: blur(30px) saturate(150%);
-      -webkit-backdrop-filter: blur(30px) saturate(150%);
-    }
-  }
-
-  /* Card Glass - Enhanced with Noise Texture */
+  /* DEPRECATED: Use .glass-2 instead */
   .glass-card {
     position: relative;
     background: rgba(255, 255, 255, 0.04);
@@ -1428,6 +1449,14 @@
   opacity: 0.15;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Mobile optimization - reduce blur for better performance */
+@media (max-width: 768px) {
+  .gradient-orb {
+    filter: blur(40px);
+    /* Reduced blur on mobile for better performance */
+  }
 }
 
 .gradient-orb-institutional {
