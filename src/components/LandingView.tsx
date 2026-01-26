@@ -75,8 +75,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
     return (
         <div
             className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-all duration-1000 ease-out ${isExiting
-                    ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
-                    : 'opacity-100 scale-100 blur-0'
+                ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
+                : 'opacity-100 scale-100 blur-0'
                 }`}
         >
             {/* Background */}
@@ -102,163 +102,183 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 <HeaderStatusBadge mode={mode} />
             </div>
 
-            {/* Main Content - Perfectly Centered & Spaced */}
+            {/* Main Content - 50/50 Mobile-First Layout */}
             <div
-                className={`relative z-40 w-full max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`relative z-40 w-full h-full flex flex-col transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
             >
-                {/* Brand Section - Large, Highlighted, Alive */}
-                <div className="text-center mb-16 sm:mb-20 lg:mb-24">
-                    {/* Brand Name - Extra Large, Highlighted, Alive Feel */}
-                    <h1
-                        className="font-display font-black text-foreground tracking-tighter mb-4 sm:mb-5 animate-pulse-subtle"
-                        style={{
-                            fontSize: 'clamp(3.5rem, 10vw, 7rem)',
-                            lineHeight: '0.95',
-                            textShadow:
-                                '0 0 40px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.15), 0 4px 60px rgba(255, 255, 255, 0.1)',
-                            letterSpacing: '-0.03em',
-                        }}
-                    >
-                        Quickserve IT
-                    </h1>
+                {/* TOP 50% - HERO SECTION */}
+                <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 min-h-[50vh]">
+                    <div className="text-center max-w-4xl w-full">
+                        {/* Brand Name - Premium Sized */}
+                        <h1
+                            className="font-display font-black text-foreground tracking-tighter mb-6 sm:mb-8"
+                            style={{
+                                fontSize: 'clamp(3rem, 10vw, 6.5rem)',
+                                lineHeight: '1.05',
+                                letterSpacing: '-0.02em',
+                                background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text',
+                                textShadow: '0 0 60px rgba(255, 255, 255, 0.15)',
+                                filter: 'drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
+                            }}
+                        >
+                            Quickserve IT
+                        </h1>
 
-                    {/* Tagline - Creative Font, Just Below */}
-                    <p
-                        className="font-serif text-foreground/75 text-base sm:text-lg md:text-xl italic tracking-wide font-light"
-                        style={{
-                            fontFamily: "'Playfair Display', 'Georgia', serif",
-                            textShadow: '0 0 20px rgba(255, 255, 255, 0.1)',
-                        }}
-                    >
-                        Your Personal Tech Partner
-                    </p>
+                        {/* Tagline - Prominent & Elegant */}
+                        <p
+                            className="font-serif text-foreground/80 text-lg sm:text-xl md:text-2xl italic tracking-wide font-light"
+                            style={{
+                                fontFamily: "'Playfair Display', 'Georgia', serif",
+                                textShadow: '0 2px 20px rgba(255, 255, 255, 0.08)',
+                                fontWeight: 300,
+                            }}
+                        >
+                            Your Personal Tech Partner
+                        </p>
+                    </div>
                 </div>
 
-                {/* Cards Grid - Thin, Horizontal */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                    {cards.map((card, index) => {
-                        const Icon = card.icon;
-                        const isHovered = hoveredCard === card.id;
+                {/* BOTTOM 50% - CARDS & FOOTER */}
+                <div className="flex-1 flex flex-col justify-between px-4 sm:px-6 lg:px-8 pb-8 min-h-[50vh]">
+                    {/* Cards Grid - Premium Layout */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5 max-w-7xl w-full mx-auto">
+                        {cards.map((card, index) => {
+                            const Icon = card.icon;
+                            const isHovered = hoveredCard === card.id;
 
-                        return (
-                            <button
-                                key={card.id}
-                                onClick={() => handleCardClick(card.mode, card.id)}
-                                onMouseEnter={() => setHoveredCard(card.id)}
-                                onMouseLeave={() => setHoveredCard(null)}
-                                className={`group relative px-4 py-5 sm:px-5 sm:py-6 rounded-xl border transition-all duration-500 text-left overflow-hidden ${isHovered
+                            return (
+                                <button
+                                    key={card.id}
+                                    onClick={() => handleCardClick(card.mode, card.id)}
+                                    onMouseEnter={() => setHoveredCard(card.id)}
+                                    onMouseLeave={() => setHoveredCard(null)}
+                                    className={`group relative px-4 py-4 sm:px-7 sm:py-9 rounded-xl sm:rounded-2xl border transition-all duration-500 ease-out text-left overflow-hidden min-h-[100px] sm:min-h-[180px] ${isHovered
                                         ? card.color === 'institutional'
-                                            ? 'border-institutional/50 bg-institutional/10 -translate-y-3 shadow-2xl shadow-institutional/25 scale-105'
+                                            ? 'border-institutional/60 bg-institutional/[0.15] -translate-y-2 shadow-2xl shadow-institutional/30 scale-[1.02]'
                                             : card.color === 'creator'
-                                                ? 'border-creator/50 bg-creator/10 -translate-y-3 shadow-2xl shadow-creator/25 scale-105'
+                                                ? 'border-creator/60 bg-creator/[0.15] -translate-y-2 shadow-2xl shadow-creator/30 scale-[1.02]'
                                                 : card.color === 'purple'
-                                                    ? 'border-purple-400/50 bg-purple-500/10 -translate-y-3 shadow-2xl shadow-purple-500/25 scale-105'
-                                                    : 'border-white/30 bg-white/[0.08] -translate-y-3 shadow-2xl shadow-white/15 scale-105'
-                                        : 'border-white/10 bg-white/[0.03]'
-                                    }`}
-                                style={{
-                                    backdropFilter: 'blur(20px)',
-                                    WebkitBackdropFilter: 'blur(20px)',
-                                    transitionDelay: `${index * 80}ms`,
-                                }}
-                            >
-                                {/* Gradient overlay */}
-                                <div
-                                    className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : ''
-                                        } ${card.color === 'institutional'
-                                            ? 'from-institutional/20 via-institutional/10 to-transparent'
-                                            : card.color === 'creator'
-                                                ? 'from-creator/20 via-creator/10 to-transparent'
-                                                : card.color === 'purple'
-                                                    ? 'from-purple-500/20 via-purple-500/10 to-transparent'
-                                                    : 'from-white/15 via-white/8 to-transparent'
-                                        }`}
-                                />
-
-                                {/* Badge */}
-                                {card.badge && (
-                                    <div className="absolute top-2 right-2 z-20">
-                                        <div className="px-2 py-0.5 rounded-full bg-purple-500/20 border border-purple-400/30 backdrop-blur-sm">
-                                            <span className="text-[8px] font-medium text-purple-300 uppercase tracking-wider">
-                                                Soon
-                                            </span>
-                                        </div>
-                                    </div>
-                                )}
-
-                                <div className="relative z-10">
-                                    {/* Icon - Alive Animation */}
-                                    <div className="mb-4">
-                                        <div
-                                            className={`inline-flex p-2.5 rounded-xl transition-all duration-500 ${isHovered
-                                                    ? card.color === 'institutional'
-                                                        ? 'bg-institutional/20 text-institutional scale-110 rotate-6'
-                                                        : card.color === 'creator'
-                                                            ? 'bg-creator/20 text-creator scale-110 rotate-6'
-                                                            : card.color === 'purple'
-                                                                ? 'bg-purple-500/20 text-purple-300 scale-110 rotate-6'
-                                                                : 'bg-white/15 text-white scale-110 rotate-6'
-                                                    : 'bg-white/5 text-foreground/60'
-                                                }`}
-                                        >
-                                            <Icon size={20} className="sm:w-6 sm:h-6" />
-                                        </div>
-                                    </div>
-
-                                    {/* Title - Compact */}
-                                    <h3 className="text-sm sm:text-base font-bold text-foreground mb-1 leading-tight">
-                                        {card.title}
-                                    </h3>
-
-                                    {/* Subtitle - Small */}
-                                    <p className="text-[11px] sm:text-xs text-foreground/50 mb-3">
-                                        {card.subtitle}
-                                    </p>
-
-                                    {/* CTA - Minimal */}
-                                    <div
-                                        className={`inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium transition-all duration-300 ${isHovered
-                                                ? card.color === 'institutional'
-                                                    ? 'translate-x-1 text-institutional'
-                                                    : card.color === 'creator'
-                                                        ? 'translate-x-1 text-creator'
-                                                        : card.color === 'purple'
-                                                            ? 'translate-x-1 text-purple-300'
-                                                            : 'translate-x-1 text-white'
-                                                : 'text-foreground/40'
-                                            }`}
-                                    >
-                                        {card.id === 4 ? 'Waitlist' : 'Start'}
-                                        <ArrowRight className="w-3 h-3" />
-                                    </div>
-                                </div>
-
-                                {/* Pulse glow */}
-                                <div
-                                    className={`absolute inset-0 rounded-xl transition-opacity duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'
+                                                    ? 'border-purple-400/60 bg-purple-500/[0.15] -translate-y-2 shadow-2xl shadow-purple-500/30 scale-[1.02]'
+                                                    : 'border-white/40 bg-white/[0.12] -translate-y-2 shadow-2xl shadow-white/20 scale-[1.02]'
+                                        : 'border-white/[0.15] bg-white/[0.05] hover:border-white/25'
                                         }`}
                                     style={{
-                                        background:
-                                            card.color === 'institutional'
-                                                ? 'radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.1), transparent 70%)'
-                                                : card.color === 'creator'
-                                                    ? 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.1), transparent 70%)'
-                                                    : card.color === 'purple'
-                                                        ? 'radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1), transparent 70%)'
-                                                        : 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), transparent 70%)',
+                                        backdropFilter: 'blur(24px)',
+                                        WebkitBackdropFilter: 'blur(24px)',
+                                        transitionDelay: `${index * 60}ms`,
+                                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
                                     }}
-                                />
-                            </button>
-                        );
-                    })}
-                </div>
+                                >
+                                    {/* Multi-layer gradient overlay */}
+                                    <div
+                                        className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : ''
+                                            } ${card.color === 'institutional'
+                                                ? 'from-institutional/25 via-institutional/15 to-transparent'
+                                                : card.color === 'creator'
+                                                    ? 'from-creator/25 via-creator/15 to-transparent'
+                                                    : card.color === 'purple'
+                                                        ? 'from-purple-500/25 via-purple-500/15 to-transparent'
+                                                        : 'from-white/20 via-white/10 to-transparent'
+                                            }`}
+                                    />
 
-                {/* Footer - Professional */}
-                <div className="mt-16 sm:mt-20 lg:mt-24 text-center">
-                    <p className="text-xs text-foreground/30 font-mono">
-                        Quickserve IT © 2026
-                    </p>
+                                    {/* Edge highlight */}
+                                    <div
+                                        className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : ''
+                                            }`}
+                                        style={{
+                                            background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                                        }}
+                                    />
+
+                                    {/* Badge */}
+                                    {card.badge && (
+                                        <div className="absolute top-3 right-3 z-20">
+                                            <div className="px-2.5 py-1 rounded-full bg-purple-500/25 border border-purple-400/40 backdrop-blur-md">
+                                                <span className="text-[9px] font-semibold text-purple-200 uppercase tracking-widest">
+                                                    Soon
+                                                </span>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        {/* Icon - Premium Animation */}
+                                        <div className="mb-3 sm:mb-5">
+                                            <div
+                                                className={`inline-flex p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-500 ease-out ${isHovered
+                                                    ? card.color === 'institutional'
+                                                        ? 'bg-institutional/30 text-institutional scale-110 rotate-3 shadow-lg shadow-institutional/20'
+                                                        : card.color === 'creator'
+                                                            ? 'bg-creator/30 text-creator scale-110 rotate-3 shadow-lg shadow-creator/20'
+                                                            : card.color === 'purple'
+                                                                ? 'bg-purple-500/30 text-purple-200 scale-110 rotate-3 shadow-lg shadow-purple-500/20'
+                                                                : 'bg-white/20 text-white scale-110 rotate-3 shadow-lg shadow-white/10'
+                                                    : 'bg-white/[0.08] text-foreground/70'
+                                                    }`}
+                                            >
+                                                <Icon size={24} className="sm:w-7 sm:h-7" />
+                                            </div>
+                                        </div>
+
+                                        {/* Title - Enhanced */}
+                                        <h3 className="text-sm sm:text-lg font-bold text-foreground mb-1 sm:mb-2 leading-tight">
+                                            {card.title}
+                                        </h3>
+
+                                        {/* Subtitle - Readable */}
+                                        <p className="text-xs sm:text-sm text-foreground/60 mb-3 sm:mb-4 flex-grow">
+                                            {card.subtitle}
+                                        </p>
+
+                                        {/* CTA - Touch-Friendly */}
+                                        <div
+                                            className={`inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold transition-all duration-300 min-h-[44px] sm:min-h-[48px] ${isHovered
+                                                ? card.color === 'institutional'
+                                                    ? 'translate-x-2 text-institutional'
+                                                    : card.color === 'creator'
+                                                        ? 'translate-x-2 text-creator'
+                                                        : card.color === 'purple'
+                                                            ? 'translate-x-2 text-purple-200'
+                                                            : 'translate-x-2 text-white'
+                                                : 'text-foreground/50'
+                                                }`}
+                                        >
+                                            {card.id === 4 ? 'Join Waitlist' : 'Get Started'}
+                                            <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
+                                        </div>
+                                    </div>
+
+                                    {/* Ambient glow */}
+                                    <div
+                                        className={`absolute inset-0 rounded-2xl transition-opacity duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'
+                                            }`}
+                                        style={{
+                                            background:
+                                                card.color === 'institutional'
+                                                    ? 'radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15), transparent 70%)'
+                                                    : card.color === 'creator'
+                                                        ? 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15), transparent 70%)'
+                                                        : card.color === 'purple'
+                                                            ? 'radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15), transparent 70%)'
+                                                            : 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12), transparent 70%)',
+                                        }}
+                                    />
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    {/* Footer - Compact & Professional */}
+                    <div className="mt-8 text-center border-t border-white/[0.08] pt-6">
+                        <p className="text-xs text-foreground/40 font-mono tracking-wide">
+                            Quickserve IT © 2026
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
