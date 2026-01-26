@@ -76,27 +76,27 @@ export const translations = {
 
     // Value Proposition
     whyChooseUsTitle: 'Why Choose Us',
-    whyChooseUsSubtitle: 'We focus on delivering quality work with personal attention',
+    whyChooseUsSubtitle: 'Built on trust, delivered with precision, designed for your peace of mind',
 
     // Institutional Values
-    valueSecurityTitle: 'Data Security',
-    valueSecurityDesc: 'Your school data stays confidential and secure',
-    valueTimelyTitle: 'On-Time Delivery',
-    valueTimelyDesc: 'We respect deadlines and deliver work when promised',
-    valuePersonalTitle: 'Personal Support',
-    valuePersonalDesc: 'Direct communication, no automated responses',
-    valueReliableTitle: 'Reliable Service',
-    valueReliableDesc: 'Consistent quality you can depend on',
+    valueSecurityTitle: 'Absolute Confidentiality',
+    valueSecurityDesc: 'Every student record, exam paper, and institutional file is handled with strict privacy protocols. Your data is never shared, always protected.',
+    valueTimelyTitle: 'Deadline-Driven Execution',
+    valueTimelyDesc: 'We understand academic calendars don\'t wait. Realistic timelines, transparent updates, and on-time delivery—every single time.',
+    valuePersonalTitle: 'Human-First Support',
+    valuePersonalDesc: 'No chatbots, no ticket systems. Direct WhatsApp access to real people who understand your institutional needs and respond with care.',
+    valueReliableTitle: 'Proven Track Record',
+    valueReliableDesc: 'Trusted by schools across rural Gorakhpur for UDISE+, scholarships, and exam documentation. Consistent quality, zero drama.',
 
     // Creator Values
-    valueQualityTitle: 'Quality First',
-    valueQualityDesc: 'Professional editing that makes your content stand out',
-    valueFastTitle: 'Quick Turnaround',
-    valueFastDesc: 'Fast delivery without compromising on quality',
-    valueCreativeTitle: 'Creative Touch',
-    valueCreativeDesc: 'We understand your vision and bring it to life',
-    valueCommittedTitle: 'Committed Partner',
-    valueCommittedDesc: 'Your success is our success',
+    valueQualityTitle: 'Broadcast-Quality Production',
+    valueQualityDesc: 'Professional editing, cinematic color grading, and retention-focused storytelling that positions you as an authority in your niche.',
+    valueFastTitle: 'Realistic Turnarounds',
+    valueFastDesc: 'No false promises. Clear timelines, honest communication, and delivery that respects both quality and your upload schedule.',
+    valueCreativeTitle: 'Vision-Aligned Execution',
+    valueCreativeDesc: 'We don\'t just edit—we understand your creative intent and execute it with precision, ensuring your message lands powerfully.',
+    valueCommittedTitle: 'Long-Term Partnership',
+    valueCommittedDesc: 'Your growth is our mission. We invest in understanding your channel, audience, and goals to deliver consistent, strategic support.',
 
     // Contact Form
     contactTitle: 'Get In Touch',
@@ -848,27 +848,27 @@ export const translations = {
 
     // Value Proposition
     whyChooseUsTitle: 'हमें क्यों चुनें',
-    whyChooseUsSubtitle: 'हम गुणवत्ता और व्यक्तिगत ध्यान के साथ काम करते हैं',
+    whyChooseUsSubtitle: 'विश्वास पर आधारित, सटीकता से पूर्ण, आपकी मानसिक शांति के लिए डिज़ाइन किया गया',
 
     // Institutional Values
-    valueSecurityTitle: 'डेटा सुरक्षा',
-    valueSecurityDesc: 'आपके स्कूल का डेटा पूरी तरह सुरक्षित रहता है',
-    valueTimelyTitle: 'समय पर डिलीवरी',
-    valueTimelyDesc: 'हम समय सीमा का सम्मान करते हैं',
-    valuePersonalTitle: 'व्यक्तिगत सहायता',
-    valuePersonalDesc: 'सीधी बातचीत, कोई ऑटोमेटिक जवाब नहीं',
-    valueReliableTitle: 'भरोसेमंद सेवा',
-    valueReliableDesc: 'लगातार अच्छी क्वालिटी जिस पर आप भरोसा कर सकें',
+    valueSecurityTitle: 'पूर्ण गोपनीयता',
+    valueSecurityDesc: 'हर छात्र रिकॉर्ड, परीक्षा पेपर और संस्थागत फाइल को सख्त गोपनीयता नियमों के साथ संभाला जाता है। आपका डेटा कभी साझा नहीं किया जाता, हमेशा सुरक्षित रहता है।',
+    valueTimelyTitle: 'समय-सीमा पर केंद्रित निष्पादन',
+    valueTimelyDesc: 'हम समझते हैं कि शैक्षणिक कैलेंडर इंतजार नहीं करता। यथार्थवादी समय-सीमा, पारदर्शी अपडेट और समय पर डिलीवरी—हर बार।',
+    valuePersonalTitle: 'मानवीय-प्रथम सहायता',
+    valuePersonalDesc: 'कोई चैटबॉट नहीं, कोई टिकट सिस्टम नहीं। वास्तविक लोगों से सीधा WhatsApp संपर्क जो आपकी संस्थागत जरूरतों को समझते हैं और देखभाल के साथ जवाब देते हैं।',
+    valueReliableTitle: 'सिद्ध ट्रैक रिकॉर्ड',
+    valueReliableDesc: 'ग्रामीण गोरखपुर के स्कूलों द्वारा UDISE+, छात्रवृत्ति और परीक्षा दस्तावेज़ीकरण के लिए विश्वसनीय। सुसंगत गुणवत्ता, शून्य नाटक।',
 
     // Creator Values
-    valueQualityTitle: 'क्वालिटी पहले',
-    valueQualityDesc: 'प्रोफेशनल एडिटिंग जो आपके कंटेंट को खास बनाए',
-    valueFastTitle: 'तेज़ डिलीवरी',
-    valueFastDesc: 'क्वालिटी के साथ तेज़ काम',
-    valueCreativeTitle: 'क्रिएटिव टच',
-    valueCreativeDesc: 'हम आपकी सोच को समझते हैं और उसे जीवंत करते हैं',
-    valueCommittedTitle: 'प्रतिबद्ध साथी',
-    valueCommittedDesc: 'आपकी सफलता ही हमारी सफलता है',
+    valueQualityTitle: 'ब्रॉडकास्ट-गुणवत्ता उत्पादन',
+    valueQualityDesc: 'प्रोफेशनल एडिटिंग, सिनेमैटिक कलर ग्रेडिंग और रिटेंशन-केंद्रित कहानी कहना जो आपको अपने क्षेत्र में एक प्राधिकरण के रूप में स्थापित करता है।',
+    valueFastTitle: 'यथार्थवादी टर्नअराउंड',
+    valueFastDesc: 'कोई झूठे वादे नहीं। स्पष्ट समय-सीमा, ईमानदार संचार और डिलीवरी जो गुणवत्ता और आपके अपलोड शेड्यूल दोनों का सम्मान करती है।',
+    valueCreativeTitle: 'दृष्टि-संरेखित निष्पादन',
+    valueCreativeDesc: 'हम सिर्फ एडिट नहीं करते—हम आपके रचनात्मक इरादे को समझते हैं और इसे सटीकता के साथ निष्पादित करते हैं, यह सुनिश्चित करते हुए कि आपका संदेश शक्तिशाली रूप से पहुंचे।',
+    valueCommittedTitle: 'दीर्घकालिक साझेदारी',
+    valueCommittedDesc: 'आपकी वृद्धि हमारा मिशन है। हम आपके चैनल, दर्शकों और लक्ष्यों को समझने में निवेश करते हैं ताकि सुसंगत, रणनीतिक सहायता प्रदान कर सकें।',
 
     // Contact Form
     contactTitle: 'हमसे बात करें',
