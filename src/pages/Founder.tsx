@@ -34,7 +34,7 @@ const Founder = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 md:pb-28">
+      <main id="main-content" className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 md:pb-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
           <div className="text-center mb-16">

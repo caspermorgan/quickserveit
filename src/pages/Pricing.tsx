@@ -252,7 +252,7 @@ const Pricing = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
+      <main id="main-content" className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
@@ -262,7 +262,7 @@ const Pricing = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-slower ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <H1 className="mb-4 sm:mb-5 md:mb-6">
@@ -300,7 +300,7 @@ const Pricing = () => {
           <div
             ref={servicesRef}
             id="services"
-            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <div className="text-center mb-6 sm:mb-8">
@@ -327,7 +327,7 @@ const Pricing = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveServiceTab(tab.id)}
-                    className={`inline-flex items-center gap-2 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-full font-medium text-xs sm:text-sm md:text-base transition-all duration-300 min-h-[44px] ${activeServiceTab === tab.id
+                    className={`inline-flex items-center gap-2 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-full font-medium text-xs sm:text-sm md:text-base transition-all duration-normal min-h-[44px] ${activeServiceTab === tab.id
                       ? `${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background shadow-lg ${mode === 'institutional' ? 'shadow-institutional/30' : 'shadow-creator/30'} scale-105`
                       : `glass-card border border-border/20 ${mode === 'institutional' ? 'hover:border-institutional/40' : 'hover:border-creator/40'} text-foreground/70 hover:text-foreground hover:scale-102`
                       }`}
@@ -349,7 +349,7 @@ const Pricing = () => {
                     {currentTab.plans.map((plan, idx) => (
                       <div
                         key={idx}
-                        className={`group glass-card rounded-2xl p-4 sm:p-6 md:p-8 border ${mode === 'institutional' ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20' : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'} hover:shadow-xl transition-all duration-500 hover:scale-[1.02]`}
+                        className={`group glass-card rounded-2xl p-4 sm:p-6 md:p-8 border ${mode === 'institutional' ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20' : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'} hover:shadow-xl transition-all duration-slow hover:scale-[1.02]`}
                       >
                         {plan.subtitle ? (
                           <>
@@ -371,7 +371,7 @@ const Pricing = () => {
                           </>
                         ) : (
                           <>
-                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10 group-hover:bg-institutional/20' : 'bg-creator/10 group-hover:bg-creator/20'} transition-colors duration-300`}>
+                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10 group-hover:bg-institutional/20' : 'bg-creator/10 group-hover:bg-creator/20'} transition-colors duration-normal`}>
                               {plan.name === 'Starter' && <Video className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
                               {plan.name === 'Growth' && <TrendingUp className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
                               {plan.name === 'Authority' && <Crown className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
@@ -385,7 +385,7 @@ const Pricing = () => {
                             </div>
                             <div className="space-y-2.5 mb-6">
                               {plan.features?.map((feature, i) => (
-                                <div key={i} className="flex items-center gap-2 text-sm text-foreground/70 group-hover:text-foreground group-hover:translate-x-1 transition-all duration-300">
+                                <div key={i} className="flex items-center gap-2 text-sm text-foreground/70 group-hover:text-foreground group-hover:translate-x-1 transition-all duration-normal">
                                   <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                                   <span>{feature}</span>
                                 </div>
@@ -402,7 +402,7 @@ const Pricing = () => {
                         </div>
                         <button
                           onClick={() => navigate('/contact')}
-                          className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background`}
+                          className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-normal hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background`}
                         >
                           Get Started
                         </button>
@@ -473,7 +473,7 @@ const Pricing = () => {
 
                   <button
                     onClick={() => navigate('/contact')}
-                    className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
+                    className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
                   >
                     Contact Us
                   </button>
@@ -520,7 +520,7 @@ const Pricing = () => {
 
                   <button
                     onClick={() => navigate('/contact')}
-                    className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
+                    className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
                   >
                     Get Instant Quote
                   </button>
@@ -533,7 +533,7 @@ const Pricing = () => {
           <div
             ref={subscriptionsRef}
             id="subscriptions"
-            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <div className="text-center mb-8 sm:mb-10">
@@ -564,7 +564,7 @@ const Pricing = () => {
               {mode === 'institutional' ? (
                 <>
                   {/* Monthly Plan */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
+                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
                     <div className="mb-6">
                       <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
                         <Clock className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -587,14 +587,14 @@ const Pricing = () => {
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
                     >
                       Start Monthly Plan
                     </button>
                   </div>
 
                   {/* 6-Month Plan - HIGHLIGHTED */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border-2 relative overflow-hidden transition-all duration-500 hover:scale-[1.02] ${mode === 'institutional' ? 'border-institutional/60 ring-4 ring-institutional/30 hover:border-institutional/80 hover:shadow-institutional/30' : 'border-creator/60 ring-4 ring-creator/30 hover:border-creator/80 hover:shadow-creator/30'} hover:shadow-2xl`}>
+                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border-2 relative overflow-hidden transition-all duration-slow hover:scale-[1.02] ${mode === 'institutional' ? 'border-institutional/60 ring-4 ring-institutional/30 hover:border-institutional/80 hover:shadow-institutional/30' : 'border-creator/60 ring-4 ring-creator/30 hover:border-creator/80 hover:shadow-creator/30'} hover:shadow-2xl`}>
                     <div className={`absolute top-0 right-0 px-4 py-1.5 text-xs font-bold tracking-wide ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background`}>
                       MOST POPULAR
                     </div>
@@ -623,14 +623,14 @@ const Pricing = () => {
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/40' : 'bg-creator hover:shadow-creator/40'} text-background hover:shadow-xl text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-normal hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/40' : 'bg-creator hover:shadow-creator/40'} text-background hover:shadow-xl text-sm sm:text-base`}
                     >
                       Start 6-Month Plan
                     </button>
                   </div>
 
                   {/* Annual Plan */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
+                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
                     <div className="mb-6">
                       <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
                         <Award className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -656,7 +656,7 @@ const Pricing = () => {
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
                     >
                       Start Annual Plan
                     </button>
@@ -665,7 +665,7 @@ const Pricing = () => {
               ) : (
                 <>
                   {/* Creator Monthly */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
+                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
                     <div className="mb-6">
                       <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
                         <Clock className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -691,14 +691,14 @@ const Pricing = () => {
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
                     >
                       Start Monthly Plan
                     </button>
                   </div>
 
                   {/* Creator Quarterly - HIGHLIGHTED */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border-2 relative overflow-hidden transition-all duration-500 hover:scale-[1.02] ${mode === 'institutional' ? 'border-institutional/50 ring-2 ring-institutional/20 hover:border-institutional/70' : 'border-creator/50 ring-2 ring-creator/20 hover:border-creator/70'}`}>
+                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border-2 relative overflow-hidden transition-all duration-slow hover:scale-[1.02] ${mode === 'institutional' ? 'border-institutional/50 ring-2 ring-institutional/20 hover:border-institutional/70' : 'border-creator/50 ring-2 ring-creator/20 hover:border-creator/70'}`}>
                     <div className={`absolute top-0 right-0 px-4 py-1.5 text-xs font-bold tracking-wide ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background`}>
                       BEST VALUE
                     </div>
@@ -727,14 +727,14 @@ const Pricing = () => {
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
                     >
                       Start Pro Plan
                     </button>
                   </div>
 
                   {/* Creator Annual */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-500 hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
+                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
                     <div className="mb-6">
                       <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
                         <Award className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -760,7 +760,7 @@ const Pricing = () => {
                     </div>
                     <button
                       onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
+                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
                     >
                       Explore Elite Plan
                     </button>
@@ -774,7 +774,7 @@ const Pricing = () => {
           <div
             ref={ctaRef}
             id="cta"
-            className={`max-w-4xl mx-auto transition-all duration-700 ease-out delay-300 ${visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-4xl mx-auto transition-all duration-slower ease-out delay-300 ${visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border text-center ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'}`}>
@@ -792,7 +792,7 @@ const Pricing = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={() => navigate('/contact')}
-                  className={`inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
+                  className={`inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
                 >
                   Get Custom Quote Now
                 </button>

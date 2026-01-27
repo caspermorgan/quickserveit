@@ -127,6 +127,16 @@
       0 0 80px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
+    /* Focus Ring System - Keyboard Navigation Accessibility */
+    --focus-ring-institutional: hsl(43, 96%, 56%);
+    /* #EAB308 */
+    --focus-ring-creator: hsl(187, 100%, 42%);
+    /* #22D3EE */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+    --focus-ring-color: var(--focus-ring-institutional);
+    /* Default to institutional */
+
     /* Mathematical Spacing System - 8px base unit */
     --space-1: 0.5rem;
     /* 8px */
@@ -247,6 +257,51 @@
     overflow-x: hidden;
     line-height: 1.6;
     font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  /* ========================================
+     KEYBOARD NAVIGATION - FOCUS STYLES
+     ======================================== */
+
+  /* Global focus-visible styles for keyboard navigation */
+  *:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    transition: outline-color 0.2s ease;
+  }
+
+  /* Remove default focus styles for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Mode-aware focus styles */
+  [data-mode="creator"] *:focus-visible {
+    --focus-ring-color: var(--focus-ring-creator);
+  }
+
+  [data-mode="institutional"] *:focus-visible {
+    --focus-ring-color: var(--focus-ring-institutional);
+  }
+
+  /* Enhanced focus styles for specific elements */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  a:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: 0;
+    border-color: var(--focus-ring-color);
   }
 
   /* Global heading styles - refined weight for luxury feel */

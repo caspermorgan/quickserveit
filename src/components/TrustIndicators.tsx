@@ -17,7 +17,7 @@ interface IndicatorItemProps {
 
 const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeactivate }: IndicatorItemProps) => {
     return (
-        <div className="relative opacity-60 scale-90 transition-all duration-300 hover:opacity-100 hover:scale-100">
+        <div className="relative opacity-60 scale-90 transition-all duration-normal hover:opacity-100 hover:scale-100">
             {/* Icon with subtle glow - v2.1 Refined */}
             <button
                 onMouseEnter={onActivate}
@@ -27,7 +27,7 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
                 className={`
           group relative p-2.5 rounded-full
           glass-surface-3
-          transition-all duration-200 ease-out
+          transition-all duration-fast ease-out
           min-h-[44px] min-w-[44px] flex items-center justify-center
           ${isActive
                         ? mode === 'institutional'
@@ -40,7 +40,7 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
             >
                 <Icon
                     className={`
-            w-4 h-4 sm:w-4.5 sm:h-4.5 transition-all duration-200
+            w-4 h-4 sm:w-4.5 sm:h-4.5 transition-all duration-fast
             ${mode === 'institutional' ? 'text-institutional/70' : 'text-creator/70'}
           `}
                     style={{
@@ -57,7 +57,7 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
           absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2
           rounded-lg glass-surface-1 border
           whitespace-nowrap text-xs font-medium
-          transition-all duration-200 ease-out pointer-events-none
+          transition-all duration-fast ease-out pointer-events-none
           ${isActive
                         ? 'opacity-100 translate-y-0'
                         : 'opacity-0 translate-y-2 invisible'

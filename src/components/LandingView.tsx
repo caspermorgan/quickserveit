@@ -74,7 +74,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
     return (
         <div
-            className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-all duration-1000 ease-out ${isExiting
+            className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-all duration-slowest ease-out ${isExiting
                 ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
                 : 'opacity-100 scale-100 blur-0'
                 }`}
@@ -104,7 +104,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
             {/* Main Content - 50/50 Mobile-First Layout */}
             <div
-                className={`relative z-40 w-full h-full flex flex-col transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`relative z-40 w-full h-full flex flex-col transition-all duration-slowest ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
             >
                 {/* TOP 50% - HERO SECTION */}
@@ -156,7 +156,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                     onClick={() => handleCardClick(card.mode, card.id)}
                                     onMouseEnter={() => setHoveredCard(card.id)}
                                     onMouseLeave={() => setHoveredCard(null)}
-                                    className={`group relative px-3 py-3 sm:px-5 sm:py-7 md:px-7 md:py-9 rounded-xl sm:rounded-2xl border transition-all duration-500 ease-out text-left overflow-hidden min-h-[100px] sm:min-h-[180px] ${isHovered
+                                    className={`group relative px-3 py-3 sm:px-5 sm:py-7 md:px-7 md:py-9 rounded-xl sm:rounded-2xl border transition-all duration-slow ease-out text-left overflow-hidden min-h-[100px] sm:min-h-[180px] ${isHovered
                                         ? card.color === 'institutional'
                                             ? 'border-institutional/60 bg-institutional/[0.15] -translate-y-2 shadow-2xl shadow-institutional/30 scale-[1.02]'
                                             : card.color === 'creator'
@@ -175,7 +175,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 >
                                     {/* Multi-layer gradient overlay */}
                                     <div
-                                        className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : ''
+                                        className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-slow ${isHovered ? 'opacity-100' : ''
                                             } ${card.color === 'institutional'
                                                 ? 'from-institutional/25 via-institutional/15 to-transparent'
                                                 : card.color === 'creator'
@@ -188,7 +188,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                                     {/* Edge highlight */}
                                     <div
-                                        className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : ''
+                                        className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-slow ${isHovered ? 'opacity-100' : ''
                                             }`}
                                         style={{
                                             background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)',
@@ -210,7 +210,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                         {/* Icon - Premium Animation */}
                                         <div className="mb-3 sm:mb-5">
                                             <div
-                                                className={`inline-flex p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-500 ease-out ${isHovered
+                                                className={`inline-flex p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-slow ease-out ${isHovered
                                                     ? card.color === 'institutional'
                                                         ? 'bg-institutional/30 text-institutional scale-110 rotate-3 shadow-lg shadow-institutional/20'
                                                         : card.color === 'creator'
@@ -237,7 +237,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                                         {/* CTA - Touch-Friendly */}
                                         <div
-                                            className={`inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold transition-all duration-300 min-h-[44px] sm:min-h-[48px] ${isHovered
+                                            className={`inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold transition-all duration-normal min-h-[44px] sm:min-h-[48px] ${isHovered
                                                 ? card.color === 'institutional'
                                                     ? 'translate-x-2 text-institutional'
                                                     : card.color === 'creator'
@@ -249,13 +249,13 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                                 }`}
                                         >
                                             {card.id === 4 ? 'Join Waitlist' : 'Get Started'}
-                                            <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
+                                            <ArrowRight className={`w-4 h-4 transition-transform duration-normal ${isHovered ? 'translate-x-1' : ''}`} />
                                         </div>
                                     </div>
 
                                     {/* Ambient glow */}
                                     <div
-                                        className={`absolute inset-0 rounded-2xl transition-opacity duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'
+                                        className={`absolute inset-0 rounded-2xl transition-opacity duration-slower ${isHovered ? 'opacity-100' : 'opacity-0'
                                             }`}
                                         style={{
                                             background:

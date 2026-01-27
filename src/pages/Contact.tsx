@@ -149,7 +149,7 @@ const Contact = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
+      <main id="main-content" className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
@@ -159,7 +159,7 @@ const Contact = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-700 ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-slower ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <H1 className="mb-5 sm:mb-6 md:mb-7 px-4 md:px-0">
@@ -170,7 +170,7 @@ const Contact = () => {
             </p>
 
             {/* Response Time Badge */}
-            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card border border-border/30 mb-6 sm:mb-7 md:mb-8 transition-all duration-300 hover:scale-105">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card border border-border/30 mb-6 sm:mb-7 md:mb-8 transition-all duration-normal hover:scale-105">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-xs sm:text-sm font-medium">Usually responds in 2-4 hours</span>
             </div>
@@ -180,7 +180,7 @@ const Contact = () => {
           <div
             ref={contactMethodsRef}
             id="contact-methods"
-            className={`max-w-2xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-2xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <div className="flex flex-col gap-3 sm:gap-4">
@@ -189,13 +189,13 @@ const Contact = () => {
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex items-center gap-3 sm:gap-4 p-4 sm:p-5 md:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
+                className={`group flex items-center gap-3 sm:gap-4 p-4 sm:p-5 md:p-5 rounded-xl glass-card border transition-all duration-normal hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
                 style={{ willChange: 'transform' }}
               >
-                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
+                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-normal ${mode === 'institutional'
                   ? 'bg-institutional/10 group-hover:bg-institutional'
                   : 'bg-creator/10 group-hover:bg-creator'
                   }`}>
@@ -226,13 +226,13 @@ const Contact = () => {
                     ? 'Hello QuickServe IT Team,\n\nI am interested in your institutional documentation services.\n\nInstitution Name: \nService Needed: \nProject Details: \n\nBest Regards'
                     : 'Hello QuickServe IT Team,\n\nI am interested in your creator production services.\n\nChannel/Brand Name: \nContent Type: \nProject Details: \n\nBest Regards'
                 )}`}
-                className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl glass-card border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
+                className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl glass-card border transition-all duration-normal hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
                   ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
                   : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
                   }`}
                 style={{ willChange: 'transform' }}
               >
-                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
+                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-normal ${mode === 'institutional'
                   ? 'bg-institutional/10 group-hover:bg-institutional'
                   : 'bg-creator/10 group-hover:bg-creator'
                   }`}>
@@ -258,7 +258,7 @@ const Contact = () => {
           <div
             ref={formRef}
             id="form"
-            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-200 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-200 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Context Badge */}
@@ -280,7 +280,7 @@ const Contact = () => {
                   </span>
                   <button
                     onClick={() => setShowContextBadge(false)}
-                    className={`ml-1 sm:ml-2 p-1 rounded-full transition-all duration-200 hover:bg-white/10 active:scale-90 ${mode === 'institutional' ? 'text-institutional/60 hover:text-institutional' : 'text-creator/60 hover:text-creator'
+                    className={`ml-1 sm:ml-2 p-1 rounded-full transition-all duration-fast hover:bg-white/10 active:scale-90 ${mode === 'institutional' ? 'text-institutional/60 hover:text-institutional' : 'text-creator/60 hover:text-creator'
                       }`}
                     aria-label="Dismiss context badge"
                   >
@@ -306,7 +306,7 @@ const Contact = () => {
           <div
             ref={faqRef}
             id="faq"
-            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <H2 className="text-center mb-6 sm:mb-7 md:mb-8">Frequently Asked Questions</H2>
@@ -314,7 +314,7 @@ const Contact = () => {
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className={`glass-card rounded-xl border overflow-hidden transition-all duration-300 ${expandedFaq === index
+                  className={`glass-card rounded-xl border overflow-hidden transition-all duration-normal ${expandedFaq === index
                     ? mode === 'institutional'
                       ? 'border-institutional/40'
                       : 'border-creator/40'
@@ -337,7 +337,7 @@ const Contact = () => {
                     )}
                   </button>
                   <div
-                    className={`grid transition-all duration-300 ease-out ${expandedFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                    className={`grid transition-all duration-normal ease-out ${expandedFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                       }`}
                   >
                     <div className="overflow-hidden">
@@ -355,11 +355,11 @@ const Contact = () => {
           <div
             ref={infoCardsRef}
             id="info-cards"
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto transition-all duration-700 ease-out delay-400 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto transition-all duration-slower ease-out delay-400 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Working Hours */}
-            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-300 hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
+            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
               }`}
               style={{ willChange: 'transform' }}
             >
@@ -376,7 +376,7 @@ const Contact = () => {
             {/* Email */}
             <a
               href="mailto:letsquickserveit@gmail.com"
-              className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-300 hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] group ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
+              className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] group ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
                 }`}
               style={{ willChange: 'transform' }}
             >
@@ -393,7 +393,7 @@ const Contact = () => {
             </a>
 
             {/* Location */}
-            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-300 hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
+            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
               }`}
               style={{ willChange: 'transform' }}
             >
@@ -408,7 +408,7 @@ const Contact = () => {
             </div>
 
             {/* Confidentiality */}
-            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-300 hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
+            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
               }`}
               style={{ willChange: 'transform' }}
             >
@@ -424,7 +424,7 @@ const Contact = () => {
           </div>
 
           {/* Trust Note */}
-          <div className={`max-w-3xl mx-auto transition-all duration-700 ease-out delay-500 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          <div className={`max-w-3xl mx-auto transition-all duration-slower ease-out delay-500 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
             <div className={`p-5 sm:p-6 rounded-xl border-l-4 text-center ${mode === 'institutional'
               ? 'bg-institutional/5 border-institutional/40'

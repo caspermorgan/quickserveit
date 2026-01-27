@@ -8,6 +8,8 @@ import { useEffect, lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { ModeProvider, useMode } from "@/context/ModeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
+import SkipToContent from "@/components/SkipToContent";
+import PageTransition from "@/components/motion/PageTransition";
 
 // Lazy load all page components for better performance
 const Landing = lazy(() => import("./pages/Landing"));
@@ -136,17 +138,17 @@ const AppRoutes = () => {
           <Route path="/" element={<LandingRoute />} />
 
           {/* All content pages - auto-enter for deep links */}
-          <Route path="/home" element={<SmartRoute><Home /></SmartRoute>} />
-          <Route path="/services" element={<SmartRoute><Services /></SmartRoute>} />
-          <Route path="/pricing" element={<SmartRoute><Pricing /></SmartRoute>} />
-          <Route path="/about" element={<SmartRoute><About /></SmartRoute>} />
-          <Route path="/founder" element={<SmartRoute><Founder /></SmartRoute>} />
-          <Route path="/contact" element={<SmartRoute><Contact /></SmartRoute>} />
-          <Route path="/portfolio" element={<SmartRoute><Portfolio /></SmartRoute>} />
-          <Route path="/terms" element={<SmartRoute><Terms /></SmartRoute>} />
-          <Route path="/privacy" element={<SmartRoute><Privacy /></SmartRoute>} />
-          <Route path="/disclaimer" element={<SmartRoute><Disclaimer /></SmartRoute>} />
-          <Route path="/faq" element={<SmartRoute><FAQ /></SmartRoute>} />
+          <Route path="/home" element={<SmartRoute><PageTransition><Home /></PageTransition></SmartRoute>} />
+          <Route path="/services" element={<SmartRoute><PageTransition><Services /></PageTransition></SmartRoute>} />
+          <Route path="/pricing" element={<SmartRoute><PageTransition><Pricing /></PageTransition></SmartRoute>} />
+          <Route path="/about" element={<SmartRoute><PageTransition><About /></PageTransition></SmartRoute>} />
+          <Route path="/founder" element={<SmartRoute><PageTransition><Founder /></PageTransition></SmartRoute>} />
+          <Route path="/contact" element={<SmartRoute><PageTransition><Contact /></PageTransition></SmartRoute>} />
+          <Route path="/portfolio" element={<SmartRoute><PageTransition><Portfolio /></PageTransition></SmartRoute>} />
+          <Route path="/terms" element={<SmartRoute><PageTransition><Terms /></PageTransition></SmartRoute>} />
+          <Route path="/privacy" element={<SmartRoute><PageTransition><Privacy /></PageTransition></SmartRoute>} />
+          <Route path="/disclaimer" element={<SmartRoute><PageTransition><Disclaimer /></PageTransition></SmartRoute>} />
+          <Route path="/faq" element={<SmartRoute><PageTransition><FAQ /></PageTransition></SmartRoute>} />
 
           {/* 404 - no gate needed */}
           <Route path="*" element={<NotFound />} />
@@ -167,6 +169,7 @@ const App = () => {
               <Sonner />
               <SpeedInsights />
               <BrowserRouter>
+                <SkipToContent />
                 <AppRoutes />
               </BrowserRouter>
             </TooltipProvider>

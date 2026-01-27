@@ -241,12 +241,15 @@ Thank you!`;
           value={formData.name}
           onChange={handleChange}
           placeholder="Your full name"
+          aria-required="true"
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? 'name-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.name
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.name && <p className="mt-1.5 text-xs text-destructive/80">{errors.name}</p>}
+        {errors.name && <p id="name-error" className="mt-1.5 text-xs text-destructive/80">{errors.name}</p>}
       </div>
 
       {/* Mobile */}
@@ -261,12 +264,15 @@ Thank you!`;
           value={formData.mobile}
           onChange={handleChange}
           placeholder="10-digit mobile number"
+          aria-required="true"
+          aria-invalid={!!errors.mobile}
+          aria-describedby={errors.mobile ? 'mobile-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.mobile
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.mobile && <p className="mt-1.5 text-xs text-destructive/80">{errors.mobile}</p>}
+        {errors.mobile && <p id="mobile-error" className="mt-1.5 text-xs text-destructive/80">{errors.mobile}</p>}
       </div>
 
       {/* Email */}
@@ -281,12 +287,15 @@ Thank you!`;
           value={formData.email}
           onChange={handleChange}
           placeholder="your@email.com"
+          aria-required="true"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? 'email-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.email
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.email && <p className="mt-1.5 text-xs text-destructive/80">{errors.email}</p>}
+        {errors.email && <p id="email-error" className="mt-1.5 text-xs text-destructive/80">{errors.email}</p>}
       </div>
 
       {/* Service */}
@@ -299,6 +308,9 @@ Thank you!`;
           name="service"
           value={formData.service}
           onChange={handleChange}
+          aria-required="true"
+          aria-invalid={!!errors.service}
+          aria-describedby={errors.service ? 'service-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground focus:outline-none focus:ring-1 appearance-none cursor-pointer ${errors.service
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
@@ -311,7 +323,7 @@ Thank you!`;
             </option>
           ))}
         </select>
-        {errors.service && <p className="mt-1.5 text-xs text-destructive/80">{errors.service}</p>}
+        {errors.service && <p id="service-error" className="mt-1.5 text-xs text-destructive/80">{errors.service}</p>}
       </div>
 
       {/* Message */}
@@ -326,12 +338,15 @@ Thank you!`;
           onChange={handleChange}
           placeholder="Tell us about your requirements..."
           rows={4}
+          aria-required="true"
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? 'message-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 resize-none ${errors.message
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.message && <p className="mt-1.5 text-xs text-destructive/80">{errors.message}</p>}
+        {errors.message && <p id="message-error" className="mt-1.5 text-xs text-destructive/80">{errors.message}</p>}
       </div>
 
       {/* Terms checkbox */}
@@ -343,6 +358,10 @@ Thank you!`;
               checked={formData.agreed}
               onChange={handleCheckboxChange}
               className="sr-only"
+              aria-required="true"
+              aria-checked={formData.agreed}
+              aria-invalid={!!errors.agreed}
+              aria-describedby={errors.agreed ? 'agreed-error' : undefined}
             />
             <div className={`w-5 h-5 rounded-md border transition-all duration-300 flex items-center justify-center ${formData.agreed
               ? mode === 'institutional'
@@ -359,7 +378,7 @@ Thank you!`;
             I agree to the terms & conditions and understand that my inquiry will be sent via WhatsApp.
           </span>
         </label>
-        {errors.agreed && <p className="mt-1.5 text-xs text-destructive/80 ml-8">{errors.agreed}</p>}
+        {errors.agreed && <p id="agreed-error" className="mt-1.5 text-xs text-destructive/80 ml-8">{errors.agreed}</p>}
       </div>
 
       {/* Submit button */}

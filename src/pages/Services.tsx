@@ -456,7 +456,7 @@ const Services = () => {
         isVisible={true}
       />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 md:pb-28">
+      <main id="main-content" className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-24 md:pb-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20 max-w-3xl mx-auto animate-fade-in-up">
@@ -555,7 +555,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
   return (
     <div
       id={service.id}
-      className={`rounded-xl glass-card border overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'border-border/40 shadow-lg' : 'border-border/20 hover:border-border/30 hover:shadow-md'}`}
+      className={`rounded-xl glass-card border overflow-hidden transition-all duration-normal ease-out ${isExpanded ? 'border-border/40 shadow-lg' : 'border-border/20 hover:border-border/30 hover:shadow-md'}`}
     >
       {/* Header - Safe scroll zone with chevron-only interaction */}
       <div className="w-full p-5 sm:p-6 flex items-start gap-4">
@@ -569,7 +569,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
         {/* Only chevron is clickable - 44×44px minimum touch target */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className={`shrink-0 p-2.5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring min-w-[44px] min-h-[44px] flex items-center justify-center ${mode === 'institutional'
+          className={`shrink-0 p-2.5 rounded-lg transition-all duration-fast focus:outline-none focus:ring-2 focus:ring-ring min-w-[44px] min-h-[44px] flex items-center justify-center ${mode === 'institutional'
             ? 'hover:bg-institutional/10 active:bg-institutional/15'
             : 'hover:bg-creator/10 active:bg-creator/15'
             }`}
@@ -586,7 +586,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
 
       {/* Expanded Content with smooth animation */}
       <div
-        className={`grid transition-all duration-300 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
+        className={`grid transition-all duration-normal ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'}`}
       >
         <div className="overflow-hidden">
           <div className="px-4 sm:px-5 md:px-6 pb-6 border-t border-border/10 pt-5 sm:pt-6">
@@ -655,7 +655,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
                       <span
                         key={i}
                         title={iconData.name}
-                        className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg glass-card border border-creator/20 hover:border-creator/40 transition-all duration-200 hover:scale-105"
+                        className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-lg glass-card border border-creator/20 hover:border-creator/40 transition-all duration-fast hover:scale-105"
                         style={{
                           backdropFilter: 'blur(8px)',
                           background: 'rgba(0, 188, 212, 0.05)'
@@ -684,7 +684,7 @@ const ServiceDetailCard = ({ service, mode, t }: ServiceDetailCardProps) => {
                     }
                   });
                 }}
-                className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring min-h-[44px] ${mode === 'institutional'
+                className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring min-h-[44px] ${mode === 'institutional'
                   ? 'bg-institutional text-background hover:bg-institutional/90 hover:shadow-lg hover:shadow-institutional/20'
                   : 'bg-creator text-background hover:bg-creator/90 hover:shadow-lg hover:shadow-creator/20'
                   }`}

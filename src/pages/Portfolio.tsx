@@ -71,7 +71,7 @@ const Portfolio = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
+      <main id="main-content" className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
@@ -189,7 +189,7 @@ const Portfolio = () => {
                   href={linkedInUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'
+                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-normal hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'
                     } text-background hover:shadow-xl`}
                 >
                   <ExternalLink className="w-5 h-5" />
@@ -198,7 +198,7 @@ const Portfolio = () => {
 
                 <button
                   onClick={() => navigate('/contact')}
-                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'
+                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-normal hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'
                     } hover:text-background`}
                 >
                   Discuss Your Project

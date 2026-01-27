@@ -70,6 +70,7 @@ const Footer = ({ mode }: FooterProps) => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Contact us on WhatsApp"
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium trans-premium ${mode === 'institutional'
                 ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
                 : 'bg-creator/10 text-creator hover:bg-creator/20'
@@ -112,16 +113,16 @@ const Footer = ({ mode }: FooterProps) => {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-foreground/40">
-            <Link to="/privacy" className="hover:text-foreground transition-colors duration-300">
+            <Link to="/privacy" className="hover:text-foreground transition-colors duration-normal">
               Privacy
             </Link>
-            <Link to="/terms" className="hover:text-foreground transition-colors duration-300">
+            <Link to="/terms" className="hover:text-foreground transition-colors duration-normal">
               Terms
             </Link>
-            <Link to="/disclaimer" className="hover:text-foreground transition-colors duration-300">
+            <Link to="/disclaimer" className="hover:text-foreground transition-colors duration-normal">
               Disclaimer
             </Link>
-            <Link to="/faq" className="hover:text-foreground transition-colors duration-300">
+            <Link to="/faq" className="hover:text-foreground transition-colors duration-normal">
               FAQ
             </Link>
           </div>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Mode = 'institutional' | 'creator';
 
@@ -63,6 +63,11 @@ export const ModeProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem(ENTERED_STORAGE_KEY);
     localStorage.removeItem(CURRENT_SECTION_KEY);
   };
+
+  // Update data-mode attribute on document root for CSS focus styles
+  useEffect(() => {
+    document.documentElement.setAttribute('data-mode', mode);
+  }, [mode]);
 
   return (
     <ModeContext.Provider value={{ mode, setMode, hasEntered, setHasEntered, currentSection, setCurrentSection, resetMode }}>

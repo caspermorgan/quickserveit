@@ -65,7 +65,7 @@ const FAQ = () => {
                 isVisible={true}
             />
 
-            <main className="min-h-screen bg-background">
+            <main id="main-content" className="min-h-screen bg-background">
                 {/* Hero Section */}
                 <section className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 px-4 sm:px-6">
                     <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
@@ -85,7 +85,7 @@ const FAQ = () => {
                             {faqData.map((faq, index) => (
                                 <div
                                     key={index}
-                                    className={`border rounded-lg transition-all duration-300 ${mode === 'institutional'
+                                    className={`border rounded-lg transition-all duration-normal ${mode === 'institutional'
                                         ? 'border-institutional/20 hover:border-institutional/40'
                                         : 'border-creator/20 hover:border-creator/40'
                                         }`}
@@ -112,7 +112,7 @@ const FAQ = () => {
                                             {faq.question}
                                         </h3>
                                         <ChevronDown
-                                            className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${openIndex === index
+                                            className={`w-5 h-5 flex-shrink-0 transition-all duration-normal ${openIndex === index
                                                 ? mode === 'institutional'
                                                     ? 'text-institutional rotate-180'
                                                     : 'text-creator rotate-180'
@@ -123,7 +123,7 @@ const FAQ = () => {
 
                                     {/* Answer */}
                                     <div
-                                        className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                                        className={`overflow-hidden transition-all duration-normal ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                             }`}
                                     >
                                         <div className="px-6 pb-5 pt-0">
@@ -145,7 +145,7 @@ const FAQ = () => {
                                 href={`https://wa.me/916388224877?text=${encodeURIComponent('Hello quickserveit, I have a question about your services.')}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
+                                className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional'
                                     ? 'bg-institutional text-black hover:bg-institutional/90'
                                     : 'bg-creator text-black hover:bg-creator/90'
                                     }`}

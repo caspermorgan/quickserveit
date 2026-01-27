@@ -102,7 +102,7 @@ const Home = () => {
       {/* Floating Contact Button - Appears on scroll */}
       <FloatingContactButton mode={mode} />
 
-      <main className="min-h-screen bg-background">
+      <main id="main-content" className="min-h-screen bg-background">
         {/* Hero Section - v2.1 Enhanced with Parallax */}
         <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-28 pb-20 md:pb-28 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
@@ -153,19 +153,19 @@ const Home = () => {
                 <Magnetic strength={0.3} maxDistance={80}>
                   <Link
                     to="/services"
-                    className={`group inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
+                    className={`group inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-normal hover:scale-[1.02] hover:shadow-lg active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
                       ? 'bg-institutional hover:bg-institutional/90 shadow-[0_4px_20px_rgba(234,179,8,0.25),0_8px_40px_rgba(234,179,8,0.15)]'
                       : 'bg-creator hover:bg-creator/90 shadow-[0_4px_20px_rgba(34,211,238,0.25),0_8px_40px_rgba(34,211,238,0.15)]'
                       }`}
                   >
                     {mode === 'institutional' ? t('viewServices') : t('viewServices')}
-                    <ArrowRight className="w-4.5 h-4.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4.5 h-4.5 transition-transform duration-normal group-hover:translate-x-1" />
                   </Link>
                 </Magnetic>
                 <Magnetic strength={0.25} maxDistance={70}>
                   <Link
                     to="/contact"
-                    className={`inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg border-1.5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
+                    className={`inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg border-1.5 transition-all duration-normal hover:scale-[1.02] active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
                       ? 'border-institutional/40 text-institutional hover:bg-institutional/10 hover:border-institutional/60'
                       : 'border-creator/40 text-creator hover:bg-creator/10 hover:border-creator/60'
                       }`}
@@ -228,13 +228,13 @@ const Home = () => {
             <Magnetic strength={0.35} maxDistance={100}>
               <Link
                 to="/contact"
-                className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-300 hover:scale-[1.05] hover:shadow-2xl active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+                className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-normal hover:scale-[1.05] hover:shadow-2xl active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
                   : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
                   }`}
               >
                 Start Your Project
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-5 h-5 transition-transform duration-normal group-hover:translate-x-1" />
               </Link>
             </Magnetic>
           </div>

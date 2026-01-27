@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { duration } from "./src/lib/design-tokens";
 
 export default {
   darkMode: ["class"],
@@ -97,6 +98,14 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      transitionDuration: {
+        'instant': `${duration.instant}ms`,
+        'fast': `${duration.fast}ms`,
+        'normal': `${duration.normal}ms`,
+        'slow': `${duration.slow}ms`,
+        'slower': `${duration.slower}ms`,
+        'slowest': `${duration.slowest}ms`,
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -148,18 +157,18 @@ export default {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "fade-in-up": "fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "fade-in-blur": "fade-in-blur 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "slide-in-bottom": "slide-in-bottom 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "scale-in": "scale-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "scale-in-center": "scale-in-center 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "blur-in": "blur-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
-        "dust-drift": "dust-drift 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "accordion-down": `accordion-down ${duration.fast}ms ease-out`,
+        "accordion-up": `accordion-up ${duration.fast}ms ease-out`,
+        "fade-in": `fade-in ${duration.slower}ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        "fade-in-up": `fade-in-up ${duration.slower}ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        "fade-in-blur": `fade-in-blur ${duration.slower}ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        "slide-in-bottom": `slide-in-bottom ${duration.slow}ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        "scale-in": `scale-in ${duration.normal}ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        "scale-in-center": `scale-in-center ${duration.normal}ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        "blur-in": `blur-in ${duration.slower}ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        "glow-pulse": `glow-pulse 3s ease-in-out infinite`,
+        "float": `float 6s ease-in-out infinite`,
+        "dust-drift": `dust-drift 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
       },
     },
   },
