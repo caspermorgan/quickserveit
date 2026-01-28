@@ -47,11 +47,11 @@ const Footer = ({ mode }: FooterProps) => {
           <div>
             <h4 className="text-sm font-medium text-foreground mb-4">Navigation</h4>
             <div className="flex flex-col gap-2">
-              <Link to="/home" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Home</Link>
-              <Link to="/services" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Services</Link>
-              <Link to="/about" className="text-sm text-foreground/50 hover:text-foreground transition-colors">About</Link>
-              <Link to="/pricing" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Pricing</Link>
-              <Link to="/contact" className="text-sm text-foreground/50 hover:text-foreground transition-colors">Contact</Link>
+              <Link to="/home" className="link-underline text-sm text-foreground/50 hover:text-foreground transition-colors">Home</Link>
+              <Link to="/services" className="link-underline text-sm text-foreground/50 hover:text-foreground transition-colors">Services</Link>
+              <Link to="/about" className="link-underline text-sm text-foreground/50 hover:text-foreground transition-colors">About</Link>
+              <Link to="/pricing" className="link-underline text-sm text-foreground/50 hover:text-foreground transition-colors">Pricing</Link>
+              <Link to="/contact" className="link-underline text-sm text-foreground/50 hover:text-foreground transition-colors">Contact</Link>
             </div>
           </div>
 
@@ -113,16 +113,16 @@ const Footer = ({ mode }: FooterProps) => {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-foreground/40">
-            <Link to="/privacy" className="hover:text-foreground transition-colors duration-normal">
+            <Link to="/privacy" className="link-underline hover:text-foreground transition-colors duration-normal">
               Privacy
             </Link>
-            <Link to="/terms" className="hover:text-foreground transition-colors duration-normal">
+            <Link to="/terms" className="link-underline hover:text-foreground transition-colors duration-normal">
               Terms
             </Link>
-            <Link to="/disclaimer" className="hover:text-foreground transition-colors duration-normal">
+            <Link to="/disclaimer" className="link-underline hover:text-foreground transition-colors duration-normal">
               Disclaimer
             </Link>
-            <Link to="/faq" className="hover:text-foreground transition-colors duration-normal">
+            <Link to="/faq" className="link-underline hover:text-foreground transition-colors duration-normal">
               FAQ
             </Link>
           </div>

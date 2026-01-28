@@ -302,6 +302,70 @@
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: 0;
     border-color: var(--focus-ring-color);
+    transform: scale(1.01);
+    box-shadow: 0 0 0 3px var(--focus-ring-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  /* ========================================
+     MICRO-INTERACTIONS
+     ======================================== */
+
+  /* Button ripple effect */
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Animated link underline */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+
+    .btn-ripple::after,
+    .link-underline::after,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      transition: none;
+    }
   }
 
   /* Global heading styles - refined weight for luxury feel */
