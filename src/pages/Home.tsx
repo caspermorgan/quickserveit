@@ -104,7 +104,7 @@ const Home = () => {
 
       <main id="main-content" className="min-h-screen bg-background">
         {/* Hero Section - v2.1 Enhanced with Parallax */}
-        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-28 pb-20 md:pb-28 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Parallax Gradient Orbs - Multi-layer Depth */}
           <ParallaxSection speed={0.3} direction="up">
@@ -197,7 +197,7 @@ const Home = () => {
 
         {/* Creator Mode Notice */}
         {mode === 'creator' && (
-          <section className="px-6 pb-16">
+          <section className="px-6 pb-12 md:pb-16">
             <CreatorModeNotice />
           </section>
         )}

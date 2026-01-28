@@ -44,6 +44,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             subtitle: 'Schools & Organizations',
             mode: 'institutional' as const,
             color: 'institutional',
+            tagline: 'Your Personal Tech Partner',
         },
         {
             id: 2,
@@ -52,6 +53,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             subtitle: 'Portfolio',
             mode: 'creator' as const,
             color: 'creator',
+            tagline: 'Your Personal Creative Partner',
         },
         {
             id: 3,
@@ -60,6 +62,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             subtitle: 'Projects',
             mode: 'institutional' as const,
             color: 'white',
+            tagline: 'Work That Speaks for Itself',
         },
         {
             id: 4,
@@ -69,6 +72,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             mode: 'institutional' as const,
             color: 'purple',
             badge: true,
+            tagline: 'Smart Automation. Coming Soon',
         },
     ];
 
@@ -128,16 +132,16 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                             Quickserve IT
                         </h1>
 
-                        {/* Tagline - Short & Elegant */}
+                        {/* Tagline - Dynamic based on card hover */}
                         <p
-                            className="font-serif text-foreground/80 text-lg sm:text-xl md:text-2xl italic tracking-wide font-light"
+                            className="font-serif text-foreground/80 text-lg sm:text-xl md:text-2xl italic tracking-wide font-light transition-all duration-normal"
                             style={{
                                 fontFamily: "'Playfair Display', 'Georgia', serif",
                                 textShadow: '0 2px 20px rgba(255, 255, 255, 0.08)',
                                 fontWeight: 300,
                             }}
                         >
-                            Tech Partner
+                            {hoveredCard ? cards.find(c => c.id === hoveredCard)?.tagline : 'Your Personal Tech Partner'}
                         </p>
                     </div>
                 </div>

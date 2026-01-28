@@ -1,8 +1,7 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { Shield, Clock, Heart, Zap } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { H2, BodyLarge, H4, BodySmall } from '@/components/Typography';
-import { BentoGrid, BentoItem } from '@/components/layouts/BentoGrid';
 import { useRef, useState } from 'react';
 
 interface ValuePropositionProps {
@@ -18,7 +17,6 @@ const ValueProposition = ({ mode }: ValuePropositionProps) => {
                 icon: Shield,
                 titleKey: 'valueSecurityTitle',
                 descKey: 'valueSecurityDesc',
-                featured: true, // First card is featured
             },
             {
                 icon: Clock,
@@ -41,7 +39,6 @@ const ValueProposition = ({ mode }: ValuePropositionProps) => {
                 icon: Zap,
                 titleKey: 'valueQualityTitle',
                 descKey: 'valueQualityDesc',
-                featured: true, // First card is featured
             },
             {
                 icon: Clock,
@@ -61,15 +58,31 @@ const ValueProposition = ({ mode }: ValuePropositionProps) => {
         ];
 
     return (
-        <section className="py-20 md:py-32 px-6">
+        <section className="py-16 md:py-32 px-6">
             <div className="max-w-6xl mx-auto">
-                {/* Section Header */}
+                {/* Brand Name & Tagline Header - Mobile Only */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="text-center mb-10 md:hidden"
+                >
+                    <h2 className={`text-2xl font-display font-semibold mb-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                        {t('brandName')}
+                    </h2>
+                    <p className="text-sm text-foreground/50">
+                        {mode === 'institutional' ? t('brandTaglineInstitutional') : t('brandTaglineCreator')}
+                    </p>
+                </motion.div>
+
+                {/* Section Header - Desktop */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-12 md:mb-16 hidden md:block"
                 >
                     <H2 className="mb-4">
                         {t('whyChooseUsTitle')}
@@ -79,45 +92,83 @@ const ValueProposition = ({ mode }: ValuePropositionProps) => {
                     </BodyLarge>
                 </motion.div>
 
-                {/* Bento Grid Layout */}
-                <BentoGrid variant="asymmetric">
+                {/* Mobile: List Format */}
+                <div className="md:hidden space-y-4">
                     {values.map((value, index) => {
                         const Icon = value.icon;
-                        const isFeatured = value.featured;
+                        return (
+                            <motion.div
+                                key={value.titleKey}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: '-50px' }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.1,
+                                    ease: [0.16, 1, 0.3, 1],
+                                }}
+                                className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]"
+                            >
+                                <div className={`flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center ${mode === 'institutional'
+                                    ? 'bg-institutional/10'
+                                    : 'bg-creator/10'
+                                    }`}>
+                                    <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="text-base font-semibold text-foreground mb-1">
+                                        {t(value.titleKey as any)}
+                                    </h4>
+                                    <p className="text-sm text-foreground/60 leading-relaxed">
+                                        {t(value.descKey as any)}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+
+                {/* Desktop: 2x2 Grid */}
+                <div className="hidden md:grid grid-cols-2 gap-5 md:gap-6">
+                    {values.map((value, index) => {
+                        const Icon = value.icon;
 
                         return (
-                            <BentoItem
+                            <motion.div
                                 key={value.titleKey}
-                                span={isFeatured ? 2 : 1}
-                                rowSpan={isFeatured ? 2 : 1}
-                                delay={index * 0.1}
+                                initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                viewport={{ once: true, margin: '-50px' }}
+                                transition={{
+                                    duration: 0.6,
+                                    delay: index * 0.1,
+                                    ease: [0.16, 1, 0.3, 1],
+                                }}
                             >
                                 <ValueCard
                                     icon={Icon}
                                     title={t(value.titleKey as any)}
                                     description={t(value.descKey as any)}
                                     mode={mode}
-                                    featured={isFeatured}
                                 />
-                            </BentoItem>
+                            </motion.div>
                         );
                     })}
-                </BentoGrid>
+                </div>
             </div>
         </section>
     );
 };
 
-// Separate card component with 3D tilt effect
+// Separate card component with 3D tilt effect - Desktop Only
 interface ValueCardProps {
     icon: React.ElementType;
     title: string;
     description: string;
     mode: 'institutional' | 'creator';
-    featured?: boolean;
 }
 
-const ValueCard = ({ icon: Icon, title, description, mode, featured = false }: ValueCardProps) => {
+const ValueCard = ({ icon: Icon, title, description, mode }: ValueCardProps) => {
     const ref = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -140,8 +191,8 @@ const ValueCard = ({ icon: Icon, title, description, mode, featured = false }: V
         const mouseX = e.clientX - centerX;
         const mouseY = e.clientY - centerY;
 
-        // Subtle tilt - max 5 degrees
-        const maxRotation = 5;
+        // Subtle tilt - max 3 degrees for consistency
+        const maxRotation = 3;
         const rotX = -(mouseY / (rect.height / 2)) * maxRotation;
         const rotY = (mouseX / (rect.width / 2)) * maxRotation;
 
@@ -170,10 +221,10 @@ const ValueCard = ({ icon: Icon, title, description, mode, featured = false }: V
                 rotateY: springRotateY,
                 transformStyle: 'preserve-3d',
             }}
-            className="relative h-full group"
+            className="relative h-full min-h-[240px] group"
         >
             {/* Glass card background */}
-            <div className={`absolute inset-0 rounded-2xl glass-surface-premium transition-all duration-300 ${isHovered ? 'scale-[1.02]' : 'scale-100'
+            <div className={`absolute inset-0 rounded-2xl glass-2 transition-all duration-300 ${isHovered ? 'scale-[1.02]' : 'scale-100'
                 }`} />
 
             {/* Glow effect on hover */}
@@ -193,7 +244,7 @@ const ValueCard = ({ icon: Icon, title, description, mode, featured = false }: V
 
             {/* Card Content */}
             <div
-                className={`relative p-6 md:p-8 ${featured ? 'md:p-10' : ''} h-full flex flex-col`}
+                className="relative p-6 h-full flex flex-col"
                 style={{ transform: 'translateZ(20px)' }}
             >
                 {/* Icon */}
@@ -203,22 +254,22 @@ const ValueCard = ({ icon: Icon, title, description, mode, featured = false }: V
                         rotate: isHovered ? 5 : 0,
                     }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className={`${featured ? 'w-16 h-16 mb-6' : 'w-12 h-12 mb-4'} rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
+                    className={`w-12 h-12 mb-4 rounded-xl flex items-center justify-center transition-all duration-300 ${mode === 'institutional'
                         ? 'bg-institutional/10 group-hover:bg-institutional/20'
                         : 'bg-creator/10 group-hover:bg-creator/20'
                         }`}
                 >
-                    <Icon className={`${featured ? 'w-8 h-8' : 'w-6 h-6'} ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
+                    <Icon className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                         }`} />
                 </motion.div>
 
                 {/* Title */}
-                <H4 className={`mb-2 text-foreground ${featured ? 'md:text-3xl' : ''}`}>
+                <H4 className="mb-2 text-foreground">
                     {title}
                 </H4>
 
                 {/* Description */}
-                <BodySmall className={`text-foreground/60 ${featured ? 'md:text-base' : ''}`}>
+                <BodySmall className="text-foreground/60 leading-relaxed">
                     {description}
                 </BodySmall>
             </div>
