@@ -24,6 +24,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const CardDemo = lazy(() => import("./pages/CardDemo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Premium glassmorphism loader matching brand language
@@ -149,6 +150,7 @@ const AppRoutes = () => {
           <Route path="/privacy" element={<SmartRoute><PageTransition><Privacy /></PageTransition></SmartRoute>} />
           <Route path="/disclaimer" element={<SmartRoute><PageTransition><Disclaimer /></PageTransition></SmartRoute>} />
           <Route path="/faq" element={<SmartRoute><PageTransition><FAQ /></PageTransition></SmartRoute>} />
+          <Route path="/card-demo" element={<SmartRoute><PageTransition><CardDemo /></PageTransition></SmartRoute>} />
 
           {/* 404 - no gate needed */}
           <Route path="*" element={<NotFound />} />
