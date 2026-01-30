@@ -7,13 +7,14 @@ interface TypographyProps {
     as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
 }
 
-// Display Text - Hero headings only - v2.1 Refined
+// Display Text - Hero headings only - v2.2 Hindi-friendly
 export const DisplayText = ({ children, className, as: Component = 'h1' }: TypographyProps) => {
     return (
         <Component className={cn(
             'text-5xl md:text-6xl lg:text-7xl',
             'font-display font-semibold',
-            'leading-[1.1] tracking-[-0.03em]',
+            'leading-[1.15] tracking-[-0.03em]', // Increased from 1.1 to 1.15 for Hindi text
+            'break-words', // Allow word breaking for long text
             className
         )}>
             {children}

@@ -74,7 +74,7 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
     >
       {/* Enhanced Glassmorphism Background - v2.1 */}
       <div
-        className="absolute inset-0 rounded-2xl glass-surface-2"
+        className="absolute inset-0 rounded-2xl glass-2"
         style={{
           boxShadow: isHovered
             ? mode === 'institutional'

@@ -53,7 +53,7 @@ const Home = () => {
     ? t('heroInstDesc')
     : t('heroCreatorDesc');
 
-  const whatsappNumber = '916388224877';
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '916388224877';
   const whatsappMessage = mode === 'institutional'
     ? `${t('contactUs')} ${t('brandName')}, I am from an educational institution and would like to discuss your services.`
     : `${t('contactUs')} ${t('brandName')}, I am a content creator and would like to discuss video editing services.`;
@@ -104,7 +104,7 @@ const Home = () => {
 
       <main id="main-content" className="min-h-screen bg-background">
         {/* Hero Section - v2.1 Enhanced with Parallax */}
-        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Parallax Gradient Orbs - Multi-layer Depth */}
           <ParallaxSection speed={0.3} direction="up">

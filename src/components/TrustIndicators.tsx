@@ -26,7 +26,7 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
                 onTouchEnd={onDeactivate}
                 className={`
           group relative p-2.5 rounded-full
-          glass-surface-3
+          glass-3
           transition-all duration-fast ease-out
           min-h-[44px] min-w-[44px] flex items-center justify-center
           ${isActive
@@ -55,7 +55,7 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
             <div
                 className={`
           absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2
-          rounded-lg glass-surface-1 border
+          rounded-lg glass-1 border
           whitespace-nowrap text-xs font-medium
           transition-all duration-fast ease-out pointer-events-none
           ${isActive

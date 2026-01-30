@@ -20,7 +20,7 @@ const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
       onClick={toggleLanguage}
       className={`
         relative flex items-center h-11 px-1 rounded-full
-        glass-surface-1
+        glass-1
         transition-all duration-normal ease-out
         hover:bg-background/30 hover:border-foreground/20
         ${mode === 'institutional'
@@ -396,7 +396,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           }
         `}
       >
-        <nav className="flex items-center gap-1.5 px-5 py-3 rounded-full glass-surface-1 overflow-x-auto no-scrollbar max-w-[90vw]">
+        <nav className="flex items-center gap-1.5 px-5 py-3 rounded-full glass-1 overflow-x-auto no-scrollbar max-w-[90vw]">
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             return (

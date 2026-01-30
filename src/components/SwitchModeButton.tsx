@@ -24,7 +24,6 @@ const SwitchModeButton = ({ variant = 'default', className = '' }: SwitchModeBut
                 aria-label="Switch mode"
             >
                 <RefreshCw className="w-4 h-4" />
-                Switch Mode
             </button>
         );
     }
@@ -35,8 +34,7 @@ const SwitchModeButton = ({ variant = 'default', className = '' }: SwitchModeBut
             className={`px-4 py-2 rounded-lg border border-foreground/10 text-sm font-medium text-foreground/80 hover:bg-foreground/5 hover:border-foreground/20 transition-all ${className}`}
             aria-label="Switch mode"
         >
-            <RefreshCw className="w-4 h-4 inline mr-2" />
-            Switch Mode
+            <RefreshCw className="w-4 h-4 inline" />
         </button>
     );
 };

@@ -1,7 +1,9 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
 import { ArrowRight, Building2, User, Code, Sparkles } from 'lucide-react';
+import { SkeletonLoader } from './SkeletonLoader';
 
 // Lazy load decorative components for better initial load performance
 const ParticleCanvas = lazy(() => import('./ParticleCanvas'));
@@ -17,6 +19,7 @@ interface LandingViewProps {
 
 const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProps) => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const [isLoaded, setIsLoaded] = useState(false);
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
@@ -30,9 +33,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             onModeChange(cardMode);
             setTimeout(() => onEnter(), 300);
         } else if (cardNumber === 3) {
-            window.location.href = '/founder';
+            navigate('/founder');
         } else if (cardNumber === 4) {
-            window.location.href = '/contact';
+            navigate('/contact');
         }
     };
 
@@ -280,7 +283,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                     {/* Footer - Compact & Professional */}
                     <div className="mt-6 sm:mt-8 text-center border-t border-white/[0.08] pt-6 sm:pt-8">
                         <p className="text-xs text-foreground/40 font-mono tracking-wide">
-                            Quickserve IT © 2026
+                            QuickServe IT © {new Date().getFullYear()}
                         </p>
                     </div>
                 </div>
