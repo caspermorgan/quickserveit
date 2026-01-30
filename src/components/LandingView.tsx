@@ -116,35 +116,36 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             >
                 {/* TOP 38% - HERO SECTION (Golden Ratio) */}
                 <div className="flex-[0.38] flex items-start justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-28">
-                    <div className="text-center max-w-6xl w-full">
-                        {/* Brand Name - MASSIVE & BOLD */}
+                    <div className="text-center max-w-6xl w-full px-2">
+                        {/* Brand Name - MASSIVE & BOLD - v5.1 */}
                         <h1
                             className="font-display font-black text-foreground tracking-tighter mb-2 sm:mb-3"
                             style={{
-                                fontSize: 'clamp(3.5rem, 15vw, 10rem)',
+                                fontSize: 'clamp(2.8rem, 13vw, 10rem)',
                                 lineHeight: '0.95',
                                 letterSpacing: '-0.04em',
-                                background: 'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.95) 100%)',
+                                whiteSpace: 'nowrap',
+                                background: 'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,1) 100%)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
                                 backgroundClip: 'text',
-                                textShadow: '0 0 80px rgba(255, 255, 255, 0.2)',
-                                filter: 'drop-shadow(0 0 40px rgba(255, 255, 255, 0.15))',
+                                textShadow: '0 0 100px rgba(255, 255, 255, 0.25)',
+                                filter: 'drop-shadow(0 0 50px rgba(255, 255, 255, 0.2))',
                                 fontWeight: 900,
                             }}
                         >
                             Quickserve IT
                         </h1>
 
-                        {/* Tagline - TINY & GENIUS MINIMALIST */}
+                        {/* Tagline - TINY & GENIUS MINIMALIST - v5.1 */}
                         <p
-                            className="font-serif text-foreground/50 italic tracking-widest font-light transition-all duration-normal"
+                            className="font-serif text-foreground/55 italic tracking-widest font-light transition-all duration-slow"
                             style={{
                                 fontSize: 'clamp(0.65rem, 1.5vw, 0.85rem)',
                                 fontFamily: "'Playfair Display', 'Georgia', serif",
-                                textShadow: '0 1px 10px rgba(255, 255, 255, 0.05)',
+                                textShadow: '0 2px 15px rgba(255, 255, 255, 0.08)',
                                 fontWeight: 300,
-                                letterSpacing: '0.15em',
+                                letterSpacing: '0.18em',
                                 textTransform: 'lowercase',
                             }}
                         >
@@ -169,17 +170,17 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                     onMouseLeave={() => setHoveredCard(null)}
                                     className={`group relative px-3 py-3 sm:px-6 sm:py-7 md:px-7 md:py-9 rounded-xl sm:rounded-2xl border transition-all duration-slow ease-out text-left overflow-hidden min-h-[110px] sm:min-h-[180px] md:min-h-[200px] ${isHovered
                                         ? card.color === 'institutional'
-                                            ? 'border-institutional/70 bg-institutional/[0.18] -translate-y-2 shadow-2xl shadow-institutional/40 scale-[1.03]'
+                                            ? 'border-institutional/80 bg-institutional/[0.2] -translate-y-2 shadow-2xl shadow-institutional/50 scale-[1.03]'
                                             : card.color === 'creator'
-                                                ? 'border-creator/70 bg-creator/[0.18] -translate-y-2 shadow-2xl shadow-creator/40 scale-[1.03]'
+                                                ? 'border-creator/80 bg-creator/[0.2] -translate-y-2 shadow-2xl shadow-creator/50 scale-[1.03]'
                                                 : card.color === 'purple'
-                                                    ? 'border-purple-400/70 bg-purple-500/[0.18] -translate-y-2 shadow-2xl shadow-purple-500/40 scale-[1.03]'
-                                                    : 'border-white/50 bg-white/[0.15] -translate-y-2 shadow-2xl shadow-white/25 scale-[1.03]'
-                                        : 'border-white/[0.18] bg-white/[0.06] hover:border-white/30'
+                                                    ? 'border-purple-400/80 bg-purple-500/[0.2] -translate-y-2 shadow-2xl shadow-purple-500/50 scale-[1.03]'
+                                                    : 'border-white/60 bg-white/[0.18] -translate-y-2 shadow-2xl shadow-white/30 scale-[1.03]'
+                                        : 'border-white/[0.2] bg-white/[0.07] hover:border-white/35'
                                         }`}
                                     style={{
-                                        backdropFilter: 'blur(32px)',
-                                        WebkitBackdropFilter: 'blur(32px)',
+                                        backdropFilter: 'blur(40px)',
+                                        WebkitBackdropFilter: 'blur(40px)',
                                         transitionDelay: `${index * 50}ms`,
                                         transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
                                     }}
@@ -219,18 +220,18 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                                     {/* Horizontal Layout: Icon Left, Content Right */}
                                     <div className="relative z-10 flex items-center gap-3 sm:gap-4 h-full">
-                                        {/* Icon - Left Side */}
+                                        {/* Icon - Left Side - v5.1 Enhanced */}
                                         <div className="flex-shrink-0">
                                             <div
                                                 className={`inline-flex p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-slow ease-out ${isHovered
                                                     ? card.color === 'institutional'
-                                                        ? 'bg-institutional/35 text-institutional scale-110 shadow-lg shadow-institutional/25'
+                                                        ? 'bg-institutional/40 text-institutional scale-110 shadow-lg shadow-institutional/30'
                                                         : card.color === 'creator'
-                                                            ? 'bg-creator/35 text-creator scale-110 shadow-lg shadow-creator/25'
+                                                            ? 'bg-creator/40 text-creator scale-110 shadow-lg shadow-creator/30'
                                                             : card.color === 'purple'
-                                                                ? 'bg-purple-500/35 text-purple-200 scale-110 shadow-lg shadow-purple-500/25'
-                                                                : 'bg-white/25 text-white scale-110 shadow-lg shadow-white/15'
-                                                    : 'bg-white/[0.1] text-foreground/70'
+                                                                ? 'bg-purple-500/40 text-purple-200 scale-110 shadow-lg shadow-purple-500/30'
+                                                                : 'bg-white/30 text-white scale-110 shadow-lg shadow-white/20'
+                                                    : 'bg-white/[0.12] text-foreground/70'
                                                     }`}
                                             >
                                                 <Icon size={24} className="sm:w-8 sm:h-8" />
