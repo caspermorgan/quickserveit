@@ -47,7 +47,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             subtitle: 'Schools & Organizations',
             mode: 'institutional' as const,
             color: 'institutional',
-            tagline: 'Your Personal Tech Partner',
+            tagline: 'your personal tech partner',
         },
         {
             id: 2,
@@ -56,7 +56,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             subtitle: 'Portfolio',
             mode: 'creator' as const,
             color: 'creator',
-            tagline: 'Your Personal Creative Partner',
+            tagline: 'your personal creative partner',
         },
         {
             id: 3,
@@ -65,7 +65,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             subtitle: 'Projects',
             mode: 'institutional' as const,
             color: 'white',
-            tagline: 'Work That Speaks for Itself',
+            tagline: 'work that speaks for itself',
         },
         {
             id: 4,
@@ -75,7 +75,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             mode: 'institutional' as const,
             color: 'purple',
             badge: true,
-            tagline: 'Smart Automation. Coming Soon',
+            tagline: 'smart automation. coming soon',
         },
     ];
 
@@ -116,43 +116,47 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             >
                 {/* TOP 60% - HERO SECTION (Rule of Thirds) */}
                 <div className="flex-[0.6] flex items-center justify-center px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-4xl w-full">
-                        {/* Brand Name - Premium Sized */}
+                    <div className="text-center max-w-6xl w-full">
+                        {/* Brand Name - MASSIVE & BOLD */}
                         <h1
-                            className="font-display font-black text-foreground tracking-tighter mb-6 sm:mb-8"
+                            className="font-display font-black text-foreground tracking-tighter mb-3 sm:mb-4"
                             style={{
-                                fontSize: 'clamp(2.75rem, 10vw, 7rem)',
-                                lineHeight: '1',
-                                letterSpacing: '-0.03em',
-                                background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 100%)',
+                                fontSize: 'clamp(3.5rem, 15vw, 10rem)',
+                                lineHeight: '0.95',
+                                letterSpacing: '-0.04em',
+                                background: 'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.95) 100%)',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
                                 backgroundClip: 'text',
-                                textShadow: '0 0 60px rgba(255, 255, 255, 0.15)',
-                                filter: 'drop-shadow(0 0 30px rgba(255, 255, 255, 0.1))',
+                                textShadow: '0 0 80px rgba(255, 255, 255, 0.2)',
+                                filter: 'drop-shadow(0 0 40px rgba(255, 255, 255, 0.15))',
+                                fontWeight: 900,
                             }}
                         >
                             Quickserve IT
                         </h1>
 
-                        {/* Tagline - Dynamic based on card hover */}
+                        {/* Tagline - TINY & GENIUS MINIMALIST */}
                         <p
-                            className="font-serif text-foreground/80 text-lg sm:text-xl md:text-2xl italic tracking-wide font-light transition-all duration-normal"
+                            className="font-serif text-foreground/50 italic tracking-widest font-light transition-all duration-normal"
                             style={{
+                                fontSize: 'clamp(0.65rem, 1.5vw, 0.85rem)',
                                 fontFamily: "'Playfair Display', 'Georgia', serif",
-                                textShadow: '0 2px 20px rgba(255, 255, 255, 0.08)',
+                                textShadow: '0 1px 10px rgba(255, 255, 255, 0.05)',
                                 fontWeight: 300,
+                                letterSpacing: '0.15em',
+                                textTransform: 'lowercase',
                             }}
                         >
-                            {hoveredCard ? cards.find(c => c.id === hoveredCard)?.tagline : 'Your Personal Tech Partner'}
+                            {hoveredCard ? cards.find(c => c.id === hoveredCard)?.tagline : 'your personal tech partner'}
                         </p>
                     </div>
                 </div>
 
                 {/* BOTTOM 40% - CARDS & FOOTER (Rule of Thirds) */}
                 <div className="flex-[0.4] flex flex-col justify-between px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
-                    {/* Cards Grid - 2x2 Mobile, 1x4 Desktop */}
-                    <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-5 max-w-7xl w-full mx-auto">
+                    {/* Cards Grid - Perfect 2x2 Mobile, 1x4 Desktop */}
+                    <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-7xl w-full mx-auto">
                         {cards.map((card, index) => {
                             const Icon = card.icon;
                             const isHovered = hoveredCard === card.id;
@@ -163,50 +167,50 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                     onClick={() => handleCardClick(card.mode, card.id)}
                                     onMouseEnter={() => setHoveredCard(card.id)}
                                     onMouseLeave={() => setHoveredCard(null)}
-                                    className={`group relative px-4 py-4 sm:px-5 sm:py-6 md:px-7 md:py-9 rounded-xl sm:rounded-2xl border transition-all duration-slow ease-out text-left overflow-hidden min-h-[120px] sm:min-h-[160px] md:min-h-[180px] ${isHovered
+                                    className={`group relative px-4 py-5 sm:px-6 sm:py-7 md:px-7 md:py-9 rounded-xl sm:rounded-2xl border transition-all duration-slow ease-out text-left overflow-hidden min-h-[140px] sm:min-h-[180px] md:min-h-[200px] ${isHovered
                                         ? card.color === 'institutional'
-                                            ? 'border-institutional/60 bg-institutional/[0.15] -translate-y-2 shadow-2xl shadow-institutional/30 scale-[1.02]'
+                                            ? 'border-institutional/70 bg-institutional/[0.18] -translate-y-2 shadow-2xl shadow-institutional/40 scale-[1.03]'
                                             : card.color === 'creator'
-                                                ? 'border-creator/60 bg-creator/[0.15] -translate-y-2 shadow-2xl shadow-creator/30 scale-[1.02]'
+                                                ? 'border-creator/70 bg-creator/[0.18] -translate-y-2 shadow-2xl shadow-creator/40 scale-[1.03]'
                                                 : card.color === 'purple'
-                                                    ? 'border-purple-400/60 bg-purple-500/[0.15] -translate-y-2 shadow-2xl shadow-purple-500/30 scale-[1.02]'
-                                                    : 'border-white/40 bg-white/[0.12] -translate-y-2 shadow-2xl shadow-white/20 scale-[1.02]'
-                                        : 'border-white/[0.15] bg-white/[0.05] hover:border-white/25'
+                                                    ? 'border-purple-400/70 bg-purple-500/[0.18] -translate-y-2 shadow-2xl shadow-purple-500/40 scale-[1.03]'
+                                                    : 'border-white/50 bg-white/[0.15] -translate-y-2 shadow-2xl shadow-white/25 scale-[1.03]'
+                                        : 'border-white/[0.18] bg-white/[0.06] hover:border-white/30'
                                         }`}
                                     style={{
-                                        backdropFilter: 'blur(24px)',
-                                        WebkitBackdropFilter: 'blur(24px)',
-                                        transitionDelay: `${index * 60}ms`,
+                                        backdropFilter: 'blur(32px)',
+                                        WebkitBackdropFilter: 'blur(32px)',
+                                        transitionDelay: `${index * 50}ms`,
                                         transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
                                     }}
                                 >
-                                    {/* Multi-layer gradient overlay */}
+                                    {/* Enhanced multi-layer gradient overlay */}
                                     <div
                                         className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-slow ${isHovered ? 'opacity-100' : ''
                                             } ${card.color === 'institutional'
-                                                ? 'from-institutional/25 via-institutional/15 to-transparent'
+                                                ? 'from-institutional/30 via-institutional/18 to-transparent'
                                                 : card.color === 'creator'
-                                                    ? 'from-creator/25 via-creator/15 to-transparent'
+                                                    ? 'from-creator/30 via-creator/18 to-transparent'
                                                     : card.color === 'purple'
-                                                        ? 'from-purple-500/25 via-purple-500/15 to-transparent'
-                                                        : 'from-white/20 via-white/10 to-transparent'
+                                                        ? 'from-purple-500/30 via-purple-500/18 to-transparent'
+                                                        : 'from-white/25 via-white/12 to-transparent'
                                             }`}
                                     />
 
-                                    {/* Edge highlight */}
+                                    {/* Premium edge highlight */}
                                     <div
                                         className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-slow ${isHovered ? 'opacity-100' : ''
                                             }`}
                                         style={{
-                                            background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                                            background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%)',
                                         }}
                                     />
 
                                     {/* Badge */}
                                     {card.badge && (
                                         <div className="absolute top-3 right-3 z-20">
-                                            <div className="px-2.5 py-1 rounded-full bg-purple-500/25 border border-purple-400/40 backdrop-blur-md">
-                                                <span className="text-[9px] font-semibold text-purple-200 uppercase tracking-widest">
+                                            <div className="px-3 py-1.5 rounded-full bg-purple-500/30 border border-purple-400/50 backdrop-blur-md">
+                                                <span className="text-[10px] font-bold text-purple-100 uppercase tracking-widest">
                                                     Soon
                                                 </span>
                                             </div>
@@ -215,17 +219,17 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                                     <div className="relative z-10 flex flex-col h-full">
                                         {/* Icon - Premium Animation */}
-                                        <div className="mb-3 sm:mb-5">
+                                        <div className="mb-3 sm:mb-4">
                                             <div
-                                                className={`inline-flex p-2 sm:p-3 rounded-lg sm:rounded-xl transition-all duration-slow ease-out ${isHovered
+                                                className={`inline-flex p-2.5 sm:p-3 rounded-xl transition-all duration-slow ease-out ${isHovered
                                                     ? card.color === 'institutional'
-                                                        ? 'bg-institutional/30 text-institutional scale-110 rotate-3 shadow-lg shadow-institutional/20'
+                                                        ? 'bg-institutional/35 text-institutional scale-110 rotate-3 shadow-lg shadow-institutional/25'
                                                         : card.color === 'creator'
-                                                            ? 'bg-creator/30 text-creator scale-110 rotate-3 shadow-lg shadow-creator/20'
+                                                            ? 'bg-creator/35 text-creator scale-110 rotate-3 shadow-lg shadow-creator/25'
                                                             : card.color === 'purple'
-                                                                ? 'bg-purple-500/30 text-purple-200 scale-110 rotate-3 shadow-lg shadow-purple-500/20'
-                                                                : 'bg-white/20 text-white scale-110 rotate-3 shadow-lg shadow-white/10'
-                                                    : 'bg-white/[0.08] text-foreground/70'
+                                                                ? 'bg-purple-500/35 text-purple-200 scale-110 rotate-3 shadow-lg shadow-purple-500/25'
+                                                                : 'bg-white/25 text-white scale-110 rotate-3 shadow-lg shadow-white/15'
+                                                    : 'bg-white/[0.1] text-foreground/70'
                                                     }`}
                                             >
                                                 <Icon size={24} className="sm:w-7 sm:h-7" />
@@ -233,18 +237,18 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                         </div>
 
                                         {/* Title - Enhanced */}
-                                        <h3 className="text-sm sm:text-lg font-bold text-foreground mb-1 sm:mb-2 leading-tight">
+                                        <h3 className="text-base sm:text-lg font-bold text-foreground mb-1 sm:mb-2 leading-tight">
                                             {card.title}
                                         </h3>
 
                                         {/* Subtitle - Readable */}
-                                        <p className="text-xs sm:text-sm text-foreground/60 mb-3 sm:mb-4 flex-grow">
+                                        <p className="text-xs sm:text-sm text-foreground/65 mb-3 sm:mb-4 flex-grow">
                                             {card.subtitle}
                                         </p>
 
                                         {/* CTA - Touch-Friendly */}
                                         <div
-                                            className={`inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold transition-all duration-normal min-h-[44px] sm:min-h-[48px] ${isHovered
+                                            className={`inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold transition-all duration-normal ${isHovered
                                                 ? card.color === 'institutional'
                                                     ? 'translate-x-2 text-institutional'
                                                     : card.color === 'creator'
@@ -252,7 +256,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                                         : card.color === 'purple'
                                                             ? 'translate-x-2 text-purple-200'
                                                             : 'translate-x-2 text-white'
-                                                : 'text-foreground/50'
+                                                : 'text-foreground/55'
                                                 }`}
                                         >
                                             {card.id === 4 ? 'Join Waitlist' : 'Get Started'}
@@ -260,19 +264,19 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                         </div>
                                     </div>
 
-                                    {/* Ambient glow */}
+                                    {/* Enhanced ambient glow */}
                                     <div
                                         className={`absolute inset-0 rounded-2xl transition-opacity duration-slower ${isHovered ? 'opacity-100' : 'opacity-0'
                                             }`}
                                         style={{
                                             background:
                                                 card.color === 'institutional'
-                                                    ? 'radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15), transparent 70%)'
+                                                    ? 'radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.2), transparent 70%)'
                                                     : card.color === 'creator'
-                                                        ? 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15), transparent 70%)'
+                                                        ? 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.2), transparent 70%)'
                                                         : card.color === 'purple'
-                                                            ? 'radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15), transparent 70%)'
-                                                            : 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12), transparent 70%)',
+                                                            ? 'radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.2), transparent 70%)'
+                                                            : 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15), transparent 70%)',
                                         }}
                                     />
                                 </button>
@@ -281,8 +285,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                     </div>
 
                     {/* Footer - Compact & Professional */}
-                    <div className="mt-6 sm:mt-8 text-center border-t border-white/[0.08] pt-6 sm:pt-8">
-                        <p className="text-xs text-foreground/40 font-mono tracking-wide">
+                    <div className="mt-6 sm:mt-8 text-center border-t border-white/[0.1] pt-6 sm:pt-8">
+                        <p className="text-xs text-foreground/45 font-mono tracking-wider">
                             QuickServe IT © {new Date().getFullYear()}
                         </p>
                     </div>
