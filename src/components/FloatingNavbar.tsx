@@ -206,7 +206,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     <>
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-lg transition-all duration-normal md:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-sm transition-all duration-normal md:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         onClick={() => setIsMenuOpen(false)}
         role="dialog"
@@ -216,7 +216,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         {/* Mobile Menu Content */}
         <div
           ref={mobileMenuRef}
-          className={`absolute top-0 right-0 w-full max-w-sm h-full bg-background/80 backdrop-blur-xl border-l border-foreground/10 transition-transform duration-normal ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute top-0 right-0 w-full max-w-sm h-full bg-background/80 backdrop-blur-sm border-l border-foreground/10 transition-transform duration-normal ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
           onClick={(e) => e.stopPropagation()}
         >

@@ -425,7 +425,7 @@
 
 @layer components {
 
-  /* Film Grain Overlay - GPU Optimized */
+  /* Film Grain Overlay - GPU Optimized (No Constant Repaints) */
   .film-grain {
     position: fixed;
     inset: 0;
@@ -433,13 +433,13 @@
     pointer-events: none;
     z-index: 1000;
     opacity: 0.35;
-    /* GPU optimization */
-    transform: translateZ(0);
-    will-change: opacity;
+    /* GPU optimization - static layer */
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* Prevent constant repaints */
-    content-visibility: auto;
+    /* Isolate layer to prevent repaints */
+    contain: strict;
+    /* Remove will-change to prevent constant GPU layer updates */
   }
 
   @media (max-width: 768px) {
@@ -510,23 +510,23 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
-  /* Mobile Performance Optimization */
+  /* Mobile Performance Optimization - Aggressive blur reduction */
   @media (max-width: 768px) {
     .glass-1 {
       background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .glass-2 {
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .glass-3 {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
   }
 

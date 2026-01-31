@@ -13,6 +13,7 @@ const CursorLight = ({ mode }: CursorLightProps) => {
   const currentPos = useRef({ x: 0, y: 0 });
   const elementRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number>();
+  const isAnimating = useRef(false);
 
   useEffect(() => {
     // Check if mobile
@@ -31,9 +32,10 @@ const CursorLight = ({ mode }: CursorLightProps) => {
     };
 
     const animate = () => {
-      // Lerp factor: 0.12 for smooth, premium magnetic feel
-      // Lower = smoother but slower, Higher = faster but less smooth
-      const lerpFactor = 0.12;
+      // Lerp factor: 0.15 for flagship-quality magnetic feel
+      // This creates a smooth "follow" effect that feels premium
+      // 0.1 = too slow/drunk, 0.2+ = too fast/cheap, 0.15 = perfect balance
+      const lerpFactor = 0.15;
 
       currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, lerpFactor);
       currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, lerpFactor);
@@ -43,23 +45,34 @@ const CursorLight = ({ mode }: CursorLightProps) => {
         elementRef.current.style.transform = `translate3d(${currentPos.current.x - 150}px, ${currentPos.current.y - 150}px, 0)`;
       }
 
-      rafId.current = requestAnimationFrame(animate);
+      // Only continue animation if there's significant movement
+      const dx = Math.abs(targetPos.current.x - currentPos.current.x);
+      const dy = Math.abs(targetPos.current.y - currentPos.current.y);
+
+      if (dx > 0.5 || dy > 0.5) {
+        rafId.current = requestAnimationFrame(animate);
+      } else {
+        isAnimating.current = false;
+      }
     };
 
     const handleMouseMove = (e: MouseEvent) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
       setIsVisible(true);
+
+      // Start animation loop if not already running
+      if (!isAnimating.current) {
+        isAnimating.current = true;
+        rafId.current = requestAnimationFrame(animate);
+      }
     };
 
     const handleMouseLeave = () => {
       setIsVisible(false);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
-
-    // Start animation loop
-    rafId.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', checkMobile);
@@ -85,6 +98,7 @@ const CursorLight = ({ mode }: CursorLightProps) => {
           ? 'radial-gradient(circle, hsl(40 50% 55% / 0.08) 0%, transparent 70%)'
           : 'radial-gradient(circle, hsl(180 100% 65% / 0.08) 0%, transparent 70%)',
         willChange: 'transform',
+        contain: 'layout style paint',
       }}
     />
   );
