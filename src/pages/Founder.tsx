@@ -21,8 +21,8 @@ const Founder = () => {
   return (
     <>
       <Helmet>
-        <title>Founder's Message | quickserveit</title>
-        <meta name="description" content="A personal message from the founder of quickserveit about our mission, values, and commitment to calm digital execution." />
+        <title>{t('founder')} | {t('brandName')}</title>
+        <meta name="description" content={t('founderPageSubtitle')} />
       </Helmet>
 
       <CursorLight mode={mode} />
@@ -136,13 +136,13 @@ const Founder = () => {
           <div className="mt-16 text-center">
             <div className={`inline-block p-8 rounded-2xl glass-card border ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'}`}>
               <p className="text-foreground/60 mb-4">
-                Thank you for considering quickserveit.
+                {t('founderClosingMessage')}
               </p>
               <p className={`font-display text-lg ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                — Casper Morgan
+                {t('founderSignature')}
               </p>
               <p className="text-sm text-foreground/40 mt-2">
-                Founder, quickserveit
+                {t('founderTitle')}
               </p>
             </div>
           </div>

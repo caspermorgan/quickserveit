@@ -223,7 +223,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         >
           {/* Mobile Menu Header - Centered */}
           <div className="flex items-center justify-center p-6 border-b border-foreground/10 relative">
-            <h2 className="text-lg font-display font-semibold text-foreground">Menu</h2>
+            <h2 className="text-lg font-display font-semibold text-foreground">{t('menu')}</h2>
             <button
               onClick={() => setIsMenuOpen(false)}
               className="absolute right-6 p-2 rounded-lg hover:bg-foreground/5 transition-colors"
@@ -264,7 +264,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             {/* Language Switch in Mobile Menu */}
             <div className="pt-4 border-t border-foreground/10">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-medium text-foreground/60">Language</span>
+                <span className="text-sm font-medium text-foreground/60">{t('language')}</span>
                 <LanguageSwitch mode={mode} />
               </div>
             </div>
@@ -286,7 +286,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
                 }
               `}
             >
-              Start Your Project
+              {t('startYourProject')}
             </Link>
           </nav>
         </div>

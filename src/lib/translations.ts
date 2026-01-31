@@ -98,6 +98,7 @@ export const translations = {
     valueCommittedTitle: 'Long-Term Partnership',
     valueCommittedDesc: 'Your growth is our mission. We invest in understanding your channel, audience, and goals to deliver consistent, strategic support.',
 
+
     // Contact Form
     contactTitle: 'Get In Touch',
     contactSubtitle: 'Ready to discuss your project? Fill out the form below.',
@@ -112,6 +113,72 @@ export const translations = {
     termsAgree: 'I agree to the terms & conditions',
     sendMessage: 'Send Message',
     messageSent: 'Message prepared! Redirecting to WhatsApp...',
+
+    // Navigation - Additional
+    menu: 'Menu',
+    language: 'Language',
+    startYourProject: 'Start Your Project',
+
+    // Founder Page - Additional
+    founderClosingMessage: 'Thank you for considering quickserveit.',
+    founderSignature: '— Casper Morgan',
+    founderTitle: 'Founder, quickserveit',
+
+    // Contact Form - Labels
+    name: 'Name',
+    mobileNumberLabel: 'Mobile Number',
+    email: 'Email',
+    service: 'Service',
+    message: 'Message',
+
+    // Contact Form - Placeholders
+    yourFullName: 'Your full name',
+    tenDigitMobile: '10-digit mobile number',
+    yourEmailPlaceholder: 'your@email.com',
+    tellUsRequirements: 'Tell us about your requirements...',
+
+    // Contact Form - Errors
+    nameRequired: 'Name is required',
+    nameTooLong: 'Name must be less than 100 characters',
+    mobileRequired: 'Mobile number is required',
+    mobileInvalid: 'Enter a valid 10-digit mobile number',
+    emailRequired: 'Email is required',
+    emailInvalid: 'Enter a valid email address',
+    serviceRequired: 'Please select a service',
+    messageRequired: 'Message is required',
+    messageTooLong: 'Message must be less than 1000 characters',
+    termsRequired: 'You must agree to the terms',
+
+    // Contact Form - Messages
+    sending: 'Sending...',
+    redirectingWhatsApp: 'Redirecting to WhatsApp!',
+    pleaseSendMessage: 'Please send the message to complete your inquiry.',
+    somethingWentWrong: 'Something went wrong.',
+    tryAgainOrContact: 'Please try again or contact us directly.',
+    secureAndConfidential: 'Your information is secure and confidential',
+    termsAgreeWhatsApp: 'I agree to the terms & conditions and understand that my inquiry will be sent via WhatsApp.',
+
+    // Contact Form - Service Options
+    selectAService: 'Select a service',
+
+    // Contact Form - Pre-filled Messages
+    generalProjectMessage: "Hi Casper, I have a vision for a project and I'd like to discuss it...",
+    serviceInquiryPrefix: "I'm interested in your",
+    serviceInquirySuffix: "services. I need...",
+    pricingInquiryPrefix: "I'd like to inquire about the",
+    pricingInquirySuffix: "Package...",
+
+    // WhatsApp Template
+    whatsappGreeting: 'Hello QuickServe IT Team,',
+    whatsappIntro: 'I am reaching out to inquire about your services. Here are my details:',
+    whatsappNameLabel: 'Name:',
+    whatsappMobileLabel: 'Mobile:',
+    whatsappEmailLabel: 'Email:',
+    whatsappServiceLabel: 'Service Required:',
+    whatsappMessageLabel: 'Message:',
+    whatsappClosing: 'Looking forward to your response.',
+    whatsappThankYou: 'Thank you!',
+
 
     // Footer
     allRightsReserved: 'All Rights Reserved',
@@ -1025,7 +1092,72 @@ export const translations = {
     yourMessage: 'आपका संदेश',
     termsAgree: 'मैं नियम और शर्तों से सहमत हूं',
     sendMessage: 'भेजें',
-    messageSent: 'संदेश तैयार है! WhatsApp खुल रहा है...',
+    messageSent: 'संदेश तैयार! WhatsApp खुल रहा है...',
+
+    // Navigation - Additional - Hindi
+    menu: 'मेनू',
+    language: 'भाषा',
+    startYourProject: 'अपनी परियोजना शुरू करें',
+
+    // Founder Page - Additional - Hindi
+    founderClosingMessage: 'quickserveit पर विचार करने के लिए धन्यवाद।',
+    founderSignature: '— कैस्पर मॉर्गन',
+    founderTitle: 'संस्थापक, quickserveit',
+
+    // Contact Form - Labels - Hindi
+    name: 'नाम',
+    mobileNumberLabel: 'मोबाइल नंबर',
+    email: 'ईमेल',
+    service: 'सेवा',
+    message: 'संदेश',
+
+    // Contact Form - Placeholders - Hindi
+    yourFullName: 'आपका पूरा नाम',
+    tenDigitMobile: '10-अंकीय मोबाइल नंबर',
+    yourEmailPlaceholder: 'your@email.com',
+    tellUsRequirements: 'अपनी आवश्यकताओं के बारे में बताएं...',
+
+    // Contact Form - Errors - Hindi
+    nameRequired: 'नाम आवश्यक है',
+    nameTooLong: 'नाम 100 अक्षरों से कम होना चाहिए',
+    mobileRequired: 'मोबाइल नंबर आवश्यक है',
+    mobileInvalid: 'एक वैध 10-अंकीय मोबाइल नंबर दर्ज करें',
+    emailRequired: 'ईमेल आवश्यक है',
+    emailInvalid: 'एक वैध ईमेल पता दर्ज करें',
+    serviceRequired: 'कृपया एक सेवा चुनें',
+    messageRequired: 'संदेश आवश्यक है',
+    messageTooLong: 'संदेश 1000 अक्षरों से कम होना चाहिए',
+    termsRequired: 'आपको नियमों से सहमत होना होगा',
+
+    // Contact Form - Messages - Hindi
+    sending: 'भेज रहे हैं...',
+    redirectingWhatsApp: 'WhatsApp पर रीडायरेक्ट कर रहे हैं!',
+    pleaseSendMessage: 'अपनी पूछताछ पूरी करने के लिए कृपया संदेश भेजें।',
+    somethingWentWrong: 'कुछ गलत हो गया।',
+    tryAgainOrContact: 'कृपया पुनः प्रयास करें या सीधे हमसे संपर्क करें।',
+    secureAndConfidential: 'आपकी जानकारी सुरक्षित और गोपनीय है',
+    termsAgreeWhatsApp: 'मैं नियम और शर्तों से सहमत हूं और समझता हूं कि मेरी पूछताछ WhatsApp के माध्यम से भेजी जाएगी।',
+
+    // Contact Form - Service Options - Hindi
+    selectAService: 'एक सेवा चुनें',
+
+    // Contact Form - Pre-filled Messages - Hindi
+    generalProjectMessage: 'नमस्ते कैस्पर, मेरे पास एक परियोजना के लिए एक विचार है और मैं इस पर चर्चा करना चाहता हूं...',
+    serviceInquiryPrefix: 'मुझे आपकी',
+    serviceInquirySuffix: 'सेवाओं में रुचि है। मुझे चाहिए...',
+    pricingInquiryPrefix: 'मैं',
+    pricingInquirySuffix: 'पैकेज के बारे में पूछताछ करना चाहता हूं...',
+
+    // WhatsApp Template - Hindi
+    whatsappGreeting: 'नमस्ते QuickServe IT टीम,',
+    whatsappIntro: 'मैं आपकी सेवाओं के बारे में पूछताछ करने के लिए संपर्क कर रहा हूं। यहां मेरे विवरण हैं:',
+    whatsappNameLabel: 'नाम:',
+    whatsappMobileLabel: 'मोबाइल:',
+    whatsappEmailLabel: 'ईमेल:',
+    whatsappServiceLabel: 'आवश्यक सेवा:',
+    whatsappMessageLabel: 'संदेश:',
+    whatsappClosing: 'आपकी प्रतिक्रिया की प्रतीक्षा में।',
+    whatsappThankYou: 'धन्यवाद!',
 
     // Footer
     allRightsReserved: 'सर्वाधिकार सुरक्षित',

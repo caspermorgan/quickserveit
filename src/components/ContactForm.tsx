@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMode } from '@/context/ModeContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import { Check, Send } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { toast } from 'sonner';
@@ -23,16 +24,10 @@ interface FormErrors {
   agreed?: string;
 }
 
-const services = [
-  { value: '', label: 'Select a service' },
-  { value: 'institute-services', label: 'Institute Services' },
-  { value: 'creator-services', label: 'Creator Services' },
-  { value: 'general-inquiry', label: 'General Inquiry' },
-];
-
 const ContactForm = () => {
   const { mode } = useMode();
   const location = useLocation();
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -42,7 +37,15 @@ const ContactForm = () => {
     message: '',
     agreed: false,
   });
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [formErrors, setErrors] = useState<FormErrors>({});
+
+  // Service options using translations
+  const services = [
+    { value: '', label: t('selectAService') },
+    { value: 'institute-services', label: t('instituteServices') },
+    { value: 'creator-services', label: t('creatorServices') },
+    { value: 'general-inquiry', label: t('generalInquiry') },
+  ];
 
   // Context-aware pre-fill based on navigation state
   useEffect(() => {
@@ -53,16 +56,16 @@ const ContactForm = () => {
 
       switch (state.intent) {
         case 'general_project':
-          prefilledMessage = "Hi Casper, I have a vision for a project and I'd like to discuss it...";
+          prefilledMessage = t('generalProjectMessage');
           break;
         case 'service':
           if (state.serviceName) {
-            prefilledMessage = `I'm interested in your ${state.serviceName} services. I need...`;
+            prefilledMessage = `${t('serviceInquiryPrefix')} ${state.serviceName} ${t('serviceInquirySuffix')}`;
           }
           break;
         case 'pricing':
           if (state.plan) {
-            prefilledMessage = `I'd like to inquire about the ${state.plan} Package...`;
+            prefilledMessage = `${t('pricingInquiryPrefix')} ${state.plan} ${t('pricingInquirySuffix')}`;
           }
           break;
         default:
@@ -73,41 +76,41 @@ const ContactForm = () => {
         setFormData(prev => ({ ...prev, message: prefilledMessage }));
       }
     }
-  }, [location.state]);
+  }, [location.state, t]);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = t('nameRequired');
     } else if (formData.name.length > 100) {
-      newErrors.name = 'Name must be less than 100 characters';
+      newErrors.name = t('nameTooLong');
     }
 
     if (!formData.mobile.trim()) {
-      newErrors.mobile = 'Mobile number is required';
+      newErrors.mobile = t('mobileRequired');
     } else if (!/^[0-9]{10}$/.test(formData.mobile.replace(/\s/g, ''))) {
-      newErrors.mobile = 'Enter a valid 10-digit mobile number';
+      newErrors.mobile = t('mobileInvalid');
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Enter a valid email address';
+      newErrors.email = t('emailInvalid');
     }
 
     if (!formData.service) {
-      newErrors.service = 'Please select a service';
+      newErrors.service = t('serviceRequired');
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = t('messageRequired');
     } else if (formData.message.length > 1000) {
-      newErrors.message = 'Message must be less than 1000 characters';
+      newErrors.message = t('messageTooLong');
     }
 
     if (!formData.agreed) {
-      newErrors.agreed = 'You must agree to the terms';
+      newErrors.agreed = t('termsRequired');
     }
 
     setErrors(newErrors);
@@ -155,22 +158,22 @@ const ContactForm = () => {
       // Get service label for display
       const serviceLabel = services.find(s => s.value === formData.service)?.label || formData.service;
 
-      // Construct formatted WhatsApp message
-      const whatsappMessage = `Hello QuickServe IT Team,
+      // Construct formatted WhatsApp message using translations
+      const whatsappMessage = `${t('whatsappGreeting')}
 
-I am reaching out to inquire about your services. Here are my details:
+${t('whatsappIntro')}
 
-👤 *Name:* ${formData.name}
-📱 *Mobile:* ${formData.mobile}
-📧 *Email:* ${formData.email}
-🔧 *Service Required:* ${serviceLabel}
+👤 *${t('whatsappNameLabel')}* ${formData.name}
+📱 *${t('whatsappMobileLabel')}* ${formData.mobile}
+📧 *${t('whatsappEmailLabel')}* ${formData.email}
+🔧 *${t('whatsappServiceLabel')}* ${serviceLabel}
 
-💬 *Message:*
+💬 *${t('whatsappMessageLabel')}*
 ${formData.message}
 
-Looking forward to your response.
+${t('whatsappClosing')}
 
-Thank you!`;
+${t('whatsappThankYou')}`;
 
       // Construct WhatsApp URL
       const whatsappNumber = '916388224877';
@@ -180,8 +183,8 @@ Thank you!`;
       triggerConfetti();
 
       // Show success toast
-      toast.success('Redirecting to WhatsApp!', {
-        description: "Please send the message to complete your inquiry.",
+      toast.success(t('redirectingWhatsApp'), {
+        description: t('pleaseSendMessage'),
       });
 
       // Reset form
@@ -202,8 +205,8 @@ Thank you!`;
     } catch (error) {
       // Error handling
       console.error('WhatsApp Error:', error);
-      toast.error('Something went wrong.', {
-        description: 'Please try again or contact us directly.',
+      toast.error(t('somethingWentWrong'), {
+        description: t('tryAgainOrContact'),
       });
     } finally {
       setIsSubmitting(false);
@@ -213,14 +216,14 @@ Thank you!`;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
+    if (formErrors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({ ...prev, agreed: e.target.checked }));
-    if (errors.agreed) {
+    if (formErrors.agreed) {
       setErrors(prev => ({ ...prev, agreed: undefined }));
     }
   };
@@ -232,7 +235,7 @@ Thank you!`;
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Name
+          {t('name')}
         </label>
         <input
           type="text"
@@ -240,22 +243,22 @@ Thank you!`;
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Your full name"
+          placeholder={t('yourFullName')}
           aria-required="true"
-          aria-invalid={!!errors.name}
-          aria-describedby={errors.name ? 'name-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.name
+          aria-invalid={!!formErrors.name}
+          aria-describedby={formErrors.name ? 'name-error' : undefined}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${formErrors.name
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.name && <p id="name-error" className="mt-1.5 text-xs text-destructive/80">{errors.name}</p>}
+        {formErrors.name && <p id="name-error" className="mt-1.5 text-xs text-destructive/80">{formErrors.name}</p>}
       </div>
 
       {/* Mobile */}
       <div>
         <label htmlFor="mobile" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Mobile Number
+          {t('mobileNumberLabel')}
         </label>
         <input
           type="tel"
@@ -263,22 +266,22 @@ Thank you!`;
           name="mobile"
           value={formData.mobile}
           onChange={handleChange}
-          placeholder="10-digit mobile number"
+          placeholder={t('tenDigitMobile')}
           aria-required="true"
-          aria-invalid={!!errors.mobile}
-          aria-describedby={errors.mobile ? 'mobile-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.mobile
+          aria-invalid={!!formErrors.mobile}
+          aria-describedby={formErrors.mobile ? 'mobile-error' : undefined}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${formErrors.mobile
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.mobile && <p id="mobile-error" className="mt-1.5 text-xs text-destructive/80">{errors.mobile}</p>}
+        {formErrors.mobile && <p id="mobile-error" className="mt-1.5 text-xs text-destructive/80">{formErrors.mobile}</p>}
       </div>
 
       {/* Email */}
       <div>
         <label htmlFor="email" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Email
+          {t('email')}
         </label>
         <input
           type="email"
@@ -286,22 +289,22 @@ Thank you!`;
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="your@email.com"
+          placeholder={t('yourEmailPlaceholder')}
           aria-required="true"
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? 'email-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.email
+          aria-invalid={!!formErrors.email}
+          aria-describedby={formErrors.email ? 'email-error' : undefined}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${formErrors.email
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.email && <p id="email-error" className="mt-1.5 text-xs text-destructive/80">{errors.email}</p>}
+        {formErrors.email && <p id="email-error" className="mt-1.5 text-xs text-destructive/80">{formErrors.email}</p>}
       </div>
 
       {/* Service */}
       <div>
         <label htmlFor="service" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Service
+          {t('service')}
         </label>
         <select
           id="service"
@@ -309,9 +312,9 @@ Thank you!`;
           value={formData.service}
           onChange={handleChange}
           aria-required="true"
-          aria-invalid={!!errors.service}
-          aria-describedby={errors.service ? 'service-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground focus:outline-none focus:ring-1 appearance-none cursor-pointer ${errors.service
+          aria-invalid={!!formErrors.service}
+          aria-describedby={formErrors.service ? 'service-error' : undefined}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground focus:outline-none focus:ring-1 appearance-none cursor-pointer ${formErrors.service
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             } ${!formData.service ? 'text-foreground/30' : ''}`}
@@ -323,30 +326,30 @@ Thank you!`;
             </option>
           ))}
         </select>
-        {errors.service && <p id="service-error" className="mt-1.5 text-xs text-destructive/80">{errors.service}</p>}
+        {formErrors.service && <p id="service-error" className="mt-1.5 text-xs text-destructive/80">{formErrors.service}</p>}
       </div>
 
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Message
+          {t('message')}
         </label>
         <textarea
           id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Tell us about your requirements..."
+          placeholder={t('tellUsRequirements')}
           rows={4}
           aria-required="true"
-          aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? 'message-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 resize-none ${errors.message
+          aria-invalid={!!formErrors.message}
+          aria-describedby={formErrors.message ? 'message-error' : undefined}
+          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 resize-none ${formErrors.message
             ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
             : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
             }`}
         />
-        {errors.message && <p id="message-error" className="mt-1.5 text-xs text-destructive/80">{errors.message}</p>}
+        {formErrors.message && <p id="message-error" className="mt-1.5 text-xs text-destructive/80">{formErrors.message}</p>}
       </div>
 
       {/* Terms checkbox */}
@@ -360,14 +363,14 @@ Thank you!`;
               className="sr-only"
               aria-required="true"
               aria-checked={formData.agreed}
-              aria-invalid={!!errors.agreed}
-              aria-describedby={errors.agreed ? 'agreed-error' : undefined}
+              aria-invalid={!!formErrors.agreed}
+              aria-describedby={formErrors.agreed ? 'agreed-error' : undefined}
             />
             <div className={`w-5 h-5 rounded-md border transition-all duration-300 flex items-center justify-center ${formData.agreed
               ? mode === 'institutional'
                 ? 'bg-institutional border-institutional'
                 : 'bg-creator border-creator'
-              : errors.agreed
+              : formErrors.agreed
                 ? 'border-destructive/50 bg-white/[0.02]'
                 : 'border-white/[0.15] bg-white/[0.02] group-hover:border-white/[0.25]'
               }`}>
@@ -375,10 +378,10 @@ Thank you!`;
             </div>
           </div>
           <span className="text-xs text-foreground/50 leading-relaxed">
-            I agree to the terms & conditions and understand that my inquiry will be sent via WhatsApp.
+            {t('termsAgreeWhatsApp')}
           </span>
         </label>
-        {errors.agreed && <p id="agreed-error" className="mt-1.5 text-xs text-destructive/80 ml-8">{errors.agreed}</p>}
+        {formErrors.agreed && <p id="agreed-error" className="mt-1.5 text-xs text-destructive/80 ml-8">{formErrors.agreed}</p>}
       </div>
 
       {/* Submit button */}
@@ -391,12 +394,12 @@ Thank you!`;
           }`}
       >
         <Send className="w-4 h-4" />
-        {isSubmitting ? 'Sending...' : 'Send Message'}
+        {isSubmitting ? t('sending') : t('sendMessage')}
       </button>
 
       {/* Privacy note */}
       <p className="text-center text-[10px] text-foreground/30 font-mono tracking-wide">
-        Your information is secure and confidential
+        {t('secureAndConfidential')}
       </p>
     </form>
   );
