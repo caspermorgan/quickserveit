@@ -386,6 +386,45 @@
     color: hsl(var(--foreground) / 0.85);
   }
 
+  /* ========================================
+     HINDI (DEVANAGARI) TYPOGRAPHY
+     ======================================== */
+
+  /* Devanagari script has matras (upper/lower markers) that need more vertical space
+     to prevent collision between lines. Apply relaxed line-height when Hindi is active. */
+
+  [data-lang="hi"] h1,
+  [data-lang="hi"] h2,
+  [data-lang="hi"] h3,
+  [data-lang="hi"] h4,
+  [data-lang="hi"] h5,
+  [data-lang="hi"] h6 {
+    line-height: 1.5 !important;
+    /* Increased from 1.2 to prevent matra collision */
+    letter-spacing: 0 !important;
+    /* Reset negative letter-spacing for Devanagari */
+  }
+
+  [data-lang="hi"] p {
+    line-height: 1.8 !important;
+    /* Increased from 1.6 for comfortable reading */
+  }
+
+  [data-lang="hi"] body {
+    line-height: 1.75 !important;
+    /* Increased from 1.6 */
+  }
+
+  /* Specific adjustments for large display text */
+  [data-lang="hi"] .text-5xl,
+  [data-lang="hi"] .text-6xl,
+  [data-lang="hi"] .text-7xl,
+  [data-lang="hi"] .text-8xl,
+  [data-lang="hi"] .text-9xl {
+    line-height: 1.5 !important;
+    /* Prevent tight line-height on large Hindi text */
+  }
+
   /* Mobile typography improvements */
   @media (max-width: 768px) {
     body {
@@ -410,6 +449,30 @@
     p {
       line-height: 1.7;
     }
+
+    /* Hindi mobile adjustments - even more relaxed on small screens */
+    [data-lang="hi"] body {
+      line-height: 1.8 !important;
+    }
+
+    [data-lang="hi"] h1,
+    [data-lang="hi"] h2,
+    [data-lang="hi"] h3 {
+      line-height: 1.6 !important;
+      /* Extra space for matras on mobile */
+      letter-spacing: 0 !important;
+    }
+
+    [data-lang="hi"] h4,
+    [data-lang="hi"] h5,
+    [data-lang="hi"] h6 {
+      line-height: 1.55 !important;
+      letter-spacing: 0 !important;
+    }
+
+    [data-lang="hi"] p {
+      line-height: 1.85 !important;
+    }
   }
 
   /* Hide scrollbar but allow scrolling */
@@ -420,6 +483,34 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* ========================================
+     TOUCH DEVICE OPTIMIZATION
+     ======================================== */
+
+  /* Prevent stuck hover states on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+
+    /* Disable all hover transforms on touch devices */
+    *[class*="hover:scale"],
+    *[class*="hover:hover:scale"] {
+      transform: none !important;
+    }
+
+    /* Use active states instead for touch feedback */
+    *:active {
+      opacity: 0.9;
+      transition: opacity 0.1s ease;
+    }
+
+    /* Specific button touch feedback */
+    button:active,
+    a:active,
+    [role="button"]:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
   }
 }
 

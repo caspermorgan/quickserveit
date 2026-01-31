@@ -15,10 +15,12 @@ import HowWeWork from '@/components/HowWeWork';
 import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
 import TrustIndicators from '@/components/TrustIndicators';
+import SEO from '@/components/SEO';
 import { DisplayText, BodyLarge } from '@/components/Typography';
 import { Reveal, Magnetic } from '@/components/motion';
 import ParallaxSection from '@/components/motion/ParallaxSection';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+
 
 const Home = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
@@ -59,13 +61,20 @@ const Home = () => {
     : `${t('contactUs')} ${t('brandName')}, I am a content creator and would like to discuss video editing services.`;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
+  const pageTitle = `${t('brandName')} | ${mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}`;
+
   return (
     <>
-      <Helmet>
-        <title>{t('brandName')} | {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}</title>
-        <meta name="description" content={description} />
+      {/* SEO Component - Dynamic OG Images + Canonical URLs */}
+      <SEO
+        title={pageTitle}
+        description={description}
+        mode={mode}
+        type="website"
+      />
 
-        {/* JSON-LD Organization Schema for SEO */}
+      {/* JSON-LD Schema for Rich Snippets */}
+      <Helmet>
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

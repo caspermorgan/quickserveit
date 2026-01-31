@@ -359,10 +359,10 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           className={`
             p-0 rounded-full glass-nav
             transition-all duration-normal
-            w-11 h-11 flex items-center justify-center
+            w-11 h-11 min-h-[44px] flex items-center justify-center
             ${mode === 'institutional'
-              ? 'hover:border-institutional/20 hover:shadow-[0_0_12px_rgba(234,179,8,0.12)]'
-              : 'hover:border-creator/20 hover:shadow-[0_0_12px_rgba(34,211,238,0.12)]'
+              ? 'hover:hover:border-institutional/20 hover:hover:shadow-[0_0_12px_rgba(234,179,8,0.12)]'
+              : 'hover:hover:border-creator/20 hover:hover:shadow-[0_0_12px_rgba(34,211,238,0.12)]'
             }
           `}
           aria-label="Toggle menu"

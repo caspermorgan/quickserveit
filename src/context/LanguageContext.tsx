@@ -23,6 +23,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, language);
+
+    // Set data-lang attribute on document root for CSS targeting
+    // This enables language-specific styling (e.g., Hindi line-height)
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-lang', language);
+    }
   }, [language]);
 
   const setLanguage = (lang: Language) => {
