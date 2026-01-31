@@ -6,23 +6,30 @@ interface StatsSectionProps {
     mode: 'institutional' | 'creator';
 }
 
+interface StatItem {
+    value: number;
+    suffix: string;
+    label: string;
+    displayText?: string;
+}
+
 const StatsSection = ({ mode }: StatsSectionProps) => {
     const { t } = useTranslation();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     // Mode-specific stats
-    const institutionalStats = [
-        { value: 500, suffix: '+', label: t('statsProjectsCompleted') },
-        { value: 50, suffix: '+', label: t('statsInstitutionsServed') },
-        { value: 98, suffix: '%', label: t('statsClientSatisfaction') },
-        { value: 24, suffix: 'hr', label: t('statsResponseTime') },
+    const institutionalStats: StatItem[] = [
+        { value: 160, suffix: '+', label: t('statsProjectsCompleted') },
+        { value: 2, suffix: '+', label: t('statsInstitutionsServed') },
+        { value: 50, suffix: '+', label: t('statsClientSatisfaction') },
+        { value: 100, suffix: '%', label: t('statsResponseTime') },
     ];
 
-    const creatorStats = [
-        { value: 1000, suffix: '+', label: t('statsVideosEdited') },
-        { value: 5, suffix: 'M+', label: t('statsWatchHours') },
-        { value: 100, suffix: '+', label: t('statsCreatorsServed') },
+    const creatorStats: StatItem[] = [
+        { value: 0, suffix: '', label: t('statsVideosEdited'), displayText: 'Beta' },
+        { value: 0, suffix: '', label: t('statsWatchHours'), displayText: 'Open' },
+        { value: 0, suffix: '', label: t('statsCreatorsServed'), displayText: 'Video/Shorts' },
         { value: 48, suffix: 'hr', label: t('statsTurnaroundTime') },
     ];
 
@@ -57,6 +64,7 @@ const StatsSection = ({ mode }: StatsSectionProps) => {
                             <StatCounter
                                 value={stat.value}
                                 suffix={stat.suffix}
+                                displayText={stat.displayText}
                                 isInView={isInView}
                                 mode={mode}
                                 delay={index * 0.1}
@@ -75,12 +83,13 @@ const StatsSection = ({ mode }: StatsSectionProps) => {
 interface StatCounterProps {
     value: number;
     suffix: string;
+    displayText?: string;
     isInView: boolean;
     mode: 'institutional' | 'creator';
     delay: number;
 }
 
-const StatCounter = ({ value, suffix, isInView, mode, delay }: StatCounterProps) => {
+const StatCounter = ({ value, suffix, displayText, isInView, mode, delay }: StatCounterProps) => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -114,7 +123,7 @@ const StatCounter = ({ value, suffix, isInView, mode, delay }: StatCounterProps)
             className={`stat-counter text-4xl md:text-5xl lg:text-6xl ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'
                 }`}
         >
-            {count}{suffix}
+            {displayText || `${count}${suffix}`}
         </div>
     );
 };

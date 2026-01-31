@@ -35,13 +35,13 @@ export const translations = {
     heroInst2: 'Structured Academic Support',
     heroInst3: 'Quiet Progress, Clear Files',
     heroInst4: 'Trusted Institutional Partner',
-    heroInstDesc: 'Transform chaotic workloads into organized, confidential execution. From exams to compliance, your institution deserves peace.',
+    heroInstDesc: 'Proven track record with 160+ exam papers typed and daily technical support for schools in Gorakhpur.',
 
     // Hero Section - Creator
     heroCreator1: 'Cinematic Content Creation',
     heroCreator2: 'Retention-Style Editing',
     heroCreator3: 'World-Class Production',
-    heroCreatorDesc: 'Transform raw footage into premium, retention-focused content. From YouTube to documentaries, your vision deserves world-class polish.',
+    heroCreatorDesc: 'Now accepting select creators for beta testing our premium editing workflow.',
 
     // CTAs
     getStarted: 'Get Started',
@@ -63,15 +63,15 @@ export const translations = {
     viewsGenerated: 'Views Generated',
 
     // Stats Section - Institutional
-    statsProjectsCompleted: 'Projects Completed',
-    statsInstitutionsServed: 'Institutions Served',
-    statsClientSatisfaction: 'Client Satisfaction',
-    statsResponseTime: 'Response Time',
+    statsProjectsCompleted: 'Question Papers Typed',
+    statsInstitutionsServed: 'Contract Partnerships',
+    statsClientSatisfaction: 'Technical Tasks Resolved',
+    statsResponseTime: 'Error-Free Delivery',
 
     // Stats Section - Creator
-    statsVideosEdited: 'Videos Edited',
-    statsWatchHours: 'Watch Hours Generated',
-    statsCreatorsServed: 'Creators Served',
+    statsVideosEdited: 'Mode Status',
+    statsWatchHours: 'For First Cohort',
+    statsCreatorsServed: 'Editing Suite Ready',
     statsTurnaroundTime: 'Turnaround Time',
 
     // Value Proposition
@@ -807,13 +807,13 @@ export const translations = {
     heroInst2: 'स्कूल के काम में मदद',
     heroInst3: 'शांति से काम, साफ फाइलें',
     heroInst4: 'भरोसेमंद साथी',
-    heroInstDesc: 'हम आपके डिजिटल कामों को सही तरीके से, गोपनीय रखकर और समय पर पूरा करते हैं। परीक्षा के कागजात हों या सरकारी काम, हम आपकी टेंशन कम करते हैं।',
+    heroInstDesc: 'गोरखपुर के स्कूलों के लिए 160+ परीक्षा पेपर टाइप किए और दैनिक तकनीकी सहायता के साथ सिद्ध ट्रैक रिकॉर्ड।',
 
     // Hero Section - Creator
     heroCreator1: 'प्रोफेशनल वीडियो बनाएं',
     heroCreator2: 'दर्शकों को बांधे रखने वाला एडिटिंग',
     heroCreator3: 'बेहतरीन क्वालिटी',
-    heroCreatorDesc: 'हम आपके कच्चे वीडियो को प्रोफेशनल कंटेंट में बदलते हैं जो लोग देखना पसंद करें। YouTube वीडियो हो या डॉक्यूमेंट्री, आपका आइडिया बेहतरीन फिनिश का हकदार है।',
+    heroCreatorDesc: 'अब हमारे प्रीमियम एडिटिंग वर्कफ़्लो के बीटा टेस्टिंग के लिए चुनिंदा क्रिएटर्स को स्वीकार कर रहे हैं।',
 
     // CTAs
     getStarted: 'शुरू करें',

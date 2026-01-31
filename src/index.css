@@ -45,45 +45,45 @@
 
     --radius: 0.75rem;
 
-    /* Mode Colors - Institutional Premium Gold */
-    --mode-institutional-h: 43;
-    --mode-institutional-s: 96%;
-    --mode-institutional-l: 56%;
+    /* Mode Colors - Institutional Premium Gold (Rich Amber/Harvest Gold) */
+    --mode-institutional-h: 38;
+    --mode-institutional-s: 75%;
+    --mode-institutional-l: 52%;
 
     /* Institutional Secondary Colors */
-    --mode-institutional-secondary-h: 38;
-    --mode-institutional-secondary-s: 92%;
-    --mode-institutional-secondary-l: 50%;
+    --mode-institutional-secondary-h: 35;
+    --mode-institutional-secondary-s: 70%;
+    --mode-institutional-secondary-l: 48%;
 
     /* Institutional Tertiary Colors */
     --mode-institutional-tertiary-h: 30;
-    --mode-institutional-tertiary-s: 85%;
-    --mode-institutional-tertiary-l: 35%;
+    --mode-institutional-tertiary-s: 65%;
+    --mode-institutional-tertiary-l: 38%;
 
     /* Institutional Deep Colors - WCAG AA Compliant for Text */
-    --mode-institutional-deep-h: 38;
-    --mode-institutional-deep-s: 90%;
-    --mode-institutional-deep-l: 35%;
+    --mode-institutional-deep-h: 35;
+    --mode-institutional-deep-s: 72%;
+    --mode-institutional-deep-l: 36%;
 
-    /* Mode Colors - Creator Premium Cyan */
-    --mode-creator-h: 187;
-    --mode-creator-s: 100%;
-    --mode-creator-l: 42%;
+    /* Mode Colors - Creator Premium Cyan (Electric Teal) */
+    --mode-creator-h: 185;
+    --mode-creator-s: 84%;
+    --mode-creator-l: 44%;
 
     /* Creator Secondary Colors */
-    --mode-creator-secondary-h: 200;
-    --mode-creator-secondary-s: 98%;
+    --mode-creator-secondary-h: 188;
+    --mode-creator-secondary-s: 82%;
     --mode-creator-secondary-l: 48%;
 
     /* Creator Tertiary Colors */
-    --mode-creator-tertiary-h: 195;
-    --mode-creator-tertiary-s: 100%;
-    --mode-creator-tertiary-l: 55%;
+    --mode-creator-tertiary-h: 192;
+    --mode-creator-tertiary-s: 78%;
+    --mode-creator-tertiary-l: 52%;
 
     /* Creator Deep Colors - WCAG AA Compliant for Text */
-    --mode-creator-deep-h: 190;
-    --mode-creator-deep-s: 100%;
-    --mode-creator-deep-l: 25%;
+    --mode-creator-deep-h: 184;
+    --mode-creator-deep-s: 80%;
+    --mode-creator-deep-l: 26%;
 
     /* Active mode color (default: institutional) */
     --mode-h: var(--mode-institutional-h);
@@ -864,7 +864,7 @@
     box-shadow: var(--glow-intense);
   }
 
-  /* Premium Button Styles - v2.1 Refined */
+  /* Premium Button Styles - v3.0 Cinematic with 3D Gradient Depth */
   .btn-premium {
     position: relative;
     padding: clamp(0.65rem, 0.45rem + 1vw, 0.875rem) clamp(1.35rem, 0.9rem + 2vw, 1.75rem);
@@ -872,7 +872,11 @@
     font-weight: 500;
     font-size: clamp(0.875rem, 0.8rem + 0.3vw, 0.9375rem);
     letter-spacing: 0.015em;
-    background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+    /* Apple-style 3D gradient: lighter top, darker bottom */
+    background: linear-gradient(180deg,
+        hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) + 8%)) 0%,
+        hsl(var(--mode-h), var(--mode-s), var(--mode-l)) 50%,
+        hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) - 6%)) 100%);
     color: hsl(0, 0%, 0%);
     transition: all var(--duration-normal) var(--ease-premium);
     will-change: transform;
@@ -880,7 +884,8 @@
     box-shadow:
       var(--shadow-directional-sm),
       0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   }
 
   @media (min-width: 768px) {
@@ -897,14 +902,26 @@
 
   .btn-premium:hover {
     transform: translateY(-2px);
+    /* Enhanced gradient on hover */
+    background: linear-gradient(180deg,
+        hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) + 10%)) 0%,
+        hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) + 2%)) 50%,
+        hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) - 4%)) 100%);
     box-shadow:
       var(--shadow-directional-md),
-      0 0 35px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      0 0 35px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5),
+      0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   }
 
   .btn-premium:active {
     transform: translateY(0);
+    /* Pressed state: reverse gradient slightly */
+    background: linear-gradient(180deg,
+        hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) - 2%)) 0%,
+        hsl(var(--mode-h), var(--mode-s), var(--mode-l)) 50%,
+        hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) + 4%)) 100%);
     transition: transform var(--duration-instant) ease;
   }
 
@@ -920,6 +937,11 @@
   @media (hover: none) and (pointer: coarse) {
     .btn-premium:hover {
       transform: none;
+      /* Keep base gradient on touch devices */
+      background: linear-gradient(180deg,
+          hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) + 8%)) 0%,
+          hsl(var(--mode-h), var(--mode-s), var(--mode-l)) 50%,
+          hsl(var(--mode-h), var(--mode-s), calc(var(--mode-l) - 6%)) 100%);
     }
 
     .btn-premium:active {
@@ -1581,23 +1603,119 @@
   background-size: 200% 200%;
 }
 
-/* Optimized Gradient Mesh Background - Static for Performance */
-.mesh-gradient-institutional {
-  background: linear-gradient(135deg,
-      rgba(43, 96, 56, 0.03) 0%,
-      rgba(0, 0, 0, 0) 50%,
-      rgba(43, 96, 56, 0.03) 100%);
-  background-size: 100% 100%;
-  /* Removed animation for better performance */
+/* ============================================
+   CINEMATIC ATMOSPHERIC GRADIENTS
+   ============================================
+   
+   Ultra-soft mesh gradients that create "smoke" or "light leak"
+   effects instead of harsh color blobs. These use very low opacity
+   (15-20%) and high blur (100px+) for a flagship cinematic feel.
+*/
+
+/* Atmospheric Mesh - Institutional (Rich Amber) */
+.mesh-atmospheric-institutional {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
 }
 
-.mesh-gradient-creator {
-  background: linear-gradient(135deg,
-      rgba(0, 187, 212, 0.03) 0%,
-      rgba(0, 0, 0, 0) 50%,
-      rgba(0, 187, 212, 0.03) 100%);
-  background-size: 100% 100%;
-  /* Removed animation for better performance */
+.mesh-atmospheric-institutional::before,
+.mesh-atmospheric-institutional::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  will-change: transform;
+}
+
+.mesh-atmospheric-institutional::before {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -100px;
+  background: radial-gradient(circle,
+      hsl(38, 75%, 52%) 0%,
+      hsl(35, 70%, 48%) 40%,
+      transparent 70%);
+}
+
+.mesh-atmospheric-institutional::after {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  left: -80px;
+  background: radial-gradient(circle,
+      hsl(30, 65%, 38%) 0%,
+      hsl(35, 72%, 36%) 35%,
+      transparent 65%);
+}
+
+/* Atmospheric Mesh - Creator (Electric Teal) */
+.mesh-atmospheric-creator {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mesh-atmospheric-creator::before,
+.mesh-atmospheric-creator::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+  will-change: transform;
+}
+
+.mesh-atmospheric-creator::before {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -100px;
+  background: radial-gradient(circle,
+      hsl(185, 84%, 44%) 0%,
+      hsl(188, 82%, 48%) 40%,
+      transparent 70%);
+}
+
+.mesh-atmospheric-creator::after {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  left: -80px;
+  background: radial-gradient(circle,
+      hsl(192, 78%, 52%) 0%,
+      hsl(184, 80%, 26%) 35%,
+      transparent 65%);
+}
+
+/* Mobile Performance Optimization */
+@media (max-width: 768px) {
+
+  .mesh-atmospheric-institutional::before,
+  .mesh-atmospheric-institutional::after,
+  .mesh-atmospheric-creator::before,
+  .mesh-atmospheric-creator::after {
+    filter: blur(80px);
+    opacity: 0.12;
+  }
+
+  .mesh-atmospheric-institutional::before,
+  .mesh-atmospheric-creator::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  .mesh-atmospheric-institutional::after,
+  .mesh-atmospheric-creator::after {
+    width: 350px;
+    height: 350px;
+  }
 }
 
 /* Premium Shadow Utilities */

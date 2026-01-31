@@ -81,25 +81,25 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Mode colors - Institutional Premium Gold
+        // Mode colors - Institutional Premium Gold (Rich Amber/Harvest Gold)
         institutional: {
-          DEFAULT: "hsl(43, 96%, 56%)",        // Bright gold for buttons/borders
+          DEFAULT: "hsl(38, 75%, 52%)",        // Rich amber for buttons/borders - expensive feel
           foreground: "hsl(0, 0%, 0%)",        // Black text on gold backgrounds
-          secondary: "hsl(38, 92%, 50%)",      // Medium gold for hover states
-          tertiary: "hsl(30, 85%, 35%)",       // Deep amber for subtle accents
-          text: "hsl(35, 80%, 28%)",           // Dark amber for accessible text (WCAG AA)
-          textMuted: "hsl(35, 60%, 40%)",      // Lighter amber for secondary text
-          deep: "hsl(38, 90%, 35%)",           // Deep gold for headlines - WCAG AA compliant
+          secondary: "hsl(35, 70%, 48%)",      // Medium amber for hover states
+          tertiary: "hsl(30, 65%, 38%)",       // Deep amber for subtle accents
+          text: "hsl(32, 68%, 30%)",           // Dark amber for accessible text (WCAG AA)
+          textMuted: "hsl(35, 55%, 42%)",      // Lighter amber for secondary text
+          deep: "hsl(35, 72%, 36%)",           // Deep gold for headlines - WCAG AA compliant
         },
-        // Mode colors - Creator Premium Cyan  
+        // Mode colors - Creator Premium Cyan (Electric Teal)
         creator: {
-          DEFAULT: "hsl(187, 100%, 42%)",      // Bright cyan for buttons/borders
+          DEFAULT: "hsl(185, 84%, 44%)",       // Electric teal for buttons/borders - deep vibrancy
           foreground: "hsl(0, 0%, 0%)",        // Black text on cyan backgrounds
-          secondary: "hsl(200, 98%, 48%)",     // Medium cyan for hover states
-          tertiary: "hsl(195, 100%, 55%)",     // Light cyan for subtle accents
-          text: "hsl(187, 85%, 25%)",          // Dark teal for accessible text (WCAG AA)
-          textMuted: "hsl(187, 70%, 35%)",     // Lighter teal for secondary text
-          deep: "hsl(190, 100%, 25%)",         // Deep teal for headlines - WCAG AA compliant
+          secondary: "hsl(188, 82%, 48%)",     // Medium teal for hover states
+          tertiary: "hsl(192, 78%, 52%)",      // Lighter teal for subtle accents
+          text: "hsl(185, 75%, 28%)",          // Dark teal for accessible text (WCAG AA)
+          textMuted: "hsl(186, 62%, 36%)",     // Lighter teal for secondary text
+          deep: "hsl(184, 80%, 26%)",          // Deep teal for headlines - WCAG AA compliant
         },
       },
       borderRadius: {

@@ -50,7 +50,7 @@ const Founder = () => {
           <div className="flex justify-center mb-12">
             <div className="relative w-64 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden glass-card border border-border/20">
               <img
-                src="https://placehold.co/400x500/1a1a1a/gold?text=Casper"
+                src="/founder.jpg"
                 alt="Casper Morgan - Founder"
                 className="w-full h-full object-cover"
               />

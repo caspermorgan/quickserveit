@@ -19,6 +19,7 @@ import SEO from '@/components/SEO';
 import { DisplayText, BodyLarge } from '@/components/Typography';
 import { Reveal, Magnetic } from '@/components/motion';
 import ParallaxSection from '@/components/motion/ParallaxSection';
+import ProofOfWorkSlider from '@/components/ProofOfWorkSlider';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 
@@ -213,6 +214,11 @@ const Home = () => {
 
         {/* Value Proposition - Why Choose Us */}
         <ValueProposition mode={mode} />
+
+        {/* Proof of Work Slider - Only for Institutional Mode */}
+        {mode === 'institutional' && (
+          <ProofOfWorkSlider />
+        )}
 
         {/* Services Teaser - Top 3 Only */}
         <ServicesTeaser mode={mode} />
