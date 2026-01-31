@@ -20,6 +20,8 @@ import { DisplayText, BodyLarge } from '@/components/Typography';
 import { Reveal, Magnetic } from '@/components/motion';
 import ParallaxSection from '@/components/motion/ParallaxSection';
 import ProofOfWorkSlider from '@/components/ProofOfWorkSlider';
+import StatsTeaser from '@/components/StatsTeaser';
+import EvidenceTeaser from '@/components/EvidenceTeaser';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 
@@ -204,6 +206,12 @@ const Home = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Stats Teaser - Impact Ticker */}
+        <StatsTeaser mode={mode} />
+
+        {/* Evidence Teaser - Before/After Slider */}
+        <EvidenceTeaser mode={mode} />
 
         {/* Creator Mode Notice */}
         {mode === 'creator' && (
