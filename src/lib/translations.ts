@@ -324,8 +324,35 @@ export const translations = {
     studioSpaceSubtitle: 'Professional Recording Environment',
     studioSpaceDesc: 'Coming soon: Soundproof environment with professional gear for local talent incubation.',
 
-    // About Page
+    // About Page - Blueprint Redesign
     aboutTitle: 'About',
+
+    // Manifesto Hero
+    aboutBlueprintHero: 'We Engineer Flow.',
+    aboutBlueprintSubtext: 'Bridging the gap between Rural Education and Global Content Standards.',
+
+    // Dual Core Engine
+    aboutDualCoreTitle: 'The Dual Core Engine',
+    aboutDualCoreSubtitle: 'Why we operate in two modes',
+    aboutInstituteCore: 'For Institutes: We bring Stability.',
+    aboutInstitutePhilosophy: 'Educational institutions need predictable, error-free execution. We handle UDISE+, scholarships, and exam documentation with zero-drama reliability. Your data is sacred, your deadlines are honored, and your administrative burden is lifted—so educators can focus on education.',
+    aboutCreatorCore: 'For Creators: We bring Velocity.',
+    aboutCreatorPhilosophy: 'Content creators need production speed without sacrificing quality. We deliver broadcast-grade editing, cinematic color grading, and platform-ready content that positions you as an authority. Your vision is executed professionally, your upload schedule is protected.',
+
+    // Arsenal / Tools Orbit
+    aboutArsenalTitle: 'The Arsenal',
+    aboutArsenalCaption: 'Powered by industry-standard technology.',
+
+    // Core Values
+    aboutCoreValuesTitle: 'Core Values',
+    aboutValuePrecisionTitle: 'Precision',
+    aboutValuePrecisionDesc: 'Zero Error Policy. Every document, every frame, every detail is verified. We don\'t ship work with mistakes—your reputation depends on our accuracy.',
+    aboutValueConfidentialityTitle: 'Confidentiality',
+    aboutValueConfidentialityDesc: 'Your Data is Safe. Student records, exam papers, raw footage—everything is handled with strict privacy protocols. We never share, never showcase without permission.',
+    aboutValueSpeedTitle: 'Speed',
+    aboutValueSpeedDesc: '24h Turnaround. Realistic timelines with honest communication. Urgent work gets priority treatment without compromising quality. We respect your deadlines.',
+
+    // Legacy keys (kept for backward compatibility if needed elsewhere)
     aboutIntro: 'We exist to reduce digital overwhelm for those who create meaningful work — whether that\'s educating the next generation or building audiences through content.',
     ourPhilosophy: 'Our Philosophy',
     confidentialityTitle: 'Confidentiality First',
@@ -344,8 +371,6 @@ export const translations = {
     whatWeDontDo: 'What We Don\'t Do',
     transparencyNote: 'Transparency is important to us. Here\'s what falls outside our scope:',
     dontDoList: 'Academic writing or content creation for students|Guaranteed views, subscribers, or monetization|Falsifying any institutional records|24/7 availability or instant responses|Web development or software projects|Social media management or marketing',
-
-    // About Page - Additional
     aboutPageTitle: 'About',
     aboutPageSubtitle: 'quickserveit',
     theStoryBehind: 'The story behind quickserveit',
@@ -1323,6 +1348,49 @@ export const translations = {
     whatWeDontDo: 'हम क्या नहीं करते',
     transparencyNote: 'पारदर्शिता हमारे लिए महत्वपूर्ण है। यहां वह है जो हमारे दायरे से बाहर है:',
     dontDoList: 'छात्रों के लिए शैक्षणिक लेखन या कंटेंट निर्माण|गारंटीड व्यूज, सब्सक्राइबर्स या मुद्रीकरण|किसी भी संस्थागत रिकॉर्ड में हेराफेरी|24/7 उपलब्धता या तत्काल प्रतिक्रियाएं|वेब डेवलपमेंट या सॉफ्टवेयर प्रोजेक्ट्स|सोशल मीडिया प्रबंधन या मार्केटिंग',
+
+    // About Page - Blueprint Redesign
+    aboutBlueprintHero: 'हम प्रवाह को इंजीनियर करते हैं।',
+    aboutBlueprintSubtext: 'ग्रामीण शिक्षा और वैश्विक सामग्री मानकों के बीच की खाई को पाटना।',
+
+    // Dual Core Engine
+    aboutDualCoreTitle: 'दोहरा कोर इंजन',
+    aboutDualCoreSubtitle: 'हम दो मोड में क्यों काम करते हैं',
+    aboutInstituteCore: 'संस्थानों के लिए: हम स्थिरता लाते हैं।',
+    aboutInstitutePhilosophy: 'शैक्षणिक संस्थानों को पूर्वानुमानित, त्रुटि-मुक्त निष्पादन की आवश्यकता है। हम UDISE+, छात्रवृत्ति और परीक्षा दस्तावेज़ीकरण को शून्य-नाटक विश्वसनीयता के साथ संभालते हैं। आपका डेटा पवित्र है, आपकी समय-सीमा का सम्मान किया जाता है, और आपका प्रशासनिक बोझ उठाया जाता—ताकि शिक्षक शिक्षा पर ध्यान केंद्रित कर सकें।',
+    aboutCreatorCore: 'क्रिएटर्स के लिए: हम वेग लाते हैं।',
+    aboutCreatorPhilosophy: 'कंटेंट क्रिएटर्स को गुणवत्ता का त्याग किए बिना प्रोडक्शन गति की आवश्यकता है। हम ब्रॉडकास्ट-ग्रेड एडिटिंग, सिनेमैटिक कलर ग्रेडिंग और प्लेटफॉर्म-रेडी कंटेंट प्रदान करते हैं जो आपको एक प्राधिकरण के रूप में स्थापित करता है। आपकी दृष्टि को पेशेवर रूप से निष्पादित किया जाता है, आपका अपलोड शेड्यूल सुरक्षित है।',
+
+    // Arsenal / Tools Orbit
+    aboutArsenalTitle: 'शस्त्रागार',
+    aboutArsenalCaption: 'उद्योग-मानक तकनीक द्वारा संचालित।',
+
+    // Core Values
+    aboutCoreValuesTitle: 'मूल मूल्य',
+    aboutValuePrecisionTitle: 'परिशुद्धता',
+    aboutValuePrecisionDesc: 'शून्य त्रुटि नीति। हर दस्तावेज़, हर फ्रेम, हर विवरण सत्यापित है। हम गलतियों के साथ काम नहीं भेजते—आपकी प्रतिष्ठा हमारी सटीकता पर निर्भर करती है।',
+    aboutValueConfidentialityTitle: 'गोपनीयता',
+    aboutValueConfidentialityDesc: 'आपका डेटा सुरक्षित है। छात्र रिकॉर्ड, परीक्षा पेपर, कच्चा फुटेज—सब कुछ सख्त गोपनीयता प्रोटोकॉल के साथ संभाला जाता है। हम कभी साझा नहीं करते, बिना अनुमति के कभी प्रदर्शित नहीं करते।',
+    aboutValueSpeedTitle: 'गति',
+    aboutValueSpeedDesc: '24 घंटे का टर्नअराउंड। ईमानदार संचार के साथ यथार्थवादी समय-सीमा। गुणवत्ता से समझौता किए बिना तत्काल काम को प्राथमिकता उपचार मिलता है। हम आपकी समय-सीमा का सम्मान करते हैं।',
+
+    // Legacy keys (kept for backward compatibility if needed elsewhere)
+    aboutPageTitle: 'परिचय',
+    aboutPageSubtitle: 'quickserveit',
+    theStoryBehind: 'quickserveit के पीछे की कहानी',
+    calmOverChaos: 'अराजकता पर शांति',
+    calmOverChaosDesc: 'हम आपके तनाव में वृद्धि नहीं करते। हर बातचीत चिंता को कम करने के लिए डिज़ाइन की गई है, बढ़ाने के लिए नहीं।',
+    clarityOverConfusion: 'भ्रम पर स्पष्टता',
+    clarityOverConfusionDesc: 'स्पष्ट अपेक्षाएं, ईमानदार समय-सीमा, कोई छिपे आश्चर्य नहीं। आप हमेशा जानते हैं कि चीजें कहां खड़ी हैं।',
+    confidentialityIsSacred: 'गोपनीयता पवित्र है',
+    confidentialityIsSacredDesc: 'आपका डेटा, आपके दस्तावेज़, आपकी सामग्री — उस विवेक के साथ व्यवहार किया जाता है जिसके वे हकदार हैं।',
+    qualityWithoutEgo: 'अहंकार के बिना गुणवत्ता',
+    qualityWithoutEgoDesc: 'हमें श्रेय की आवश्यकता नहीं है। हमें आपके काम की सफलता की आवश्यकता है। यही हमारी संतुष्टि है।',
+    aboutVisionAhead: 'आगे की दृष्टि',
+    aboutVisionAheadText1: 'quickserveit सभी के लिए सब कुछ बनने की कोशिश नहीं कर रहा है। हम एक केंद्रित अभ्यास बना रहे हैं — संस्थागत दस्तावेज़ीकरण और क्रिएटर प्रोडक्शन में गहरी विशेषज्ञता। कोई विकर्षण नहीं, कोई कमजोरी नहीं।',
+    aboutVisionAheadText2: 'चाहे आप छात्रवृत्ति रिकॉर्ड संसाधित करने वाले स्कूल प्रशासक हों या अपना अगला वीडियो तैयार करने वाले YouTuber, मैं चाहता हूं कि quickserveit एक विश्वसनीय सहयोगी होने जैसा महसूस हो जो चीजों को चुपचाप और अच्छी तरह से संभालता है।',
+    aboutThankYouMessage: 'quickserveit पर विचार करने के लिए धन्यवाद।',
+    aboutTheFounder: '— संस्थापक',
 
     // Pricing Page
     transparentPricing: 'पारदर्शी मूल्य निर्धारण',

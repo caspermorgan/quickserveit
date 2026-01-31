@@ -152,6 +152,10 @@ export default {
           from: { opacity: "0", filter: "blur(20px)" },
           to: { opacity: "1", filter: "blur(0)" },
         },
+        "slideUp": {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
         "glow-pulse": {
           "0%, 100%": { boxShadow: "0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3)" },
           "50%": { boxShadow: "0 0 60px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5)" },
