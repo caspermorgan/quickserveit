@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -27,6 +28,7 @@ import { H1 } from '@/components/Typography';
 
 const Pricing = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [activeServiceTab, setActiveServiceTab] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());

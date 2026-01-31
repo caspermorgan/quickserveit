@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -16,6 +17,7 @@ import { toast } from 'sonner';
 
 const Contact = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [showContextBadge, setShowContextBadge] = useState(false);
@@ -119,22 +121,16 @@ const Contact = () => {
 
   const faqs = [
     {
-      question: "How quickly will I get a response?",
-      answer: "We typically respond within 2-4 hours during working hours (10 AM - 4 PM IST, Mon-Sat). Messages sent outside working hours will be answered the next business day."
+      question: t('contactFaqQ1'),
+      answer: t('contactFaqA1')
     },
     {
-      question: "What information should I include in my inquiry?",
-      answer: mode === 'institutional'
-        ? "Please include: your institution name, type of service needed (exam typing, UDISE+, etc.), approximate volume/scope, and any deadlines. This helps us provide an accurate quote faster."
-        : "Please include: your channel/brand name, type of content, video length, editing style preferences, and deadline. Sample videos or references are very helpful!"
+      question: t('contactFaqQ2'),
+      answer: t('contactFaqA2')
     },
     {
-      question: "Do you offer free consultations?",
-      answer: "Yes! We offer a free initial consultation to understand your requirements and provide a detailed quote. No obligation to proceed."
-    },
-    {
-      question: "How do you handle confidential information?",
-      answer: "We treat all client data with strict confidentiality. We never share, store unnecessarily, or reuse any client information. Your data is deleted after project completion unless you request otherwise."
+      question: t('contactFaqQ3'),
+      answer: t('contactFaqA3')
     }
   ];
 
@@ -163,10 +159,10 @@ const Contact = () => {
               }`}
           >
             <H1 className="mb-5 sm:mb-6 md:mb-7 px-4 md:px-0">
-              Let's <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Connect</span>
+              {t('contactHeroTitle').split(' ').slice(0, -1).join(' ')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('contactHeroTitle').split(' ').slice(-1)}</span>
             </H1>
             <p className="text-foreground/75 text-base sm:text-lg md:text-xl leading-loose mb-6 sm:mb-7 md:mb-8 px-5 md:px-4">
-              Share your project details and we'll respond within working hours.
+              {t('contactHeroSubtitle')}
             </p>
 
             {/* Response Time Badge */}
@@ -205,8 +201,8 @@ const Contact = () => {
                     }`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">WhatsApp</h3>
-                  <p className="text-foreground/60 text-xs sm:text-sm truncate">Instant messaging • Quick responses</p>
+                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">{t('whatsappContact')}</h3>
+                  <p className="text-foreground/60 text-xs sm:text-sm truncate">{t('whatsappDesc')}</p>
                 </div>
                 <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   }`}>
@@ -242,8 +238,8 @@ const Contact = () => {
                     }`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">Email</h3>
-                  <p className="text-foreground/60 text-xs sm:text-sm truncate">Open in your mail app</p>
+                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">{t('emailContact')}</h3>
+                  <p className="text-foreground/60 text-xs sm:text-sm truncate">{t('emailDesc')}</p>
                 </div>
                 <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
                   }`}>

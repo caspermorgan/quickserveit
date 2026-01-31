@@ -39,10 +39,10 @@ const Founder = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-display mb-4">
-              A Note from the <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Founder</span>
+              {t('founderHeroTitle').split(' ').slice(0, -2).join(' ')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('founderHeroTitle').split(' ').slice(-1)}</span>
             </h1>
             <p className="text-foreground/50">
-              The story behind quickserveit
+              {t('founderHeroSubtitle')}
             </p>
           </div>
 
@@ -61,7 +61,7 @@ const Founder = () => {
           <div className={`p-8 rounded-2xl mb-12 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/20' : 'bg-creator/5 border border-creator/20'}`}>
             <Quote className={`w-8 h-8 mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
             <p className="text-lg md:text-xl italic text-foreground/70 leading-relaxed">
-              "I built quickserveit because I saw a gap — institutions drowning in digital chaos, creators struggling with inconsistent quality. Both needed a partner who understood their world, not just their tasks."
+              {t('founderOpeningQuoteText')}
             </p>
           </div>
 
@@ -70,65 +70,64 @@ const Founder = () => {
             <section>
               <h2 className="text-xl font-display mb-4 flex items-center gap-3">
                 <Heart className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                Why I Started This
+                {t('whyIStartedTitle')}
               </h2>
               <p className="text-foreground/60 leading-relaxed">
-                <strong>Dual Expertise:</strong> As a BCA graduate, I understand the code. As a Documentary Filmmaker, I understand the story. This unique combination allows me to serve two distinct worlds with equal depth.
+                {t('whyIStartedPara1')}
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                Working with schools across rural Gorakhpur, I witnessed principals and teachers drowning in digital paperwork — UDISE+ forms, examination records, scholarship applications. Essential work that pulled them away from what they do best: educating. My technical background (BCA) gave me the tools to digitize these processes efficiently.
+                {t('whyIStartedPara2')}
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                Simultaneously, through my documentary filmmaking journey, I saw talented creators with powerful stories but limited post-production resources. Their content deserved cinematic polish, professional sound design, and strategic editing — but access was the barrier. My storytelling expertise became their bridge to professional-grade content.
-              </p>
-              <p className="text-foreground/60 leading-relaxed mt-4">
-                I bridge the gap between technical compliance and creative expression. quickserveit exists to serve both worlds with precision, discretion, and calm execution — powered by a founder who genuinely understands both domains.
+                {t('whyIStartedPara3')}
               </p>
             </section>
 
             <section>
               <h2 className="text-xl font-display mb-4 flex items-center gap-3">
                 <Target className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                What We Believe
+                {t('theGapIFilledTitle')}
               </h2>
-              <div className="grid md:grid-cols-2 gap-6 mt-6">
-                <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">Calm Over Chaos</h3>
-                  <p className="text-sm text-foreground/50">
-                    We don't add to your stress. Every interaction is designed to reduce anxiety, not increase it.
-                  </p>
-                </div>
-                <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">Clarity Over Confusion</h3>
-                  <p className="text-sm text-foreground/50">
-                    Clear expectations, honest timelines, no hidden surprises. You always know where things stand.
-                  </p>
-                </div>
-                <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">Confidentiality is Sacred</h3>
-                  <p className="text-sm text-foreground/50">
-                    Your data, your documents, your content — treated with the discretion they deserve.
-                  </p>
-                </div>
-                <div className="p-6 rounded-xl glass-card border border-border/20">
-                  <h3 className="font-medium mb-2">Quality Without Ego</h3>
-                  <p className="text-sm text-foreground/50">
-                    We don't need credit. We need your work to succeed. That's our satisfaction.
-                  </p>
-                </div>
-              </div>
+              <p className="text-foreground/60 leading-relaxed">
+                {t('theGapIFilledPara1')}
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                {t('theGapIFilledPara2')}
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                {t('theGapIFilledPara3')}
+              </p>
             </section>
 
             <section>
               <h2 className="text-xl font-display mb-4 flex items-center gap-3">
                 <Eye className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                The Vision Ahead
+                {t('myCommitmentTitle')}
               </h2>
               <p className="text-foreground/60 leading-relaxed">
-                quickserveit is not trying to be everything to everyone. We're building a focused practice — deep expertise in institutional documentation and creator production. No distractions, no dilution.
+                {t('myCommitmentPara1')}
               </p>
               <p className="text-foreground/60 leading-relaxed mt-4">
-                Whether you're a school administrator processing scholarship records or a YouTuber crafting your next video, I want quickserveit to feel like having a trusted colleague who just handles things quietly and well.
+                {t('myCommitmentPara2')}
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                {t('myCommitmentPara3')}
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-display mb-4 flex items-center gap-3">
+                <Eye className={`w-5 h-5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                {t('theVisionTitle')}
+              </h2>
+              <p className="text-foreground/60 leading-relaxed">
+                {t('theVisionPara1')}
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                {t('theVisionPara2')}
+              </p>
+              <p className="text-foreground/60 leading-relaxed mt-4">
+                {t('theVisionPara3')}
               </p>
             </section>
           </div>

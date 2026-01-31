@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
@@ -11,6 +12,7 @@ import { H1, H2 } from '@/components/Typography';
 
 const About = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
@@ -88,12 +90,10 @@ const About = () => {
               }`}
           >
             <H1 className="mb-6">
-              About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>QuickServe IT</span>
+              {t('aboutHeroTitle').split(' ').slice(0, -2).join(' ')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('aboutHeroTitle').split(' ').slice(-2).join(' ')}</span>
             </H1>
             <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-              {mode === 'institutional'
-                ? "This is not a hobby blog or generic agency. This is a professional freelancing and portfolio platform built for serious institutional work — data systems, documentation workflows, and measurable outcomes."
-                : "This is not a hobby blog or generic agency. This is a professional freelancing and portfolio platform built for serious creator production — documentary editing, content series, and high-quality deliverables."}
+              {t('aboutHeroSubtitle')}
             </p>
           </div>
 
@@ -104,7 +104,7 @@ const About = () => {
             className={`max-w-4xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-100 ${visibleSections.has('purpose') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H2 className="mb-8 text-center">Why This Platform Exists</H2>
+            <H2 className="mb-8 text-center">{t('aboutPurposeTitle')}</H2>
             <div className={`glass-card rounded-2xl p-8 sm:p-10 border ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'
               }`}>
               <div className="space-y-6">
@@ -114,9 +114,9 @@ const About = () => {
                     <Target className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Showcase Expertise</h3>
+                    <h3 className="font-semibold text-lg mb-2">{t('aboutPurpose1Title')}</h3>
                     <p className="text-foreground/60 leading-relaxed">
-                      This platform demonstrates capabilities through selected work, clear service definitions, and transparent processes. It's a living portfolio that reflects real execution standards.
+                      {t('aboutPurpose1Desc')}
                     </p>
                   </div>
                 </div>
@@ -127,9 +127,9 @@ const About = () => {
                     <Briefcase className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Professional Gateway</h3>
+                    <h3 className="font-semibold text-lg mb-2">{t('aboutPurpose2Title')}</h3>
                     <p className="text-foreground/60 leading-relaxed">
-                      This is where serious projects begin. Clients who value professionalism, clarity, and execution find a partner who understands scope, timelines, and deliverables.
+                      {t('aboutPurpose2Desc')}
                     </p>
                   </div>
                 </div>
@@ -140,9 +140,9 @@ const About = () => {
                     <TrendingUp className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Long-Term Partnerships</h3>
+                    <h3 className="font-semibold text-lg mb-2">{t('aboutPurpose3Title')}</h3>
                     <p className="text-foreground/60 leading-relaxed">
-                      Built for repeat collaboration. Smart businesses, startups, and individuals who want reliable execution return because the work is consistent, documented, and delivered as promised.
+                      {t('aboutPurpose3Desc')}
                     </p>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ const About = () => {
             className={`max-w-4xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-200 ${visibleSections.has('principles') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H2 className="mb-8 text-center">Working Principles</H2>
+            <H2 className="mb-8 text-center">{t('aboutPrinciplesTitle')}</H2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className={`p-6 rounded-2xl glass-card border ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'
                 }`}>
@@ -165,9 +165,9 @@ const About = () => {
                   }`}>
                   <Shield className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Confidentiality by Default</h3>
+                <h3 className="text-lg font-semibold mb-2">{t('aboutPrinciple1Title')}</h3>
                 <p className="text-foreground/60 text-sm leading-relaxed">
-                  Client data is never shared, stored unnecessarily, or reused. Every project is treated as confidential unless explicitly agreed otherwise.
+                  {t('aboutPrinciple1Desc')}
                 </p>
               </div>
 
@@ -177,9 +177,9 @@ const About = () => {
                   }`}>
                   <Clock className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Realistic Timelines</h3>
+                <h3 className="text-lg font-semibold mb-2">{t('aboutPrinciple2Title')}</h3>
                 <p className="text-foreground/60 text-sm leading-relaxed">
-                  No false promises. Deadlines are set based on actual capacity, complexity, and quality standards. Late changes are communicated immediately.
+                  {t('aboutPrinciple2Desc')}
                 </p>
               </div>
 
@@ -189,9 +189,9 @@ const About = () => {
                   }`}>
                   <CheckCircle className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Scope-Based Execution</h3>
+                <h3 className="text-lg font-semibold mb-2">{t('aboutPrinciple3Title')}</h3>
                 <p className="text-foreground/60 text-sm leading-relaxed">
-                  Only what is agreed upon is delivered. Scope creep is addressed transparently. Changes are documented and priced separately.
+                  {t('aboutPrinciple3Desc')}
                 </p>
               </div>
 
@@ -201,11 +201,9 @@ const About = () => {
                   }`}>
                   <Target className={`w-6 h-6 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Focused Expertise</h3>
+                <h3 className="text-lg font-semibold mb-2">{t('aboutPrinciple4Title')}</h3>
                 <p className="text-foreground/60 text-sm leading-relaxed">
-                  {mode === 'institutional'
-                    ? "Specialized in institutional documentation, data systems, and educational workflows. Not a generalist — a specialist."
-                    : "Specialized in video production, documentary editing, and content creation. Not a generalist — a specialist."}
+                  {t('aboutPrinciple4Desc')}
                 </p>
               </div>
             </div>
@@ -218,11 +216,11 @@ const About = () => {
             className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-700 ease-out delay-300 ${visibleSections.has('approach') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H2 className="mb-8 text-center">Who This Platform Serves</H2>
+            <H2 className="mb-8 text-center">{t('aboutWhoWeServeTitle')}</H2>
             <div className={`glass-card rounded-2xl p-8 sm:p-10 border ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'
               }`}>
               <p className="text-foreground/70 leading-relaxed mb-6">
-                This platform is built for clients who understand that quality work requires clear communication, realistic timelines, and mutual respect. It's for:
+                {t('aboutWhoWeServeIntro')}
               </p>
               <ul className="space-y-3">
                 {mode === 'institutional' ? (
@@ -270,9 +268,9 @@ const About = () => {
                 }`}>
                 <p className="text-foreground/70 leading-relaxed">
                   <span className={`font-semibold ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                    Not for everyone:
+                    {t('aboutNotForTitle')}
                   </span>{' '}
-                  This platform is not for clients seeking shortcuts, rock-bottom prices, or unrealistic turnarounds. It's for those who understand that professional work requires professional terms.
+                  {t('aboutNotForDesc')}
                 </p>
               </div>
             </div>
@@ -288,11 +286,11 @@ const About = () => {
             <div className={`glass-card rounded-2xl p-8 text-center border ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'
               }`}>
               <Clock className={`w-10 h-10 mx-auto mb-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-              <h3 className="text-xl font-semibold mb-3">Working Hours</h3>
-              <p className="text-2xl font-display mb-2">10:00 AM – 4:00 PM IST</p>
-              <p className="text-foreground/60 mb-4">Monday – Saturday</p>
+              <h3 className="text-xl font-semibold mb-3">{t('aboutWorkingHoursTitle')}</h3>
+              <p className="text-2xl font-display mb-2">{t('aboutWorkingHoursTime')}</p>
+              <p className="text-foreground/60 mb-4">{t('aboutWorkingHoursDays')}</p>
               <p className="text-sm text-foreground/50 leading-relaxed">
-                Messages sent outside working hours will be answered the next business day. This ensures focused work during active hours and prevents burnout.
+                {t('aboutWorkingHoursNote')}
               </p>
             </div>
           </div>
