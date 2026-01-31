@@ -81,53 +81,53 @@ const Pricing = () => {
     {
       id: 0,
       icon: FileText,
-      label: 'Documentation',
-      title: 'Examination & Documentation',
-      description: 'Professional typing & formatting services with error-free delivery',
+      label: t('pricingInstTab1Label'),
+      title: t('pricingInstTab1Title'),
+      description: t('pricingInstTab1Desc'),
       items: [
-        { name: 'English Typing', desc: 'Standard documentation & exam papers', price: '₹20/page' },
-        { name: 'Hindi Typing', desc: 'Unicode formatting • Specialized skill', price: '₹25/page' },
-        { name: 'Maths / Science', desc: 'Formulas, diagrams, equations', price: '₹30/page' }
+        { name: t('pricingInstItem1Name'), desc: t('pricingInstItem1Desc'), price: t('pricingInstItem1Price') },
+        { name: t('pricingInstItem2Name'), desc: t('pricingInstItem2Desc'), price: t('pricingInstItem2Price') },
+        { name: t('pricingInstItem3Name'), desc: t('pricingInstItem3Desc'), price: t('pricingInstItem3Price') }
       ],
-      highlight: 'Error-free formatting optimized for bulk printing. Includes equation editor, diagram support, and professional layout.'
+      highlight: t('pricingInstTab1Highlight')
     },
     {
       id: 1,
       icon: Database,
-      label: 'Data Services',
-      title: 'Data Architecture',
-      description: 'UDISE+ & scholarship processing with zero-rejection guarantee',
+      label: t('pricingInstTab2Label'),
+      title: t('pricingInstTab2Title'),
+      description: t('pricingInstTab2Desc'),
       items: [
-        { name: 'UDISE+ Existing Student', desc: '2026-27 session update', price: '₹10/student' },
-        { name: 'UDISE+ New Student', desc: 'Complete account creation • Validation', price: '₹15/student' },
-        { name: 'Scholarship Verification', desc: 'Portal + Biometric + DSC forwarding', price: '₹30-₹50' },
-        { name: 'Daily Tech Support', desc: 'Micro to heavy tasks • Full working day', price: '₹99-₹499' }
+        { name: t('pricingInstItem4Name'), desc: t('pricingInstItem4Desc'), price: t('pricingInstItem4Price') },
+        { name: t('pricingInstItem5Name'), desc: t('pricingInstItem5Desc'), price: t('pricingInstItem5Price') },
+        { name: t('pricingInstItem6Name'), desc: t('pricingInstItem6Desc'), price: t('pricingInstItem6Price') },
+        { name: t('pricingInstItem7Name'), desc: t('pricingInstItem7Desc'), price: t('pricingInstItem7Price') }
       ],
-      highlight: '99.9% acceptance rate on first submission. We handle re-submissions at no extra cost.'
+      highlight: t('pricingInstTab2Highlight')
     },
     {
       id: 2,
       icon: ShieldCheck,
-      label: 'Terms',
-      title: 'Terms & Protocol',
-      description: 'The professional handshake - clear terms, secure workflow',
+      label: t('pricingInstTab3Label'),
+      title: t('pricingInstTab3Title'),
+      description: t('pricingInstTab3Desc'),
       policies: [
         {
-          title: 'Payment Terms',
+          title: t('pricingInstPolicy1Title'),
           items: [
-            { label: 'Small Tasks: 100% Advance', desc: 'Full payment before starting' },
-            { label: 'Large Work: 50% Advance', desc: 'Work starts only after confirmation' }
+            { label: t('pricingInstPolicy1Item1Label'), desc: t('pricingInstPolicy1Item1Desc') },
+            { label: t('pricingInstPolicy1Item2Label'), desc: t('pricingInstPolicy1Item2Desc') }
           ]
         },
         {
-          title: 'Corrections Policy',
+          title: t('pricingInstPolicy2Title'),
           items: [
-            { label: 'Minor Corrections Included', desc: 'Within agreed scope' },
-            { label: 'New Ideas Charged Separately', desc: 'Late changes outside original scope' }
+            { label: t('pricingInstPolicy2Item1Label'), desc: t('pricingInstPolicy2Item1Desc') },
+            { label: t('pricingInstPolicy2Item2Label'), desc: t('pricingInstPolicy2Item2Desc') }
           ]
         }
       ],
-      highlight: 'Built on mutual respect and transparency. Our terms protect both parties and ensure smooth collaboration.'
+      highlight: t('pricingInstTab3Highlight')
     }
   ];
 
@@ -136,104 +136,104 @@ const Pricing = () => {
     {
       id: 0,
       icon: Video,
-      label: 'Video',
+      label: t('pricingCreatorTab1Label'),
       isGrid: true,
       plans: [
         {
-          name: 'Starter',
-          price: '₹999',
-          desc: 'Simple editing',
-          features: ['Clean cuts', 'Basic color correction', 'Smooth flow'],
-          note: 'Clean, professional basics'
+          name: t('pricingCreatorPlan1Name'),
+          price: t('pricingCreatorPlan1Price'),
+          desc: t('pricingCreatorPlan1Desc'),
+          features: [t('pricingCreatorPlan1Feature1'), t('pricingCreatorPlan1Feature2'), t('pricingCreatorPlan1Feature3')],
+          note: t('pricingCreatorPlan1Note')
         },
         {
-          name: 'Growth',
-          price: '₹1,999',
-          desc: 'Narrative-focused',
-          features: ['Better pacing', 'Structured storytelling', 'Enhanced flow'],
-          note: 'Narrative-focused editing'
+          name: t('pricingCreatorPlan2Name'),
+          price: t('pricingCreatorPlan2Price'),
+          desc: t('pricingCreatorPlan2Desc'),
+          features: [t('pricingCreatorPlan2Feature1'), t('pricingCreatorPlan2Feature2'), t('pricingCreatorPlan2Feature3')],
+          note: t('pricingCreatorPlan2Note')
         },
         {
-          name: 'Authority',
-          price: '₹2,999',
-          desc: 'Complex editing',
-          features: ['Advanced color grading', 'Motion graphics', 'VFX elements'],
-          note: 'Premium production'
+          name: t('pricingCreatorPlan3Name'),
+          price: t('pricingCreatorPlan3Price'),
+          desc: t('pricingCreatorPlan3Desc'),
+          features: [t('pricingCreatorPlan3Feature1'), t('pricingCreatorPlan3Feature2'), t('pricingCreatorPlan3Feature3')],
+          note: t('pricingCreatorPlan3Note')
         },
         {
-          name: 'Series Plan',
-          price: '₹4,999',
-          desc: 'Multi-video',
-          features: ['Consistent episodic', 'Long-form production', 'Series branding'],
-          note: 'Multi-episode series'
+          name: t('pricingCreatorPlan4Name'),
+          price: t('pricingCreatorPlan4Price'),
+          desc: t('pricingCreatorPlan4Desc'),
+          features: [t('pricingCreatorPlan4Feature1'), t('pricingCreatorPlan4Feature2'), t('pricingCreatorPlan4Feature3')],
+          note: t('pricingCreatorPlan4Note')
         }
       ],
-      highlight: 'Professional 1080p delivery with cinematic color grading. All packages include platform-ready formatting and up to 2 rounds of revisions.'
+      highlight: t('pricingCreatorTab1Highlight')
     },
     {
       id: 1,
       icon: Zap,
-      label: 'Shorts',
-      title: 'Viral Shorts',
-      description: 'Algorithm-optimized short-form content for maximum engagement',
+      label: t('pricingCreatorTab2Label'),
+      title: t('pricingCreatorTab2Title'),
+      description: t('pricingCreatorTab2Desc'),
       items: [
-        { name: 'Standard Shorts', desc: 'Clean edits • Trending audio • Quick delivery', price: '₹499' },
-        { name: 'Premium Shorts', desc: 'Advanced effects • Custom graphics • Priority queue', price: '₹999' }
+        { name: t('pricingCreatorItem1Name'), desc: t('pricingCreatorItem1Desc'), price: t('pricingCreatorItem1Price') },
+        { name: t('pricingCreatorItem2Name'), desc: t('pricingCreatorItem2Desc'), price: t('pricingCreatorItem2Price') }
       ],
-      highlight: 'Optimized for Instagram Reels, YouTube Shorts, and TikTok. Includes trending audio selection and platform-specific formatting.'
+      highlight: t('pricingCreatorTab2Highlight')
     },
     {
       id: 2,
       icon: Palette,
-      label: 'Design',
+      label: t('pricingCreatorTab3Label'),
       isGrid: true,
       plans: [
         {
-          name: 'Motion Graphics',
-          subtitle: '2.5D Animation & VFX',
+          name: t('pricingCreatorDesign1Name'),
+          subtitle: t('pricingCreatorDesign1Subtitle'),
           items: [
-            { name: 'Basic Motion', desc: 'Simple animations', price: '₹699' },
-            { name: 'Advanced VFX', desc: 'Complex effects', price: '₹1,999' },
-            { name: 'Pro VFX', desc: 'Premium production', price: '₹2,699' }
+            { name: t('pricingCreatorDesign1Item1Name'), desc: t('pricingCreatorDesign1Item1Desc'), price: t('pricingCreatorDesign1Item1Price') },
+            { name: t('pricingCreatorDesign1Item2Name'), desc: t('pricingCreatorDesign1Item2Desc'), price: t('pricingCreatorDesign1Item2Price') },
+            { name: t('pricingCreatorDesign1Item3Name'), desc: t('pricingCreatorDesign1Item3Desc'), price: t('pricingCreatorDesign1Item3Price') }
           ],
-          note: 'Perfect for intros, transitions, lower thirds'
+          note: t('pricingCreatorDesign1Note')
         },
         {
-          name: 'Thumbnails & Scripts',
-          subtitle: 'High-CTR design + scripts',
+          name: t('pricingCreatorDesign2Name'),
+          subtitle: t('pricingCreatorDesign2Subtitle'),
           items: [
-            { name: 'Thumbnail Only', desc: 'Design only', price: '₹299' },
-            { name: 'With Strategy + Script', desc: 'Design + script + consultation', price: '₹699' }
+            { name: t('pricingCreatorDesign2Item1Name'), desc: t('pricingCreatorDesign2Item1Desc'), price: t('pricingCreatorDesign2Item1Price') },
+            { name: t('pricingCreatorDesign2Item2Name'), desc: t('pricingCreatorDesign2Item2Desc'), price: t('pricingCreatorDesign2Item2Price') }
           ],
-          note: 'Includes script writing, A/B testing guidance'
+          note: t('pricingCreatorDesign2Note')
         }
       ],
-      highlight: 'Professional design services to elevate your content. All deliverables include source files and up to 2 rounds of revisions.'
+      highlight: t('pricingCreatorTab3Highlight')
     },
     {
       id: 3,
       icon: ShieldCheck,
-      label: 'Terms',
-      title: 'Terms & Workflow',
-      description: 'Clear terms for smooth collaboration',
+      label: t('pricingCreatorTab4Label'),
+      title: t('pricingCreatorTab4Title'),
+      description: t('pricingCreatorTab4Desc'),
       policies: [
         {
-          title: 'Payment Terms',
+          title: t('pricingCreatorPolicy1Title'),
           items: [
-            { label: 'Small Projects: 100% Advance', desc: 'Full payment before starting' },
-            { label: 'Large Projects: 50% Advance', desc: 'Work starts after confirmation' }
+            { label: t('pricingCreatorPolicy1Item1Label'), desc: t('pricingCreatorPolicy1Item1Desc') },
+            { label: t('pricingCreatorPolicy1Item2Label'), desc: t('pricingCreatorPolicy1Item2Desc') }
           ]
         },
         {
-          title: 'Revision Policy',
+          title: t('pricingCreatorPolicy2Title'),
           items: [
-            { label: 'Up to 2 Rounds of Revisions', desc: 'Within agreed scope only' },
-            { label: 'Major Changes Charged Separately', desc: 'Late changes outside original scope' }
+            { label: t('pricingCreatorPolicy2Item1Label'), desc: t('pricingCreatorPolicy2Item1Desc') },
+            { label: t('pricingCreatorPolicy2Item2Label'), desc: t('pricingCreatorPolicy2Item2Desc') }
           ]
         }
       ],
-      deliveryNote: 'Standard: 3-5 business days for most projects. Rush delivery available for subscription clients at no extra cost.',
-      highlight: 'Built on mutual respect and transparency. Our terms protect both parties and ensure smooth collaboration.'
+      deliveryNote: t('pricingCreatorDeliveryNote'),
+      highlight: t('pricingCreatorTab4Highlight')
     }
   ];
 
@@ -268,32 +268,25 @@ const Pricing = () => {
               }`}
           >
             <H1 className="mb-4 sm:mb-5 md:mb-6">
-              {mode === 'institutional' ? (
-                <>Professional <span className="text-institutional">Institutional</span> Pricing</>
-              ) : (
-                <>Premium <span className="text-creator">Creator</span> Services</>
-              )}
+              {t('pricingHeroTitle').split(' ').slice(0, -1).join(' ')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('pricingHeroTitle').split(' ').slice(-1)}</span>
             </H1>
             <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
-              {mode === 'institutional'
-                ? 'Scope-based pricing for serious institutions. Only what is written here is promised and delivered.'
-                : 'Professional production for serious creators. Clearly defined scope. Professionally executed.'
-              }
+              {t('pricingHeroSubtitle')}
             </p>
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-foreground/50">
               <div className="flex items-center gap-2">
                 <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span>{mode === 'institutional' ? 'No Hidden Fees' : '1080p Delivery'}</span>
+                <span>{t('pricingTrust1')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span>{mode === 'institutional' ? 'Clear Terms' : 'Platform-Ready'}</span>
+                <span>{t('pricingTrust2')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span>{mode === 'institutional' ? 'Zero-Rejection Guarantee' : 'Clear Scope'}</span>
+                <span>{t('pricingTrust3')}</span>
               </div>
             </div>
           </div>
