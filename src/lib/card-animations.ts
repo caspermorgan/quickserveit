@@ -21,7 +21,7 @@ export const EASING = {
     drag: [0.2, 0.0, 0.2, 1],       // Smooth drag
 } as const;
 
-// Card heights for different modes
+// Card heights for different modes - using min-height for Hindi compatibility
 export const CARD_HEIGHT = {
     compact: 56,
     standard: 180,
@@ -30,10 +30,11 @@ export const CARD_HEIGHT = {
 
 /**
  * Main card container animation variants
+ * Using minHeight instead of height to accommodate Hindi text (30% wider)
  */
 export const cardVariants: Variants = {
     compact: {
-        height: CARD_HEIGHT.compact,
+        minHeight: CARD_HEIGHT.compact,
         scale: 1,
         transition: {
             duration: ANIMATION_DURATION.collapse / 1000,
@@ -41,7 +42,7 @@ export const cardVariants: Variants = {
         },
     },
     standard: {
-        height: CARD_HEIGHT.standard,
+        minHeight: CARD_HEIGHT.standard,
         scale: 1,
         transition: {
             duration: ANIMATION_DURATION.expand / 1000,
@@ -49,7 +50,7 @@ export const cardVariants: Variants = {
         },
     },
     expanded: {
-        height: CARD_HEIGHT.expanded,
+        minHeight: CARD_HEIGHT.expanded,
         scale: 1,
         transition: {
             duration: ANIMATION_DURATION.expand / 1000,

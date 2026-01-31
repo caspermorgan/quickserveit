@@ -12,6 +12,7 @@ import SkipToContent from "@/components/SkipToContent";
 import PageTransition from "@/components/motion/PageTransition";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import PageSkeletonLoader from "@/components/SkeletonLoader";
+import { initGA, logPageView } from "@/utils/analytics";
 
 // Lazy load all page components for better performance
 const Landing = lazy(() => import("./pages/Landing"));
@@ -36,12 +37,14 @@ const PageLoader = () => {
 
 const queryClient = new QueryClient();
 
-// Scroll to top component
+// Scroll to top component with analytics
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Track page view
+    logPageView(pathname);
   }, [pathname]);
 
   return null;
@@ -117,6 +120,11 @@ const AppRoutes = () => {
 };
 
 const App = () => {
+  // Initialize Google Analytics on mount
+  useEffect(() => {
+    initGA(); // Replace 'G-XXXXXXXXXX' in analytics.ts with your actual GA4 Measurement ID
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
