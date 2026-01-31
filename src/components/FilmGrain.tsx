@@ -1,22 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FilmGrain = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Detect mobile devices
-    const checkMobile = () => {
-      setIsMobile(
-        window.matchMedia('(max-width: 768px)').matches ||
-        'ontouchstart' in window ||
-        navigator.maxTouchPoints > 0
-      );
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   // Disable on mobile to save battery
   if (isMobile) return null;
