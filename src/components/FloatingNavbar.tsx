@@ -180,6 +180,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     { label: t('home'), href: '/home' },
     { label: t('services'), href: '/services' },
     { label: t('about'), href: '/about' },
+    { label: t('founder'), href: '/founder' },
     { label: t('pricing'), href: '/pricing' },
     { label: t('contact'), href: '/contact' },
   ];
