@@ -80,17 +80,21 @@ export default {
         },
         // Mode colors - Institutional Premium Gold
         institutional: {
-          DEFAULT: "hsl(43, 96%, 56%)",
-          foreground: "hsl(0, 0%, 0%)",
-          secondary: "hsl(38, 92%, 50%)",
-          tertiary: "hsl(30, 85%, 35%)",
+          DEFAULT: "hsl(43, 96%, 56%)",        // Bright gold for buttons/borders
+          foreground: "hsl(0, 0%, 0%)",        // Black text on gold backgrounds
+          secondary: "hsl(38, 92%, 50%)",      // Medium gold for hover states
+          tertiary: "hsl(30, 85%, 35%)",       // Deep amber for subtle accents
+          text: "hsl(35, 80%, 28%)",           // Dark amber for accessible text (WCAG AA)
+          textMuted: "hsl(35, 60%, 40%)",      // Lighter amber for secondary text
         },
         // Mode colors - Creator Premium Cyan  
         creator: {
-          DEFAULT: "hsl(187, 100%, 42%)",
-          foreground: "hsl(0, 0%, 0%)",
-          secondary: "hsl(200, 98%, 48%)",
-          tertiary: "hsl(195, 100%, 55%)",
+          DEFAULT: "hsl(187, 100%, 42%)",      // Bright cyan for buttons/borders
+          foreground: "hsl(0, 0%, 0%)",        // Black text on cyan backgrounds
+          secondary: "hsl(200, 98%, 48%)",     // Medium cyan for hover states
+          tertiary: "hsl(195, 100%, 55%)",     // Light cyan for subtle accents
+          text: "hsl(187, 85%, 25%)",          // Dark teal for accessible text (WCAG AA)
+          textMuted: "hsl(187, 70%, 35%)",     // Lighter teal for secondary text
         },
       },
       borderRadius: {
