@@ -67,9 +67,9 @@ const TechTicker = ({ mode }: TechTickerProps) => {
                     {duplicatedTech.map((tech, index) => (
                         <div
                             key={`${tech.name}-${index}`}
-                            className="flex flex-col items-center gap-3 flex-shrink-0"
+                            className="flex flex-col items-center gap-3 flex-shrink-0 group"
                         >
-                            <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-foreground/40" />
+                            <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-foreground/40 grayscale hover-hover:grayscale-0 transition-all duration-500" />
                             <span className="text-xs md:text-sm text-foreground/30 font-mono tracking-wider whitespace-nowrap">
                                 {tech.name}
                             </span>

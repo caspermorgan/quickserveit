@@ -68,9 +68,11 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
       }}
       whileHover={{ scale: 1.015 }}
       whileTap={{ scale: 0.98 }}
-      className={`group relative rounded-2xl p-5 md:p-7 ${onClick ? 'cursor-pointer' : ''
-        }`}
-      transition={{ duration: 0.3 }}
+      className={`group relative rounded-2xl p-5 md:p-7 hover-hover:ring-1 ${mode === 'institutional'
+          ? 'hover-hover:ring-institutional/50'
+          : 'hover-hover:ring-creator/50'
+        } transition-all duration-500 ${onClick ? 'cursor-pointer' : ''}`}
+      transition={{ duration: 0.5 }}
     >
       {/* Enhanced Glassmorphism Background - v2.1 */}
       <div
@@ -81,7 +83,7 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
               ? '0 0 50px rgba(234, 179, 8, 0.15), inset 0 0 25px rgba(234, 179, 8, 0.04)'
               : '0 0 50px rgba(34, 211, 238, 0.15), inset 0 0 25px rgba(34, 211, 238, 0.04)'
             : 'var(--shadow-directional-md), var(--shadow-ambient-md)',
-          transition: 'all 0.4s ease',
+          transition: 'all 0.5s ease',
         }}
       />
 
@@ -101,8 +103,8 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
         {/* Icon with Premium Glow - v2.1 Refined */}
         <div
           className={`relative w-11 h-11 md:w-13 md:h-13 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:rotate-2 ${mode === 'institutional'
-            ? 'bg-institutional/10 group-hover:bg-institutional/15'
-            : 'bg-creator/10 group-hover:bg-creator/15'
+              ? 'bg-institutional/10 group-hover:bg-institutional/15'
+              : 'bg-creator/10 group-hover:bg-creator/15'
             }`}
           style={{
             boxShadow:
@@ -124,7 +126,7 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
         </div>
 
         {/* Title - v2.1 Refined */}
-        <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:translate-x-0.5 transition-transform duration-400">
+        <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 group-hover:translate-x-0.5 transition-transform duration-500">
           {title}
         </h3>
 
@@ -146,7 +148,7 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, mode, delay = 0
 
       {/* Bottom Gradient Accent Line - v2.1 Refined */}
       <div
-        className="absolute bottom-0 left-5 right-5 h-0.5 opacity-0 group-hover:opacity-100 transition-all duration-400"
+        className="absolute bottom-0 left-5 right-5 h-0.5 opacity-0 group-hover:opacity-100 transition-all duration-500"
         style={{
           background:
             mode === 'institutional'

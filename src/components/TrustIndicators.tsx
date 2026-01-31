@@ -17,7 +17,7 @@ interface IndicatorItemProps {
 
 const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeactivate }: IndicatorItemProps) => {
     return (
-        <div className="relative opacity-60 scale-90 transition-all duration-normal hover:opacity-100 hover:scale-100">
+        <div className="relative opacity-60 scale-90 transition-all duration-normal hover-hover:opacity-100 hover-hover:scale-100">
             {/* Icon with subtle glow - v2.1 Refined */}
             <button
                 onMouseEnter={onActivate}
@@ -33,7 +33,7 @@ const IndicatorItem = ({ icon: Icon, label, mode, isActive, onActivate, onDeacti
                         ? mode === 'institutional'
                             ? 'bg-background/10 border-institutional/20'
                             : 'bg-background/10 border-creator/20'
-                        : 'hover:bg-background/8 hover:border-foreground/8'
+                        : 'hover-hover:bg-background/8 hover-hover:border-foreground/8'
                     }
         `}
                 aria-label={label}
