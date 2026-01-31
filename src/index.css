@@ -60,6 +60,11 @@
     --mode-institutional-tertiary-s: 85%;
     --mode-institutional-tertiary-l: 35%;
 
+    /* Institutional Deep Colors - WCAG AA Compliant for Text */
+    --mode-institutional-deep-h: 38;
+    --mode-institutional-deep-s: 90%;
+    --mode-institutional-deep-l: 35%;
+
     /* Mode Colors - Creator Premium Cyan */
     --mode-creator-h: 187;
     --mode-creator-s: 100%;
@@ -74,6 +79,11 @@
     --mode-creator-tertiary-h: 195;
     --mode-creator-tertiary-s: 100%;
     --mode-creator-tertiary-l: 55%;
+
+    /* Creator Deep Colors - WCAG AA Compliant for Text */
+    --mode-creator-deep-h: 190;
+    --mode-creator-deep-s: 100%;
+    --mode-creator-deep-l: 25%;
 
     /* Active mode color (default: institutional) */
     --mode-h: var(--mode-institutional-h);
@@ -1548,12 +1558,12 @@
   animation-delay: 800ms;
 }
 
-/* Premium Gradient Text Utilities */
+/* Premium Gradient Text Utilities - Updated with Deep Colors for Readability */
 .text-gradient-institutional {
   background: linear-gradient(135deg,
-      hsl(var(--mode-institutional-h), var(--mode-institutional-s), var(--mode-institutional-l)) 0%,
-      hsl(var(--mode-institutional-secondary-h), var(--mode-institutional-secondary-s), var(--mode-institutional-secondary-l)) 50%,
-      hsl(var(--mode-institutional-tertiary-h), var(--mode-institutional-tertiary-s), var(--mode-institutional-tertiary-l)) 100%);
+      hsl(var(--mode-institutional-deep-h), var(--mode-institutional-deep-s), var(--mode-institutional-deep-l)) 0%,
+      hsl(var(--mode-institutional-tertiary-h), var(--mode-institutional-tertiary-s), var(--mode-institutional-tertiary-l)) 50%,
+      hsl(var(--mode-institutional-secondary-h), var(--mode-institutional-secondary-s), calc(var(--mode-institutional-secondary-l) - 10%)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1562,9 +1572,9 @@
 
 .text-gradient-creator {
   background: linear-gradient(135deg,
-      hsl(var(--mode-creator-h), var(--mode-creator-s), var(--mode-creator-l)) 0%,
-      hsl(var(--mode-creator-secondary-h), var(--mode-creator-secondary-s), var(--mode-creator-secondary-l)) 50%,
-      hsl(var(--mode-creator-tertiary-h), var(--mode-creator-tertiary-s), var(--mode-creator-tertiary-l)) 100%);
+      hsl(var(--mode-creator-deep-h), var(--mode-creator-deep-s), var(--mode-creator-deep-l)) 0%,
+      hsl(var(--mode-creator-h), var(--mode-creator-s), calc(var(--mode-creator-l) - 10%)) 50%,
+      hsl(var(--mode-creator-secondary-h), var(--mode-creator-secondary-s), calc(var(--mode-creator-secondary-l) - 5%)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1772,6 +1782,7 @@
     animation: none !important;
   }
 }
+
 /* ============================================
    WCAG AA Color Contrast Fixes
    ============================================ */
@@ -1796,6 +1807,7 @@
 
 /* Hindi text is ~30% longer - needs extra space on mobile */
 @media (max-width: 768px) {
+
   [data-lang="hi"] .card,
   [data-lang="hi"] [class*="card"],
   [data-lang="hi"] .service-card {

@@ -21,6 +21,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        'hover-hover': { 'raw': '(hover: hover)' },
+      },
       fontFamily: {
         display: ['Space Grotesk', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
@@ -86,6 +89,7 @@ export default {
           tertiary: "hsl(30, 85%, 35%)",       // Deep amber for subtle accents
           text: "hsl(35, 80%, 28%)",           // Dark amber for accessible text (WCAG AA)
           textMuted: "hsl(35, 60%, 40%)",      // Lighter amber for secondary text
+          deep: "hsl(38, 90%, 35%)",           // Deep gold for headlines - WCAG AA compliant
         },
         // Mode colors - Creator Premium Cyan  
         creator: {
@@ -95,6 +99,7 @@ export default {
           tertiary: "hsl(195, 100%, 55%)",     // Light cyan for subtle accents
           text: "hsl(187, 85%, 25%)",          // Dark teal for accessible text (WCAG AA)
           textMuted: "hsl(187, 70%, 35%)",     // Lighter teal for secondary text
+          deep: "hsl(190, 100%, 25%)",         // Deep teal for headlines - WCAG AA compliant
         },
       },
       borderRadius: {
