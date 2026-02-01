@@ -22,9 +22,197 @@ import {
   Video,
   Palette,
   Sparkles,
-  Crown
+  Crown,
+  Check
 } from 'lucide-react';
 import { H1 } from '@/components/Typography';
+
+// VIP Glass Card Component with 3D Tilt Effect
+interface PricingCardVIPProps {
+  mode: 'institutional' | 'creator';
+  plan: {
+    name: string;
+    price: string;
+    desc?: string;
+    features?: string[];
+    subtitle?: string;
+    items?: Array<{ name: string; desc: string; price: string }>;
+    note?: string;
+  };
+  isPopular?: boolean;
+  badge?: string;
+  onClick: () => void;
+  buttonText?: string;
+}
+
+const PricingCardVIP: React.FC<PricingCardVIPProps> = ({
+  mode,
+  plan,
+  isPopular = false,
+  badge,
+  onClick,
+  buttonText = 'Get Started'
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = ((y - centerY) / centerY) * -5;
+    const tiltY = ((x - centerX) / centerX) * 5;
+    setTilt({ x: tiltX, y: tiltY });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
+  const borderColor = mode === 'institutional' ? 'border-amber-500/30' : 'border-cyan-500/30';
+  const glowColor = mode === 'institutional' ? 'shadow-amber-500/20' : 'shadow-cyan-500/20';
+  const accentColor = mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500';
+  const bgAccent = mode === 'institutional' ? 'bg-amber-500/10' : 'bg-cyan-500/10';
+  const gradientFrom = mode === 'institutional' ? 'from-amber-500' : 'from-cyan-500';
+  const gradientTo = mode === 'institutional' ? 'to-amber-600' : 'to-cyan-600';
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`group relative rounded-3xl transition-all duration-500 ${isPopular ? 'scale-105' : ''
+        }`}
+      style={{
+        transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+        transition: 'transform 0.1s ease-out'
+      }}
+    >
+      {/* Spotlight Effect for Popular Card */}
+      {isPopular && (
+        <div className={`absolute -inset-4 bg-gradient-to-r ${gradientFrom} ${gradientTo} opacity-20 blur-3xl -z-10 animate-pulse`} />
+      )}
+
+      {/* Badge */}
+      {badge && (
+        <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest ${mode === 'institutional' ? 'bg-gradient-to-r from-amber-500 to-amber-600' : 'bg-gradient-to-r from-cyan-500 to-cyan-600'
+          } text-black shadow-lg z-10`}>
+          {badge}
+        </div>
+      )}
+
+      {/* VIP Glass Card */}
+      <div className={`relative bg-black/40 backdrop-blur-xl border ${borderColor} rounded-3xl p-8 transition-all duration-500 group-hover:${glowColor} group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:${mode === 'institutional' ? 'border-amber-500/50' : 'border-cyan-500/50'
+        } overflow-hidden`}>
+
+        {/* Inner Glow */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${mode === 'institutional' ? 'from-amber-500/5 to-transparent' : 'from-cyan-500/5 to-transparent'
+          } opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
+        {/* Content */}
+        <div className="relative z-10">
+          {/* Icon or Subtitle */}
+          {plan.subtitle ? (
+            <>
+              <h3 className={`text-2xl font-display mb-2 ${accentColor} tracking-wide`}>{plan.name}</h3>
+              <p className="text-sm text-foreground/40 mb-6 uppercase tracking-widest">{plan.subtitle}</p>
+            </>
+          ) : (
+            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${bgAccent} group-hover:scale-110 transition-transform duration-500`}>
+              {plan.name.includes('Starter') && <Video className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Growth') && <TrendingUp className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Authority') && <Crown className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Series') && <Sparkles className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Basic') && <Clock className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Premium') && <Crown className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Annual') && <Award className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Content') && <Video className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Pro') && <Crown className={`w-8 h-8 ${accentColor}`} />}
+              {plan.name.includes('Elite') && <Award className={`w-8 h-8 ${accentColor}`} />}
+            </div>
+          )}
+
+          {/* Plan Name & Description */}
+          {!plan.subtitle && (
+            <>
+              <h3 className={`text-2xl font-display mb-2 ${accentColor} tracking-wide`}>{plan.name}</h3>
+              {plan.desc && <p className="text-sm text-foreground/40 mb-6 uppercase tracking-widest">{plan.desc}</p>}
+            </>
+          )}
+
+          {/* Price Tag - Hero Element */}
+          <div className="mb-8">
+            <div className={`text-6xl font-display font-bold ${accentColor} mb-2 tracking-tight`}>
+              {plan.price}
+            </div>
+            {!plan.subtitle && plan.name.includes('Series') && (
+              <p className="text-xs text-foreground/40 uppercase tracking-wider">Per Series</p>
+            )}
+            {!plan.subtitle && !plan.name.includes('Series') && !plan.name.includes('Custom') && (
+              <p className="text-xs text-foreground/40 uppercase tracking-wider">Per {plan.name.includes('Annual') ? 'Year' : plan.name.includes('Month') ? 'Month' : 'Video'}</p>
+            )}
+          </div>
+
+          {/* Features List with Gold/Cyan Checkmarks */}
+          {plan.features && (
+            <div className="space-y-4 mb-8">
+              {plan.features.map((feature, i) => (
+                <div key={i} className="flex items-start gap-3 group/item">
+                  <div className={`w-5 h-5 rounded-full flex items-center justify-center ${bgAccent} shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform duration-300`}>
+                    <Check className={`w-3 h-3 ${accentColor}`} />
+                  </div>
+                  <span className="text-foreground/80 group-hover/item:text-foreground transition-colors duration-300 leading-relaxed">
+                    {feature}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Items List (for design services) */}
+          {plan.items && (
+            <div className="space-y-3 mb-8">
+              {plan.items.map((item, i) => (
+                <div key={i} className={`flex items-start justify-between gap-4 p-4 rounded-xl ${bgAccent} border ${borderColor}`}>
+                  <div className="flex-1">
+                    <p className="font-medium text-foreground mb-1 text-sm">{item.name}</p>
+                    <p className="text-xs text-foreground/50">{item.desc}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className={`text-lg font-bold ${accentColor}`}>{item.price}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Note */}
+          {plan.note && (
+            <div className={`p-4 rounded-xl mb-8 ${bgAccent} border ${borderColor}`}>
+              <p className="text-xs text-foreground/60">
+                <span className={`font-medium ${accentColor}`}>
+                  {plan.subtitle ? 'Perfect for:' : plan.name.includes('Series') ? 'Complex:' : 'Simple:'}
+                </span> {plan.note}
+              </p>
+            </div>
+          )}
+
+          {/* Magnetic Button */}
+          <button
+            onClick={onClick}
+            className={`w-full py-4 rounded-full font-bold text-base tracking-wide transition-all duration-500 bg-gradient-to-r ${gradientFrom} ${gradientTo} text-black hover:shadow-2xl hover:${glowColor} hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group/btn`}
+          >
+            <span className="relative z-10">{buttonText}</span>
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Pricing = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
@@ -254,7 +442,7 @@ const Pricing = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main id="main-content" className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
+      <main id="main-content" className="min-h-screen bg-neutral-950 pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
@@ -267,25 +455,26 @@ const Pricing = () => {
             className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-slower ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
-            <H1 className="mb-4 sm:mb-5 md:mb-6">
-              {t('pricingHeroTitle').split(' ').slice(0, -1).join(' ')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('pricingHeroTitle').split(' ').slice(-1)}</span>
-            </H1>
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4 sm:mb-5 md:mb-6 uppercase tracking-widest ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'
+              }`}>
+              {t('pricingHeroTitle')}
+            </h1>
+            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4 tracking-wide">
               {t('pricingHeroSubtitle')}
             </p>
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-foreground/50">
               <div className="flex items-center gap-2">
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'}`} />
                 <span>{t('pricingTrust1')}</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'}`} />
                 <span>{t('pricingTrust2')}</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'}`} />
                 <span>{t('pricingTrust3')}</span>
               </div>
             </div>
@@ -555,211 +744,92 @@ const Pricing = () => {
               )}
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {mode === 'institutional' ? (
                 <>
                   {/* Monthly Plan */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
-                    <div className="mb-6">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
-                        <Clock className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Monthly</span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Basic Support</h3>
-                      <p className="text-xs sm:text-sm text-foreground/50 mb-4">Month-to-month flexibility</p>
-                      <div className="mb-4">
-                        <div className={`text-2xl sm:text-3xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>₹2,999</div>
-                        <p className="text-xs text-foreground/40">Per month • No commitment</p>
-                      </div>
-                    </div>
-                    <div className="space-y-2.5 mb-6">
-                      {['UDISE+ support included', 'Scholarship processing', 'Priority WhatsApp support', '48hr turnaround'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
-                    >
-                      Start Monthly Plan
-                    </button>
-                  </div>
+                  <PricingCardVIP
+                    mode={mode}
+                    plan={{
+                      name: 'Basic Support',
+                      price: '₹2,999',
+                      desc: 'Month-to-month flexibility',
+                      features: ['UDISE+ support included', 'Scholarship processing', 'Priority WhatsApp support', '48hr turnaround']
+                    }}
+                    onClick={() => navigate('/contact')}
+                    buttonText="Start Monthly Plan"
+                  />
 
                   {/* 6-Month Plan - HIGHLIGHTED */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border-2 relative overflow-hidden transition-all duration-slow hover:scale-[1.02] ${mode === 'institutional' ? 'border-institutional/60 ring-4 ring-institutional/30 hover:border-institutional/80 hover:shadow-institutional/30' : 'border-creator/60 ring-4 ring-creator/30 hover:border-creator/80 hover:shadow-creator/30'} hover:shadow-2xl`}>
-                    <div className={`absolute top-0 right-0 px-4 py-1.5 text-xs font-bold tracking-wide ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background`}>
-                      MOST POPULAR
-                    </div>
-                    <div className="mb-6 mt-2">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/20 border border-institutional/30' : 'bg-creator/20 border border-creator/30'}`}>
-                        <Crown className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>6 Months</span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Premium Support</h3>
-                      <p className="text-xs sm:text-sm text-foreground/40 mb-4">Best value for schools</p>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2">
-                          <div className={`text-2xl sm:text-3xl font-display ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>₹15,999</div>
-                          <div className={`px-2 py-0.5 rounded text-xs font-bold ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>SAVE 11%</div>
-                        </div>
-                        <p className="text-xs text-foreground/40">₹2,666/month • Save ₹2,000</p>
-                      </div>
-                    </div>
-                    <div className="space-y-2.5 mb-6">
-                      {['All Monthly benefits', '24hr priority turnaround', 'Dedicated support channel', 'Quarterly review calls'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                          <span className={i === 0 ? 'font-medium' : ''}>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-normal hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/40' : 'bg-creator hover:shadow-creator/40'} text-background hover:shadow-xl text-sm sm:text-base`}
-                    >
-                      Start 6-Month Plan
-                    </button>
-                  </div>
+                  <PricingCardVIP
+                    mode={mode}
+                    plan={{
+                      name: 'Premium Support',
+                      price: '₹15,999',
+                      desc: 'Best value for schools',
+                      features: ['All Monthly benefits', '24hr priority turnaround', 'Dedicated support channel', 'Quarterly review calls']
+                    }}
+                    isPopular={true}
+                    badge="MOST POPULAR"
+                    onClick={() => navigate('/contact')}
+                    buttonText="Start 6-Month Plan"
+                  />
 
                   {/* Annual Plan */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
-                    <div className="mb-6">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
-                        <Award className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Best Value</span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Annual Partnership</h3>
-                      <p className="text-xs sm:text-sm text-foreground/50 mb-4">Maximum savings</p>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2">
-                          <div className={`text-2xl sm:text-3xl font-display ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>₹29,999</div>
-                          <div className={`px-2 py-0.5 rounded text-xs font-bold ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>SAVE 17%</div>
-                        </div>
-                        <p className="text-xs text-foreground/40">₹2,499/month • Save ₹6,000</p>
-                      </div>
-                    </div>
-                    <div className="space-y-2.5 mb-6">
-                      {['All 6-Month benefits', '12hr rush support available', 'Dedicated account manager', 'Annual planning support'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                          <span className={i === 0 ? 'font-medium' : ''}>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
-                    >
-                      Start Annual Plan
-                    </button>
-                  </div>
+                  <PricingCardVIP
+                    mode={mode}
+                    plan={{
+                      name: 'Annual Partnership',
+                      price: '₹29,999',
+                      desc: 'Maximum savings',
+                      features: ['All 6-Month benefits', '12hr rush support available', 'Dedicated account manager', 'Annual planning support']
+                    }}
+                    onClick={() => navigate('/contact')}
+                    buttonText="Start Annual Plan"
+                  />
                 </>
               ) : (
                 <>
                   {/* Creator Monthly */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
-                    <div className="mb-6">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
-                        <Clock className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Monthly</span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Content Creator</h3>
-                      <p className="text-xs sm:text-sm text-foreground/50 mb-4">Regular uploaders</p>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2">
-                          <div className={`text-2xl sm:text-3xl font-display ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Custom</div>
-                          <div className={`px-2 py-0.5 rounded text-xs font-bold ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>SAVE 20%</div>
-                        </div>
-                        <p className="text-xs text-foreground/40">4-8 videos per month</p>
-                      </div>
-                    </div>
-                    <div className="space-y-2.5 mb-6">
-                      {['4-8 videos/month', 'Priority editing queue', 'Thumbnails included', 'Faster 48hr turnaround'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
-                    >
-                      Start Monthly Plan
-                    </button>
-                  </div>
+                  <PricingCardVIP
+                    mode={mode}
+                    plan={{
+                      name: 'Content Creator',
+                      price: 'Custom',
+                      desc: 'Regular uploaders',
+                      features: ['4-8 videos/month', 'Priority editing queue', 'Thumbnails included', 'Faster 48hr turnaround']
+                    }}
+                    onClick={() => navigate('/contact')}
+                    buttonText="Start Monthly Plan"
+                  />
 
                   {/* Creator Quarterly - HIGHLIGHTED */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border-2 relative overflow-hidden transition-all duration-slow hover:scale-[1.02] ${mode === 'institutional' ? 'border-institutional/50 ring-2 ring-institutional/20 hover:border-institutional/70' : 'border-creator/50 ring-2 ring-creator/20 hover:border-creator/70'}`}>
-                    <div className={`absolute top-0 right-0 px-4 py-1.5 text-xs font-bold tracking-wide ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background`}>
-                      BEST VALUE
-                    </div>
-                    <div className="mb-6 mt-2">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/20 border border-institutional/30' : 'bg-creator/20 border border-creator/30'}`}>
-                        <Crown className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Quarterly</span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Pro Creator</h3>
-                      <p className="text-xs sm:text-sm text-foreground/50 mb-4">Serious content creators</p>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2">
-                          <div className={`text-2xl sm:text-3xl font-display ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Custom</div>
-                          <div className={`px-2 py-0.5 rounded text-xs font-bold ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>SAVE 30%</div>
-                        </div>
-                        <p className="text-xs text-foreground/40">12-24 videos per quarter</p>
-                      </div>
-                    </div>
-                    <div className="space-y-2.5 mb-6">
-                      {['All Monthly benefits', '30% discount on all services', '24hr rush delivery option', 'Dedicated project manager'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                          <span className={i === 0 ? 'font-medium' : ''}>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
-                    >
-                      Start Pro Plan
-                    </button>
-                  </div>
+                  <PricingCardVIP
+                    mode={mode}
+                    plan={{
+                      name: 'Pro Creator',
+                      price: 'Custom',
+                      desc: 'Serious content creators',
+                      features: ['All Monthly benefits', '30% discount on all services', '24hr rush delivery option', 'Dedicated project manager']
+                    }}
+                    isPopular={true}
+                    badge="BEST VALUE"
+                    onClick={() => navigate('/contact')}
+                    buttonText="Start Pro Plan"
+                  />
 
                   {/* Creator Annual */}
-                  <div className={`glass-card rounded-2xl p-6 sm:p-8 border transition-all duration-slow hover:scale-[1.01] ${mode === 'institutional' ? 'border-border/20 hover:border-institutional/30' : 'border-border/20 hover:border-creator/30'}`}>
-                    <div className="mb-6">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 ${mode === 'institutional' ? 'bg-institutional/10 border border-institutional/20' : 'bg-creator/10 border border-creator/20'}`}>
-                        <Award className={`w-3 h-3 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                        <span className={`text-xs font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Annual</span>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-display mb-1">Elite Partnership</h3>
-                      <p className="text-xs sm:text-sm text-foreground/50 mb-4">Full-time creators</p>
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2">
-                          <div className={`text-2xl sm:text-3xl font-display ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Custom</div>
-                          <div className={`px-2 py-0.5 rounded text-xs font-bold ${mode === 'institutional' ? 'bg-institutional/20 text-institutional' : 'bg-creator/20 text-creator'}`}>SAVE 40%</div>
-                        </div>
-                        <p className="text-xs text-foreground/40">Up to 50 projects/year</p>
-                      </div>
-                    </div>
-                    <div className="space-y-2.5 mb-6">
-                      {['All Quarterly benefits', '40% discount - best rates', 'Up to 3 revision rounds', 'Dedicated editing team'].map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-foreground/70">
-                          <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                          <span className={i === 0 ? 'font-medium' : ''}>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background text-sm sm:text-base`}
-                    >
-                      Explore Elite Plan
-                    </button>
-                  </div>
+                  <PricingCardVIP
+                    mode={mode}
+                    plan={{
+                      name: 'Elite Partnership',
+                      price: 'Custom',
+                      desc: 'Full-time creators',
+                      features: ['All Quarterly benefits', '40% discount - best rates', 'Up to 3 revision rounds', 'Dedicated editing team']
+                    }}
+                    onClick={() => navigate('/contact')}
+                    buttonText="Explore Elite Plan"
+                  />
                 </>
               )}
             </div>

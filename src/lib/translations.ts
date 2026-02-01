@@ -1008,6 +1008,17 @@ export const translations = {
     pricingCreatorPolicy2Item2Desc: 'Late changes outside original scope',
     pricingCreatorDeliveryNote: 'Standard: 3-5 business days for most projects. Rush delivery available for subscription clients at no extra cost.',
     pricingCreatorTab4Highlight: 'Built on mutual respect and transparency. Our terms protect both parties and ensure smooth collaboration.',
+
+    // Error Pages - 404 Not Found
+    error404Title: '404',
+    error404Heading: 'Page Not Found',
+    error404MessageInstitutional: 'The page you\'re looking for doesn\'t exist. This might be a broken link or a page that has been moved.',
+    error404MessageCreator: 'This page doesn\'t exist. You might have followed an outdated link or mistyped the URL.',
+    error404Suggestion: 'Here\'s what you can do:',
+    error404Action1: 'Return to Home',
+    error404Action2: 'View Services',
+    error404Action3: 'Contact Support',
+    error404HelpText: 'If you believe this is an error, please contact us.',
   },
   hi: {
     // Brand
@@ -1954,13 +1965,6 @@ export const translations = {
     theVisionPara2: 'हम छोटे रहेंगे, केंद्रित रहेंगे, और उन लोगों के प्रति प्रतिबद्ध रहेंगे जो हमें अपने सबसे महत्वपूर्ण काम के साथ भरोसा करते हैं।',
     theVisionPara3: 'यही दृष्टिकोण है। साम्राज्य-निर्माण नहीं। सिर्फ सार्थक काम करने वाले लोगों के लिए गहरी, विश्वसनीय सेवा।',
 
-    // Pricing Page - Hero Section - Hindi
-    pricingHeroTitle: 'प्रोफेशनल संस्थागत मूल्य निर्धारण',
-    pricingHeroSubtitle: 'गंभीर संस्थानों के लिए स्कोप-आधारित मूल्य निर्धारण। केवल यहां जो लिखा है वही वादा किया जाता है और दिया जाता है।',
-    pricingTrust1: 'कोई छिपा शुल्क नहीं',
-    pricingTrust2: 'स्पष्ट शर्तें',
-    pricingTrust3: 'शून्य-अस्वीकृति गारंटी',
-
     // Pricing Page - Institutional Tab 1 (Documentation) - Hindi
     pricingInstTab1Label: 'दस्तावेज़ीकरण',
     pricingInstTab1Title: 'परीक्षा और दस्तावेज़ीकरण',
@@ -2095,5 +2099,16 @@ export const translations = {
     pricingCreatorPolicy2Item2Desc: 'मूल स्कोप के बाहर देर से परिवर्तन',
     pricingCreatorDeliveryNote: 'मानक: अधिकांश प्रोजेक्ट के लिए 3-5 व्यावसायिक दिन। सब्सक्रिप्शन क्लाइंट के लिए बिना किसी अतिरिक्त लागत के रश डिलीवरी उपलब्ध।',
     pricingCreatorTab4Highlight: 'पारस्परिक सम्मान और पारदर्शिता पर निर्मित। हमारी शर्तें दोनों पक्षों की रक्षा करती हैं और सुचारू सहयोग सुनिश्चित करती हैं।',
+
+    // Error Pages - 404 Not Found - Hindi
+    error404Title: '404',
+    error404Heading: 'पेज नहीं मिला',
+    error404MessageInstitutional: 'आप जिस पेज को खोज रहे हैं वह मौजूद नहीं है। यह एक टूटा हुआ लिंक या स्थानांतरित पेज हो सकता है।',
+    error404MessageCreator: 'यह पेज मौजूद नहीं है। आपने शायद पुराना लिंक फॉलो किया है या URL गलत टाइप किया है।',
+    error404Suggestion: 'आप यह कर सकते हैं:',
+    error404Action1: 'होम पर वापस जाएं',
+    error404Action2: 'सेवाएं देखें',
+    error404Action3: 'सहायता से संपर्क करें',
+    error404HelpText: 'यदि आपको लगता है कि यह एक त्रुटि है, तो कृपया हमसे संपर्क करें।',
   }
 } as const;

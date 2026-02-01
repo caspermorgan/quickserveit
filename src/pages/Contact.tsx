@@ -8,6 +8,7 @@ import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
+import DirectLineInfo from '@/components/DirectLineInfo';
 import {
   Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle,
   Zap, X, Sparkles, ChevronDown, ChevronUp, Send
@@ -121,16 +122,16 @@ const Contact = () => {
 
   const faqs = [
     {
-      question: t('contactFaqQ1'),
-      answer: t('contactFaqA1')
+      question: 'How quickly will I receive a response?',
+      answer: 'We typically respond within 2-4 hours during business hours (Mon-Sat, 10 AM-4 PM IST). Messages sent outside business hours are answered first thing the next working day.'
     },
     {
-      question: t('contactFaqQ2'),
-      answer: t('contactFaqA2')
+      question: 'What information should I include in my inquiry?',
+      answer: 'Please include: your name, organization/channel name, type of service needed, project timeline, and any specific requirements. The more details you provide, the better we can assist you.'
     },
     {
-      question: t('contactFaqQ3'),
-      answer: t('contactFaqA3')
+      question: 'Is my information kept confidential?',
+      answer: 'Absolutely. We treat all client communications as strictly confidential. Your data is never shared with third parties, and we follow rigorous data protection protocols.'
     }
   ];
 
@@ -146,6 +147,18 @@ const Contact = () => {
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
       <main id="main-content" className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
+        {/* Dark Grid Background */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
+
         {/* Background Gradient Orbs */}
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
         <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
@@ -155,14 +168,14 @@ const Contact = () => {
           <div
             ref={heroRef}
             id="hero"
-            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-slower ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`text-center mb-12 sm:mb-14 md:mb-16 max-w-4xl mx-auto transition-all duration-slower ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <H1 className="mb-5 sm:mb-6 md:mb-7 px-4 md:px-0">
-              {t('contactHeroTitle').split(' ').slice(0, -1).join(' ')} <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>{t('contactHeroTitle').split(' ').slice(-1)}</span>
+              The <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Secure Uplink</span>
             </H1>
             <p className="text-foreground/75 text-base sm:text-lg md:text-xl leading-loose mb-6 sm:mb-7 md:mb-8 px-5 md:px-4">
-              {t('contactHeroSubtitle')}
+              Direct line to the founder. Not a form—a connection.
             </p>
 
             {/* Response Time Badge */}
@@ -172,94 +185,16 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Quick Contact Methods */}
-          <div
-            ref={contactMethodsRef}
-            id="contact-methods"
-            className={`max-w-2xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-100 ${visibleSections.has('contact-methods') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
-            <div className="flex flex-col gap-3 sm:gap-4">
-              {/* WhatsApp */}
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group flex items-center gap-3 sm:gap-4 p-4 sm:p-5 md:p-5 rounded-xl glass-card border transition-all duration-normal hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
-                  ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
-                  : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
-                  }`}
-                style={{ willChange: 'transform' }}
-              >
-                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-normal ${mode === 'institutional'
-                  ? 'bg-institutional/10 group-hover:bg-institutional'
-                  : 'bg-creator/10 group-hover:bg-creator'
-                  }`}>
-                  <MessageCircle className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors ${mode === 'institutional'
-                    ? 'text-institutional group-hover:text-background'
-                    : 'text-creator group-hover:text-background'
-                    }`} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">{t('whatsappContact')}</h3>
-                  <p className="text-foreground/60 text-xs sm:text-sm truncate">{t('whatsappDesc')}</p>
-                </div>
-                <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                  }`}>
-                  <span className="hidden sm:inline">Chat</span>
-                  <Zap className="w-4 h-4" />
-                </div>
-              </a>
-
-              {/* Email */}
-              <a
-                href={`mailto:letsquickserveit@gmail.com?subject=${encodeURIComponent(
-                  mode === 'institutional'
-                    ? 'Institutional Service Inquiry - QuickServe IT'
-                    : 'Creator Production Inquiry - QuickServe IT'
-                )}&body=${encodeURIComponent(
-                  mode === 'institutional'
-                    ? 'Hello QuickServe IT Team,\n\nI am interested in your institutional documentation services.\n\nInstitution Name: \nService Needed: \nProject Details: \n\nBest Regards'
-                    : 'Hello QuickServe IT Team,\n\nI am interested in your creator production services.\n\nChannel/Brand Name: \nContent Type: \nProject Details: \n\nBest Regards'
-                )}`}
-                className={`group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 rounded-xl glass-card border transition-all duration-normal hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] ${mode === 'institutional'
-                  ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20'
-                  : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'
-                  }`}
-                style={{ willChange: 'transform' }}
-              >
-                <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center transition-all duration-normal ${mode === 'institutional'
-                  ? 'bg-institutional/10 group-hover:bg-institutional'
-                  : 'bg-creator/10 group-hover:bg-creator'
-                  }`}>
-                  <Mail className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors ${mode === 'institutional'
-                    ? 'text-institutional group-hover:text-background'
-                    : 'text-creator group-hover:text-background'
-                    }`} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-base sm:text-lg mb-0.5">{t('emailContact')}</h3>
-                  <p className="text-foreground/60 text-xs sm:text-sm truncate">{t('emailDesc')}</p>
-                </div>
-                <div className={`shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium transition-transform group-hover:translate-x-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                  }`}>
-                  <span className="hidden sm:inline">Send</span>
-                  <Send className="w-4 h-4" />
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Contact Form */}
+          {/* 2-Column Layout: Direct Line Info + Form */}
           <div
             ref={formRef}
             id="form"
-            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-200 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-7xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-100 ${visibleSections.has('form') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             {/* Context Badge */}
             {showContextBadge && contextLabel && (
-              <div className="mb-4 sm:mb-5 md:mb-6 flex items-center justify-center">
+              <div className="mb-6 sm:mb-8 flex items-center justify-center">
                 <div className={`relative inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full border backdrop-blur-md ${mode === 'institutional'
                   ? 'bg-institutional/10 border-institutional/30'
                   : 'bg-creator/10 border-creator/30'
@@ -286,15 +221,36 @@ const Contact = () => {
               </div>
             )}
 
-            <div className={`glass-card p-6 sm:p-8 md:p-10 rounded-2xl border ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'
-              }`}>
-              <div className="mb-6 sm:mb-7 md:mb-8 text-center">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-display mb-2 sm:mb-3">Send an Inquiry</h2>
-                <p className="text-foreground/60 text-xs sm:text-sm">
-                  Fill out the form below and we'll get back to you within 24 hours.
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* LEFT: Direct Line Info Panel */}
+              <div className="order-2 lg:order-1">
+                <DirectLineInfo mode={mode} />
               </div>
-              <ContactForm />
+
+              {/* RIGHT: Holographic Glass Tablet (Form) */}
+              <div className="order-1 lg:order-2">
+                <div
+                  className={`backdrop-blur-xl bg-white/[0.03] border rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl transition-all duration-300 ${mode === 'institutional'
+                    ? 'border-institutional/20 hover:border-institutional/30'
+                    : 'border-creator/20 hover:border-creator/30'
+                    }`}
+                  style={{
+                    boxShadow: mode === 'institutional'
+                      ? '0 20px 60px rgba(234, 179, 8, 0.1), 0 0 0 1px rgba(234, 179, 8, 0.05)'
+                      : '0 20px 60px rgba(34, 211, 238, 0.1), 0 0 0 1px rgba(34, 211, 238, 0.05)',
+                  }}
+                >
+                  <div className="mb-6 sm:mb-8 text-center">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-display mb-2 sm:mb-3">
+                      Send <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Secure</span> Message
+                    </h2>
+                    <p className="text-foreground/60 text-xs sm:text-sm font-mono">
+                      Encrypted • Confidential • Direct to Founder
+                    </p>
+                  </div>
+                  <ContactForm />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -302,7 +258,7 @@ const Contact = () => {
           <div
             ref={faqRef}
             id="faq"
-            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-200 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
           >
             <H2 className="text-center mb-6 sm:mb-7 md:mb-8">Frequently Asked Questions</H2>
@@ -347,80 +303,8 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Info Cards */}
-          <div
-            ref={infoCardsRef}
-            id="info-cards"
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-12 sm:mb-14 md:mb-16 max-w-3xl mx-auto transition-all duration-slower ease-out delay-400 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
-            {/* Working Hours */}
-            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
-              }`}
-              style={{ willChange: 'transform' }}
-            >
-              <div className={`shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
-                }`}>
-                <Clock className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm sm:text-base mb-0.5">Mon–Sat • 10 AM–4 PM IST</h3>
-                <p className="text-xs text-foreground/50 truncate">Messages accepted 24/7</p>
-              </div>
-            </div>
-
-            {/* Email */}
-            <a
-              href="mailto:letsquickserveit@gmail.com"
-              className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] group ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
-                }`}
-              style={{ willChange: 'transform' }}
-            >
-              <div className={`shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center transition-colors ${mode === 'institutional'
-                ? 'bg-institutional/10 text-institutional group-hover:bg-institutional/20'
-                : 'bg-creator/10 text-creator group-hover:bg-creator/20'
-                }`}>
-                <Mail className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm sm:text-base mb-0.5">letsquickserveit@gmail.com</h3>
-                <p className="text-xs text-foreground/50 truncate">Click to compose email</p>
-              </div>
-            </a>
-
-            {/* Location */}
-            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
-              }`}
-              style={{ willChange: 'transform' }}
-            >
-              <div className={`shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
-                }`}>
-                <MapPin className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm sm:text-base mb-0.5">Gorakhpur, UP</h3>
-                <p className="text-xs text-foreground/50 truncate">Remote-first service</p>
-              </div>
-            </div>
-
-            {/* Confidentiality */}
-            <div className={`flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border glass-card transition-all duration-normal hover:scale-[1.01] hover:shadow-lg active:scale-[0.99] ${mode === 'institutional' ? 'border-institutional/20 hover:border-institutional/30' : 'border-creator/20 hover:border-creator/30'
-              }`}
-              style={{ willChange: 'transform' }}
-            >
-              <div className={`shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center ${mode === 'institutional' ? 'bg-institutional/10 text-institutional' : 'bg-creator/10 text-creator'
-                }`}>
-                <Shield className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm sm:text-base mb-0.5">100% Confidential</h3>
-                <p className="text-xs text-foreground/50 truncate">Strict data protocol</p>
-              </div>
-            </div>
-          </div>
-
           {/* Trust Note */}
-          <div className={`max-w-3xl mx-auto transition-all duration-slower ease-out delay-500 ${visibleSections.has('info-cards') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          <div className={`max-w-3xl mx-auto transition-all duration-slower ease-out delay-300 ${visibleSections.has('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
             <div className={`p-5 sm:p-6 rounded-xl border-l-4 text-center ${mode === 'institutional'
               ? 'bg-institutional/5 border-institutional/40'

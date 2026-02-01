@@ -176,15 +176,17 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     }
   }, [isMenuOpen]);
 
+  // INSTITUTIONAL MODE: Home, Services, Pricing, About, Founder, Contact
   const institutionalLinks = [
     { label: t('home'), href: '/home' },
     { label: t('services'), href: '/services' },
+    { label: t('pricing'), href: '/pricing' },
     { label: t('about'), href: '/about' },
     { label: t('founder'), href: '/founder' },
-    { label: t('pricing'), href: '/pricing' },
     { label: t('contact'), href: '/contact' },
   ];
 
+  // CREATOR MODE: Home, Studio, Portfolio, About, Pricing, Contact
   const creatorLinks = [
     { label: t('home'), href: '/home' },
     { label: t('studio'), href: '/services' },
@@ -387,7 +389,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <LanguageSwitch mode={mode} />
       </div>
 
-      {/* Desktop: Navigation Bar (Bottom) */}
+      {/* Desktop: Navigation Bar (Bottom) - Mode-Aware Visual Depth */}
       <div
         className={`
           fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex
@@ -397,7 +399,20 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           }
         `}
       >
-        <nav className="flex items-center gap-1.5 px-5 py-3 rounded-full glass-1 overflow-x-auto no-scrollbar max-w-[90vw]">
+        <nav
+          className={`
+            flex items-center gap-1.5 px-5 py-3 rounded-full glass-1 overflow-x-auto no-scrollbar max-w-[90vw]
+            transition-all duration-300
+            ${mode === 'institutional'
+              ? 'border-institutional/30 hover:shadow-[0_0_30px_rgba(234,179,8,0.2)] hover:bg-[rgba(234,179,8,0.05)]'
+              : 'border-creator/30 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] hover:bg-[rgba(34,211,238,0.05)]'
+            }
+          `}
+          style={{
+            // Creator mode: subtle glitch effect on hover
+            animation: mode === 'creator' ? 'none' : undefined
+          }}
+        >
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             return (

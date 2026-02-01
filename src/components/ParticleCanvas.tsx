@@ -21,7 +21,9 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
   const animationRef = useRef<number>();
   const isDustingRef = useRef(isDusting);
 
-  // Mode colors: gold for institutional, cyan for creator
+  // Mode colors: Rich Gold for institutional, Neon Cyan for creator
+  // Institutional: hsl(43, 96%, 56%) = rgb(234, 179, 8)
+  // Creator: hsl(187, 100%, 42%) = rgb(0, 214, 214) ≈ (34, 211, 238)
   const modeColor = mode === 'institutional' ? '234, 179, 8' : '34, 211, 238';
 
   const createParticle = useCallback((canvas: HTMLCanvasElement): Particle => {
@@ -32,11 +34,16 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
     const size = Math.random() * sizeMax + sizeMin;
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
-    const directionX = (Math.random() * 0.4) - 0.2;
-    const directionY = (Math.random() * 0.4) - 0.2;
+
+    // Mode-specific particle speeds
+    // Institute: 60% slower (0.06 base), Creator: 40% faster (0.21 base)
+    const baseSpeed = mode === 'institutional' ? 0.06 : 0.21;
+    const directionX = (Math.random() * baseSpeed * 2) - baseSpeed;
+    const directionY = (Math.random() * baseSpeed * 2) - baseSpeed;
+
     const density = Math.random() * 30 + 1;
     return { x, y, directionX, directionY, size, density };
-  }, []);
+  }, [mode]);
 
   const init = useCallback(() => {
     const canvas = canvasRef.current;
@@ -52,7 +59,7 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
     const dpiMultiplier = Math.min(pixelRatio, 2); // Cap at 2x to avoid performance issues
 
     const densityFactor = isMobile
-      ? 6000  // Mobile: densest (was 18000 - 3x more particles)
+      ? 10000  // Mobile: reduced by 40% for less clutter (was 6000)
       : isTablet
         ? 8000  // Tablet: medium density
         : 10000; // Desktop: baseline
@@ -205,8 +212,18 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
           if (distance < connectDist) {
             const opacity = 1 - distance / connectDist;
             if (opacity > 0) {
-              // Slightly stronger connections on mobile for visibility
-              const baseOpacity = isMobile ? 0.15 : 0.12;
+              // Mode-specific connection styles
+              // Institute: Faint connections (0.06), Creator: Pulsating (0.14 with oscillation)
+              let baseOpacity = isMobile ? 0.15 : 0.12;
+
+              if (mode === 'institutional') {
+                baseOpacity = isMobile ? 0.08 : 0.06; // Faint
+              } else {
+                // Creator mode: pulsating effect
+                const pulse = Math.sin(Date.now() * 0.001) * 0.03 + 1;
+                baseOpacity = (isMobile ? 0.16 : 0.14) * pulse;
+              }
+
               ctx.strokeStyle = `rgba(${modeColor}, ${opacity * baseOpacity})`;
               ctx.lineWidth = 0.5;
               ctx.beginPath();
@@ -251,7 +268,7 @@ const ParticleCanvas = ({ mode, isDusting = false }: ParticleCanvasProps) => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-10 pointer-auto"
+      className="fixed inset-0 z-10 pointer-events-none"
       style={{ background: 'transparent' }}
     />
   );
