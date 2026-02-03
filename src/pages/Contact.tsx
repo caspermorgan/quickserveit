@@ -3,18 +3,15 @@ import { useMode } from '@/context/ModeContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
-import FloatingNavbar from '@/components/FloatingNavbar';
-import PageLayout from '@/components/PageLayout';
-import CursorLight from '@/components/CursorLight';
-import FilmGrain from '@/components/FilmGrain';
-import Footer from '@/components/Footer';
+import PageWrapper from '@/components/layout/PageWrapper';
+import PageHeader from '@/components/layout/PageHeader';
 import ContactForm from '@/components/ContactForm';
 import DirectLineInfo from '@/components/DirectLineInfo';
 import {
   Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle,
   Zap, X, Sparkles, ChevronDown, ChevronUp, Send
 } from 'lucide-react';
-import { H1, H2 } from '@/components/Typography';
+import { H2 } from '@/components/Typography';
 import { toast } from 'sonner';
 
 const Contact = () => {
@@ -140,16 +137,12 @@ const Contact = () => {
         <meta name="description" content="Get in touch with QuickServe IT for institutional documentation or creator production services. We respond within 24 hours." />
       </Helmet>
 
-      <CursorLight mode={mode} />
-      <FilmGrain />
-      <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
-
-      <PageLayout
-        title="The Secure Uplink"
-        subtitle="Direct line to the founder. Not a form—a connection."
-        mode={mode}
-        titleClassName={mode === 'institutional' ? 'text-institutional' : 'text-creator'}
-      >
+      <PageWrapper mode={mode} onReturn={handleReturn}>
+        <PageHeader
+          title="The Secure Uplink"
+          subtitle="Direct line to the founder. Not a form—a connection."
+          className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}
+        />
 
         {/* 2-Column Layout: Direct Line Info + Form */}
         <div
@@ -287,9 +280,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </PageLayout>
-
-      <Footer mode={mode} />
+      </PageWrapper>
     </>
   );
 };

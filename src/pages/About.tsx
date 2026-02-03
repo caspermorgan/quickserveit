@@ -3,13 +3,10 @@ import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
-import FloatingNavbar from '@/components/FloatingNavbar';
-import PageLayout from '@/components/PageLayout';
-import CursorLight from '@/components/CursorLight';
-import FilmGrain from '@/components/FilmGrain';
-import Footer from '@/components/Footer';
-import { Shield, Zap, Lock, Gauge, Anchor } from 'lucide-react';
-import { H1, H2 } from '@/components/Typography';
+import PageWrapper from '@/components/layout/PageWrapper';
+import PageHeader from '@/components/layout/PageHeader';
+import { Shield, Zap, Lock, Gauge } from 'lucide-react';
+import { H2 } from '@/components/Typography';
 
 const About = () => {
   const { mode, setHasEntered, setCurrentSection } = useMode();
@@ -67,20 +64,12 @@ const About = () => {
         <meta name="description" content="We Engineer Flow. Bridging the gap between Rural Education and Global Content Standards." />
       </Helmet>
 
-      <CursorLight mode={mode} />
-      <FilmGrain />
+      <PageWrapper mode={mode} onReturn={handleReturn}>
+        <PageHeader
+          title={t('aboutBlueprintHero')}
+          subtitle={t('aboutBlueprintSubtext')}
+        />
 
-      <FloatingNavbar
-        mode={mode}
-        onReturn={handleReturn}
-        isVisible={true}
-      />
-
-      <PageLayout
-        title={t('aboutBlueprintHero')}
-        subtitle={t('aboutBlueprintSubtext')}
-        mode={mode}
-      >
         {/* TASK 2: Dual Core Engine */}
         <div
           ref={dualCoreRef}
@@ -242,9 +231,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </PageLayout>
-
-      <Footer mode={mode} />
+      </PageWrapper>
     </>
   );
 };

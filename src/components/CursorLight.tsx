@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 
 interface CursorLightProps {
-  mode: 'institutional' | 'creator';
+  mode: 'institutional' | 'creator' | 'portfolio';
 }
 
 const CursorLight = ({ mode }: CursorLightProps) => {

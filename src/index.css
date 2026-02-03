@@ -101,6 +101,15 @@
     --mode-tertiary-s: var(--mode-institutional-tertiary-s);
     --mode-tertiary-l: var(--mode-institutional-tertiary-l);
 
+    /* ========================================
+       STANDARDIZED COLOR TOKENS
+       ======================================== */
+
+    /* Named Color Variables - Single Source of Truth */
+    --color-gold: hsl(var(--mode-institutional-h), var(--mode-institutional-s), var(--mode-institutional-l));
+    --color-cyan: hsl(var(--mode-creator-h), var(--mode-creator-s), var(--mode-creator-l));
+    --color-purple: hsl(270, 60%, 55%);
+
     /* Premium Glow Effects - Multi-layer */
     --glow-soft:
       0 0 20px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.2),
@@ -263,11 +272,59 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     overflow-x: hidden;
     line-height: 1.6;
     font-feature-settings: 'kern' 1, 'liga' 1;
   }
+
+  /* ========================================
+     CUSTOM SCROLLBAR - CINEMATIC POLISH
+     ======================================== */
+
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+    box-shadow: 0 0 8px hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+  }
+
+  /* ========================================
+     TEXT SELECTION - PREMIUM HIGHLIGHT
+     ======================================== */
+
+  ::selection {
+    background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
+    color: white;
+    text-shadow: 0 0 8px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
+  }
+
+  ::-moz-selection {
+    background: hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3);
+    color: white;
+    text-shadow: 0 0 8px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5);
+  }
+
 
   /* ========================================
      KEYBOARD NAVIGATION - FOCUS STYLES
@@ -378,16 +435,28 @@
     }
   }
 
-  /* Global heading styles - refined weight for luxury feel */
+  /* ========================================
+     GLOBAL TYPOGRAPHY - ENFORCED
+     ======================================== */
+
+  /* English Typography Rules - STRICT */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    font-family: 'Space Grotesk', sans-serif !important;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.02em;
+  }
+
+  /* Body text - Clean & Premium */
+  p,
+  span,
+  body {
+    font-family: 'Outfit', sans-serif !important;
   }
 
   /* Paragraph optimization */
@@ -397,30 +466,50 @@
   }
 
   /* ========================================
-     HINDI (DEVANAGARI) TYPOGRAPHY
+     HINDI (DEVANAGARI) TYPOGRAPHY - STRICT OVERRIDE
      ======================================== */
 
   /* Devanagari script has matras (upper/lower markers) that need more vertical space
      to prevent collision between lines. Apply relaxed line-height when Hindi is active. */
 
+  /* Hindi Headings - The Royal Look */
   [data-lang="hi"] h1,
   [data-lang="hi"] h2,
   [data-lang="hi"] h3,
   [data-lang="hi"] h4,
   [data-lang="hi"] h5,
-  [data-lang="hi"] h6 {
+  [data-lang="hi"] h6,
+  .lang-hi h1,
+  .lang-hi h2,
+  .lang-hi h3,
+  .lang-hi h4,
+  .lang-hi h5,
+  .lang-hi h6 {
+    font-family: 'Tiro Devanagari Hindi', serif !important;
     line-height: 1.5 !important;
     /* Increased from 1.2 to prevent matra collision */
     letter-spacing: 0 !important;
     /* Reset negative letter-spacing for Devanagari */
   }
 
-  [data-lang="hi"] p {
+  /* Hindi Body Text */
+  [data-lang="hi"] p,
+  [data-lang="hi"] span,
+  [data-lang="hi"] body,
+  .lang-hi p,
+  .lang-hi span,
+  .lang-hi body {
+    font-family: 'Noto Sans Devanagari', sans-serif !important;
+  }
+
+  [data-lang="hi"] p,
+  .lang-hi p {
     line-height: 1.8 !important;
     /* Increased from 1.6 for comfortable reading */
   }
 
-  [data-lang="hi"] body {
+  [data-lang="hi"] body,
+  .lang-hi body {
     line-height: 1.75 !important;
     /* Increased from 1.6 */
   }

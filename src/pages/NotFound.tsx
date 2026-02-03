@@ -1,90 +1,77 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useMode } from "@/context/ModeContext";
-import { Home, Wrench, MessageCircle } from "lucide-react";
+import { Home, ArrowRight } from "lucide-react";
+import ParticleCanvas from "@/components/ParticleCanvas";
+import FilmGrain from "@/components/FilmGrain";
 
 const NotFound = () => {
-  const location = useLocation();
   const { t } = useTranslation();
   const { mode } = useMode();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
-  const errorMessage = mode === 'institutional'
-    ? t('error404MessageInstitutional')
-    : t('error404MessageCreator');
+    console.error("404 Error: User ventured into the unknown");
+  }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
-      {/* Animated background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20" />
-
-      {/* Glowing orb effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-cyan-500/20 to-amber-500/20 rounded-full blur-3xl" />
+    <div className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
+      {/* Particle Background */}
+      <ParticleCanvas mode={mode} />
+      <FilmGrain />
 
       {/* Content */}
-      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center animate-fade-in-up">
+      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         {/* 404 Title */}
-        <div className="mb-8">
-          <h1 className="text-9xl font-bold bg-gradient-to-br from-cyan-400 via-amber-400 to-cyan-400 bg-clip-text text-transparent mb-4 tracking-tight">
-            {t('error404Title')}
+        <div className="mb-12 animate-fade-in">
+          <h1
+            className="text-[12rem] md:text-[16rem] font-bold leading-none mb-4 tracking-tighter"
+            style={{
+              background: mode === 'institutional'
+                ? 'linear-gradient(135deg, hsl(var(--mode-institutional-h), var(--mode-institutional-s), var(--mode-institutional-l)), hsl(var(--mode-institutional-h), var(--mode-institutional-s), calc(var(--mode-institutional-l) + 20%)))'
+                : 'linear-gradient(135deg, hsl(var(--mode-creator-h), var(--mode-creator-s), var(--mode-creator-l)), hsl(var(--mode-creator-h), var(--mode-creator-s), calc(var(--mode-creator-l) + 20%)))',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              filter: 'drop-shadow(0 0 40px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.3))',
+            }}
+          >
+            404
           </h1>
-          <h2 className="text-3xl md:text-4xl font-semibold text-slate-100 mb-4">
-            {t('error404Heading')}
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Looks like you ventured too far into the unknown.
           </h2>
+          <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+            This page doesn't exist. But don't worry—even the best explorers get lost sometimes.
+            Let's get you back to familiar territory.
+          </p>
         </div>
 
-        {/* Error Message */}
-        <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl mx-auto">
-          {errorMessage}
+        {/* Return to Base Button */}
+        <Link
+          to="/home"
+          className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95"
+          style={{
+            background: mode === 'institutional'
+              ? 'linear-gradient(135deg, hsl(var(--mode-institutional-h), var(--mode-institutional-s), var(--mode-institutional-l)), hsl(var(--mode-institutional-h), var(--mode-institutional-s), calc(var(--mode-institutional-l) - 10%)))'
+              : 'linear-gradient(135deg, hsl(var(--mode-creator-h), var(--mode-creator-s), var(--mode-creator-l)), hsl(var(--mode-creator-h), var(--mode-creator-s), calc(var(--mode-creator-l) - 10%)))',
+            boxShadow: `0 0 30px hsl(var(--mode-h), var(--mode-s), var(--mode-l), 0.5), 0 10px 40px rgba(0,0,0,0.3)`,
+            color: 'black',
+          }}
+        >
+          <Home className="w-6 h-6" />
+          Return to Base
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </Link>
+
+        {/* Founder's Note */}
+        <p className="mt-12 text-sm text-white/40 italic">
+          — If you think this page should exist, let me know. I'm always listening.
         </p>
-
-        {/* Suggestion */}
-        <p className="text-sm text-slate-400 mb-6 font-medium uppercase tracking-wider">
-          {t('error404Suggestion')}
-        </p>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-          <Link
-            to="/home"
-            className="group flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50"
-          >
-            <Home className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            {t('error404Action1')}
-          </Link>
-
-          <Link
-            to="/services"
-            className="group flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-100 rounded-lg font-medium transition-all duration-300 hover:scale-105 border border-slate-700 hover:border-slate-600"
-          >
-            <Wrench className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            {t('error404Action2')}
-          </Link>
-
-          <Link
-            to="/contact"
-            className="group flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-100 rounded-lg font-medium transition-all duration-300 hover:scale-105 border border-slate-700 hover:border-slate-600"
-          >
-            <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            {t('error404Action3')}
-          </Link>
-        </div>
-
-        {/* Help Text */}
-        <p className="text-sm text-slate-500 italic">
-          {t('error404HelpText')}
-        </p>
-
-        {/* Decorative elements */}
-        <div className="absolute -top-20 -left-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl" />
-        <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl" />
       </div>
     </div>
   );
 };
 
 export default NotFound;
+

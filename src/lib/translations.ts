@@ -47,10 +47,10 @@ export const translations = {
     heroCreatorDesc: 'We\'re your production partner—handling the technical work so you can focus on what you do best: creating.',
 
     // CTAs
-    getStarted: 'Let\'s Grow Together',
-    learnMore: 'Learn More',
+    getStarted: 'Initialize Project',
+    learnMore: 'Explore Infrastructure',
     viewServices: 'View Services',
-    contactUs: 'Contact Us',
+    contactUs: 'Scale With Us',
 
     // Stats
     schoolsServed: 'Schools Served',
@@ -97,8 +97,8 @@ export const translations = {
 
 
     // Contact Form
-    contactTitle: 'Principal\'s Direct Line. We are listening.',
-    contactSubtitle: 'Got an idea? Let\'s discuss the strategy.',
+    contactTitle: 'Ready to scale? Let\'s talk strategy.',
+    contactSubtitle: 'Direct line to the architect. No middlemen.',
     yourName: 'Your Name',
     mobileNumber: 'Mobile Number',
     emailAddress: 'Email Address',
@@ -108,7 +108,7 @@ export const translations = {
     generalInquiry: 'General Inquiry',
     yourMessage: 'Your Message',
     termsAgree: 'I agree to the terms & conditions',
-    sendMessage: 'Start the Conversation',
+    sendMessage: 'Initialize',
     messageSent: 'Message prepared! Redirecting to WhatsApp...',
 
     // Navigation - Additional
@@ -210,8 +210,8 @@ export const translations = {
     whatsappNote: 'Click to open WhatsApp with a pre-filled message',
 
     // Services - Institutional
-    examDocTitle: 'Exam Papers that arrive on time, every time.',
-    examDocShort: 'We handle the typing and formatting so your teachers can focus on teaching.',
+    examDocTitle: '100% Accuracy in Exam Papers. Zero Headaches.',
+    examDocShort: 'Teachers focus on teaching. We engineer the documentation.',
     examDocMedium: 'Professional Question Paper Typing',
     examDocFull: 'Running a school means juggling a thousand things at once. Exam papers shouldn\'t be one of them. Send us your handwritten drafts or photos—we\'ll turn them into professional, print-ready PDFs. No errors, no stress, just clean files delivered on time.',
     examDocSteps: 'Share raw question papers (PDF, Image, or Handwritten)|We type, format, and structure the questions|Review the draft for any corrections|Receive final print-ready files via Drive Link',
@@ -243,8 +243,8 @@ export const translations = {
     dailySupportTimeline: 'Instant for Micro-tasks (30-60 mins) | Same day for larger typing works.',
 
     // Services - Creator
-    videoEditTitle: 'Premium Long-Form Production',
-    videoEditShort: 'Broadcast-quality storytelling. We specialize in Multi-Cam Sync for podcasts, Cinematic Color Grading (DaVinci), and distraction-free editing for educational content.',
+    videoEditTitle: 'We engineer retention. Turn viewers into subscribers.',
+    videoEditShort: 'Broadcast-quality production. Multi-cam sync, cinematic grading, retention-focused editing.',
     videoEditMedium: 'Cinematic Editing & Color Grading',
     videoEditFull: 'We act as your post-production partner, not just editors. You upload raw footage; we engineer it for retention. We handle multi-cam syncing, cinematic color grading, and audio polishing. The result is a broadcast-quality video that positions you as an authority in your niche, delivered ready for upload.',
     videoEditSteps: 'Send Raw Files (Google Drive or Pendrive pickup)|We process in Premiere Pro: Multi-cam sync, A-Roll cleanup|Color grading in DaVinci Resolve for cinematic depth|Client review via Frame.io with timestamped feedback|Final delivery with archival-quality exports',
@@ -325,16 +325,16 @@ export const translations = {
     aboutTitle: 'About',
 
     // Manifesto Hero
-    aboutBlueprintHero: 'We Engineer Flow.',
-    aboutBlueprintSubtext: 'Bridging the gap between Rural Education and Global Content Standards.',
+    aboutBlueprintHero: 'I don\'t just edit videos or type papers.',
+    aboutBlueprintSubtext: 'I build infrastructure for your growth. Perfection isn\'t a goal; it\'s my baseline.',
 
     // Dual Core Engine
     aboutDualCoreTitle: 'The Dual Core Engine',
     aboutDualCoreSubtitle: 'Why we operate in two modes',
-    aboutInstituteCore: 'For Institutes: We bring Stability.',
-    aboutInstitutePhilosophy: 'Educational institutions need predictable, error-free execution. We handle UDISE+, scholarships, and exam documentation with zero-drama reliability. Your data is sacred, your deadlines are honored, and your administrative burden is lifted—so educators can focus on education.',
-    aboutCreatorCore: 'For Creators: We bring Velocity.',
-    aboutCreatorPhilosophy: 'Content creators need production speed without sacrificing quality. We deliver broadcast-grade editing, cinematic color grading, and platform-ready content that positions you as an authority. Your vision is executed professionally, your upload schedule is protected.',
+    aboutInstituteCore: 'For Institutes: We Engineer Stability.',
+    aboutInstitutePhilosophy: 'Educational institutions need predictable, error-free execution. We optimize your administrative infrastructure—UDISE+, scholarships, exam documentation—with zero-drama reliability. Your data is sacred, your deadlines are honored, and your operational burden is lifted. Educators can focus on education.',
+    aboutCreatorCore: 'For Creators: We Engineer Velocity.',
+    aboutCreatorPhilosophy: 'Content creators need production speed without sacrificing quality. We deliver broadcast-grade editing, cinematic color grading, and platform-ready content that positions you as an authority. Your vision is executed professionally, your upload schedule is protected, your growth is engineered.',
 
     // Arsenal / Tools Orbit
     aboutArsenalTitle: 'The Arsenal',
@@ -1066,14 +1066,14 @@ export const translations = {
     creator: 'क्रिएटर के लिए',
 
     // Navigation
-    home: 'होम',
+    home: 'मुख्य पृष्ठ',
     services: 'सेवाएं',
     studio: 'स्टूडियो',
     projects: 'प्रोजेक्ट्स',
     vision: 'विज़न',
     pricing: 'मूल्य',
-    about: 'हमारे बारे में',
-    contact: 'संपर्क करें',
+    about: 'परिचय',
+    contact: 'संपर्क',
 
     // Hero Section - Institutional
     heroInst1: 'स्कूल चलाना आसान नहीं है। हम इसे सरल बनाते हैं।',
@@ -1089,7 +1089,7 @@ export const translations = {
     heroCreatorDesc: 'हम आपके प्रोडक्शन साथी हैं—तकनीकी काम संभालते हैं ताकि आप अपने बेस्ट काम पर ध्यान दे सकें: कंटेंट बनाना।',
 
     // CTAs
-    getStarted: 'चलिए शुरुआत करते हैं',
+    getStarted: 'शुभारम्भ करें',
     learnMore: 'और जानें',
     viewServices: 'सेवाएं देखें',
     contactUs: 'संपर्क करें',
@@ -1139,8 +1139,8 @@ export const translations = {
     valueCommittedDesc: 'आपकी वृद्धि हमारा मिशन है। हम आपके चैनल, दर्शकों और लक्ष्यों को समझने में निवेश करते हैं ताकि सुसंगत, रणनीतिक सहायता प्रदान कर सकें।',
 
     // Contact Form
-    contactTitle: 'प्रधानाचार्य सहायता केंद्र। हम आपकी बात सुनने के लिए तैयार हैं।',
-    contactSubtitle: 'कोई नया विचार है? चलिए रणनीति बनाते हैं।',
+    contactTitle: 'शुरुआत करने के लिए तैयार हैं?',
+    contactSubtitle: 'आइए, साथ मिलकर योजना बनाएं।',
     yourName: 'आपका नाम',
     mobileNumber: 'मोबाइल नंबर',
     emailAddress: 'ईमेल',
@@ -1384,16 +1384,16 @@ export const translations = {
     dontDoList: 'छात्रों के लिए शैक्षणिक लेखन या कंटेंट निर्माण|गारंटीड व्यूज, सब्सक्राइबर्स या मुद्रीकरण|किसी भी संस्थागत रिकॉर्ड में हेराफेरी|24/7 उपलब्धता या तत्काल प्रतिक्रियाएं|वेब डेवलपमेंट या सॉफ्टवेयर प्रोजेक्ट्स|सोशल मीडिया प्रबंधन या मार्केटिंग',
 
     // About Page - Blueprint Redesign
-    aboutBlueprintHero: 'हम प्रवाह को इंजीनियर करते हैं।',
-    aboutBlueprintSubtext: 'ग्रामीण शिक्षा और वैश्विक सामग्री मानकों के बीच की खाई को पाटना।',
+    aboutBlueprintHero: 'मैं सिर्फ वीडियो एडिट नहीं करता, मैं आपकी कहानी को दुनिया तक पहुँचाता हूँ।',
+    aboutBlueprintSubtext: 'शिक्षण हो या कंटेंट क्रिएशन, मेरा लक्ष्य आपके काम को आसान और त्रुटिहीन बनाना है।',
 
     // Dual Core Engine
     aboutDualCoreTitle: 'दोहरा कोर इंजन',
     aboutDualCoreSubtitle: 'हम दो मोड में क्यों काम करते हैं',
-    aboutInstituteCore: 'संस्थानों के लिए: हम स्थिरता लाते हैं।',
-    aboutInstitutePhilosophy: 'शैक्षणिक संस्थानों को पूर्वानुमानित, त्रुटि-मुक्त निष्पादन की आवश्यकता है। हम UDISE+, छात्रवृत्ति और परीक्षा दस्तावेज़ीकरण को शून्य-नाटक विश्वसनीयता के साथ संभालते हैं। आपका डेटा पवित्र है, आपकी समय-सीमा का सम्मान किया जाता है, और आपका प्रशासनिक बोझ उठाया जाता—ताकि शिक्षक शिक्षा पर ध्यान केंद्रित कर सकें।',
-    aboutCreatorCore: 'क्रिएटर्स के लिए: हम वेग लाते हैं।',
-    aboutCreatorPhilosophy: 'कंटेंट क्रिएटर्स को गुणवत्ता का त्याग किए बिना प्रोडक्शन गति की आवश्यकता है। हम ब्रॉडकास्ट-ग्रेड एडिटिंग, सिनेमैटिक कलर ग्रेडिंग और प्लेटफॉर्म-रेडी कंटेंट प्रदान करते हैं जो आपको एक प्राधिकरण के रूप में स्थापित करता है। आपकी दृष्टि को पेशेवर रूप से निष्पादित किया जाता है, आपका अपलोड शेड्यूल सुरक्षित है।',
+    aboutInstituteCore: 'संस्थानों के लिए: हम स्थिरता का निर्माण करते हैं।',
+    aboutInstitutePhilosophy: 'परीक्षा पत्रों में १००% शुद्धता। अब शिक्षक पढ़ाने पर ध्यान दें, टाइपिंग हम करेंगे। UDISE+, छात्रवृत्ति और परीक्षा दस्तावेज़ीकरण को हम पूरी जिम्मेदारी से संभालते हैं।',
+    aboutCreatorCore: 'क्रिएटर्स के लिए: हम वेग का निर्माण करते हैं।',
+    aboutCreatorPhilosophy: 'हम सिर्फ वीडियो नहीं बनाते, हम "Viewers" को "Subscribers" में बदलते हैं। ब्रॉडकास्ट-ग्रेड एडिटिंग, सिनेमैटिक कलर ग्रेडिंग और प्लेटफॉर्म-रेडी कंटेंट जो आपको एक प्राधिकरण के रूप में स्थापित करता है।',
 
     // Arsenal / Tools Orbit
     aboutArsenalTitle: 'शस्त्रागार',
