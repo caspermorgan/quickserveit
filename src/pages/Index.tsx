@@ -1,54 +1,47 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
+import { useMode } from '@/context/ModeContext';
 import LandingView from '../components/LandingView';
-import DashboardView from '../components/DashboardView';
 
 type Mode = 'institutional' | 'creator';
-type View = 'landing' | 'dashboard';
 
 const Index = () => {
-  const [mode, setMode] = useState<Mode>('institutional');
-  const [view, setView] = useState<View>('landing');
+  const navigate = useNavigate();
+  const { setMode, setHasEntered } = useMode();
+  const [localMode, setLocalMode] = useState<Mode>('institutional');
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Apply mode class to root for CSS variable updates
   useEffect(() => {
     const root = document.documentElement;
     root.classList.remove('mode-institutional', 'mode-creator');
-    root.classList.add(`mode-${mode}`);
-  }, [mode]);
+    root.classList.add(`mode-${localMode}`);
+  }, [localMode]);
 
-  const handleEnter = useCallback(() => {
+  const handleEnter = (selectedMode: Mode) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    
-    // Delay view change for exit animation
+
+    // Set the mode in context
+    setMode(selectedMode);
+    setHasEntered(true);
+
+    // Navigate to home page after animation
     setTimeout(() => {
-      setView('dashboard');
-      setTimeout(() => setIsTransitioning(false), 500);
+      navigate('/home');
     }, 800);
-  }, [isTransitioning]);
+  };
 
-  const handleReturn = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    
-    // Delay view change for exit animation
-    setTimeout(() => {
-      setView('landing');
-      setTimeout(() => setIsTransitioning(false), 500);
-    }, 600);
-  }, [isTransitioning]);
+  const handleModeChange = (newMode: Mode) => {
+    setLocalMode(newMode);
+  };
 
-  const handleModeChange = useCallback((newMode: Mode) => {
-    setMode(newMode);
-  }, []);
-
-  const pageTitle = mode === 'institutional' 
+  const pageTitle = localMode === 'institutional'
     ? 'QuickServe IT | Premium Institutional Digital Support'
     : 'QuickServe IT | Premium Creative Studio Services';
-  
-  const pageDescription = mode === 'institutional'
+
+  const pageDescription = localMode === 'institutional'
     ? 'Calm digital execution for schools and institutions. Exam documentation, scholarship processing, UDISE+ management, and confidential support.'
     : 'World-class video editing, motion graphics, and content strategy for creators. Premium visual storytelling that drives engagement.';
 
@@ -69,18 +62,11 @@ const Index = () => {
 
       <main className="min-h-screen bg-background overflow-hidden">
         {/* Landing View */}
-        <LandingView 
-          mode={mode}
+        <LandingView
+          mode={localMode}
           onModeChange={handleModeChange}
           onEnter={handleEnter}
-          isExiting={view === 'dashboard' || isTransitioning}
-        />
-        
-        {/* Dashboard View */}
-        <DashboardView 
-          mode={mode}
-          onReturn={handleReturn}
-          isEntering={view === 'dashboard'}
+          isExiting={isTransitioning}
         />
       </main>
     </>

@@ -2,7 +2,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
-import TwinMonoliths from './TwinMonoliths';
+import TrifectaPrisms from './TrifectaPrisms';
 import { SkeletonLoader } from './SkeletonLoader';
 import { motion } from 'framer-motion';
 
@@ -14,7 +14,7 @@ const CursorLight = lazy(() => import('./CursorLight'));
 interface LandingViewProps {
     mode: 'institutional' | 'creator';
     onModeChange: (mode: 'institutional' | 'creator') => void;
-    onEnter: () => void;
+    onEnter: (mode: 'institutional' | 'creator') => void;
     isExiting: boolean;
 }
 
@@ -30,25 +30,25 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
     const handleGateEnter = (gateMode: 'institutional' | 'creator') => {
         onModeChange(gateMode);
-        setTimeout(() => onEnter(), 300);
+        setTimeout(() => onEnter(gateMode), 300);
     };
 
     return (
         <div
-            className={`fixed inset-0 z-30 flex items-center justify-center overflow-x-hidden overflow-y-auto transition-all duration-slowest ease-out ${isExiting
+            className={`fixed inset-0 z-30 h-screen overflow-hidden transition-all duration-slowest ease-out ${isExiting
                 ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
                 : 'opacity-100 scale-100 blur-0'
                 }`}
         >
-            {/* Background */}
-            <div className="absolute inset-0 bg-background" />
+            {/* Background - Fixed at the back */}
+            <div className="absolute inset-0 bg-background -z-10" />
 
-            {/* Cursor Light */}
+            {/* Cursor Light - Behind content */}
             <Suspense fallback={null}>
                 <CursorLight mode={mode} />
             </Suspense>
 
-            {/* Particles */}
+            {/* Particles - Fixed background layer */}
             <Suspense fallback={null}>
                 <ParticleCanvas mode={mode} isDusting={isExiting} />
             </Suspense>
@@ -58,24 +58,24 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 <FilmGrain />
             </Suspense>
 
-            {/* Floating Online Header - Top */}
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 z-40">
+            {/* Floating Online Header - Absolute at top */}
+            <div className="absolute top-6 md:top-8 left-1/2 -translate-x-1/2 z-50">
                 <HeaderStatusBadge mode={mode} />
             </div>
 
-            {/* Main Content - Twin Monoliths Layout */}
-            <div className="relative z-40 w-full h-full flex flex-col">
-                {/* TOP SECTION - HERO (Brand Name & Tagline) */}
-                <div className="flex-[0.25] flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            {/* MASTER CONTAINER - Perfect 70/30 Split */}
+            <div className="relative z-40 h-full flex flex-col">
+                {/* ========== UPPER ATMOSPHERE (70% Height) ========== */}
+                <div className="h-[70vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
                     <motion.div
-                        className="text-center max-w-6xl w-full px-2"
+                        className="text-center max-w-6xl w-full -translate-y-8"
                         initial={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
                         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                         transition={{ duration: 1.5, ease: 'easeOut' }}
                     >
                         {/* Brand Name - MASSIVE, PURE WHITE, CARVED INTO SPACE */}
                         <h1
-                            className="font-display font-black text-white text-7xl md:text-9xl tracking-tight mb-4 sm:mb-6"
+                            className="font-display font-black text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight mb-3 sm:mb-4"
                             style={{
                                 lineHeight: '0.9',
                                 textShadow: '0 4px 40px rgba(255, 255, 255, 0.1), 0 0 80px rgba(255, 255, 255, 0.05)',
@@ -85,11 +85,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                             QUICKSERVE IT
                         </h1>
 
-                        {/* Tagline - THE WHISPER */}
+                        {/* Tagline - THE WHISPER (Dull/Faded) */}
                         <p
-                            className="text-neutral-500 text-sm font-light tracking-wider"
+                            className="text-white/40 text-xs sm:text-sm font-light tracking-[0.5em] uppercase"
                             style={{
-                                letterSpacing: '0.2em',
+                                letterSpacing: '0.5em',
                             }}
                         >
                             Your Personal Tech Partner
@@ -97,12 +97,12 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                     </motion.div>
                 </div>
 
-                {/* BOTTOM SECTION - THE TWIN MONOLITHS */}
-                <div className="flex-[0.75] flex flex-col justify-center px-0 pb-8">
-                    <TwinMonoliths onEnter={handleGateEnter} />
+                {/* ========== LOWER DECK (30% Height - The Gates) ========== */}
+                <div className="h-[30vh] flex items-center justify-center">
+                    <TrifectaPrisms onEnter={handleGateEnter} />
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
