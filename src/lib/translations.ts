@@ -12,12 +12,12 @@ export const translations = {
     betaVersion: 'Beta',
 
     // Landing Page - Gates
-    instituteGateTitle: 'INSTITUTIONAL PRIME',
-    instituteGateDesc: 'Systematize. Digitize. Dominate.',
-    creatorGateTitle: 'CREATOR ENGINE',
-    creatorGateDesc: 'High-Retention Visual Engineering.',
-    founderGateTitle: 'THE ARCHITECT',
-    founderGateDesc: 'The Human Mind Behind The Code.',
+    instituteGateTitle: 'For Institutes',
+    instituteGateDesc: 'Let\'s reduce your workload.',
+    creatorGateTitle: 'For Creators',
+    creatorGateDesc: 'Let\'s amplify your voice.',
+    founderGateTitle: 'Founder\'s Vision',
+    founderGateDesc: 'The story behind the mission.',
 
     // Mode labels
     institutional: 'Institutional',
