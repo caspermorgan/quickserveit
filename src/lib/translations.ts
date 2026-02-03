@@ -26,6 +26,10 @@ export const translations = {
     // Navigation
     home: 'Home',
     services: 'Services',
+    studio: 'Studio',
+    projects: 'Projects',
+    vision: 'Vision',
+    pricing: 'Pricing',
     about: 'About',
     contact: 'Contact',
 
@@ -1064,6 +1068,10 @@ export const translations = {
     // Navigation
     home: 'होम',
     services: 'सेवाएं',
+    studio: 'स्टूडियो',
+    projects: 'प्रोजेक्ट्स',
+    vision: 'विज़न',
+    pricing: 'मूल्य',
     about: 'हमारे बारे में',
     contact: 'संपर्क करें',
 

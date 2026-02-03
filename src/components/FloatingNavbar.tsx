@@ -6,12 +6,12 @@ import { useTranslation } from '@/hooks/useTranslation';
 import SwitchModeButton from './SwitchModeButton';
 
 interface FloatingNavbarProps {
-  mode: 'institutional' | 'creator';
+  mode: 'institutional' | 'creator' | 'portfolio';
   onReturn: () => void;
   isVisible: boolean;
 }
 
-const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' }) => {
+const LanguageSwitch = ({ mode }: { mode: 'institutional' | 'creator' | 'portfolio' }) => {
   const { language, toggleLanguage } = useLanguage();
   const isEnglish = language === 'en';
 
@@ -176,27 +176,39 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     }
   }, [isMenuOpen]);
 
-  // INSTITUTIONAL MODE: Home, Services, Pricing, About, Founder, Contact
+  // STRICT MENU LOGIC - 5 items per mode (4 for portfolio)
+
+  // INSTITUTIONAL MODE: Home, Services, Pricing, About, Contact
   const institutionalLinks = [
     { label: t('home'), href: '/home' },
     { label: t('services'), href: '/services' },
     { label: t('pricing'), href: '/pricing' },
     { label: t('about'), href: '/about' },
-    { label: t('founder'), href: '/founder' },
     { label: t('contact'), href: '/contact' },
   ];
 
-  // CREATOR MODE: Home, Studio, Portfolio, About, Pricing, Contact
+  // CREATOR MODE: Home, Studio, Pricing, About, Contact
   const creatorLinks = [
     { label: t('home'), href: '/home' },
     { label: t('studio'), href: '/services' },
-    { label: t('portfolio'), href: '/portfolio' },
-    { label: t('about'), href: '/about' },
     { label: t('pricing'), href: '/pricing' },
+    { label: t('about'), href: '/about' },
     { label: t('contact'), href: '/contact' },
   ];
 
-  const links = mode === 'institutional' ? institutionalLinks : creatorLinks;
+  // PORTFOLIO MODE: Home, Projects, Vision, Contact (4 items only)
+  const portfolioLinks = [
+    { label: t('home'), href: '/home' },
+    { label: t('projects'), href: '/portfolio' },
+    { label: t('vision'), href: '/about' },
+    { label: t('contact'), href: '/contact' },
+  ];
+
+  const links = mode === 'institutional'
+    ? institutionalLinks
+    : mode === 'creator'
+      ? creatorLinks
+      : portfolioLinks;
 
   // Close menu on route change
   useEffect(() => {
@@ -209,34 +221,35 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
     <>
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-sm transition-all duration-normal md:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-sm transition-all duration-normal md:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         onClick={() => setIsMenuOpen(false)}
         role="dialog"
         aria-label="Mobile navigation menu"
         aria-modal="true"
       >
-        {/* Mobile Menu Content */}
+        {/* Mobile Menu Content - SLIDE DOWN from top */}
         <div
           ref={mobileMenuRef}
-          className={`absolute top-0 right-0 w-full max-w-sm h-full bg-background/80 backdrop-blur-sm border-l border-foreground/10 transition-transform duration-normal ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute top-0 left-0 w-full bg-black/80 backdrop-blur-xl border-b ${mode === 'institutional' ? 'border-amber-500/20' : 'border-cyan-500/20'
+            } transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'
             }`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Mobile Menu Header - Centered */}
-          <div className="flex items-center justify-center p-6 border-b border-foreground/10 relative">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-foreground/10">
             <h2 className="text-lg font-display font-semibold text-foreground">{t('menu')}</h2>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="absolute right-6 p-2 rounded-lg hover:bg-foreground/5 transition-colors"
+              className="p-2 rounded-lg hover:bg-foreground/5 transition-colors"
               aria-label="Close menu"
             >
               <X className="w-6 h-6 text-foreground/70" />
             </button>
           </div>
 
-          {/* Mobile Navigation Links - Stagger animation */}
-          <nav className="flex flex-col p-6 space-y-4">
+          {/* Mobile Navigation Links - Large & Centered */}
+          <nav className="flex flex-col p-6 space-y-3">
             {links.map((link, index) => {
               const isActive = location.pathname === link.href;
               return (
@@ -244,14 +257,14 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
                   key={link.href}
                   to={link.href}
                   className={`
-                    relative px-4 py-3.5 text-base font-medium tracking-wide 
-                    transition-all duration-normal rounded-lg
-                    min-h-[44px] flex items-center
+                    relative px-6 py-4 text-xl font-medium tracking-wide text-center
+                    transition-all duration-normal rounded-full
+                    min-h-[56px] flex items-center justify-center
                     animate-fade-in-up
                     ${isActive
                       ? mode === 'institutional'
-                        ? 'text-institutional bg-institutional/10 border border-institutional/20'
-                        : 'text-creator bg-creator/10 border border-creator/20'
+                        ? 'text-amber-500 bg-amber-500/10 border border-amber-500/20'
+                        : 'text-cyan-500 bg-cyan-500/10 border border-cyan-500/20'
                       : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5 border border-transparent'
                     }
                   `}
@@ -263,38 +276,20 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
               );
             })}
 
-            {/* Language Switch in Mobile Menu */}
-            <div className="pt-4 border-t border-foreground/10">
-              <div className="flex items-center justify-between mb-4">
+            {/* Bottom Controls - Language & Mode Switch */}
+            <div className="pt-6 mt-4 border-t border-foreground/10 space-y-4">
+              <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-foreground/60">{t('language')}</span>
                 <LanguageSwitch mode={mode} />
               </div>
-            </div>
 
-            {/* Switch Mode Button in Mobile Menu */}
-            <div className="pt-2">
               <SwitchModeButton variant="minimal" className="w-full justify-center" />
             </div>
-
-            {/* CTA Button in Mobile Menu */}
-            <Link
-              to="/contact"
-              className={`
-                mt-4 px-6 py-3.5 text-base font-medium tracking-wide rounded-full 
-                transition-all duration-normal text-center min-h-[44px] flex items-center justify-center
-                ${mode === 'institutional'
-                  ? 'bg-institutional text-background hover:bg-institutional/90'
-                  : 'bg-creator text-background hover:bg-creator/90'
-                }
-              `}
-            >
-              {t('startYourProject')}
-            </Link>
           </nav>
         </div>
       </div>
 
-      {/* Logo Pill - Anti-Gravity Style - Reduced opacity for lighter feel */}
+      {/* Logo Pill - Top Left */}
       <div
         className={`
           fixed top-6 left-6 md:top-8 md:left-8 z-50 
@@ -320,7 +315,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           `}
           aria-label="Return to landing"
         >
-          {/* Perfect Circle Logo Container - v2.1 Refined */}
+          {/* Perfect Circle Logo Container */}
           <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0">
             <img
               src={mode === 'institutional' ? '/quickserve-logo-gold.png' : '/quickserve-logo-cyan.png'}
@@ -346,7 +341,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         </button>
       </div>
 
-      {/* Mobile: Hamburger Menu Button (Top Right) - Equal size to logo */}
+      {/* Mobile: Hamburger Menu Button (Top Right) */}
       <div
         className={`
           fixed top-6 right-6 z-50 md:hidden
@@ -389,7 +384,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <LanguageSwitch mode={mode} />
       </div>
 
-      {/* Desktop: Navigation Bar (Bottom) - Mode-Aware Visual Depth */}
+      {/* Desktop: VIP CAPSULE - Centered Floating Pill at BOTTOM */}
       <div
         className={`
           fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex
@@ -401,18 +396,26 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
       >
         <nav
           className={`
-            flex items-center gap-1.5 px-5 py-3 rounded-full glass-1 overflow-x-auto no-scrollbar max-w-[90vw]
+            flex items-center gap-2 px-6 py-3 rounded-full 
+            bg-black/60 backdrop-blur-xl
+            max-w-4xl
             transition-all duration-300
             ${mode === 'institutional'
-              ? 'border-institutional/30 hover:shadow-[0_0_30px_rgba(234,179,8,0.2)] hover:bg-[rgba(234,179,8,0.05)]'
-              : 'border-creator/30 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] hover:bg-[rgba(34,211,238,0.05)]'
+              ? 'border border-amber-500/30 hover:shadow-[0_0_30px_rgba(234,179,8,0.2)]'
+              : 'border border-cyan-500/30 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]'
             }
           `}
-          style={{
-            // Creator mode: subtle glitch effect on hover
-            animation: mode === 'creator' ? 'none' : undefined
-          }}
         >
+          {/* Online Status Indicator - Far Left */}
+          <div className="flex items-center gap-2 pr-4 border-r border-foreground/10">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+            </span>
+            <span className="text-xs font-medium text-green-500 tracking-wide">Online</span>
+          </div>
+
+          {/* Navigation Links with GLOW PILL active states */}
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
             return (
@@ -420,33 +423,23 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
                 key={link.href}
                 to={link.href}
                 className={`
-                  relative px-3.5 py-2 text-sm font-medium tracking-wide 
-                  transition-all duration-normal whitespace-nowrap group flex items-center 
-                  min-h-[44px]
+                  relative px-4 py-2 text-sm font-medium tracking-wide 
+                  transition-all duration-normal whitespace-nowrap rounded-full
+                  min-h-[44px] flex items-center
                   ${isActive
-                    ? mode === 'institutional' ? 'text-institutional' : 'text-creator'
-                    : 'text-foreground/70 hover:text-foreground'
+                    ? mode === 'institutional'
+                      ? 'text-amber-500 bg-amber-500/10'
+                      : 'text-cyan-500 bg-cyan-500/10'
+                    : 'text-foreground/70 hover:text-foreground hover:bg-foreground/5'
                   }
                 `}
                 style={{ animationDelay: `${index * 50}ms` }}
                 aria-current={isActive ? 'page' : undefined}
               >
                 {link.label}
-
-                {/* Active/Hover underline - v2.1 Refined */}
-                <span
-                  className={`
-                    absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 
-                    transition-all duration-fast
-                    ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'}
-                    ${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'}
-                  `}
-                />
               </Link>
             );
           })}
-
-
         </nav>
       </div>
     </>
