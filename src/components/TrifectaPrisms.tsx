@@ -1,42 +1,47 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Building2, Play, Crown } from 'lucide-react';
+import { Landmark, Zap, User } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface TrifectaPrismsProps {
     onEnter: (mode: 'institutional' | 'creator') => void;
 }
 
 const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
+    const { t } = useTranslation();
     const [hoveredPrism, setHoveredPrism] = useState<'institutional' | 'creator' | 'portfolio' | null>(null);
 
     const prisms = [
         {
             id: 'institutional' as const,
-            label: 'INSTITUTIONAL',
-            icon: Building2,
-            borderColor: 'border-amber-500/30',
+            label: t('instituteGateTitle'),
+            subtitle: t('instituteGateDesc'),
+            icon: Landmark,
+            borderColor: 'border-amber-500/10',
+            hoverBorderColor: 'border-amber-500/60',
             glowColor: 'rgba(251, 191, 36, 0.4)',
-            shadowColor: 'rgba(251, 191, 36, 0.6)',
             iconColor: 'text-amber-400',
             textColor: 'text-amber-300',
         },
         {
             id: 'creator' as const,
-            label: 'CREATOR STUDIO',
-            icon: Play,
-            borderColor: 'border-cyan-500/30',
+            label: t('creatorGateTitle'),
+            subtitle: t('creatorGateDesc'),
+            icon: Zap,
+            borderColor: 'border-cyan-500/10',
+            hoverBorderColor: 'border-cyan-500/60',
             glowColor: 'rgba(6, 182, 212, 0.4)',
-            shadowColor: 'rgba(6, 182, 212, 0.6)',
             iconColor: 'text-cyan-400',
             textColor: 'text-cyan-300',
         },
         {
             id: 'portfolio' as const,
-            label: 'FOUNDER VISION',
-            icon: Crown,
-            borderColor: 'border-violet-500/30',
+            label: t('founderGateTitle'),
+            subtitle: t('founderGateDesc'),
+            icon: User,
+            borderColor: 'border-violet-500/10',
+            hoverBorderColor: 'border-violet-500/60',
             glowColor: 'rgba(139, 92, 246, 0.4)',
-            shadowColor: 'rgba(139, 92, 246, 0.6)',
             iconColor: 'text-violet-400',
             textColor: 'text-violet-300',
         },
@@ -52,9 +57,9 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
     };
 
     return (
-        <div className="w-full h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
-            {/* Desktop: 3 Columns Side-by-Side | Mobile: 3 Rows Stacked */}
-            <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 w-full max-w-7xl h-full">
+        <div className="w-full max-w-lg mx-auto">
+            {/* Vertical Stack with Breathing Room */}
+            <div className="flex flex-col gap-4">
                 {prisms.map((prism, index) => {
                     const isHovered = hoveredPrism === prism.id;
                     const Icon = prism.icon;
@@ -67,110 +72,63 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
                             onMouseLeave={() => setHoveredPrism(null)}
                             className={`
                                 relative overflow-hidden
-                                bg-black/40 backdrop-blur-md
-                                ${prism.borderColor.replace('/30', '/50')}
-                                border-t-2
-                                transition-all duration-500 ease-out
-                                flex-1
-                                h-20 lg:h-full
+                                bg-black/40 backdrop-blur-xl
+                                border ${isHovered ? prism.hoverBorderColor : prism.borderColor}
+                                transition-all duration-300 ease-out
+                                h-24 lg:h-32
                                 group
-                                hover:bg-black/60
+                                rounded-sm
                             `}
+                            style={{
+                                boxShadow: isHovered
+                                    ? `inset 0 0 40px ${prism.glowColor}, 0 0 30px ${prism.glowColor}`
+                                    : 'none',
+                            }}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: index * 0.15 }}
+                            transition={{ duration: 0.6, delay: index * 0.15 }}
                         >
-                            {/* Ambient Glow on Hover */}
-                            {isHovered && (
+                            {/* Content Container - Flex Row, Centered & Balanced */}
+                            <div className="relative h-full w-full flex items-center justify-between px-6 lg:px-8">
+                                {/* Icon - Left Aligned */}
                                 <motion.div
-                                    className="absolute inset-0 -z-10"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.3 }}
-                                    style={{
-                                        background: `radial-gradient(circle at 50% 0%, ${prism.glowColor}, transparent 70%)`,
-                                        boxShadow: `0 -4px 40px ${prism.shadowColor}, inset 0 2px 40px ${prism.glowColor}`,
+                                    animate={{
+                                        scale: isHovered ? 1.15 : 1,
                                     }}
-                                />
-                            )}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <Icon
+                                        className={`${prism.iconColor} transition-all duration-300`}
+                                        size={32}
+                                        strokeWidth={1.5}
+                                    />
+                                </motion.div>
 
-                            {/* Content Container */}
-                            <div className="relative h-full w-full flex items-center justify-center">
-                                {/* Desktop: Icon + Title Centered Vertically */}
-                                <div className="hidden lg:flex flex-col items-center justify-center gap-4">
-                                    {/* Icon */}
-                                    <motion.div
-                                        animate={{
-                                            scale: isHovered ? 1.15 : 1,
-                                            y: isHovered ? -4 : 0,
-                                        }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <Icon
-                                            className={`${prism.iconColor} transition-all duration-300`}
-                                            size={isHovered ? 56 : 48}
-                                            strokeWidth={1.5}
-                                        />
-                                    </motion.div>
-
+                                {/* Text - Right Side, Stacked */}
+                                <div className="flex flex-col items-end justify-center gap-1 flex-1 ml-6">
                                     {/* Title */}
                                     <motion.h3
                                         className={`
-                                            font-display font-bold text-base tracking-[0.25em]
+                                            font-display font-bold text-xl lg:text-2xl tracking-wide
                                             ${prism.textColor}
                                             transition-all duration-300
-                                            text-center
+                                            text-right
                                         `}
                                         style={{
-                                            textShadow: isHovered
-                                                ? `0 0 20px ${prism.shadowColor}`
-                                                : 'none',
+                                            fontFamily: 'Space Grotesk, sans-serif',
                                         }}
                                         animate={{
-                                            y: isHovered ? 4 : 0,
+                                            x: isHovered ? -2 : 0,
                                         }}
                                         transition={{ duration: 0.3 }}
                                     >
                                         {prism.label}
                                     </motion.h3>
-                                </div>
 
-                                {/* Mobile: Icon Left + Title Right (Row Layout) */}
-                                <div className="flex lg:hidden items-center justify-start gap-4 px-6 w-full">
-                                    {/* Icon */}
-                                    <motion.div
-                                        animate={{
-                                            scale: isHovered ? 1.1 : 1,
-                                        }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <Icon
-                                            className={`${prism.iconColor} transition-all duration-300`}
-                                            size={32}
-                                            strokeWidth={1.5}
-                                        />
-                                    </motion.div>
-
-                                    {/* Title */}
-                                    <motion.h3
-                                        className={`
-                                            font-display font-bold text-sm tracking-[0.15em]
-                                            ${prism.textColor}
-                                            transition-all duration-300
-                                        `}
-                                        style={{
-                                            textShadow: isHovered
-                                                ? `0 0 20px ${prism.shadowColor}`
-                                                : 'none',
-                                        }}
-                                        animate={{
-                                            x: isHovered ? 4 : 0,
-                                        }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        {prism.label}
-                                    </motion.h3>
+                                    {/* Subtitle */}
+                                    <p className="text-white/60 text-sm lg:text-base font-light text-right">
+                                        {prism.subtitle}
+                                    </p>
                                 </div>
                             </div>
 
@@ -185,10 +143,10 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
                                     {[...Array(6)].map((_, i) => (
                                         <motion.div
                                             key={i}
-                                            className={`absolute w-0.5 h-0.5 rounded-full ${prism.iconColor.replace('text-', 'bg-')}`}
+                                            className={`absolute w-1 h-1 rounded-full ${prism.iconColor.replace('text-', 'bg-')}`}
                                             style={{
-                                                left: `${Math.random() * 100}%`,
-                                                top: `${Math.random() * 100}%`,
+                                                left: `${20 + Math.random() * 60}%`,
+                                                top: `${20 + Math.random() * 60}%`,
                                             }}
                                             animate={{
                                                 y: [0, -15, 0],
@@ -197,21 +155,12 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
                                             transition={{
                                                 duration: 1.5,
                                                 repeat: Infinity,
-                                                delay: i * 0.2,
+                                                delay: i * 0.25,
                                             }}
                                         />
                                     ))}
                                 </motion.div>
                             )}
-
-                            {/* Top Border Highlight on Hover */}
-                            <motion.div
-                                className={`absolute top-0 left-0 right-0 h-0.5 ${prism.iconColor.replace('text-', 'bg-')}`}
-                                initial={{ scaleX: 0 }}
-                                animate={{ scaleX: isHovered ? 1 : 0 }}
-                                transition={{ duration: 0.3 }}
-                                style={{ transformOrigin: 'center' }}
-                            />
                         </motion.button>
                     );
                 })}

@@ -35,7 +35,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
     return (
         <div
-            className={`fixed inset-0 z-30 h-screen overflow-hidden transition-all duration-slowest ease-out ${isExiting
+            className={`h-[100dvh] overflow-hidden z-30 transition-all duration-slowest ease-out ${isExiting
                 ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
                 : 'opacity-100 scale-100 blur-0'
                 }`}
@@ -63,12 +63,12 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 <HeaderStatusBadge mode={mode} />
             </div>
 
-            {/* MASTER CONTAINER - Perfect 70/30 Split */}
-            <div className="relative z-40 h-full flex flex-col">
-                {/* ========== UPPER ATMOSPHERE (70% Height) ========== */}
-                <div className="h-[70vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+            {/* MASTER CONTAINER - Perfect Vertical Distribution */}
+            <div className="relative z-40 h-full flex flex-col justify-between">
+                {/* ========== UPPER ATMOSPHERE (Header + Brand) ========== */}
+                <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
                     <motion.div
-                        className="text-center max-w-6xl w-full -translate-y-8"
+                        className="text-center max-w-6xl w-full -mt-16 md:-mt-20"
                         initial={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
                         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                         transition={{ duration: 1.5, ease: 'easeOut' }}
@@ -97,9 +97,20 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                     </motion.div>
                 </div>
 
-                {/* ========== LOWER DECK (30% Height - The Gates) ========== */}
-                <div className="h-[30vh] flex items-center justify-center">
+                {/* ========== CONTROL DOCK (The Gates) ========== */}
+                <div className="px-4 sm:px-6 lg:px-8 pb-16 md:pb-20">
                     <TrifectaPrisms onEnter={handleGateEnter} />
+                </div>
+
+                {/* ========== THE ANCHOR (Footer Signature) ========== */}
+                <div className="pb-4 md:pb-6">
+                    {/* Divider Line */}
+                    <div className="h-[1px] w-[90%] bg-white/10 mx-auto mb-3" />
+
+                    {/* Signature */}
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-white/30 text-center">
+                        QUICKSERVE IT @ 2025
+                    </p>
                 </div>
             </div>
         </div>
