@@ -68,14 +68,14 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 {/* ========== UPPER ATMOSPHERE (Header + Brand) ========== */}
                 <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 md:pt-20">
                     <motion.div
-                        className="text-center max-w-6xl w-full -mt-12 md:-mt-20 scale-75 origin-top -mt-8 md:scale-100 md:mt-0"
+                        className="text-center max-w-6xl w-full -mt-12 md:-mt-20 scale-[0.80] origin-top md:scale-100"
                         initial={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
                         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                         transition={{ duration: 1.5, ease: 'easeOut' }}
                     >
                         {/* Brand Name - MASSIVE, PURE WHITE, CARVED INTO SPACE */}
                         <h1
-                            className="font-display font-black text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight mb-3 sm:mb-4"
+                            className="font-display font-black text-white text-4xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tight mb-2 sm:mb-3 md:mb-4"
                             style={{
                                 lineHeight: '0.9',
                                 textShadow: '0 4px 40px rgba(255, 255, 255, 0.1), 0 0 80px rgba(255, 255, 255, 0.05)',
@@ -87,9 +87,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                         {/* Tagline - THE WHISPER (Dull/Faded) */}
                         <p
-                            className="text-white/40 text-xs sm:text-sm font-light tracking-[0.5em] uppercase"
+                            className="text-white/40 text-[10px] sm:text-xs md:text-sm font-light tracking-[0.3em] sm:tracking-[0.5em] uppercase"
                             style={{
-                                letterSpacing: '0.5em',
+                                letterSpacing: '0.3em',
                             }}
                         >
                             Your Personal Tech Partner

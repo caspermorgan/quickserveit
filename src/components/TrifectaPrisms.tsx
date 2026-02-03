@@ -59,7 +59,7 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
     return (
         <div className="w-full max-w-5xl mx-auto px-4">
             {/* Desktop: 3 Columns | Mobile: Stacked */}
-            <div className="flex flex-col lg:flex-row gap-2 lg:gap-6">
+            <div className="flex flex-col lg:flex-row gap-3 lg:gap-6">
                 {prisms.map((prism, index) => {
                     const isHovered = hoveredPrism === prism.id;
                     const Icon = prism.icon;
