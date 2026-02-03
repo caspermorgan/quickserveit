@@ -35,7 +35,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
     return (
         <div
-            className={`h-[100dvh] overflow-hidden z-30 transition-all duration-slowest ease-out ${isExiting
+            className={`fixed inset-0 h-[100dvh] w-full overflow-hidden overscroll-none z-30 transition-all duration-slowest ease-out ${isExiting
                 ? 'opacity-0 scale-[1.02] blur-md pointer-events-none'
                 : 'opacity-100 scale-100 blur-0'
                 }`}
@@ -64,11 +64,11 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             </div>
 
             {/* MASTER CONTAINER - Perfect Vertical Distribution */}
-            <div className="relative z-40 h-full flex flex-col justify-between">
+            <div className="relative z-40 h-full flex flex-col justify-between pt-safe md:pt-4 pb-safe md:pb-4">
                 {/* ========== UPPER ATMOSPHERE (Header + Brand) ========== */}
-                <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+                <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 md:pt-20">
                     <motion.div
-                        className="text-center max-w-6xl w-full -mt-16 md:-mt-20"
+                        className="text-center max-w-6xl w-full -mt-12 md:-mt-20 scale-75 origin-top -mt-8 md:scale-100 md:mt-0"
                         initial={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
                         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                         transition={{ duration: 1.5, ease: 'easeOut' }}
@@ -98,14 +98,14 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 </div>
 
                 {/* ========== CONTROL DOCK (The Gates) ========== */}
-                <div className="px-4 sm:px-6 lg:px-8 pb-16 md:pb-20">
+                <div className="flex-shrink-0 px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
                     <TrifectaPrisms onEnter={handleGateEnter} />
                 </div>
 
                 {/* ========== THE ANCHOR (Footer Signature) ========== */}
-                <div className="pb-4 md:pb-6">
+                <div className="flex-shrink-0 pb-3 md:pb-6 z-50">
                     {/* Divider Line */}
-                    <div className="h-[1px] w-[90%] bg-white/10 mx-auto mb-3" />
+                    <div className="h-[1px] w-[90%] bg-white/10 mx-auto mb-2 md:mb-3" />
 
                     {/* Signature */}
                     <p className="font-mono text-[10px] uppercase tracking-widest text-white/30 text-center">

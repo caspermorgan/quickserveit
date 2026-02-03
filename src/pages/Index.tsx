@@ -60,7 +60,7 @@ const Index = () => {
         <link rel="canonical" href="https://quickserve.in" />
       </Helmet>
 
-      <main className="min-h-screen bg-background overflow-hidden">
+      <main className="h-screen bg-background overflow-hidden">
         {/* Landing View */}
         <LandingView
           mode={localMode}

@@ -59,7 +59,7 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
     return (
         <div className="w-full max-w-5xl mx-auto px-4">
             {/* Desktop: 3 Columns | Mobile: Stacked */}
-            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div className="flex flex-col lg:flex-row gap-2 lg:gap-6">
                 {prisms.map((prism, index) => {
                     const isHovered = hoveredPrism === prism.id;
                     const Icon = prism.icon;
@@ -75,8 +75,8 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
                                 bg-black/30 backdrop-blur-lg
                                 border ${isHovered ? prism.hoverBorderColor : prism.borderColor}
                                 transition-all duration-300 ease-out
-                                h-20 lg:h-28
-                                flex-1
+                                h-[4.5rem] lg:h-28
+                                flex-1 flex-shrink-0
                                 group
                                 rounded-lg
                             `}
