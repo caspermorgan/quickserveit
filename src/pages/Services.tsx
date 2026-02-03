@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import FloatingNavbar from '@/components/FloatingNavbar';
+import PageLayout from '@/components/PageLayout';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
@@ -76,7 +77,7 @@ const Services = () => {
       tagline: 'Error-Free. On Time. Every Time.',
       description: 'Professional typing and formatting of examination papers with strict quality protocols.',
       fullDescKey: 'Professional typing, formatting, and quality assurance for all types of examination papers. We handle everything from question papers to answer sheets with zero-error tolerance and strict confidentiality.',
-      features: ['160+ Papers Delivered', 'Zero Error Tolerance', '24-48hr Turnaround', 'Confidential Handling'],
+      features: ['350+ Papers Delivered', 'Zero Error Tolerance', '24-48hr Turnaround', 'Confidential Handling'],
       stepsKey: ['Document Receipt & Analysis', 'Professional Typing & Formatting', 'Multi-Level Quality Check', 'Secure Delivery'],
       needsKey: ['Original documents or clear scans', 'Formatting specifications', 'Delivery deadline', 'Contact information'],
       timelineKey: '24-48 hours',
@@ -389,34 +390,23 @@ const Services = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main className="min-h-screen bg-neutral-950 pt-24 pb-20 relative overflow-hidden">
-        {/* Background Effects */}
+      <PageLayout
+        title="THE HOLOGRAPHIC LAB"
+        subtitle={mode === 'institutional'
+          ? 'Precision-engineered solutions for educational institutions'
+          : 'Premium production services for content creators'}
+        mode={mode}
+        titleClassName={mode === 'institutional' ? 'text-institutional uppercase tracking-widest' : 'text-creator uppercase tracking-widest'}
+        showGradientOrbs={false}
+      >
+        {/* Custom Holographic Background Effects */}
         <div className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br ${mode === 'institutional' ? 'from-amber-500/10' : 'from-cyan-500/10'
-          } to-transparent blur-3xl opacity-30`} />
+          } to-transparent blur-3xl opacity-30 pointer-events-none`} />
         <div className={`absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr ${mode === 'institutional' ? 'from-amber-500/10' : 'from-cyan-500/10'
-          } to-transparent blur-3xl opacity-20`} />
-
-        {/* Header */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className={`text-4xl md:text-6xl font-bold mb-4 uppercase tracking-widest ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'
-              }`}>
-              THE HOLOGRAPHIC LAB
-            </h1>
-            <p className="text-lg text-foreground/60 tracking-wide">
-              {mode === 'institutional'
-                ? 'Precision-engineered solutions for educational institutions'
-                : 'Premium production services for content creators'}
-            </p>
-          </motion.div>
-        </div>
+          } to-transparent blur-3xl opacity-20 pointer-events-none`} />
 
         {/* Desktop: Holographic Split-Screen Layout */}
-        <div className="hidden lg:block container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="hidden lg:block relative z-10">
           <div className="grid grid-cols-12 gap-8 min-h-[700px]">
             {/* LEFT: Command Menu (Sticky) */}
             <div className="col-span-4">
@@ -434,9 +424,9 @@ const Services = () => {
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ x: 4 }}
                     className={`w-full text-left p-5 rounded-2xl transition-all duration-500 relative group ${activeService === index
-                        ? `bg-black/60 backdrop-blur-xl border-2 ${mode === 'institutional' ? 'border-amber-500/50 shadow-amber-500/20' : 'border-cyan-500/50 shadow-cyan-500/20'
-                        } shadow-2xl`
-                        : 'bg-black/20 backdrop-blur-sm border border-white/10 hover:bg-black/30 hover:border-white/20'
+                      ? `bg-black/60 backdrop-blur-xl border-2 ${mode === 'institutional' ? 'border-amber-500/50 shadow-amber-500/20' : 'border-cyan-500/50 shadow-cyan-500/20'
+                      } shadow-2xl`
+                      : 'bg-black/20 backdrop-blur-sm border border-white/10 hover:bg-black/30 hover:border-white/20'
                       }`}
                   >
                     {/* Glow Effect for Active */}
@@ -456,8 +446,8 @@ const Services = () => {
                           {service.title}
                         </h3>
                         <p className={`text-xs ${activeService === index
-                            ? mode === 'institutional' ? 'text-amber-500/80' : 'text-cyan-500/80'
-                            : 'text-foreground/40'
+                          ? mode === 'institutional' ? 'text-amber-500/80' : 'text-cyan-500/80'
+                          : 'text-foreground/40'
                           } line-clamp-1`}>
                           {service.tagline}
                         </p>
@@ -650,8 +640,8 @@ const Services = () => {
                 key={service.id}
                 onClick={() => handleServiceChange(index)}
                 className={`shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${activeService === index
-                    ? `bg-gradient-to-br ${service.color} shadow-lg scale-110`
-                    : 'bg-white/10 border border-white/20'
+                  ? `bg-gradient-to-br ${service.color} shadow-lg scale-110`
+                  : 'bg-white/10 border border-white/20'
                   }`}
               >
                 <service.icon className={`w-6 h-6 ${activeService === index ? 'text-white' : 'text-foreground/60'
@@ -771,7 +761,7 @@ const Services = () => {
             </motion.div>
           </AnimatePresence>
         </div>
-      </main>
+      </PageLayout>
 
       <Footer mode={mode} />
     </>

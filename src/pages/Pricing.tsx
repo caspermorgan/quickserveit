@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
+import PageLayout from '@/components/PageLayout';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
@@ -221,7 +222,6 @@ const Pricing = () => {
   const [activeServiceTab, setActiveServiceTab] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
-  const heroRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const subscriptionsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -248,7 +248,7 @@ const Pricing = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    const sections = [heroRef, servicesRef, subscriptionsRef, ctaRef];
+    const sections = [servicesRef, subscriptionsRef, ctaRef];
     sections.forEach(ref => {
       if (ref.current) {
         observer.observe(ref.current);
@@ -442,433 +442,401 @@ const Pricing = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <main id="main-content" className="min-h-screen bg-neutral-950 pt-24 sm:pt-28 md:pt-32 pb-28 sm:pb-28 md:pb-20 relative overflow-hidden">
-        {/* Background Gradient Orbs */}
-        <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] top-0 right-0 opacity-20`} />
-        <div className={`gradient-orb ${mode === 'institutional' ? 'gradient-orb-institutional' : 'gradient-orb-creator'} w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bottom-0 left-0 opacity-15`} />
+      <PageLayout
+        title={t('pricingHeroTitle')}
+        subtitle={t('pricingHeroSubtitle')}
+        mode={mode}
+        titleClassName={mode === 'institutional' ? 'text-institutional' : 'text-creator'}
+      >
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Hero Section */}
-          <div
-            ref={heroRef}
-            id="hero"
-            className={`text-center mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto transition-all duration-slower ease-out ${visibleSections.has('hero') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
-            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4 sm:mb-5 md:mb-6 uppercase tracking-widest ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'
+        {/* Service-Based Pricing */}
+        <div
+          ref={servicesRef}
+          id="services"
+          className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <div className="text-center mb-6 sm:mb-8">
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
               }`}>
-              {t('pricingHeroTitle')}
-            </h1>
-            <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4 tracking-wide">
-              {t('pricingHeroSubtitle')}
-            </p>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-foreground/50">
-              <div className="flex items-center gap-2">
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'}`} />
-                <span>{t('pricingTrust1')}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'}`} />
-                <span>{t('pricingTrust2')}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className={`w-4 h-4 ${mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'}`} />
-                <span>{t('pricingTrust3')}</span>
-              </div>
+              <Zap className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              <span className={`text-xs ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                {mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}
+              </span>
             </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-2 sm:mb-3">
+              Service-Based <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Pricing</span>
+            </h2>
+            <p className="text-foreground/60 text-sm sm:text-base">
+              Perfect for one-time projects or occasional needs
+            </p>
           </div>
 
-          {/* Service-Based Pricing */}
-          <div
-            ref={servicesRef}
-            id="services"
-            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-100 ${visibleSections.has('services') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
-            <div className="text-center mb-6 sm:mb-8">
-              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
-                }`}>
-                <Zap className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className={`text-xs ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                  {mode === 'institutional' ? 'Pay Per Task' : 'Pay Per Project'}
-                </span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-2 sm:mb-3">
-                Service-Based <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Pricing</span>
-              </h2>
-              <p className="text-foreground/60 text-sm sm:text-base">
-                Perfect for one-time projects or occasional needs
-              </p>
-            </div>
+          {/* Tab Navigation */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 max-w-4xl mx-auto">
+            {currentTabs.map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveServiceTab(tab.id)}
+                  className={`inline-flex items-center gap-2 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-full font-medium text-xs sm:text-sm md:text-base transition-all duration-normal min-h-[44px] ${activeServiceTab === tab.id
+                    ? `${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background shadow-lg ${mode === 'institutional' ? 'shadow-institutional/30' : 'shadow-creator/30'} scale-105`
+                    : `glass-card border border-border/20 ${mode === 'institutional' ? 'hover:border-institutional/40' : 'hover:border-creator/40'} text-foreground/70 hover:text-foreground hover:scale-102`
+                    }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
+                </button>
+              );
+            })}
+          </div>
 
-            {/* Tab Navigation */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 max-w-4xl mx-auto">
-              {currentTabs.map((tab) => {
-                const Icon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveServiceTab(tab.id)}
-                    className={`inline-flex items-center gap-2 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-full font-medium text-xs sm:text-sm md:text-base transition-all duration-normal min-h-[44px] ${activeServiceTab === tab.id
-                      ? `${mode === 'institutional' ? 'bg-institutional' : 'bg-creator'} text-background shadow-lg ${mode === 'institutional' ? 'shadow-institutional/30' : 'shadow-creator/30'} scale-105`
-                      : `glass-card border border-border/20 ${mode === 'institutional' ? 'hover:border-institutional/40' : 'hover:border-creator/40'} text-foreground/70 hover:text-foreground hover:scale-102`
-                      }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span className="hidden sm:inline">{tab.label}</span>
-                    <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Tab Content */}
-            <div className="max-w-7xl mx-auto">
-              {currentTab.isGrid && currentTab.plans ? (
-                // Grid Layout for Video Production and Design Services
-                <div className="animate-fade-in">
-                  <div className={`grid ${currentTab.plans.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-2'} gap-4 sm:gap-6 mb-6 sm:mb-8`}>
-                    {currentTab.plans.map((plan, idx) => (
-                      <div
-                        key={idx}
-                        className={`group glass-card rounded-2xl p-4 sm:p-6 md:p-8 border ${mode === 'institutional' ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20' : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'} hover:shadow-xl transition-all duration-slow hover:scale-[1.02]`}
-                      >
-                        {plan.subtitle ? (
-                          <>
-                            <h3 className={`text-xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{plan.name}</h3>
-                            <p className="text-sm text-foreground/40 mb-6">{plan.subtitle}</p>
-                            <div className="space-y-3 mb-6">
-                              {plan.items?.map((item, i) => (
-                                <div key={i} className={`flex items-start justify-between gap-4 p-3 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
-                                  <div className="flex-1">
-                                    <p className="font-medium text-foreground mb-1 text-sm">{item.name}</p>
-                                    <p className="text-xs text-foreground/50">{item.desc}</p>
-                                  </div>
-                                  <div className="text-right">
-                                    <p className={`text-lg font-bold ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{item.price}</p>
-                                  </div>
+          {/* Tab Content */}
+          <div className="max-w-7xl mx-auto">
+            {currentTab.isGrid && currentTab.plans ? (
+              // Grid Layout for Video Production and Design Services
+              <div className="animate-fade-in">
+                <div className={`grid ${currentTab.plans.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-2'} gap-4 sm:gap-6 mb-6 sm:mb-8`}>
+                  {currentTab.plans.map((plan, idx) => (
+                    <div
+                      key={idx}
+                      className={`group glass-card rounded-2xl p-4 sm:p-6 md:p-8 border ${mode === 'institutional' ? 'border-institutional/30 hover:border-institutional/50 hover:shadow-institutional/20' : 'border-creator/30 hover:border-creator/50 hover:shadow-creator/20'} hover:shadow-xl transition-all duration-slow hover:scale-[1.02]`}
+                    >
+                      {plan.subtitle ? (
+                        <>
+                          <h3 className={`text-xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{plan.name}</h3>
+                          <p className="text-sm text-foreground/40 mb-6">{plan.subtitle}</p>
+                          <div className="space-y-3 mb-6">
+                            {plan.items?.map((item, i) => (
+                              <div key={i} className={`flex items-start justify-between gap-4 p-3 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
+                                <div className="flex-1">
+                                  <p className="font-medium text-foreground mb-1 text-sm">{item.name}</p>
+                                  <p className="text-xs text-foreground/50">{item.desc}</p>
                                 </div>
-                              ))}
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10 group-hover:bg-institutional/20' : 'bg-creator/10 group-hover:bg-creator/20'} transition-colors duration-normal`}>
-                              {plan.name === 'Starter' && <Video className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
-                              {plan.name === 'Growth' && <TrendingUp className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
-                              {plan.name === 'Authority' && <Crown className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
-                              {plan.name === 'Series Plan' && <Sparkles className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
-                            </div>
-                            <h3 className={`text-xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{plan.name}</h3>
-                            <p className="text-sm text-foreground/40 mb-4">{plan.desc}</p>
-                            <div className="mb-6">
-                              <div className={`text-4xl md:text-3xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{plan.price}</div>
-                              <p className="text-xs text-foreground/40">Per {plan.name === 'Series Plan' ? 'series' : 'video'}</p>
-                            </div>
-                            <div className="space-y-2.5 mb-6">
-                              {plan.features?.map((feature, i) => (
-                                <div key={i} className="flex items-center gap-2 text-sm text-foreground/70 group-hover:text-foreground group-hover:translate-x-1 transition-all duration-normal">
-                                  <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                                  <span>{feature}</span>
+                                <div className="text-right">
+                                  <p className={`text-lg font-bold ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{item.price}</p>
                                 </div>
-                              ))}
-                            </div>
-                          </>
-                        )}
-                        <div className={`p-3 rounded-lg mb-6 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
-                          <p className="text-xs text-foreground/60">
-                            <span className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                              {plan.subtitle ? 'Perfect for:' : plan.name === 'Series Plan' ? 'Complex:' : 'Simple:'}
-                            </span> {plan.note}
-                          </p>
-                        </div>
-                        <button
-                          onClick={() => navigate('/contact')}
-                          className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-normal hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background`}
-                        >
-                          Get Started
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                  <div className={`p-5 rounded-lg border-l-4 max-w-3xl mx-auto ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/40' : 'bg-creator/5 border-creator/40'}`}>
-                    <div className="flex items-start gap-3 mb-3">
-                      <Star className={`w-5 h-5 mt-0.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                      <p className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                        {currentTab.id === 0 ? 'Long-Form Excellence' : 'Design Excellence'}
-                      </p>
-                    </div>
-                    <p className="text-sm text-foreground/70 leading-relaxed">{currentTab.highlight}</p>
-                  </div>
-                </div>
-              ) : currentTab.policies ? (
-                // Terms & Policy Layout
-                <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border animate-fade-in max-w-3xl mx-auto ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'}`}>
-                  <div className="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
-                      <ShieldCheck className={`w-7 h-7 sm:w-8 sm:h-8 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className={`text-xl sm:text-2xl font-display mb-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                        {currentTab.title}
-                      </h3>
-                      <p className="text-foreground/60 leading-relaxed text-sm sm:text-base">{currentTab.description}</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
-                    {currentTab.policies.map((policy, idx) => (
-                      <div key={idx} className={`p-4 sm:p-5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
-                        <p className="font-medium text-foreground mb-3 sm:mb-4 text-base sm:text-lg">{policy.title}</p>
-                        <div className="space-y-3">
-                          {policy.items.map((item, i) => (
-                            <div key={i} className="flex items-start gap-3">
-                              <CheckCircle className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                              <div>
-                                <p className="text-foreground mb-1 font-medium text-sm sm:text-base">{item.label}</p>
-                                <p className="text-xs sm:text-sm text-foreground/60">{item.desc}</p>
                               </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                    {currentTab.deliveryNote && (
-                      <div className={`p-4 sm:p-5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
-                        <p className="font-medium text-foreground mb-2 sm:mb-3 text-base sm:text-lg">Delivery Timeline</p>
-                        <p className="text-foreground/70 leading-relaxed text-sm sm:text-base">
-                          <span className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Standard:</span> {currentTab.deliveryNote}
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${mode === 'institutional' ? 'bg-institutional/10 group-hover:bg-institutional/20' : 'bg-creator/10 group-hover:bg-creator/20'} transition-colors duration-normal`}>
+                            {plan.name === 'Starter' && <Video className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
+                            {plan.name === 'Growth' && <TrendingUp className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
+                            {plan.name === 'Authority' && <Crown className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
+                            {plan.name === 'Series Plan' && <Sparkles className={`w-7 h-7 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />}
+                          </div>
+                          <h3 className={`text-xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{plan.name}</h3>
+                          <p className="text-sm text-foreground/40 mb-4">{plan.desc}</p>
+                          <div className="mb-6">
+                            <div className={`text-4xl md:text-3xl font-display mb-1 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{plan.price}</div>
+                            <p className="text-xs text-foreground/40">Per {plan.name === 'Series Plan' ? 'series' : 'video'}</p>
+                          </div>
+                          <div className="space-y-2.5 mb-6">
+                            {plan.features?.map((feature, i) => (
+                              <div key={i} className="flex items-center gap-2 text-sm text-foreground/70 group-hover:text-foreground group-hover:translate-x-1 transition-all duration-normal">
+                                <CheckCircle className={`w-4 h-4 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                                <span>{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                      <div className={`p-3 rounded-lg mb-6 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
+                        <p className="text-xs text-foreground/60">
+                          <span className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                            {plan.subtitle ? 'Perfect for:' : plan.name === 'Series Plan' ? 'Complex:' : 'Simple:'}
+                          </span> {plan.note}
                         </p>
                       </div>
-                    )}
-                  </div>
-
-                  <div className={`p-4 sm:p-5 rounded-lg border-l-4 mb-6 ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/40' : 'bg-creator/5 border-creator/40'}`}>
-                    <div className="flex items-start gap-3 mb-3">
-                      <ShieldCheck className={`w-5 h-5 mt-0.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                      <p className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                        {mode === 'institutional' ? 'Trust Protocol' : 'Professional Partnership'}
-                      </p>
+                      <button
+                        onClick={() => navigate('/contact')}
+                        className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-full font-medium transition-all duration-normal hover:scale-[1.02] active:scale-[0.98] border ${mode === 'institutional' ? 'border-institutional hover:bg-institutional' : 'border-creator hover:bg-creator'} hover:text-background`}
+                      >
+                        Get Started
+                      </button>
                     </div>
-                    <p className="text-sm text-foreground/70 leading-relaxed">{currentTab.highlight}</p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
-                  >
-                    Contact Us
-                  </button>
+                  ))}
                 </div>
-              ) : (
-                // Standard List Layout
-                <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border animate-fade-in max-w-3xl mx-auto ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'}`}>
-                  <div className="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
-                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
-                      {React.createElement(currentTab.icon, { className: `w-7 h-7 sm:w-8 sm:h-8 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}` })}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className={`text-xl sm:text-2xl font-display mb-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                        {currentTab.title}
-                      </h3>
-                      <p className="text-foreground/60 leading-relaxed text-sm sm:text-base">{currentTab.description}</p>
-                    </div>
+                <div className={`p-5 rounded-lg border-l-4 max-w-3xl mx-auto ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/40' : 'bg-creator/5 border-creator/40'}`}>
+                  <div className="flex items-start gap-3 mb-3">
+                    <Star className={`w-5 h-5 mt-0.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                    <p className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                      {currentTab.id === 0 ? 'Long-Form Excellence' : 'Design Excellence'}
+                    </p>
                   </div>
+                  <p className="text-sm text-foreground/70 leading-relaxed">{currentTab.highlight}</p>
+                </div>
+              </div>
+            ) : currentTab.policies ? (
+              // Terms & Policy Layout
+              <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border animate-fade-in max-w-3xl mx-auto ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'}`}>
+                <div className="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+                  <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+                    <ShieldCheck className={`w-7 h-7 sm:w-8 sm:h-8 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-xl sm:text-2xl font-display mb-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                      {currentTab.title}
+                    </h3>
+                    <p className="text-foreground/60 leading-relaxed text-sm sm:text-base">{currentTab.description}</p>
+                  </div>
+                </div>
 
-                  <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                    {currentTab.items?.map((item, idx) => (
-                      <div key={idx} className={`flex items-start justify-between gap-4 p-4 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
-                        <div className="flex-1">
-                          <p className="font-medium text-foreground mb-1 text-sm sm:text-base">{item.name}</p>
-                          <p className="text-xs sm:text-sm text-foreground/50">{item.desc}</p>
-                        </div>
-                        <div className="text-right">
-                          <p className={`text-lg sm:text-xl font-bold ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{item.price}</p>
-                          <p className="text-xs text-foreground/40">Per {item.name.includes('Student') ? 'student' : item.name.includes('Short') ? 'short' : 'page'}</p>
-                        </div>
+                <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+                  {currentTab.policies.map((policy, idx) => (
+                    <div key={idx} className={`p-4 sm:p-5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
+                      <p className="font-medium text-foreground mb-3 sm:mb-4 text-base sm:text-lg">{policy.title}</p>
+                      <div className="space-y-3">
+                        {policy.items.map((item, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <CheckCircle className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                            <div>
+                              <p className="text-foreground mb-1 font-medium text-sm sm:text-base">{item.label}</p>
+                              <p className="text-xs sm:text-sm text-foreground/60">{item.desc}</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-
-                  <div className={`p-4 sm:p-5 rounded-lg border-l-4 mb-6 ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/40' : 'bg-creator/5 border-creator/40'}`}>
-                    <div className="flex items-start gap-3 mb-3">
-                      <Star className={`w-5 h-5 mt-0.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                      <p className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                        {currentTab.id === 1 && mode === 'institutional' ? 'Zero-Rejection Guarantee' : currentTab.id === 1 && mode === 'creator' ? 'Platform-Ready' : 'Value Promise'}
+                    </div>
+                  ))}
+                  {currentTab.deliveryNote && (
+                    <div className={`p-4 sm:p-5 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
+                      <p className="font-medium text-foreground mb-2 sm:mb-3 text-base sm:text-lg">Delivery Timeline</p>
+                      <p className="text-foreground/70 leading-relaxed text-sm sm:text-base">
+                        <span className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>Standard:</span> {currentTab.deliveryNote}
                       </p>
                     </div>
-                    <p className="text-sm text-foreground/70 leading-relaxed">{currentTab.highlight}</p>
-                  </div>
-
-                  <button
-                    onClick={() => navigate('/contact')}
-                    className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
-                  >
-                    Get Instant Quote
-                  </button>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
 
-          {/* Subscription Plans */}
-          <div
-            ref={subscriptionsRef}
-            id="subscriptions"
-            className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
-            <div className="text-center mb-8 sm:mb-10">
-              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
-                }`}>
-                <TrendingUp className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
-                <span className={`text-xs ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                  Save Up to {mode === 'institutional' ? '17%' : '40%'}
-                </span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-2 sm:mb-3">
-                <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Subscription</span> Plans
-              </h2>
-              <p className="text-foreground/60 text-sm sm:text-base">
-                {mode === 'institutional'
-                  ? 'Regular UDISE+ & scholarship support — better rates, priority service'
-                  : 'Consistent content output with better rates and priority support'
-                }
-              </p>
-              {mode === 'institutional' && (
-                <p className="text-foreground/40 text-xs mt-2">
-                  📄 Paper typing always billed separately at standard rates
-                </p>
-              )}
-            </div>
+                <div className={`p-4 sm:p-5 rounded-lg border-l-4 mb-6 ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/40' : 'bg-creator/5 border-creator/40'}`}>
+                  <div className="flex items-start gap-3 mb-3">
+                    <ShieldCheck className={`w-5 h-5 mt-0.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                    <p className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                      {mode === 'institutional' ? 'Trust Protocol' : 'Professional Partnership'}
+                    </p>
+                  </div>
+                  <p className="text-sm text-foreground/70 leading-relaxed">{currentTab.highlight}</p>
+                </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {mode === 'institutional' ? (
-                <>
-                  {/* Monthly Plan */}
-                  <PricingCardVIP
-                    mode={mode}
-                    plan={{
-                      name: 'Basic Support',
-                      price: '₹2,999',
-                      desc: 'Month-to-month flexibility',
-                      features: ['UDISE+ support included', 'Scholarship processing', 'Priority WhatsApp support', '48hr turnaround']
-                    }}
-                    onClick={() => navigate('/contact')}
-                    buttonText="Start Monthly Plan"
-                  />
-
-                  {/* 6-Month Plan - HIGHLIGHTED */}
-                  <PricingCardVIP
-                    mode={mode}
-                    plan={{
-                      name: 'Premium Support',
-                      price: '₹15,999',
-                      desc: 'Best value for schools',
-                      features: ['All Monthly benefits', '24hr priority turnaround', 'Dedicated support channel', 'Quarterly review calls']
-                    }}
-                    isPopular={true}
-                    badge="MOST POPULAR"
-                    onClick={() => navigate('/contact')}
-                    buttonText="Start 6-Month Plan"
-                  />
-
-                  {/* Annual Plan */}
-                  <PricingCardVIP
-                    mode={mode}
-                    plan={{
-                      name: 'Annual Partnership',
-                      price: '₹29,999',
-                      desc: 'Maximum savings',
-                      features: ['All 6-Month benefits', '12hr rush support available', 'Dedicated account manager', 'Annual planning support']
-                    }}
-                    onClick={() => navigate('/contact')}
-                    buttonText="Start Annual Plan"
-                  />
-                </>
-              ) : (
-                <>
-                  {/* Creator Monthly */}
-                  <PricingCardVIP
-                    mode={mode}
-                    plan={{
-                      name: 'Content Creator',
-                      price: 'Custom',
-                      desc: 'Regular uploaders',
-                      features: ['4-8 videos/month', 'Priority editing queue', 'Thumbnails included', 'Faster 48hr turnaround']
-                    }}
-                    onClick={() => navigate('/contact')}
-                    buttonText="Start Monthly Plan"
-                  />
-
-                  {/* Creator Quarterly - HIGHLIGHTED */}
-                  <PricingCardVIP
-                    mode={mode}
-                    plan={{
-                      name: 'Pro Creator',
-                      price: 'Custom',
-                      desc: 'Serious content creators',
-                      features: ['All Monthly benefits', '30% discount on all services', '24hr rush delivery option', 'Dedicated project manager']
-                    }}
-                    isPopular={true}
-                    badge="BEST VALUE"
-                    onClick={() => navigate('/contact')}
-                    buttonText="Start Pro Plan"
-                  />
-
-                  {/* Creator Annual */}
-                  <PricingCardVIP
-                    mode={mode}
-                    plan={{
-                      name: 'Elite Partnership',
-                      price: 'Custom',
-                      desc: 'Full-time creators',
-                      features: ['All Quarterly benefits', '40% discount - best rates', 'Up to 3 revision rounds', 'Dedicated editing team']
-                    }}
-                    onClick={() => navigate('/contact')}
-                    buttonText="Explore Elite Plan"
-                  />
-                </>
-              )}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div
-            ref={ctaRef}
-            id="cta"
-            className={`max-w-4xl mx-auto transition-all duration-slower ease-out delay-300 ${visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-          >
-            <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border text-center ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'}`}>
-              <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
-                {mode === 'institutional' ? <Users className="w-5 h-5 text-institutional" /> : <TrendingUp className="w-5 h-5 text-creator" />}
-                <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
-                  {mode === 'institutional' ? 'Trusted by Educational Institutions in Gorakhpur' : 'Trusted by Growing Content Creators'}
-                </p>
-              </div>
-
-              <blockquote className="text-foreground/70 leading-relaxed mb-6 sm:mb-8 italic text-base sm:text-lg">
-                "This pricing is designed for serious {mode === 'institutional' ? 'institutions' : 'creators'}. All work is scope-based, clearly defined, and executed professionally. Only what is written here is promised and delivered."
-              </blockquote>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={() => navigate('/contact')}
-                  className={`inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
+                  className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
                 >
-                  Get Custom Quote Now
+                  Contact Us
                 </button>
-                <p className="text-xs text-foreground/40">
-                  💬 {mode === 'institutional' ? 'Response within 2 hours • No obligation' : 'Free consultation • Portfolio review included'}
-                </p>
               </div>
+            ) : (
+              // Standard List Layout
+              <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border animate-fade-in max-w-3xl mx-auto ${mode === 'institutional' ? 'border-institutional/30' : 'border-creator/30'}`}>
+                <div className="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+                  <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center shrink-0 ${mode === 'institutional' ? 'bg-institutional/10' : 'bg-creator/10'}`}>
+                    {React.createElement(currentTab.icon, { className: `w-7 h-7 sm:w-8 sm:h-8 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}` })}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-xl sm:text-2xl font-display mb-2 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                      {currentTab.title}
+                    </h3>
+                    <p className="text-foreground/60 leading-relaxed text-sm sm:text-base">{currentTab.description}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  {currentTab.items?.map((item, idx) => (
+                    <div key={idx} className={`flex items-start justify-between gap-4 p-4 rounded-lg ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'}`}>
+                      <div className="flex-1">
+                        <p className="font-medium text-foreground mb-1 text-sm sm:text-base">{item.name}</p>
+                        <p className="text-xs sm:text-sm text-foreground/50">{item.desc}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className={`text-lg sm:text-xl font-bold ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>{item.price}</p>
+                        <p className="text-xs text-foreground/40">Per {item.name.includes('Student') ? 'student' : item.name.includes('Short') ? 'short' : 'page'}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className={`p-4 sm:p-5 rounded-lg border-l-4 mb-6 ${mode === 'institutional' ? 'bg-institutional/5 border-institutional/40' : 'bg-creator/5 border-creator/40'}`}>
+                  <div className="flex items-start gap-3 mb-3">
+                    <Star className={`w-5 h-5 mt-0.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+                    <p className={`font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                      {currentTab.id === 1 && mode === 'institutional' ? 'Zero-Rejection Guarantee' : currentTab.id === 1 && mode === 'creator' ? 'Platform-Ready' : 'Value Promise'}
+                    </p>
+                  </div>
+                  <p className="text-sm text-foreground/70 leading-relaxed">{currentTab.highlight}</p>
+                </div>
+
+                <button
+                  onClick={() => navigate('/contact')}
+                  className={`w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-base sm:text-lg transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg`}
+                >
+                  Get Instant Quote
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Subscription Plans */}
+        <div
+          ref={subscriptionsRef}
+          id="subscriptions"
+          className={`mb-12 sm:mb-14 md:mb-16 transition-all duration-slower ease-out delay-200 ${visibleSections.has('subscriptions') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <div className="text-center mb-8 sm:mb-10">
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-3 ${mode === 'institutional' ? 'bg-institutional/5 border border-institutional/10' : 'bg-creator/5 border border-creator/10'
+              }`}>
+              <TrendingUp className={`w-3.5 h-3.5 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
+              <span className={`text-xs ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                Save Up to {mode === 'institutional' ? '17%' : '40%'}
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display mb-2 sm:mb-3">
+              <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Subscription</span> Plans
+            </h2>
+            <p className="text-foreground/60 text-sm sm:text-base">
+              {mode === 'institutional'
+                ? 'Regular UDISE+ & scholarship support — better rates, priority service'
+                : 'Consistent content output with better rates and priority support'
+              }
+            </p>
+            {mode === 'institutional' && (
+              <p className="text-foreground/40 text-xs mt-2">
+                📄 Paper typing always billed separately at standard rates
+              </p>
+            )}
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {mode === 'institutional' ? (
+              <>
+                {/* Monthly Plan */}
+                <PricingCardVIP
+                  mode={mode}
+                  plan={{
+                    name: 'Basic Support',
+                    price: '₹2,999',
+                    desc: 'Month-to-month flexibility',
+                    features: ['UDISE+ support included', 'Scholarship processing', 'Priority WhatsApp support', '48hr turnaround']
+                  }}
+                  onClick={() => navigate('/contact')}
+                  buttonText="Start Monthly Plan"
+                />
+
+                {/* 6-Month Plan - HIGHLIGHTED */}
+                <PricingCardVIP
+                  mode={mode}
+                  plan={{
+                    name: 'Premium Support',
+                    price: '₹15,999',
+                    desc: 'Best value for schools',
+                    features: ['All Monthly benefits', '24hr priority turnaround', 'Dedicated support channel', 'Quarterly review calls']
+                  }}
+                  isPopular={true}
+                  badge="MOST POPULAR"
+                  onClick={() => navigate('/contact')}
+                  buttonText="Start 6-Month Plan"
+                />
+
+                {/* Annual Plan */}
+                <PricingCardVIP
+                  mode={mode}
+                  plan={{
+                    name: 'Annual Partnership',
+                    price: '₹29,999',
+                    desc: 'Maximum savings',
+                    features: ['All 6-Month benefits', '12hr rush support available', 'Dedicated account manager', 'Annual planning support']
+                  }}
+                  onClick={() => navigate('/contact')}
+                  buttonText="Start Annual Plan"
+                />
+              </>
+            ) : (
+              <>
+                {/* Creator Monthly */}
+                <PricingCardVIP
+                  mode={mode}
+                  plan={{
+                    name: 'Content Creator',
+                    price: 'Custom',
+                    desc: 'Regular uploaders',
+                    features: ['4-8 videos/month', 'Priority editing queue', 'Thumbnails included', 'Faster 48hr turnaround']
+                  }}
+                  onClick={() => navigate('/contact')}
+                  buttonText="Start Monthly Plan"
+                />
+
+                {/* Creator Quarterly - HIGHLIGHTED */}
+                <PricingCardVIP
+                  mode={mode}
+                  plan={{
+                    name: 'Pro Creator',
+                    price: 'Custom',
+                    desc: 'Serious content creators',
+                    features: ['All Monthly benefits', '30% discount on all services', '24hr rush delivery option', 'Dedicated project manager']
+                  }}
+                  isPopular={true}
+                  badge="BEST VALUE"
+                  onClick={() => navigate('/contact')}
+                  buttonText="Start Pro Plan"
+                />
+
+                {/* Creator Annual */}
+                <PricingCardVIP
+                  mode={mode}
+                  plan={{
+                    name: 'Elite Partnership',
+                    price: 'Custom',
+                    desc: 'Full-time creators',
+                    features: ['All Quarterly benefits', '40% discount - best rates', 'Up to 3 revision rounds', 'Dedicated editing team']
+                  }}
+                  onClick={() => navigate('/contact')}
+                  buttonText="Explore Elite Plan"
+                />
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div
+          ref={ctaRef}
+          id="cta"
+          className={`max-w-4xl mx-auto transition-all duration-slower ease-out delay-300 ${visibleSections.has('cta') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+          <div className={`glass-card rounded-2xl p-6 sm:p-8 md:p-10 border text-center ${mode === 'institutional' ? 'border-institutional/20' : 'border-creator/20'}`}>
+            <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
+              {mode === 'institutional' ? <Users className="w-5 h-5 text-institutional" /> : <TrendingUp className="w-5 h-5 text-creator" />}
+              <p className={`text-sm font-medium ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`}>
+                {mode === 'institutional' ? 'Trusted by Educational Institutions in Gorakhpur' : 'Trusted by Growing Content Creators'}
+              </p>
+            </div>
+
+            <blockquote className="text-foreground/70 leading-relaxed mb-6 sm:mb-8 italic text-base sm:text-lg">
+              "This pricing is designed for serious {mode === 'institutional' ? 'institutions' : 'creators'}. All work is scope-based, clearly defined, and executed professionally. Only what is written here is promised and delivered."
+            </blockquote>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={() => navigate('/contact')}
+                className={`inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-fast hover:scale-[1.02] active:scale-[0.98] ${mode === 'institutional' ? 'bg-institutional hover:shadow-institutional/30' : 'bg-creator hover:shadow-creator/30'} text-background hover:shadow-lg text-sm sm:text-base`}
+              >
+                Get Custom Quote Now
+              </button>
+              <p className="text-xs text-foreground/40">
+                💬 {mode === 'institutional' ? 'Response within 2 hours • No obligation' : 'Free consultation • Portfolio review included'}
+              </p>
             </div>
           </div>
         </div>
-      </main>
+      </PageLayout>
 
       <Footer mode={mode} />
     </>

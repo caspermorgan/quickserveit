@@ -2,7 +2,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
-import GatewayCards from './GatewayCards';
+import TwinMonoliths from './TwinMonoliths';
 import { SkeletonLoader } from './SkeletonLoader';
 import { motion } from 'framer-motion';
 
@@ -63,68 +63,43 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                 <HeaderStatusBadge mode={mode} />
             </div>
 
-            {/* Main Content - Golden Ratio Mobile Layout */}
+            {/* Main Content - Twin Monoliths Layout */}
             <div className="relative z-40 w-full h-full flex flex-col">
-                {/* TOP 40% - HERO SECTION (Brand Name & Tagline) */}
-                <div className="flex-[0.40] flex items-center justify-center px-4 sm:px-6 lg:px-8">
+                {/* TOP SECTION - HERO (Brand Name & Tagline) */}
+                <div className="flex-[0.25] flex items-center justify-center px-4 sm:px-6 lg:px-8">
                     <motion.div
                         className="text-center max-w-6xl w-full px-2"
                         initial={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
                         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                         transition={{ duration: 1.5, ease: 'easeOut' }}
                     >
-                        {/* Brand Name - MASSIVE & BOLD - v5.1 */}
+                        {/* Brand Name - MASSIVE, PURE WHITE, CARVED INTO SPACE */}
                         <h1
-                            className="font-display font-black text-foreground mb-2 sm:mb-3"
+                            className="font-display font-black text-white text-7xl md:text-9xl tracking-tight mb-4 sm:mb-6"
                             style={{
-                                fontSize: 'clamp(2.8rem, 13vw, 10rem)',
-                                lineHeight: '0.95',
-                                letterSpacing: '-0.02em',
-                                whiteSpace: 'nowrap',
-                                background: 'linear-gradient(135deg, rgba(234,179,8,1) 0%, rgba(255,255,255,0.95) 50%, rgba(234,179,8,1) 100%)',
-                                backgroundSize: '200% 200%',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                backgroundClip: 'text',
-                                textShadow: '0 0 100px rgba(234, 179, 8, 0.25)',
-                                filter: 'drop-shadow(0 0 50px rgba(234, 179, 8, 0.2))',
+                                lineHeight: '0.9',
+                                textShadow: '0 4px 40px rgba(255, 255, 255, 0.1), 0 0 80px rgba(255, 255, 255, 0.05)',
                                 fontWeight: 900,
-                                animation: 'gradient-shift 8s ease-in-out infinite',
                             }}
                         >
-                            Quickserve IT
+                            QUICKSERVE IT
                         </h1>
 
-                        {/* Tagline - TINY & GENIUS MINIMALIST - v5.1 */}
+                        {/* Tagline - THE WHISPER */}
                         <p
-                            className="font-serif text-foreground/55 italic tracking-widest font-light transition-all duration-slow"
+                            className="text-neutral-500 text-sm font-light tracking-wider"
                             style={{
-                                fontSize: 'clamp(0.65rem, 1.5vw, 0.85rem)',
-                                fontFamily: "'Playfair Display', 'Georgia', serif",
-                                textShadow: '0 2px 15px rgba(255, 255, 255, 0.08)',
-                                fontWeight: 300,
-                                letterSpacing: '0.18em',
-                                textTransform: 'lowercase',
+                                letterSpacing: '0.2em',
                             }}
                         >
-                            your personal tech partner
+                            Your Personal Tech Partner
                         </p>
                     </motion.div>
                 </div>
 
-                {/* BOTTOM 60% - GATEWAY CARDS & FOOTER */}
-                <div className="flex-[0.60] flex flex-col justify-center px-0 pb-0">
-                    {/* Gateway Cards - Compact Jewel Cards */}
-                    <div className="w-full flex-1 flex items-center">
-                        <GatewayCards onEnter={handleGateEnter} />
-                    </div>
-
-                    {/* Footer - Compact & Professional */}
-                    <div className="mt-4 sm:mt-8 text-center border-t border-white/[0.1] pt-4 sm:pt-8">
-                        <p className="text-[10px] sm:text-xs text-foreground/45 font-mono tracking-wider">
-                            QuickServe IT © {new Date().getFullYear()}
-                        </p>
-                    </div>
+                {/* BOTTOM SECTION - THE TWIN MONOLITHS */}
+                <div className="flex-[0.75] flex flex-col justify-center px-0 pb-8">
+                    <TwinMonoliths onEnter={handleGateEnter} />
                 </div>
             </div>
         </div >

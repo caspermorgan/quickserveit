@@ -1,5 +1,6 @@
 import { Mail, MessageCircle, MapPin, Clock } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
+import RotatingGlobe from './RotatingGlobe';
 
 interface DirectLineInfoProps {
     mode: 'institutional' | 'creator';
@@ -36,8 +37,8 @@ const DirectLineInfo = ({ mode }: DirectLineInfoProps) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`flex items-start gap-4 p-4 rounded-xl border transition-all duration-300 hover:scale-[1.02] ${mode === 'institutional'
-                                ? 'border-institutional/20 hover:border-institutional/40 hover:bg-institutional/5'
-                                : 'border-creator/20 hover:border-creator/40 hover:bg-creator/5'
+                            ? 'border-institutional/20 hover:border-institutional/40 hover:bg-institutional/5'
+                            : 'border-creator/20 hover:border-creator/40 hover:bg-creator/5'
                             }`}
                     >
                         <MessageCircle className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -52,8 +53,8 @@ const DirectLineInfo = ({ mode }: DirectLineInfoProps) => {
                     <button
                         onClick={handleEmailCopy}
                         className={`w-full flex items-start gap-4 p-4 rounded-xl border transition-all duration-300 hover:scale-[1.02] text-left ${mode === 'institutional'
-                                ? 'border-border/20 hover:border-institutional/40 hover:bg-institutional/5'
-                                : 'border-border/20 hover:border-creator/40 hover:bg-creator/5'
+                            ? 'border-border/20 hover:border-institutional/40 hover:bg-institutional/5'
+                            : 'border-border/20 hover:border-creator/40 hover:bg-creator/5'
                             }`}
                     >
                         <Mail className={`w-5 h-5 mt-0.5 shrink-0 ${mode === 'institutional' ? 'text-institutional' : 'text-creator'}`} />
@@ -64,6 +65,11 @@ const DirectLineInfo = ({ mode }: DirectLineInfoProps) => {
                         </div>
                     </button>
                 </div>
+            </div>
+
+            {/* 3D Rotating Globe - Desktop Only */}
+            <div className="my-8">
+                <RotatingGlobe />
             </div>
 
             {/* Location & Hours */}
@@ -94,8 +100,8 @@ const DirectLineInfo = ({ mode }: DirectLineInfoProps) => {
 
             {/* Trust Badge */}
             <div className={`p-4 rounded-xl border-l-4 ${mode === 'institutional'
-                    ? 'bg-institutional/5 border-institutional/40'
-                    : 'bg-creator/5 border-creator/40'
+                ? 'bg-institutional/5 border-institutional/40'
+                : 'bg-creator/5 border-creator/40'
                 }`}>
                 <p className="text-xs text-foreground/70 leading-relaxed">
                     <span className="font-medium">Privacy Guaranteed:</span> All communications are confidential and handled with strict data protection protocols.

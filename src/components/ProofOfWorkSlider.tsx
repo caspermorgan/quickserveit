@@ -168,7 +168,7 @@ const ProofOfWorkSlider = () => {
                     className="text-center mt-8"
                 >
                     <p className="text-foreground/50 text-sm md:text-base">
-                        <span className="text-gradient-institutional font-semibold">160+ exam papers</span> transformed from handwritten chaos to professional clarity
+                        <span className="text-gradient-institutional font-semibold">350+ exam papers</span> transformed from handwritten chaos to professional clarity
                     </p>
                 </motion.div>
             </div>

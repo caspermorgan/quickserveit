@@ -11,10 +11,13 @@ export const translations = {
     brandTaglineCreator: 'Your calm digital partner for content creators.',
     betaVersion: 'Beta',
 
-    // Landing
-    secure: 'Secure',
-    india: 'India',
-    enter: 'Enter',
+    // Landing Page - Gates
+    instituteGateTitle: 'For Institutes',
+    instituteGateDesc: 'Let\'s reduce your workload.',
+    creatorGateTitle: 'For Creators',
+    creatorGateDesc: 'Let\'s amplify your voice.',
+    founderGateTitle: 'Founder\'s Vision',
+    founderGateDesc: 'The story behind the mission.',
 
     // Mode labels
     institutional: 'Institutional',
@@ -23,37 +26,27 @@ export const translations = {
     // Navigation
     home: 'Home',
     services: 'Services',
-    studio: 'Studio',
-    portfolio: 'Portfolio',
     about: 'About',
-    founder: 'Founder',
-    pricing: 'Pricing',
     contact: 'Contact',
 
     // Hero Section - Institutional
-    heroInst1: 'Calm Digital Execution',
-    heroInst2: 'Structured Academic Support',
-    heroInst3: 'Quiet Progress, Clear Files',
-    heroInst4: 'Trusted Institutional Partner',
-    heroInstDesc: 'Proven track record with 160+ exam papers typed and daily technical support for schools in Gorakhpur.',
+    heroInst1: 'Running a school is hard. We make it easier.',
+    heroInst2: 'You focus on the students\' future. Let us handle the exams, typing, and data compliance.',
+    heroInst3: 'Zero errors, zero stress.',
+    heroInst4: 'Your trusted partner in education.',
+    heroInstDesc: 'Trusted by schools across Gorakhpur for error-free documentation and daily support. You focus on teaching—we handle the rest.',
 
     // Hero Section - Creator
-    heroCreator1: 'Cinematic Content Creation',
-    heroCreator2: 'Retention-Style Editing',
-    heroCreator3: 'World-Class Production',
-    heroCreatorDesc: 'Now accepting select creators for beta testing our premium editing workflow.',
+    heroCreator1: 'You have the talent. We have the tools.',
+    heroCreator2: 'Editing shouldn\'t stop you from creating.',
+    heroCreator3: 'We are your technical backend, turning your raw ideas into polished content.',
+    heroCreatorDesc: 'We\'re your production partner—handling the technical work so you can focus on what you do best: creating.',
 
     // CTAs
-    getStarted: 'Get Started',
-    startCreating: 'Start Creating',
+    getStarted: 'Let\'s Grow Together',
+    learnMore: 'Learn More',
     viewServices: 'View Services',
-    seePortfolio: 'See Portfolio',
     contactUs: 'Contact Us',
-    getQuote: 'Get a Quote',
-    discussRetainer: 'Discuss Retainer',
-    explorePartnership: 'Explore Partnership',
-    discussPackage: 'Discuss Package',
-    startThisService: 'Start This Service',
 
     // Stats
     schoolsServed: 'Schools Served',
@@ -100,8 +93,8 @@ export const translations = {
 
 
     // Contact Form
-    contactTitle: 'Get In Touch',
-    contactSubtitle: 'Ready to discuss your project? Fill out the form below.',
+    contactTitle: 'Principal\'s Direct Line. We are listening.',
+    contactSubtitle: 'Got an idea? Let\'s discuss the strategy.',
     yourName: 'Your Name',
     mobileNumber: 'Mobile Number',
     emailAddress: 'Email Address',
@@ -111,7 +104,7 @@ export const translations = {
     generalInquiry: 'General Inquiry',
     yourMessage: 'Your Message',
     termsAgree: 'I agree to the terms & conditions',
-    sendMessage: 'Send Message',
+    sendMessage: 'Start the Conversation',
     messageSent: 'Message prepared! Redirecting to WhatsApp...',
 
     // Navigation - Additional
@@ -213,10 +206,10 @@ export const translations = {
     whatsappNote: 'Click to open WhatsApp with a pre-filled message',
 
     // Services - Institutional
-    examDocTitle: 'Exam Paper Typing',
-    examDocShort: 'Professional typing and formatting of exam question papers from handwritten or digital sources.',
+    examDocTitle: 'Exam Papers that arrive on time, every time.',
+    examDocShort: 'We handle the typing and formatting so your teachers can focus on teaching.',
     examDocMedium: 'Professional Question Paper Typing',
-    examDocFull: 'We streamline your examination process to save teacher time. You simply send us handwritten drafts or photos of questions. Our team professionally types, formats, and proofreads them into a secure, print-ready PDF. This ensures every question paper looks standardized, secure, and professional without burdening your staff.',
+    examDocFull: 'Running a school means juggling a thousand things at once. Exam papers shouldn\'t be one of them. Send us your handwritten drafts or photos—we\'ll turn them into professional, print-ready PDFs. No errors, no stress, just clean files delivered on time.',
     examDocSteps: 'Share raw question papers (PDF, Image, or Handwritten)|We type, format, and structure the questions|Review the draft for any corrections|Receive final print-ready files via Drive Link',
     examDocNeeds: 'Raw question content (Photo/PDF)|Exam pattern/format details|Subject and Class details|Submission deadline',
     examDocTimeline: 'Standard: 5-7 working days | Urgent: 2-3 working days (additional charges)',
@@ -781,6 +774,34 @@ export const translations = {
     footerDisclaimerInstitutional: 'quickserveit provides technical assistance and documentation services only. Academic correctness, student eligibility, and final record authenticity remain the sole responsibility of the institution. All files handled with strict confidentiality.',
     footerDisclaimerCreator: 'quickserveit provides creative production and technical execution only. Reach, monetization, and performance depend on platform algorithms; production quality is our focus. All files handled with strict confidentiality.',
 
+    // Footer - Architectural Foundation
+    footerBrandName: 'QUICKSERVE IT',
+    footerLocation: 'GORAKHPUR, UP',
+    footerCoordinates: '26.7606° N, 83.3732° E',
+    footerIdentityTitle: 'Identity & Coordinates',
+    footerNavigationTitle: 'Navigation',
+    footerCommunicationTitle: 'Get in Touch',
+    footerSystemReady: 'System Ready',
+    footerEstablished: 'Established 2025',
+    footerConfidential: 'CONFIDENTIAL',
+    footerAllRightsReserved: 'All Rights Reserved',
+    footerLegalTitle: 'Legal',
+    footerAvailability: 'Availability',
+    footerCopyright: '© 2025 quickserveit',
+    footerDataSecurity: 'All data handled with strict confidentiality',
+    footerNavHome: 'Home',
+    footerNavServices: 'Services',
+    footerNavAbout: 'About',
+    footerNavPricing: 'Pricing',
+    footerNavContact: 'Contact',
+    footerNavFounder: 'Founder',
+    footerLegalPrivacy: 'Privacy',
+    footerLegalTerms: 'Terms',
+    footerLegalDisclaimer: 'Disclaimer',
+    footerLegalFAQ: 'FAQ',
+    footerWhatsAppCTA: 'Chat on WhatsApp',
+    footerWhatsAppDesc: 'Preferred communication channel for all inquiries.',
+
     // How It Works
     processStep1Title: 'Contact',
     processStep1Desc: 'Reach out via WhatsApp or form with your initial requirements.',
@@ -1028,10 +1049,13 @@ export const translations = {
     brandTaglineCreator: 'कंटेंट क्रिएटर्स के लिए आपका शांत डिजिटल साथी।',
     betaVersion: 'बीटा',
 
-    // Landing
-    secure: 'सुरक्षित',
-    india: 'भारत',
-    enter: 'आगे बढ़ें',
+    // Landing Page - Gates
+    instituteGateTitle: 'शिक्षण संस्थानों के लिए',
+    instituteGateDesc: 'चलिए आपका बोझ कम करते हैं।',
+    creatorGateTitle: 'क्रिएटर्स के लिए',
+    creatorGateDesc: 'आपकी आवाज़, हमारी तकनीक।',
+    founderGateTitle: 'संस्थापक का विज़न',
+    founderGateDesc: 'इस मिशन के पीछे की कहानी।',
 
     // Mode labels
     institutional: 'स्कूल/कॉलेज के लिए',
@@ -1040,36 +1064,27 @@ export const translations = {
     // Navigation
     home: 'होम',
     services: 'सेवाएं',
-    studio: 'स्टूडियो',
-    portfolio: 'पोर्टफोलियो',
     about: 'हमारे बारे में',
-    founder: 'संस्थापक',
-    pricing: 'कीमत',
     contact: 'संपर्क करें',
 
     // Hero Section - Institutional
-    heroInst1: 'डिजिटल काम को आसान बनाएं',
-    heroInst2: 'स्कूल के काम में मदद',
-    heroInst3: 'शांति से काम, साफ फाइलें',
-    heroInst4: 'भरोसेमंद साथी',
-    heroInstDesc: 'गोरखपुर के स्कूलों के लिए 160+ परीक्षा पेपर टाइप किए और दैनिक तकनीकी सहायता के साथ सिद्ध ट्रैक रिकॉर्ड।',
+    heroInst1: 'स्कूल चलाना आसान नहीं है। हम इसे सरल बनाते हैं।',
+    heroInst2: 'आप बच्चों के भविष्य पर ध्यान दें। परीक्षा, टाइपिंग और डेटा का काम हम संभालेंगे।',
+    heroInst3: 'बिना किसी गलती के, बिना किसी तनाव के।',
+    heroInst4: 'शिक्षा में आपके भरोसेमंद साथी।',
+    heroInstDesc: 'गोरखपुर के स्कूलों द्वारा त्रुटि-मुक्त दस्तावेज़ीकरण और रोज़ की मदद के लिए भरोसेमंद। आप पढ़ाने पर ध्यान दें—बाकी काम हम संभालेंगे।',
 
     // Hero Section - Creator
-    heroCreator1: 'प्रोफेशनल वीडियो बनाएं',
-    heroCreator2: 'दर्शकों को बांधे रखने वाला एडिटिंग',
-    heroCreator3: 'बेहतरीन क्वालिटी',
-    heroCreatorDesc: 'अब हमारे प्रीमियम एडिटिंग वर्कफ़्लो के बीटा टेस्टिंग के लिए चुनिंदा क्रिएटर्स को स्वीकार कर रहे हैं।',
+    heroCreator1: 'हुनर आपका। तकनीक हमारी।',
+    heroCreator2: 'एडिटिंग की वजह से आपका कंटेंट नहीं रुकना चाहिए।',
+    heroCreator3: 'हम आपके टेक्निकल पार्टनर हैं, जो आपके विचारों को वीडियो में बदलते हैं।',
+    heroCreatorDesc: 'हम आपके प्रोडक्शन साथी हैं—तकनीकी काम संभालते हैं ताकि आप अपने बेस्ट काम पर ध्यान दे सकें: कंटेंट बनाना।',
 
     // CTAs
-    getStarted: 'शुरू करें',
-    startCreating: 'बनाना शुरू करें',
+    getStarted: 'चलिए शुरुआत करते हैं',
+    learnMore: 'और जानें',
     viewServices: 'सेवाएं देखें',
-    seePortfolio: 'हमारा काम देखें',
     contactUs: 'संपर्क करें',
-    getQuote: 'कीमत जानें',
-    discussRetainer: 'मासिक प्लान पर बात करें',
-    explorePartnership: 'साथ मिलकर काम करें',
-    discussPackage: 'पैकेज पर बात करें',
     startThisService: 'यह सेवा लें',
 
     // Stats
@@ -1116,8 +1131,8 @@ export const translations = {
     valueCommittedDesc: 'आपकी वृद्धि हमारा मिशन है। हम आपके चैनल, दर्शकों और लक्ष्यों को समझने में निवेश करते हैं ताकि सुसंगत, रणनीतिक सहायता प्रदान कर सकें।',
 
     // Contact Form
-    contactTitle: 'हमसे बात करें',
-    contactSubtitle: 'अपने काम के बारे में बताने के लिए नीचे फॉर्म भरें।',
+    contactTitle: 'प्रधानाचार्य सहायता केंद्र। हम आपकी बात सुनने के लिए तैयार हैं।',
+    contactSubtitle: 'कोई नया विचार है? चलिए रणनीति बनाते हैं।',
     yourName: 'आपका नाम',
     mobileNumber: 'मोबाइल नंबर',
     emailAddress: 'ईमेल',
@@ -1127,7 +1142,7 @@ export const translations = {
     generalInquiry: 'सामान्य जानकारी',
     yourMessage: 'आपका संदेश',
     termsAgree: 'मैं नियम और शर्तों से सहमत हूं',
-    sendMessage: 'भेजें',
+    sendMessage: 'बातचीत शुरू करें',
     messageSent: 'संदेश तैयार! WhatsApp खुल रहा है...',
 
     // Navigation - Additional - Hindi
@@ -1228,10 +1243,10 @@ export const translations = {
     whatsappNote: 'WhatsApp खोलने के लिए क्लिक करें (संदेश पहले से लिखा होगा)',
 
     // Services - Institutional
-    examDocTitle: 'परीक्षा पेपर टाइपिंग',
-    examDocShort: 'हाथ से लिखे या डिजिटल प्रश्न पत्रों की प्रोफेशनल टाइपिंग और फॉर्मेटिंग।',
+    examDocTitle: 'परीक्षा के पेपर, जो हमेशा समय पर मिलेंगे।',
+    examDocShort: 'हम टाइपिंग और फॉर्मेटिंग संभालते हैं ताकि आपके शिक्षक पढ़ाने पर ध्यान दे सकें।',
     examDocMedium: 'प्रोफेशनल प्रश्न पत्र टाइपिंग',
-    examDocFull: 'हम आपकी परीक्षा प्रक्रिया को सुव्यवस्थित करते हैं ताकि शिक्षकों का समय बचे। आप बस हमें हाथ से लिखे प्रश्न भेजें। हमारी टीम उन्हें प्रोफेशनल तरीके से टाइप और फॉर्मेट करके एक सुरक्षित, प्रिंट-तैयार PDF में बदल देती है। यह सुनिश्चित करता है कि हर पेपर मानकीकृत (Standardized) और सुरक्षित हो।',
+    examDocFull: 'स्कूल चलाने का मतलब है हज़ार चीज़ों को एक साथ संभालना। परीक्षा पेपर उनमें से एक नहीं होना चाहिए। हमें अपने हाथ से लिखे ड्राफ्ट या फोटो भेजें—हम उन्हें प्रोफेशनल, प्रिंट-रेडी PDF में बदल देंगे। कोई गलती नहीं, कोई तनाव नहीं, बस साफ फाइलें समय पर।',
     examDocSteps: 'कच्चे प्रश्न पत्र साझा करें (PDF, इमेज या हस्तलिखित)|हम प्रश्नों को टाइप और फॉर्मेट करते हैं|सुधार के लिए ड्राफ्ट चेक करें|ड्राइव लिंक के जरिए फाइनल फाइल प्राप्त करें',
     examDocNeeds: 'कच्चे प्रश्न (फोटो/पीडीएफ)|परीक्षा पैटर्न/फॉर्मेट की जानकारी|विषय और कक्षा का विवरण|समय सीमा',
     examDocTimeline: 'मानक: 5-7 कार्य दिवस | तत्काल: 2-3 कार्य दिवस (अतिरिक्त शुल्क)',
@@ -1651,6 +1666,34 @@ export const translations = {
     // Footer Disclaimers
     footerDisclaimerInstitutional: 'quickserveit केवल तकनीकी सहायता और दस्तावेज़ीकरण सेवाएं प्रदान करता है। शैक्षणिक शुद्धता, छात्र पात्रता, और अंतिम रिकॉर्ड प्रामाणिकता संस्था की एकमात्र जिम्मेदारी है। सभी फाइलें सख्त गोपनीयता के साथ संभाली जाती हैं।',
     footerDisclaimerCreator: 'quickserveit केवल रचनात्मक प्रोडक्शन और तकनीकी निष्पादन प्रदान करता है। पहुंच, मुद्रीकरण, और प्रदर्शन प्लेटफॉर्म एल्गोरिदम पर निर्भर करते हैं; प्रोडक्शन गुणवत्ता हमारा फोकस है। सभी फाइलें सख्त गोपनीयता के साथ संभाली जाती हैं।',
+
+    // Footer - Architectural Foundation
+    footerBrandName: 'QUICKSERVE IT',
+    footerLocation: 'गोरखपुर, उत्तर प्रदेश',
+    footerCoordinates: '26.7606° N, 83.3732° E',
+    footerIdentityTitle: 'पहचान और निर्देशांक',
+    footerNavigationTitle: 'नेविगेशन',
+    footerCommunicationTitle: 'संपर्क करें',
+    footerSystemReady: 'सिस्टम तैयार',
+    footerEstablished: 'स्थापित 2025',
+    footerConfidential: 'गोपनीय',
+    footerAllRightsReserved: 'सर्वाधिकार सुरक्षित',
+    footerLegalTitle: 'कानूनी',
+    footerAvailability: 'उपलब्धता',
+    footerCopyright: '© 2025 quickserveit',
+    footerDataSecurity: 'सभी डेटा सख्त गोपनीयता के साथ संभाला जाता है',
+    footerNavHome: 'होम',
+    footerNavServices: 'सेवाएं',
+    footerNavAbout: 'हमारे बारे में',
+    footerNavPricing: 'कीमत',
+    footerNavContact: 'संपर्क करें',
+    footerNavFounder: 'संस्थापक',
+    footerLegalPrivacy: 'गोपनीयता',
+    footerLegalTerms: 'नियम',
+    footerLegalDisclaimer: 'अस्वीकरण',
+    footerLegalFAQ: 'FAQ',
+    footerWhatsAppCTA: 'WhatsApp पर चैट करें',
+    footerWhatsAppDesc: 'सभी पूछताछ के लिए पसंदीदा संचार चैनल।',
 
     // How We Work Section
     howWeWorkTitle: 'हम कैसे काम करते हैं',

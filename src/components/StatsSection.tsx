@@ -20,7 +20,7 @@ const StatsSection = ({ mode }: StatsSectionProps) => {
 
     // Mode-specific stats
     const institutionalStats: StatItem[] = [
-        { value: 160, suffix: '+', label: t('statsProjectsCompleted') },
+        { value: 350, suffix: '+', label: t('statsProjectsCompleted') },
         { value: 2, suffix: '+', label: t('statsInstitutionsServed') },
         { value: 50, suffix: '+', label: t('statsClientSatisfaction') },
         { value: 100, suffix: '%', label: t('statsResponseTime') },

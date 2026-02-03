@@ -23,7 +23,7 @@ const StatsTeaser = ({ mode }: StatsTeaserProps) => {
     // Mode-specific stats
     const institutionalStats: StatItem[] = [
         {
-            value: 160,
+            value: 350,
             suffix: '+',
             label: 'Papers Typed',
             tooltip: 'See our track record',

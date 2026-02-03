@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SpeedInsights } from "@/components/SpeedInsights";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense, useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { ModeProvider, useMode } from "@/context/ModeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -12,10 +12,11 @@ import SkipToContent from "@/components/SkipToContent";
 import PageTransition from "@/components/motion/PageTransition";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import PageSkeletonLoader from "@/components/SkeletonLoader";
+import SystemBoot from "@/components/SystemBoot";
 import { initGA, logPageView } from "@/utils/analytics";
 
 // Lazy load all page components for better performance
-const Landing = lazy(() => import("./pages/Landing"));
+const Landing = lazy(() => import("./pages/Index"));
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/Services"));
 const Pricing = lazy(() => import("./pages/Pricing"));
@@ -120,10 +121,27 @@ const AppRoutes = () => {
 };
 
 const App = () => {
+  const [showBoot, setShowBoot] = useState(() => {
+    // Check if boot sequence has been shown in this session
+    const hasBooted = sessionStorage.getItem('systemBooted');
+    return !hasBooted;
+  });
+
   // Initialize Google Analytics on mount
   useEffect(() => {
     initGA(); // Replace 'G-XXXXXXXXXX' in analytics.ts with your actual GA4 Measurement ID
   }, []);
+
+  const handleBootComplete = () => {
+    // Mark boot as complete in session storage
+    sessionStorage.setItem('systemBooted', 'true');
+    setShowBoot(false);
+  };
+
+  // Show boot sequence on first load
+  if (showBoot) {
+    return <SystemBoot onBootComplete={handleBootComplete} />;
+  }
 
   return (
     <QueryClientProvider client={queryClient}>

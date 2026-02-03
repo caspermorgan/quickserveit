@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* Core Dark Background */
-    --background: 0 0% 0.4%;
+    /* Core Dark Background - Unified Deep Black */
+    --background: 0 0% 2%;
     --foreground: 0 0% 98%;
 
     /* Card surfaces */
