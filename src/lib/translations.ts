@@ -349,6 +349,59 @@ export const translations = {
     aboutValueSpeedTitle: 'Speed',
     aboutValueSpeedDesc: '24h Turnaround. Realistic timelines with honest communication. Urgent work gets priority treatment without compromising quality. We respect your deadlines.',
 
+    // Institute About Page (InstAbout.tsx)
+    instAboutTitle: 'INSTITUTIONAL STANDARD',
+    instAboutTitleHindi: 'संस्थान के मानक',
+    instAboutSubtitle: 'Accuracy. Confidentiality. Timeliness.',
+    instAboutSubtitleHindi: 'शुद्धता। गोपनीयता। समयबद्धता।',
+
+    instAboutMissionTitle: 'The Mission',
+    instAboutMissionContent: 'We are not just typists; we are data custodians. Our mission is to digitize every educational institute with 0% error rate and 100% compliance.',
+    instAboutMissionContentHindi: 'हमारा उद्देश्य शिक्षण संस्थानों को डिजिटल बनाना है—बिना किसी गलती के।',
+
+    instAboutWhyUsTitle: 'Why Us?',
+
+    instAboutPrivacyTitle: 'Military-Grade Data Privacy',
+    instAboutPrivacyTitleHindi: 'आपका डेटा सुरक्षित है।',
+    instAboutPrivacyDesc: 'Every student record, exam paper, and institutional file is handled with strict privacy protocols. Your data is never shared, always protected.',
+
+    instAboutSpeedTitle: '24-Hour Exam Paper Turnaround',
+    instAboutSpeedTitleHindi: 'पेपर समय पर मिलेंगे।',
+    instAboutSpeedDesc: 'We understand academic calendars don\'t wait. Realistic timelines, transparent updates, and on-time delivery—every single time.',
+
+    instAboutFormatTitle: 'Bilingual Proficiency (English/Hindi/Sanskrit)',
+    instAboutFormatTitleHindi: 'सभी भाषाओं में निपुण।',
+    instAboutFormatDesc: 'Professional formatting and typing support across multiple languages. We handle complex academic content with precision and cultural understanding.',
+
+    instAboutFounderTeaserTitle: 'Managed by Expert Vision',
+    instAboutFounderTeaserSubtext: 'The technical architecture of this system is designed by the Founder.',
+    instAboutFounderTeaserButton: 'View Founder\'s Profile',
+
+    // Creator About Page (CrAbout.tsx)
+    crAboutTitle: 'BEHIND THE ENGINE',
+    crAboutTitleHindi: 'इंजन के पीछे',
+    crAboutSubtitle: 'Retention Engineering & Visual Storytelling.',
+    crAboutSubtitleHindi: 'रिटेंशन इंजीनियरिंग और कहानी।',
+
+    crAboutPhilosophyTitle: 'The Philosophy',
+    crAboutPhilosophyContent: 'We don\'t just edit videos; we engineer attention. In an era of 3-second attention spans, our studio focuses on pacing, sound design, and color psychology to keep viewers hooked.',
+    crAboutPhilosophyContentHindi: 'हम वीडियो एडिट नहीं करते, हम दर्शकों का ध्यान खींचते हैं।',
+
+    crAboutTechStackTitle: 'The Tech Stack',
+
+    crAboutSoftwareTitle: 'Industry Standard: Premiere Pro & After Effects',
+    crAboutSoftwareDesc: 'Professional-grade editing and motion graphics tools used by Hollywood studios. We leverage the same software that creates blockbuster films and viral content.',
+
+    crAboutHardwareTitle: 'High-Performance Rendering Units',
+    crAboutHardwareDesc: 'Dedicated workstations optimized for 4K editing, color grading, and real-time playback. Fast turnarounds without compromising quality.',
+
+    crAboutStrategyTitle: 'Algorithm-Optimized Editing',
+    crAboutStrategyDesc: 'Data-driven editing decisions based on retention analytics. We study what works on platforms and apply those insights to your content.',
+
+    crAboutFounderTeaserTitle: 'Led by a Creative Director',
+    crAboutFounderTeaserSubtext: 'Curious about the mind behind the edits?',
+    crAboutFounderTeaserButton: 'Meet The Creator',
+
     // Legacy keys (kept for backward compatibility if needed elsewhere)
     aboutIntro: 'We exist to reduce digital overwhelm for those who create meaningful work — whether that\'s educating the next generation or building audiences through content.',
     ourPhilosophy: 'Our Philosophy',

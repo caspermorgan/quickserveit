@@ -406,15 +406,6 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
             }
           `}
         >
-          {/* Online Status Indicator - Far Left */}
-          <div className="flex items-center gap-2 pr-4 border-r border-foreground/10">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-            </span>
-            <span className="text-xs font-medium text-green-500 tracking-wide">Online</span>
-          </div>
-
           {/* Navigation Links with GLOW PILL active states */}
           {links.map((link, index) => {
             const isActive = location.pathname === link.href;
