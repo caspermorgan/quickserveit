@@ -439,7 +439,7 @@
      GLOBAL TYPOGRAPHY - ENFORCED
      ======================================== */
 
-  /* English Typography Rules - STRICT */
+  /* HEADINGS: The "Homepage Look" Everywhere */
   h1,
   h2,
   h3,
@@ -447,22 +447,37 @@
   h5,
   h6 {
     font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 600;
+    font-weight: 700 !important;
+    /* Force Bold */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    /* Tracking-wide like the homepage */
     line-height: 1.2;
-    letter-spacing: -0.02em;
   }
 
-  /* Body text - Clean & Premium */
+  /* BODY TEXT: Remove "Weakness" - Strong, Geometric Sibling to Space Grotesk */
   p,
   span,
+  li,
+  a,
+  div {
+    font-family: 'Manrope', sans-serif !important;
+    font-weight: 500;
+    /* Medium Weight (Never Light/Regular) */
+    color: rgba(255, 255, 255, 0.85);
+    /* High Contrast */
+  }
+
+  /* Body element specific */
   body {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
+    font-weight: 500;
   }
 
   /* Paragraph optimization */
   p {
     line-height: 1.6;
-    color: hsl(var(--foreground) / 0.85);
+    color: rgba(255, 255, 255, 0.85);
   }
 
   /* ========================================

@@ -57,8 +57,9 @@ const InstAbout = () => {
             <PageWrapper mode="institutional" onReturn={handleReturn}>
                 {/* Header */}
                 <PageHeader
-                    title={language === 'hi' ? t('instAboutTitleHindi') : t('instAboutTitle')}
-                    subtitle={language === 'hi' ? t('instAboutSubtitleHindi') : t('instAboutSubtitle')}
+                    title="About The Mission"
+                    subtitle="Founded to modernize Gorakhpur's education system. We combine technical speed with military-grade data confidentiality."
+                    variant="gold"
                 />
 
                 <motion.div

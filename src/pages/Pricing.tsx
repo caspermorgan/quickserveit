@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/components/FloatingNavbar';
-import PageLayout from '@/components/PageLayout';
+import PageWrapper from '@/components/layout/PageWrapper';
+import PageHeader from '@/components/layout/PageHeader';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
@@ -442,12 +443,14 @@ const Pricing = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <PageLayout
-        title={t('pricingHeroTitle')}
-        subtitle={t('pricingHeroSubtitle')}
-        mode={mode}
-        titleClassName={mode === 'institutional' ? 'text-institutional' : 'text-creator'}
-      >
+      <PageWrapper mode={mode} onReturn={handleReturn}>
+        <PageHeader
+          title={mode === 'institutional' ? 'Pricing Plans' : 'Growth Packages'}
+          subtitle={mode === 'institutional'
+            ? 'Transparent per-page rates and bulk packages. No hidden fees, just honest work with a 100% accuracy guarantee.'
+            : 'Scalable monthly plans for serious creators. Get consistent uploads for Shorts and Long-form content at a fixed rate.'}
+          variant={mode === 'institutional' ? 'gold' : 'cyan'}
+        />
 
         {/* Service-Based Pricing */}
         <div
@@ -836,7 +839,7 @@ const Pricing = () => {
             </div>
           </div>
         </div>
-      </PageLayout>
+      </PageWrapper>
 
       <Footer mode={mode} />
     </>

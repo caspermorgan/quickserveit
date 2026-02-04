@@ -57,8 +57,9 @@ const CrAbout = () => {
             <PageWrapper mode="creator" onReturn={handleReturn}>
                 {/* Header */}
                 <PageHeader
-                    title={language === 'hi' ? t('crAboutTitleHindi') : t('crAboutTitle')}
-                    subtitle={language === 'hi' ? t('crAboutSubtitleHindi') : t('crAboutSubtitle')}
+                    title="About The Studio"
+                    subtitle="Where creativity meets technical speed. We use high-performance hardware and viewer psychology to drive channel growth."
+                    variant="cyan"
                 />
 
                 <motion.div

@@ -139,9 +139,13 @@ const Contact = () => {
 
       <PageWrapper mode={mode} onReturn={handleReturn}>
         <PageHeader
-          title="The Secure Uplink"
-          subtitle="Direct line to the founder. Not a form—a connection."
-          className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}
+          title={mode === 'institutional' ? 'Client Support' : mode === 'creator' ? 'Start A Project' : 'Direct Connect'}
+          subtitle={mode === 'institutional'
+            ? 'Priority support lines exclusively for Principals and Managers. We are available online to resolve queries immediately.'
+            : mode === 'creator'
+              ? 'Ready to upgrade your content? Send us your raw footage or ideas, and let\'s turn them into a masterpiece.'
+              : 'Skip the agency process. Talk to me directly.'}
+          variant={mode === 'institutional' ? 'gold' : mode === 'creator' ? 'cyan' : 'purple'}
         />
 
         {/* 2-Column Layout: Direct Line Info + Form */}

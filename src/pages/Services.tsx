@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import FloatingNavbar from '@/components/FloatingNavbar';
-import PageLayout from '@/components/PageLayout';
+import PageWrapper from '@/components/layout/PageWrapper';
+import PageHeader from '@/components/layout/PageHeader';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
 import Footer from '@/components/Footer';
@@ -390,15 +391,14 @@ const Services = () => {
       <FilmGrain />
       <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
 
-      <PageLayout
-        title="THE HOLOGRAPHIC LAB"
-        subtitle={mode === 'institutional'
-          ? 'Precision-engineered solutions for educational institutions'
-          : 'Premium production services for content creators'}
-        mode={mode}
-        titleClassName={mode === 'institutional' ? 'text-institutional uppercase tracking-widest' : 'text-creator uppercase tracking-widest'}
-        showGradientOrbs={false}
-      >
+      <PageWrapper mode={mode} onReturn={handleReturn}>
+        <PageHeader
+          title={mode === 'institutional' ? 'Academic Solutions' : 'Editing Services'}
+          subtitle={mode === 'institutional'
+            ? 'Comprehensive digital operations for schools. We handle Exam Typing, UDISE Data, and Privacy so you can focus on teaching.'
+            : 'High-retention editing and thumbnail design. We engineer every cut and pixel to keep your audience watching till the end.'}
+          variant={mode === 'institutional' ? 'gold' : 'cyan'}
+        />
         {/* Custom Holographic Background Effects */}
         <div className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br ${mode === 'institutional' ? 'from-amber-500/10' : 'from-cyan-500/10'
           } to-transparent blur-3xl opacity-30 pointer-events-none`} />
@@ -761,7 +761,7 @@ const Services = () => {
             </motion.div>
           </AnimatePresence>
         </div>
-      </PageLayout>
+      </PageWrapper>
 
       <Footer mode={mode} />
     </>
