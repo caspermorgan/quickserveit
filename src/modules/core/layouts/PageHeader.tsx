@@ -45,13 +45,13 @@ const PageHeader = ({ title, subtitle, variant = 'gold', className = '', childre
     return (
         <div className={`text-center pt-12 pb-16 max-w-4xl mx-auto ${className}`}>
             {/* The Title - Liquid Metal Gradient */}
-            <h1 className={`font-space text-5xl md:text-6xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r ${gradientColors[variant]} drop-shadow-lg`}>
+            <h1 className={`font-display text-5xl md:text-6xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r ${gradientColors[variant]} drop-shadow-lg`}>
                 {title}
             </h1>
 
             {/* The Subtitle - Strict 2-Line Rule */}
             {subtitle && (
-                <p className="max-w-2xl mx-auto mt-6 font-manrope text-lg md:text-xl text-gray-300 font-medium leading-relaxed">
+                <p className="max-w-2xl mx-auto mt-6 font-body text-lg md:text-xl text-gray-300 font-medium leading-relaxed">
                     {subtitle}
                 </p>
             )}
