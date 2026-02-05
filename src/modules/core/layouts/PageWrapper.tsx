@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
-import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
+import Navbar from '@/modules/core/components/Navbar';
+import MobileNav from '@/modules/core/components/MobileNav';
 import Footer from '@/modules/core/components/Footer';
 import CursorLight from '@/modules/core/components/CursorLight';
 import FilmGrain from '@/modules/core/components/FilmGrain';
+import ParticleCanvas from '@/modules/landing/components/ParticleCanvas';
 
 interface PageWrapperProps {
     children: ReactNode;
@@ -19,7 +21,8 @@ interface PageWrapperProps {
  * - Standardized max-width container
  * - Responsive padding system
  * - Footer at bottom
- * - Atmospheric effects (CursorLight, FilmGrain)
+ * - Atmospheric effects (CursorLight, FilmGrain, ParticleCanvas)
+ * - Vignette overlay for visual depth
  * 
  * Usage:
  * ```tsx
@@ -32,12 +35,26 @@ interface PageWrapperProps {
 const PageWrapper = ({ children, mode, onReturn }: PageWrapperProps) => {
     return (
         <div className="min-h-screen bg-black text-white relative overflow-x-hidden selection:bg-gray-800">
+            {/* Particle Background - Subtle for inner pages */}
+            {mode !== 'portfolio' && <ParticleCanvas mode={mode} />}
+
+            {/* Vignette Overlay - Darkens corners to make content pop */}
+            <div
+                className="fixed inset-0 pointer-events-none z-[5]"
+                style={{
+                    background: 'radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(0,0,0,0.4) 100%)'
+                }}
+            />
+
             {/* Atmospheric Effects */}
             <CursorLight mode={mode} />
             <FilmGrain />
 
-            {/* Fixed Navbar */}
-            <FloatingNavbar mode={mode} onReturn={onReturn} isVisible={true} />
+            {/* Desktop Navigation - Floating Island */}
+            <Navbar mode={mode} onReturn={onReturn} />
+
+            {/* Mobile Navigation - Bottom Dock */}
+            <MobileNav mode={mode} />
 
             {/* Navbar Spacer - Ensures content never hides behind the navbar */}
             <div className="h-24 md:h-28 w-full" aria-hidden="true" />

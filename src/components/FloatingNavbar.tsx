@@ -391,8 +391,8 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         className={`
           fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex
           ${combinedVisible
-            ? 'opacity-100 translate-y-0 transition-all duration-normal ease-[cubic-bezier(0.4,0,1,1)]'
-            : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-[cubic-bezier(0,0,0.2,1)]'
+            ? 'opacity-100 translate-y-0 transition-all duration-normal ease-in-back'
+            : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-out-back'
           }
         `}
       >

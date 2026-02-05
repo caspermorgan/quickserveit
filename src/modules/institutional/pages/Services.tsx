@@ -393,10 +393,10 @@ const Services = () => {
 
       <PageWrapper mode={mode} onReturn={handleReturn}>
         <PageHeader
-          title={mode === 'institutional' ? 'Academic Solutions' : 'Editing Services'}
+          title={mode === 'institutional' ? 'Core Services' : 'Creative Services'}
           subtitle={mode === 'institutional'
-            ? 'Comprehensive digital operations for schools. We handle Exam Typing, UDISE Data, and Privacy so you can focus on teaching.'
-            : 'High-retention editing and thumbnail design. We engineer every cut and pixel to keep your audience watching till the end.'}
+            ? 'We take over the heavy lifting of exam typing and data management, allowing your faculty to focus entirely on shaping the future of students.'
+            : 'We don\'t just edit videos; we engineer attention. From pacing to sound design, we craft visual experiences that keep your audience watching till the end.'}
           variant={mode === 'institutional' ? 'gold' : 'cyan'}
         />
         {/* Custom Holographic Background Effects */}

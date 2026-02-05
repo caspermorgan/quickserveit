@@ -29,6 +29,8 @@ export default {
         body: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
         brand: ['Space Grotesk', 'sans-serif'],
+        // Hindi (Devanagari) - VVIP Flagship
+        hindi: ['Noto Sans Devanagari', 'Teko', 'Inter', 'sans-serif'],
       },
       fontSize: {
         // Mobile-optimized fluid typography using clamp()
@@ -114,6 +116,19 @@ export default {
         'slow': `${duration.slow}ms`,
         'slower': `${duration.slower}ms`,
         'slowest': `${duration.slowest}ms`,
+      },
+      transitionTimingFunction: {
+        'ease-in-back': 'cubic-bezier(0.4, 0, 1, 1)',
+        'ease-out-back': 'cubic-bezier(0, 0, 0.2, 1)',
+      },
+      letterSpacing: {
+        'tightest': '-0.05em',  // Huge headlines - editorial luxury
+        'tighter': '-0.03em',   // Large headings
+        'tight': '-0.02em',     // Medium headings
+        'normal': '0',          // Body text
+        'relaxed': '0.02em',    // Hindi body text
+        'loose': '0.05em',      // Small caps, labels
+        'loosest': '0.1em',     // Ultra-wide tracking for emphasis
       },
       keyframes: {
         "accordion-down": {

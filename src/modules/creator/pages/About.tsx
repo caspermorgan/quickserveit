@@ -57,8 +57,8 @@ const CrAbout = () => {
             <PageWrapper mode="creator" onReturn={handleReturn}>
                 {/* Header */}
                 <PageHeader
-                    title="About The Studio"
-                    subtitle="Where creativity meets technical speed. We use high-performance hardware and viewer psychology to drive channel growth."
+                    title="Studio Vision"
+                    subtitle="Where technical speed meets creative storytelling. We use high-end hardware and viewer psychology to help you stand out in a crowded digital world."
                     variant="cyan"
                 />
 

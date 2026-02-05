@@ -4,6 +4,8 @@ import { useMode } from '@/context/ModeContext';
 import { Check, Send } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { toast } from 'sonner';
+import GlassInput from '@/modules/core/components/GlassInput';
+import GlassTextArea from '@/modules/core/components/GlassTextArea';
 
 interface FormData {
   name: string;
@@ -230,73 +232,40 @@ Thank you!`;
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {/* Name */}
-      <div>
-        <label htmlFor="name" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Your full name"
-          aria-required="true"
-          aria-invalid={!!errors.name}
-          aria-describedby={errors.name ? 'name-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.name
-            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
-            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-            }`}
-        />
-        {errors.name && <p id="name-error" className="mt-1.5 text-xs text-destructive/80">{errors.name}</p>}
-      </div>
+      <GlassInput
+        type="text"
+        id="name"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        placeholder="Your full name"
+        label="Name"
+        error={errors.name}
+      />
 
       {/* Mobile */}
-      <div>
-        <label htmlFor="mobile" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Mobile Number
-        </label>
-        <input
-          type="tel"
-          id="mobile"
-          name="mobile"
-          value={formData.mobile}
-          onChange={handleChange}
-          placeholder="10-digit mobile number"
-          aria-required="true"
-          aria-invalid={!!errors.mobile}
-          aria-describedby={errors.mobile ? 'mobile-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.mobile
-            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
-            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-            }`}
-        />
-        {errors.mobile && <p id="mobile-error" className="mt-1.5 text-xs text-destructive/80">{errors.mobile}</p>}
-      </div>
+      <GlassInput
+        type="tel"
+        id="mobile"
+        name="mobile"
+        value={formData.mobile}
+        onChange={handleChange}
+        placeholder="10-digit mobile number"
+        label="Mobile Number"
+        error={errors.mobile}
+      />
 
       {/* Email */}
-      <div>
-        <label htmlFor="email" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="your@email.com"
-          aria-required="true"
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? 'email-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 ${errors.email
-            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
-            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-            }`}
-        />
-        {errors.email && <p id="email-error" className="mt-1.5 text-xs text-destructive/80">{errors.email}</p>}
-      </div>
+      <GlassInput
+        type="email"
+        id="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="your@email.com"
+        label="Email"
+        error={errors.email}
+      />
 
       {/* Service */}
       <div>
@@ -327,27 +296,16 @@ Thank you!`;
       </div>
 
       {/* Message */}
-      <div>
-        <label htmlFor="message" className="block text-xs font-mono tracking-wider text-foreground/50 mb-2 uppercase">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Tell us about your requirements..."
-          rows={4}
-          aria-required="true"
-          aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? 'message-error' : undefined}
-          className={`w-full px-4 py-3 rounded-xl bg-white/[0.03] border backdrop-blur-sm transition-all duration-300 text-sm font-body text-foreground placeholder:text-foreground/30 focus:outline-none focus:ring-1 resize-none ${errors.message
-            ? 'border-destructive/50 focus:border-destructive focus:ring-destructive/30'
-            : `border-white/[0.08] focus:border-${accentColor}/50 focus:ring-${accentColor}/20`
-            }`}
-        />
-        {errors.message && <p id="message-error" className="mt-1.5 text-xs text-destructive/80">{errors.message}</p>}
-      </div>
+      <GlassTextArea
+        id="message"
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        placeholder="Tell us about your requirements..."
+        rows={4}
+        label="Message"
+        error={errors.message}
+      />
 
       {/* Terms checkbox */}
       <div>

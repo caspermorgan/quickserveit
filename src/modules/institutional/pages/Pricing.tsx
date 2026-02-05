@@ -447,8 +447,8 @@ const Pricing = () => {
         <PageHeader
           title={mode === 'institutional' ? 'Pricing Plans' : 'Growth Packages'}
           subtitle={mode === 'institutional'
-            ? 'Transparent per-page rates and bulk packages. No hidden fees, just honest work with a 100% accuracy guarantee.'
-            : 'Scalable monthly plans for serious creators. Get consistent uploads for Shorts and Long-form content at a fixed rate.'}
+            ? 'Honest, per-page rates tailored for local institutions. No hidden fees or subscriptions—just a clear commitment to accuracy and timely delivery.'
+            : 'Scalable monthly plans designed for serious creators. Get a consistent supply of high-quality Shorts and videos to keep your channel growing automatically.'}
           variant={mode === 'institutional' ? 'gold' : 'cyan'}
         />
 

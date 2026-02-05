@@ -139,12 +139,12 @@ const Contact = () => {
 
       <PageWrapper mode={mode} onReturn={handleReturn}>
         <PageHeader
-          title={mode === 'institutional' ? 'Client Support' : mode === 'creator' ? 'Start A Project' : 'Direct Connect'}
+          title={mode === 'institutional' ? 'Client Support' : mode === 'creator' ? 'Start Project' : 'Direct Connect'}
           subtitle={mode === 'institutional'
-            ? 'Priority support lines exclusively for Principals and Managers. We are available online to resolve queries immediately.'
+            ? 'A direct priority line for Principals and Managers. We understand the urgency of exams, so we are always available to resolve your queries.'
             : mode === 'creator'
-              ? 'Ready to upgrade your content? Send us your raw footage or ideas, and let\'s turn them into a masterpiece.'
-              : 'Skip the agency process. Talk to me directly.'}
+              ? 'Ready to upgrade your content quality? Share your raw footage or ideas with us, and let\'s turn them into a masterpiece together.'
+              : 'Skip the formal agency process. If you need high-ticket consulting or a personal touch, connect directly with the human behind the brand.'}
           variant={mode === 'institutional' ? 'gold' : mode === 'creator' ? 'cyan' : 'purple'}
         />
 

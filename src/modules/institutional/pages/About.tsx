@@ -57,8 +57,8 @@ const InstAbout = () => {
             <PageWrapper mode="institutional" onReturn={handleReturn}>
                 {/* Header */}
                 <PageHeader
-                    title="About The Mission"
-                    subtitle="Founded to modernize Gorakhpur's education system. We combine technical speed with military-grade data confidentiality."
+                    title="Our Mission"
+                    subtitle="More than just an agency, we are your digital partners. Dedicated to modernizing Gorakhpur's education system with speed, privacy, and technical precision."
                     variant="gold"
                 />
 
