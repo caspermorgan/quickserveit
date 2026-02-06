@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
-import LandingView from '@/components/LandingView';
+import LandingView from '@/modules/landing/components/LandingView';
 
 const Landing = () => {
   const { mode, setMode, setHasEntered, setCurrentSection } = useMode();
