@@ -14,18 +14,33 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-// Register service worker for PWA offline support
-import { registerSW } from 'virtual:pwa-register';
-
-// Auto-update service worker
-const updateSW = registerSW({
-    onNeedRefresh() {
-        // Auto-update without prompting user
-        updateSW(true);
-    },
-    onOfflineReady() {
-        // App is ready to work offline
-    },
-});
+// Register service worker for PWA offline support (production only)
+if (import.meta.env.PROD) {
+    import('virtual:pwa-register').then(({ registerSW }) => {
+        const updateSW = registerSW({
+            immediate: true,
+            onNeedRefresh() {
+                // Auto-update without prompting user
+                updateSW(true);
+            },
+            onOfflineReady() {
+                console.log('App is ready to work offline');
+            },
+            onRegistered(registration) {
+                console.log('Service Worker registered:', registration);
+            },
+        });
+    });
+} else {
+    // Development: Unregister any existing service workers
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+            registrations.forEach((registration) => {
+                registration.unregister();
+                console.log('Development: Service worker unregistered');
+            });
+        });
+    }
+}
 
 createRoot(document.getElementById("root")!).render(<App />);

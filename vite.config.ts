@@ -141,7 +141,9 @@ export default defineConfig(({ mode }) => ({
         navigateFallbackDenylist: [/^\/api/]
       },
       devOptions: {
-        enabled: false // Disable in dev for faster HMR
+        enabled: false, // Completely disable PWA in dev
+        type: 'module',
+        navigateFallback: undefined
       }
     })
   ].filter(Boolean),

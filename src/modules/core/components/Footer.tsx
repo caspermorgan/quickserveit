@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageCircleIcon, ShieldIcon } from './IconSystem';
-import AvailabilityIndicator from './AvailabilityIndicator';
+import { MessageCircleIcon, ShieldIcon } from '@/components/IconSystem';
+import AvailabilityIndicator from '@/components/AvailabilityIndicator';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useMode } from '@/context/ModeContext';
-import SwitchModeButton from './SwitchModeButton';
+import SwitchModeButton from '@/components/SwitchModeButton';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -212,8 +212,8 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Contact us on WhatsApp"
                 className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium trans-premium ${isInstitutional
-                    ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
-                    : 'bg-creator/10 text-creator hover:bg-creator/20'
+                  ? 'bg-institutional/10 text-institutional hover:bg-institutional/20'
+                  : 'bg-creator/10 text-creator hover:bg-creator/20'
                   }`}
                 style={{
                   boxShadow: isInstitutional
@@ -240,8 +240,8 @@ const Footer = () => {
             <div className="pt-4">
               <div
                 className={`inline-block px-3 py-1 rounded text-xs font-mono uppercase tracking-wider ${isInstitutional
-                    ? 'bg-amber-900/20 text-amber-500 border border-amber-900/40'
-                    : 'bg-cyan-900/20 text-cyan-400 border border-cyan-900/40'
+                  ? 'bg-amber-900/20 text-amber-500 border border-amber-900/40'
+                  : 'bg-cyan-900/20 text-cyan-400 border border-cyan-900/40'
                   }`}
               >
                 {isInstitutional ? t('footerEstablished') : t('footerSystemReady')}

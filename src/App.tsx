@@ -16,13 +16,13 @@ import { initGA, logPageView } from "@/utils/analytics";
 
 // Lazy load all page components for better performance
 const Landing = lazy(() => import("./pages/Landing"));
-const Home = lazy(() => import("./pages/Home"));
-const Services = lazy(() => import("./pages/Services"));
-const Pricing = lazy(() => import("./pages/Pricing"));
-const About = lazy(() => import("./pages/About"));
-const Founder = lazy(() => import("./pages/Founder"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Home = lazy(() => import("./modules/institutional/pages/Home"));
+const Services = lazy(() => import("./modules/institutional/pages/Services"));
+const Pricing = lazy(() => import("./modules/institutional/pages/Pricing"));
+const About = lazy(() => import("./modules/institutional/pages/About"));
+const Founder = lazy(() => import("./modules/portfolio/pages/Founder"));
+const Contact = lazy(() => import("./modules/institutional/pages/Contact"));
+const Portfolio = lazy(() => import("./modules/portfolio/pages/Portfolio"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Disclaimer = lazy(() => import("./pages/Disclaimer"));

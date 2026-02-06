@@ -10,7 +10,7 @@ import {
   TrendingIcon,
   SparklesIcon,
   LayersIcon
-} from './IconSystem';
+} from '@/components/IconSystem';
 import ServiceCard from './ServiceCard';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Link, useNavigate } from 'react-router-dom';

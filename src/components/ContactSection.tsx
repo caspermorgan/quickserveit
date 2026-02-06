@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PhoneIcon, MailIcon, ClockIcon, MapPinIcon, SendIcon } from './IconSystem';
+import { PhoneIcon, MailIcon, ClockIcon, MapPinIcon, SendIcon } from '@/components/IconSystem';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
 

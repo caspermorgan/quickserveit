@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MessageCircleIcon, ShieldIcon } from './IconSystem';
+import { MessageCircleIcon, ShieldIcon } from '@/components/IconSystem';
 import AvailabilityIndicator from './AvailabilityIndicator';
 import { useTranslation } from '@/hooks/useTranslation';
 import SwitchModeButton from './SwitchModeButton';

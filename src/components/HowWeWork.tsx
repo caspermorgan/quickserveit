@@ -10,7 +10,7 @@ import {
     TargetIcon,
     ZapIcon,
     AwardIcon
-} from './IconSystem';
+} from '@/components/IconSystem';
 
 interface HowWeWorkProps {
     mode: 'institutional' | 'creator';
