@@ -51,10 +51,10 @@ const PageWrapper = ({ children, mode, onReturn }: PageWrapperProps) => {
             <FilmGrain />
 
             {/* Desktop Navigation - Floating Island */}
-            <Navbar mode={mode} onReturn={onReturn} />
+            {/* <Navbar mode={mode} onReturn={onReturn} /> */}
 
             {/* Mobile Navigation - Bottom Dock */}
-            <MobileNav mode={mode} />
+            {/* <MobileNav mode={mode} /> */}
 
             {/* Navbar Spacer - Ensures content never hides behind the navbar */}
             <div className="h-24 md:h-28 w-full" aria-hidden="true" />
