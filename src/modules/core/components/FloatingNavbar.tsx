@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
-import SwitchModeButton from './SwitchModeButton';
+import SwitchModeButton from '@/components/SwitchModeButton';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator' | 'portfolio';
