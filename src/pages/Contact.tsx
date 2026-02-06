@@ -163,10 +163,16 @@ const Contact = () => {
               }`}
           >
             <H1 className="mb-5 sm:mb-6 md:mb-7 px-4 md:px-0">
-              Let's <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>Connect</span>
+              {mode === 'institutional' ? (
+                <>Client <span className="text-institutional">Support</span></>
+              ) : (
+                <>Start <span className="text-creator">Project</span></>
+              )}
             </H1>
             <p className="text-foreground/75 text-base sm:text-lg md:text-xl leading-loose mb-6 sm:mb-7 md:mb-8 px-5 md:px-4">
-              Share your project details and we'll respond within working hours.
+              {mode === 'institutional'
+                ? "A direct priority line for Principals and Managers. We understand the urgency of exams, so we are always available to resolve your queries."
+                : "Ready to upgrade your content quality? Share your raw footage or ideas with us, and let's turn them into a masterpiece together."}
             </p>
 
             {/* Response Time Badge */}

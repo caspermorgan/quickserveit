@@ -20,6 +20,7 @@ import { DisplayText, BodyLarge } from '@/components/Typography';
 import { Reveal, Magnetic } from '@/components/motion';
 import ParallaxSection from '@/components/motion/ParallaxSection';
 import ProofOfWorkSlider from '@/components/ProofOfWorkSlider';
+import InstitutionalStats from '@/modules/institutional/components/InstitutionalStats';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 
@@ -204,6 +205,11 @@ const Home = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Institutional Statistics - Trust Building */}
+        {mode === 'institutional' && (
+          <InstitutionalStats />
+        )}
 
         {/* Creator Mode Notice */}
         {mode === 'creator' && (

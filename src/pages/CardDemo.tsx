@@ -129,8 +129,7 @@ const CardDemo = () => {
 
     // Load saved layout on mount
     useEffect(() => {
-        const saved = loadLayout();
-        if (saved) console.log('Loaded saved layout');
+        loadLayout();
     }, [loadLayout]);
 
     // Sample card content
@@ -147,11 +146,11 @@ const CardDemo = () => {
             ],
             primaryAction: {
                 label: 'Get Started',
-                onClick: () => console.log('Institutional clicked'),
+                onClick: () => {},
             },
             secondaryAction: {
                 label: 'View Details',
-                onClick: () => console.log('View details clicked'),
+                onClick: () => {},
             },
         },
         'card-2': {
@@ -166,11 +165,11 @@ const CardDemo = () => {
             ],
             primaryAction: {
                 label: 'Explore',
-                onClick: () => console.log('Creator clicked'),
+                onClick: () => {},
             },
             secondaryAction: {
                 label: 'See Examples',
-                onClick: () => console.log('See examples clicked'),
+                onClick: () => {},
             },
         },
         'card-3': {
@@ -185,7 +184,7 @@ const CardDemo = () => {
             ],
             primaryAction: {
                 label: 'View Work',
-                onClick: () => console.log('Personal clicked'),
+                onClick: () => {},
             },
         },
         'card-4': {
@@ -199,7 +198,7 @@ const CardDemo = () => {
             },
             primaryAction: {
                 label: 'Join Waitlist',
-                onClick: () => console.log('AI clicked'),
+                onClick: () => {},
             },
         },
     };

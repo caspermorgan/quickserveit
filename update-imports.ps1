@@ -1,6 +1,6 @@
 # PowerShell script to batch update import paths for migrated components
 
-$rootPath = "c:\Users\vinod\Documents\Agency\quickserveit\quickserveit\src"
+$rootPath = "c:\Users\vinod\Documents\Agency\quickserveit\src"
 
 # Define replacement mappings (old path -> new path)
 $replacements = @{

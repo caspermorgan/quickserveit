@@ -462,13 +462,15 @@ const Services = () => {
           <div className="text-center mb-12 sm:mb-16 md:mb-20 max-w-3xl mx-auto animate-fade-in-up">
             <H1 className="mb-4 sm:mb-5 md:mb-6">
               {mode === 'institutional' ? (
-                <>{t('ourServices').split(' ')[0]} <span className="text-institutional">{t('ourServices').split(' ').slice(1).join(' ') || t('services')}</span></>
+                <>Core <span className="text-institutional">Services</span></>
               ) : (
-                <>{t('creatorStudio').split(' ')[0]} <span className="text-creator">{t('creatorStudio').split(' ').slice(1).join(' ') || t('studio')}</span> <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full bg-creator/10 text-creator border border-creator/20">{t('betaVersion')}</span></>
+                <>Creative <span className="text-creator">Services</span></>
               )}
             </H1>
             <p className="text-foreground/60 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              {mode === 'institutional' ? t('servicesInstDesc') : t('servicesCreatorDesc')}
+              {mode === 'institutional'
+                ? "We take over the heavy lifting of exam typing and data management, allowing your faculty to focus entirely on shaping the future of students."
+                : "We don't just edit videos; we engineer attention. From pacing to sound design, we craft visual experiences that keep your audience watching till the end."}
             </p>
           </div>
 

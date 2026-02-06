@@ -267,15 +267,15 @@ const Pricing = () => {
           >
             <H1 className="mb-4 sm:mb-5 md:mb-6">
               {mode === 'institutional' ? (
-                <>Professional <span className="text-institutional">Institutional</span> Pricing</>
+                <>Pricing <span className="text-institutional">Plans</span></>
               ) : (
-                <>Premium <span className="text-creator">Creator</span> Services</>
+                <>Growth <span className="text-creator">Packages</span></>
               )}
             </H1>
             <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-7 md:mb-8 px-4">
               {mode === 'institutional'
-                ? 'Scope-based pricing for serious institutions. Only what is written here is promised and delivered.'
-                : 'Professional production for serious creators. Clearly defined scope. Professionally executed.'
+                ? 'Honest, per-page rates tailored for local institutions. No hidden fees or subscriptions—just a clear commitment to accuracy and timely delivery.'
+                : 'Scalable monthly plans designed for serious creators. Get a consistent supply of high-quality Shorts and videos to keep your channel growing automatically.'
               }
             </p>
 

@@ -15,12 +15,12 @@ import HowWeWork from '@/components/HowWeWork';
 import TechTicker from '@/components/TechTicker';
 import ValueProposition from '@/components/ValueProposition';
 import TrustIndicators from '../components/TrustIndicators';
+import InstitutionalStats from '../components/InstitutionalStats';
 import SEO from '@/modules/core/components/SEO';
 import { DisplayText, BodyLarge } from '@/components/Typography';
 import { Reveal, Magnetic } from '@/components/motion';
 import ParallaxSection from '@/components/motion/ParallaxSection';
 import ProofOfWorkSlider from '../components/ProofOfWorkSlider';
-import StatsTeaser from '@/components/StatsTeaser';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 
@@ -206,8 +206,8 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Stats Teaser - Impact Ticker */}
-        <StatsTeaser mode={mode} />
+        {/* Institutional Statistics - Trust Building */}
+        <InstitutionalStats />
 
         {/* Creator Mode Notice */}
         {mode === 'creator' && (

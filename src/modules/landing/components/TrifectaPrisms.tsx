@@ -51,8 +51,7 @@ const TrifectaPrisms = ({ onEnter }: TrifectaPrismsProps) => {
         if (id === 'institutional' || id === 'creator') {
             onEnter(id);
         } else {
-            // For portfolio, we could navigate to a different route or show a message
-            console.log('Portfolio clicked - implement navigation');
+            // TODO: Implement portfolio navigation
         }
     };
 

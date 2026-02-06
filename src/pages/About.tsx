@@ -88,12 +88,16 @@ const About = () => {
               }`}
           >
             <H1 className="mb-6">
-              About <span className={mode === 'institutional' ? 'text-institutional' : 'text-creator'}>QuickServe IT</span>
+              {mode === 'institutional' ? (
+                <>Our <span className="text-institutional">Mission</span></>
+              ) : (
+                <>Studio <span className="text-creator">Vision</span></>
+              )}
             </H1>
             <p className="text-foreground/70 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
               {mode === 'institutional'
-                ? "This is not a hobby blog or generic agency. This is a professional freelancing and portfolio platform built for serious institutional work — data systems, documentation workflows, and measurable outcomes."
-                : "This is not a hobby blog or generic agency. This is a professional freelancing and portfolio platform built for serious creator production — documentary editing, content series, and high-quality deliverables."}
+                ? "More than just an agency, we are your digital partners. Dedicated to modernizing Gorakhpur's education system with speed, privacy, and technical precision."
+                : "Where technical speed meets creative storytelling. We use high-end hardware and viewer psychology to help you stand out in a crowded digital world."}
             </p>
           </div>
 

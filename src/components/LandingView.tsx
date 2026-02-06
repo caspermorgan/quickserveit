@@ -33,7 +33,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             onModeChange(cardMode);
             setTimeout(() => onEnter(), 300);
         } else if (cardNumber === 3) {
-            navigate('/founder');
+            navigate('/portfolio');
         } else if (cardNumber === 4) {
             navigate('/contact');
         }
@@ -61,8 +61,8 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
         {
             id: 3,
             icon: Code,
-            title: 'Personal',
-            subtitle: 'Projects',
+            title: 'Portfolio',
+            subtitle: 'Our Work',
             mode: 'institutional' as const,
             color: 'white',
             tagline: 'work that speaks for itself',
