@@ -202,8 +202,7 @@ Thank you!`;
         window.open(whatsappUrl, '_blank');
       }, 500);
     } catch (error) {
-      // Error handling
-      console.error('WhatsApp Error:', error);
+      // Error handling - show user-friendly message
       toast.error('Something went wrong.', {
         description: 'Please try again or contact us directly.',
       });

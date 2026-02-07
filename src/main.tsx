@@ -24,10 +24,10 @@ if (import.meta.env.PROD) {
                 updateSW(true);
             },
             onOfflineReady() {
-                console.log('App is ready to work offline');
+                // PWA is ready for offline use
             },
             onRegistered(registration) {
-                console.log('Service Worker registered:', registration);
+                // Service Worker successfully registered
             },
         });
     });
@@ -37,7 +37,7 @@ if (import.meta.env.PROD) {
         navigator.serviceWorker.getRegistrations().then((registrations) => {
             registrations.forEach((registration) => {
                 registration.unregister();
-                console.log('Development: Service worker unregistered');
+                // Development: Service worker unregistered
             });
         });
     }

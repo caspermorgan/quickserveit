@@ -15,6 +15,14 @@ dist-ssr
 # Vite temporary files
 *.timestamp-*.mjs
 
+# Build error logs
+build-error*.log
+build-output*.txt
+
+# Temporary scripts
+*.bat
+*.ps1
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

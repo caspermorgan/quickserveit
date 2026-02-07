@@ -3,6 +3,9 @@ import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import { motion } from 'framer-motion';
+import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
+import CursorLight from '@/modules/core/components/CursorLight';
+import FilmGrain from '@/modules/core/components/FilmGrain';
 import PageWrapper from '@/modules/core/layouts/PageWrapper';
 import PageHeader from '@/modules/core/layouts/PageHeader';
 import GlassCard from '@/components/ui/GlassCard';
@@ -53,6 +56,10 @@ const InstAbout = () => {
                     content="We are not just typists; we are data custodians. Our mission is to digitize every educational institute with 0% error rate and 100% compliance."
                 />
             </Helmet>
+
+            <CursorLight mode="institutional" />
+            <FilmGrain />
+            <FloatingNavbar mode="institutional" onReturn={handleReturn} isVisible={true} />
 
             <PageWrapper mode="institutional" onReturn={handleReturn}>
                 {/* Header */}

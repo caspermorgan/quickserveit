@@ -72,7 +72,7 @@ export const useLayoutPersistence = (options: UseLayoutPersistenceOptions) => {
 
             return true;
         } catch (error) {
-            console.error('Failed to save layout:', error);
+            // Silent fail - layout save is not critical
             setIsSaving(false);
             return false;
         }
@@ -96,7 +96,7 @@ export const useLayoutPersistence = (options: UseLayoutPersistenceOptions) => {
 
             return layout;
         } catch (error) {
-            console.error('Failed to load layout:', error);
+            // Silent fail - return null
             return null;
         }
     }, []);
@@ -110,7 +110,7 @@ export const useLayoutPersistence = (options: UseLayoutPersistenceOptions) => {
             setLastSaved(null);
             return true;
         } catch (error) {
-            console.error('Failed to reset layout:', error);
+            // Silent fail
             return false;
         }
     }, []);
@@ -145,7 +145,7 @@ export const useLayoutPersistence = (options: UseLayoutPersistenceOptions) => {
 
             return true;
         } catch (error) {
-            console.error('Failed to export layout:', error);
+            // Silent fail
             return false;
         }
     }, [cards, gridColumns, autoCollapseSettings]);
@@ -178,7 +178,7 @@ export const useLayoutPersistence = (options: UseLayoutPersistenceOptions) => {
 
                     resolve(layout);
                 } catch (error) {
-                    console.error('Failed to import layout:', error);
+                    // Silent fail
                     reject(error);
                 }
             };
@@ -224,7 +224,7 @@ export const useLayoutPersistence = (options: UseLayoutPersistenceOptions) => {
                         onLayoutRestore(layout);
                     }
                 } catch (error) {
-                    console.error('Failed to sync layout from storage event:', error);
+                    // Silent fail - sync not critical
                 }
             }
         };

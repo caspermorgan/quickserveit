@@ -117,10 +117,46 @@ export const translations = {
     sendMessage: 'Send Message',
     messageSent: 'Message prepared! Redirecting to WhatsApp...',
 
-    // Footer
+    // Footer - Core
     allRightsReserved: 'All Rights Reserved',
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
+
+    // Footer - Identity & Brand
+    footerIdentityTitle: 'Identity',
+    footerBrandName: 'quickserveit',
+    footerLocation: 'Gorakhpur, India',
+    footerCoordinates: '26.7606° N, 83.3732° E',
+    footerDataSecurity: '100% Privacy Guaranteed',
+
+    // Footer - Navigation
+    footerNavigationTitle: 'Navigation',
+    footerNavHome: 'Home',
+    footerNavServices: 'Services',
+    footerNavAbout: 'About',
+    footerNavPricing: 'Pricing',
+    footerNavFounder: 'Founder',
+    footerNavContact: 'Contact',
+
+    // Footer - Legal
+    footerLegalTitle: 'Legal',
+    footerLegalPrivacy: 'Privacy Policy',
+    footerLegalTerms: 'Terms of Service',
+    footerLegalDisclaimer: 'Disclaimer',
+    footerLegalFAQ: 'FAQ',
+
+    // Footer - Communication
+    footerCommunicationTitle: 'Get in Touch',
+    footerWhatsAppCTA: 'Chat on WhatsApp',
+    footerWhatsAppDesc: 'Preferred communication channel for all inquiries.',
+    footerAvailability: 'Availability',
+
+    // Footer - Status & Meta
+    footerEstablished: 'Est. 2025',
+    footerSystemReady: 'System Ready',
+    footerCopyright: '© 2025 quickserveit',
+    footerConfidential: 'Confidential',
+    footerAllRightsReserved: 'All Rights Reserved',
 
     // Working Hours
     available: 'Available',
@@ -452,6 +488,56 @@ export const translations = {
     pricingNote: 'All prices are exclusive of GST. Urgent work may incur additional charges based on complexity and timeline.',
     perMonth: '/month',
     perVideo: '/video',
+
+    // Institutional Pricing - Service Tabs
+    // Tab 1 - Examination & Documentation
+    pricingInstTab1Label: 'Examination & Documentation',
+    pricingInstTab1Title: 'Examination & Documentation',
+    pricingInstTab1Desc: 'Professional typing & formatting services with error-free delivery.',
+    pricingInstItem1Name: 'English Typing',
+    pricingInstItem1Desc: 'Standard documentation & exam papers',
+    pricingInstItem1Price: '₹20/page',
+    pricingInstItem2Name: 'Hindi Typing',
+    pricingInstItem2Desc: 'Unicode formatting • Specialized skill',
+    pricingInstItem2Price: '₹25/page',
+    pricingInstItem3Name: 'Maths / Science & Other',
+    pricingInstItem3Desc: 'Formulas, diagrams, equations, Image, Icon, etc',
+    pricingInstItem3Price: '₹30/page',
+    pricingInstTab1Highlight: 'Error-free formatting optimized for bulk printing, including equation editor, diagram support, and professional layout.',
+
+    // Tab 2 - Data Architecture (UDISE+ & Scholarship)
+    pricingInstTab2Label: 'Data Architecture',
+    pricingInstTab2Title: 'Data Architecture (UDISE+ & Scholarship)',
+    pricingInstTab2Desc: 'UDISE+ & scholarship processing with zero-rejection guarantee.',
+    pricingInstItem4Name: 'UDISE+ Existing Student',
+    pricingInstItem4Desc: '2026-27 session update',
+    pricingInstItem4Price: '₹10/student',
+    pricingInstItem5Name: 'UDISE+ New Student',
+    pricingInstItem5Desc: 'Complete account creation • Validation',
+    pricingInstItem5Price: '₹15/student',
+    pricingInstItem6Name: 'Scholarship Verification',
+    pricingInstItem6Desc: 'Portal + Biometric + DSC forwarding',
+    pricingInstItem6Price: '₹30–₹50',
+    pricingInstItem7Name: 'Daily Tech Support',
+    pricingInstItem7Desc: 'Micro to heavy tasks • Full working day',
+    pricingInstItem7Price: '₹99–₹499',
+    pricingInstTab2Highlight: '99.9% acceptance rate on first submission. Re-submissions handled at no extra cost.',
+
+    // Tab 3 - Terms & Protocol
+    pricingInstTab3Label: 'Terms & Protocol',
+    pricingInstTab3Title: 'Terms & Protocol',
+    pricingInstTab3Desc: 'Built on mutual respect, transparency, and secure collaboration.',
+    pricingInstPolicy1Title: 'Payment Terms',
+    pricingInstPolicy1Item1Label: 'Small Tasks',
+    pricingInstPolicy1Item1Desc: '100% advance (before starting)',
+    pricingInstPolicy1Item2Label: 'Large Work',
+    pricingInstPolicy1Item2Desc: '50% advance (work starts after confirmation)',
+    pricingInstPolicy2Title: 'Corrections Policy',
+    pricingInstPolicy2Item1Label: 'Minor corrections',
+    pricingInstPolicy2Item1Desc: 'Included within agreed scope',
+    pricingInstPolicy2Item2Label: 'New ideas or late changes',
+    pricingInstPolicy2Item2Desc: 'Charged separately',
+    pricingInstTab3Highlight: 'Built on mutual respect, transparency, and secure collaboration.',
 
     // Creator Mode - New Sections
     creatorModeLaunchNote: 'Creator Mode services will be available for work starting from 1st March.',
@@ -893,10 +979,46 @@ export const translations = {
     sendMessage: 'भेजें',
     messageSent: 'संदेश तैयार है! WhatsApp खुल रहा है...',
 
-    // Footer
+    // Footer - Core
     allRightsReserved: 'सर्वाधिकार सुरक्षित',
     privacyPolicy: 'गोपनीयता नीति',
     termsOfService: 'नियम और शर्तें',
+
+    // Footer - Identity & Brand
+    footerIdentityTitle: 'पहचान',
+    footerBrandName: 'quickserveit',
+    footerLocation: 'गोरखपुर, भारत',
+    footerCoordinates: '26.7606° उत्तर, 83.3732° पूर्व',
+    footerDataSecurity: '100% गोपनीयता गारंटी',
+
+    // Footer - Navigation
+    footerNavigationTitle: 'नेविगेशन',
+    footerNavHome: 'होम',
+    footerNavServices: 'सेवाएं',
+    footerNavAbout: 'हमारे बारे में',
+    footerNavPricing: 'कीमत',
+    footerNavFounder: 'संस्थापक',
+    footerNavContact: 'संपर्क करें',
+
+    // Footer - Legal
+    footerLegalTitle: 'कानूनी',
+    footerLegalPrivacy: 'गोपनीयता नीति',
+    footerLegalTerms: 'नियम और शर्तें',
+    footerLegalDisclaimer: 'अस्वीकरण',
+    footerLegalFAQ: 'FAQ',
+
+    // Footer - Communication
+    footerCommunicationTitle: 'संपर्क करें',
+    footerWhatsAppCTA: 'WhatsApp पर चैट करें',
+    footerWhatsAppDesc: 'सभी पूछताछ के लिए पसंदीदा संचार चैनल।',
+    footerAvailability: 'उपलब्धता',
+
+    // Footer - Status & Meta
+    footerEstablished: 'स्थापित 2025',
+    footerSystemReady: 'सिस्टम तैयार',
+    footerCopyright: '© 2025 quickserveit',
+    footerConfidential: 'गोपनीय',
+    footerAllRightsReserved: 'सर्वाधिकार सुरक्षित',
 
     // Working Hours
     available: 'उपलब्ध',
@@ -1105,6 +1227,56 @@ export const translations = {
     pricingNote: 'सभी मूल्य GST को छोड़कर हैं। अर्जेंट कार्य में जटिलता और समय-सीमा के आधार पर अतिरिक्त शुल्क लग सकता है।',
     perMonth: '/माह',
     perVideo: '/video',
+
+    // Institutional Pricing - Service Tabs
+    // Tab 1 - Examination & Documentation
+    pricingInstTab1Label: 'परीक्षा और दस्तावेज़ीकरण',
+    pricingInstTab1Title: 'परीक्षा और दस्तावेज़ीकरण',
+    pricingInstTab1Desc: 'त्रुटि-मुक्त डिलीवरी के साथ प्रोफेशनल टाइपिंग और फॉर्मेटिंग सेवाएं।',
+    pricingInstItem1Name: 'अंग्रेजी टाइपिंग',
+    pricingInstItem1Desc: 'मानक दस्तावेज़ और परीक्षा पेपर',
+    pricingInstItem1Price: '₹20/पेज',
+    pricingInstItem2Name: 'हिंदी टाइपिंग',
+    pricingInstItem2Desc: 'यूनिकोड फॉर्मेटिंग • विशेष कौशल',
+    pricingInstItem2Price: '₹25/पेज',
+    pricingInstItem3Name: 'गणित / विज्ञान और अन्य',
+    pricingInstItem3Desc: 'फॉर्मूला, डायग्राम, समीकरण, इमेज, आइकन आदि',
+    pricingInstItem3Price: '₹30/पेज',
+    pricingInstTab1Highlight: 'बल्क प्रिंटिंग के लिए अनुकूलित त्रुटि-मुक्त फॉर्मेटिंग, जिसमें समीकरण संपादक, डायग्राम सपोर्ट और प्रोफेशनल लेआउट शामिल है।',
+
+    // Tab 2 - Data Architecture (UDISE+ & Scholarship)
+    pricingInstTab2Label: 'डेटा आर्किटेक्चर',
+    pricingInstTab2Title: 'डेटा आर्किटेक्चर (UDISE+ और छात्रवृत्ति)',
+    pricingInstTab2Desc: 'शून्य-अस्वीकृति गारंटी के साथ UDISE+ और छात्रवृत्ति प्रोसेसिंग।',
+    pricingInstItem4Name: 'UDISE+ मौजूदा छात्र',
+    pricingInstItem4Desc: '2026-27 सत्र अपडेट',
+    pricingInstItem4Price: '₹10/छात्र',
+    pricingInstItem5Name: 'UDISE+ नया छात्र',
+    pricingInstItem5Desc: 'पूर्ण खाता निर्माण • सत्यापन',
+    pricingInstItem5Price: '₹15/छात्र',
+    pricingInstItem6Name: 'छात्रवृत्ति सत्यापन',
+    pricingInstItem6Desc: 'पोर्टल + बायोमेट्रिक + DSC फॉरवर्डिंग',
+    pricingInstItem6Price: '₹30–₹50',
+    pricingInstItem7Name: 'दैनिक टेक सपोर्ट',
+    pricingInstItem7Desc: 'माइक्रो से भारी कार्य • पूरा कार्य दिवस',
+    pricingInstItem7Price: '₹99–₹499',
+    pricingInstTab2Highlight: 'पहली सबमिशन पर 99.9% स्वीकृति दर। पुनः सबमिशन बिना अतिरिक्त लागत के संभाला जाता है।',
+
+    // Tab 3 - Terms & Protocol
+    pricingInstTab3Label: 'नियम और प्रोटोकॉल',
+    pricingInstTab3Title: 'नियम और प्रोटोकॉल',
+    pricingInstTab3Desc: 'आपसी सम्मान, पारदर्शिता और सुरक्षित सहयोग पर आधारित।',
+    pricingInstPolicy1Title: 'भुगतान नियम',
+    pricingInstPolicy1Item1Label: 'छोटे कार्य',
+    pricingInstPolicy1Item1Desc: '100% एडवांस (शुरू करने से पहले)',
+    pricingInstPolicy1Item2Label: 'बड़े कार्य',
+    pricingInstPolicy1Item2Desc: '50% एडवांस (पुष्टि के बाद कार्य शुरू)',
+    pricingInstPolicy2Title: 'सुधार नीति',
+    pricingInstPolicy2Item1Label: 'मामूली सुधार',
+    pricingInstPolicy2Item1Desc: 'सहमत दायरे में शामिल',
+    pricingInstPolicy2Item2Label: 'नए विचार या देर से बदलाव',
+    pricingInstPolicy2Item2Desc: 'अलग से शुल्क लिया जाता है',
+    pricingInstTab3Highlight: 'आपसी सम्मान, पारदर्शिता और सुरक्षित सहयोग पर आधारित।',
 
     // Creator Mode - New Sections
     creatorModeLaunchNote: 'क्रिएटर मोड सेवाएं 1 मार्च से कार्य के लिए उपलब्ध होंगी।',

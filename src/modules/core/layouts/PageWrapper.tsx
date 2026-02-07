@@ -1,6 +1,4 @@
 import { ReactNode } from 'react';
-import Navbar from '@/modules/core/components/Navbar';
-import MobileNav from '@/modules/core/components/MobileNav';
 import Footer from '@/modules/core/components/Footer';
 import CursorLight from '@/modules/core/components/CursorLight';
 import FilmGrain from '@/modules/core/components/FilmGrain';
@@ -13,24 +11,25 @@ interface PageWrapperProps {
 }
 
 /**
- * PageWrapper - Master Page Layout Component
+ * PageWrapper - Content Layout Component
  * 
- * Enforces consistent structure across all inner pages:
- * - Fixed FloatingNavbar at top
- * - Automatic navbar spacing (prevents content hiding)
+ * Provides consistent structure for inner pages:
+ * - Atmospheric effects (CursorLight, FilmGrain, ParticleCanvas)
  * - Standardized max-width container
  * - Responsive padding system
  * - Footer at bottom
- * - Atmospheric effects (CursorLight, FilmGrain, ParticleCanvas)
  * - Vignette overlay for visual depth
  * 
+ * NOTE: This component does NOT render navigation.
+ * Pages must render FloatingNavbar separately before wrapping content.
+ * 
  * Usage:
- * ```tsx
+ * @example
+ * <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
  * <PageWrapper mode={mode} onReturn={handleReturn}>
  *   <PageHeader title="..." subtitle="..." />
- *   {/* Page content *\/}
+ *   {children}
  * </PageWrapper>
- * ```
  */
 const PageWrapper = ({ children, mode, onReturn }: PageWrapperProps) => {
     return (
@@ -50,13 +49,7 @@ const PageWrapper = ({ children, mode, onReturn }: PageWrapperProps) => {
             <CursorLight mode={mode} />
             <FilmGrain />
 
-            {/* Desktop Navigation - Floating Island */}
-            {/* <Navbar mode={mode} onReturn={onReturn} /> */}
-
-            {/* Mobile Navigation - Bottom Dock */}
-            {/* <MobileNav mode={mode} /> */}
-
-            {/* Navbar Spacer - Ensures content never hides behind the navbar */}
+            {/* Navbar Spacer - Ensures content never hides behind floating navbar */}
             <div className="h-24 md:h-28 w-full" aria-hidden="true" />
 
             {/* Main Content Container */}

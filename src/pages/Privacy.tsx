@@ -3,10 +3,10 @@ import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useTranslation } from '@/hooks/useTranslation';
-import FloatingNavbar from '@/components/FloatingNavbar';
+import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
 import CursorLight from '@/components/CursorLight';
 import FilmGrain from '@/components/FilmGrain';
-import Footer from '@/components/Footer';
+import Footer from '@/modules/core/components/Footer';
 
 const Privacy = () => {
     const { mode, setHasEntered } = useMode();
@@ -134,7 +134,7 @@ const Privacy = () => {
                 </section>
             </main>
 
-            <Footer mode={mode} />
+            <Footer />
         </>
     );
 };

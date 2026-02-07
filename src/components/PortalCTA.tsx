@@ -100,8 +100,8 @@ const PortalCTA = ({ mode }: PortalCTAProps) => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className={`relative px-12 py-6 md:px-16 md:py-8 rounded-full font-medium text-lg md:text-xl transition-all duration-300 ${mode === 'institutional'
-                                    ? 'bg-institutional text-background'
-                                    : 'bg-creator text-background'
+                                ? 'bg-institutional text-background'
+                                : 'bg-creator text-background'
                                 }`}
                             style={{
                                 boxShadow: mode === 'institutional'
@@ -112,8 +112,8 @@ const PortalCTA = ({ mode }: PortalCTAProps) => {
                             {/* Inner glow */}
                             <div
                                 className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${mode === 'institutional'
-                                        ? 'bg-gradient-to-r from-institutional/50 via-institutional to-institutional/50'
-                                        : 'bg-gradient-to-r from-creator/50 via-creator to-creator/50'
+                                    ? 'bg-gradient-to-r from-institutional/50 via-institutional to-institutional/50'
+                                    : 'bg-gradient-to-r from-creator/50 via-creator to-creator/50'
                                     }`}
                             />
 

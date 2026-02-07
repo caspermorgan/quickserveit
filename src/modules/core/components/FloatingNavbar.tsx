@@ -296,7 +296,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           animate-float opacity-90
           ${combinedVisible
             ? 'translate-y-0 transition-all duration-fast ease-in'
-            : '-translate-y-2 opacity-0 transition-all duration-[350ms] ease-out'
+            : '-translate-y-2 opacity-0 transition-all duration-300 ease-out'
           }
         `}
       >
@@ -347,7 +347,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           fixed top-6 right-6 z-50 md:hidden
           ${combinedVisible
             ? 'opacity-100 translate-y-0 transition-all duration-fast ease-in'
-            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+            : 'opacity-0 -translate-y-2 transition-all duration-300 ease-out'
           }
         `}
       >
@@ -377,7 +377,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           fixed top-6 right-6 md:top-8 md:right-8 z-50 hidden md:block
           ${combinedVisible
             ? 'opacity-100 translate-y-0 transition-all duration-fast ease-in'
-            : 'opacity-0 -translate-y-2 transition-all duration-[350ms] ease-out'
+            : 'opacity-0 -translate-y-2 transition-all duration-300 ease-out'
           }
         `}
       >
@@ -390,7 +390,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
           fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex
           ${combinedVisible
             ? 'opacity-100 translate-y-0 transition-all duration-normal ease-in-back'
-            : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-[400ms] ease-out-back'
+            : 'opacity-0 translate-y-10 pointer-events-none transition-all duration-500 ease-out'
           }
         `}
       >

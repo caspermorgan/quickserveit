@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import FloatingNavbar from './FloatingNavbar';
+import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
 import ServicesSection from './ServicesSection';
 import CredibilitySection from './CredibilitySection';
 import PricingSection from './PricingSection';
 import ContactSection from './ContactSection';
-import Footer from './Footer';
+import Footer from '@/modules/core/components/Footer';
 import FilmGrain from './FilmGrain';
 import CursorLight from './CursorLight';
 
@@ -76,7 +76,7 @@ const DashboardView = ({ mode, onReturn, isEntering }: DashboardViewProps) => {
         <CredibilitySection mode={mode} />
         <PricingSection mode={mode} />
         <ContactSection mode={mode} />
-        <Footer mode={mode} />
+        <Footer />
       </div>
 
       {/* Back to Top Button */}
