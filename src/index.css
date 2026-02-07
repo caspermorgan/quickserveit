@@ -244,6 +244,29 @@
     --theme-glow-institutional: rgba(234, 179, 8, 0.3);
     --theme-glow-creator: rgba(34, 211, 238, 0.3);
     --theme-glow-portfolio: rgba(168, 85, 247, 0.3);
+
+    /* Mode Colors - Portfolio Premium Purple (Violet) */
+    --mode-portfolio-h: 271;
+    --mode-portfolio-s: 81%;
+    --mode-portfolio-l: 59%;
+
+    /* Portfolio Secondary Colors */
+    --mode-portfolio-secondary-h: 268;
+    --mode-portfolio-secondary-s: 78%;
+    --mode-portfolio-secondary-l: 63%;
+
+    /* Portfolio Tertiary Colors */
+    --mode-portfolio-tertiary-h: 274;
+    --mode-portfolio-tertiary-s: 75%;
+    --mode-portfolio-tertiary-l: 55%;
+
+    /* Portfolio Deep Colors - WCAG AA Compliant for Text */
+    --mode-portfolio-deep-h: 271;
+    --mode-portfolio-deep-s: 80%;
+    --mode-portfolio-deep-l: 45%;
+
+    /* Focus Ring - Portfolio */
+    --focus-ring-portfolio: hsl(271, 81%, 59%);
   }
 
   /* Creator Mode Override */
@@ -276,6 +299,92 @@
     --mode-tertiary-h: var(--mode-institutional-tertiary-h);
     --mode-tertiary-s: var(--mode-institutional-tertiary-s);
     --mode-tertiary-l: var(--mode-institutional-tertiary-l);
+  }
+
+  /* Portfolio Mode Override - LIGHT THEME */
+  .mode-portfolio {
+    /* Purple accent colors */
+    --mode-h: var(--mode-portfolio-h);
+    --mode-s: var(--mode-portfolio-s);
+    --mode-l: var(--mode-portfolio-l);
+    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-portfolio-secondary-h);
+    --mode-secondary-s: var(--mode-portfolio-secondary-s);
+    --mode-secondary-l: var(--mode-portfolio-secondary-l);
+
+    --mode-tertiary-h: var(--mode-portfolio-tertiary-h);
+    --mode-tertiary-s: var(--mode-portfolio-tertiary-s);
+    --mode-tertiary-l: var(--mode-portfolio-tertiary-l);
+
+    /* LIGHT THEME OVERRIDES */
+    --background: 0 0% 98%;           /* Clean White */
+    --foreground: 0 0% 10%;           /* Dark Grey/Black text */
+    --card: 0 0% 100%;                /* Pure White cards */
+    --card-foreground: 0 0% 10%;
+    --border: 0 0% 90%;               /* Light grey borders */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+  }
+
+  /* Data-theme attribute support */
+  [data-theme="institutional"] {
+    --mode-h: var(--mode-institutional-h);
+    --mode-s: var(--mode-institutional-s);
+    --mode-l: var(--mode-institutional-l);
+    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-institutional-secondary-h);
+    --mode-secondary-s: var(--mode-institutional-secondary-s);
+    --mode-secondary-l: var(--mode-institutional-secondary-l);
+
+    --mode-tertiary-h: var(--mode-institutional-tertiary-h);
+    --mode-tertiary-s: var(--mode-institutional-tertiary-s);
+    --mode-tertiary-l: var(--mode-institutional-tertiary-l);
+  }
+
+  [data-theme="creator"] {
+    --mode-h: var(--mode-creator-h);
+    --mode-s: var(--mode-creator-s);
+    --mode-l: var(--mode-creator-l);
+    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-creator-secondary-h);
+    --mode-secondary-s: var(--mode-creator-secondary-s);
+    --mode-secondary-l: var(--mode-creator-secondary-l);
+
+    --mode-tertiary-h: var(--mode-creator-tertiary-h);
+    --mode-tertiary-s: var(--mode-creator-tertiary-s);
+    --mode-tertiary-l: var(--mode-creator-tertiary-l);
+  }
+
+  [data-theme="portfolio"] {
+    /* Purple accent colors */
+    --mode-h: var(--mode-portfolio-h);
+    --mode-s: var(--mode-portfolio-s);
+    --mode-l: var(--mode-portfolio-l);
+    --mode-color: hsl(var(--mode-h), var(--mode-s), var(--mode-l));
+
+    --mode-secondary-h: var(--mode-portfolio-secondary-h);
+    --mode-secondary-s: var(--mode-portfolio-secondary-s);
+    --mode-secondary-l: var(--mode-portfolio-secondary-l);
+
+    --mode-tertiary-h: var(--mode-portfolio-tertiary-h);
+    --mode-tertiary-s: var(--mode-portfolio-tertiary-s);
+    --mode-tertiary-l: var(--mode-portfolio-tertiary-l);
+
+    /* LIGHT THEME OVERRIDES */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --border: 0 0% 90%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
   }
 }
 

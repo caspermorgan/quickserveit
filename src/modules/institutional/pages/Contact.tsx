@@ -5,13 +5,13 @@ import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import PageWrapper from '@/modules/core/layouts/PageWrapper';
 import PageHeader from '@/modules/core/layouts/PageHeader';
-import ContactForm from '@/components/ContactForm';
-import DirectLineInfo from '@/components/DirectLineInfo';
+import ContactForm from '@/modules/institutional/components/ContactForm';
+import DirectLineInfo from '@/modules/institutional/components/DirectLineInfo';
 import {
   Clock, Mail, MapPin, Shield, CheckCircle, MessageCircle,
   Zap, X, Sparkles, ChevronDown, ChevronUp, Send
 } from 'lucide-react';
-import { H2 } from '@/components/Typography';
+import { H2 } from '@/modules/core/components/Typography';
 import { toast } from 'sonner';
 
 const Contact = () => {

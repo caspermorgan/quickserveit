@@ -1,201 +1,276 @@
-# QuickServeIT - Professional Service Management Platform
+# QuickServe IT Platform
 
-A modern, full-stack web application designed for efficient service management and delivery. Built by a dedicated team of developers passionate about creating seamless user experiences.
+> **Professional digital services platform for educational institutions and content creators**
 
-## 🎯 About QuickServeIT
-
-QuickServeIT is a comprehensive platform developed to streamline service operations, improve customer engagement, and provide real-time insights into service delivery. Whether you're managing a service business or looking for reliable service providers, QuickServeIT bridges the gap with an intuitive interface and robust backend architecture.
+A modern, full-stack web application serving two distinct domains: **Institutional Support** (schools, colleges) and **Creator Support** (YouTubers, content creators), with a shared **Portfolio** section showcasing the founder's work.
 
 **Live Application:** [https://www.quickserveit.online/](https://www.quickserveit.online/)
 
+---
+
+## 🎯 About QuickServe IT
+
+QuickServe IT is a dual-mode service platform designed to:
+
+1. **Institutional Mode** - Provide digital support services to educational institutions (exam documentation, UDISE+ management, scholarship processing, daily tech support)
+2. **Creator Mode** - Offer premium production services to content creators (video editing, motion graphics, thumbnails, shorts/reels)
+3. **Portfolio** - Showcase the founder's work, philosophy, and service approach
+
+The platform features a clean, mode-aware architecture with separate routing, data, and components for each domain while sharing core infrastructure.
+
+---
+
+## 🏗️ Architecture Overview
+
+### Three Logical Domains
+
+```
+QuickServe IT Platform
+├── Institutional Support (Schools, Colleges)
+├── Creator Support (YouTubers, Content Creators)
+└── Portfolio (Founder, About, Vision)
+```
+
+### Module Structure
+
+```
+src/
+├── modules/
+│   ├── core/              # Shared components & layouts
+│   │   ├── components/    # FloatingNavbar, Footer, CursorLight, etc.
+│   │   └── layouts/       # PageWrapper, PageHeader
+│   ├── institutional/     # Institutional domain
+│   │   ├── pages/         # Home, Services, Pricing, About
+│   │   ├── components/    # Institutional-specific components
+│   │   └── data/          # pricing.ts, services.ts (typed data)
+│   ├── creator/           # Creator domain
+│   │   ├── pages/         # Home, Services, Pricing, About
+│   │   ├── components/    # Creator-specific components
+│   │   └── data/          # pricing.ts, services.ts (typed data)
+│   └── landing/           # Landing page & mode selection
+│       └── components/    # Landing-specific components
+├── context/               # ModeContext (institutional/creator state)
+├── hooks/                 # useTranslation, custom hooks
+├── lib/                   # translations.ts, utilities
+├── App.tsx                # Main routing logic
+└── main.tsx               # Application entry point
+```
+
+### Routing Structure
+
+```
+/                          → Landing (mode selection)
+/institutional/*           → Institutional routes
+  ├── /home                → Institutional home
+  ├── /services            → Institutional services
+  ├── /pricing             → Institutional pricing
+  ├── /about               → About page (institutional context)
+  └── /founder             → Founder page (institutional context)
+/creator/*                 → Creator routes
+  ├── /home                → Creator home
+  ├── /services            → Creator services
+  ├── /pricing             → Creator pricing
+  ├── /about               → About page (creator context)
+  └── /founder             → Founder page (creator context)
+/founder                   → Shared founder page
+```
+
+---
+
 ## 🛠️ Tech Stack
 
-We chose a modern, proven tech stack to ensure scalability, performance, and maintainability:
+**Frontend:**
+- React 18.3 + TypeScript - Type-safe UI framework
+- Vite - Lightning-fast build tool
+- Tailwind CSS - Utility-first styling
+- shadcn-ui - Accessible React components (Radix UI)
+- Framer Motion - Smooth animations
+- React Router - Client-side routing with nested routes
 
-- **Frontend:**
-  - React 18.3 - Modern UI framework for building interactive interfaces
-  - TypeScript - Type-safe JavaScript for better code reliability
-  - Vite - Lightning-fast build tool and dev server
-  - Tailwind CSS - Utility-first CSS framework for rapid UI development
-  - shadcn-ui - High-quality, accessible React components built on Radix UI
-  - TanStack React Query - Advanced server state management
-  - React Router - Client-side routing
+**State Management:**
+- React Context API - Mode switching (institutional/creator)
+- TanStack React Query - Server state management
 
-- **Development:**
-  - ESLint - Code quality and consistency
-  - PostCSS - CSS transformations and optimizations
-  - Bun - Fast all-in-one JavaScript runtime (package management)
+**Internationalization:**
+- Custom i18n system - English/Hindi translations
+- Translation keys organized by domain
+
+**Development:**
+- ESLint - Code quality
+- TypeScript - Type safety
+- PostCSS - CSS transformations
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18 or higher) and npm installed on your system
-- Basic familiarity with JavaScript/TypeScript and React
-- Git for cloning the repository
+- Node.js v18+ and npm
+- Git
 
-### Installation & Development Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/caspermorgan/quickserveit.git
-   cd quickserveit
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   The application will be available at `http://localhost:5173`
-
-### Building for Production
+### Installation
 
 ```bash
-# Create an optimized production build
-npm run build
-
-# Preview the production build locally
-npm run preview
-```
-
-## 📝 Development Workflow
-
-### Working with the Codebase
-
-We follow standard Git workflow practices:
-
-1. **Create a feature branch** from `main`
-2. **Make your changes** and test thoroughly locally
-3. **Commit with descriptive messages** explaining the "why" and "what"
-4. **Push and create a Pull Request** with clear descriptions
-5. **Code review** before merging to main
-
-### Project Structure
-
-```
-src/
-├── components/    # Reusable React components
-├── pages/         # Page components and routes
-├── context/       # React context for state management
-├── hooks/         # Custom React hooks
-├── lib/           # Utility functions and helpers
-├── App.tsx        # Main application component
-└── main.tsx       # Application entry point
-```
-
-### Available Scripts
-
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Create optimized production build
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint to check code quality
-
-## 🔧 Editing Code
-
-### Option 1: Local Development (Recommended)
-
-Clone the repository and work locally with your preferred IDE:
-
-```bash
+# Clone the repository
 git clone https://github.com/caspermorgan/quickserveit.git
 cd quickserveit
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-After making changes, push them to the repository:
+The application will be available at `http://localhost:5173`
+
+### Available Scripts
 
 ```bash
-git add .
-git commit -m "Feature: Brief description of changes"
-git push origin your-branch-name
+npm run dev          # Start development server with hot reload
+npm run build        # Create optimized production build
+npm run preview      # Preview production build locally
+npm run lint         # Run ESLint to check code quality
+npm run dev:clean    # Kill existing processes and start fresh dev server
 ```
 
-### Option 2: GitHub Web Editor
+---
 
-For quick fixes or documentation updates:
-1. Navigate to the desired file in GitHub
-2. Click the pencil icon (✏️) to edit
-3. Make your changes
-4. Commit with a descriptive message
+## 📂 Key Directories Explained
 
-### Option 3: GitHub Codespaces
+### `/modules/core/`
+Shared components and layouts used across both institutional and creator modes:
+- `FloatingNavbar` - Mode-aware navigation
+- `Footer` - Mode-aware footer
+- `CursorLight` - Custom cursor effect
+- `FilmGrain` - Visual texture overlay
+- `PageWrapper`, `PageHeader` - Layout components
 
-Develop directly in the cloud:
-1. Go to the repository main page
-2. Click "Code" → "Codespaces" tab
-3. Create a new Codespace
-4. Work in the cloud IDE and push changes when ready
+### `/modules/institutional/` & `/modules/creator/`
+Mode-specific pages, components, and **typed data files**:
+- `pages/` - Full page components (Home, Services, Pricing, About)
+- `components/` - Mode-specific UI components
+- `data/` - **Detached data files** (pricing.ts, services.ts) with TypeScript interfaces
+
+### `/context/ModeContext.tsx`
+Global state management for mode switching:
+- Tracks current mode (institutional/creator)
+- Provides mode-aware utilities
+- Persists mode selection
+
+### `/lib/translations.ts`
+Centralized translation system:
+- English (en) and Hindi (hi) translations
+- Organized by feature (pricing, services, navigation, etc.)
+- Type-safe translation keys
+
+---
+
+## 🔧 Development Workflow
+
+### Working with Data
+
+**Pricing and Services data are now detached from components:**
+
+```typescript
+// Example: institutional/data/pricing.ts
+export const getInstitutionalPricingData = (t: (key: string) => string) => [
+  {
+    id: 0,
+    icon: FileText,
+    label: t('pricingInstTab1Label'),
+    // ... more data
+  }
+];
+```
+
+**To update pricing/services:**
+1. Edit the data file (e.g., `institutional/data/pricing.ts`)
+2. Update TypeScript interfaces if structure changes
+3. Add corresponding translation keys to `lib/translations.ts`
+
+### Adding Translations
+
+```typescript
+// lib/translations.ts
+export const translations = {
+  en: {
+    myNewKey: 'English text',
+    // ...
+  },
+  hi: {
+    myNewKey: 'हिंदी पाठ',
+    // ...
+  }
+};
+```
+
+### Mode-Aware Components
+
+Components automatically adapt based on the current mode:
+
+```tsx
+import { useMode } from '@/context/ModeContext';
+
+function MyComponent() {
+  const { mode } = useMode(); // 'institutional' | 'creator'
+  
+  return (
+    <div className={mode === 'institutional' ? 'text-amber-500' : 'text-cyan-500'}>
+      {/* Mode-aware content */}
+    </div>
+  );
+}
+```
+
+---
 
 ## 🚀 Deployment
 
-QuickServeIT is deployed and live at **[www.quickserveit.online](https://www.quickserveit.online/)**
-
-### Current Deployment
-- **Platform:** Vercel
-- **Status:** Production
-- **Auto-deployment:** Enabled on main branch pushes
+**Platform:** Vercel  
+**Status:** Production  
+**URL:** [www.quickserveit.online](https://www.quickserveit.online/)
 
 ### Deployment Process
-
-Once code is merged to the `main` branch:
-1. Vercel automatically detects changes
-2. Builds the project
-3. Runs tests and checks
+1. Push changes to `main` branch
+2. Vercel automatically detects changes
+3. Builds and runs checks
 4. Deploys to production if all checks pass
 
-## 🌐 Custom Domain
+---
 
-The application is accessible via our custom domain. To configure a custom domain:
-1. Go to your hosting provider's domain management
-2. Update DNS records to point to our deployment
-3. Configure SSL/TLS certificates
+## 📝 Code Standards
 
-## 👥 Contributing
+- **TypeScript:** Use strict typing, avoid `any`
+- **Components:** Functional components with hooks
+- **Styling:** Tailwind CSS utility classes
+- **Naming:** PascalCase for components, camelCase for functions/variables
+- **Imports:** Use absolute imports with `@/` alias
+- **Data:** Keep data separate from components (use `/data` folders)
 
-We welcome contributions from the community! Here's how:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Code Standards
-- Write clear, self-documenting code
-- Follow TypeScript best practices
-- Add comments for complex logic
-- Ensure ESLint passes: `npm run lint`
-- Test your changes locally before submitting
-
-## 📚 Documentation
-
-- React: [react.dev](https://react.dev)
-- TypeScript: [typescriptlang.org](https://www.typescriptlang.org)
-- Vite: [vitejs.dev](https://vitejs.dev)
-- Tailwind CSS: [tailwindcss.com](https://tailwindcss.com)
-- TanStack Query: [tanstack.com/query](https://tanstack.com/query)
+---
 
 ## 🐛 Bug Reports & Feedback
 
-Found a bug or have a suggestion? We'd love to hear from you!
+Found a bug or have a suggestion?
 - Open an issue on GitHub with a clear description
 - Include steps to reproduce for bugs
 - Provide context and expected behavior
+
+---
 
 ## 📄 License
 
 This project is part of QuickServe IT's product suite. Please refer to the LICENSE file for usage terms.
 
+---
+
 ## 🤝 Team
 
-QuickServeIT is developed by a passionate team of developers, designers, and product specialists working together to deliver excellence.
+QuickServe IT is developed by a passionate team of developers, designers, and product specialists working together to deliver excellence.
 
 ---
 
-**Last Updated:** December 2025  
-**Repository:** [github.com/caspermorgan/quickserveit](https://github.com/caspermorgan/quickserveit)
+**Last Updated:** February 2026  
+**Repository:** [github.com/caspermorgan/quickserveit](https://github.com/caspermorgan/quickserveit)  
+**Architecture Version:** 2.0 (Post-Refactor)

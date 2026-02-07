@@ -1,4 +1,4 @@
-import { CheckIcon } from '@/components/IconSystem';
+import { CheckIcon } from '@/modules/core/components/IconSystem';
 import { useNavigate } from 'react-router-dom';
 
 interface PricingSectionProps {

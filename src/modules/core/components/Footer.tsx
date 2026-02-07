@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageCircleIcon, ShieldIcon } from '@/components/IconSystem';
-import AvailabilityIndicator from '@/components/AvailabilityIndicator';
+import { MessageCircleIcon, ShieldIcon } from '@/modules/core/components/IconSystem';
+import AvailabilityIndicator from '@/modules/institutional/components/AvailabilityIndicator';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useMode } from '@/context/ModeContext';
-import SwitchModeButton from '@/components/SwitchModeButton';
+import SwitchModeButton from '@/modules/core/components/SwitchModeButton';
 
 const Footer = () => {
   const { t } = useTranslation();

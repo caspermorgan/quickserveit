@@ -8,18 +8,18 @@ import CursorLight from '@/modules/core/components/CursorLight';
 import FilmGrain from '@/modules/core/components/FilmGrain';
 import Footer from '@/modules/core/components/Footer';
 import FloatingContactButton from '@/modules/core/components/FloatingContactButton';
-import TypewriterText from '@/components/TypewriterText';
+import TypewriterText from '@/modules/core/components/TypewriterText';
 import CreatorModeNotice from '@/modules/creator/components/CreatorModeNotice';
-import ServicesTeaser from '@/components/ServicesTeaser';
-import HowWeWork from '@/components/HowWeWork';
-import TechTicker from '@/components/TechTicker';
-import ValueProposition from '@/components/ValueProposition';
+import ServicesTeaser from '@/modules/institutional/components/ServicesTeaser';
+import HowWeWork from '@/modules/institutional/components/HowWeWork';
+import TechTicker from '@/modules/core/components/TechTicker';
+import ValueProposition from '@/modules/institutional/components/ValueProposition';
 import TrustIndicators from '../components/TrustIndicators';
 import InstitutionalStats from '../components/InstitutionalStats';
 import SEO from '@/modules/core/components/SEO';
-import { DisplayText, BodyLarge } from '@/components/Typography';
-import { Reveal, Magnetic } from '@/components/motion';
-import ParallaxSection from '@/components/motion/ParallaxSection';
+import { DisplayText, BodyLarge } from '@/modules/core/components/Typography';
+import { Reveal, Magnetic } from '@/modules/core/components/motion';
+import ParallaxSection from '@/modules/core/components/motion/ParallaxSection';
 import ProofOfWorkSlider from '../components/ProofOfWorkSlider';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
@@ -207,7 +207,7 @@ const Home = () => {
         </section>
 
         {/* Institutional Statistics - Trust Building */}
-        <InstitutionalStats />
+        <InstitutionalStats mode={mode} />
 
         {/* Creator Mode Notice */}
         {mode === 'creator' && (

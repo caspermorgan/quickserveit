@@ -19,14 +19,35 @@ interface MobileNavProps {
 const MobileNav = ({ mode }: MobileNavProps) => {
     const location = useLocation();
 
-    // Navigation items
-    const navItems = [
-        { icon: Home, href: '/home', label: 'Home' },
-        { icon: Layers, href: '/services', label: 'Services' },
-        { icon: CreditCard, href: '/pricing', label: 'Pricing' },
-        { icon: User, href: '/about', label: 'About' },
-        { icon: Mail, href: '/contact', label: 'Contact' },
+    // Mode-specific navigation items (matches FloatingNavbar logic)
+    const institutionalItems = [
+        { icon: Home, href: '/institutional/home', label: 'Home' },
+        { icon: Layers, href: '/institutional/services', label: 'Services' },
+        { icon: CreditCard, href: '/institutional/pricing', label: 'Pricing' },
+        { icon: User, href: '/institutional/about', label: 'About' },
+        { icon: Mail, href: '/institutional/contact', label: 'Contact' },
     ];
+
+    const creatorItems = [
+        { icon: Home, href: '/creator/home', label: 'Home' },
+        { icon: Layers, href: '/creator/services', label: 'Studio' },
+        { icon: CreditCard, href: '/creator/pricing', label: 'Pricing' },
+        { icon: User, href: '/creator/about', label: 'About' },
+        { icon: Mail, href: '/creator/contact', label: 'Contact' },
+    ];
+
+    const portfolioItems = [
+        { icon: Home, href: '/portfolio', label: 'Home' },
+        { icon: Layers, href: '/portfolio', label: 'Projects' },
+        { icon: User, href: '/founder', label: 'Vision' },
+        { icon: Mail, href: '/institutional/contact', label: 'Contact' },
+    ];
+
+    const navItems = mode === 'institutional'
+        ? institutionalItems
+        : mode === 'creator'
+            ? creatorItems
+            : portfolioItems;
 
     // Theme colors
     const themeColor = mode === 'institutional'
@@ -46,6 +67,11 @@ const MobileNav = ({ mode }: MobileNavProps) => {
         : mode === 'creator'
             ? 'linear-gradient(to top, rgba(34, 211, 238, 0.2), transparent)'
             : 'linear-gradient(to top, rgba(168, 85, 247, 0.2), transparent)';
+
+    // HIDE MobileNav for Portfolio World - they have their own custom navigation
+    if (mode === 'portfolio') {
+        return null;
+    }
 
     return (
         <nav className="fixed bottom-6 left-4 right-4 z-50 flex md:hidden">
@@ -99,8 +125,8 @@ const MobileNav = ({ mode }: MobileNavProps) => {
                             >
                                 <Icon
                                     className={`w-6 h-6 transition-colors duration-300 ${isActive
-                                            ? 'text-white'
-                                            : 'text-white/50'
+                                        ? 'text-white'
+                                        : 'text-white/50'
                                         }`}
                                     style={{
                                         filter: isActive ? `drop-shadow(0 0 8px ${themeGlow})` : 'none',

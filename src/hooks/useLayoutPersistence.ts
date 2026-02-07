@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { CardState, CardMode, CardPriority } from '@/types/card';
-import { AutoCollapseSettings } from '@/components/AutoCollapseSettings';
+import { AutoCollapseSettings } from '@/modules/core/components/AutoCollapseSettings';
 
 const STORAGE_KEY = 'quickserveit_card_layout_v3.1';
 const STORAGE_VERSION = '3.1';

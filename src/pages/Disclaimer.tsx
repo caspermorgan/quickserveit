@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
-import CursorLight from '@/components/CursorLight';
-import FilmGrain from '@/components/FilmGrain';
+import CursorLight from '@/modules/core/components/CursorLight';
+import FilmGrain from '@/modules/core/components/FilmGrain';
 import Footer from '@/modules/core/components/Footer';
 
 const Disclaimer = () => {

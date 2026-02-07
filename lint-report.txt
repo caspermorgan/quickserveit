@@ -1,0 +1,92 @@
+﻿
+> vite_react_shadcn_ts@0.0.0 lint
+> eslint .
+
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\_archive\components_backup\ProofOfWorkSlider.tsx
+  48:8  warning  React Hook useEffect has missing dependencies: 'handleMouseMove' and 'handleTouchMove'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\badge.tsx
+  29:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\button.tsx
+  47:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\command.tsx
+  24:11  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\form.tsx
+  129:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\navigation-menu.tsx
+  111:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\sidebar.tsx
+  636:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\sonner.tsx
+  27:19  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\textarea.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\components\ui\toggle.tsx
+  37:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\context\LanguageContext.tsx
+  49:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\context\ModeContext.tsx
+  79:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\hooks\useAutoCollapse.ts
+  215:8  warning  React Hook useCallback has a missing dependency: 'undoCollapse'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\core\components\IconSystem.tsx
+  344:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\core\components\motion\Magnetic.tsx
+  39:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\core\components\motion\Reveal.tsx
+  53:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\creator\data\pricing.ts
+  16:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\creator\data\services.ts
+  6:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\institutional\components\ProofOfWorkSlider.tsx
+  48:8  warning  React Hook useEffect has missing dependencies: 'handleMouseMove' and 'handleTouchMove'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\institutional\components\ValueProposition.tsx
+  120:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  123:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  150:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  151:69  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\institutional\data\pricing.ts
+  17:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\institutional\data\services.ts
+  6:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\institutional\pages\Services.tsx
+  42:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\modules\landing\components\ParticleCanvas.tsx
+  266:6  warning  React Hook useEffect has a missing dependency: 'mode'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\types\card.ts
+  29:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  33:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\src\vite-env.d.ts
+  10:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\vinod\Documents\Agency\quickserveit\tailwind.config.ts
+  199:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Ô£û 31 problems (17 errors, 14 warnings)
+

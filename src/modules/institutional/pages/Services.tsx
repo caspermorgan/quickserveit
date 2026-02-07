@@ -26,6 +26,8 @@ import {
   Clock,
   Zap
 } from 'lucide-react';
+import { INSTITUTIONAL_SERVICES_DATA } from '../data/services';
+import { CREATOR_SERVICES_DATA } from '@/modules/creator/data/services';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   SiAdobepremierepro,
@@ -69,137 +71,9 @@ const Services = () => {
     }, 200);
   };
 
-  // PRESERVED DATA: Institutional Services
-  const institutionalServices = [
-    {
-      id: 'exam-docs',
-      icon: FileText,
-      title: 'Exam Documentation',
-      tagline: 'Error-Free. On Time. Every Time.',
-      description: 'Professional typing and formatting of examination papers with strict quality protocols.',
-      fullDescKey: 'Professional typing, formatting, and quality assurance for all types of examination papers. We handle everything from question papers to answer sheets with zero-error tolerance and strict confidentiality.',
-      features: ['350+ Papers Delivered', 'Zero Error Tolerance', '24-48hr Turnaround', 'Confidential Handling'],
-      stepsKey: ['Document Receipt & Analysis', 'Professional Typing & Formatting', 'Multi-Level Quality Check', 'Secure Delivery'],
-      needsKey: ['Original documents or clear scans', 'Formatting specifications', 'Delivery deadline', 'Contact information'],
-      timelineKey: '24-48 hours',
-      artifact: 'exam',
-      color: 'from-blue-500 to-cyan-500',
-      whatsappTemplate: 'Hi! I need help with Exam Documentation services.'
-    },
-    {
-      id: 'udise',
-      icon: Database,
-      title: 'UDISE+ Management',
-      tagline: 'Accurate Data. Seamless Compliance.',
-      description: 'Complete UDISE+ portal data entry and management for educational institutions.',
-      fullDescKey: 'End-to-end UDISE+ portal management including data entry, verification, updates, and compliance reporting. We ensure your institution meets all government requirements with accurate, timely submissions.',
-      features: ['Real-time Updates', 'Compliance Assured', 'Dedicated Support', 'Deadline Management'],
-      stepsKey: ['Data Collection & Verification', 'Portal Entry & Validation', 'Compliance Check', 'Submission & Reporting'],
-      needsKey: ['Student enrollment data', 'Staff information', 'Infrastructure details', 'Previous UDISE records'],
-      timelineKey: '3-5 business days',
-      artifact: 'udise',
-      color: 'from-purple-500 to-pink-500',
-      whatsappTemplate: 'Hi! I need assistance with UDISE+ Management.'
-    },
-    {
-      id: 'scholarships',
-      icon: GraduationCap,
-      title: 'Scholarship Processing',
-      tagline: 'Maximize Student Success.',
-      description: 'End-to-end scholarship application support and documentation.',
-      fullDescKey: 'Complete scholarship application assistance from documentation to biometric verification. We help maximize student success rates with expert guidance through every step of the scholarship process.',
-      features: ['Application Filing', 'Document Verification', 'Status Tracking', 'Biometric Support'],
-      stepsKey: ['Eligibility Assessment', 'Document Preparation', 'Application Submission', 'Follow-up & Tracking'],
-      needsKey: ['Student academic records', 'Income certificates', 'Caste certificates (if applicable)', 'Bank account details'],
-      timelineKey: '2-3 days per application',
-      artifact: 'scholarship',
-      color: 'from-green-500 to-emerald-500',
-      whatsappTemplate: 'Hi! I need help with Scholarship Processing.'
-    },
-    {
-      id: 'daily-support',
-      icon: Calendar,
-      title: 'Daily Tech Support',
-      tagline: 'Your Digital Partner.',
-      description: 'Monthly retainer-based digital support for all institutional needs.',
-      fullDescKey: 'Comprehensive monthly tech support covering all your digital needs. From urgent fixes to planned projects, we\'re your dedicated technology partner ensuring smooth operations every day.',
-      features: ['On-Demand Help', 'Priority Response', 'Custom Solutions', 'Predictable Costs'],
-      stepsKey: ['Needs Assessment', 'Support Plan Setup', 'Ongoing Assistance', 'Monthly Review'],
-      needsKey: ['List of regular tasks', 'Access credentials', 'Communication channels', 'Budget allocation'],
-      timelineKey: 'Ongoing monthly service',
-      artifact: 'support',
-      color: 'from-amber-500 to-orange-500',
-      whatsappTemplate: 'Hi! I\'m interested in Daily Tech Support services.'
-    }
-  ];
-
-  // PRESERVED DATA: Creator Services
-  const creatorServices = [
-    {
-      id: 'video-editing',
-      icon: Video,
-      title: 'Premium Video Production',
-      tagline: 'Cinematic. Engaging. Professional.',
-      description: 'High-quality long-form video editing for YouTube creators.',
-      fullDescKey: 'Professional video editing services including color grading, sound design, motion graphics, and storytelling. We transform raw footage into polished, engaging content that keeps viewers watching.',
-      features: ['Color Grading', 'Sound Design', 'Motion Graphics', 'Fast Turnaround'],
-      stepsKey: ['Footage Review & Planning', 'Rough Cut Assembly', 'Fine Editing & Effects', 'Final Review & Delivery'],
-      needsKey: ['Raw video footage', 'Brand assets (logos, colors)', 'Reference videos', 'Delivery deadline'],
-      timelineKey: '3-5 days per video',
-      artifact: 'video',
-      color: 'from-red-500 to-pink-500',
-      software: ['Premiere Pro', 'DaVinci Resolve', 'Audition'],
-      whatsappTemplate: 'Hi! I need Premium Video Production services.'
-    },
-    {
-      id: 'shorts-reels',
-      icon: Smartphone,
-      title: 'Viral Shorts & Reels',
-      tagline: 'Hook. Retain. Convert.',
-      description: 'Repurpose your content into high-retention vertical videos.',
-      fullDescKey: 'Transform long-form content into viral-ready shorts and reels. We optimize hooks, add captions and SFX, and format for each platform to maximize reach and engagement.',
-      features: ['Hook Optimization', 'Captions & SFX', 'Platform-Specific', 'Batch Production'],
-      stepsKey: ['Content Analysis', 'Clip Selection & Editing', 'Platform Optimization', 'Batch Delivery'],
-      needsKey: ['Source video content', 'Platform preferences', 'Brand style guide', 'Quantity needed'],
-      timelineKey: '1-2 days for 10 shorts',
-      artifact: 'shorts',
-      color: 'from-purple-500 to-indigo-500',
-      software: ['After Effects', 'Premiere Pro'],
-      whatsappTemplate: 'Hi! I need Viral Shorts & Reels editing.'
-    },
-    {
-      id: 'motion-graphics',
-      icon: Layers,
-      title: 'Motion Graphics & VFX',
-      tagline: 'Elevate Your Brand.',
-      description: 'Custom intros, outros, and motion graphics that stand out.',
-      fullDescKey: 'Create stunning motion graphics, animated logos, intros, outros, and visual effects that elevate your brand identity and make your content unforgettable.',
-      features: ['Brand Identity', '3D Elements', 'Custom Animations', 'Unlimited Revisions'],
-      stepsKey: ['Concept Development', 'Design & Animation', 'Review & Refinement', 'Final Delivery'],
-      needsKey: ['Brand assets & guidelines', 'Reference examples', 'Video specifications', 'Usage requirements'],
-      timelineKey: '5-7 days per project',
-      artifact: 'motion',
-      color: 'from-cyan-500 to-blue-500',
-      software: ['After Effects', 'Blender', 'Illustrator'],
-      whatsappTemplate: 'Hi! I need Motion Graphics & VFX services.'
-    },
-    {
-      id: 'thumbnails',
-      icon: Lightbulb,
-      title: 'Thumbnails & Strategy',
-      tagline: 'Click. Watch. Subscribe.',
-      description: 'High-CTR thumbnail design with content strategy consulting.',
-      fullDescKey: 'Data-driven thumbnail design combined with content strategy consulting. We analyze competitors, test designs, and provide script feedback to maximize your video performance.',
-      features: ['A/B Testing', 'Competitor Analysis', 'Script Consulting', 'Trend Research'],
-      stepsKey: ['Video Analysis', 'Concept Design', 'A/B Variants', 'Performance Tracking'],
-      needsKey: ['Video topic & script', 'Channel branding', 'Target audience info', 'Competitor channels'],
-      timelineKey: '24-48 hours',
-      artifact: 'thumbnail',
-      color: 'from-amber-500 to-yellow-500',
-      software: ['Photoshop', 'Midjourney', 'Notion'],
-      whatsappTemplate: 'Hi! I need Thumbnail Design & Strategy services.'
-    }
-  ];
+  // Get services data from imported constants
+  const institutionalServices = INSTITUTIONAL_SERVICES_DATA;
+  const creatorServices = CREATOR_SERVICES_DATA;
 
   const services = mode === 'institutional' ? institutionalServices : creatorServices;
   const currentService = services[activeService];

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-type Mode = 'institutional' | 'creator';
+type Mode = 'institutional' | 'creator' | 'portfolio';
 
 interface ModeContextType {
   mode: Mode;
@@ -23,7 +23,7 @@ export const ModeProvider = ({ children }: { children: ReactNode }) => {
   // Initialize state from localStorage if available
   const [mode, setModeState] = useState<Mode>(() => {
     const stored = localStorage.getItem(MODE_STORAGE_KEY);
-    return (stored === 'institutional' || stored === 'creator') ? stored : 'institutional';
+    return (stored === 'institutional' || stored === 'creator' || stored === 'portfolio') ? stored : 'institutional';
   });
 
   const [hasEntered, setHasEnteredState] = useState(() => {
@@ -33,7 +33,7 @@ export const ModeProvider = ({ children }: { children: ReactNode }) => {
 
   const [currentSection, setCurrentSectionState] = useState<Mode>(() => {
     const stored = localStorage.getItem(CURRENT_SECTION_KEY);
-    return (stored === 'institutional' || stored === 'creator') ? stored : 'institutional';
+    return (stored === 'institutional' || stored === 'creator' || stored === 'portfolio') ? stored : 'institutional';
   });
 
   // Wrapper to persist mode to localStorage
@@ -64,9 +64,21 @@ export const ModeProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem(CURRENT_SECTION_KEY);
   };
 
-  // Update data-mode attribute on document root for CSS focus styles
+  // Update data-theme attribute on body and data-mode on root for CSS
   useEffect(() => {
+    // Set data-theme attribute on body for theme switching
+    document.body.setAttribute('data-theme', mode);
+
+    // Set data-mode attribute on document root for CSS focus styles
     document.documentElement.setAttribute('data-mode', mode);
+
+    // Set mode class on html element for backward compatibility
+    document.documentElement.classList.remove(
+      'mode-institutional',
+      'mode-creator',
+      'mode-portfolio'
+    );
+    document.documentElement.classList.add(`mode-${mode}`);
   }, [mode]);
 
   return (

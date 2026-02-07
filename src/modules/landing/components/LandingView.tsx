@@ -3,17 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import HeaderStatusBadge from './HeaderStatusBadge';
 import { ArrowRight, Building2, User, Code, Sparkles } from 'lucide-react';
-import { SkeletonLoader } from './SkeletonLoader';
+import { SkeletonLoader } from '@/modules/core/components/SkeletonLoader';
 
 // Lazy load decorative components for better initial load performance
 const ParticleCanvas = lazy(() => import('./ParticleCanvas'));
-const FilmGrain = lazy(() => import('./FilmGrain'));
-const CursorLight = lazy(() => import('./CursorLight'));
+const FilmGrain = lazy(() => import('@/modules/core/components/FilmGrain'));
+const CursorLight = lazy(() => import('@/modules/core/components/CursorLight'));
 
 interface LandingViewProps {
     mode: 'institutional' | 'creator';
     onModeChange: (mode: 'institutional' | 'creator') => void;
-    onEnter: () => void;
+    onEnter: (mode: 'institutional' | 'creator') => void; // ✅ Add mode parameter
     isExiting: boolean;
 }
 
@@ -31,7 +31,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
     const handleCardClick = (cardMode: 'institutional' | 'creator', cardNumber: number) => {
         if (cardNumber === 1 || cardNumber === 2) {
             onModeChange(cardMode);
-            setTimeout(() => onEnter(), 300);
+            setTimeout(() => onEnter(cardMode), 300); // ✅ Pass cardMode to onEnter
         } else if (cardNumber === 3) {
             navigate('/portfolio');
         } else if (cardNumber === 4) {

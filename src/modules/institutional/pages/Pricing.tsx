@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
 import PageWrapper from '@/modules/core/layouts/PageWrapper';
@@ -27,7 +26,9 @@ import {
   Crown,
   Check
 } from 'lucide-react';
-import { H1 } from '@/components/Typography';
+import { H1 } from '@/modules/core/components/Typography';
+import { getInstitutionalPricingData } from '../data/pricing';
+import { getCreatorPricingData } from '@/modules/creator/data/pricing';
 
 // VIP Glass Card Component with 3D Tilt Effect
 interface PricingCardVIPProps {
@@ -232,32 +233,35 @@ const Pricing = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Intersection Observer for scroll animations
+  // Intersection Observer for fade-in animations
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setVisibleSections(prev => new Set(prev).add(entry.target.id));
+          setVisibleSections((prev) => new Set(prev).add(entry.target.id));
         }
       });
     };
 
+    const observerOptions = {
+      threshold: 0.1, // Lowered threshold for better triggering
+      rootMargin: '0px 0px -10% 0px'
+    };
+
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    const sections = [servicesRef, subscriptionsRef, ctaRef];
-    sections.forEach(ref => {
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-    });
+    const sections = document.querySelectorAll('[id^="section-"]');
+    sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
   }, []);
+
+  // Force visibility for creator mode (content might be shorter and not trigger observer)
+  useEffect(() => {
+    if (mode === 'creator') {
+      setVisibleSections(new Set(['services', 'subscriptions', 'cta']));
+    }
+  }, [mode]);
 
   const handleReturn = () => {
     setHasEntered(false);
@@ -265,166 +269,9 @@ const Pricing = () => {
     navigate('/');
   };
 
-  // Institutional service tabs content
-  const institutionalTabs = [
-    {
-      id: 0,
-      icon: FileText,
-      label: t('pricingInstTab1Label'),
-      title: t('pricingInstTab1Title'),
-      description: t('pricingInstTab1Desc'),
-      items: [
-        { name: t('pricingInstItem1Name'), desc: t('pricingInstItem1Desc'), price: t('pricingInstItem1Price') },
-        { name: t('pricingInstItem2Name'), desc: t('pricingInstItem2Desc'), price: t('pricingInstItem2Price') },
-        { name: t('pricingInstItem3Name'), desc: t('pricingInstItem3Desc'), price: t('pricingInstItem3Price') }
-      ],
-      highlight: t('pricingInstTab1Highlight')
-    },
-    {
-      id: 1,
-      icon: Database,
-      label: t('pricingInstTab2Label'),
-      title: t('pricingInstTab2Title'),
-      description: t('pricingInstTab2Desc'),
-      items: [
-        { name: t('pricingInstItem4Name'), desc: t('pricingInstItem4Desc'), price: t('pricingInstItem4Price') },
-        { name: t('pricingInstItem5Name'), desc: t('pricingInstItem5Desc'), price: t('pricingInstItem5Price') },
-        { name: t('pricingInstItem6Name'), desc: t('pricingInstItem6Desc'), price: t('pricingInstItem6Price') },
-        { name: t('pricingInstItem7Name'), desc: t('pricingInstItem7Desc'), price: t('pricingInstItem7Price') }
-      ],
-      highlight: t('pricingInstTab2Highlight')
-    },
-    {
-      id: 2,
-      icon: ShieldCheck,
-      label: t('pricingInstTab3Label'),
-      title: t('pricingInstTab3Title'),
-      description: t('pricingInstTab3Desc'),
-      policies: [
-        {
-          title: t('pricingInstPolicy1Title'),
-          items: [
-            { label: t('pricingInstPolicy1Item1Label'), desc: t('pricingInstPolicy1Item1Desc') },
-            { label: t('pricingInstPolicy1Item2Label'), desc: t('pricingInstPolicy1Item2Desc') }
-          ]
-        },
-        {
-          title: t('pricingInstPolicy2Title'),
-          items: [
-            { label: t('pricingInstPolicy2Item1Label'), desc: t('pricingInstPolicy2Item1Desc') },
-            { label: t('pricingInstPolicy2Item2Label'), desc: t('pricingInstPolicy2Item2Desc') }
-          ]
-        }
-      ],
-      highlight: t('pricingInstTab3Highlight')
-    }
-  ];
-
-  // Creator service tabs content
-  const creatorTabs = [
-    {
-      id: 0,
-      icon: Video,
-      label: t('pricingCreatorTab1Label'),
-      isGrid: true,
-      plans: [
-        {
-          name: t('pricingCreatorPlan1Name'),
-          price: t('pricingCreatorPlan1Price'),
-          desc: t('pricingCreatorPlan1Desc'),
-          features: [t('pricingCreatorPlan1Feature1'), t('pricingCreatorPlan1Feature2'), t('pricingCreatorPlan1Feature3')],
-          note: t('pricingCreatorPlan1Note')
-        },
-        {
-          name: t('pricingCreatorPlan2Name'),
-          price: t('pricingCreatorPlan2Price'),
-          desc: t('pricingCreatorPlan2Desc'),
-          features: [t('pricingCreatorPlan2Feature1'), t('pricingCreatorPlan2Feature2'), t('pricingCreatorPlan2Feature3')],
-          note: t('pricingCreatorPlan2Note')
-        },
-        {
-          name: t('pricingCreatorPlan3Name'),
-          price: t('pricingCreatorPlan3Price'),
-          desc: t('pricingCreatorPlan3Desc'),
-          features: [t('pricingCreatorPlan3Feature1'), t('pricingCreatorPlan3Feature2'), t('pricingCreatorPlan3Feature3')],
-          note: t('pricingCreatorPlan3Note')
-        },
-        {
-          name: t('pricingCreatorPlan4Name'),
-          price: t('pricingCreatorPlan4Price'),
-          desc: t('pricingCreatorPlan4Desc'),
-          features: [t('pricingCreatorPlan4Feature1'), t('pricingCreatorPlan4Feature2'), t('pricingCreatorPlan4Feature3')],
-          note: t('pricingCreatorPlan4Note')
-        }
-      ],
-      highlight: t('pricingCreatorTab1Highlight')
-    },
-    {
-      id: 1,
-      icon: Zap,
-      label: t('pricingCreatorTab2Label'),
-      title: t('pricingCreatorTab2Title'),
-      description: t('pricingCreatorTab2Desc'),
-      items: [
-        { name: t('pricingCreatorItem1Name'), desc: t('pricingCreatorItem1Desc'), price: t('pricingCreatorItem1Price') },
-        { name: t('pricingCreatorItem2Name'), desc: t('pricingCreatorItem2Desc'), price: t('pricingCreatorItem2Price') }
-      ],
-      highlight: t('pricingCreatorTab2Highlight')
-    },
-    {
-      id: 2,
-      icon: Palette,
-      label: t('pricingCreatorTab3Label'),
-      isGrid: true,
-      plans: [
-        {
-          name: t('pricingCreatorDesign1Name'),
-          subtitle: t('pricingCreatorDesign1Subtitle'),
-          items: [
-            { name: t('pricingCreatorDesign1Item1Name'), desc: t('pricingCreatorDesign1Item1Desc'), price: t('pricingCreatorDesign1Item1Price') },
-            { name: t('pricingCreatorDesign1Item2Name'), desc: t('pricingCreatorDesign1Item2Desc'), price: t('pricingCreatorDesign1Item2Price') },
-            { name: t('pricingCreatorDesign1Item3Name'), desc: t('pricingCreatorDesign1Item3Desc'), price: t('pricingCreatorDesign1Item3Price') }
-          ],
-          note: t('pricingCreatorDesign1Note')
-        },
-        {
-          name: t('pricingCreatorDesign2Name'),
-          subtitle: t('pricingCreatorDesign2Subtitle'),
-          items: [
-            { name: t('pricingCreatorDesign2Item1Name'), desc: t('pricingCreatorDesign2Item1Desc'), price: t('pricingCreatorDesign2Item1Price') },
-            { name: t('pricingCreatorDesign2Item2Name'), desc: t('pricingCreatorDesign2Item2Desc'), price: t('pricingCreatorDesign2Item2Price') }
-          ],
-          note: t('pricingCreatorDesign2Note')
-        }
-      ],
-      highlight: t('pricingCreatorTab3Highlight')
-    },
-    {
-      id: 3,
-      icon: ShieldCheck,
-      label: t('pricingCreatorTab4Label'),
-      title: t('pricingCreatorTab4Title'),
-      description: t('pricingCreatorTab4Desc'),
-      policies: [
-        {
-          title: t('pricingCreatorPolicy1Title'),
-          items: [
-            { label: t('pricingCreatorPolicy1Item1Label'), desc: t('pricingCreatorPolicy1Item1Desc') },
-            { label: t('pricingCreatorPolicy1Item2Label'), desc: t('pricingCreatorPolicy1Item2Desc') }
-          ]
-        },
-        {
-          title: t('pricingCreatorPolicy2Title'),
-          items: [
-            { label: t('pricingCreatorPolicy2Item1Label'), desc: t('pricingCreatorPolicy2Item1Desc') },
-            { label: t('pricingCreatorPolicy2Item2Label'), desc: t('pricingCreatorPolicy2Item2Desc') }
-          ]
-        }
-      ],
-      deliveryNote: t('pricingCreatorDeliveryNote'),
-      highlight: t('pricingCreatorTab4Highlight')
-    }
-  ];
+  // Get pricing data from factory functions
+  const institutionalTabs = getInstitutionalPricingData(t);
+  const creatorTabs = getCreatorPricingData(t);
 
   const currentTabs = mode === 'institutional' ? institutionalTabs : creatorTabs;
   const currentTab = currentTabs[activeServiceTab];

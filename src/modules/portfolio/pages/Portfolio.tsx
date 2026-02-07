@@ -1,10 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useMode } from '@/context/ModeContext';
 import { useEffect } from 'react';
-import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
 import CursorLight from '@/modules/core/components/CursorLight';
 import FilmGrain from '@/modules/core/components/FilmGrain';
-import Footer from '@/modules/core/components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { Linkedin, Youtube, Film, Users, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -72,7 +70,33 @@ const Portfolio = () => {
 
       <CursorLight mode={mode} />
       <FilmGrain />
-      <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
+
+      {/* CUSTOM MINIMAL NAVIGATION - Portfolio World Only */}
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo - Click to go to Landing */}
+            <button
+              onClick={handleReturn}
+              className="text-xl font-bold text-white hover:text-gray-300 transition-colors duration-300"
+            >
+              QuickServe<span className="text-amber-400">IT</span>
+            </button>
+
+            {/* Back Button */}
+            <button
+              onClick={handleReturn}
+              className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-all duration-300 flex items-center gap-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Back to Landing
+            </button>
+          </div>
+        </div>
+      </nav>
+
 
       {/* THE DIRECTOR'S DARKROOM: Deep Black Background */}
       <main id="main-content" className="min-h-screen bg-[#0a0a0a] pt-24 sm:pt-28 md:pt-32 pb-28 relative overflow-hidden">
@@ -203,8 +227,6 @@ const Portfolio = () => {
 
         </div>
       </main>
-
-      <Footer mode={mode} />
     </>
   );
 };

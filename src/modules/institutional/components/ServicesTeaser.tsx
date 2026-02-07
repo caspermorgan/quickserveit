@@ -9,7 +9,7 @@ import {
     VideoIcon,
     PaletteIcon,
     WandIcon,
-} from '@/components/IconSystem';
+} from '@/modules/core/components/IconSystem';
 import ServiceCard from './ServiceCard';
 
 interface ServicesTeaserProps {

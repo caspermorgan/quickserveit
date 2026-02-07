@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { Shield, Clock, Heart, Zap } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
-import { H2, BodyLarge, H4, BodySmall } from '@/components/Typography';
+import { H2, BodyLarge, H4, BodySmall } from '@/modules/core/components/Typography';
 import { useRef, useState } from 'react';
 
 interface ValuePropositionProps {

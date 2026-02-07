@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslation } from '@/hooks/useTranslation';
-import SwitchModeButton from '@/components/SwitchModeButton';
+import SwitchModeButton from '@/modules/core/components/SwitchModeButton';
 
 interface FloatingNavbarProps {
   mode: 'institutional' | 'creator' | 'portfolio';
@@ -180,28 +180,28 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
 
   // INSTITUTIONAL MODE: Home, Services, Pricing, About, Contact
   const institutionalLinks = [
-    { label: t('home'), href: '/home' },
-    { label: t('services'), href: '/services' },
-    { label: t('pricing'), href: '/pricing' },
-    { label: t('about'), href: '/about' },
-    { label: t('contact'), href: '/contact' },
+    { label: t('home'), href: '/institutional/home' },
+    { label: t('services'), href: '/institutional/services' },
+    { label: t('pricing'), href: '/institutional/pricing' },
+    { label: t('about'), href: '/institutional/about' },
+    { label: t('contact'), href: '/institutional/contact' },
   ];
 
   // CREATOR MODE: Home, Studio, Pricing, About, Contact
   const creatorLinks = [
-    { label: t('home'), href: '/home' },
-    { label: t('studio'), href: '/services' },
-    { label: t('pricing'), href: '/pricing' },
-    { label: t('about'), href: '/about' },
-    { label: t('contact'), href: '/contact' },
+    { label: t('home'), href: '/creator/home' },
+    { label: t('studio'), href: '/creator/services' },
+    { label: t('pricing'), href: '/creator/pricing' },
+    { label: t('about'), href: '/creator/about' },
+    { label: t('contact'), href: '/creator/contact' },
   ];
 
   // PORTFOLIO MODE: Home, Projects, Vision, Contact (4 items only)
   const portfolioLinks = [
-    { label: t('home'), href: '/home' },
+    { label: t('home'), href: '/portfolio' },
     { label: t('projects'), href: '/portfolio' },
-    { label: t('vision'), href: '/about' },
-    { label: t('contact'), href: '/contact' },
+    { label: t('vision'), href: '/founder' },
+    { label: t('contact'), href: '/institutional/contact' },
   ];
 
   const links = mode === 'institutional'
@@ -232,7 +232,7 @@ const FloatingNavbar = ({ mode, onReturn, isVisible }: FloatingNavbarProps) => {
         <div
           ref={mobileMenuRef}
           className={`absolute top-0 left-0 w-full bg-black/80 backdrop-blur-xl border-b ${mode === 'institutional' ? 'border-amber-500/20' : 'border-cyan-500/20'
-            } transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'
+            } transition-transform duration-500 ease-out ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'
             }`}
           onClick={(e) => e.stopPropagation()}
         >
