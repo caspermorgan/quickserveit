@@ -332,7 +332,7 @@ export const translations = {
     qualityWithoutEgoDesc: 'We don\'t need credit. We need your work to succeed. That\'s our satisfaction.',
     aboutVisionAhead: 'The Vision Ahead',
     aboutVisionAheadText1: 'quickserveit is not trying to be everything to everyone. We\'re building a focused practice — deep expertise in institutional documentation and creator production. No distractions, no dilution.',
-    aboutVisionAheadText2: 'Whether you\'re a school administrator processing scholarship records or a YouTuber crafting your next video, I want quickserveit to feel like having a trusted colleague who just handles things quietly and well.',
+    aboutVisionAheadText2: 'Whether you\'re a school administrator processing scholarship records or a YouTuber crafting your next video, I want quickserveit to feel like having a reliable colleague who just handles things quietly and well.',
     aboutThankYouMessage: 'Thank you for considering quickserveit.',
     aboutTheFounder: '— The Founder',
 
@@ -449,10 +449,10 @@ export const translations = {
     visionInstPara4: 'We won\'t chase trends. We won\'t pivot to whatever\'s hot. We\'ll stay focused on institutional documentation, stay humble, and stay committed to the educators who trust us with their most important work.',
 
     // The Vision - CREATOR MODE
-    visionCreatorPara1: 'I don\'t want quickserveit to be the biggest production house. I want it to be the most trusted partner for content creators. I want creators to know that when they send us their raw footage, it\'s in safe hands and will come back with professional polish.',
+    visionCreatorPara1: 'I don\'t want quickserveit to be the biggest production house. I want it to be the most reliable partner for content creators. I want creators to know that when they send us their raw footage, it\'s in safe hands and will come back with professional polish.',
     visionCreatorPara2: 'Five years from now, I see quickserveit as the quiet constant that creators rely on. Not flashy, not famous, but deeply reliable. The kind of partner you don\'t have to worry about. The kind of production quality that just works, every time.',
     visionCreatorPara3: 'I see us enabling more creators to focus on storytelling instead of software. I see YouTubers spending time on research, not rendering. I see educators building courses, not learning editing tools. I see creators reclaiming their creative time.',
-    visionCreatorPara4: 'We won\'t chase trends. We won\'t pivot to whatever\'s hot. We\'ll stay focused on creator production, stay humble, and stay committed to the storytellers who trust us with their vision.',
+    visionCreatorPara4: 'We won\'t chase trends. We won\'t pivot to whatever\'s hot. We\'ll stay focused on creator production, stay humble, and stay committed to the storytellers who work with us.',
 
     // A Personal Promise - Shared
     aPersonalPromise: 'A Personal Promise',
@@ -662,7 +662,7 @@ export const translations = {
     pricingCreatorPolicy2Item2Label: 'Major Changes Charged Separately',
     pricingCreatorPolicy2Item2Desc: 'Late changes outside original scope',
     pricingCreatorDeliveryNote: 'Standard: Standard: 3-5 business days for most projects. Rush delivery available for subscription clients at no extra cost.',
-    pricingCreatorTab4Highlight: 'Built on trust, transparency, and creative collaboration.',
+    pricingCreatorTab4Highlight: 'Built on transparency, quality, and creative collaboration.',
 
     // Creator Mode - New Sections
     creatorModeLaunchNote: 'Creator Mode services will be available for work starting from 1st March.',
