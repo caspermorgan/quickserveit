@@ -10,7 +10,7 @@ import PageWrapper from '@/modules/core/layouts/PageWrapper';
 import PageHeader from '@/modules/core/layouts/PageHeader';
 import GlassCard from '@/components/ui/GlassCard';
 import VipButton from '@/components/ui/VipButton';
-import { Lock, Gauge, Languages } from 'lucide-react';
+import { Lock, Gauge, Languages, MapPin } from 'lucide-react';
 
 const InstAbout = () => {
     const { setHasEntered, setCurrentSection } = useMode();
@@ -50,10 +50,10 @@ const InstAbout = () => {
     return (
         <>
             <Helmet>
-                <title>About | QuickServe IT - Institutional Standard</title>
+                <title>The Commitment | QuickServe IT - Institutional</title>
                 <meta
                     name="description"
-                    content="We are not just typists; we are data custodians. Our mission is to digitize every educational institute with 0% error rate and 100% compliance."
+                    content="I am your dedicated local partner for educational documentation. Based in Gorakhpur, serving schools with precision, privacy, and accountability."
                 />
             </Helmet>
 
@@ -64,8 +64,8 @@ const InstAbout = () => {
             <PageWrapper mode="institutional" onReturn={handleReturn}>
                 {/* Header */}
                 <PageHeader
-                    title="Our Mission"
-                    subtitle="More than just an agency, we are your digital partners. Dedicated to modernizing Gorakhpur's education system with speed, privacy, and technical precision."
+                    title={t('instAboutHeaderTitle')}
+                    subtitle={t('instAboutHeaderSubtitle')}
                     variant="gold"
                 />
 
@@ -90,7 +90,26 @@ const InstAbout = () => {
                         </GlassCard>
                     </motion.div>
 
-                    {/* Section B: Why Us? - 3-Grid Layout */}
+                    {/* Section B: Local Promise */}
+                    <motion.div variants={itemVariants}>
+                        <GlassCard variant="gold" className="p-6 md:p-8 bg-amber-500/5 border-amber-500/30">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                    <MapPin className="w-6 h-6 text-amber-400" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold mb-2 text-amber-400">
+                                        {t('instAboutLocalPromiseTitle')}
+                                    </h3>
+                                    <p className="text-foreground/70 leading-relaxed">
+                                        {t('instAboutLocalPromiseText')}
+                                    </p>
+                                </div>
+                            </div>
+                        </GlassCard>
+                    </motion.div>
+
+                    {/* Section C: How I Work - 3-Grid Layout */}
                     <motion.div variants={itemVariants}>
                         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
                             {t('instAboutWhyUsTitle')}
@@ -147,19 +166,37 @@ const InstAbout = () => {
                         </div>
                     </motion.div>
 
-                    {/* Section C: The Founder Teaser (The Bridge) */}
+                    {/* Section D: The Founder Teaser (Split Layout) */}
                     <motion.div variants={itemVariants}>
                         <GlassCard
                             variant="gold"
                             className="p-8 md:p-10 bg-white/[0.03] border-amber-500/20"
                         >
-                            <div className="text-center max-w-2xl mx-auto">
-                                <h3 className="text-2xl md:text-3xl font-bold mb-3 text-amber-400">
-                                    {t('instAboutFounderTeaserTitle')}
-                                </h3>
-                                <p className="text-foreground/70 mb-6 leading-relaxed">
-                                    {t('instAboutFounderTeaserSubtext')}
-                                </p>
+                            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center text-amber-400">
+                                {t('instAboutFounderTeaserTitle')}
+                            </h3>
+
+                            <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+                                {/* Left: Founder Image */}
+                                <div className="flex-shrink-0">
+                                    <div className="w-32 h-32 rounded-full border-4 border-amber-500/50 overflow-hidden bg-amber-500/10">
+                                        <img
+                                            src="/founder.jpg"
+                                            alt="Founder"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Right: Text */}
+                                <div className="flex-1 text-center md:text-left">
+                                    <p className="text-lg text-foreground/80 leading-relaxed">
+                                        {t('instAboutFounderTeaserSubtext')}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="text-center">
                                 <VipButton
                                     variant="secondary"
                                     colorScheme="gold"

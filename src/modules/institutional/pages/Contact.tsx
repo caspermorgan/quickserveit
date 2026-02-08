@@ -3,6 +3,9 @@ import { useMode } from '@/context/ModeContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
+import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
+import CursorLight from '@/modules/core/components/CursorLight';
+import FilmGrain from '@/modules/core/components/FilmGrain';
 import PageWrapper from '@/modules/core/layouts/PageWrapper';
 import PageHeader from '@/modules/core/layouts/PageHeader';
 import ContactForm from '@/modules/institutional/components/ContactForm';
@@ -137,6 +140,9 @@ const Contact = () => {
         <meta name="description" content="Get in touch with QuickServe IT for institutional documentation or creator production services. We respond within 24 hours." />
       </Helmet>
 
+      <CursorLight mode={mode} />
+      <FilmGrain />
+      <FloatingNavbar mode={mode} onReturn={handleReturn} isVisible={true} />
       <PageWrapper mode={mode} onReturn={handleReturn}>
         <PageHeader
           title={mode === 'institutional' ? 'Client Support' : mode === 'creator' ? 'Start Project' : 'Direct Connect'}

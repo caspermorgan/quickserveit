@@ -3,6 +3,9 @@ import { useMode } from '@/context/ModeContext';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
 import { motion } from 'framer-motion';
+import FloatingNavbar from '@/modules/core/components/FloatingNavbar';
+import CursorLight from '@/modules/core/components/CursorLight';
+import FilmGrain from '@/modules/core/components/FilmGrain';
 import PageWrapper from '@/modules/core/layouts/PageWrapper';
 import PageHeader from '@/modules/core/layouts/PageHeader';
 import GlassCard from '@/components/ui/GlassCard';
@@ -47,18 +50,21 @@ const CrAbout = () => {
     return (
         <>
             <Helmet>
-                <title>About | QuickServe IT - Behind The Engine</title>
+                <title>Beyond the Cut | QuickServe IT - Creator Studio</title>
                 <meta
                     name="description"
-                    content="We don't just edit videos; we engineer attention. In an era of 3-second attention spans, our studio focuses on pacing, sound design, and color psychology to keep viewers hooked."
+                    content="I don't just edit videos — I engineer attention. Every frame, sound effect, and transition is designed to keep your viewers hooked."
                 />
             </Helmet>
 
+            <CursorLight mode="creator" />
+            <FilmGrain />
+            <FloatingNavbar mode="creator" onReturn={handleReturn} isVisible={true} />
             <PageWrapper mode="creator" onReturn={handleReturn}>
                 {/* Header */}
                 <PageHeader
-                    title="Studio Vision"
-                    subtitle="Where technical speed meets creative storytelling. We use high-end hardware and viewer psychology to help you stand out in a crowded digital world."
+                    title={t('crAboutHeaderTitle')}
+                    subtitle={t('crAboutHeaderSubtitle')}
                     variant="cyan"
                 />
 
@@ -83,7 +89,7 @@ const CrAbout = () => {
                         </GlassCard>
                     </motion.div>
 
-                    {/* Section B: The Tech Stack - 3-Grid Layout */}
+                    {/* Section B: The Creative Arsenal - 3-Grid Layout */}
                     <motion.div variants={itemVariants}>
                         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
                             {t('crAboutTechStackTitle')}
@@ -131,19 +137,37 @@ const CrAbout = () => {
                         </div>
                     </motion.div>
 
-                    {/* Section C: The Founder Teaser (The Bridge) */}
+                    {/* Section C: The Founder Teaser (Split Layout) */}
                     <motion.div variants={itemVariants}>
                         <GlassCard
                             variant="cyan"
                             className="p-8 md:p-10 bg-white/[0.03] border-cyan-500/20"
                         >
-                            <div className="text-center max-w-2xl mx-auto">
-                                <h3 className="text-2xl md:text-3xl font-bold mb-3 text-cyan-400">
-                                    {t('crAboutFounderTeaserTitle')}
-                                </h3>
-                                <p className="text-foreground/70 mb-6 leading-relaxed">
-                                    {t('crAboutFounderTeaserSubtext')}
-                                </p>
+                            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center text-cyan-400">
+                                {t('crAboutFounderTeaserTitle')}
+                            </h3>
+
+                            <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+                                {/* Left: Founder Image */}
+                                <div className="flex-shrink-0">
+                                    <div className="w-32 h-32 rounded-2xl overflow-hidden bg-cyan-500/10 shadow-lg shadow-cyan-500/30">
+                                        <img
+                                            src="/founder.jpg"
+                                            alt="Founder"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Right: Text */}
+                                <div className="flex-1 text-center md:text-left">
+                                    <p className="text-lg text-foreground/80 leading-relaxed">
+                                        {t('crAboutFounderTeaserSubtext')}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="text-center">
                                 <VipButton
                                     variant="secondary"
                                     colorScheme="cyan"
