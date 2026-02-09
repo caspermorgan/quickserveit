@@ -60,31 +60,31 @@ const ScrollToTop = () => {
 
 // Smart landing route that only shows for root visits
 const LandingRoute = () => {
-  const { hasEntered } = useMode();
-
-  // If user has already entered, redirect to institutional home
-  if (hasEntered) {
-    return <Navigate to="/institutional/home" replace />;
-  }
-
   return <Landing />;
 };
 
 // Intelligent route wrapper that auto-enters for deep links
 const SmartRoute = ({ children, defaultMode }: { children: React.ReactNode; defaultMode?: 'institutional' | 'creator' | 'portfolio' }) => {
-  const { hasEntered, setHasEntered, setMode } = useMode();
+  const { hasEntered, setHasEntered, setMode, mode } = useMode();
   const location = useLocation();
 
   // Auto-enter for deep links (any non-root path)
   // This respects user intent from ads, shared links, bookmarks
+  // Set mode BEFORE rendering to ensure correct content displays
+  if (!hasEntered && location.pathname !== '/') {
+    // Set mode based on URL context or default to institutional
+    const targetMode = defaultMode || 'institutional';
+    setMode(targetMode);
+    setHasEntered(true);
+  }
+
+  // Also ensure mode is correct even if already entered
+  // This handles navigation between institutional and creator sections
   useEffect(() => {
-    if (!hasEntered && location.pathname !== '/') {
-      // Set mode based on URL context or default to institutional
-      const mode = defaultMode || 'institutional';
-      setMode(mode);
-      setHasEntered(true);
+    if (hasEntered && defaultMode && mode !== defaultMode) {
+      setMode(defaultMode);
     }
-  }, [hasEntered, location.pathname, setHasEntered, setMode, defaultMode]);
+  }, [hasEntered, defaultMode, mode, setMode]);
 
   // If not entered yet and on root, this shouldn't happen
   // but redirect to landing as fallback
@@ -160,7 +160,12 @@ const App = () => {
               <Toaster />
               <Sonner />
               <SpeedInsights />
-              <BrowserRouter>
+              <BrowserRouter
+                future={{
+                  v7_startTransition: true,
+                  v7_relativeSplatPath: true,
+                }}
+              >
                 <SkipToContent />
                 <ErrorBoundary>
                   <AppRoutes />

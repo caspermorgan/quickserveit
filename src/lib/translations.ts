@@ -1774,17 +1774,17 @@ export const translations = {
     creatorWorkNotes: 'भुगतान किए गए स्टॉक फुटेज, लाइसेंस प्राप्त संगीत, प्रीमियम साउंड इफेक्ट्स, या उन्नत VFX प्लगइन्स डिफ़ॉल्ट रूप से शामिल नहीं हैं।',
 
     // Institutional Typewriter Sentences
-    instTypewriter1: 'परीक्षा दस्तावेज़ संभालती हैं',
-    instTypewriter2: 'छात्रवृत्ति और UDISE में सहायता करती हैं',
-    instTypewriter3: 'शैक्षणिक डाटा सुरक्षित संभालती हैं',
-    instTypewriter4: 'सरकारी कार्यों में सहयोग देती हैं',
-    instTypewriter5: 'दैनिक डिजिटल सहायता देती हैं',
+    instTypewriter1: 'परीक्षा दस्तावेज़ीकरण संभालें',
+    instTypewriter2: 'छात्रवृत्ति और UDISE कार्य में सहायता करें',
+    instTypewriter3: 'शैक्षणिक डेटा सुरक्षित रूप से प्रबंधित करें',
+    instTypewriter4: 'सरकारी अनुपालन में सहायता करें',
+    instTypewriter5: 'दैनिक डिजिटल सहायता प्रदान करें',
 
     // Creator Typewriter Sentences
-    creatorTypewriter1: 'वीडियो एडिटिंग करती हैं',
-    creatorTypewriter2: 'अपलोड के लिए तैयार कंटेंट देती हैं',
-    creatorTypewriter3: 'साफ़ थंबनेल बनाती हैं',
-    creatorTypewriter4: 'प्लेटफॉर्म-रेडी फाइल देती हैं',
+    creatorTypewriter1: 'क्रिएटर्स के लिए वीडियो एडिट करें',
+    creatorTypewriter2: 'अपलोड-तैयार कंटेंट तैयार करें',
+    creatorTypewriter3: 'साफ थंबनेल डिज़ाइन करें',
+    creatorTypewriter4: 'प्लेटफ़ॉर्म-तैयार फाइलें डिलीवर करें',
 
 
     // Living Website - Services Teaser

@@ -74,7 +74,7 @@ const MobileNav = ({ mode }: MobileNavProps) => {
     }
 
     return (
-        <nav className="fixed bottom-6 left-4 right-4 z-50 flex md:hidden">
+        <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex md:hidden w-[calc(100%-2rem)] max-w-md">
             <div
                 className="relative w-full flex items-center justify-around px-4 py-3 rounded-2xl bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl"
                 style={{

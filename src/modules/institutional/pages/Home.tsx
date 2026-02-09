@@ -14,7 +14,6 @@ import ServicesTeaser from '@/modules/institutional/components/ServicesTeaser';
 import HowWeWork from '@/modules/institutional/components/HowWeWork';
 import TechTicker from '@/modules/core/components/TechTicker';
 import ValueProposition from '@/modules/institutional/components/ValueProposition';
-import TrustIndicators from '../components/TrustIndicators';
 import InstitutionalStats from '../components/InstitutionalStats';
 import SEO from '@/modules/core/components/SEO';
 import { DisplayText, BodyLarge } from '@/modules/core/components/Typography';
@@ -154,9 +153,6 @@ const Home = () => {
                 {description}
               </BodyLarge>
             </Reveal>
-
-            {/* Trust indicators - Icon-only with tooltips */}
-            <TrustIndicators mode={mode} />
 
             {/* CTAs - Elite Motion with Magnetic */}
             <Reveal delay={0.5} duration={0.5} y={20}>
