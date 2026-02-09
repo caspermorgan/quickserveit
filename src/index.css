@@ -167,11 +167,37 @@
     --space-9: 8rem;
     /* 128px */
 
-    /* Component-specific spacing tokens */
+    /* Component-specific spacing tokens - STRICT DESIGN SYSTEM */
     --space-button-x: var(--space-5);
+    /* 32px horizontal padding */
     --space-button-y: var(--space-3);
-    --space-card-padding: var(--space-6);
-    --space-section-gap: var(--space-9);
+    /* 16px vertical padding */
+    --space-card-padding: 1.25rem;
+    /* 20px mobile */
+    --space-card-padding-desktop: 1.5rem;
+    /* 24px desktop */
+    --space-section-gap: 5rem;
+    /* 80px desktop */
+    --space-section-gap-mobile: 3rem;
+    /* 48px mobile */
+
+    /* Typography spacing tokens */
+    --space-h1-subtitle-gap: 0.75rem;
+    /* 12px - strict gap between H1 and subtitle */
+    --space-paragraph-gap: 0.75rem;
+    /* 12px - paragraph spacing */
+    --space-section-title-gap: 1rem;
+    /* 16px - gap after section titles (H2) */
+
+    /* Layout width constraints */
+    --layout-max-width: 1200px;
+    /* Maximum content width */
+    --layout-text-max-width: 680px;
+    /* Maximum readable text width */
+    --layout-padding-x: 1.5rem;
+    /* 24px horizontal padding desktop */
+    --layout-padding-x-mobile: 1rem;
+    /* 16px horizontal padding mobile */
 
     /* Semantic Color Tokens */
     --color-success: 142 76% 36%;
@@ -318,11 +344,15 @@
     --mode-tertiary-l: var(--mode-portfolio-tertiary-l);
 
     /* LIGHT THEME OVERRIDES */
-    --background: 0 0% 98%;           /* Clean White */
-    --foreground: 0 0% 10%;           /* Dark Grey/Black text */
-    --card: 0 0% 100%;                /* Pure White cards */
+    --background: 0 0% 98%;
+    /* Clean White */
+    --foreground: 0 0% 10%;
+    /* Dark Grey/Black text */
+    --card: 0 0% 100%;
+    /* Pure White cards */
     --card-foreground: 0 0% 10%;
-    --border: 0 0% 90%;               /* Light grey borders */
+    --border: 0 0% 90%;
+    /* Light grey borders */
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
     --secondary: 0 0% 96%;
@@ -2187,5 +2217,119 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+  }
+}
+
+/* ============================================
+   DESIGN SYSTEM UTILITY CLASSES
+   ============================================
+   Strict layout and spacing utilities for
+   enforcing design system consistency.
+*/
+
+@layer utilities {
+
+  /* Layout Width Constraints */
+  .content-max-width {
+    max-width: var(--layout-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .text-max-width {
+    max-width: var(--layout-text-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Section Spacing */
+  .section-spacing {
+    padding-top: var(--space-section-gap-mobile);
+    padding-bottom: var(--space-section-gap-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: var(--space-section-gap);
+      padding-bottom: var(--space-section-gap);
+    }
+  }
+
+  /* Typography Spacing */
+  .h1-subtitle-gap {
+    margin-bottom: var(--space-h1-subtitle-gap);
+  }
+
+  .section-title-gap {
+    margin-bottom: var(--space-section-title-gap);
+  }
+
+  .paragraph-gap {
+    margin-bottom: var(--space-paragraph-gap);
+  }
+
+  /* Responsive Padding */
+  .layout-padding-x {
+    padding-left: var(--layout-padding-x-mobile);
+    padding-right: var(--layout-padding-x-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .layout-padding-x {
+      padding-left: var(--layout-padding-x);
+      padding-right: var(--layout-padding-x);
+    }
+  }
+
+  /* Card Padding */
+  .card-padding {
+    padding: var(--space-card-padding);
+  }
+
+  @media (min-width: 768px) {
+    .card-padding {
+      padding: var(--space-card-padding-desktop);
+    }
+  }
+
+  /* Button Sizing - Strict Design System */
+  .btn-primary,
+  .btn-secondary {
+    height: 2.75rem;
+    /* 44px mobile */
+    padding-left: 1.25rem;
+    /* 20px */
+    padding-right: 1.25rem;
+    /* 20px */
+    border-radius: 0.75rem;
+    /* 12px */
+    font-size: 0.9375rem;
+    /* 15px */
+    font-weight: 600;
+    min-height: 2.75rem;
+    /* Ensure touch target */
+  }
+
+  @media (min-width: 768px) {
+
+    .btn-primary,
+    .btn-secondary {
+      height: 3rem;
+      /* 48px desktop */
+      padding-left: 1.5rem;
+      /* 24px */
+      padding-right: 1.5rem;
+      /* 24px */
+      font-size: 1rem;
+      /* 16px */
+    }
+  }
+
+  /* Touch Target Enforcement */
+  .touch-target {
+    min-height: 2.75rem;
+    /* 44px minimum */
+    min-width: 2.75rem;
+    /* 44px minimum */
   }
 }

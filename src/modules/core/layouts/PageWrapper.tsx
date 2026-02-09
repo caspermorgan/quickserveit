@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import Footer from '@/modules/core/components/Footer';
 import CursorLight from '@/modules/core/components/CursorLight';
 import FilmGrain from '@/modules/core/components/FilmGrain';
-import ParticleCanvas from '@/modules/landing/components/ParticleCanvas';
 
 interface PageWrapperProps {
     children: ReactNode;
@@ -14,7 +13,7 @@ interface PageWrapperProps {
  * PageWrapper - Content Layout Component
  * 
  * Provides consistent structure for inner pages:
- * - Atmospheric effects (CursorLight, FilmGrain, ParticleCanvas)
+ * - Atmospheric effects (CursorLight, FilmGrain)
  * - Standardized max-width container
  * - Responsive padding system
  * - Footer at bottom
@@ -34,9 +33,6 @@ interface PageWrapperProps {
 const PageWrapper = ({ children, mode, onReturn }: PageWrapperProps) => {
     return (
         <div className="min-h-screen bg-black text-white relative overflow-x-hidden selection:bg-gray-800">
-            {/* Particle Background - Subtle for inner pages */}
-            {mode !== 'portfolio' && <ParticleCanvas mode={mode} />}
-
             {/* Vignette Overlay - Darkens corners to make content pop */}
             <div
                 className="fixed inset-0 pointer-events-none z-[5]"

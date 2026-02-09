@@ -35,29 +35,29 @@ export const translations = {
     language: 'Language',
 
     // Hero Section - Institutional
-    heroInst1: 'Burden Lifted',
-    heroInst2: 'Compliance Simplified',
-    heroInst3: 'Documentation Delivered',
-    heroInst4: 'Schools Trust',
-    heroInstDesc: 'Trusted by Gorakhpur schools for exam documentation, scholarship processing, and compliance support. We handle technical work so you focus on education.',
+    heroInst1: 'School Work Made Simple',
+    heroInst2: 'Papers, UDISE, Daily Help',
+    heroInst3: 'Trusted by Gorakhpur Schools',
+    heroInst4: 'Your Calm Digital Partner',
+    heroInstDesc: 'We have typed 350+ exam papers and helped 2 schools in Gorakhpur. We handle your digital work so you can focus on teaching.',
 
     // Hero Section - Creator
-    heroCreator1: 'Authority Positioning',
-    heroCreator2: 'Retention Engineering',
-    heroCreator3: 'Broadcast Quality',
-    heroCreatorDesc: 'Professional editing, cinematic color grading, and retention-focused storytelling. Limited availability for serious creators ready to elevate their content quality.',
+    heroCreator1: 'Clear Video Editing',
+    heroCreator2: 'Professional Quality',
+    heroCreator3: 'Upload-Ready Files',
+    heroCreatorDesc: 'We are learning professional editing. Accepting sample projects at low cost while we build our skills.',
 
     // CTAs
-    getStarted: 'Start Your First Project',
-    startCreating: 'Start Creating',
-    viewServices: 'View Services',
-    seePortfolio: 'See Portfolio',
-    contactUs: 'Discuss Your Needs',
-    getQuote: 'See Pricing Options',
-    discussRetainer: 'Discuss Retainer',
-    explorePartnership: 'Explore Partnership',
-    discussPackage: 'Discuss Package',
-    startThisService: 'Start This Service',
+    getStarted: 'Send a Message',
+    startCreating: 'Get Started',
+    viewServices: 'See Services',
+    seePortfolio: 'See Our Work',
+    contactUs: 'Contact Us',
+    getQuote: 'Ask About Price',
+    discussRetainer: 'Ask About Monthly Plans',
+    explorePartnership: 'Work Together',
+    discussPackage: 'Ask About Packages',
+    startThisService: 'Get This Service',
 
     // Stats
     schoolsServed: 'Schools Served',
@@ -67,40 +67,40 @@ export const translations = {
     viewsGenerated: 'Views Generated',
 
     // Stats Section - Institutional
-    statsProjectsCompleted: 'Question Papers Typed',
-    statsInstitutionsServed: 'Contract Partnerships',
-    statsClientSatisfaction: 'Technical Tasks Resolved',
-    statsResponseTime: 'Error-Free Delivery',
+    statsProjectsCompleted: '350+ Papers Typed',
+    statsInstitutionsServed: '2 Schools Helped',
+    statsClientSatisfaction: '70+ Tasks Done',
+    statsResponseTime: 'Same-Day Response',
 
     // Stats Section - Creator
-    statsVideosEdited: 'Mode Status',
-    statsWatchHours: 'For First Cohort',
-    statsCreatorsServed: 'Editing Suite Ready',
-    statsTurnaroundTime: 'Turnaround Time',
+    statsVideosEdited: 'Learning Phase',
+    statsWatchHours: 'Sample Projects Only',
+    statsCreatorsServed: 'Not Live Yet',
+    statsTurnaroundTime: 'Building Skills',
 
     // Value Proposition
     whyChooseUsTitle: 'Why Choose Us',
     whyChooseUsSubtitle: 'Built on trust, delivered with precision, designed for your peace of mind',
 
     // Institutional Values
-    valueSecurityTitle: 'Sacred Data',
-    valueSecurityDesc: 'Student records handled with bank-level security. We never share, never showcase, never compromise your trust. Your data stays protected always.',
-    valueTimelyTitle: 'Deadlines Met',
-    valueTimelyDesc: 'Academic calendars don\'t wait—neither do we. Clear timelines, regular updates, and delivery you count on. No surprises, no excuses.',
-    valuePersonalTitle: 'Real Support',
-    valuePersonalDesc: 'No chatbots, no ticket queues. Direct WhatsApp access to people who understand schools and respond like humans, not robots.',
-    valueReliableTitle: 'Dependable Results',
-    valueReliableDesc: 'Trusted by Gorakhpur schools for UDISE+, scholarships, and exam documentation. We deliver same high quality, every single time—no drama.',
+    valueSecurityTitle: 'Your Data is Safe',
+    valueSecurityDesc: 'We keep student records and exam papers completely private. We never share your data with anyone.',
+    valueTimelyTitle: 'We Meet Deadlines',
+    valueTimelyDesc: 'We know school deadlines are important. We give you realistic timelines and deliver on time.',
+    valuePersonalTitle: 'Real People, Real Help',
+    valuePersonalDesc: 'No robots. Just direct WhatsApp contact with real people who understand school work.',
+    valueReliableTitle: 'Proven Work',
+    valueReliableDesc: 'We have helped 2 schools in Gorakhpur with 350+ papers and 70+ tasks. Honest work, no drama.',
 
     // Creator Values
-    valueQualityTitle: 'Retention Editing',
-    valueQualityDesc: 'Every cut, transition, and effect engineered for retention. Your viewers stay engaged, watch time climbs, and channel grows—naturally and sustainably.',
-    valueFastTitle: 'Upload Schedule',
-    valueFastDesc: 'Clear timelines, honest communication, and delivery respecting both quality and your audience. We keep you on schedule without cutting corners.',
-    valueCreativeTitle: 'Vision Alignment',
-    valueCreativeDesc: 'We don\'t just follow instructions—we understand your creative intent and bring it to life with precision. Your message lands exactly as imagined.',
-    valueCommittedTitle: 'Growth Mission',
-    valueCommittedDesc: 'We invest in understanding your channel, your audience, and your goals. The better you do, the better we do—that\'s true partnership.',
+    valueQualityTitle: 'Learning Professional Editing',
+    valueQualityDesc: 'We are building our editing skills. We focus on clean cuts, good pacing, and making your videos look professional.',
+    valueFastTitle: 'Honest Timelines',
+    valueFastDesc: 'We tell you realistic timelines and stick to them. No false promises.',
+    valueCreativeTitle: 'Understanding Your Vision',
+    valueCreativeDesc: 'We listen to what you want and try our best to deliver it. We are learning and improving with each project.',
+    valueCommittedTitle: 'Growing Together',
+    valueCommittedDesc: 'As we learn and improve, we want to grow with you. We are building long-term skills, not quick fixes.',
 
     // Contact Form
     contactTitle: 'Get In Touch',
@@ -186,20 +186,20 @@ export const translations = {
     whatsappNote: 'Click to open WhatsApp with a pre-filled message',
 
     // Services - Institutional
-    examDocTitle: 'Exam Papers',
-    examDocShort: 'Professional typing and formatting of exam question papers from handwritten or digital sources.',
+    examDocTitle: 'Exam Paper Typing',
+    examDocShort: 'We type your handwritten or digital question papers professionally.',
     examDocMedium: 'Professional Question Paper Typing',
-    examDocFull: 'Teachers shouldn\'t spend weekends typing exam papers. Send us your handwritten drafts—we\'ll transform them into professional, print-ready documents while you focus on what matters: teaching. Standardized formatting, zero errors, delivered on time.',
-    examDocSteps: 'Share raw question papers (PDF, Image, or Handwritten)|We type, format, and structure the questions|Review the draft for any corrections|Receive final print-ready files via Drive Link',
-    examDocNeeds: 'Raw question content (Photo/PDF)|Exam pattern/format details|Subject and Class details|Submission deadline',
-    examDocTimeline: 'Standard: 5-7 working days | Urgent: 2-3 working days (additional charges)',
+    examDocFull: 'Send us your handwritten question papers. We type them professionally and send you print-ready PDF files. Simple and secure.',
+    examDocSteps: 'Share raw question papers (PDF, images, or handwritten)|We type and format the questions|You check the draft for corrections|Get final files via Drive link',
+    examDocNeeds: 'Raw questions (photos/PDF)|Exam pattern/format details|Subject and class information|Timeline needed',
+    examDocTimeline: 'Standard: 5-7 working days | Urgent: 2-3 working days (extra charge)',
 
-    scholarshipTitle: 'Scholarship Processing',
-    scholarshipShort: 'Institute portal management, remote verification, and on-site biometric authentication with DSC forwarding.',
+    scholarshipTitle: 'Scholarship Verification & Biometric',
+    scholarshipShort: 'We handle portal work remotely, then visit your school for biometric and DSC forwarding.',
     scholarshipMedium: 'Portal + Biometric + DSC Forwarding',
-    scholarshipFull: 'Scholarship processing shouldn\'t consume your entire week. We handle everything: remote portal work, on-site biometric verification, and DSC forwarding. You provide the student data—we handle the rest. High approval rates, minimal effort from your team.',
-    scholarshipSteps: 'Provide Institute Login & Student Data|We verify and update forms remotely on the portal|We schedule a campus visit for Biometric Authentication|Final Forwarding done using DSC (Dongle)|Submission Report generated',
-    scholarshipNeeds: 'Institute Portal Credentials|Principal\'s Digital Signature (DSC Token/Dongle)|Student File/List for verification|Electricity/Internet for on-site Biometric camp',
+    scholarshipFull: 'We handle the complete scholarship process. First, we do all portal work remotely. Then we visit your school with biometric machines. Finally, we forward data using DSC to increase approval chances.',
+    scholarshipSteps: 'Share login ID and student data|We check and update portal forms remotely|We schedule campus visit for biometric|DSC forwarding for final submission|Submission report generation',
+    scholarshipNeeds: 'Institute portal ID-password|Principal\'s Digital Signature (DSC dongle)|Student list for verification|Electricity/internet for biometric camp',
     scholarshipTimeline: 'Standard: 7-10 working days | Depends on biometric scheduling',
 
     udiseTitle: 'UDISE Management',
@@ -689,9 +689,9 @@ export const translations = {
     creatorAutomation: 'Creator-side Automation Tools',
 
     // Creator Mode Status Notice
-    creatorModeStatusTitle: 'Development Status',
-    creatorModeStatusMessage: 'This service is currently under development and is not live yet. It will be available in the coming months.',
-    creatorModeStatusNote: 'We are finalizing our production workflows and quality standards to ensure the best service for creators.',
+    creatorModeStatusTitle: 'Services in Learning Phase',
+    creatorModeStatusMessage: 'We are building our creator services. Currently accepting sample projects to improve our skills. Not ready for full client work yet.',
+    creatorModeStatusNote: 'We are learning professional editing and building our quality standards. Sample work available at low cost.',
 
     // Portfolio Protection
     portfolioLocked: 'Protected Content',
@@ -1022,28 +1022,28 @@ export const translations = {
     contact: 'संपर्क करें',
 
     // Hero Section - Institutional
-    heroInst1: 'डिजिटल काम को आसान बनाएं',
-    heroInst2: 'स्कूल के काम में मदद',
-    heroInst3: 'शांति से काम, साफ फाइलें',
-    heroInst4: 'भरोसेमंद साथी',
-    heroInstDesc: 'गोरखपुर के स्कूलों के लिए 160+ परीक्षा पेपर टाइप किए और दैनिक तकनीकी सहायता के साथ सिद्ध ट्रैक रिकॉर्ड।',
+    heroInst1: 'स्कूल का काम हम संभालेंगे',
+    heroInst2: 'आप पढ़ाएं, हम टाइप करें',
+    heroInst3: 'गोरखपुर के स्कूलों का भरोसा',
+    heroInst4: 'आपका शांत साथी',
+    heroInstDesc: 'हमने गोरखपुर के 2 स्कूलों के लिए 350+ परीक्षा पेपर टाइप किए हैं। आपका डिजिटल काम हम करेंगे, आप पढ़ाने पर ध्यान दें।',
 
     // Hero Section - Creator
-    heroCreator1: 'प्रोफेशनल वीडियो बनाएं',
-    heroCreator2: 'दर्शकों को बांधे रखने वाला एडिटिंग',
-    heroCreator3: 'बेहतरीन क्वालिटी',
-    heroCreatorDesc: 'अब हमारे प्रीमियम एडिटिंग वर्कफ़्लो के बीटा टेस्टिंग के लिए चुनिंदा क्रिएटर्स को स्वीकार कर रहे हैं।',
+    heroCreator1: 'साफ वीडियो एडिटिंग',
+    heroCreator2: 'प्रोफेशनल क्वालिटी',
+    heroCreator3: 'अपलोड के लिए तैयार',
+    heroCreatorDesc: 'हम प्रोफेशनल एडिटिंग सीख रहे हैं। कम कीमत पर सैंपल प्रोजेक्ट ले रहे हैं ताकि हम अपनी स्किल बना सकें।',
 
     // CTAs
-    getStarted: 'शुरू करें',
-    startCreating: 'बनाना शुरू करें',
+    getStarted: 'मैसेज भेजें',
+    startCreating: 'शुरू करें',
     viewServices: 'सेवाएं देखें',
     seePortfolio: 'हमारा काम देखें',
     contactUs: 'संपर्क करें',
-    getQuote: 'कीमत जानें',
-    discussRetainer: 'मासिक प्लान पर बात करें',
+    getQuote: 'कीमत पूछें',
+    discussRetainer: 'मासिक प्लान के बारे में पूछें',
     explorePartnership: 'साथ मिलकर काम करें',
-    discussPackage: 'पैकेज पर बात करें',
+    discussPackage: 'पैकेज के बारे में पूछें',
     startThisService: 'यह सेवा लें',
 
     // Stats
@@ -1054,40 +1054,40 @@ export const translations = {
     viewsGenerated: 'व्यूज मिले',
 
     // Stats Section - Institutional
-    statsProjectsCompleted: 'प्रोजेक्ट पूरे किए',
-    statsInstitutionsServed: 'संस्थानों की सेवा की',
-    statsClientSatisfaction: 'ग्राहक संतुष्टि',
-    statsResponseTime: 'जवाब देने का समय',
+    statsProjectsCompleted: '350+ पेपर टाइप किए',
+    statsInstitutionsServed: '2 स्कूलों की मदद की',
+    statsClientSatisfaction: '70+ काम पूरे किए',
+    statsResponseTime: 'उसी दिन जवाब',
 
     // Stats Section - Creator
-    statsVideosEdited: 'वीडियो एडिट किए',
-    statsWatchHours: 'वॉच आवर्स जनरेट किए',
-    statsCreatorsServed: 'क्रिएटर्स की सेवा की',
-    statsTurnaroundTime: 'काम पूरा करने का समय',
+    statsVideosEdited: 'सीख रहे हैं',
+    statsWatchHours: 'सैंपल प्रोजेक्ट',
+    statsCreatorsServed: 'अभी लाइव नहीं',
+    statsTurnaroundTime: 'स्किल बना रहे हैं',
 
     // Value Proposition
     whyChooseUsTitle: 'हमें क्यों चुनें',
     whyChooseUsSubtitle: 'विश्वास पर आधारित, सटीकता से पूर्ण, आपकी मानसिक शांति के लिए डिज़ाइन किया गया',
 
     // Institutional Values
-    valueSecurityTitle: 'पूर्ण गोपनीयता',
-    valueSecurityDesc: 'हर छात्र रिकॉर्ड, परीक्षा पेपर और संस्थागत फाइल को सख्त गोपनीयता नियमों के साथ संभाला जाता है। आपका डेटा कभी साझा नहीं किया जाता, हमेशा सुरक्षित रहता है।',
-    valueTimelyTitle: 'समय-सीमा पर केंद्रित निष्पादन',
-    valueTimelyDesc: 'हम समझते हैं कि शैक्षणिक कैलेंडर इंतजार नहीं करता। यथार्थवादी समय-सीमा, पारदर्शी अपडेट और समय पर डिलीवरी—हर बार।',
-    valuePersonalTitle: 'मानवीय-प्रथम सहायता',
-    valuePersonalDesc: 'कोई चैटबॉट नहीं, कोई टिकट सिस्टम नहीं। वास्तविक लोगों से सीधा WhatsApp संपर्क जो आपकी संस्थागत जरूरतों को समझते हैं और देखभाल के साथ जवाब देते हैं।',
-    valueReliableTitle: 'सिद्ध ट्रैक रिकॉर्ड',
-    valueReliableDesc: 'ग्रामीण गोरखपुर के स्कूलों द्वारा UDISE+, छात्रवृत्ति और परीक्षा दस्तावेज़ीकरण के लिए विश्वसनीय। सुसंगत गुणवत्ता, शून्य नाटक।',
+    valueSecurityTitle: 'आपका डेटा सुरक्षित',
+    valueSecurityDesc: 'छात्रों का रिकॉर्ड और परीक्षा पेपर पूरी गोपनीयता से रखे जाते हैं। हम कभी किसी को नहीं दिखाते।',
+    valueTimelyTitle: 'समय पर काम',
+    valueTimelyDesc: 'हम जानते हैं स्कूल की डेडलाइन जरूरी होती है। हम सही समय बताते हैं और उस पर काम देते हैं।',
+    valuePersonalTitle: 'असली लोग, असली मदद',
+    valuePersonalDesc: 'कोई रोबोट नहीं। सीधे WhatsApp पर असली लोगों से बात करें जो स्कूल का काम समझते हैं।',
+    valueReliableTitle: 'सिद्ध काम',
+    valueReliableDesc: 'हमने गोरखपुर के 2 स्कूलों के लिए 350+ पेपर और 70+ काम किए हैं। ईमानदार काम, कोई नाटक नहीं।',
 
     // Creator Values
-    valueQualityTitle: 'ब्रॉडकास्ट-गुणवत्ता उत्पादन',
-    valueQualityDesc: 'प्रोफेशनल एडिटिंग, सिनेमैटिक कलर ग्रेडिंग और रिटेंशन-केंद्रित कहानी कहना जो आपको अपने क्षेत्र में एक प्राधिकरण के रूप में स्थापित करता है।',
-    valueFastTitle: 'यथार्थवादी टर्नअराउंड',
-    valueFastDesc: 'कोई झूठे वादे नहीं। स्पष्ट समय-सीमा, ईमानदार संचार और डिलीवरी जो गुणवत्ता और आपके अपलोड शेड्यूल दोनों का सम्मान करती है।',
-    valueCreativeTitle: 'दृष्टि-संरेखित निष्पादन',
-    valueCreativeDesc: 'हम सिर्फ एडिट नहीं करते—हम आपके रचनात्मक इरादे को समझते हैं और इसे सटीकता के साथ निष्पादित करते हैं, यह सुनिश्चित करते हुए कि आपका संदेश शक्तिशाली रूप से पहुंचे।',
-    valueCommittedTitle: 'दीर्घकालिक साझेदारी',
-    valueCommittedDesc: 'आपकी वृद्धि हमारा मिशन है। हम आपके चैनल, दर्शकों और लक्ष्यों को समझने में निवेश करते हैं ताकि सुसंगत, रणनीतिक सहायता प्रदान कर सकें।',
+    valueQualityTitle: 'प्रोफेशनल एडिटिंग सीख रहे हैं',
+    valueQualityDesc: 'हम अपनी एडिटिंग स्किल बना रहे हैं। हम साफ कट्स, अच्छी पेसिंग और प्रोफेशनल लुक पर ध्यान देते हैं।',
+    valueFastTitle: 'ईमानदार समय',
+    valueFastDesc: 'हम सही समय बताते हैं और उस पर टिके रहते हैं। कोई झूठे वादे नहीं।',
+    valueCreativeTitle: 'आपकी सोच समझना',
+    valueCreativeDesc: 'हम सुनते हैं आप क्या चाहते हैं और पूरी कोशिश करते हैं। हम सीख रहे हैं और हर प्रोजेक्ट से बेहतर हो रहे हैं।',
+    valueCommittedTitle: 'साथ बढ़ना',
+    valueCommittedDesc: 'जैसे हम सीखेंगे और बेहतर होंगे, हम आपके साथ बढ़ना चाहते हैं। हम लंबे समय की स्किल बना रहे हैं।',
 
     // Contact Form
     contactTitle: 'हमसे बात करें',

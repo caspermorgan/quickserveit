@@ -16,7 +16,7 @@ import TechTicker from '@/modules/core/components/TechTicker';
 import ValueProposition from '@/modules/institutional/components/ValueProposition';
 import InstitutionalStats from '../components/InstitutionalStats';
 import SEO from '@/modules/core/components/SEO';
-import { DisplayText, BodyLarge } from '@/modules/core/components/Typography';
+import { DisplayText, BodyLarge, H2 } from '@/modules/core/components/Typography';
 import { Reveal, Magnetic } from '@/modules/core/components/motion';
 import ParallaxSection from '@/modules/core/components/motion/ParallaxSection';
 import ProofOfWorkSlider from '../components/ProofOfWorkSlider';
@@ -113,8 +113,8 @@ const Home = () => {
       <FloatingContactButton mode={mode} />
 
       <main id="main-content" className="min-h-screen bg-background">
-        {/* Hero Section - v2.1 Enhanced with Parallax */}
-        <section className={`relative min-h-screen flex items-center justify-center px-6 pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
+        {/* Hero Section - Compact Mobile, Full Desktop */}
+        <section className={`relative min-h-[60vh] md:min-h-screen flex items-center justify-center layout-padding-x pt-20 md:pt-24 pb-12 md:pb-20 overflow-hidden ${mode === 'institutional' ? 'mesh-gradient-institutional' : 'mesh-gradient-creator'}`}>
 
           {/* Parallax Gradient Orbs - Multi-layer Depth */}
           <ParallaxSection speed={0.3} direction="up">
@@ -128,14 +128,14 @@ const Home = () => {
           <div className="relative max-w-5xl mx-auto text-center z-10">
             {/* Main Heading - Elite Motion */}
             <Reveal delay={0.1} duration={0.8} y={30} blur>
-              <DisplayText className={`mt-4 md:mt-0 mb-7 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+              <DisplayText className={`h1-subtitle-gap ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
                 {mode === 'institutional' ? t('institutionalServices') : t('creatorStudio')}
               </DisplayText>
             </Reveal>
 
             {/* Typewriter Subtitle - Elite Motion */}
             <Reveal delay={0.25} duration={0.6} y={20}>
-              <div className="mb-11 flex justify-center min-h-[3.5rem] md:min-h-[2rem] items-center">
+              <div className="mb-8 md:mb-11 flex justify-center min-h-[3.5rem] md:min-h-[2rem] items-center">
                 <TypewriterText
                   anchorText={t('ourServices')}
                   phrases={typewriterSentences}
@@ -149,7 +149,7 @@ const Home = () => {
 
             {/* Description - Elite Motion */}
             <Reveal delay={0.35} duration={0.6} y={20}>
-              <BodyLarge className="mb-12 max-w-xl md:max-w-2xl mx-auto">
+              <BodyLarge className="mb-8 md:mb-12 text-max-width">
                 {description}
               </BodyLarge>
             </Reveal>
@@ -160,7 +160,7 @@ const Home = () => {
                 <Magnetic strength={0.3} maxDistance={80}>
                   <Link
                     to="/services"
-                    className={`group inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg text-background transition-all duration-normal hover:scale-[1.02] hover:shadow-lg active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
+                    className={`group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-xl font-semibold text-base text-background transition-all duration-normal hover:scale-[1.02] hover:shadow-lg active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 touch-target ${mode === 'institutional'
                       ? 'bg-institutional hover:bg-institutional/90 shadow-[0_4px_20px_rgba(234,179,8,0.25),0_8px_40px_rgba(234,179,8,0.15)]'
                       : 'bg-creator hover:bg-creator/90 shadow-[0_4px_20px_rgba(34,211,238,0.25),0_8px_40px_rgba(34,211,238,0.15)]'
                       }`}
@@ -172,7 +172,7 @@ const Home = () => {
                 <Magnetic strength={0.25} maxDistance={70}>
                   <Link
                     to="/contact"
-                    className={`inline-flex items-center gap-2.5 px-5 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4.5 rounded-full font-medium text-base sm:text-lg border-1.5 transition-all duration-normal hover:scale-[1.02] active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[44px] sm:min-h-[46px] md:min-h-[52px] ${mode === 'institutional'
+                    className={`inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-xl font-semibold text-base border-1.5 transition-all duration-normal hover:scale-[1.02] active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 touch-target ${mode === 'institutional'
                       ? 'border-institutional/40 text-institutional hover:bg-institutional/10 hover:border-institutional/60'
                       : 'border-creator/40 text-creator hover:bg-creator/10 hover:border-creator/60'
                       }`}
@@ -230,20 +230,20 @@ const Home = () => {
         <TechTicker mode={mode} />
 
         {/* Bottom CTA - Start Your Project */}
-        <section className="px-6 py-20 md:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-display mb-6 ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
+        <section className="section-spacing layout-padding-x">
+          <div className="content-max-width text-center">
+            <H2 className={`section-title-gap ${mode === 'institutional' ? 'text-gradient-institutional' : 'text-gradient-creator'}`}>
               Ready to {mode === 'institutional' ? 'Digitize Your Institution' : 'Elevate Your Content'}?
-            </h2>
-            <p className="text-foreground/60 text-lg mb-10 max-w-2xl mx-auto">
+            </H2>
+            <BodyLarge className="mb-10 text-max-width">
               {mode === 'institutional'
                 ? 'Let\'s discuss how we can streamline your digital processes and free up your time for what matters most.'
                 : 'Let\'s transform your creative vision into professional, high-retention content that captivates your audience.'}
-            </p>
+            </BodyLarge>
             <Magnetic strength={0.35} maxDistance={100}>
               <Link
                 to="/contact"
-                className={`group inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 rounded-full font-medium text-lg text-background transition-all duration-normal hover:scale-[1.05] hover:shadow-2xl active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${mode === 'institutional'
+                className={`group inline-flex items-center justify-center gap-3 px-8 md:px-12 py-4 md:py-5 rounded-xl font-semibold text-lg text-background transition-all duration-normal hover:scale-[1.05] hover:shadow-2xl active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 touch-target ${mode === 'institutional'
                   ? 'bg-institutional hover:bg-institutional/90 shadow-premium-glow-institutional'
                   : 'bg-creator hover:bg-creator/90 shadow-premium-glow-creator'
                   }`}

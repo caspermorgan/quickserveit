@@ -31,11 +31,10 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
     const handleCardClick = (cardMode: 'institutional' | 'creator', cardNumber: number) => {
         if (cardNumber === 1 || cardNumber === 2) {
             onModeChange(cardMode);
-            setTimeout(() => onEnter(cardMode), 300); // ✅ Pass cardMode to onEnter
+            setTimeout(() => onEnter(cardMode), 300);
         } else if (cardNumber === 3) {
+            // Portfolio gate
             navigate('/portfolio');
-        } else if (cardNumber === 4) {
-            navigate('/contact');
         }
     };
 
@@ -45,37 +44,30 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
             icon: Building2,
             title: 'Institutional',
             subtitle: 'Schools & Organizations',
+            description: 'Reliable digital support for schools',
             mode: 'institutional' as const,
             color: 'institutional',
-            tagline: 'your personal tech partner',
+            tagline: 'reliable digital support for schools',
         },
         {
             id: 2,
             icon: User,
             title: 'Creator',
             subtitle: 'Video Production',
+            description: 'Creative editing services in development',
             mode: 'creator' as const,
             color: 'creator',
-            tagline: 'your personal creative partner',
+            tagline: 'creative editing in development',
         },
         {
             id: 3,
             icon: Code,
             title: 'Portfolio',
             subtitle: 'Our Work',
+            description: 'Real work, founder story, proof',
             mode: 'institutional' as const,
-            color: 'white',
-            tagline: 'work that speaks for itself',
-        },
-        {
-            id: 4,
-            icon: Sparkles,
-            title: 'AI & Auto',
-            subtitle: 'Coming Q3 2026',
-            mode: 'institutional' as const,
-            color: 'purple',
-            badge: true,
-            tagline: 'smart automation. coming soon',
+            color: 'portfolio',
+            tagline: 'real work, real proof',
         },
     ];
 
@@ -137,9 +129,9 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                             Quickserve IT
                         </h1>
 
-                        {/* Tagline - TINY & GENIUS MINIMALIST - v5.1 */}
+                        {/* Tagline - TINY & GENIUS MINIMALIST - Static */}
                         <p
-                            className="font-serif text-foreground/55 italic tracking-widest font-light transition-all duration-slow"
+                            className="font-serif text-foreground/55 italic tracking-widest font-light"
                             style={{
                                 fontSize: 'clamp(0.65rem, 1.5vw, 0.85rem)',
                                 fontFamily: "'Playfair Display', 'Georgia', serif",
@@ -149,15 +141,15 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                 textTransform: 'lowercase',
                             }}
                         >
-                            {hoveredCard ? cards.find(c => c.id === hoveredCard)?.tagline : 'your personal tech partner'}
+                            calm digital execution for schools and creators
                         </p>
                     </div>
                 </div>
 
                 {/* BOTTOM 62% - CARDS & FOOTER (Golden Ratio) */}
                 <div className="flex-[0.62] flex flex-col justify-start px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 pt-8 sm:pt-12">
-                    {/* Cards Grid - Perfect 2x2 Mobile, 1x4 Desktop */}
-                    <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-7xl w-full mx-auto">
+                    {/* Cards Grid - Stacked Mobile, 1x3 Desktop */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-5xl w-full mx-auto">
                         {cards.map((card, index) => {
                             const Icon = card.icon;
                             const isHovered = hoveredCard === card.id;
@@ -173,7 +165,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                             ? 'border-institutional/80 bg-institutional/[0.2] -translate-y-2 shadow-2xl shadow-institutional/50 scale-[1.03]'
                                             : card.color === 'creator'
                                                 ? 'border-creator/80 bg-creator/[0.2] -translate-y-2 shadow-2xl shadow-creator/50 scale-[1.03]'
-                                                : card.color === 'purple'
+                                                : card.color === 'portfolio'
                                                     ? 'border-purple-400/80 bg-purple-500/[0.2] -translate-y-2 shadow-2xl shadow-purple-500/50 scale-[1.03]'
                                                     : 'border-white/60 bg-white/[0.18] -translate-y-2 shadow-2xl shadow-white/30 scale-[1.03]'
                                         : 'border-white/[0.2] bg-white/[0.07] hover:border-white/35'
@@ -192,7 +184,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                                 ? 'from-institutional/30 via-institutional/18 to-transparent'
                                                 : card.color === 'creator'
                                                     ? 'from-creator/30 via-creator/18 to-transparent'
-                                                    : card.color === 'purple'
+                                                    : card.color === 'portfolio'
                                                         ? 'from-purple-500/30 via-purple-500/18 to-transparent'
                                                         : 'from-white/25 via-white/12 to-transparent'
                                             }`}
@@ -207,16 +199,6 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                         }}
                                     />
 
-                                    {/* Badge */}
-                                    {card.badge && (
-                                        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20">
-                                            <div className="px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full bg-purple-500/30 border border-purple-400/50 backdrop-blur-md">
-                                                <span className="text-[8px] sm:text-[10px] font-bold text-purple-100 uppercase tracking-widest">
-                                                    Soon
-                                                </span>
-                                            </div>
-                                        </div>
-                                    )}
 
                                     {/* Horizontal Layout: Icon Left, Content Right */}
                                     <div className="relative z-10 flex items-center gap-3 sm:gap-4 h-full">
@@ -228,7 +210,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                                         ? 'bg-institutional/40 text-institutional scale-110 shadow-lg shadow-institutional/30'
                                                         : card.color === 'creator'
                                                             ? 'bg-creator/40 text-creator scale-110 shadow-lg shadow-creator/30'
-                                                            : card.color === 'purple'
+                                                            : card.color === 'portfolio'
                                                                 ? 'bg-purple-500/40 text-purple-200 scale-110 shadow-lg shadow-purple-500/30'
                                                                 : 'bg-white/30 text-white scale-110 shadow-lg shadow-white/20'
                                                     : 'bg-white/[0.12] text-foreground/70'
@@ -240,10 +222,10 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
 
                                         {/* Content - Right Side */}
                                         <div className="flex-1 min-w-0">
-                                            {/* Title - Big & Bold */}
-                                            <h3 className="text-base sm:text-xl font-bold text-foreground mb-1 leading-tight truncate">
+                                            {/* Title - Semantic H2 for proper hierarchy */}
+                                            <h2 className="text-base sm:text-xl font-bold text-foreground mb-1 leading-tight truncate">
                                                 {card.title}
-                                            </h3>
+                                            </h2>
 
                                             {/* Subtitle - Small & Dull */}
                                             <p className="text-[11px] sm:text-sm text-foreground/45 leading-tight">
@@ -262,7 +244,7 @@ const LandingView = ({ mode, onModeChange, onEnter, isExiting }: LandingViewProp
                                                     ? 'radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.2), transparent 70%)'
                                                     : card.color === 'creator'
                                                         ? 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.2), transparent 70%)'
-                                                        : card.color === 'purple'
+                                                        : card.color === 'portfolio'
                                                             ? 'radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.2), transparent 70%)'
                                                             : 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15), transparent 70%)',
                                         }}
